@@ -1,0 +1,13 @@
+#!/bin/sh
+####################################################################
+## Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2008
+## Copyright: See COPYING file that comes with this distribution
+####################################################################
+
+make clean 2> /dev/null
+
+find . -type f -name "Makefile*" -exec rm -f {} \;
+
+rm -rf src/build/* \
+  src/build \
+  src/object_script.qx11grab.*

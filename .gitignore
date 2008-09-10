@@ -1,0 +1,6 @@
+build
+Makefile*
+*.sh
+*.kdev*
+Doxyfile
+*.qm

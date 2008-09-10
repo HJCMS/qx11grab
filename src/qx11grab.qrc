@@ -1,0 +1,23 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/">
+    <file>images/apply.png</file>
+    <file>images/convert.png</file>
+    <file>images/fail.png</file>
+    <file>images/find.png</file>
+    <file>images/folder_normal.png</file>
+    <file>images/folder_video.png</file>
+    <file>images/grid.png</file>
+    <file>images/help.png</file>
+    <file>images/pause.png</file>
+    <file>images/qx11grab.png</file>
+    <file>images/recording.png</file>
+    <file>images/record.png</file>
+    <file>images/running.png</file>
+    <file>images/run.png</file>
+    <file>images/stop.png</file>
+    <file>images/utilities.png</file>
+    <file>images/view.png</file>
+    <file>images/window.png</file>
+  </qresource>
+</RCC>
