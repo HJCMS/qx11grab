@@ -9,6 +9,7 @@
 #include "rubberband.h"
 #include "windowgrabber.h"
 #include "settingsdialog.h"
+#include "ffprocess.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -22,6 +23,7 @@
 #include <QtGui/QPushButton>
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QRubberBand>
+#include <QtGui/QMessageBox>
 
 QX11Grab::QX11Grab()
 {
@@ -29,6 +31,7 @@ QX11Grab::QX11Grab()
 
   cfg = new Settings ( this );
   cfg->setValue ( "Version", QX11GRAB_VERSION );
+  TimeOutMessages = 5000;
 
   loadStats();
 
@@ -36,11 +39,24 @@ QX11Grab::QX11Grab()
   createEnviroment();
   createSystemTrayIcon();
 
+  /* now bind ffprocess */
+  m_FFProcess = new FFProcess ( this, cfg );
+
   /* Buttons */
   cursorGrabButton = new QPushButton ( trUtf8 ( "Window" ) );
   cursorGrabButton->setToolTip ( trUtf8 ( "grab from Window" ) );
   cursorGrabButton->setStatusTip ( trUtf8 ( "grab from Window" ) );
   buttonBox->addButton ( cursorGrabButton, QDialogButtonBox::ActionRole );
+
+  /* Signals */
+  connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
+            this, SLOT ( pushInfoMessage ( const QString & ) ) );
+
+  connect ( m_FFProcess, SIGNAL ( errmessage ( const QString & ) ),
+            this, SLOT ( pushErrorMessage ( const QString & ) ) );
+
+  connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
+            this, SLOT ( pushToolTip ( const QString & ) ) );
 
   connect ( screenComboBox, SIGNAL ( screenNameChanged ( const QString & ) ),
             setModeName, SLOT ( setText ( const QString & ) ) );
@@ -72,6 +88,12 @@ QX11Grab::QX11Grab()
   connect ( cursorGrabButton, SIGNAL ( clicked () ),
             this, SLOT ( grabFromWindow () ) );
 
+  connect ( actionStartRecord, SIGNAL ( triggered () ),
+            this, SLOT ( startRecord () ) );
+
+  connect ( actionStopRecord, SIGNAL ( triggered () ),
+            this, SLOT ( stopRecord () ) );
+
   connect ( actionApplication, SIGNAL ( triggered() ),
             this, SLOT ( openSettings() ) );
 
@@ -92,13 +114,20 @@ const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
 
 void QX11Grab::createActions()
 {
-  minimizeWindowAction = new QAction ( getIcon ( "grid" ), trUtf8 ( "Hide" ), this );
+  startRecordingWindow = new QAction ( getIcon ( "run" ), trUtf8 ( "Record" ), this );
+  connect ( startRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( startRecord() ) );
+
+  stopRecordingWindow = new QAction ( getIcon ( "stop" ), trUtf8 ( "Stop" ), this );
+  stopRecordingWindow->setEnabled ( false );
+  connect ( stopRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( stopRecord() ) );
+
+  minimizeWindowAction = new QAction ( getIcon ( "minimize" ), trUtf8 ( "Hide" ), this );
   connect ( minimizeWindowAction, SIGNAL ( triggered() ), this, SLOT ( hide() ) );
 
-  displayWindowAction = new QAction ( getIcon ( "fail" ), trUtf8 ( "Show" ), this );
+  displayWindowAction = new QAction ( getIcon ( "maximize" ), trUtf8 ( "Show" ), this );
   connect ( displayWindowAction, SIGNAL ( triggered() ), this, SLOT ( showNormal() ) );
 
-  quitWindowAction = new QAction ( getIcon ( "stop" ), trUtf8 ( "Quit" ), this );
+  quitWindowAction = new QAction ( getIcon ( "fail" ), trUtf8 ( "Quit" ), this );
   connect ( quitWindowAction, SIGNAL ( triggered() ), qApp, SLOT ( quit() ) );
 }
 
@@ -118,6 +147,9 @@ void QX11Grab::createEnviroment()
 void QX11Grab::createSystemTrayIcon()
 {
   systemTrayMenu = new QMenu ( this );
+  systemTrayMenu->addAction ( startRecordingWindow );
+  systemTrayMenu->addAction ( stopRecordingWindow );
+  systemTrayMenu->addSeparator();
   systemTrayMenu->addAction ( minimizeWindowAction );
   systemTrayMenu->addAction ( displayWindowAction );
   systemTrayMenu->addSeparator();
@@ -183,11 +215,11 @@ void QX11Grab::grabFromWindow()
 
   if ( rect.isValid() )
   {
-    setWidthBox->setValue( rect.width() );
-    setHeightBox->setValue( rect.height() );
-    setXBox->setValue( rect.x() );
-    setYBox->setValue( rect.y() );
-    setModeName->setText ( trUtf8( "grabbed Dimension" ) );
+    setWidthBox->setValue ( rect.width() );
+    setHeightBox->setValue ( rect.height() );
+    setXBox->setValue ( rect.x() );
+    setYBox->setValue ( rect.y() );
+    setModeName->setText ( trUtf8 ( "grabbed Dimension" ) );
     toRubber ( 1 );
   }
 
@@ -232,9 +264,62 @@ void QX11Grab::hideEvent ( QHideEvent * )
   saveStats();
 }
 
-void QX11Grab::closeEvent ( QCloseEvent * )
+void QX11Grab::closeEvent ( QCloseEvent *ev )
 {
+  if ( m_FFProcess->isRunning() )
+  {
+    QMessageBox::warning ( this, trUtf8 ( "Warning" ), trUtf8 ( "Recorder is running." ) );
+    ev->ignore();
+  }
   saveStats();
+}
+
+void QX11Grab::pushInfoMessage ( const QString &txt )
+{
+  if ( systemTrayIcon )
+    systemTrayIcon->showMessage ( trUtf8 ( "Info" ), txt,
+                                  QSystemTrayIcon::Information, TimeOutMessages );
+}
+
+void QX11Grab::pushErrorMessage ( const QString &txt )
+{
+  if ( systemTrayIcon )
+    systemTrayIcon->showMessage ( trUtf8 ( "Error" ), txt,
+                                  QSystemTrayIcon::Critical, TimeOutMessages );
+}
+
+void QX11Grab::pushToolTip ( const QString &txt )
+{
+  if ( systemTrayIcon )
+    systemTrayIcon->setToolTip ( txt );
+}
+
+void QX11Grab::startRecord()
+{
+  QRect rect ( setXBox->value(), setYBox->value(), setWidthBox->value(), setHeightBox->value() );
+  if ( m_FFProcess->create( rect ) )
+  {
+    stopRecordingWindow->setEnabled ( true );
+    actionStopRecord->setEnabled ( true );
+    startRecordingWindow->setEnabled ( false );
+    actionStartRecord->setEnabled ( false );
+    if ( m_FFProcess->start() )
+      systemTrayIcon->setIcon ( getIcon ( "convert" ) );
+  }
+  else
+    QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
+}
+
+void QX11Grab::stopRecord()
+{
+  if ( m_FFProcess->stop() )
+  {
+    stopRecordingWindow->setEnabled ( false );
+    actionStopRecord->setEnabled ( false );
+    startRecordingWindow->setEnabled ( true );
+    actionStartRecord->setEnabled ( true );
+    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+  }
 }
 
 QX11Grab::~QX11Grab()

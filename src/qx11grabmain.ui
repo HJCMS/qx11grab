@@ -240,6 +240,9 @@
     <property name="title" >
      <string>Action</string>
     </property>
+    <addaction name="actionStartRecord" />
+    <addaction name="actionStopRecord" />
+    <addaction name="separator" />
     <addaction name="actionMinimize" />
     <addaction name="actionQuit" />
    </widget>
@@ -259,7 +262,7 @@
   <action name="actionQuit" >
    <property name="icon" >
     <iconset resource="qx11grab.qrc" >
-     <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
+     <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
    </property>
    <property name="text" >
     <string>Quit</string>
@@ -287,6 +290,10 @@
    </property>
   </action>
   <action name="actionMinimize" >
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/minimize.png</normaloff>:/images/minimize.png</iconset>
+   </property>
    <property name="text" >
     <string>Minimize</string>
    </property>
@@ -301,6 +308,33 @@
    </property>
    <property name="text" >
     <string>Application</string>
+   </property>
+  </action>
+  <action name="actionStartRecord" >
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/run.png</normaloff>:/images/run.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Recording</string>
+   </property>
+   <property name="statusTip" >
+    <string>Start Recording</string>
+   </property>
+  </action>
+  <action name="actionStopRecord" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Stop</string>
+   </property>
+   <property name="statusTip" >
+    <string>Stop Recording</string>
    </property>
   </action>
  </widget>

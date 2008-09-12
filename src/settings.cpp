@@ -6,7 +6,10 @@
 #include "settings.h"
 
 #include <QtCore/QDebug>
+#include <QtCore/QMap>
 #include <QtCore/QFileInfo>
+/* QtGui */
+#include <QtGui/QMessageBox>
 
 Settings::Settings ( QObject *parent )
     : QSettings ( QSettings::IniFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
@@ -43,6 +46,42 @@ const QSize Settings::getSize ( const QString &path, const QSize &min )
     return QSize();
 
   return value ( path, min ).toSize();
+}
+
+const QVariant Settings::getMapOption ( const QString &path, const QString &key )
+{
+  if ( ! contains ( path ) )
+    return QVariant();
+
+  QMap<QString,QVariant> map = value ( path ).toMap();
+  if ( map.contains ( key ) )
+    return map[key];
+
+  return QVariant();
+}
+
+const QStringList Settings::getCommand()
+{
+  QStringList cmd;
+  QFileInfo ffbin( getMapOption( "qx11grab/options", "ff_path" ).toString() );
+  if ( ffbin.isExecutable() )
+  {
+    cmd << ffbin.absoluteFilePath();
+    QMapIterator<QString,QVariant> it( value ( "ffmpeg/options" ).toMap() );
+    QStringList params;
+    while( it.hasNext() )
+    {
+      it.next();
+      params << it.key() << it.value().toString();
+    }
+    cmd << params.join( " " ).trimmed();
+    cmd << getMapOption( "qx11grab/options", "tempdir" ).toString();
+    cmd << getMapOption( "qx11grab/options", "outputName" ).toString();
+  }
+  else
+    QMessageBox::critical(0, trUtf8( "Error" ), trUtf8( "Can not open ffmpeg Binary!\nPlease check your Settings." ) );
+
+  return cmd;
 }
 
 Settings::~Settings()

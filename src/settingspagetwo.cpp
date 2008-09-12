@@ -39,7 +39,6 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
   ff_cmd->setReadOnly ( true );
   topLayout->addWidget ( ff_cmd );
 
-
   QString txt = QString ( HTML_NOTICE ).arg ( trUtf8 ( "Notice" ) ,trUtf8 ( "Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab." ) );
   QLabel *labelNotice = new QLabel ( txt, this );
   labelNotice->setWordWrap ( true );

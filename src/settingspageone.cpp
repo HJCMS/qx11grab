@@ -77,7 +77,7 @@ const QMap<QString,QVariant> SettingsPageOne::getDefaults ()
   QMap<QString,QVariant> map;
   map.insert ( "ff_path", QVariant ( "/usr/bin/ffmpeg" ) );
   map.insert ( "tempdir", QVariant ( QDir::tempPath() ) );
-  map.insert ( "outputName", QVariant ( "desktop_record-XXXXXX.mpg" ) );
+  map.insert ( "outputName", QVariant ( "qx11grab-XXXXXX.mpg" ) );
   return map;
 }
 

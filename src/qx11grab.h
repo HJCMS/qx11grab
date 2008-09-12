@@ -29,6 +29,7 @@ class QMenu;
 class Settings;
 class DesktopInfo;
 class RubberBand;
+class FFProcess;
 
 class QX11Grab : public QMainWindow
       , protected Ui::QX11GrabMain
@@ -38,10 +39,13 @@ class QX11Grab : public QMainWindow
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    int TimeOutMessages;
     Settings *cfg;
     DesktopInfo *m_DesktopInfo;
     RubberBand *m_RubberBand;
+    FFProcess *m_FFProcess;
     QMenu *systemTrayMenu;
+    QAction *stopRecordingWindow, *startRecordingWindow;
     QAction *minimizeWindowAction, *displayWindowAction, *quitWindowAction;
     QSystemTrayIcon *systemTrayIcon;
     QPushButton *cursorGrabButton;
@@ -65,7 +69,11 @@ class QX11Grab : public QMainWindow
     void showEvent ( QShowEvent * );
     void hideEvent ( QHideEvent * );
     void closeEvent ( QCloseEvent * );
-
+    void pushInfoMessage ( const QString & );
+    void pushErrorMessage ( const QString & );
+    void pushToolTip ( const QString & );
+    void startRecord();
+    void stopRecord();
 };
 
 #endif

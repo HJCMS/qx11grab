@@ -19,5 +19,7 @@
     <file>images/utilities.png</file>
     <file>images/view.png</file>
     <file>images/window.png</file>
+    <file>images/minimize.png</file>
+    <file>images/maximize.png</file>
   </qresource>
 </RCC>

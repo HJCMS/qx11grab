@@ -30,7 +30,8 @@ HEADERS =	qx11grab.h \
 	rubberband.h \
 	settingsdialog.h \
 	settingspageone.h \
-	settingspagetwo.h
+	settingspagetwo.h \
+	ffprocess.h
 
 SOURCES =	main.cpp \
 	qx11grab.cpp \
@@ -41,7 +42,8 @@ SOURCES =	main.cpp \
 	rubberband.cpp \
 	settingsdialog.cpp \
 	settingspageone.cpp \
-	settingspagetwo.cpp
+	settingspagetwo.cpp \
+	ffprocess.cpp
 
 RESOURCES =	qx11grab.qrc
 

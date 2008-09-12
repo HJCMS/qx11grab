@@ -20,11 +20,9 @@ SettingsDialog::SettingsDialog ( QWidget *parent, Settings *cfg )
 
   /* Save Button */
   btn_apply = new QPushButton ( trUtf8 ( "Apply" ) );
-  btn_apply->setToolTip ( trUtf8 ( "Save Settings" ) );
   buttonBox->addButton ( btn_apply, QDialogButtonBox::ActionRole );
   /* Cancel Button */
-  btn_cancel = new QPushButton ( trUtf8 ( "Cancel" ) );
-  btn_cancel->setToolTip ( trUtf8 ( "Cancel Settings" ) );
+  btn_cancel = new QPushButton ( trUtf8 ( "Close" ) );
   buttonBox->addButton ( btn_cancel, QDialogButtonBox::RejectRole );
 
   if ( m_Settings->contains( "qx11grab/options" ) )
