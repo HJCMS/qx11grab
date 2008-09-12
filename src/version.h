@@ -7,4 +7,4 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define qx11grab "0.1.1"
+#define QX11GRAB_VERSION "0.1.1"

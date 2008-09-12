@@ -9,7 +9,8 @@
 DESTDIR = .
 TEMPLATE = app
 TARGET = qx11grab
-CONFIG += qt debug_and_release
+CONFIG += qt debug_and_release link_pkgconfig
+PKGCONFIG += x11 xmuu
 QT += gui dbus
 ##
 OBJECTS_DIR += build
@@ -17,15 +18,29 @@ UI_DIR += build
 MOC_DIR += build
 RCC_DIR += build
 
-HEADERS	=	qx11grab.h
+TRANSLATIONS = ../tr/qx11grab_untranslated.ts \
+	../tr/qx11grab_de.ts
 
-SOURCES	=	main.cpp \
-	qx11grab.cpp
+HEADERS =	qx11grab.h \
+	settings.h \
+	version.h \
+	screencombobox.h \
+	desktopinfo.h \
+	windowgrabber.h \
+	rubberband.h
 
-RESOURCES	=	qx11grab.qrc
+SOURCES =	main.cpp \
+	qx11grab.cpp \
+	settings.cpp \
+	screencombobox.cpp \
+	desktopinfo.cpp \
+	windowgrabber.cpp \
+	rubberband.cpp
 
-FORMS	=	qx11grabmain.ui
+RESOURCES =	qx11grab.qrc
 
-target.path	+=	$$[QT_INSTALL_BINS]
+FORMS =	qx11grabmain.ui
 
-INSTALLS	+=	target
+target.path +=	$$[QT_INSTALL_BINS]
+
+INSTALLS +=	target

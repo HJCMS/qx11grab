@@ -6,25 +6,64 @@
 #ifndef QX11GRAB_H
 #define QX11GRAB_H
 
+/* QtCore */
 #include <QtCore/QObject>
-#include <QtGui/QApplication>
-#include <QtGui/QMessageBox>
+#include <QtCore/QString>
+#include <QtCore/QRect>
+
+/* QtGui */
+#include <QtGui/QMainWindow>
+#include <QtGui/QWidget>
+#include <QtGui/QStatusBar>
 #include <QtGui/QSystemTrayIcon>
+#include <QtGui/QShowEvent>
+#include <QtGui/QHideEvent>
+#include <QtGui/QCloseEvent>
 
 #include "version.h"
-
 #include "ui_qx11grabmain.h"
 
+class QPushButton;
+class QAction;
+class QMenu;
+class Settings;
+class DesktopInfo;
+class RubberBand;
+
 class QX11Grab : public QMainWindow
-  , protected Ui::QX11GrabMain
+      , protected Ui::QX11GrabMain
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    Settings *cfg;
+    DesktopInfo *m_DesktopInfo;
+    RubberBand *m_RubberBand;
+    QMenu *systemTrayMenu;
+    QAction *minimizeWindowAction, *displayWindowAction, *quitWindowAction;
+    QSystemTrayIcon *systemTrayIcon;
+    QPushButton *cursorGrabButton;
+    const QIcon getIcon ( const QString &name, const QString &group = QString::fromUtf8 ( "/" ) );
+    void createActions();
+    void createEnviroment();
+    void createSystemTrayIcon();
+    void loadStats();
+    void saveStats();
+
   public:
     QX11Grab();
     ~QX11Grab();
+
+  private Q_SLOTS:
+    void showRubber ( bool );
+    void toRubber ( int );
+    void grabFromWindow();
+    void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
+    void showEvent ( QShowEvent * );
+    void hideEvent ( QHideEvent * );
+    void closeEvent ( QCloseEvent * );
 
 };
 

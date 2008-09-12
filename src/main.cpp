@@ -22,19 +22,22 @@
 #include <QX11Info>
 #endif
 
-int main(int argc, char *argv[])
+int main ( int argc, char *argv[] )
 {
-  Q_INIT_RESOURCE(qx11grab);
+  Q_INIT_RESOURCE ( qx11grab );
 
   QT_REQUIRE_VERSION ( argc, argv, "4.4.0" )
   QApplication app ( argc, argv, true );
+  app.setApplicationName ( "qx11grab" );
+  app.setApplicationVersion ( QX11GRAB_VERSION );
+  app.setOrganizationDomain ( "hjcms.de" );
 
   if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
   {
-    QMessageBox::critical( 0, "Systray", "I couldn't detect any system tray." );
+    QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
     return EXIT_FAILURE;
   }
-  QApplication::setQuitOnLastWindowClosed(false);
+  QApplication::setQuitOnLastWindowClosed ( false );
 
   /* FIXME Windoof mal wieder :-( */
   QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );

@@ -6,8 +6,12 @@
 ##
 ####################################################################
 
+DESTDIR = .
 TEMPLATE = subdirs
-SUBDIRS = src \
-	tr
 
-include(config.pri)
+trans.files = qx11grab_untranslated.ts \
+	qx11grab_de.ts
+
+trans.path +=	$$[QT_INSTALL_TRANSLATIONS]
+
+INSTALLS +=	trans
