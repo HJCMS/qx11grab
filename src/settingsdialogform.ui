@@ -1,0 +1,245 @@
+<ui version="4.0" >
+ <class>SettingsDialogForm</class>
+ <widget class="QDialog" name="SettingsDialogForm" >
+  <property name="windowModality" >
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>495</width>
+    <height>278</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>qx11grab Settings</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="qx11grab.qrc" >
+    <normaloff>:/images/qx11grab.png</normaloff>:/images/qx11grab.png</iconset>
+  </property>
+  <property name="sizeGripEnabled" >
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2" >
+   <property name="spacing" >
+    <number>5</number>
+   </property>
+   <property name="margin" >
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QSplitter" name="splitter" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="handleWidth" >
+      <number>10</number>
+     </property>
+     <widget class="QStackedWidget" name="stackedWidget" >
+      <property name="minimumSize" >
+       <size>
+        <width>360</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="currentIndex" >
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page1" >
+       <property name="minimumSize" >
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayoutPageOne" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>0</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QScrollArea" name="scrollArea1" >
+          <property name="minimumSize" >
+           <size>
+            <width>250</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="frameShape" >
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="widgetResizable" >
+           <bool>true</bool>
+          </property>
+          <widget class="SettingsPageOne" name="m_SettingsPageOne" >
+           <property name="geometry" >
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>360</width>
+             <height>268</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page2" >
+       <property name="minimumSize" >
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayoutPageTwo" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>0</number>
+        </property>
+        <item row="0" column="0" >
+         <widget class="QScrollArea" name="scrollArea2" >
+          <property name="minimumSize" >
+           <size>
+            <width>250</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="frameShape" >
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="widgetResizable" >
+           <bool>true</bool>
+          </property>
+          <widget class="SettingsPageTwo" name="m_SettingsPageTwo" >
+           <property name="geometry" >
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>360</width>
+             <height>268</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="" >
+      <layout class="QVBoxLayout" name="verticalLayout" >
+       <item>
+        <widget class="QListWidget" name="listWidget" >
+         <property name="minimumSize" >
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="viewMode" >
+          <enum>QListView::ListMode</enum>
+         </property>
+         <item>
+          <property name="text" >
+           <string>Main</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="qx11grab.qrc" >
+            <normaloff>:/images/qx11grab.png</normaloff>:/images/qx11grab.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>Recording</string>
+          </property>
+          <property name="icon" >
+           <iconset resource="qx11grab.qrc" >
+            <normaloff>:/images/run.png</normaloff>:/images/run.png</iconset>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer" >
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout" >
+         <item>
+          <spacer name="hSpacerLeft" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>17</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QDialogButtonBox" name="buttonBox" >
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="standardButtons" >
+            <set>QDialogButtonBox::NoButton</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="hSpacerRight" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0" >
+            <size>
+             <width>13</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SettingsPageOne</class>
+   <extends>QWidget</extends>
+   <header>settingspageone.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SettingsPageTwo</class>
+   <extends>QWidget</extends>
+   <header>settingspagetwo.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="qx11grab.qrc" />
+ </resources>
+ <connections/>
+</ui>

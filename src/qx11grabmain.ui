@@ -250,6 +250,7 @@
     <property name="title" >
      <string>Settings</string>
     </property>
+    <addaction name="actionApplication" />
    </widget>
    <addaction name="menuFile" />
    <addaction name="menuSettings" />
@@ -291,6 +292,15 @@
    </property>
    <property name="statusTip" >
     <string>Minimize to Systray</string>
+   </property>
+  </action>
+  <action name="actionApplication" >
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/utilities.png</normaloff>:/images/utilities.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Application</string>
    </property>
   </action>
  </widget>

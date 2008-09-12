@@ -8,6 +8,7 @@
 #include "desktopinfo.h"
 #include "rubberband.h"
 #include "windowgrabber.h"
+#include "settingsdialog.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -71,6 +72,9 @@ QX11Grab::QX11Grab()
   connect ( cursorGrabButton, SIGNAL ( clicked () ),
             this, SLOT ( grabFromWindow () ) );
 
+  connect ( actionApplication, SIGNAL ( triggered() ),
+            this, SLOT ( openSettings() ) );
+
   connect ( actionMinimize, SIGNAL ( triggered() ),
             this, SLOT ( hide() ) );
 
@@ -121,7 +125,7 @@ void QX11Grab::createSystemTrayIcon()
 
   systemTrayIcon = new QSystemTrayIcon ( this );
   systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
-  systemTrayIcon->setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows" ) );
+  systemTrayIcon->setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
   systemTrayIcon->setContextMenu ( systemTrayMenu );
   connect ( systemTrayIcon, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
             this, SLOT ( systemTrayWatcher ( QSystemTrayIcon::ActivationReason ) ) );
@@ -209,6 +213,13 @@ void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
     default:
       return;
   }
+}
+
+void QX11Grab::openSettings ()
+{
+  SettingsDialog *confDialog = new SettingsDialog ( centralWidget(), cfg );
+  confDialog->exec();
+  delete confDialog;
 }
 
 void QX11Grab::showEvent ( QShowEvent * )

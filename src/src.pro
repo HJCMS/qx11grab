@@ -27,7 +27,10 @@ HEADERS =	qx11grab.h \
 	screencombobox.h \
 	desktopinfo.h \
 	windowgrabber.h \
-	rubberband.h
+	rubberband.h \
+	settingsdialog.h \
+	settingspageone.h \
+	settingspagetwo.h
 
 SOURCES =	main.cpp \
 	qx11grab.cpp \
@@ -35,11 +38,15 @@ SOURCES =	main.cpp \
 	screencombobox.cpp \
 	desktopinfo.cpp \
 	windowgrabber.cpp \
-	rubberband.cpp
+	rubberband.cpp \
+	settingsdialog.cpp \
+	settingspageone.cpp \
+	settingspagetwo.cpp
 
 RESOURCES =	qx11grab.qrc
 
-FORMS =	qx11grabmain.ui
+FORMS =	qx11grabmain.ui \
+	settingsdialogform.ui
 
 target.path +=	$$[QT_INSTALL_BINS]
 

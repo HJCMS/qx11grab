@@ -61,6 +61,7 @@ class QX11Grab : public QMainWindow
     void toRubber ( int );
     void grabFromWindow();
     void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
+    void openSettings ();
     void showEvent ( QShowEvent * );
     void hideEvent ( QHideEvent * );
     void closeEvent ( QCloseEvent * );
