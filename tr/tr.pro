@@ -9,8 +9,7 @@
 DESTDIR = .
 TEMPLATE = subdirs
 
-trans.files = qx11grab_untranslated.ts \
-	qx11grab_de.ts
+trans.files = qx11grab_de.qm
 
 trans.path +=	$$[QT_INSTALL_TRANSLATIONS]
 
