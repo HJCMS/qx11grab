@@ -45,8 +45,13 @@ class QX11Grab : public QMainWindow
     RubberBand *m_RubberBand;
     FFProcess *m_FFProcess;
     QMenu *systemTrayMenu;
-    QAction *stopRecordingWindow, *startRecordingWindow;
-    QAction *minimizeWindowAction, *displayWindowAction, *quitWindowAction;
+    QAction *grabActionFromWindow,
+    *showRubberbandWindow,
+    *stopRecordingWindow,
+    *startRecordingWindow,
+    *minimizeWindowAction,
+    *displayWindowAction,
+    *quitWindowAction;
     QSystemTrayIcon *systemTrayIcon;
     QPushButton *cursorGrabButton;
     const QIcon getIcon ( const QString &name, const QString &group = QString::fromUtf8 ( "/" ) );
@@ -61,6 +66,7 @@ class QX11Grab : public QMainWindow
     ~QX11Grab();
 
   private Q_SLOTS:
+    void swapRubberBand ();
     void showRubber ( bool );
     void toRubber ( int );
     void grabFromWindow();
@@ -70,7 +76,7 @@ class QX11Grab : public QMainWindow
     void hideEvent ( QHideEvent * );
     void closeEvent ( QCloseEvent * );
     void pushInfoMessage ( const QString & );
-    void pushErrorMessage ( const QString & );
+    void pushErrorMessage ( const QString &, const QString & );
     void pushToolTip ( const QString & );
     void startRecord();
     void stopRecord();

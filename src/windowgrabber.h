@@ -22,6 +22,7 @@ class WindowGrabber : public QObject
 
   private:
     const QX11Info xInfo;
+    const int getValidValue ( int );
 
   public:
     WindowGrabber ( QObject *parent = 0 );

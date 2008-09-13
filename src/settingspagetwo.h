@@ -32,6 +32,7 @@ class SettingsPageTwo : public QWidget
 
   public:
     SettingsPageTwo ( QWidget *parent = 0 );
+    const QString arguments();
     const QMap<QString,QVariant> getOptions();
     ~SettingsPageTwo();
 

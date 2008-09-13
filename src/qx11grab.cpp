@@ -29,6 +29,8 @@ QX11Grab::QX11Grab()
 {
   setupUi ( this );
 
+  setDepthBox->hide();
+
   cfg = new Settings ( this );
   cfg->setValue ( "Version", QX11GRAB_VERSION );
   TimeOutMessages = 5000;
@@ -42,18 +44,12 @@ QX11Grab::QX11Grab()
   /* now bind ffprocess */
   m_FFProcess = new FFProcess ( this, cfg );
 
-  /* Buttons */
-  cursorGrabButton = new QPushButton ( trUtf8 ( "Window" ) );
-  cursorGrabButton->setToolTip ( trUtf8 ( "grab from Window" ) );
-  cursorGrabButton->setStatusTip ( trUtf8 ( "grab from Window" ) );
-  buttonBox->addButton ( cursorGrabButton, QDialogButtonBox::ActionRole );
-
   /* Signals */
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
             this, SLOT ( pushInfoMessage ( const QString & ) ) );
 
-  connect ( m_FFProcess, SIGNAL ( errmessage ( const QString & ) ),
-            this, SLOT ( pushErrorMessage ( const QString & ) ) );
+  connect ( m_FFProcess, SIGNAL ( errmessage ( const QString &, const QString & ) ),
+            this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
   connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
             this, SLOT ( pushToolTip ( const QString & ) ) );
@@ -85,7 +81,7 @@ QX11Grab::QX11Grab()
   connect ( showRubberband, SIGNAL ( clicked ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
-  connect ( cursorGrabButton, SIGNAL ( clicked () ),
+  connect ( actionGrabbing, SIGNAL ( triggered () ),
             this, SLOT ( grabFromWindow () ) );
 
   connect ( actionStartRecord, SIGNAL ( triggered () ),
@@ -114,6 +110,12 @@ const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
 
 void QX11Grab::createActions()
 {
+  grabActionFromWindow = new QAction ( getIcon ( "window" ), trUtf8 ( "Grabbing" ), this );
+  connect ( grabActionFromWindow, SIGNAL ( triggered() ), this, SLOT ( grabFromWindow() ) );
+
+  showRubberbandWindow = new QAction ( getIcon ( "grid" ), trUtf8 ( "Rubberband" ), this );
+  connect ( showRubberbandWindow, SIGNAL ( triggered() ), this, SLOT ( swapRubberBand() ) );
+
   startRecordingWindow = new QAction ( getIcon ( "run" ), trUtf8 ( "Record" ), this );
   connect ( startRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( startRecord() ) );
 
@@ -138,6 +140,10 @@ void QX11Grab::createEnviroment()
   setDepthBox->setValue ( desktop.depth );
 
   m_RubberBand = new RubberBand ( qApp->desktop()->screen() );
+  connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
+            this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
+
+  toRubber( 1 );
   if ( showRubberband->isChecked() )
     m_RubberBand->show();
   else
@@ -147,6 +153,9 @@ void QX11Grab::createEnviroment()
 void QX11Grab::createSystemTrayIcon()
 {
   systemTrayMenu = new QMenu ( this );
+  systemTrayMenu->addAction ( grabActionFromWindow );
+  systemTrayMenu->addAction ( showRubberbandWindow );
+  systemTrayMenu->addSeparator();
   systemTrayMenu->addAction ( startRecordingWindow );
   systemTrayMenu->addAction ( stopRecordingWindow );
   systemTrayMenu->addSeparator();
@@ -164,12 +173,32 @@ void QX11Grab::createSystemTrayIcon()
   systemTrayIcon->show();
 }
 
+void QX11Grab::swapRubberBand ()
+{
+  if ( showRubberband->isChecked() )
+  {
+    showRubberband->setChecked ( false );
+    m_RubberBand->hide();
+  }
+  else
+  {
+    showRubberband->setChecked ( true );
+    m_RubberBand->show();
+  }
+}
+
 void QX11Grab::showRubber ( bool b )
 {
   if ( b )
+  {
+    showRubberband->setChecked ( true );
     m_RubberBand->show();
+  }
   else
+  {
+    showRubberband->setChecked ( false );
     m_RubberBand->hide();
+  }
 }
 
 void QX11Grab::loadStats()
@@ -281,11 +310,10 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
                                   QSystemTrayIcon::Information, TimeOutMessages );
 }
 
-void QX11Grab::pushErrorMessage ( const QString &txt )
+void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( systemTrayIcon )
-    systemTrayIcon->showMessage ( trUtf8 ( "Error" ), txt,
-                                  QSystemTrayIcon::Critical, TimeOutMessages );
+    systemTrayIcon->showMessage ( title, txt, QSystemTrayIcon::Critical, TimeOutMessages );
 }
 
 void QX11Grab::pushToolTip ( const QString &txt )
@@ -296,15 +324,21 @@ void QX11Grab::pushToolTip ( const QString &txt )
 
 void QX11Grab::startRecord()
 {
+  if ( ! m_RubberBand->isScalability() )
+    return;
+
   QRect rect ( setXBox->value(), setYBox->value(), setWidthBox->value(), setHeightBox->value() );
-  if ( m_FFProcess->create( rect ) )
+  if ( m_FFProcess->create ( rect ) )
   {
     stopRecordingWindow->setEnabled ( true );
     actionStopRecord->setEnabled ( true );
     startRecordingWindow->setEnabled ( false );
     actionStartRecord->setEnabled ( false );
+    showRubber ( false );
     if ( m_FFProcess->start() )
+    {
       systemTrayIcon->setIcon ( getIcon ( "convert" ) );
+    }
   }
   else
     QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );

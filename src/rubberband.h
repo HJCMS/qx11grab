@@ -8,10 +8,13 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QString>
 
 /* QtGui */
 #include <QtGui/QWidget>
 #include <QtGui/QRubberBand>
+
+class DesktopInfo;
 
 class RubberBand : public QRubberBand
 {
@@ -19,8 +22,16 @@ class RubberBand : public QRubberBand
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    DesktopInfo *m_DesktopInfo;
+
+  Q_SIGNALS:
+    void warning ( const QString & );
+    void error ( const QString &, const QString & );
+
   public:
     RubberBand ( QWidget *parent = 0 );
+    bool isScalability();
     ~RubberBand();
 
 };

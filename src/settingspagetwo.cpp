@@ -30,6 +30,7 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
 
   ff_tableWidget = new QTableWidget ( this );
   ff_tableWidget->setColumnCount ( 2 );
+  ff_tableWidget->setSortingEnabled ( false );
   QStringList hText ( trUtf8 ( "Option" ) );
   hText << trUtf8 ( "Value" );
   ff_tableWidget->setHorizontalHeaderLabels ( hText );
@@ -50,8 +51,14 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
             this, SLOT ( prepareProcessLine() ) );
 }
 
+const QString SettingsPageTwo::arguments()
+{
+  return ff_cmd->text();
+}
+
 void SettingsPageTwo::setTableDefaults()
 {
+  ff_tableWidget->clearContents ();
   ff_tableWidget->setRowCount ( 4 );
   QStringList params, values;
   params << "-b" << "-bt" << "-r" << "-sameq";
@@ -101,6 +108,7 @@ void SettingsPageTwo::setOptions ( const QMap<QString,QVariant> &map )
     return;
   }
 
+  ff_tableWidget->clearContents ();
   ff_tableWidget->setColumnCount ( 2 );
   ff_tableWidget->setRowCount ( map.size() );
 

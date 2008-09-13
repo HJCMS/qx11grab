@@ -88,10 +88,19 @@ const QRect WindowGrabber::grabWindowRect()
   if ( retwin )
   {
     XGetWindowAttributes ( dpy, retwin, &attr );
-    return QRect ( attr.x, attr.y, attr.width, attr.height );
+    return QRect ( attr.x, attr.y,
+                   getValidValue ( attr.width ), getValidValue ( attr.height ) );
   }
 
   return empty;
+}
+
+const int WindowGrabber::getValidValue ( int z )
+{
+  if ( ( z % 2 ) != 0 )
+    return ( z + 1 );
+  else
+    return z;
 }
 
 WindowGrabber::~WindowGrabber()

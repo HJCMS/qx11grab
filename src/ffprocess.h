@@ -39,7 +39,7 @@ class FFProcess : public QObject
   Q_SIGNALS:
     void message ( const QString & );
     void trigger ( const QString & );
-    void errmessage ( const QString & );
+    void errmessage ( const QString &, const QString & );
 
   private Q_SLOTS:
     void readOutput ();

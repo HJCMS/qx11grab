@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>283</width>
-    <height>371</height>
+    <width>192</width>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -30,7 +30,7 @@
       <item row="0" column="0" >
        <widget class="QLabel" name="label" >
         <property name="text" >
-         <string>Set frame size:</string>
+         <string>Format:</string>
         </property>
         <property name="alignment" >
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -64,6 +64,9 @@
         <property name="maximum" >
          <number>7680</number>
         </property>
+        <property name="singleStep" >
+         <number>2</number>
+        </property>
        </widget>
       </item>
       <item row="2" column="0" >
@@ -87,6 +90,9 @@
         <property name="maximum" >
          <number>4800</number>
         </property>
+        <property name="singleStep" >
+         <number>2</number>
+        </property>
        </widget>
       </item>
       <item row="3" column="0" >
@@ -106,19 +112,6 @@
        <widget class="QLineEdit" name="setModeName" >
         <property name="text" >
          <string>sqcif</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0" >
-       <widget class="QLabel" name="label_5" >
-        <property name="text" >
-         <string>Depth:</string>
-        </property>
-        <property name="alignment" >
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="indent" >
-         <number>2</number>
         </property>
        </widget>
       </item>
@@ -205,26 +198,6 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QDialogButtonBox" name="buttonBox" >
-      <property name="standardButtons" >
-       <set>QDialogButtonBox::NoButton</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer" >
-      <property name="orientation" >
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0" >
-       <size>
-        <width>20</width>
-        <height>17</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar" >
@@ -232,7 +205,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>283</width>
+     <width>192</width>
      <height>33</height>
     </rect>
    </property>
@@ -240,6 +213,7 @@
     <property name="title" >
      <string>Action</string>
     </property>
+    <addaction name="actionGrabbing" />
     <addaction name="actionStartRecord" />
     <addaction name="actionStopRecord" />
     <addaction name="separator" />
@@ -335,6 +309,18 @@
    </property>
    <property name="statusTip" >
     <string>Stop Recording</string>
+   </property>
+  </action>
+  <action name="actionGrabbing" >
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/window.png</normaloff>:/images/window.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Grabbing</string>
+   </property>
+   <property name="toolTip" >
+    <string>get Size from Window</string>
    </property>
   </action>
  </widget>

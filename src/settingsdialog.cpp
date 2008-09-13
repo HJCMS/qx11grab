@@ -43,6 +43,7 @@ SettingsDialog::SettingsDialog ( QWidget *parent, Settings *cfg )
 void SettingsDialog::savepage()
 {
   m_Settings->setValue( "qx11grab/options", m_SettingsPageOne->getOptions() );
+  m_Settings->setValue( "arguments", m_SettingsPageTwo->arguments() );
   m_Settings->setValue( "ffmpeg/options", m_SettingsPageTwo->getOptions() );
 }
 
