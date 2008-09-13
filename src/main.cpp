@@ -9,6 +9,8 @@
 #include <QtCore/QTranslator>
 #include <QtCore/QLocale>
 #include <QtCore/QTextCodec>
+#include <QtCore/QStringList>
+#include <QtCore/QLibraryInfo>
 
 /* QtGui */
 #include <QtGui/QApplication>
@@ -38,12 +40,17 @@ int main ( int argc, char *argv[] )
     return EXIT_FAILURE;
   }
   QApplication::setQuitOnLastWindowClosed ( false );
-
-  /* FIXME Windoof mal wieder :-( */
   QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
 
-  QTranslator translator ( 0 );
-  translator.load ( QString ( "qx11grab_%1" ).arg ( QLocale().name() ) );
+  QStringList transpaths ( QCoreApplication::applicationDirPath () );
+  transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
+
+  QTranslator translator;
+  foreach ( QString d, transpaths )
+  {
+    if( translator.load ( QString ( "%1/qx11grab_%2" ).arg ( d, QLocale().name() ) ) )
+      break;
+  }
   app.installTranslator ( &translator );
 
   QX11Grab grab;

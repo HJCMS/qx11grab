@@ -11,8 +11,8 @@ TEMPLATE = app
 TARGET = qx11grab
 CONFIG += qt debug_and_release link_pkgconfig
 PKGCONFIG += x11 xmuu
-QT += gui dbus
-##
+QT += gui
+## dbus
 OBJECTS_DIR += build
 UI_DIR += build
 MOC_DIR += build

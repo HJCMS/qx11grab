@@ -11,13 +11,6 @@
 #include <QtCore/QTime>
 
 #define LOG_FILE "/tmp/qx11grab.log"
-/*
-ffmpeg -f x11grab \
-  -s sxga -r 24 -b 6500 -bt 256k \
-  -sameq -i :0.0+1,33 /tmp/out.avi
-#define DEFAULT_CMD "-f x11grab -s %1x%2 -i %3+%4,%5 %6 %7/%8"
-
-*/
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
