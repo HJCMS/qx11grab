@@ -12,6 +12,7 @@
 /* QtGui */
 #include <QtGui/QWidget>
 #include <QtGui/QDialog>
+#include <QtGui/QCloseEvent>
 
 #include "ui_settingsdialogform.h"
 
@@ -35,8 +36,11 @@ class SettingsDialog : public QDialog
     ~SettingsDialog();
 
   private slots:
-    void savepage();
+    void savepages();
     void changeSettings ( QListWidgetItem *, QListWidgetItem * );
+
+  protected:
+    void closeEvent( QCloseEvent * );
 
 };
 

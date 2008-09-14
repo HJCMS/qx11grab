@@ -18,6 +18,7 @@
 #include <QtGui/QSystemTrayIcon>
 
 #include "version.h"
+#include "settings.h"
 #include "qx11grab.h"
 
 #ifdef Q_OS_UNIX
@@ -53,7 +54,14 @@ int main ( int argc, char *argv[] )
   }
   app.installTranslator ( &translator );
 
-  QX11Grab grab;
-  grab.show();
+  Settings *m_Settings = new Settings ( &app );
+
+  QX11Grab grab ( m_Settings );
+
+  if ( m_Settings->getBool ( "startMinimized" ) )
+    grab.hide();
+  else
+    grab.show();
+
   return app.exec();
 }

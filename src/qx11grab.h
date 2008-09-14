@@ -61,8 +61,11 @@ class QX11Grab : public QMainWindow
     void loadStats();
     void saveStats();
 
+  Q_SIGNALS:
+    void startMinimized ();
+
   public:
-    QX11Grab();
+    QX11Grab( Settings *settings = 0 );
     ~QX11Grab();
 
   private Q_SLOTS:

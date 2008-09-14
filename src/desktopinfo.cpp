@@ -60,7 +60,9 @@ ModeList DesktopInfo::modes ( QWidget *parent )
   modes.append ( fetchFrameMode ( "qvga", 320, 240 ) );
   modes.append ( fetchFrameMode ( "vga", 640, 480 ) );
   modes.append ( fetchFrameMode ( "svga", 800, 600 ) );
-  modes.append ( fetchFrameMode ( "xga", 1024, 768 ) );
+
+  if ( maxWidth >= 1024 )
+    modes.append ( fetchFrameMode ( "xga", 1024, 768 ) );
 
   if ( maxWidth >= 1600 )
     modes.append ( fetchFrameMode ( "uxga", 1600, 1200 ) );
@@ -122,7 +124,7 @@ ModeList DesktopInfo::modes ( QWidget *parent )
 
 const FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
 {
-  foreach ( FrameMode mode, modes( parent ) )
+  foreach ( FrameMode mode, modes ( parent ) )
   {
     if ( mode.name == n )
       return mode;
@@ -130,17 +132,17 @@ const FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
   return fetchFrameMode ( trUtf8 ( "Unknown" ), maxWidth, maxHeight );
 }
 
-const int DesktopInfo::getMaxWidth()
+int DesktopInfo::getMaxWidth()
 {
   return maxWidth;
 }
 
-const int DesktopInfo::getMaxHeight()
+int DesktopInfo::getMaxHeight()
 {
   return maxHeight;
 }
 
-const int DesktopInfo::getDepth()
+int DesktopInfo::getDepth()
 {
   return Depth;
 }

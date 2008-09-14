@@ -25,14 +25,12 @@
 #include <QtGui/QRubberBand>
 #include <QtGui/QMessageBox>
 
-QX11Grab::QX11Grab()
+QX11Grab::QX11Grab( Settings *settings )
+  : cfg ( settings )
 {
   setupUi ( this );
 
   setDepthBox->hide();
-
-  cfg = new Settings ( this );
-  cfg->setValue ( "Version", QX11GRAB_VERSION );
   TimeOutMessages = 5000;
 
   loadStats();
@@ -143,7 +141,7 @@ void QX11Grab::createEnviroment()
   connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
-  toRubber( 1 );
+  toRubber ( 1 );
   if ( showRubberband->isChecked() )
     m_RubberBand->show();
   else
@@ -209,6 +207,11 @@ void QX11Grab::loadStats()
   if ( cfg->contains ( "windowSize" ) )
     resize ( cfg->value ( "windowSize", size() ).toSize() );
 
+  if ( ! cfg->contains ( "Version" ) )
+  {
+    cfg->setValue ( "Version", QX11GRAB_VERSION );
+    openSettings();
+  }
 }
 
 void QX11Grab::saveStats()
@@ -357,4 +360,5 @@ void QX11Grab::stopRecord()
 }
 
 QX11Grab::~QX11Grab()
-{}
+{
+}

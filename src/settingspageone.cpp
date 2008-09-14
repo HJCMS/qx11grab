@@ -4,6 +4,7 @@
 **/
 
 #include "settingspageone.h"
+#include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -77,7 +78,7 @@ const QMap<QString,QVariant> SettingsPageOne::getDefaults ()
   QMap<QString,QVariant> map;
   map.insert ( "ff_path", QVariant ( "/usr/bin/ffmpeg" ) );
   map.insert ( "tempdir", QVariant ( QDir::tempPath() ) );
-  map.insert ( "outputName", QVariant ( "qx11grab-XXXXXX.mpg" ) );
+  map.insert ( "outputName", QVariant ( "qx11grab-XXXXXX.avi" ) );
   return map;
 }
 
@@ -108,19 +109,27 @@ void SettingsPageOne::setDefaults()
   }
 }
 
-const QMap<QString,QVariant> SettingsPageOne::getOptions()
+void SettingsPageOne::saveOptions( Settings *cfg )
 {
   QMap<QString,QVariant> map;
-  map.insert ( "startMinimized", startMinimized->isChecked() );
+  foreach ( QCheckBox *box, findChildren<QCheckBox*>() )
+  {
+    if ( ! box->objectName().isEmpty() )
+    {
+      cfg->setValue ( box->objectName(), box->isChecked() );
+      map.insert ( box->objectName(), box->isChecked() );
+    }
+  }
 
   foreach ( SettingsItem *item, findChildren<SettingsItem*>() )
   {
     if ( ! item->objectName().isEmpty() )
     {
+      cfg->setValue ( item->objectName(), item->value() );
       map.insert ( item->objectName(), item->value() );
     }
   }
-  return map;
+  cfg->setValue ( "qx11grab/options", map );
 }
 
 void SettingsPageOne::setOptions ( const QMap<QString,QVariant> &map )

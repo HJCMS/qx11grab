@@ -42,14 +42,14 @@ class DesktopInfo : public QObject
   public:
     DesktopInfo ( QObject *parent = 0 );
 
-    /** width question at time */
-    const int getMaxWidth();
+    /** width request at time */
+    int getMaxWidth();
 
-    /** height question at time */
-    const int getMaxHeight();
+    /** height request at time */
+    int getMaxHeight();
 
-    /** depth question at time */
-    const int getDepth();
+    /** depth request at time */
+    int getDepth();
 
     /** returns a list from all fixed frame size modes by ffmpeg.
      * for more Information @see man:ffmpeg

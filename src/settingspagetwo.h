@@ -26,12 +26,12 @@ class SettingsPageTwo : public QWidget
   private:
     QLineEdit *ff_cmd;
     QTableWidget *ff_tableWidget;
-    void setTableDefaults();
     void resizeTableContents ();
     void pushItemRow( int, const QString &, const QVariant & );
 
   public:
     SettingsPageTwo ( QWidget *parent = 0 );
+    void setTableDefaults();
     const QString arguments();
     const QMap<QString,QVariant> getOptions();
     ~SettingsPageTwo();

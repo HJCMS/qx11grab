@@ -20,6 +20,8 @@
 #include <QtGui/QCheckBox>
 #include <QtGui/QGroupBox>
 
+class Settings;
+
 class SettingsItem : public QGroupBox
 {
     Q_OBJECT
@@ -52,12 +54,12 @@ class SettingsPageOne : public QWidget
 
   public:
     SettingsPageOne ( QWidget *parent = 0 );
-    const QMap<QString,QVariant> getOptions();
+    void saveOptions ( Settings * );
+    void setDefaults ();
     ~SettingsPageOne();
 
   public Q_SLOTS:
     void setOptions ( const QMap<QString,QVariant> & );
-    void setDefaults ();
 
 };
 

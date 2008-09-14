@@ -44,8 +44,6 @@ bool FFProcess::create ( const QRect &r )
 
     program = cOpt.at ( 0 ).trimmed();
     workdir = cOpt.at ( 2 ).trimmed();
-    m_Settings->setValue ( "ffmpeg", program );
-    // m_Settings->setValue ( "arguments", arguments.join ( " " ) );
     return true;
   }
   emit message ( trUtf8 ( "Invalid Window geometry" ) );
@@ -156,7 +154,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
       break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile /tmp/qx11grab.errors" ) );
+      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg( LOG_FILE ) );
       break;
 
     default:

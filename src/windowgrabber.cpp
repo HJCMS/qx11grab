@@ -95,7 +95,7 @@ const QRect WindowGrabber::grabWindowRect()
   return empty;
 }
 
-const int WindowGrabber::getValidValue ( int z )
+int WindowGrabber::getValidValue ( int z )
 {
   if ( ( z % 2 ) != 0 )
     return ( z + 1 );

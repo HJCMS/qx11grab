@@ -63,23 +63,25 @@ const QVariant Settings::getMapOption ( const QString &path, const QString &key 
 const QStringList Settings::getCommand()
 {
   QStringList cmd;
-  QFileInfo ffbin( getMapOption( "qx11grab/options", "ff_path" ).toString() );
+  QFileInfo ffbin ( value ( "ff_path", "/usr/bin/ffmpeg" ).toString() );
   if ( ffbin.isExecutable() )
   {
     cmd << ffbin.absoluteFilePath();
-    QMapIterator<QString,QVariant> it( value ( "ffmpeg/options" ).toMap() );
+    QMapIterator<QString,QVariant> it ( value ( "ffmpeg/options" ).toMap() );
     QStringList params;
-    while( it.hasNext() )
+    while ( it.hasNext() )
     {
       it.next();
-      params << it.key() << it.value().toString();
+      params << it.key();
+      if ( ! it.value().toString().isEmpty() )
+        params << it.value().toString();
     }
-    cmd << params.join( " " ).trimmed();
-    cmd << getMapOption( "qx11grab/options", "tempdir" ).toString();
-    cmd << getMapOption( "qx11grab/options", "outputName" ).toString();
+    cmd << params.join ( " " ).trimmed();
+    cmd << getMapOption ( "qx11grab/options", "tempdir" ).toString();
+    cmd << getMapOption ( "qx11grab/options", "outputName" ).toString();
   }
   else
-    QMessageBox::critical(0, trUtf8( "Error" ), trUtf8( "Can not open ffmpeg Binary!\nPlease check your Settings." ) );
+    QMessageBox::critical ( 0, trUtf8 ( "Error" ), trUtf8 ( "Can not open ffmpeg Binary!\nPlease check your Settings." ) );
 
   return cmd;
 }
