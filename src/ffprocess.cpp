@@ -88,7 +88,7 @@ bool FFProcess::stop()
   const char quit[1] = {'q'};
   m_QProcess->write ( quit );
 
-  return true;
+  return isRunning();
 }
 
 bool FFProcess::isRunning()

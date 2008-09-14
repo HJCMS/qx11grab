@@ -32,6 +32,8 @@ print_defaults() {
   $QMAKE_BIN -query QT_INSTALL_$1
 }
 
+QT_INSTALL_BINS="`$QMAKE_BIN -query QT_INSTALL_BINS`"
+
 while (( $# > 0 )); do
     if [ $1 == "-qmake-bin" ]; then
         QMAKE_BIN=$2; shift
@@ -149,6 +151,11 @@ echo "autodetection finished. running qmake."
 cd  $PROJECT_ROOT
 
 mv config.in config.pri
+
+if test -x "$QT_INSTALL_BINS/lrelease" ; then
+  echo -e "${C_CYAN}make translations${C_NONE}"
+  $QT_INSTALL_BINS/lrelease -compress -nounfinished ./src/src.pro
+fi
 
 $QMAKE_BIN $QMAKE_PARAMS -recursive 2>> $CONFIG_LOG
 
