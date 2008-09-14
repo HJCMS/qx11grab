@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
+<defaultcodec></defaultcodec>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="157"/>
+        <location filename="../src/desktopinfo.cpp" line="159"/>
         <source>Fullscreen</source>
         <translation>Vollbildmodus</translation>
     </message>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="130"/>
+        <location filename="../src/desktopinfo.cpp" line="132"/>
         <source>Unknown</source>
         <translation>Unbekannt</translation>
     </message>
@@ -16,135 +17,135 @@
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="58"/>
+        <location filename="../src/ffprocess.cpp" line="49"/>
         <source>Invalid Window geometry</source>
         <translation>Ungültige Fenster Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="166"/>
-        <source>Process crashed see logfile /tmp/qx11grab.errors</source>
-        <translation>Der Prozess ist zusammen gebrochen bitte lese die Logdatei: /tmp/qx11grab.errors</translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess.cpp" line="95"/>
+        <location filename="../src/ffprocess.cpp" line="86"/>
         <source>shutdown process please wait ...</source>
         <translation>Beende Aufnahme bitte warten ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="150"/>
+        <location filename="../src/ffprocess.cpp" line="141"/>
         <source>Recording</source>
         <translation>Aufnahmen</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="130"/>
+        <location filename="../src/ffprocess.cpp" line="121"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Ausführungsfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="134"/>
+        <location filename="../src/ffprocess.cpp" line="125"/>
         <source>Crashed (%1) ...</source>
         <translation>Absturtz  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="138"/>
+        <location filename="../src/ffprocess.cpp" line="129"/>
         <source>Timedout (%1) ...</source>
         <translation>Zeitüberschreitung  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="142"/>
+        <location filename="../src/ffprocess.cpp" line="133"/>
         <source>WriteError (%1) ...</source>
         <translation>Schreibfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="146"/>
+        <location filename="../src/ffprocess.cpp" line="137"/>
         <source>ReadError (%1) ...</source>
         <translation>Lesefehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="150"/>
+        <location filename="../src/ffprocess.cpp" line="141"/>
         <source>UnknownError (%1) ...</source>
         <translation>Unbekannter Fehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="162"/>
+        <location filename="../src/ffprocess.cpp" line="153"/>
         <source>Recording finished.</source>
         <translation>Aufnahme abgeschlossen.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="191"/>
+        <location filename="../src/ffprocess.cpp" line="182"/>
         <source>Recording started writing to: %1</source>
         <translation>Aufnahme gestartet, schreibe Meldungen in: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="157"/>
+        <source>Process crashed see logfile %1</source>
+        <translation>Prozess abgebrochen siehe %1</translation>
     </message>
 </context>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="126"/>
+        <location filename="../src/qx11grab.cpp" line="124"/>
         <source>Hide</source>
         <translation>Verbergen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="129"/>
+        <location filename="../src/qx11grab.cpp" line="127"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="132"/>
+        <location filename="../src/qx11grab.cpp" line="130"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="169"/>
+        <location filename="../src/qx11grab.cpp" line="167"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation>qx11grab: X11 Aufnahmen mit ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="251"/>
+        <location filename="../src/qx11grab.cpp" line="254"/>
         <source>grabbed Dimension</source>
         <translation>aufgegriffene Dimensionen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="119"/>
+        <location filename="../src/qx11grab.cpp" line="117"/>
         <source>Record</source>
         <translation>Aufnahme</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="122"/>
+        <location filename="../src/qx11grab.cpp" line="120"/>
         <source>Stop</source>
         <translation>Anhalten</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="300"/>
+        <location filename="../src/qx11grab.cpp" line="303"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="300"/>
+        <location filename="../src/qx11grab.cpp" line="303"/>
         <source>Recorder is running.</source>
         <translation>Aufnahme läuft.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="309"/>
+        <location filename="../src/qx11grab.cpp" line="312"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="344"/>
+        <location filename="../src/qx11grab.cpp" line="347"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="344"/>
+        <location filename="../src/qx11grab.cpp" line="347"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nicht gestartet</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="113"/>
+        <location filename="../src/qx11grab.cpp" line="111"/>
         <source>Grabbing</source>
         <translation>Abgreifen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="116"/>
+        <location filename="../src/qx11grab.cpp" line="114"/>
         <source>Rubberband</source>
         <translation>Gumminband</translation>
     </message>
@@ -308,12 +309,12 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../src/settings.cpp" line="82"/>
+        <location filename="../src/settings.cpp" line="84"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="82"/>
+        <location filename="../src/settings.cpp" line="84"/>
         <source>Can not open ffmpeg Binary!
 Please check your Settings.</source>
         <translation>Kann die Binäre ffmpeg Datei nicht finden!
@@ -354,27 +355,27 @@ Bitte Überprüfe die Einstellungen.</translation>
 <context>
     <name>SettingsPageOne</name>
     <message>
-        <location filename="../src/settingspageone.cpp" line="63"/>
+        <location filename="../src/settingspageone.cpp" line="64"/>
         <source>Application Settings</source>
         <translation>Programm Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="65"/>
+        <location filename="../src/settingspageone.cpp" line="66"/>
         <source>Start qx11grab Minimized</source>
         <translation>Starte qx11grab minimiert</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="87"/>
+        <location filename="../src/settingspageone.cpp" line="88"/>
         <source>Full path to ffmpeg Binary</source>
         <translation>Vollen Pfad zum ffmpeg Programm</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="88"/>
+        <location filename="../src/settingspageone.cpp" line="89"/>
         <source>Default tmp Directory</source>
         <translation>Standard Temp Verzeichniß</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="89"/>
+        <location filename="../src/settingspageone.cpp" line="90"/>
         <source>Default output file name</source>
         <translation>Standard Datei Ausgabename</translation>
     </message>
