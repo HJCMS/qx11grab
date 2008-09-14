@@ -10,6 +10,7 @@ DESTDIR = .
 TEMPLATE = subdirs
 
 trans.files = qx11grab_de.qm
+trans.commands = $$[QT_INSTALL_BINS]/lrelease -compress -nounfinished ../src/src.pro
 
 trans.path +=	$$[QT_INSTALL_TRANSLATIONS]
 

@@ -18,6 +18,9 @@ UI_DIR += build
 MOC_DIR += build
 RCC_DIR += build
 
+include(../devel.pri)
+include(../config.pri)
+
 TRANSLATIONS = ../tr/qx11grab_untranslated.ts \
 	../tr/qx11grab_de.ts
 
@@ -50,6 +53,9 @@ RESOURCES =	qx11grab.qrc
 FORMS =	qx11grabmain.ui \
 	settingsdialogform.ui
 
+xdgdata.path = $$[QT_INSTALL_PREFIX]/share/applications
+xdgdata.files = qx11grab.desktop
+
 target.path +=	$$[QT_INSTALL_BINS]
 
-INSTALLS +=	target
+INSTALLS +=	target xdgdata

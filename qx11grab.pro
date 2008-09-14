@@ -7,7 +7,6 @@
 ####################################################################
 
 TEMPLATE = subdirs
-SUBDIRS = src \
-	tr
+SUBDIRS = tr src
 
 include(config.pri)

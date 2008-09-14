@@ -6,8 +6,9 @@
 
 make clean 2> /dev/null
 
-find . -type f -name "Makefile*" -exec rm -f {} \;
+find . -type f -name "Makefile*" -or -name "*.o" -exec rm -f {} \;
 
 rm -rf src/build/* \
-  src/build \
-  src/object_script.qx11grab.*
+  src/build tr/qx11grab*qm \
+  config.tests/qt4/qt4 \
+  config.tests/dbus/dbus
