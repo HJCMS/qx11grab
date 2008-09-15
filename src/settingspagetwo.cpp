@@ -4,6 +4,7 @@
 **/
 
 #include "settingspagetwo.h"
+#include "settings.h"
 #include "version.h"
 
 /* QtCore */
@@ -18,6 +19,45 @@
 #include <QtGui/QMenu>
 #include <QtGui/QHeaderView>
 
+ItemEditCmd::ItemEditCmd ( const QString &name, QWidget *parent )
+    : QHBoxLayout ()
+{
+  setObjectName ( name );
+  setContentsMargins ( 2, 2, 2, 2 );
+
+  QMap<QString,QString> map;
+  map.insert( "ff_title", trUtf8( "Title" ) );
+  map.insert( "ff_author", trUtf8( "Author" ) );
+  map.insert( "ff_copyright", trUtf8( "Copyright" ) );
+  map.insert( "ff_comment", trUtf8( "Comment" ) );
+  map.insert( "ff_genre", trUtf8( "Genre" ) );
+
+  QString title = ( map.contains( name ) ) ? map[name] : trUtf8( "Unknown" );
+  label = new QLabel ( title, parent );
+  label->setMinimumWidth ( 80 );
+  label->setAlignment ( Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter );
+  addWidget ( label );
+
+  edit = new QLineEdit ( parent );
+  edit->setMinimumHeight ( 18 );
+
+  Settings cfg( this );
+  edit->setText( cfg.getStr( name ) );
+
+  addWidget ( edit );
+}
+
+void ItemEditCmd::setValue ( const QVariant &val )
+{
+  QString str = val.toString();
+  edit->setText ( str );
+}
+
+const QVariant ItemEditCmd::value()
+{
+  return QVariant ( edit->text() );
+}
+
 SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
     : QWidget ( parent )
 {
@@ -26,7 +66,18 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
   setMinimumWidth ( 350 );
 
   QVBoxLayout *topLayout = new QVBoxLayout ( this );
-  topLayout->addWidget ( new QLabel ( trUtf8 ( "FFMpeg Recording Settings" ), this ) );
+
+  QStringList extras ( "ff_title" );
+  extras << "ff_author" << "ff_copyright" << "ff_comment" << "ff_genre";
+  foreach ( QString n, extras )
+  {
+    topLayout->addLayout ( new ItemEditCmd ( n, this ) );
+  }
+
+  QString txt = QString ( HTML_NOTICE ).arg ( trUtf8 ( "Notice" ) ,trUtf8 ( "Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab." ) );
+  QLabel *labelNotice = new QLabel ( txt, this );
+  labelNotice->setWordWrap ( true );
+  topLayout->addWidget ( labelNotice );
 
   ff_tableWidget = new QTableWidget ( this );
   ff_tableWidget->setColumnCount ( 2 );
@@ -36,14 +87,9 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
   ff_tableWidget->setHorizontalHeaderLabels ( hText );
   topLayout->addWidget ( ff_tableWidget );
 
-  ff_cmd = new QLineEdit ( this );
-  ff_cmd->setReadOnly ( true );
+  ff_cmd = new QLabel ( this );
+  ff_cmd->setStyleSheet ( "border: 1px dotted #000000;" );
   topLayout->addWidget ( ff_cmd );
-
-  QString txt = QString ( HTML_NOTICE ).arg ( trUtf8 ( "Notice" ) ,trUtf8 ( "Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab." ) );
-  QLabel *labelNotice = new QLabel ( txt, this );
-  labelNotice->setWordWrap ( true );
-  topLayout->addWidget ( labelNotice );
 
   setLayout ( topLayout );
 
@@ -51,9 +97,11 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
             this, SLOT ( prepareProcessLine() ) );
 }
 
-const QString SettingsPageTwo::arguments()
+const QString SettingsPageTwo::stripString ( const QString &str )
 {
-  return ff_cmd->text();
+  QRegExp pattern ( "[ \\s\\t\\'\"]+" );
+  QString ret ( str );
+  return ret.replace ( pattern, "" );
 }
 
 void SettingsPageTwo::setTableDefaults()
@@ -76,7 +124,7 @@ void SettingsPageTwo::setTableDefaults()
   prepareProcessLine();
 }
 
-const QMap<QString,QVariant> SettingsPageTwo::getOptions()
+void SettingsPageTwo::saveOptions ( Settings *cfg )
 {
   QMap<QString,QVariant> map;
   int r;
@@ -86,11 +134,19 @@ const QMap<QString,QVariant> SettingsPageTwo::getOptions()
     QString param ( ff_tableWidget->item ( r, 0 )->text() );
     QString value = QString::null;
     if ( ff_tableWidget->item ( r, 1 ) )
-      value = ff_tableWidget->item ( r, 1 )->text();
+      value = stripString ( ff_tableWidget->item ( r, 1 )->text() );
 
     map.insert ( param, value );
   }
-  return map;
+  cfg->setValue ( "ffmpeg/options", map );
+  map.clear();
+
+  foreach ( ItemEditCmd *line, findChildren<ItemEditCmd*>() )
+  {
+    if ( ! line->objectName().isEmpty() )
+      cfg->setValue ( line->objectName(), line->value() );
+  }
+  cfg->setValue ( "arguments", ff_cmd->text() );
 }
 
 void SettingsPageTwo::pushItemRow ( int row, const QString &p, const QVariant &v )
@@ -139,7 +195,7 @@ void SettingsPageTwo::prepareProcessLine()
     if ( ff_tableWidget->item ( r, 1 ) )
     {
       val.append ( " " );
-      val.append ( ff_tableWidget->item ( r, 1 )->text() );
+      val.append ( stripString ( ff_tableWidget->item ( r, 1 )->text() ) );
     }
     list << val;
     val.clear();

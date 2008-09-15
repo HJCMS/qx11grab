@@ -7,7 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define QX11GRAB_VERSION "0.1.1"
+#define QX11GRAB_VERSION "0.1.4"
+
+#define LOG_FILE "/tmp/qx11grab.log"
 
 #define HTML_NOTICE "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" />" \

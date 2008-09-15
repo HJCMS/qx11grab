@@ -25,8 +25,8 @@
 #include <QtGui/QRubberBand>
 #include <QtGui/QMessageBox>
 
-QX11Grab::QX11Grab( Settings *settings )
-  : cfg ( settings )
+QX11Grab::QX11Grab ( Settings *settings )
+    : cfg ( settings )
 {
   setupUi ( this );
 
@@ -35,12 +35,12 @@ QX11Grab::QX11Grab( Settings *settings )
 
   loadStats();
 
+  /* NOTE ffprocess must init before create Actions ... */
+  m_FFProcess = new FFProcess ( this, cfg );
+
   createActions();
   createEnviroment();
   createSystemTrayIcon();
-
-  /* now bind ffprocess */
-  m_FFProcess = new FFProcess ( this, cfg );
 
   /* Signals */
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
@@ -86,7 +86,13 @@ QX11Grab::QX11Grab( Settings *settings )
             this, SLOT ( startRecord () ) );
 
   connect ( actionStopRecord, SIGNAL ( triggered () ),
-            this, SLOT ( stopRecord () ) );
+            m_FFProcess, SLOT ( stop () ) );
+
+  connect ( actionKillRecord, SIGNAL ( triggered () ),
+            m_FFProcess, SLOT ( kill () ) );
+
+  connect ( m_FFProcess, SIGNAL ( down () ),
+            this, SLOT ( setActionsBack () ) );
 
   connect ( actionApplication, SIGNAL ( triggered() ),
             this, SLOT ( openSettings() ) );
@@ -119,7 +125,7 @@ void QX11Grab::createActions()
 
   stopRecordingWindow = new QAction ( getIcon ( "stop" ), trUtf8 ( "Stop" ), this );
   stopRecordingWindow->setEnabled ( false );
-  connect ( stopRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( stopRecord() ) );
+  connect ( stopRecordingWindow, SIGNAL ( triggered() ), m_FFProcess, SLOT ( stop () ) );
 
   minimizeWindowAction = new QAction ( getIcon ( "minimize" ), trUtf8 ( "Hide" ), this );
   connect ( minimizeWindowAction, SIGNAL ( triggered() ), this, SLOT ( hide() ) );
@@ -311,12 +317,18 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
   if ( systemTrayIcon )
     systemTrayIcon->showMessage ( trUtf8 ( "Info" ), txt,
                                   QSystemTrayIcon::Information, TimeOutMessages );
+
+  if ( ! m_FFProcess->isRunning() )
+    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
 }
 
 void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( systemTrayIcon )
     systemTrayIcon->showMessage ( title, txt, QSystemTrayIcon::Critical, TimeOutMessages );
+
+  if ( ! m_FFProcess->isRunning() )
+    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
 }
 
 void QX11Grab::pushToolTip ( const QString &txt )
@@ -335,6 +347,7 @@ void QX11Grab::startRecord()
   {
     stopRecordingWindow->setEnabled ( true );
     actionStopRecord->setEnabled ( true );
+    actionKillRecord->setEnabled ( true );
     startRecordingWindow->setEnabled ( false );
     actionStartRecord->setEnabled ( false );
     showRubber ( false );
@@ -347,16 +360,14 @@ void QX11Grab::startRecord()
     QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
 }
 
-void QX11Grab::stopRecord()
+void QX11Grab::setActionsBack()
 {
-  if ( m_FFProcess->stop() )
-  {
-    stopRecordingWindow->setEnabled ( false );
-    actionStopRecord->setEnabled ( false );
-    startRecordingWindow->setEnabled ( true );
-    actionStartRecord->setEnabled ( true );
-    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
-  }
+  stopRecordingWindow->setEnabled ( false );
+  actionStopRecord->setEnabled ( false );
+  actionKillRecord->setEnabled ( false );
+  startRecordingWindow->setEnabled ( true );
+  actionStartRecord->setEnabled ( true );
+  systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
 }
 
 QX11Grab::~QX11Grab()

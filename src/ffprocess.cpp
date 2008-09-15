@@ -5,12 +5,11 @@
 
 #include "ffprocess.h"
 #include "settings.h"
+#include "version.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
-
-#define LOG_FILE "/tmp/qx11grab.log"
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
@@ -25,7 +24,7 @@ bool FFProcess::create ( const QRect &r )
   {
     QStringList cOpt = m_Settings->getCommand();
     arguments.clear();
-    arguments << "-f" << "x11grab";
+    arguments << "-f" << "x11grab" << "-xerror";
     arguments << "-s" << QString ( "%1x%2" ).arg (
         QString::number ( r.width() ),
         QString::number ( r.height() )
@@ -37,6 +36,15 @@ bool FFProcess::create ( const QRect &r )
         QString::number ( r.x() ),
         QString::number ( r.y() )
     );
+    /* Extras Options Title Comment etc. */
+    QStringList extras ( "ff_title" );
+    extras << "ff_author" << "ff_copyright" << "ff_comment" << "ff_genre";
+    foreach ( QString n, extras )
+    {
+      if ( ! m_Settings->getStr ( n ).isEmpty() )
+        arguments << n.replace( "ff_", "-" ) << QString( "\"%1\"" ).arg( m_Settings->getStr ( n ) );
+    }
+
     QString outFile = QString ( "%1/%2" ).arg ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
     QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
     outFile.replace ( QRegExp ( "\\bXXXXXX\\b" ), timeStamp );
@@ -52,7 +60,7 @@ bool FFProcess::create ( const QRect &r )
 
 bool FFProcess::start()
 {
-  if ( program.isEmpty() || arguments.size() < 2 )
+  if ( program.isEmpty() || arguments.size() < 2 || workdir.isEmpty() )
     return false;
 
   m_QProcess = new QProcess ( this );
@@ -73,7 +81,7 @@ bool FFProcess::start()
   connect ( m_QProcess, SIGNAL ( started() ),
             this, SLOT ( startCheck() ) );
 
-  qDebug() << Q_FUNC_INFO << program << arguments;
+  // qDebug() << Q_FUNC_INFO << program << arguments;
   m_QProcess->start ( program, arguments );
   return true;
 }
@@ -83,12 +91,23 @@ bool FFProcess::stop()
   if ( ! m_QProcess )
     return false;
 
-  emit message ( trUtf8 ( "shutdown process please wait ..." ) );
+  emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
-  const char quit[1] = {'q'};
-  m_QProcess->write ( quit );
+  char quit = 'q';
+  m_QProcess->write ( &quit );
 
   return isRunning();
+}
+
+bool FFProcess::kill()
+{
+  if ( ! m_QProcess )
+    return false;
+
+  emit message ( trUtf8 ( "force shutdown" ) );
+
+  m_QProcess->kill ();
+  return true;
 }
 
 bool FFProcess::isRunning()
@@ -99,16 +118,28 @@ bool FFProcess::isRunning()
   switch ( m_QProcess->state() )
   {
     case QProcess::NotRunning:
+    {
+      emit down ();
       return false;
+    }
 
     case QProcess::Starting:
+    {
+      emit running ();
       return true;
+    }
 
     case QProcess::Running:
+    {
+      emit running ();
       return true;
+    }
 
     default:
+    {
+      emit down ();
       return false;
+    }
   }
 }
 
@@ -154,7 +185,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
       break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg( LOG_FILE ) );
+      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( LOG_FILE ) );
       break;
 
     default:
@@ -162,6 +193,9 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
   }
 }
 
+/**
+ * TODO
+ */
 void FFProcess::readOutput()
 {
   QString data = m_QProcess->readAllStandardOutput();
@@ -172,8 +206,9 @@ void FFProcess::readOutput()
     data.replace ( QRegExp ( "= " ), "=" );
     data.trimmed();
     QStringList list = data.split ( " " );
+    qDebug() << list;
   }
-  qDebug() << data;
+  // qDebug() << data;
 }
 
 void FFProcess::startCheck()

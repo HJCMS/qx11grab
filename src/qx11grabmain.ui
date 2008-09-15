@@ -216,6 +216,7 @@
     <addaction name="actionGrabbing" />
     <addaction name="actionStartRecord" />
     <addaction name="actionStopRecord" />
+    <addaction name="actionKillRecord" />
     <addaction name="separator" />
     <addaction name="actionMinimize" />
     <addaction name="actionQuit" />
@@ -321,6 +322,18 @@
    </property>
    <property name="toolTip" >
     <string>get Size from Window</string>
+   </property>
+  </action>
+  <action name="actionKillRecord" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="qx11grab.qrc" >
+     <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Kill</string>
    </property>
   </action>
  </widget>

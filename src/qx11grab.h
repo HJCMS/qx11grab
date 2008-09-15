@@ -23,7 +23,6 @@
 #include "version.h"
 #include "ui_qx11grabmain.h"
 
-class QPushButton;
 class QAction;
 class QMenu;
 class Settings;
@@ -53,7 +52,6 @@ class QX11Grab : public QMainWindow
     *displayWindowAction,
     *quitWindowAction;
     QSystemTrayIcon *systemTrayIcon;
-    QPushButton *cursorGrabButton;
     const QIcon getIcon ( const QString &name, const QString &group = QString::fromUtf8 ( "/" ) );
     void createActions();
     void createEnviroment();
@@ -82,7 +80,7 @@ class QX11Grab : public QMainWindow
     void pushErrorMessage ( const QString &, const QString & );
     void pushToolTip ( const QString & );
     void startRecord();
-    void stopRecord();
+    void setActionsBack();
 };
 
 #endif

@@ -45,8 +45,7 @@ SettingsDialog::SettingsDialog ( QWidget *parent, Settings *cfg )
 void SettingsDialog::savepages()
 {
   m_SettingsPageOne->saveOptions( m_Settings );
-  m_Settings->setValue ( "arguments", m_SettingsPageTwo->arguments() );
-  m_Settings->setValue ( "ffmpeg/options", m_SettingsPageTwo->getOptions() );
+  m_SettingsPageTwo->saveOptions( m_Settings );
 }
 
 void SettingsDialog::changeSettings ( QListWidgetItem *current, QListWidgetItem *previous )

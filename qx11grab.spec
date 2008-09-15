@@ -1,6 +1,6 @@
 ## Specfile for OpenSuSE Build Service
 
-%define packagename  qx11grab-0.1.2
+%define packagename  qx11grab-0.1.4
 
 %define _qmake       qmake
 %define _lrelease    lrelease
@@ -10,20 +10,17 @@
 Name:           qx11grab
 Summary:        qt4 applet for recording x11 windows with ffmpeg
 Summary(de):    Qt4 Programm zum Aufnehmen von X11 Fenstern mit ffmpeg
-Version:        0.1.2
+Version:        0.1.4
 Release:        0
 License:        GPL 2
 Autoreqprov:    on
 Source0:        %{_sourcedir}/%packagename.tar.bz2
 Group:          System/GUI/QT
-Url:            http://www.hjcms.de
+Url:            http://qx11grab.hjcms.de
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires:       ffmpeg
 BuildRequires:  libqt4-devel
-Packager:       Juergen Heinemann (Undefined) http://www.hjcms.de
 Vendor:         Juergen Heinemann (Undefined) http://www.hjcms.de
-
-%debug_package
 
 %description
 qt4 applet for recording x11 windows with ffmpeg
@@ -58,24 +55,15 @@ Autor: -------------
   http://www.hjcms.de
 
 %prep
-
-%setup
-
-%{_lrelease} -nounfinished \
-  -compress src/src.pro
-
-%{_qmake} -makefile -unix %{name}.pro
-
+%setup -q
 %build
+
+./configure -no-dbus -release -verbose
 
 %__make
 
 %install
-rm -rf %{buildroot}
-%__mkdir_p %{buildroot}%{_datadir}/applications
-
-%__install -m 0644 %{name}.desktop \
-  %{buildroot}%{_datadir}/applications
+%__mkdir_p %{buildroot}
 
 %__make INSTALL_ROOT=%{buildroot} install
 

@@ -17,135 +17,173 @@
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="49"/>
+        <location filename="../src/ffprocess.cpp" line="57"/>
         <source>Invalid Window geometry</source>
         <translation>Ungültige Fenster Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="86"/>
-        <source>shutdown process please wait ...</source>
-        <translation>Beende Aufnahme bitte warten ...</translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess.cpp" line="141"/>
+        <location filename="../src/ffprocess.cpp" line="172"/>
         <source>Recording</source>
         <translation>Aufnahmen</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="121"/>
+        <location filename="../src/ffprocess.cpp" line="152"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Ausführungsfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="125"/>
+        <location filename="../src/ffprocess.cpp" line="156"/>
         <source>Crashed (%1) ...</source>
         <translation>Absturtz  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="129"/>
+        <location filename="../src/ffprocess.cpp" line="160"/>
         <source>Timedout (%1) ...</source>
         <translation>Zeitüberschreitung  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="133"/>
+        <location filename="../src/ffprocess.cpp" line="164"/>
         <source>WriteError (%1) ...</source>
         <translation>Schreibfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="137"/>
+        <location filename="../src/ffprocess.cpp" line="168"/>
         <source>ReadError (%1) ...</source>
         <translation>Lesefehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="141"/>
+        <location filename="../src/ffprocess.cpp" line="172"/>
         <source>UnknownError (%1) ...</source>
         <translation>Unbekannter Fehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="153"/>
+        <location filename="../src/ffprocess.cpp" line="184"/>
         <source>Recording finished.</source>
         <translation>Aufnahme abgeschlossen.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="182"/>
+        <location filename="../src/ffprocess.cpp" line="217"/>
         <source>Recording started writing to: %1</source>
         <translation>Aufnahme gestartet, schreibe Meldungen in: %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="157"/>
+        <location filename="../src/ffprocess.cpp" line="188"/>
         <source>Process crashed see logfile %1</source>
         <translation>Prozess abgebrochen siehe %1</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="94"/>
+        <source>shutdown please wait ...</source>
+        <translation>Beende bitte warten ...</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="107"/>
+        <source>force shutdown</source>
+        <translation>Erzwinge beenden</translation>
+    </message>
+</context>
+<context>
+    <name>ItemEditCmd</name>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="29"/>
+        <source>Title</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="30"/>
+        <source>Author</source>
+        <translation>Autor</translation>
+    </message>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="31"/>
+        <source>Copyright</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="32"/>
+        <source>Comment</source>
+        <translation>Kommentar</translation>
+    </message>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="33"/>
+        <source>Genre</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/settingspagetwo.cpp" line="35"/>
+        <source>Unknown</source>
+        <translation>Unbekannt</translation>
     </message>
 </context>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="124"/>
+        <location filename="../src/qx11grab.cpp" line="130"/>
         <source>Hide</source>
         <translation>Verbergen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="127"/>
+        <location filename="../src/qx11grab.cpp" line="133"/>
         <source>Show</source>
         <translation>Anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="130"/>
+        <location filename="../src/qx11grab.cpp" line="136"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="167"/>
+        <location filename="../src/qx11grab.cpp" line="173"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation>qx11grab: X11 Aufnahmen mit ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="254"/>
+        <location filename="../src/qx11grab.cpp" line="260"/>
         <source>grabbed Dimension</source>
         <translation>aufgegriffene Dimensionen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="117"/>
+        <location filename="../src/qx11grab.cpp" line="123"/>
         <source>Record</source>
         <translation>Aufnahme</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="120"/>
+        <location filename="../src/qx11grab.cpp" line="126"/>
         <source>Stop</source>
         <translation>Anhalten</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="303"/>
+        <location filename="../src/qx11grab.cpp" line="309"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="303"/>
+        <location filename="../src/qx11grab.cpp" line="309"/>
         <source>Recorder is running.</source>
         <translation>Aufnahme läuft.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="312"/>
+        <location filename="../src/qx11grab.cpp" line="318"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="347"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="347"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nicht gestartet</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="111"/>
+        <location filename="../src/qx11grab.cpp" line="117"/>
         <source>Grabbing</source>
         <translation>Abgreifen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="114"/>
+        <location filename="../src/qx11grab.cpp" line="120"/>
         <source>Rubberband</source>
         <translation>Gumminband</translation>
     </message>
@@ -183,27 +221,27 @@
         <translation>Aktion</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="228"/>
+        <location filename="../src/qx11grabmain.ui" line="229"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="242"/>
+        <location filename="../src/qx11grabmain.ui" line="243"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="254"/>
+        <location filename="../src/qx11grabmain.ui" line="255"/>
         <source>Screen</source>
         <translation>Bildschirm</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="263"/>
+        <location filename="../src/qx11grabmain.ui" line="264"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="272"/>
+        <location filename="../src/qx11grabmain.ui" line="273"/>
         <source>Minimize</source>
         <translation>Minimieren</translation>
     </message>
@@ -228,42 +266,42 @@
         <translation>zeige Gummiband</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="225"/>
+        <location filename="../src/qx11grabmain.ui" line="226"/>
         <source>Open Settings Dialog</source>
         <translation>Öffne den Einstellungen Dialog</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="245"/>
+        <location filename="../src/qx11grabmain.ui" line="246"/>
         <source>Close Application</source>
         <translation>Schließe die Annwendung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="275"/>
+        <location filename="../src/qx11grabmain.ui" line="276"/>
         <source>Minimize to Systray</source>
         <translation>Minimiere in die Taskleiste</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="284"/>
+        <location filename="../src/qx11grabmain.ui" line="285"/>
         <source>Application</source>
         <translation>Annwendung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="293"/>
+        <location filename="../src/qx11grabmain.ui" line="294"/>
         <source>Recording</source>
-        <translation>Aufnahme</translation>
+        <translation>Aufnehmen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="296"/>
+        <location filename="../src/qx11grabmain.ui" line="297"/>
         <source>Start Recording</source>
         <translation>Starte Aufnahme</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="308"/>
+        <location filename="../src/qx11grabmain.ui" line="309"/>
         <source>Stop</source>
         <translation>Anhalten</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="311"/>
+        <location filename="../src/qx11grabmain.ui" line="312"/>
         <source>Stop Recording</source>
         <translation>Stoppe die Aufnahme</translation>
     </message>
@@ -273,14 +311,19 @@
         <translation>Format:</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="320"/>
+        <location filename="../src/qx11grabmain.ui" line="321"/>
         <source>Grabbing</source>
         <translation>Abgreifen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="323"/>
+        <location filename="../src/qx11grabmain.ui" line="324"/>
         <source>get Size from Window</source>
         <translation>nehme Fenstergröße</translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grabmain.ui" line="336"/>
+        <source>Kill</source>
+        <translation>Killen</translation>
     </message>
 </context>
 <context>
@@ -383,37 +426,32 @@ Bitte Überprüfe die Einstellungen.</translation>
 <context>
     <name>SettingsPageTwo</name>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="29"/>
-        <source>FFMpeg Recording Settings</source>
-        <translation>FFMpeg Aufnahme Einstellungen</translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="34"/>
+        <location filename="../src/settingspagetwo.cpp" line="85"/>
         <source>Option</source>
         <translation>Option</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="35"/>
+        <location filename="../src/settingspagetwo.cpp" line="86"/>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="43"/>
+        <location filename="../src/settingspagetwo.cpp" line="77"/>
         <source>Notice</source>
         <translation>Achtung</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="43"/>
+        <location filename="../src/settingspagetwo.cpp" line="77"/>
         <source>Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab.</source>
         <translation>Bitte füge die Optionen -i,-f,-s und Ausgabe nicht in die Tabelle ein. Diese Parameter werden von qx11grab Automatisch generiert und eingfügt.</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="162"/>
+        <location filename="../src/settingspagetwo.cpp" line="218"/>
         <source>New</source>
         <translation>Neu</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="164"/>
+        <location filename="../src/settingspagetwo.cpp" line="220"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>

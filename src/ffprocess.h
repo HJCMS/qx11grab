@@ -31,12 +31,17 @@ class FFProcess : public QObject
   public:
     FFProcess ( QObject *parent = 0, Settings *settings = 0 );
     bool create ( const QRect & );
-    bool start();
-    bool stop();
-    bool isRunning();
     ~FFProcess();
 
+  public Q_SLOTS:
+    bool start();
+    bool stop();
+    bool kill();
+    bool isRunning();
+
   Q_SIGNALS:
+    void running ();
+    void down ();
     void message ( const QString & );
     void trigger ( const QString & );
     void errmessage ( const QString &, const QString & );

@@ -1,3 +1,8 @@
+2008/09/15
+  Add: Kill Signal
+  Add: ffmpeg -xerror option
+  Bugfix: systrayicon restore if process breaks
+
 2008/09/14 
   Bugfix: on first start open configuration dialog and set defaults
   Bugfix: Show Hidden option

@@ -5,6 +5,6 @@ Comment[de]=Programm zum Aufnehmen von X11 Fenstern
 Exec=qx11grab
 Icon=x
 Type=Application
-Categories=X-DesktopUtility;X-KDE-Applet;
+Categories=DesktopUtility;X-KDE-Applet;
 StartupNotify=false
 
