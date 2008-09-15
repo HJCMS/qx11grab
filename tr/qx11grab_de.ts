@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/ffprocess.cpp" line="172"/>
         <source>Recording</source>
-        <translation>Aufnahmen</translation>
+        <translation>Aufnehmen</translation>
     </message>
     <message>
         <location filename="../src/ffprocess.cpp" line="152"/>
