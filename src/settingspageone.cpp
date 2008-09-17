@@ -57,7 +57,7 @@ SettingsPageOne::SettingsPageOne ( QWidget *parent )
   setObjectName ( "SettingsPageOne" );
   setContentsMargins ( 2, 5, 2, 2 );
   setMinimumWidth ( 350 );
-  setMinimumHeight ( 250 );
+  setMinimumHeight ( 350 );
 
   topLayout = new QVBoxLayout ( this );
   topLayout->setSpacing ( 2 );
@@ -76,9 +76,10 @@ SettingsPageOne::SettingsPageOne ( QWidget *parent )
 const QMap<QString,QVariant> SettingsPageOne::getDefaults ()
 {
   QMap<QString,QVariant> map;
-  map.insert ( "ff_path", QVariant ( "/usr/bin/ffmpeg" ) );
-  map.insert ( "tempdir", QVariant ( QDir::tempPath() ) );
-  map.insert ( "outputName", QVariant ( "qx11grab-XXXXXX.avi" ) );
+  map.insert ( "ff_path", "/usr/bin/ffmpeg" );
+  map.insert ( "tempdir", QDir::tempPath() );
+  map.insert ( "outputName", "qx11grab-XXXXXX.avi" );
+  map.insert ( "ff_oss", "" );
   return map;
 }
 
@@ -88,6 +89,7 @@ const QString SettingsPageOne::getDescription ( const QString &key )
   map.insert ( "ff_path", trUtf8 ( "Full path to ffmpeg Binary" ) );
   map.insert ( "tempdir", trUtf8 ( "Default tmp Directory" ) );
   map.insert ( "outputName", trUtf8 ( "Default output file name" ) );
+  map.insert ( "ff_oss", trUtf8 ( "Audio Device" ) );
 
   if ( map.contains ( key ) )
     return map[key];

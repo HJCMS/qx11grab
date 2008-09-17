@@ -80,8 +80,9 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
   topLayout->addWidget ( labelNotice );
 
   ff_tableWidget = new QTableWidget ( this );
-  ff_tableWidget->setColumnCount ( 2 );
   ff_tableWidget->setSortingEnabled ( false );
+  ff_tableWidget->setColumnCount ( 2 );
+
   QStringList hText ( trUtf8 ( "Option" ) );
   hText << trUtf8 ( "Value" );
   ff_tableWidget->setHorizontalHeaderLabels ( hText );

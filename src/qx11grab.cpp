@@ -120,7 +120,7 @@ void QX11Grab::createActions()
   showRubberbandWindow = new QAction ( getIcon ( "grid" ), trUtf8 ( "Rubberband" ), this );
   connect ( showRubberbandWindow, SIGNAL ( triggered() ), this, SLOT ( swapRubberBand() ) );
 
-  startRecordingWindow = new QAction ( getIcon ( "run" ), trUtf8 ( "Record" ), this );
+  startRecordingWindow = new QAction ( getIcon ( "run" ), trUtf8 ( "Recording" ), this );
   connect ( startRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( startRecord() ) );
 
   stopRecordingWindow = new QAction ( getIcon ( "stop" ), trUtf8 ( "Stop" ), this );

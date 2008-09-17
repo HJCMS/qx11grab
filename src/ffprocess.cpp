@@ -45,6 +45,12 @@ bool FFProcess::create ( const QRect &r )
         arguments << n.replace( "ff_", "-" ) << QString( "\"%1\"" ).arg( m_Settings->getStr ( n ) );
     }
 
+    /* Audio */
+    if ( ! m_Settings->getStr ( "ff_oss" ).isEmpty() ) 
+    {
+      arguments << "-f" << "oss" << "-i" << m_Settings->getStr ( "ff_oss" );
+    }
+
     QString outFile = QString ( "%1/%2" ).arg ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
     QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
     outFile.replace ( QRegExp ( "\\bXXXXXX\\b" ), timeStamp );
