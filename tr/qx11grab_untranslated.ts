@@ -16,68 +16,83 @@
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="57"/>
+        <location filename="../src/ffprocess.cpp" line="123"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="235"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="152"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="156"/>
+        <location filename="../src/ffprocess.cpp" line="219"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="160"/>
+        <location filename="../src/ffprocess.cpp" line="223"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="164"/>
+        <location filename="../src/ffprocess.cpp" line="227"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="168"/>
+        <location filename="../src/ffprocess.cpp" line="231"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="235"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess.cpp" line="247"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="217"/>
+        <location filename="../src/ffprocess.cpp" line="262"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="188"/>
+        <location filename="../src/ffprocess.cpp" line="251"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="94"/>
+        <location filename="../src/ffprocess.cpp" line="157"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="107"/>
+        <location filename="../src/ffprocess.cpp" line="170"/>
         <source>force shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="89"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="90"/>
+        <source>%1 already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="123"/>
+        <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -142,11 +157,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="123"/>
-        <source>Record</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qx11grab.cpp" line="126"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
@@ -184,6 +194,11 @@
     <message>
         <location filename="../src/qx11grab.cpp" line="120"/>
         <source>Rubberband</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="123"/>
+        <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -406,30 +421,35 @@ Please check your Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="88"/>
+        <location filename="../src/settingspageone.cpp" line="89"/>
         <source>Full path to ffmpeg Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="89"/>
+        <location filename="../src/settingspageone.cpp" line="90"/>
         <source>Default tmp Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="90"/>
+        <location filename="../src/settingspageone.cpp" line="91"/>
         <source>Default output file name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingspageone.cpp" line="92"/>
+        <source>Audio Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsPageTwo</name>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="85"/>
+        <location filename="../src/settingspagetwo.cpp" line="86"/>
         <source>Option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="86"/>
+        <location filename="../src/settingspagetwo.cpp" line="87"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -444,12 +464,12 @@ Please check your Settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="218"/>
+        <location filename="../src/settingspagetwo.cpp" line="219"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="220"/>
+        <location filename="../src/settingspagetwo.cpp" line="221"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>

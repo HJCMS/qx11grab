@@ -10,7 +10,6 @@
     <file>images/grid.png</file>
     <file>images/help.png</file>
     <file>images/pause.png</file>
-    <file>images/qx11grab.png</file>
     <file>images/recording.png</file>
     <file>images/record.png</file>
     <file>images/running.png</file>
@@ -21,5 +20,7 @@
     <file>images/window.png</file>
     <file>images/minimize.png</file>
     <file>images/maximize.png</file>
+    <file>images/qx11grab.png</file>
+    <file>images/qx11grab-64.png</file>
   </qresource>
 </RCC>

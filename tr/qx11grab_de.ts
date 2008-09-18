@@ -17,69 +17,84 @@
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="57"/>
+        <location filename="../src/ffprocess.cpp" line="123"/>
         <source>Invalid Window geometry</source>
         <translation>Ungültige Fenster Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="235"/>
         <source>Recording</source>
         <translation>Aufnehmen</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="152"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Ausführungsfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="156"/>
+        <location filename="../src/ffprocess.cpp" line="219"/>
         <source>Crashed (%1) ...</source>
         <translation>Absturtz  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="160"/>
+        <location filename="../src/ffprocess.cpp" line="223"/>
         <source>Timedout (%1) ...</source>
         <translation>Zeitüberschreitung  (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="164"/>
+        <location filename="../src/ffprocess.cpp" line="227"/>
         <source>WriteError (%1) ...</source>
         <translation>Schreibfehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="168"/>
+        <location filename="../src/ffprocess.cpp" line="231"/>
         <source>ReadError (%1) ...</source>
         <translation>Lesefehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="235"/>
         <source>UnknownError (%1) ...</source>
         <translation>Unbekannter Fehler (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess.cpp" line="247"/>
         <source>Recording finished.</source>
         <translation>Aufnahme abgeschlossen.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="217"/>
+        <location filename="../src/ffprocess.cpp" line="262"/>
         <source>Recording started writing to: %1</source>
         <translation>Aufnahme gestartet, schreibe Meldungen in: %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="188"/>
+        <location filename="../src/ffprocess.cpp" line="251"/>
         <source>Process crashed see logfile %1</source>
         <translation>Prozess abgebrochen siehe %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="94"/>
+        <location filename="../src/ffprocess.cpp" line="157"/>
         <source>shutdown please wait ...</source>
         <translation>Beende bitte warten ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="107"/>
+        <location filename="../src/ffprocess.cpp" line="170"/>
         <source>force shutdown</source>
         <translation>Erzwinge beenden</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="89"/>
+        <source>Warning</source>
+        <translation>Warnung</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="90"/>
+        <source>%1 already exists.</source>
+        <translation>%1 existiert bereits.</translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="123"/>
+        <source>Dimension</source>
+        <translation>Dimensionen</translation>
     </message>
 </context>
 <context>
@@ -143,11 +158,6 @@
         <translation>aufgegriffene Dimensionen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="123"/>
-        <source>Record</source>
-        <translation>Aufnahme</translation>
-    </message>
-    <message>
         <location filename="../src/qx11grab.cpp" line="126"/>
         <source>Stop</source>
         <translation>Anhalten</translation>
@@ -186,6 +196,11 @@
         <location filename="../src/qx11grab.cpp" line="120"/>
         <source>Rubberband</source>
         <translation>Gumminband</translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="123"/>
+        <source>Recording</source>
+        <translation>Aufnahme</translation>
     </message>
 </context>
 <context>
@@ -283,7 +298,7 @@
     <message>
         <location filename="../src/qx11grabmain.ui" line="285"/>
         <source>Application</source>
-        <translation>Annwendung</translation>
+        <translation>Anwendung</translation>
     </message>
     <message>
         <location filename="../src/qx11grabmain.ui" line="294"/>
@@ -408,30 +423,35 @@ Bitte Überprüfe die Einstellungen.</translation>
         <translation>Starte qx11grab minimiert</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="88"/>
+        <location filename="../src/settingspageone.cpp" line="89"/>
         <source>Full path to ffmpeg Binary</source>
         <translation>Vollen Pfad zum ffmpeg Programm</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="89"/>
+        <location filename="../src/settingspageone.cpp" line="90"/>
         <source>Default tmp Directory</source>
         <translation>Standard Temp Verzeichniß</translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="90"/>
+        <location filename="../src/settingspageone.cpp" line="91"/>
         <source>Default output file name</source>
         <translation>Standard Datei Ausgabename</translation>
+    </message>
+    <message>
+        <location filename="../src/settingspageone.cpp" line="92"/>
+        <source>Audio Device</source>
+        <translation>Audio Schnittstelle</translation>
     </message>
 </context>
 <context>
     <name>SettingsPageTwo</name>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="85"/>
+        <location filename="../src/settingspagetwo.cpp" line="86"/>
         <source>Option</source>
         <translation>Option</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="86"/>
+        <location filename="../src/settingspagetwo.cpp" line="87"/>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
@@ -446,12 +466,12 @@ Bitte Überprüfe die Einstellungen.</translation>
         <translation>Bitte füge die Optionen -i,-f,-s und Ausgabe nicht in die Tabelle ein. Diese Parameter werden von qx11grab Automatisch generiert und eingfügt.</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="218"/>
+        <location filename="../src/settingspagetwo.cpp" line="219"/>
         <source>New</source>
         <translation>Neu</translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="220"/>
+        <location filename="../src/settingspagetwo.cpp" line="221"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
