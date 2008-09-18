@@ -17,3 +17,5 @@
 "<body style=\" font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;\">\n" \
 "<p style=\" margin:0px; text-indent:0px;\"><span style=\" color:#ff0000;\">%1</span>: %2</p>" \
 "</body></html>"
+
+#define OSS_IN_USE "Audio Device %s already in use\nDisable Capture with -f oss Option"

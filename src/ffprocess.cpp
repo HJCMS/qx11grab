@@ -10,12 +10,90 @@
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QIODevice>
+#include <QtGui/QMessageBox>
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
     , m_Settings ( settings )
     , xInfo()
 {
+  arguments = QStringList();
+}
+
+void FFProcess::addVideoDevice ( const QRect &r, const QString &o )
+{
+  arguments << "-f" << "x11grab" << "-xerror";
+  arguments << "-s" << QString ( "%1x%2" ).arg (
+      QString::number ( r.width() ),
+      QString::number ( r.height() )
+  );
+  arguments << o.split ( QRegExp ( "[ ]+" ) );
+  arguments << "-i" << QString ( ":%1.%2+%3,%4" ) .arg (
+      QString::number ( xInfo.screen() ),
+      QString::number ( xInfo.appScreen() ),
+      QString::number ( r.x() ),
+      QString::number ( r.y() )
+  );
+}
+
+void FFProcess::addAudioDevice()
+{
+  QString ffoss = m_Settings->getStr ( "ff_oss" );
+  if ( ffoss.isEmpty() )
+    return;
+
+  QFileInfo info ( ffoss );
+  if ( info.isRoot() )
+    return;
+
+  if ( info.isReadable() )
+  {
+    /* NOTICE ffmpeg will crash if Audio Device is alreay in use! */
+    QFile fp ( info.absoluteFilePath() );
+    if ( fp.open ( QIODevice::ReadOnly ) )
+    {
+      fp.close();
+      arguments << "-f" << "oss" << "-i" << ffoss;
+    }
+    else
+      qWarning ( OSS_IN_USE, qPrintable( ffoss ) );
+  }
+}
+
+void FFProcess::addOptional()
+{
+  QStringList extras ( "title" );
+  extras << "author" << "copyright" << "comment" << "genre";
+  foreach ( QString n, extras )
+  {
+    QString val = m_Settings->getStr ( "ff_" + n );
+    if ( ! val.isEmpty() )
+      arguments << QString ( "-%1" ).arg ( n ) << QString ( "\"%1\"" ).arg ( val );
+  }
+}
+
+const QString FFProcess::addOutput ( const QString &p, const QString &f )
+{
+  QDir d ( p );
+  if ( d.isReadable() )
+  {
+    QString outFile = QString ( "%1/%2" ).arg ( p, f );
+    QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
+    outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+    QFileInfo info ( outFile );
+    if ( info.exists() )
+    {
+      QMessageBox::critical ( 0L, trUtf8 ( "Warning" ), trUtf8 ( "%1 already exists." ).arg ( outFile ) );
+      return QString();
+    }
+    else
+      return outFile;
+  }
+  return QString();
 }
 
 bool FFProcess::create ( const QRect &r )
@@ -24,43 +102,24 @@ bool FFProcess::create ( const QRect &r )
   {
     QStringList cOpt = m_Settings->getCommand();
     arguments.clear();
-    arguments << "-f" << "x11grab" << "-xerror";
-    arguments << "-s" << QString ( "%1x%2" ).arg (
-        QString::number ( r.width() ),
-        QString::number ( r.height() )
-    );
-    arguments << cOpt.at ( 1 ).split ( QRegExp ( "[ ]+" ) );
-    arguments << "-i" << QString ( ":%1.%2+%3,%4" ) .arg (
-        QString::number ( xInfo.screen() ),
-        QString::number ( xInfo.appScreen() ),
-        QString::number ( r.x() ),
-        QString::number ( r.y() )
-    );
+    /* Video */
+    addVideoDevice ( r, cOpt.at ( 1 ) );
     /* Extras Options Title Comment etc. */
-    QStringList extras ( "ff_title" );
-    extras << "ff_author" << "ff_copyright" << "ff_comment" << "ff_genre";
-    foreach ( QString n, extras )
-    {
-      if ( ! m_Settings->getStr ( n ).isEmpty() )
-        arguments << n.replace( "ff_", "-" ) << QString( "\"%1\"" ).arg( m_Settings->getStr ( n ) );
-    }
-
+    addOptional();
     /* Audio */
-    if ( ! m_Settings->getStr ( "ff_oss" ).isEmpty() ) 
-    {
-      arguments << "-f" << "oss" << "-i" << m_Settings->getStr ( "ff_oss" );
-    }
+    addAudioDevice();
 
-    QString outFile = QString ( "%1/%2" ).arg ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
-    QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
-    outFile.replace ( QRegExp ( "\\bXXXXXX\\b" ), timeStamp );
+    QString outFile = addOutput ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
+    if ( outFile.isEmpty() )
+      return false;
+
     arguments << outFile;
 
     program = cOpt.at ( 0 ).trimmed();
     workdir = cOpt.at ( 2 ).trimmed();
     return true;
   }
-  emit message ( trUtf8 ( "Invalid Window geometry" ) );
+  emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
   return false;
 }
 
@@ -80,9 +139,6 @@ bool FFProcess::start()
 
   connect ( m_QProcess, SIGNAL ( finished ( int, QProcess::ExitStatus ) ),
             this, SLOT ( exited ( int, QProcess::ExitStatus ) ) );
-
-  connect ( m_QProcess, SIGNAL ( readyReadStandardOutput() ),
-            this, SLOT ( readOutput() ) );
 
   connect ( m_QProcess, SIGNAL ( started() ),
             this, SLOT ( startCheck() ) );
@@ -197,24 +253,6 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
     default:
       return;
   }
-}
-
-/**
- * TODO
- */
-void FFProcess::readOutput()
-{
-  QString data = m_QProcess->readAllStandardOutput();
-  data.trimmed();
-  if ( data.contains ( "frame=" ) )
-  {
-    data.replace ( QRegExp ( "[ ]+" ), " " );
-    data.replace ( QRegExp ( "= " ), "=" );
-    data.trimmed();
-    QStringList list = data.split ( " " );
-    qDebug() << list;
-  }
-  // qDebug() << data;
 }
 
 void FFProcess::startCheck()

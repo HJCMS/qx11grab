@@ -28,6 +28,31 @@ class FFProcess : public QObject
     QStringList arguments;
     QProcess *m_QProcess;
 
+    /**  Add Default X11Grab Command Line
+     * @code
+     *  -f x11grab -xerror -s (Width)x(Height) -i :(SCREEN).(qApp->SCREEN)+x,y
+     * @endcode
+     * @param r Dimension
+     * @param o Options
+     */
+    void addVideoDevice ( const QRect &r, const QString &o );
+
+    /**  Add Audio Command Line
+     * @code
+     *  -f oss -i /dev/dsp*
+     * @endcode
+     */
+    void addAudioDevice();
+
+    /** if not empty add -title,-author,-copyright,-comment,-genre */
+    void addOptional();
+
+    /** set Output filepath
+     * @param p Directory
+     * @param f Filename
+     */
+    const QString addOutput ( const QString &p, const QString &f );
+
   public:
     FFProcess ( QObject *parent = 0, Settings *settings = 0 );
     bool create ( const QRect & );
@@ -47,7 +72,6 @@ class FFProcess : public QObject
     void errmessage ( const QString &, const QString & );
 
   private Q_SLOTS:
-    void readOutput ();
     void startCheck ();
     void errors ( QProcess::ProcessError );
     void exited ( int, QProcess::ExitStatus );
