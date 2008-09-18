@@ -1,5 +1,7 @@
 2008/09/18
+  Version: 0.1.5
   Bugfix: ffmpeg will crash if Audio Device is alreay in use!
+  Done: check for valid output and warn if already exists.
 
 2008/09/15
   Add: Kill Signal

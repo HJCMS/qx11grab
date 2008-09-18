@@ -60,7 +60,7 @@ void FFProcess::addAudioDevice()
       arguments << "-f" << "oss" << "-i" << ffoss;
     }
     else
-      qWarning ( OSS_IN_USE, qPrintable( ffoss ) );
+      qWarning ( OSS_IN_USE, qPrintable ( ffoss ) );
   }
 }
 
@@ -86,12 +86,10 @@ const QString FFProcess::addOutput ( const QString &p, const QString &f )
     outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
     QFileInfo info ( outFile );
     if ( info.exists() )
-    {
-      QMessageBox::critical ( 0L, trUtf8 ( "Warning" ), trUtf8 ( "%1 already exists." ).arg ( outFile ) );
-      return QString();
-    }
-    else
-      return outFile;
+      QMessageBox::warning ( 0L, trUtf8 ( "Warning" ),
+                             trUtf8 ( "%1 already exists." ).arg ( outFile ) );
+
+    return outFile;
   }
   return QString();
 }
@@ -102,21 +100,24 @@ bool FFProcess::create ( const QRect &r )
   {
     QStringList cOpt = m_Settings->getCommand();
     arguments.clear();
-    /* Video */
+    /* Video Device with given Options */
     addVideoDevice ( r, cOpt.at ( 1 ) );
     /* Extras Options Title Comment etc. */
     addOptional();
     /* Audio */
     addAudioDevice();
-
+    /* Output */
     QString outFile = addOutput ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
     if ( outFile.isEmpty() )
       return false;
 
     arguments << outFile;
 
+    /* ffmpeg Binary */
     program = cOpt.at ( 0 ).trimmed();
+    /* Working Directory */
     workdir = cOpt.at ( 2 ).trimmed();
+
     return true;
   }
   emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
