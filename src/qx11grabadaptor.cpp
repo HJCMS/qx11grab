@@ -12,7 +12,7 @@ QX11GrabAdaptor::QX11GrabAdaptor ( QObject *parent )
     : QDBusAbstractAdaptor ( parent )
 {
   rcDBus = new QDBusConnection ( QDBusConnection::sessionBus() );
-  rcDBus->registerService ( "de.hjcms" );
+  rcDBus->registerService ( "de.hjcms.qx11grab" );
   rcDBus->sessionBus().registerObject ( "/qx11grab", parent, QDBusConnection::ExportAdaptors );
   setAutoRelaySignals ( false );
 }

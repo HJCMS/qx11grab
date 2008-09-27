@@ -16,9 +16,9 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-    Q_CLASSINFO ( "D-Bus Interface", "de.hjcms" )
+    Q_CLASSINFO ( "D-Bus Interface", "de.hjcms.qx11grab" )
     Q_CLASSINFO ( "D-Bus Introspection", ""
-"  <interface name=\"de.hjcms\" >\n"
+"  <interface name=\"de.hjcms.qx11grab\" >\n"
 "    <method name=\"stop\" />\n"
 "    <method name=\"start\" />\n"
 "    <signal name=\"message\">\n"
