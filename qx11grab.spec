@@ -1,6 +1,6 @@
 ## Specfile for OpenSuSE Build Service
 
-%define packagename  qx11grab-0.1.4
+%define packagename  qx11grab-0.1.7
 
 %define _qmake       qmake
 %define _lrelease    lrelease
@@ -10,7 +10,7 @@
 Name:           qx11grab
 Summary:        qt4 applet for recording x11 windows with ffmpeg
 Summary(de):    Qt4 Programm zum Aufnehmen von X11 Fenstern mit ffmpeg
-Version:        0.1.4
+Version:        0.1.7
 Release:        0
 License:        GPL 2
 Autoreqprov:    on

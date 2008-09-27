@@ -47,6 +47,11 @@ SOURCES =	main.cpp \
 	settingspagetwo.cpp \
 	ffprocess.cpp
 
+contains(QT,dbus) {
+	HEADERS += qx11grabadaptor.h
+	SOURCES += qx11grabadaptor.cpp
+}
+
 RESOURCES =	qx11grab.qrc
 
 FORMS =	qx11grabmain.ui \

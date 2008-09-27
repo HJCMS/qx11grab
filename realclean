@@ -14,5 +14,3 @@ rm -rf src/build/* \
   config.tests/qt4/qt4 \
   config.tests/dbus/dbus \
   config.log src/qx11grab
-
-> config.pri

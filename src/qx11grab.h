@@ -30,6 +30,12 @@ class DesktopInfo;
 class RubberBand;
 class FFProcess;
 
+#ifdef HAVE_DBUS
+
+class QX11GrabAdaptor;
+
+#endif
+
 class QX11Grab : public QMainWindow
       , protected Ui::QX11GrabMain
 {
@@ -59,12 +65,26 @@ class QX11Grab : public QMainWindow
     void loadStats();
     void saveStats();
 
-  Q_SIGNALS:
-    void startMinimized ();
+#ifdef HAVE_DBUS
+
+    QX11GrabAdaptor *m_QX11GrabAdaptor;
+
+#endif
 
   public:
     QX11Grab( Settings *settings = 0 );
     ~QX11Grab();
+
+#ifdef HAVE_DBUS
+
+  public Q_SLOTS:
+    void start_record();
+    void stop_record();
+
+#endif
+
+  Q_SIGNALS:
+    void startMinimized ();
 
   private Q_SLOTS:
     void swapRubberBand ();

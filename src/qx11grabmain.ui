@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>192</width>
-    <height>331</height>
+    <width>214</width>
+    <height>323</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -19,6 +19,9 @@
   </property>
   <widget class="QWidget" name="centralwidget" >
    <layout class="QVBoxLayout" name="verticalLayout" >
+    <property name="margin" >
+     <number>5</number>
+    </property>
     <item>
      <layout class="QGridLayout" name="gridLayout" >
       <property name="margin" >
@@ -205,7 +208,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>192</width>
+     <width>214</width>
      <height>33</height>
     </rect>
    </property>

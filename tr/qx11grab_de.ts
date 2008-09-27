@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="de">
-<defaultcodec></defaultcodec>
 <context>
     <name>DesktopInfo</name>
     <message>
@@ -112,7 +111,7 @@
     <message>
         <location filename="../src/settingspagetwo.cpp" line="31"/>
         <source>Copyright</source>
-        <translation></translation>
+        <translation>Lizens</translation>
     </message>
     <message>
         <location filename="../src/settingspagetwo.cpp" line="32"/>
@@ -122,7 +121,7 @@
     <message>
         <location filename="../src/settingspagetwo.cpp" line="33"/>
         <source>Genre</source>
-        <translation></translation>
+        <translation>Kategorie</translation>
     </message>
     <message>
         <location filename="../src/settingspagetwo.cpp" line="35"/>
@@ -135,7 +134,7 @@
     <message>
         <location filename="../src/qx11grab.cpp" line="130"/>
         <source>Hide</source>
-        <translation>Verbergen</translation>
+        <translation>Ausblenden</translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="133"/>
@@ -160,7 +159,7 @@
     <message>
         <location filename="../src/qx11grab.cpp" line="126"/>
         <source>Stop</source>
-        <translation>Anhalten</translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="309"/>
@@ -206,57 +205,57 @@
 <context>
     <name>QX11GrabMain</name>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="49"/>
+        <location filename="../src/qx11grabmain.ui" line="52"/>
         <source>Width:</source>
         <translation>Breite:</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="75"/>
+        <location filename="../src/qx11grabmain.ui" line="78"/>
         <source>Height:</source>
         <translation>Höhe:</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="101"/>
+        <location filename="../src/qx11grabmain.ui" line="104"/>
         <source>Name:</source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="152"/>
+        <location filename="../src/qx11grabmain.ui" line="155"/>
         <source>Position X:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="172"/>
+        <location filename="../src/qx11grabmain.ui" line="175"/>
         <source>Position Y:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="214"/>
+        <location filename="../src/qx11grabmain.ui" line="217"/>
         <source>Action</source>
         <translation>Aktion</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="229"/>
+        <location filename="../src/qx11grabmain.ui" line="232"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="243"/>
+        <location filename="../src/qx11grabmain.ui" line="246"/>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="255"/>
+        <location filename="../src/qx11grabmain.ui" line="258"/>
         <source>Screen</source>
         <translation>Bildschirm</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="264"/>
+        <location filename="../src/qx11grabmain.ui" line="267"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="273"/>
+        <location filename="../src/qx11grabmain.ui" line="276"/>
         <source>Minimize</source>
         <translation>Minimieren</translation>
     </message>
@@ -266,77 +265,77 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="114"/>
+        <location filename="../src/qx11grabmain.ui" line="117"/>
         <source>sqcif</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="127"/>
+        <location filename="../src/qx11grabmain.ui" line="130"/>
         <source>read only</source>
-        <translation>nur Lesen</translation>
+        <translation>Schreibgeschützt</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="197"/>
+        <location filename="../src/qx11grabmain.ui" line="200"/>
         <source>Display Rubberband</source>
         <translation>zeige Gummiband</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="226"/>
+        <location filename="../src/qx11grabmain.ui" line="229"/>
         <source>Open Settings Dialog</source>
         <translation>Öffne den Einstellungen Dialog</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="246"/>
+        <location filename="../src/qx11grabmain.ui" line="249"/>
         <source>Close Application</source>
         <translation>Schließe die Annwendung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="276"/>
+        <location filename="../src/qx11grabmain.ui" line="279"/>
         <source>Minimize to Systray</source>
         <translation>Minimiere in die Taskleiste</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="285"/>
+        <location filename="../src/qx11grabmain.ui" line="288"/>
         <source>Application</source>
         <translation>Anwendung</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="294"/>
+        <location filename="../src/qx11grabmain.ui" line="297"/>
         <source>Recording</source>
         <translation>Aufnehmen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="297"/>
+        <location filename="../src/qx11grabmain.ui" line="300"/>
         <source>Start Recording</source>
         <translation>Starte Aufnahme</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="309"/>
-        <source>Stop</source>
-        <translation>Anhalten</translation>
-    </message>
-    <message>
         <location filename="../src/qx11grabmain.ui" line="312"/>
-        <source>Stop Recording</source>
-        <translation>Stoppe die Aufnahme</translation>
+        <source>Stop</source>
+        <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="33"/>
+        <location filename="../src/qx11grabmain.ui" line="315"/>
+        <source>Stop Recording</source>
+        <translation>Beende Aufnahme</translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grabmain.ui" line="36"/>
         <source>Format:</source>
         <translation>Format:</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="321"/>
+        <location filename="../src/qx11grabmain.ui" line="324"/>
         <source>Grabbing</source>
         <translation>Abgreifen</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="324"/>
+        <location filename="../src/qx11grabmain.ui" line="327"/>
         <source>get Size from Window</source>
         <translation>nehme Fenstergröße</translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="336"/>
+        <location filename="../src/qx11grabmain.ui" line="339"/>
         <source>Kill</source>
         <translation>Killen</translation>
     </message>

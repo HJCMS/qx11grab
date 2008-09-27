@@ -39,10 +39,8 @@ while (( $# > 0 )); do
         QMAKE_BIN=$2; shift
     elif [ $1 == "-bootstrap" ]; then
         echo "CONFIG += bootstrap" >> config.in; shift
-    elif [ $1 == "-nomake" ]; then
-        echo "QXT_BUILD -= $2" >> config.in; shift
     elif [ $1 == "-prefix" ]; then
-        echo "QXTINSTALLDIR = $2" >> config.in; shift
+        echo "PREFIX = $2" >> config.in; shift
     elif [ $1 == "-libdir" ]; then
         echo "target.path = $2" >> config.in; shift
     elif [ $1 == "-docdir" ]; then
@@ -145,6 +143,9 @@ configtest qt4     QT
 
 if [[ "$NO_DBUS" == "0" ]]; then
   configtest dbus    DBUS
+  if test -x $PROJECT_ROOT/config.tests/dbus/dbus ; then
+    echo "QT += dbus" >> $PROJECT_ROOT/config.in
+  fi
 fi
 
 echo "autodetection finished. running qmake."

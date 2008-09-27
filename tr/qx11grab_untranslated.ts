@@ -205,57 +205,57 @@
 <context>
     <name>QX11GrabMain</name>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="49"/>
+        <location filename="../src/qx11grabmain.ui" line="52"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="75"/>
+        <location filename="../src/qx11grabmain.ui" line="78"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="101"/>
+        <location filename="../src/qx11grabmain.ui" line="104"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="152"/>
+        <location filename="../src/qx11grabmain.ui" line="155"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="172"/>
+        <location filename="../src/qx11grabmain.ui" line="175"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="214"/>
+        <location filename="../src/qx11grabmain.ui" line="217"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="229"/>
+        <location filename="../src/qx11grabmain.ui" line="232"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="243"/>
+        <location filename="../src/qx11grabmain.ui" line="246"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="255"/>
+        <location filename="../src/qx11grabmain.ui" line="258"/>
         <source>Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="264"/>
+        <location filename="../src/qx11grabmain.ui" line="267"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="273"/>
+        <location filename="../src/qx11grabmain.ui" line="276"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
@@ -265,77 +265,77 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="114"/>
+        <location filename="../src/qx11grabmain.ui" line="117"/>
         <source>sqcif</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="127"/>
+        <location filename="../src/qx11grabmain.ui" line="130"/>
         <source>read only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="197"/>
+        <location filename="../src/qx11grabmain.ui" line="200"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="226"/>
+        <location filename="../src/qx11grabmain.ui" line="229"/>
         <source>Open Settings Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="246"/>
+        <location filename="../src/qx11grabmain.ui" line="249"/>
         <source>Close Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="276"/>
+        <location filename="../src/qx11grabmain.ui" line="279"/>
         <source>Minimize to Systray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="285"/>
+        <location filename="../src/qx11grabmain.ui" line="288"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="294"/>
+        <location filename="../src/qx11grabmain.ui" line="297"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="297"/>
+        <location filename="../src/qx11grabmain.ui" line="300"/>
         <source>Start Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="309"/>
+        <location filename="../src/qx11grabmain.ui" line="312"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="312"/>
+        <location filename="../src/qx11grabmain.ui" line="315"/>
         <source>Stop Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="33"/>
+        <location filename="../src/qx11grabmain.ui" line="36"/>
         <source>Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="321"/>
+        <location filename="../src/qx11grabmain.ui" line="324"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="324"/>
+        <location filename="../src/qx11grabmain.ui" line="327"/>
         <source>get Size from Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="336"/>
+        <location filename="../src/qx11grabmain.ui" line="339"/>
         <source>Kill</source>
         <translation type="unfinished"></translation>
     </message>

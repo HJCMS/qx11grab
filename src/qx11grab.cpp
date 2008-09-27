@@ -11,6 +11,11 @@
 #include "settingsdialog.h"
 #include "ffprocess.h"
 
+#ifdef HAVE_DBUS
+#include "qx11grabadaptor.h"
+#include <QtDBus/QDBusConnection>
+#endif
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QString>
@@ -41,6 +46,14 @@ QX11Grab::QX11Grab ( Settings *settings )
   createActions();
   createEnviroment();
   createSystemTrayIcon();
+
+#ifdef HAVE_DBUS
+
+  m_QX11GrabAdaptor = new QX11GrabAdaptor ( this );
+  connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
+            m_QX11GrabAdaptor, SIGNAL ( message ( const QString & ) ) );
+
+#endif
 
   /* Signals */
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
@@ -103,6 +116,31 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( actionQuit, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );
 }
+
+#ifdef HAVE_DBUS
+
+void QX11Grab::start_record()
+{
+  if ( ! m_FFProcess )
+    return;
+
+  try
+  {
+    startRecord ();
+  }
+  catch ( const char* mess )
+  {
+    qFatal ( "No XServer where found: (%s)", mess );
+  }
+}
+
+void QX11Grab::stop_record()
+{
+  if ( m_FFProcess->isRunning() )
+    m_FFProcess->stop ();
+}
+
+#endif
 
 const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
 {
@@ -310,6 +348,17 @@ void QX11Grab::closeEvent ( QCloseEvent *ev )
     ev->ignore();
   }
   saveStats();
+
+#ifdef HAVE_DBUS
+
+  if ( m_QX11GrabAdaptor )
+  {
+    QDBusConnection::sessionBus().unregisterObject ( "/qx11grab", QDBusConnection::UnregisterNode );
+    delete m_QX11GrabAdaptor;
+  }
+
+#endif
+
 }
 
 void QX11Grab::pushInfoMessage ( const QString &txt )
