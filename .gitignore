@@ -5,5 +5,4 @@ Makefile*
 Doxyfile
 *.qm
 *.log
-config.pri
 extras
