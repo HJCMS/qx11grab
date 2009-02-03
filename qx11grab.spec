@@ -58,7 +58,17 @@ Autor: -------------
 %setup -q
 %build
 
-./configure -no-dbus -release -verbose
+echo "CONFIG += silent
+PREFIX = \$\$[QT_INSTALL_PREFIX]
+CONFIG -= debug
+DEFINES+=HAVE_QT
+DEFINES+=HAVE_DBUS
+QT += dbus
+QMAKE_CXXFLAGS_DEBUG += $RPM_OPT_FLAGS
+QMAKE_CXXFLAGS_RELEASE += $RPM_OPT_FLAGS
+" > config.pri
+
+%{_qmake} -makefile -o Makefile %{name}.pro
 
 %__make
 
@@ -75,6 +85,7 @@ rm -rf %{buildroot}
 %{_qt_bindir}/%{name}
 %{_qt_transdir}/%{name}*.qm
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/share/pixmaps/qx11grab.png
 
 %changelog
 #eof

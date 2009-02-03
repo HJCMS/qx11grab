@@ -17,7 +17,6 @@ UI_DIR += build
 MOC_DIR += build
 RCC_DIR += build
 
-include(../devel.pri)
 include(../config.pri)
 
 TRANSLATIONS = ../tr/qx11grab_untranslated.ts \
@@ -60,6 +59,9 @@ FORMS =	qx11grabmain.ui \
 xdgdata.path = $$[QT_INSTALL_PREFIX]/share/applications
 xdgdata.files = qx11grab.desktop
 
+pixmap.path = $$[QT_INSTALL_PREFIX]/share/pixmaps
+pixmap.files = images/qx11grab.png
+
 target.path +=	$$[QT_INSTALL_BINS]
 
-INSTALLS +=	target xdgdata
+INSTALLS +=	target xdgdata pixmap

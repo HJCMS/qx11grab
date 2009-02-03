@@ -1,12 +1,12 @@
 [Desktop Entry]
 Name=qx11grab
+GenericName=QX11Grabber
 Comment=Application for recording x11 windows
 Comment[de]=Programm zum Aufnehmen von X11 Fenstern
 Exec=qx11grab
-Icon=x
+Icon=qx11grab
 Type=Application
-Categories=Qt;KDE;Utility;X-TrayIcon;X-Applet;
+Categories=Qt;KDE;X-KDE-Utilities-Desktop;Utility;Applet;
 StartupNotify=false
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Unique
 X-DBUS-ServiceType=Unique
