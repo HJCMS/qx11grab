@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define QX11GRAB_VERSION "0.1.7"
+#define QX11GRAB_VERSION "0.1.8"
 
 #define LOG_FILE "/tmp/qx11grab.log"
 
