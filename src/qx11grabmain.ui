@@ -1,193 +1,194 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <author>Juergen Heinemann</author>
  <class>QX11GrabMain</class>
- <widget class="QMainWindow" name="QX11GrabMain" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="QX11GrabMain">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>214</width>
-    <height>323</height>
+    <width>294</width>
+    <height>287</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>qx11grab</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="qx11grab.qrc" >
+  <property name="windowIcon">
+   <iconset resource="qx11grab.qrc">
     <normaloff>:/images/qx11grab.png</normaloff>:/images/qx11grab.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <layout class="QVBoxLayout" name="verticalLayout" >
-    <property name="margin" >
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="margin">
      <number>5</number>
     </property>
     <item>
-     <layout class="QGridLayout" name="gridLayout" >
-      <property name="margin" >
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="margin">
        <number>2</number>
       </property>
-      <property name="spacing" >
+      <property name="spacing">
        <number>5</number>
       </property>
-      <item row="0" column="0" >
-       <widget class="QLabel" name="label" >
-        <property name="text" >
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
          <string>Format:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="0" column="1" >
-       <widget class="ScreenComboBox" name="screenComboBox" />
+      <item row="0" column="1">
+       <widget class="ScreenComboBox" name="screenComboBox"/>
       </item>
-      <item row="1" column="0" >
-       <widget class="QLabel" name="label_2" >
-        <property name="text" >
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
          <string>Width:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" >
-       <widget class="QSpinBox" name="setWidthBox" >
-        <property name="minimum" >
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="setWidthBox">
+        <property name="minimum">
          <number>128</number>
         </property>
-        <property name="maximum" >
+        <property name="maximum">
          <number>7680</number>
         </property>
-        <property name="singleStep" >
+        <property name="singleStep">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" >
-       <widget class="QLabel" name="label_3" >
-        <property name="text" >
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
          <string>Height:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="2" column="1" >
-       <widget class="QSpinBox" name="setHeightBox" >
-        <property name="minimum" >
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="setHeightBox">
+        <property name="minimum">
          <number>96</number>
         </property>
-        <property name="maximum" >
+        <property name="maximum">
          <number>4800</number>
         </property>
-        <property name="singleStep" >
+        <property name="singleStep">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" >
-       <widget class="QLabel" name="label_4" >
-        <property name="text" >
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
          <string>Name:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="3" column="1" >
-       <widget class="QLineEdit" name="setModeName" >
-        <property name="text" >
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="setModeName">
+        <property name="text">
          <string>sqcif</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1" >
-       <widget class="QSpinBox" name="setDepthBox" >
-        <property name="contextMenuPolicy" >
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="setDepthBox">
+        <property name="contextMenuPolicy">
          <enum>Qt::NoContextMenu</enum>
         </property>
-        <property name="toolTip" >
+        <property name="toolTip">
          <string>read only</string>
         </property>
-        <property name="statusTip" >
+        <property name="statusTip">
          <string>read only</string>
         </property>
-        <property name="frame" >
+        <property name="frame">
          <bool>false</bool>
         </property>
-        <property name="readOnly" >
+        <property name="readOnly">
          <bool>true</bool>
         </property>
-        <property name="keyboardTracking" >
+        <property name="keyboardTracking">
          <bool>false</bool>
         </property>
-        <property name="minimum" >
+        <property name="minimum">
          <number>8</number>
         </property>
-        <property name="maximum" >
+        <property name="maximum">
          <number>36</number>
         </property>
-        <property name="value" >
+        <property name="value">
          <number>16</number>
         </property>
        </widget>
       </item>
-      <item row="5" column="0" >
-       <widget class="QLabel" name="label_6" >
-        <property name="text" >
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
          <string>Position X:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="5" column="1" >
-       <widget class="QSpinBox" name="setXBox" >
-        <property name="maximum" >
+      <item row="5" column="1">
+       <widget class="QSpinBox" name="setXBox">
+        <property name="maximum">
          <number>7680</number>
         </property>
        </widget>
       </item>
-      <item row="6" column="0" >
-       <widget class="QLabel" name="label_7" >
-        <property name="text" >
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
          <string>Position Y:</string>
         </property>
-        <property name="alignment" >
+        <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="indent" >
+        <property name="indent">
          <number>2</number>
         </property>
        </widget>
       </item>
-      <item row="6" column="1" >
-       <widget class="QSpinBox" name="setYBox" >
-        <property name="maximum" >
+      <item row="6" column="1">
+       <widget class="QSpinBox" name="setYBox">
+        <property name="maximum">
          <number>4800</number>
         </property>
-        <property name="value" >
+        <property name="value">
          <number>30</number>
         </property>
        </widget>
@@ -195,152 +196,152 @@
      </layout>
     </item>
     <item>
-     <widget class="QCheckBox" name="showRubberband" >
-      <property name="text" >
+     <widget class="QCheckBox" name="showRubberband">
+      <property name="text">
        <string>Display Rubberband</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>214</width>
-     <height>33</height>
+     <width>294</width>
+     <height>28</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile" >
-    <property name="title" >
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
      <string>Action</string>
     </property>
-    <addaction name="actionGrabbing" />
-    <addaction name="actionStartRecord" />
-    <addaction name="actionStopRecord" />
-    <addaction name="actionKillRecord" />
-    <addaction name="separator" />
-    <addaction name="actionMinimize" />
-    <addaction name="actionQuit" />
+    <addaction name="actionGrabbing"/>
+    <addaction name="actionStartRecord"/>
+    <addaction name="actionStopRecord"/>
+    <addaction name="actionKillRecord"/>
+    <addaction name="separator"/>
+    <addaction name="actionMinimize"/>
+    <addaction name="actionQuit"/>
    </widget>
-   <widget class="QMenu" name="menuSettings" >
-    <property name="whatsThis" >
+   <widget class="QMenu" name="menuSettings">
+    <property name="whatsThis">
      <string>Open Settings Dialog</string>
     </property>
-    <property name="title" >
+    <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actionApplication" />
+    <addaction name="actionApplication"/>
    </widget>
-   <addaction name="menuFile" />
-   <addaction name="menuSettings" />
+   <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
-  <action name="actionQuit" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Quit</string>
    </property>
-   <property name="statusTip" >
+   <property name="statusTip">
     <string>Close Application</string>
    </property>
   </action>
-  <action name="actionModusScreen" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionModusScreen">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/grid.png</normaloff>:/images/grid.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Screen</string>
    </property>
   </action>
-  <action name="actionModusWindow" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionModusWindow">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/view.png</normaloff>:/images/view.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Window</string>
    </property>
   </action>
-  <action name="actionMinimize" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionMinimize">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/minimize.png</normaloff>:/images/minimize.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Minimize</string>
    </property>
-   <property name="statusTip" >
+   <property name="statusTip">
     <string>Minimize to Systray</string>
    </property>
   </action>
-  <action name="actionApplication" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionApplication">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/utilities.png</normaloff>:/images/utilities.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Application</string>
    </property>
   </action>
-  <action name="actionStartRecord" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionStartRecord">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/run.png</normaloff>:/images/run.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Recording</string>
    </property>
-   <property name="statusTip" >
+   <property name="statusTip">
     <string>Start Recording</string>
    </property>
   </action>
-  <action name="actionStopRecord" >
-   <property name="enabled" >
+  <action name="actionStopRecord">
+   <property name="enabled">
     <bool>false</bool>
    </property>
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Stop</string>
    </property>
-   <property name="statusTip" >
+   <property name="statusTip">
     <string>Stop Recording</string>
    </property>
   </action>
-  <action name="actionGrabbing" >
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+  <action name="actionGrabbing">
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/window.png</normaloff>:/images/window.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Grabbing</string>
    </property>
-   <property name="toolTip" >
+   <property name="toolTip">
     <string>get Size from Window</string>
    </property>
   </action>
-  <action name="actionKillRecord" >
-   <property name="enabled" >
+  <action name="actionKillRecord">
+   <property name="enabled">
     <bool>false</bool>
    </property>
-   <property name="icon" >
-    <iconset resource="qx11grab.qrc" >
+   <property name="icon">
+    <iconset resource="qx11grab.qrc">
      <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Kill</string>
    </property>
   </action>
  </widget>
- <layoutdefault spacing="0" margin="2" />
+ <layoutdefault spacing="0" margin="2"/>
  <customwidgets>
   <customwidget>
    <class>ScreenComboBox</class>
@@ -349,7 +350,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="qx11grab.qrc" />
+  <include location="qx11grab.qrc"/>
  </resources>
  <connections/>
 </ui>

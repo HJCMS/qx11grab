@@ -13,6 +13,7 @@
 
 /* QtGui */
 #include <QtGui/QWidget>
+#include <QtGui/QGroupBox>
 #include <QtGui/QLabel>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QLineEdit>
@@ -37,6 +38,10 @@ class ItemEditCmd : public QHBoxLayout
     void setValue ( const QVariant & );
     const QVariant value();
     ~ItemEditCmd() {}
+
+  public Q_SLOTS:
+    void clearInput();
+
 };
 
 class SettingsPageTwo : public QWidget
@@ -47,10 +52,14 @@ class SettingsPageTwo : public QWidget
 
   private:
     QLabel *ff_cmd;
+    QGroupBox *m_descriptionGroupBox;
     QTableWidget *ff_tableWidget;
-    const QString stripString( const QString & );
+    const QString stripString ( const QString & );
     void resizeTableContents ();
-    void pushItemRow( int, const QString &, const QVariant & );
+    void pushItemRow ( int, const QString &, const QVariant & );
+
+  private Q_SLOTS:
+    void descriptions ( bool );
 
   public:
     SettingsPageTwo ( QWidget *parent = 0 );

@@ -26,13 +26,13 @@ ItemEditCmd::ItemEditCmd ( const QString &name, QWidget *parent )
   setContentsMargins ( 2, 2, 2, 2 );
 
   QMap<QString,QString> map;
-  map.insert( "ff_title", trUtf8( "Title" ) );
-  map.insert( "ff_author", trUtf8( "Author" ) );
-  map.insert( "ff_copyright", trUtf8( "Copyright" ) );
-  map.insert( "ff_comment", trUtf8( "Comment" ) );
-  map.insert( "ff_genre", trUtf8( "Genre" ) );
+  map.insert ( "ff_title", trUtf8 ( "Title" ) );
+  map.insert ( "ff_author", trUtf8 ( "Author" ) );
+  map.insert ( "ff_copyright", trUtf8 ( "Copyright" ) );
+  map.insert ( "ff_comment", trUtf8 ( "Comment" ) );
+  map.insert ( "ff_genre", trUtf8 ( "Genre" ) );
 
-  QString title = ( map.contains( name ) ) ? map[name] : trUtf8( "Unknown" );
+  QString title = ( map.contains ( name ) ) ? map[name] : trUtf8 ( "Unknown" );
   label = new QLabel ( title, parent );
   label->setMinimumWidth ( 80 );
   label->setAlignment ( Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter );
@@ -41,8 +41,8 @@ ItemEditCmd::ItemEditCmd ( const QString &name, QWidget *parent )
   edit = new QLineEdit ( parent );
   edit->setMinimumHeight ( 18 );
 
-  Settings cfg( this );
-  edit->setText( cfg.getStr( name ) );
+  Settings cfg ( this );
+  edit->setText ( cfg.getStr ( name ) );
 
   addWidget ( edit );
 }
@@ -58,6 +58,11 @@ const QVariant ItemEditCmd::value()
   return QVariant ( edit->text() );
 }
 
+void ItemEditCmd::clearInput()
+{
+  edit->clear();
+}
+
 SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
     : QWidget ( parent )
 {
@@ -65,14 +70,25 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
   setContentsMargins ( 2, 5, 2, 2 );
   setMinimumWidth ( 350 );
 
+
   QVBoxLayout *topLayout = new QVBoxLayout ( this );
 
-  QStringList extras ( "ff_title" );
-  extras << "ff_author" << "ff_copyright" << "ff_comment" << "ff_genre";
-  foreach ( QString n, extras )
-  {
-    topLayout->addLayout ( new ItemEditCmd ( n, this ) );
-  }
+  m_descriptionGroupBox = new QGroupBox ( this );
+  m_descriptionGroupBox->setObjectName ( "deprecated_description_elements" );
+  m_descriptionGroupBox->setCheckable ( true );
+  m_descriptionGroupBox->setChecked ( false );
+  m_descriptionGroupBox->setTitle ( trUtf8 ( "Deprecated Video Information Elements" ) );
+  m_descriptionGroupBox->setToolTip ( trUtf8 ( "NOTE: this options no longer work with newer ffmpeg versions!" ) );
+
+  QVBoxLayout *groupLayout = new QVBoxLayout ( m_descriptionGroupBox );
+  groupLayout->addLayout ( new ItemEditCmd ( "ff_title", this ) );
+  groupLayout->addLayout ( new ItemEditCmd ( "ff_author", this ) );
+  groupLayout->addLayout ( new ItemEditCmd ( "ff_copyright", this ) );
+  groupLayout->addLayout ( new ItemEditCmd ( "ff_comment", this ) );
+  groupLayout->addLayout ( new ItemEditCmd ( "ff_genre", this ) );
+  m_descriptionGroupBox->setLayout ( groupLayout );
+
+  topLayout->addWidget ( m_descriptionGroupBox );
 
   QString txt = QString ( HTML_NOTICE ).arg ( trUtf8 ( "Notice" ) ,trUtf8 ( "Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab." ) );
   QLabel *labelNotice = new QLabel ( txt, this );
@@ -96,6 +112,9 @@ SettingsPageTwo::SettingsPageTwo ( QWidget *parent )
 
   connect ( ff_tableWidget, SIGNAL ( itemChanged ( QTableWidgetItem * ) ),
             this, SLOT ( prepareProcessLine() ) );
+
+  connect ( m_descriptionGroupBox, SIGNAL ( toggled ( bool ) ),
+            this, SLOT ( descriptions ( bool ) ) );
 }
 
 const QString SettingsPageTwo::stripString ( const QString &str )
@@ -103,6 +122,18 @@ const QString SettingsPageTwo::stripString ( const QString &str )
   QRegExp pattern ( "[ \\s\\t\\'\"]+" );
   QString ret ( str );
   return ret.replace ( pattern, "" );
+}
+
+void SettingsPageTwo::descriptions ( bool )
+{
+  if ( ! m_descriptionGroupBox->isChecked() )
+  {
+    foreach ( ItemEditCmd *line, m_descriptionGroupBox->findChildren<ItemEditCmd*>() )
+    {
+      if ( ! line->objectName().isEmpty() )
+        line->clearInput();
+    }
+  }
 }
 
 void SettingsPageTwo::setTableDefaults()
