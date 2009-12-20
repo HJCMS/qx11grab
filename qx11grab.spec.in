@@ -1,26 +1,27 @@
 ## Specfile for OpenSuSE Build Service
 
-%define packagename  qx11grab-0.1.7
-
-%define _qmake       qmake
-%define _lrelease    lrelease
-%define _qt_bindir   %(%{_qmake} -query QT_INSTALL_BINS)
-%define _qt_transdir %(%{_qmake} -query QT_INSTALL_TRANSLATIONS)
+%define packagename  qx11grab-@PACKAGE_VERSION@
 
 Name:           qx11grab
 Summary:        qt4 applet for recording x11 windows with ffmpeg
 Summary(de):    Qt4 Programm zum Aufnehmen von X11 Fenstern mit ffmpeg
-Version:        0.1.7
+Version:        @PACKAGE_VERSION@
 Release:        0
-License:        GPL 2
-Autoreqprov:    on
+License:        GPLv2+
+AutoReqProv:    on
 Source0:        %{_sourcedir}/%packagename.tar.bz2
-Group:          System/GUI/QT
+Group:          Productivity/Multimedia/Other
 Url:            http://qx11grab.hjcms.de
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires:       ffmpeg
-BuildRequires:  libqt4-devel
+BuildRequires:  autoconf >= 2.62 automake >= 1.10
+%if %{defined suse_version}
+BuildRequires:  libqt4-devel update-desktop-files
+%else
+BuildRequires:  qt4-devel
+%endif 
 Vendor:         Juergen Heinemann (Undefined) http://www.hjcms.de
+Prefix:         @prefix@
 
 %description
 qt4 applet for recording x11 windows with ffmpeg
@@ -56,36 +57,39 @@ Autor: -------------
 
 %prep
 %setup -q
+
+test -x configure || autoreconf -fvi
+
 %build
 
-echo "CONFIG += silent
-PREFIX = \$\$[QT_INSTALL_PREFIX]
-CONFIG -= debug
-DEFINES+=HAVE_QT
-DEFINES+=HAVE_DBUS
-QT += dbus
-QMAKE_CXXFLAGS_DEBUG += $RPM_OPT_FLAGS
-QMAKE_CXXFLAGS_RELEASE += $RPM_OPT_FLAGS
-" > config.pri
-
-%{_qmake} -makefile -o Makefile %{name}.pro
+%configure
 
 %__make
 
 %install
-%__mkdir_p %{buildroot}
+%makeinstall
 
-%__make INSTALL_ROOT=%{buildroot} install
+%if %{defined suse_version}
+%suse_update_desktop_file %{name} -r Utility DesktopUtility
+%endif 
 
-%clean
-rm -rf %{buildroot}
+%post
+#
+
+%postun
+#
 
 %files
 %defattr(-, root, root)
-%{_qt_bindir}/%{name}
-%{_qt_transdir}/%{name}*.qm
+%{_bindir}/%{name}
+@Q_LOCALE_DIR@/%{name}*.qm
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/share/pixmaps/qx11grab.png
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/*
+%{_datadir}/share/pixmaps/%{name}.png
+
+%clean
+rm -rf %{buildroot}
 
 %changelog
 #eof
