@@ -6,7 +6,6 @@ Makefile.in
 config.h.in*
 *.kdev*
 Doxyfile
-*.qm
 *.log
 qx11grab.spec
 configure
