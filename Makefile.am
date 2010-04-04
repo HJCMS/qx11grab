@@ -9,7 +9,7 @@ SUBDIRS = auxdir \
 	tr \
 	extras
 
-destdir = @datarootdir@/qx11grab
+destdir = @docdir@
 dest_DATA = AUTHORS ChangeLog INSTALL NEWS README
 
 xdgdir = @datarootdir@/applications

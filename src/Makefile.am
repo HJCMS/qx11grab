@@ -1,8 +1,8 @@
 
 bin_PROGRAMS = qx11grab
 AM_CXXFLAGS ?= -g -O2 -pipe
-qx11grab_LDFLAGS = @QT_LIBS@ @AVFORMAT_LIBS@ @AVUTIL_LIBS@ @AVCODEC_LIBS@
-qx11grab_CXXFLAGS = $(AM_CXXFLAGS) @QT_CFLAGS@ @AVFORMAT_CFLAGS@ @AVUTIL_CFLAGS@ @AVCODEC_CFLAGS@
+qx11grab_LDFLAGS = @QT_LIBS@ $(FFMPEG_LIBS)
+qx11grab_CXXFLAGS = $(AM_CXXFLAGS) @QT_CFLAGS@
 qx11grab_CXXFLAGS += -I@top_srcdir@ -I@top_builddir@
 qx11grab_CXXFLAGS += -Wall -W -Wextra -pedantic -Wstack-protector -Wno-long-long -Wno-overlength-strings
 

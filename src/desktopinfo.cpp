@@ -1,5 +1,5 @@
 /***
-* Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2008
+* Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010
 * Copyright: See COPYING file that comes with this distribution
 **/
 

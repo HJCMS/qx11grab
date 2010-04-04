@@ -1,6 +1,6 @@
 dnl configure.in
 dnl -----------------------------------------------------------------------
-dnl Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2009         dnl
+dnl Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010         dnl
 dnl                                                                      dnl
 dnl Copyright (C) 2004 by Juergen Heinemann                              dnl
 dnl                                     nospam __AT__ hjcms (DOT) de     dnl
@@ -27,8 +27,8 @@ dnl Release Versioning
 dnl -----------------------------------------------
 m4_define(PKG_NAME, [qx11grab])
 m4_define(PKG_MAJOR, [0])
-m4_define(PKG_MINOR, [1])
-m4_define(PKG_MICRO, [8])
+m4_define(PKG_MINOR, [2])
+m4_define(PKG_MICRO, [1])
 
 dnl -----------------------------------------------
 dnl Package name and version number (user defined)
@@ -53,11 +53,11 @@ dnl Enable regular expression library
 AM_WITH_REGEX
 
 dnl -----------------------------------------------
-dnl Checks for required programs.
+dnl Check for required applications
 dnl -----------------------------------------------
 AC_LANG_CPLUSPLUS
 AC_PROG_CPP
-AC_PROG_CXX([g++ mpicxx])
+AC_PROG_CXX([g++ mpic++ mpicxx])
 AC_PROG_CXX_C_O
 AC_PROG_CC_C99
 AC_PROG_MAKE_SET
@@ -74,39 +74,26 @@ dnl -----------------------------------------------
 AC_CHECK_QT4(["4.6.0"],["QtCore QtGui QtDBus"])
 
 dnl -----------------------------------------------
-dnl locale's files and scripts
-dnl -----------------------------------------------
-dnl AM_GNU_GETTEXT([external])
-dnl AM_GNU_GETTEXT_VERSION(0.16)
-dnl AC_LIB_LINKFLAGS([asprintf])
-dnl AC_SUBST([LOCALEDIR],"$localedir") dnl
-
-dnl -----------------------------------------------
-dnl Checks for required headers
+dnl Check for required headers
 dnl -----------------------------------------------
 AC_HEADER_STDC
 AC_CHECK_HEADERS([stddef.h stdio.h time.h stdarg.h])
 
 dnl -----------------------------------------------
-dnl Checks for required ffmpeg Development Files
+dnl Check for required ffmpeg Development Files
 dnl -----------------------------------------------
-dnl libavformat
-PKG_CHECK_MODULES([AVFORMAT],[libavformat >= 52.41.0],
-  AC_DEFINE(HAVE_AVFORMAT,[1],[libavformat exists]),
-  AC_MSG_ERROR([libavformat >= 52.41.0 from http://www.ffmpeg.org not found!])
-)
+dnl libavformat,libavutil,libavcodec
+AC_ARG_VAR([FF_SUFFIX],[optional you can set an suffix for ffmpeg libraries])
+AC_SUBST([FF_SUFFIX])
 
-dnl libavutil
-PKG_CHECK_MODULES([AVUTIL],[libavutil >= 50.6.0],
-  AC_DEFINE(HAVE_AVUTIL,[1],[libavutil exists]),
-  AC_MSG_ERROR([libavutil >= 50.6.0 from http://www.ffmpeg.org not found!])
-)
-
-dnl libavcodec
-PKG_CHECK_MODULES([AVCODEC],[libavcodec >= 52.43.0],
-  AC_DEFINE(HAVE_AVCODEC,[1],[libavcodec exists]),
-  AC_MSG_ERROR([libavcodec >= 52.43.0 from http://www.ffmpeg.org not found!])
-)
+dnl PKG_CHECK_EXISTS([libavformat >= 52.41.0 libavutil >= 50.6.0 libavcodec >= 52.43.0],[
+dnl   AC_DEFINE(HAVE_FFMPEG,[1],[libavformat, libavutil an libavcodec exists])
+dnl   AC_SUBST([FFMPEG_LIBS],"-lavformat$FF_SUFFIX -lavutil$FF_SUFFIX -lavcodec$FF_SUFFIX")
+dnl   ],[
+dnl   AC_MSG_ERROR([This Application need:
+dnl libavformat >= 52.41.0, libavutil >= 50.6.0, libavcodec >= 52.43.0 from http://www.ffmpeg.org 
+dnl One of this Required Version Libraries not found!])
+dnl ])
 
 dnl -----------------------------------------------
 dnl get Default Install Prefix from pkg-config
@@ -114,12 +101,12 @@ dnl -----------------------------------------------
 AC_PREFIX_PROGRAM([pkg-config])
 
 dnl -----------------------------------------------
-dnl NOTICE
+dnl Result
 dnl -----------------------------------------------
 AC_MSG_RESULT([Installation Directory is \$(DESTDIR)$prefix])
 
 dnl -----------------------------------------------
-dnl Generates configuration files and scripts
+dnl Generate configuration files and scripts
 dnl -----------------------------------------------
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([auxdir/Makefile])
@@ -134,7 +121,7 @@ AC_OUTPUT
 
 echo
 echo -n " Now type 'make', followed by 'make install' as root "
-echo "or 'make DESTDIR=/tmp install' for Installation Tests. "
+echo "or 'make DESTDIR=/tmp install' for test Installation. "
 echo
 
 dnl -----------------------------------------------

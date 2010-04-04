@@ -1,6 +1,6 @@
 dnl file://qt4.m4
 dnl -----------------------------------------------------------------------
-dnl Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2009         dnl
+dnl Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010         dnl
 dnl                                                                      dnl
 dnl Copyright (C) 2004 by Juergen Heinemann                              dnl
 dnl                                     nospam __AT__ hjcms (DOT) de     dnl
@@ -156,6 +156,18 @@ AC_CHECK_PROGS([QMAKE],[qmake qmake4 qmake-qt4])
 test -n "$QMAKE" || AC_MSG_ERROR([No QT3 to QT4 Support on this System]) dnl
 
 dnl -----------------------------------------------
+dnl check for qdbusxml2cpp
+dnl -----------------------------------------------
+AC_CHECK_PROGS([QDBUSXML2CPP],[qdbusxml2cpp qdbusxml2cpp4 qdbusxml2cpp-qt4])
+test -n "$QDBUSXML2CPP" || AC_MSG_WARN([Qt qdbusxml2cpp Compiler not found!]) dnl
+
+dnl -----------------------------------------------
+dnl check for qdbuscpp2xml
+dnl -----------------------------------------------
+AC_CHECK_PROGS([QDBUSCPP2XML],[qdbuscpp2xml qdbuscpp2xml4 qdbuscpp2xml-qt4])
+test -n "$QDBUSCPP2XML" || AC_MSG_WARN([Qt qdbuscpp2xml Compiler not found!]) dnl
+
+dnl -----------------------------------------------
 dnl set plugin dir
 dnl -----------------------------------------------
 Q_PLUGIN_DIR="`$QMAKE -query QT_INSTALL_PLUGINS`"
@@ -192,6 +204,47 @@ QT4_LIBDIR="`$QMAKE -query QT_INSTALL_LIBS`"
 AC_SUBST(QT4_LIBDIR) dnl
 
 ])
+
+dnl -----------------------------------------------
+dnl set debug option
+dnl -----------------------------------------------
+AC_ARG_ENABLE(debug,
+  AC_HELP_STRING([--enable-debug=ARG],[enables debug symbols (yes|no|full) [default=no]]),
+[
+  case $enableval in
+    yes)
+      qt4_use_debug_code="yes"
+      qt4_use_debug_define=no
+    ;;
+    full)
+      qt4_use_debug_code="full"
+      qt4_use_debug_define=no
+    ;;
+    *)
+      qt4_use_debug_code="no"
+      qt4_use_debug_define=yes
+    ;;
+  esac
+], 
+  [qt4_use_debug_code="no"
+    qt4_use_debug_define=no
+])
+
+if test "$GCC" = "yes"; then
+  if test "$qt4_use_debug_code" != "no"; then
+    if test $qt4_use_debug_code = "full"; then
+      CFLAGS="-g3 -fno-inline $CFLAGS"
+    else
+      CFLAGS="-g -O3 -fno-schedule-insns -fno-inline $CFLAGS"
+    fi
+  else
+    CFLAGS="-O3 $CFLAGS"
+  fi
+fi
+
+if test "$qt4_use_debug_define" = "yes"; then
+  CFLAGS="-DNDEBUG $CFLAGS"
+fi
 
 dnl -----------------------------------------------
 dnl Find Qt4 Library with pkg-config
