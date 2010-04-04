@@ -21,8 +21,6 @@ SET (qx11grab_SOURCES
   screencombobox.cpp
   settings.cpp
   settingsdialog.cpp
-  settingspageone.cpp
-  settingspagetwo.cpp
   windowgrabber.cpp
 )
 
@@ -35,8 +33,6 @@ SET (qx11grab_HEADERS
   screencombobox.h
   settingsdialog.h
   settings.h
-  settingspageone.h
-  settingspagetwo.h
   windowgrabber.h
 )
 

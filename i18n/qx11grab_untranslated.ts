@@ -103,39 +103,6 @@
     </message>
 </context>
 <context>
-    <name>ItemEditCmd</name>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="29"/>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="30"/>
-        <source>Author</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="31"/>
-        <source>Copyright</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="32"/>
-        <source>Comment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="33"/>
-        <source>Genre</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="35"/>
-        <source>Unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>QX11Grab</name>
     <message>
         <location filename="../src/qx11grab.cpp" line="168"/>
@@ -211,138 +178,138 @@
 <context>
     <name>QX11GrabMain</name>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="53"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="288"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="79"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="289"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="105"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="290"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="156"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="298"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="176"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="299"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="218"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="301"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="233"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="305"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="247"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="263"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="259"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="267"/>
         <source>Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="268"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="268"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="277"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="269"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="15"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="262"/>
         <source>qx11grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="118"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="291"/>
         <source>sqcif</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="128"/>
-        <location filename="../src/qx11grabmain.ui" line="131"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="293"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="296"/>
         <source>read only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="201"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="300"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="230"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="303"/>
         <source>Open Settings Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="250"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="265"/>
         <source>Close Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="280"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="271"/>
         <source>Minimize to Systray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="289"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="273"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="298"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="274"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="301"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="276"/>
         <source>Start Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="313"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="278"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="316"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="280"/>
         <source>Stop Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="37"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="287"/>
         <source>Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="325"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="282"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="328"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="284"/>
         <source>get Size from Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grabmain.ui" line="340"/>
+        <location filename="../build/src/ui_qx11grabmain.h" line="286"/>
         <source>Kill</source>
         <translation type="unfinished"></translation>
     </message>
@@ -385,109 +352,154 @@ Please check your Settings.</source>
     </message>
 </context>
 <context>
-    <name>SettingsDialog</name>
+    <name>SettingsDialogMain</name>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="22"/>
-        <source>Apply</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="419"/>
+        <source>QX11Grab Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialog.cpp" line="25"/>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsDialogForm</name>
-    <message>
-        <location filename="../src/settingsdialogform.ui" line="16"/>
-        <source>qx11grab Settings</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="420"/>
+        <source>Starting the Application Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialogform.ui" line="150"/>
-        <source>Main</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="421"/>
+        <source>Audio Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingsdialogform.ui" line="159"/>
-        <source>Recording</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPageOne</name>
-    <message>
-        <location filename="../src/settingspageone.cpp" line="64"/>
-        <source>Application Settings</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="422"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="424"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="428"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="448"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="449"/>
+        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="66"/>
-        <source>Start qx11grab Minimized</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="423"/>
+        <source>ffmpeg Binary:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="89"/>
-        <source>Full path to ffmpeg Binary</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="425"/>
+        <source>Default Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="90"/>
-        <source>Default tmp Directory</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="426"/>
+        <source>qx11grab-XXXXXX.avi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="91"/>
-        <source>Default output file name</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="427"/>
+        <source>Default Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspageone.cpp" line="92"/>
-        <source>Audio Device</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPageTwo</name>
-    <message>
-        <location filename="../src/settingspagetwo.cpp" line="102"/>
-        <source>Option</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="429"/>
+        <source>Application Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="103"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="430"/>
+        <source>Recording Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="432"/>
+        <source>Argument</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="434"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="93"/>
-        <source>Notice</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="436"/>
+        <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="80"/>
-        <source>Deprecated Video Information Elements</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="438"/>
+        <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="81"/>
-        <source>NOTE: this options no longer work with newer ffmpeg versions!</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="440"/>
+        <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="93"/>
-        <source>Do not add the -i,-f,-s and output file options. This Parameters will automatically inserted by qx11grab.</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="442"/>
+        <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="250"/>
-        <source>New</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="450"/>
+        <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settingspagetwo.cpp" line="252"/>
-        <source>Remove</source>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="451"/>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="452"/>
+        <source>qx11grabbed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="453"/>
+        <source>Artist:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="454"/>
+        <source>Copyright:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="455"/>
+        <source>Creative Commons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="456"/>
+        <source>Creation Date:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="457"/>
+        <source>Subject:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="459"/>
+        <source>Description:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="460"/>
+        <source>Record my X11 Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="461"/>
+        <source>Medium:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="463"/>
+        <source>qx11grab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="464"/>
+        <source>Video Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

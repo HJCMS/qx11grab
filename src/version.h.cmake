@@ -4,12 +4,12 @@
 **/
 
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
-#define QX11GRAB_VERSION "@PACKAGE_VERSION@"
+#define QX11GRAB_VERSION "@QX11GRAB_VERSION@"
 
-#define LOG_FILE "/tmp/qx11grab.log"
+#define LOG_FILE "/tmp/qx11grab_XXXXXX.log"
 
 #define HTML_NOTICE "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" />" \

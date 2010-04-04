@@ -19,7 +19,7 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 ##############################################################
 SET (QT_MIN_VERSION 4.6.0)
 FIND_PACKAGE (Qt4 REQUIRED)
-SET( QT_USE_QTXML 1 )
+SET( QT_USE_QTDBUS 1 )
 INCLUDE (${QT_USE_FILE})
 
 ##############################################################
@@ -27,8 +27,8 @@ INCLUDE (${QT_USE_FILE})
 ##############################################################
 
 SET (QX11GRAB_VERSION_MAJOR 0)
-SET (QX11GRAB_VERSION_MINOR 8)
-SET (QX11GRAB_VERSION_RELEASE 3)
+SET (QX11GRAB_VERSION_MINOR 2)
+SET (QX11GRAB_VERSION_RELEASE 1)
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}")
 SET (QX11GRAB_DISTRIBUTION_TEXT "compiled sources" CACHE STRING "Indicate the distribution in bug reports")
 SET (LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
@@ -172,7 +172,7 @@ SET (QX11GRAB_INCLUDES
 SET (QX11GRAB_LIBRARIES
   ${QT_QTMAIN_LIBRARY}
   ${QT_QTGUI_LIBRARY}
-  ${QT_QTXML_LIBRARY}
+  ${QT_QTDBUS_LIBRARY}
 )
 
 ##############################################################

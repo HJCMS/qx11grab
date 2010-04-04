@@ -14,14 +14,12 @@
 #include <QtGui/QDialog>
 #include <QtGui/QCloseEvent>
 
-#include "ui_settingsdialogform.h"
+#include "ui_settingsdialogmain.h"
 
-class QPushButton;
 class Settings;
-class QListWidgetItem;
 
 class SettingsDialog : public QDialog
-      , public Ui::SettingsDialogForm
+      , public Ui::SettingsDialogMain
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
@@ -29,15 +27,13 @@ class SettingsDialog : public QDialog
 
   private:
     Settings *m_Settings;
-    QPushButton *btn_apply, *btn_cancel;
 
   public:
     SettingsDialog ( QWidget *parent = 0, Settings *cfg = 0 );
     ~SettingsDialog();
 
   private slots:
-    void savepages();
-    void changeSettings ( QListWidgetItem *, QListWidgetItem * );
+    void saveSettings();
 
   protected:
     void closeEvent( QCloseEvent * );
