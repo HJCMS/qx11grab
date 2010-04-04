@@ -1,7 +1,0 @@
-#!/bin/sh
-
-export QT_DEBUG_PLUGINS=1
-
-pushd `dirname $0`/src
-  ddd qx11grab
-popd

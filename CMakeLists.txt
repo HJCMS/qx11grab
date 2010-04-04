@@ -19,7 +19,7 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 ##############################################################
 SET (QT_MIN_VERSION 4.6.0)
 FIND_PACKAGE (Qt4 REQUIRED)
-SET( QT_USE_QTWEBKIT 1 )
+SET( QT_USE_QTXML 1 )
 INCLUDE (${QT_USE_FILE})
 
 ##############################################################
@@ -171,16 +171,14 @@ SET (QX11GRAB_INCLUDES
 
 SET (QX11GRAB_LIBRARIES
   ${QT_QTMAIN_LIBRARY}
-  ${QT_QTNETWORK_LIBRARY}
-  ${QT_QTWEBKIT_LIBRARY}
-  ${QTIDY_LIBRARIES}
+  ${QT_QTGUI_LIBRARY}
+  ${QT_QTXML_LIBRARY}
 )
 
 ##############################################################
 ## SUBDIRECTORIES
 ##############################################################
 ADD_SUBDIRECTORY (src)
-ADD_SUBDIRECTORY (data)
 ADD_SUBDIRECTORY (i18n)
 
 ##############################################################
