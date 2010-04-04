@@ -29,7 +29,7 @@ int main ( int argc, char *argv[] )
 {
   Q_INIT_RESOURCE ( qx11grab );
 
-  QT_REQUIRE_VERSION ( argc, argv, "4.4.0" )
+  QT_REQUIRE_VERSION ( argc, argv, "4.5.0" )
   QApplication app ( argc, argv, true );
   app.setApplicationName ( "qx11grab" );
   app.setApplicationVersion ( QX11GRAB_VERSION );

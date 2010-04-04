@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>348</height>
+    <width>516</width>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QToolBox" name="toolBox">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -28,9 +31,12 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>525</width>
-        <height>227</height>
+        <width>498</width>
+        <height>432</height>
        </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <attribute name="label">
        <string>Application Defaults</string>
@@ -59,16 +65,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="audio_device"/>
-         </item>
-         <item>
-          <widget class="QToolButton" name="setAudioBtn">
+          <widget class="QLineEdit" name="ff_oss">
            <property name="text">
-            <string>...</string>
-           </property>
-           <property name="icon">
-            <iconset resource="qx11grab.qrc">
-             <normaloff>:/images/folder_normal.png</normaloff>:/images/folder_normal.png</iconset>
+            <string notr="true">/dev/dsp0</string>
            </property>
           </widget>
          </item>
@@ -87,7 +86,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="ffmpeg_binary"/>
+          <widget class="QLineEdit" name="ff_path">
+           <property name="text">
+            <string notr="true">/usr/bin/ffmpeg</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QToolButton" name="setffmpegBtn">
@@ -117,7 +120,7 @@
          <item>
           <widget class="QLineEdit" name="outputName">
            <property name="text">
-            <string>qx11grab-XXXXXX.avi</string>
+            <string notr="true">qx11grab-XXXXXX.avi</string>
            </property>
           </widget>
          </item>
@@ -133,7 +136,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="output_directory"/>
+          <widget class="QLineEdit" name="tempdir">
+           <property name="text">
+            <string notr="true">/tmp/</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QToolButton" name="setOutputBtn">
@@ -168,9 +175,12 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>525</width>
-        <height>227</height>
+        <width>498</width>
+        <height>432</height>
        </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <attribute name="label">
        <string>Video Settings</string>
@@ -188,27 +198,12 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-323</y>
-            <width>501</width>
-            <height>542</height>
+            <y>0</y>
+            <width>474</width>
+            <height>436</height>
            </rect>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <property name="spacing">
-            <number>2</number>
-           </property>
-           <property name="leftMargin">
-            <number>2</number>
-           </property>
-           <property name="topMargin">
-            <number>1</number>
-           </property>
-           <property name="rightMargin">
-            <number>2</number>
-           </property>
-           <property name="bottomMargin">
-            <number>1</number>
-           </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
             <widget class="QGroupBox" name="groupBox">
              <property name="title">
@@ -382,143 +377,179 @@
             </widget>
            </item>
            <item>
-            <widget class="QGroupBox" name="addMetadata">
-             <property name="title">
-              <string>Metadata</string>
+            <widget class="QTextEdit" name="commandPreview"/>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>184</height>
+              </size>
              </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <layout class="QGridLayout" name="gridLayout">
-              <property name="margin">
-               <number>2</number>
-              </property>
-              <item row="0" column="0">
-               <widget class="QLabel" name="txt_title">
-                <property name="text">
-                 <string>Title:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="metadata_INAM">
-                <property name="text">
-                 <string>qx11grabbed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="txt_artist">
-                <property name="text">
-                 <string>Artist:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="metadata_IART"/>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="txt_copyright">
-                <property name="text">
-                 <string>Copyright:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="metadata_ICOP">
-                <property name="text">
-                 <string>Creative Commons</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="txt_createdate">
-                <property name="text">
-                 <string>Creation Date:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QDateTimeEdit" name="metadata_ICRD"/>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="txt_subject">
-                <property name="text">
-                 <string>Subject:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="metadata_ISBJ">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="txt_description">
-                <property name="text">
-                 <string>Description:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QLineEdit" name="metadata_ICMT">
-                <property name="text">
-                 <string>Record my X11 Windows</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="txt_medium">
-                <property name="text">
-                 <string>Medium:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QLineEdit" name="metadata_IMED">
-                <property name="inputMask">
-                 <string/>
-                </property>
-                <property name="text">
-                 <string>qx11grab</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+            </spacer>
            </item>
           </layout>
          </widget>
         </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page3">
+      <attribute name="label">
+       <string>Extras</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QGroupBox" name="addMetadata">
+         <property name="title">
+          <string>Metadata</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="margin">
+           <number>2</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="txt_title">
+            <property name="text">
+             <string>Title:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="metadata_INAM">
+            <property name="text">
+             <string>qx11grabbed</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="txt_artist">
+            <property name="text">
+             <string>Artist:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="metadata_IART"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="txt_copyright">
+            <property name="text">
+             <string>Copyright:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="metadata_ICOP">
+            <property name="text">
+             <string>Creative Commons</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="txt_createdate">
+            <property name="text">
+             <string>Creation Date:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDateTimeEdit" name="metadata_ICRD"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="txt_subject">
+            <property name="text">
+             <string>Subject:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="metadata_ISBJ">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="txt_description">
+            <property name="text">
+             <string>Description:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="metadata_ICMT">
+            <property name="text">
+             <string>Record my X11 Windows</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="txt_medium">
+            <property name="text">
+             <string>Medium:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="metadata_IMED">
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string>qx11grab</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>169</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -530,7 +561,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel</set>
      </property>
     </widget>
    </item>

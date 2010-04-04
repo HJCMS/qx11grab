@@ -12,6 +12,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QList>
 #include <QtCore/QSize>
+#include <QtCore/QMap>
 #include <QtCore/QVariant>
 /* QtGui */
 #include <QtGui/QWidget>
@@ -23,14 +24,19 @@ class Settings : public QSettings
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    const QStringList commandMetaData();
+
   public:
     Settings ( QObject *parent = 0 );
+    const QString ffbin();
     int getInt ( const QString &path );
     bool getBool ( const QString &path );
     const QString getStr ( const QString &path );
     const QSize getSize ( const QString &path, const QSize &min = QSize ( 100,250 ) );
     const QVariant getMapOption ( const QString &path, const QString &key );
-    const QStringList getCommand();
+    const QStringList getVideoOptions();
+    const QMap<QString,QVariant> videoOptions();
     ~Settings();
 
 };

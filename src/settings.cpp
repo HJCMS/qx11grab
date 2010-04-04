@@ -16,6 +16,18 @@ Settings::Settings ( QObject *parent )
 {
 }
 
+const QString Settings::ffbin()
+{
+  QString ff = value ( "ff_path", "/usr/bin/ffmpeg" ).toString();
+  QFileInfo info ( ff );
+  if ( info.isExecutable() )
+    return ff;
+  else
+    qWarning ( "Missing FFmpeg Binary!!!" );
+
+  return QString();
+}
+
 int Settings::getInt ( const QString &path )
 {
   if ( ! contains ( path ) )
@@ -60,30 +72,53 @@ const QVariant Settings::getMapOption ( const QString &path, const QString &key 
   return QVariant();
 }
 
-const QStringList Settings::getCommand()
+const QStringList Settings::commandMetaData()
 {
-  QStringList cmd;
-  QFileInfo ffbin ( value ( "ff_path", "/usr/bin/ffmpeg" ).toString() );
-  if ( ffbin.isExecutable() )
+  QStringList meta;
+  foreach ( QString key, childKeys() )
   {
-    cmd << ffbin.absoluteFilePath();
-    QMapIterator<QString,QVariant> it ( value ( "ffmpeg/options" ).toMap() );
-    QStringList params;
-    while ( it.hasNext() )
+    if ( key.contains ( "metadata_" ) )
     {
-      it.next();
-      params << it.key();
-      if ( ! it.value().toString().isEmpty() )
-        params << it.value().toString();
+      meta << QLatin1String ( "-metadata" );
+      meta << QString ( "%1=\"%2\"" ).arg ( key.remove ( "metadata_" ), value ( key ).toString() );
     }
-    cmd << params.join ( " " ).trimmed();
-    cmd << getMapOption ( "qx11grab/options", "tempdir" ).toString();
-    cmd << getMapOption ( "qx11grab/options", "outputName" ).toString();
   }
-  else
-    QMessageBox::critical ( 0, trUtf8 ( "Error" ), trUtf8 ( "Can not open ffmpeg Binary!\nPlease check your Settings." ) );
+  return meta;
+}
 
-  return cmd;
+const QStringList Settings::getVideoOptions()
+{
+  QStringList params;
+  QMapIterator<QString,QVariant> it ( videoOptions() );
+  while ( it.hasNext() )
+  {
+    it.next();
+    params << it.key();
+    if ( ! it.value().toString().isEmpty() )
+      params << it.value().toString();
+  }
+  params << commandMetaData();
+  return params;
+}
+
+const QMap<QString,QVariant> Settings::videoOptions()
+{
+  QMap <QString,QVariant> map;
+  int size = beginReadArray ( QLatin1String ( "VideoOptions" ) );
+  if ( size < 1 )
+  {
+    endArray(); // Nicht vergessen ;)
+    return map;
+  }
+
+  for ( int i = 0; i < size; i++ )
+  {
+    setArrayIndex ( i );
+    map[ value ( "argument" ).toString() ] =  value ( "value", "" );
+  }
+  endArray();
+
+  return map;
 }
 
 Settings::~Settings()

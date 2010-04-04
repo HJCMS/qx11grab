@@ -18,20 +18,20 @@
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
-    , m_Settings ( settings )
+    , cfg ( settings )
     , xInfo()
 {
   arguments = QStringList();
 }
 
-void FFProcess::addVideoDevice ( const QRect &r, const QString &o )
+void FFProcess::addVideoDevice ( const QRect &r, const QStringList &o )
 {
   arguments << "-f" << "x11grab" << "-xerror";
   arguments << "-s" << QString ( "%1x%2" ).arg (
       QString::number ( r.width() ),
       QString::number ( r.height() )
   );
-  arguments << o.split ( QRegExp ( "[ ]+" ) );
+  arguments << o;
   arguments << "-i" << QString ( ":%1.%2+%3,%4" ) .arg (
       QString::number ( xInfo.screen() ),
       QString::number ( xInfo.appScreen() ),
@@ -42,7 +42,7 @@ void FFProcess::addVideoDevice ( const QRect &r, const QString &o )
 
 void FFProcess::addAudioDevice()
 {
-  QString ffoss = m_Settings->getStr ( "ff_oss" );
+  QString ffoss = cfg->getStr ( "ff_oss" );
   if ( ffoss.isEmpty() )
     return;
 
@@ -57,30 +57,25 @@ void FFProcess::addAudioDevice()
     if ( fp.open ( QIODevice::ReadOnly ) )
     {
       fp.close();
-      arguments << "-f" << "oss" << "-i" << ffoss;
+      arguments << "-f" << "oss" << "-i" << ffoss << "-vol" << "512" << "-acodec" << "libfaac";
+      arguments << "-ar" << "44100" << "-ab" << "256k" << "-ac" << "1";
+      arguments << "-alang" << "ger" << "-sn";
     }
     else
       qWarning ( OSS_IN_USE, qPrintable ( ffoss ) );
   }
 }
 
-void FFProcess::addOptional()
+const QString FFProcess::addOutput ()
 {
-  QStringList extras ( "title" );
-  extras << "author" << "copyright" << "comment" << "genre";
-  foreach ( QString n, extras )
-  {
-    QString val = m_Settings->getStr ( "ff_" + n );
-    if ( ! val.isEmpty() )
-      arguments << QString ( "-%1" ).arg ( n ) << QString ( "\"%1\"" ).arg ( val );
-  }
-}
-
-const QString FFProcess::addOutput ( const QString &p, const QString &f )
-{
+  QString p = cfg->value ( "tempdir", "/tmp" ).toString();
   QDir d ( p );
   if ( d.isReadable() )
   {
+    /* Working Directory */
+    workdir = p;
+
+    QString f = cfg->value ( "outputName", "qx11grab-XXXXXX.avi" ).toString();
     QString outFile = QString ( "%1/%2" ).arg ( p, f );
     QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
     outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
@@ -96,31 +91,34 @@ const QString FFProcess::addOutput ( const QString &p, const QString &f )
 
 bool FFProcess::create ( const QRect &r )
 {
-  if ( r.isValid() )
+  QStringList videoOptions = cfg->getVideoOptions();
+  if ( r.isValid() && ! videoOptions.isEmpty() )
   {
-    QStringList cOpt = m_Settings->getCommand();
+    /* ffmpeg Binary */
+    program = cfg->ffbin();
+
     arguments.clear();
     /* Video Device with given Options */
-    addVideoDevice ( r, cOpt.at ( 1 ) );
-    /* Extras Options Title Comment etc. */
-    addOptional();
+    addVideoDevice ( r, videoOptions );
     /* Audio */
     addAudioDevice();
     /* Output */
-    QString outFile = addOutput ( cOpt.at ( 2 ), cOpt.at ( 3 ) );
+    QString outFile = addOutput ();
     if ( outFile.isEmpty() )
       return false;
 
     arguments << outFile;
-
-    /* ffmpeg Binary */
-    program = cOpt.at ( 0 ).trimmed();
-    /* Working Directory */
-    workdir = cOpt.at ( 2 ).trimmed();
-
     return true;
   }
-  emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
+  else
+  {
+
+#ifdef QX11GRAB_DEBUG
+  qDebug() << Q_FUNC_INFO << videoOptions;
+#endif
+
+    emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
+  }
   return false;
 }
 
@@ -144,7 +142,11 @@ bool FFProcess::start()
   connect ( m_QProcess, SIGNAL ( started() ),
             this, SLOT ( startCheck() ) );
 
-  // qDebug() << Q_FUNC_INFO << program << arguments;
+#ifdef QX11GRAB_DEBUG
+  qDebug() << Q_FUNC_INFO << program << arguments;
+#endif
+  // return false;
+
   m_QProcess->start ( program, arguments );
   return true;
 }

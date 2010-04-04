@@ -22,7 +22,7 @@ class FFProcess : public QObject
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    Settings *m_Settings;
+    Settings* cfg;
     const QX11Info xInfo;
     QString program, workdir;
     QStringList arguments;
@@ -35,7 +35,7 @@ class FFProcess : public QObject
      * @param r Dimension
      * @param o Options
      */
-    void addVideoDevice ( const QRect &r, const QString &o );
+    void addVideoDevice ( const QRect &r, const QStringList &o );
 
     /**  Add Audio Command Line
      * @code
@@ -44,14 +44,9 @@ class FFProcess : public QObject
      */
     void addAudioDevice();
 
-    /** if not empty add -title,-author,-copyright,-comment,-genre */
-    void addOptional();
-
     /** set Output filepath
-     * @param p Directory
-     * @param f Filename
      */
-    const QString addOutput ( const QString &p, const QString &f );
+    const QString addOutput ();
 
   public:
     FFProcess ( QObject *parent = 0, Settings *settings = 0 );

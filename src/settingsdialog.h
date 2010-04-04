@@ -12,7 +12,6 @@
 /* QtGui */
 #include <QtGui/QWidget>
 #include <QtGui/QDialog>
-#include <QtGui/QCloseEvent>
 
 #include "ui_settingsdialogmain.h"
 
@@ -26,17 +25,17 @@ class SettingsDialog : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    Settings *m_Settings;
+    Settings* cfg;
+
+  private Q_SLOTS:
+    void loadSettings();
+    void saveSettings();
+    void setBinaryPath();
+    void setOutpuDirectory();
 
   public:
-    SettingsDialog ( QWidget *parent = 0, Settings *cfg = 0 );
+    SettingsDialog ( QWidget * parent = 0, Settings * settings = 0 );
     ~SettingsDialog();
-
-  private slots:
-    void saveSettings();
-
-  protected:
-    void closeEvent( QCloseEvent * );
 
 };
 
