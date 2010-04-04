@@ -199,4 +199,9 @@ INSTALL (FILES
   DESTINATION share/applications
 )
 
+INSTALL (FILES
+  src/images/qx11grab.png
+  DESTINATION share/pixmaps
+)
+
 ## EOF
