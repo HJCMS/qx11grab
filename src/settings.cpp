@@ -4,10 +4,13 @@
 **/
 
 #include "settings.h"
+#include "version.h"
 
 #include <QtCore/QDebug>
-#include <QtCore/QMap>
+#include <QtCore/QFile>
 #include <QtCore/QFileInfo>
+#include <QtCore/QIODevice>
+
 /* QtGui */
 #include <QtGui/QMessageBox>
 
@@ -25,6 +28,31 @@ const QString Settings::ffbin()
   else
     qWarning ( "Missing FFmpeg Binary!!!" );
 
+  return QString();
+}
+
+const QString Settings::audiodev()
+{
+  QString ffoss = value ( "ff_oss", "/dev/dsp0" ).toString();
+  QFileInfo info ( ffoss );
+  if ( info.isRoot() )
+    return QString();
+
+  if ( info.isReadable() )
+  {
+    /* NOTICE ffmpeg will crash if Audio Device is alreay in use! */
+    QFile fp ( info.absoluteFilePath() );
+    if ( fp.open ( QIODevice::ReadOnly ) )
+    {
+      fp.close();
+      return ffoss;
+    }
+    else
+    {
+      // "Audio Device %s already in use\nDisable Capture with -f oss Option"
+      qWarning ( OSS_IN_USE, qPrintable ( ffoss ) );
+    }
+  }
   return QString();
 }
 
@@ -86,25 +114,10 @@ const QStringList Settings::commandMetaData()
   return meta;
 }
 
-const QStringList Settings::getVideoOptions()
-{
-  QStringList params;
-  QMapIterator<QString,QVariant> it ( videoOptions() );
-  while ( it.hasNext() )
-  {
-    it.next();
-    params << it.key();
-    if ( ! it.value().toString().isEmpty() )
-      params << it.value().toString();
-  }
-  params << commandMetaData();
-  return params;
-}
-
-const QMap<QString,QVariant> Settings::videoOptions()
+const QMap<QString,QVariant> Settings::readGroup ( const QString &group )
 {
   QMap <QString,QVariant> map;
-  int size = beginReadArray ( QLatin1String ( "VideoOptions" ) );
+  int size = beginReadArray ( group );
   if ( size < 1 )
   {
     endArray(); // Nicht vergessen ;)
@@ -119,6 +132,35 @@ const QMap<QString,QVariant> Settings::videoOptions()
   endArray();
 
   return map;
+}
+
+const QStringList Settings::getVideoOptions()
+{
+  QStringList params;
+  QMapIterator<QString,QVariant> it ( readGroup ( "VideoOptions" ) );
+  while ( it.hasNext() )
+  {
+    it.next();
+    params << it.key();
+    if ( ! it.value().toString().isEmpty() )
+      params << it.value().toString();
+  }
+  params << commandMetaData();
+  return params;
+}
+
+const QStringList Settings::getAudioOptions()
+{
+  QStringList params;
+  QMapIterator<QString,QVariant> it ( readGroup ( "AudioOptions" ) );
+  while ( it.hasNext() )
+  {
+    it.next();
+    params << it.key();
+    if ( ! it.value().toString().isEmpty() )
+      params << it.value().toString();
+  }
+  return params;
 }
 
 Settings::~Settings()

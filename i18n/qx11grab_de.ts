@@ -78,6 +78,16 @@
         <source>Recording started writing to: %1</source>
         <translation>Aufnahme gestartet schreibe nach: %1</translation>
     </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>audio device is busy or not exists.
+disable audio recording.</source>
+        <translation>Die Audio Schnittstelle ist belegt oder esistiert nicht.
+Die Audio Aufnahme wurde deaktiviert!</translation>
+    </message>
 </context>
 <context>
     <name>QX11Grab</name>
@@ -269,16 +279,26 @@
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsDialog</name>
     <message>
-        <source>Error</source>
-        <translation>Fehler</translation>
+        <source>&amp;Save</source>
+        <translation>&amp;Speichern</translation>
     </message>
     <message>
-        <source>Can not open ffmpeg Binary!
-Please check your Settings.</source>
-        <translation>Kann ffmpeg Programm nicht öffnen!
-Bitte prüfe deine Einstellungen.</translation>
+        <source>FFmpeg %1</source>
+        <translation>FFmpeg %1</translation>
+    </message>
+    <message>
+        <source>Other %1</source>
+        <translation>Andere %1</translation>
+    </message>
+    <message>
+        <source>FFmpeg Binary</source>
+        <translation>FFmpeg Programm</translation>
+    </message>
+    <message>
+        <source>Output Directory</source>
+        <translation>Ausgabe Verzeichnis</translation>
     </message>
 </context>
 <context>
@@ -308,20 +328,12 @@ Bitte prüfe deine Einstellungen.</translation>
         <translation>Standard Dateiausgabe Name:</translation>
     </message>
     <message>
-        <source>qx11grab-XXXXXX.avi</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Default Output Directory:</source>
         <translation>Standard Ausgabe Verzeichnis:</translation>
     </message>
     <message>
         <source>Application Defaults</source>
         <translation>Programm Standards</translation>
-    </message>
-    <message>
-        <source>Recording Options</source>
-        <translation>Aufnahme Optionen</translation>
     </message>
     <message>
         <source>Argument</source>
@@ -398,6 +410,34 @@ Bitte prüfe deine Einstellungen.</translation>
     <message>
         <source>Video Settings</source>
         <translation>Video Einstellungen</translation>
+    </message>
+    <message>
+        <source>Enable Audio Recording</source>
+        <translation>Aktiviere die Audio aufnahme</translation>
+    </message>
+    <message>
+        <source>Neue Zeile</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Audio Settings</source>
+        <translation>Audio Einstellungen</translation>
+    </message>
+    <message>
+        <source>Add New Video Options</source>
+        <translation>Füge eine neue Video Optionen Zeile ein</translation>
+    </message>
+    <message>
+        <source>Remove Selected Video Options</source>
+        <translation>Entferne die Ausgewählten Video Optionen</translation>
+    </message>
+    <message>
+        <source>Add New Audio Options</source>
+        <translation>Füge eine neue Audio Optionen Zeile ein</translation>
+    </message>
+    <message>
+        <source>Remove Selected Audio Options</source>
+        <translation>Entferne die Ausgewählten Audio Optionen</translation>
     </message>
 </context>
 </TS>

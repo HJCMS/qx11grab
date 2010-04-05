@@ -10,8 +10,9 @@
 #include <QtCore/QObject>
 
 /* QtGui */
-#include <QtGui/QWidget>
 #include <QtGui/QDialog>
+#include <QtGui/QTableWidgetItem>
+#include <QtGui/QWidget>
 
 #include "ui_settingsdialogmain.h"
 
@@ -26,8 +27,17 @@ class SettingsDialog : public QDialog
 
   private:
     Settings* cfg;
+    QTableWidgetItem* createItem ( const QString &data );
+    void setVideoOptionsTable();
+    void setAudioOptionsTable();
+    void saveVideoOptions();
+    void saveAudioOptions();
 
   private Q_SLOTS:
+    void addVideoRow();
+    void removeVideoRow();
+    void addAudioRow();
+    void removeAudioRow();
     void loadSettings();
     void saveSettings();
     void setBinaryPath();

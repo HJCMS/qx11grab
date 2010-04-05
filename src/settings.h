@@ -30,13 +30,15 @@ class Settings : public QSettings
   public:
     Settings ( QObject *parent = 0 );
     const QString ffbin();
+    const QString audiodev();
     int getInt ( const QString &path );
     bool getBool ( const QString &path );
     const QString getStr ( const QString &path );
     const QSize getSize ( const QString &path, const QSize &min = QSize ( 100,250 ) );
     const QVariant getMapOption ( const QString &path, const QString &key );
     const QStringList getVideoOptions();
-    const QMap<QString,QVariant> videoOptions();
+    const QStringList getAudioOptions();
+    const QMap<QString,QVariant> readGroup ( const QString &group = QLatin1String ( "VideoOptions" ) );
     ~Settings();
 
 };

@@ -17,87 +17,98 @@
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="123"/>
+        <location filename="../src/ffprocess.cpp" line="114"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ffprocess.cpp" line="211"/>
         <location filename="../src/ffprocess.cpp" line="215"/>
         <location filename="../src/ffprocess.cpp" line="219"/>
         <location filename="../src/ffprocess.cpp" line="223"/>
         <location filename="../src/ffprocess.cpp" line="227"/>
         <location filename="../src/ffprocess.cpp" line="231"/>
-        <location filename="../src/ffprocess.cpp" line="235"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="215"/>
+        <location filename="../src/ffprocess.cpp" line="211"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="219"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="223"/>
+        <location filename="../src/ffprocess.cpp" line="219"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="227"/>
+        <location filename="../src/ffprocess.cpp" line="223"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="231"/>
+        <location filename="../src/ffprocess.cpp" line="227"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="235"/>
+        <location filename="../src/ffprocess.cpp" line="231"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="247"/>
+        <location filename="../src/ffprocess.cpp" line="243"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="262"/>
+        <location filename="../src/ffprocess.cpp" line="258"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="251"/>
+        <location filename="../src/ffprocess.cpp" line="247"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="157"/>
+        <location filename="../src/ffprocess.cpp" line="53"/>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="53"/>
+        <source>audio device is busy or not exists.
+disable audio recording.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="153"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="170"/>
+        <location filename="../src/ffprocess.cpp" line="166"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="89"/>
+        <location filename="../src/ffprocess.cpp" line="78"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="90"/>
+        <location filename="../src/ffprocess.cpp" line="79"/>
         <source>%1 already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="123"/>
+        <location filename="../src/ffprocess.cpp" line="114"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -338,168 +349,210 @@
     </message>
 </context>
 <context>
-    <name>Settings</name>
+    <name>SettingsDialog</name>
     <message>
-        <location filename="../src/settings.cpp" line="84"/>
-        <source>Error</source>
+        <location filename="../src/settingsdialog.cpp" line="36"/>
+        <source>&amp;Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="84"/>
-        <source>Can not open ffmpeg Binary!
-Please check your Settings.</source>
+        <location filename="../src/settingsdialog.cpp" line="278"/>
+        <source>FFmpeg %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="279"/>
+        <source>Other %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="281"/>
+        <source>FFmpeg Binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settingsdialog.cpp" line="294"/>
+        <source>Output Directory</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsDialogMain</name>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="419"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="533"/>
         <source>QX11Grab Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="420"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="534"/>
         <source>Starting the Application Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="421"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="581"/>
+        <source>Enable Audio Recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="582"/>
         <source>Audio Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="422"/>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="424"/>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="428"/>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="448"/>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="449"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="536"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="539"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="575"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="579"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="597"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="601"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="423"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="535"/>
         <source>ffmpeg Binary:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="425"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="537"/>
         <source>Default Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="426"/>
-        <source>qx11grab-XXXXXX.avi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="427"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="538"/>
         <source>Default Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="429"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="554"/>
         <source>Application Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="430"/>
-        <source>Recording Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="432"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="556"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="584"/>
         <source>Argument</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="434"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="558"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="586"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="436"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="560"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="438"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="562"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="440"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="564"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="442"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="566"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="450"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="540"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="451"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="541"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="452"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="542"/>
         <source>qx11grabbed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="453"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="543"/>
         <source>Artist:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="454"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="544"/>
         <source>Copyright:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="455"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="545"/>
         <source>Creative Commons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="456"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="546"/>
         <source>Creation Date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="457"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="547"/>
         <source>Subject:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="459"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="549"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="460"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="550"/>
         <source>Record my X11 Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="461"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="551"/>
         <source>Medium:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="463"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="553"/>
         <source>qx11grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_settingsdialogmain.h" line="464"/>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="573"/>
+        <source>Add New Video Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="577"/>
+        <source>Remove Selected Video Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="580"/>
         <source>Video Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="588"/>
+        <source>Neue Zeile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="595"/>
+        <source>Add New Audio Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="599"/>
+        <source>Remove Selected Audio Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_settingsdialogmain.h" line="602"/>
+        <source>Audio Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

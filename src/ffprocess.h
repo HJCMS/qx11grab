@@ -35,14 +35,14 @@ class FFProcess : public QObject
      * @param r Dimension
      * @param o Options
      */
-    void addVideoDevice ( const QRect &r, const QStringList &o );
+    void addVideo( const QRect &r, const QStringList &o );
 
     /**  Add Audio Command Line
      * @code
      *  -f oss -i /dev/dsp*
      * @endcode
      */
-    void addAudioDevice();
+    void addAudio();
 
     /** set Output filepath
      */

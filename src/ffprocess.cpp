@@ -24,7 +24,7 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
   arguments = QStringList();
 }
 
-void FFProcess::addVideoDevice ( const QRect &r, const QStringList &o )
+void FFProcess::addVideo ( const QRect &r, const QStringList &o )
 {
   arguments << "-f" << "x11grab" << "-xerror";
   arguments << "-s" << QString ( "%1x%2" ).arg (
@@ -40,30 +40,23 @@ void FFProcess::addVideoDevice ( const QRect &r, const QStringList &o )
   );
 }
 
-void FFProcess::addAudioDevice()
+void FFProcess::addAudio ()
 {
-  QString ffoss = cfg->getStr ( "ff_oss" );
-  if ( ffoss.isEmpty() )
+  if ( ! cfg->value ( QLatin1String ( "enableAudioRecording" ), false ).toBool() )
     return;
 
-  QFileInfo info ( ffoss );
-  if ( info.isRoot() )
-    return;
+  QStringList audioOptions = cfg->getAudioOptions();
 
-  if ( info.isReadable() )
+  QString audioDevice = cfg->audiodev ();
+  if ( audioDevice.isEmpty() )
   {
-    /* NOTICE ffmpeg will crash if Audio Device is alreay in use! */
-    QFile fp ( info.absoluteFilePath() );
-    if ( fp.open ( QIODevice::ReadOnly ) )
-    {
-      fp.close();
-      arguments << "-f" << "oss" << "-i" << ffoss << "-vol" << "512" << "-acodec" << "libfaac";
-      arguments << "-ar" << "44100" << "-ab" << "256k" << "-ac" << "1";
-      arguments << "-alang" << "ger" << "-sn";
-    }
-    else
-      qWarning ( OSS_IN_USE, qPrintable ( ffoss ) );
+    QMessageBox::warning ( 0L, trUtf8 ( "Audio" ), trUtf8 ( "audio device is busy or not exists.\ndisable audio recording." ) );
+    cfg->setValue ( QLatin1String ( "enableAudioRecording" ), false );
+    return;
   }
+  arguments << "-f" << "oss" << "-i" << audioDevice;
+  if ( ! audioOptions.isEmpty() )
+    arguments << audioOptions;
 }
 
 const QString FFProcess::addOutput ()
@@ -81,9 +74,10 @@ const QString FFProcess::addOutput ()
     outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
     QFileInfo info ( outFile );
     if ( info.exists() )
+    {
       QMessageBox::warning ( 0L, trUtf8 ( "Warning" ),
                              trUtf8 ( "%1 already exists." ).arg ( outFile ) );
-
+    }
     return outFile;
   }
   return QString();
@@ -99,9 +93,9 @@ bool FFProcess::create ( const QRect &r )
 
     arguments.clear();
     /* Video Device with given Options */
-    addVideoDevice ( r, videoOptions );
+    addVideo ( r, videoOptions );
     /* Audio */
-    addAudioDevice();
+    addAudio ();
     /* Output */
     QString outFile = addOutput ();
     if ( outFile.isEmpty() )
@@ -114,7 +108,7 @@ bool FFProcess::create ( const QRect &r )
   {
 
 #ifdef QX11GRAB_DEBUG
-  qDebug() << Q_FUNC_INFO << videoOptions;
+    qDebug() << Q_FUNC_INFO << videoOptions;
 #endif
 
     emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );

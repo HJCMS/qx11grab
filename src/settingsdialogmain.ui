@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>516</width>
-    <height>585</height>
+    <width>567</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,47 +31,23 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>498</width>
-        <height>432</height>
+        <width>549</width>
+        <height>402</height>
        </rect>
       </property>
       <property name="autoFillBackground">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <attribute name="label">
        <string>Application Defaults</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="margin">
-        <number>2</number>
-       </property>
        <item>
         <widget class="QCheckBox" name="startMinimized">
          <property name="text">
           <string>Starting the Application Minimized</string>
          </property>
         </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="txt_audiodev">
-           <property name="text">
-            <string>Audio Device:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="ff_oss">
-           <property name="text">
-            <string notr="true">/dev/dsp0</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -155,254 +131,6 @@
          </item>
         </layout>
        </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="page2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>498</width>
-        <height>432</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <attribute name="label">
-       <string>Video Settings</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="margin">
-        <number>2</number>
-       </property>
-       <item>
-        <widget class="QScrollArea" name="scrollArea">
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>474</width>
-            <height>436</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <item>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="title">
-              <string>Recording Options</string>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_2">
-              <property name="margin">
-               <number>2</number>
-              </property>
-              <item row="0" column="0" colspan="3">
-               <widget class="QTableWidget" name="encodingOptions">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>250</height>
-                 </size>
-                </property>
-                <property name="editTriggers">
-                 <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
-                </property>
-                <property name="tabKeyNavigation">
-                 <bool>false</bool>
-                </property>
-                <property name="showDropIndicator" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="dragDropOverwriteMode">
-                 <bool>false</bool>
-                </property>
-                <property name="alternatingRowColors">
-                 <bool>true</bool>
-                </property>
-                <property name="selectionMode">
-                 <enum>QAbstractItemView::SingleSelection</enum>
-                </property>
-                <property name="gridStyle">
-                 <enum>Qt::DashLine</enum>
-                </property>
-                <property name="wordWrap">
-                 <bool>false</bool>
-                </property>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>true</bool>
-                </attribute>
-                <row>
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>2</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                </row>
-                <column>
-                 <property name="text">
-                  <string>Argument</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Value</string>
-                 </property>
-                </column>
-                <item row="0" column="0">
-                 <property name="text">
-                  <string notr="true">-b</string>
-                 </property>
-                </item>
-                <item row="0" column="1">
-                 <property name="text">
-                  <string notr="true">6500</string>
-                 </property>
-                </item>
-                <item row="1" column="0">
-                 <property name="text">
-                  <string notr="true">-bt</string>
-                 </property>
-                </item>
-                <item row="1" column="1">
-                 <property name="text">
-                  <string notr="true">256k</string>
-                 </property>
-                </item>
-                <item row="2" column="0">
-                 <property name="text">
-                  <string notr="true">-r</string>
-                 </property>
-                </item>
-                <item row="2" column="1">
-                 <property name="text">
-                  <string notr="true">25</string>
-                 </property>
-                </item>
-                <item row="3" column="0">
-                 <property name="text">
-                  <string notr="true">-sameq</string>
-                 </property>
-                </item>
-                <item row="3" column="1">
-                 <property name="text">
-                  <string notr="true"/>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <spacer name="horizontalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>386</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="1" column="1">
-               <widget class="QToolButton" name="addRowBtn">
-                <property name="text">
-                 <string>...</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="qx11grab.qrc">
-                  <normaloff>:/images/apply.png</normaloff>:/images/apply.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QToolButton" name="delRowBtn">
-                <property name="text">
-                 <string>...</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="qx11grab.qrc">
-                  <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QTextEdit" name="commandPreview"/>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>184</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="page3">
-      <attribute name="label">
-       <string>Extras</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="addMetadata">
          <property name="title">
@@ -539,17 +267,495 @@
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
+        <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>169</height>
+           <height>40</height>
           </size>
          </property>
         </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>549</width>
+        <height>402</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <attribute name="label">
+       <string>Video Settings</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="topMargin">
+        <number>2</number>
+       </property>
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QTableWidget" name="encodingOptions">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>250</height>
+          </size>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+         </property>
+         <property name="tabKeyNavigation">
+          <bool>false</bool>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="dragDropOverwriteMode">
+          <bool>false</bool>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::DashLine</enum>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <row>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Argument</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Value</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string notr="true">-b</string>
+          </property>
+         </item>
+         <item row="0" column="1">
+          <property name="text">
+           <string notr="true">1450k</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string notr="true">-bt</string>
+          </property>
+         </item>
+         <item row="1" column="1">
+          <property name="text">
+           <string notr="true">256k</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string notr="true">-r</string>
+          </property>
+         </item>
+         <item row="2" column="1">
+          <property name="text">
+           <string notr="true">25</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string notr="true">-sameq</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string notr="true"/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QToolButton" name="addVideoRowBtn">
+           <property name="toolTip">
+            <string>Add New Video Options</string>
+           </property>
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="qx11grab.qrc">
+             <normaloff>:/images/apply.png</normaloff>:/images/apply.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="removeVideoRowBtn">
+           <property name="toolTip">
+            <string>Remove Selected Video Options</string>
+           </property>
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="icon">
+            <iconset resource="qx11grab.qrc">
+             <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>549</width>
+        <height>402</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Audio Settings</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <property name="margin">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="enableAudioRecording">
+         <property name="title">
+          <string>Enable Audio Recording</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Audio Device:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="ff_oss">
+              <property name="text">
+               <string notr="true">/dev/dsp0</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="audioOptions">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+            </property>
+            <property name="tabKeyNavigation">
+             <bool>false</bool>
+            </property>
+            <property name="showDropIndicator" stdset="0">
+             <bool>false</bool>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="gridStyle">
+             <enum>Qt::DashLine</enum>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string>Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <row>
+             <property name="text">
+              <string notr="true">Neue Zeile</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>Argument</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Value</string>
+             </property>
+            </column>
+            <item row="0" column="0">
+             <property name="text">
+              <string notr="true">-vol</string>
+             </property>
+            </item>
+            <item row="0" column="1">
+             <property name="text">
+              <string notr="true">512</string>
+             </property>
+            </item>
+            <item row="1" column="0">
+             <property name="text">
+              <string notr="true">-acodec</string>
+             </property>
+            </item>
+            <item row="1" column="1">
+             <property name="text">
+              <string notr="true">libfaac</string>
+             </property>
+            </item>
+            <item row="2" column="0">
+             <property name="text">
+              <string notr="true">-ar</string>
+             </property>
+            </item>
+            <item row="2" column="1">
+             <property name="text">
+              <string notr="true">44100</string>
+             </property>
+            </item>
+            <item row="3" column="0">
+             <property name="text">
+              <string notr="true">-ab</string>
+             </property>
+            </item>
+            <item row="3" column="1">
+             <property name="text">
+              <string notr="true">256k</string>
+             </property>
+            </item>
+            <item row="4" column="0">
+             <property name="text">
+              <string notr="true">-ac</string>
+             </property>
+            </item>
+            <item row="4" column="1">
+             <property name="text">
+              <string notr="true">1</string>
+             </property>
+            </item>
+            <item row="5" column="0">
+             <property name="text">
+              <string notr="true">-alang</string>
+             </property>
+            </item>
+            <item row="5" column="1">
+             <property name="text">
+              <string notr="true">eng</string>
+             </property>
+            </item>
+            <item row="6" column="0">
+             <property name="text">
+              <string notr="true">-sn</string>
+             </property>
+            </item>
+            <item row="6" column="1">
+             <property name="text">
+              <string notr="true"/>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QToolButton" name="addAudioRowBtn">
+              <property name="toolTip">
+               <string>Add New Audio Options</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="qx11grab.qrc">
+                <normaloff>:/images/apply.png</normaloff>:/images/apply.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="removeAudioRowBtn">
+              <property name="toolTip">
+               <string>Remove Selected Audio Options</string>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="qx11grab.qrc">
+                <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -561,7 +767,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel</set>
+      <set>QDialogButtonBox::Close</set>
      </property>
     </widget>
    </item>
