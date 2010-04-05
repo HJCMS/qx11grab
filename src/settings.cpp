@@ -114,9 +114,9 @@ const QStringList Settings::commandMetaData()
   return meta;
 }
 
-const QMap<QString,QVariant> Settings::readGroup ( const QString &group )
+const QHash<QString,QVariant> Settings::readGroup ( const QString &group )
 {
-  QMap <QString,QVariant> map;
+  QHash <QString,QVariant> map;
   int size = beginReadArray ( group );
   if ( size < 1 )
   {
@@ -137,7 +137,7 @@ const QMap<QString,QVariant> Settings::readGroup ( const QString &group )
 const QStringList Settings::getVideoOptions()
 {
   QStringList params;
-  QMapIterator<QString,QVariant> it ( readGroup ( "VideoOptions" ) );
+  QHashIterator<QString,QVariant> it ( readGroup ( "VideoOptions" ) );
   while ( it.hasNext() )
   {
     it.next();
@@ -152,7 +152,7 @@ const QStringList Settings::getVideoOptions()
 const QStringList Settings::getAudioOptions()
 {
   QStringList params;
-  QMapIterator<QString,QVariant> it ( readGroup ( "AudioOptions" ) );
+  QHashIterator<QString,QVariant> it ( readGroup ( "AudioOptions" ) );
   while ( it.hasNext() )
   {
     it.next();

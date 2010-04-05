@@ -1,3 +1,10 @@
+2010/04/05
+  Version: 0.2.1
+  Note: FFmpeg Version lower then Year 2010 now longer supported
+  Done: Add new Configuration Dialog
+  Bugfix: Video and Options sorting now Ordered by Tables
+  Bugfix: Fix crash if empty items in configuration tables
+
 2008/09/18
   Version: 0.1.5
   Bugfix: ffmpeg will crash if Audio Device is alreay in use!

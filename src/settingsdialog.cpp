@@ -10,8 +10,8 @@
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
-#include <QtCore/QMap>
-#include <QtCore/QMapIterator>
+#include <QtCore/QHash>
+#include <QtCore/QHashIterator>
 #include <QtCore/QRegExp>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -64,14 +64,14 @@ QTableWidgetItem* SettingsDialog::createItem ( const QString &data )
 void SettingsDialog::setVideoOptionsTable()
 {
   int row = 0;
-  QMap<QString,QVariant> map = cfg->readGroup ( "VideoOptions" );
+  QHash<QString,QVariant> map = cfg->readGroup ( "VideoOptions" );
   if ( map.size() < 1 )
     return;
 
   encodingOptions->clearContents();
   encodingOptions->setRowCount ( map.size() );
 
-  QMapIterator<QString,QVariant> it ( map );
+  QHashIterator<QString,QVariant> it ( map );
   while ( it.hasNext() )
   {
     it.next();
@@ -92,14 +92,14 @@ void SettingsDialog::setVideoOptionsTable()
 void SettingsDialog::setAudioOptionsTable()
 {
   int row = 0;
-  QMap<QString,QVariant> map = cfg->readGroup ( "AudioOptions" );
+  QHash<QString,QVariant> map = cfg->readGroup ( "AudioOptions" );
   if ( map.size() < 1 )
     return;
 
   audioOptions->clearContents();
   audioOptions->setRowCount ( map.size() );
 
-  QMapIterator<QString,QVariant> it ( map );
+  QHashIterator<QString,QVariant> it ( map );
   while ( it.hasNext() )
   {
     it.next();

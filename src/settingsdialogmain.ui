@@ -36,7 +36,7 @@
        </rect>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <attribute name="label">
        <string>Application Defaults</string>
@@ -291,7 +291,7 @@
        </rect>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <attribute name="label">
        <string>Video Settings</string>
@@ -325,6 +325,9 @@
            <width>0</width>
            <height>250</height>
           </size>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
          </property>
          <property name="editTriggers">
           <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
@@ -490,6 +493,9 @@
         <height>402</height>
        </rect>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <attribute name="label">
        <string>Audio Settings</string>
       </attribute>
@@ -558,6 +564,9 @@
               <width>0</width>
               <height>300</height>
              </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::NoContextMenu</enum>
             </property>
             <property name="editTriggers">
              <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>

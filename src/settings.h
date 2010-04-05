@@ -12,7 +12,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QList>
 #include <QtCore/QSize>
-#include <QtCore/QMap>
+#include <QtCore/QHash>
 #include <QtCore/QVariant>
 /* QtGui */
 #include <QtGui/QWidget>
@@ -38,7 +38,7 @@ class Settings : public QSettings
     const QVariant getMapOption ( const QString &path, const QString &key );
     const QStringList getVideoOptions();
     const QStringList getAudioOptions();
-    const QMap<QString,QVariant> readGroup ( const QString &group = QLatin1String ( "VideoOptions" ) );
+    const QHash<QString,QVariant> readGroup ( const QString &group = QLatin1String ( "VideoOptions" ) );
     ~Settings();
 
 };
