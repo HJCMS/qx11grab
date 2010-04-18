@@ -24,29 +24,10 @@ class FFProcess : public QObject
   private:
     Settings* cfg;
     const QX11Info xInfo;
-    QString program, workdir;
     QStringList arguments;
     QProcess *m_QProcess;
-
-    /**  Add Default X11Grab Command Line
-     * @code
-     *  -f x11grab -xerror -s (Width)x(Height) -i :(SCREEN).(qApp->SCREEN)+x,y
-     * @endcode
-     * @param r Dimension
-     * @param o Options
-     */
-    void addVideo( const QRect &r, const QStringList &o );
-
-    /**  Add Audio Command Line
-     * @code
-     *  -f oss -i /dev/dsp*
-     * @endcode
-     */
-    void addAudio();
-
-    /** set Output filepath
-     */
-    const QString addOutput ();
+    const QString application();
+    const QString workdir();
 
   public:
     FFProcess ( QObject *parent = 0, Settings *settings = 0 );
@@ -54,7 +35,7 @@ class FFProcess : public QObject
     ~FFProcess();
 
   public Q_SLOTS:
-    bool start();
+    bool start ( const QStringList &cmd );
     bool stop();
     bool kill();
     bool isRunning();

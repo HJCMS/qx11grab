@@ -142,7 +142,7 @@ void MetaData::save ( QSettings * cfg )
   }
 }
 
-const QString MetaData::getCmd()
+const QStringList MetaData::getCmd()
 {
   QStringList cmd;
   QList<QLineEdit*> items;
@@ -154,9 +154,9 @@ const QString MetaData::getCmd()
       continue;
 
     QString param ( edit->objectName() );
-    cmd << QString ( "-metadata %1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
+    cmd << "-metadata" << QString( "%1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
   }
-  return cmd.join ( " " );
+  return cmd;
 }
 
 MetaData::~MetaData()

@@ -27,6 +27,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 /* QtGui */
@@ -60,7 +61,7 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
 
   public:
     TableEditor ( QWidget * parent = 0 );
-    const QString getCmd( const QString &opts = QString() );
+    const QStringList getCmd();
     ~TableEditor ();
 };
 

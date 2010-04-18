@@ -25,7 +25,7 @@
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QSettings>
-#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QDateTimeEdit>
@@ -53,7 +53,7 @@ class MetaData : public QWidget
 
   public:
     MetaData ( QWidget * parent = 0 );
-    const QString getCmd();
+    const QStringList getCmd();
     ~MetaData ();
 };
 

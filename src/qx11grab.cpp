@@ -412,7 +412,8 @@ void QX11Grab::startRecord()
     startRecordingWindow->setEnabled ( false );
     actionStartRecord->setEnabled ( false );
     showRubber ( false );
-    if ( m_FFProcess->start() )
+    QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
+    if ( m_FFProcess->start ( cmd ) )
     {
       systemTrayIcon->setIcon ( getIcon ( "convert" ) );
     }
@@ -458,40 +459,35 @@ void QX11Grab::perparePreview()
 {
   commandLineEdit->clear();
 
-  QString cmd ( m_defaults->binary () );
-  cmd.append ( QString::fromUtf8 ( " -f x11grab -xerror " ) );
+  QStringList commandLine;
+
+  commandLine << m_defaults->binary ();
+  commandLine << "-f" << "x11grab" << "-xerror";
 
   QRect r = m_grabberInfo->getRect();
-  cmd.append ( QString ( "-r %1 -s %2x%3 " ).arg (
-                   QString::number ( m_grabberInfo->frameRate() ),
-                   QString::number ( r.width() ),
-                   QString::number ( r.height() )
-               ) );
+  commandLine << "-r" << QString::number ( m_grabberInfo->frameRate() );
+  commandLine << "-s" << QString ( "%1x%2" ).arg (
+      QString::number ( r.width() ), QString::number ( r.height() )
+  );
 
   QX11Info xInfo;
-  cmd.append ( QString ( "-i :%1.%2+%3,%4 " ) .arg (
-                   QString::number ( xInfo.screen() ),
-                   QString::number ( xInfo.appScreen() ),
-                   QString::number ( r.x() ),
-                   QString::number ( r.y() )
-               ) );
+  commandLine << "-i" << QString ( ":%1.%2+%3,%4 " ) .arg (
+      QString::number ( xInfo.screen() ),
+      QString::number ( xInfo.appScreen() ),
+      QString::number ( r.x() ),
+      QString::number ( r.y() )
+  );
 
   // Video Options
-  cmd.append ( m_videoEditor->getCmd () );
+  commandLine << m_videoEditor->getCmd ();
+  commandLine << m_metaData->getCmd ();
+  commandLine << m_defaults->ossdevice();
+  commandLine << m_audioEditor->getCmd ();
+  commandLine << "-y" << m_defaults->output();
 
-  // MetaData
-  cmd.append ( QString::fromUtf8 ( " " ) );
-  cmd.append ( m_metaData->getCmd () );
+  commandLineEdit->setPlainText ( commandLine.join ( " " ) );
 
-  // Audio Options
-  cmd.append ( QString::fromUtf8 ( " " ) );
-  cmd.append ( m_audioEditor->getCmd ( m_defaults->ossdevice() ) );
-
-  // Output Settings
-  cmd.append ( QString::fromUtf8 ( " " ) );
-  cmd.append ( m_defaults->output() );
-
-  commandLineEdit->setPlainText ( cmd );
+  cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
 }
 
 QX11Grab::~QX11Grab()

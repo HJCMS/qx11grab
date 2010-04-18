@@ -24,105 +24,42 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
   arguments = QStringList();
 }
 
-void FFProcess::addVideo ( const QRect &r, const QStringList &o )
+const QString FFProcess::application()
 {
-  arguments << "-f" << "x11grab" << "-xerror";
-  arguments << "-s" << QString ( "%1x%2" ).arg (
-      QString::number ( r.width() ),
-      QString::number ( r.height() )
-  );
-  arguments << o;
-  arguments << "-i" << QString ( ":%1.%2+%3,%4" ) .arg (
-      QString::number ( xInfo.screen() ),
-      QString::number ( xInfo.appScreen() ),
-      QString::number ( r.x() ),
-      QString::number ( r.y() )
-  );
+  return cfg->value ( QLatin1String ( "ff_path" ), "ffmpeg" ).toString();
 }
 
-void FFProcess::addAudio ()
-{
-  if ( ! cfg->value ( QLatin1String ( "enableAudioRecording" ), false ).toBool() )
-    return;
-
-  QStringList audioOptions = cfg->getAudioOptions();
-
-  QString audioDevice = cfg->audiodev ();
-  if ( audioDevice.isEmpty() )
-  {
-    QMessageBox::warning ( 0L, trUtf8 ( "Audio" ), trUtf8 ( "audio device is busy or not exists.\ndisable audio recording." ) );
-    cfg->setValue ( QLatin1String ( "enableAudioRecording" ), false );
-    return;
-  }
-  arguments << "-f" << "oss" << "-i" << audioDevice;
-  if ( ! audioOptions.isEmpty() )
-    arguments << audioOptions;
-}
-
-const QString FFProcess::addOutput ()
+const QString FFProcess::workdir()
 {
   QString p = cfg->value ( "tempdir", "/tmp" ).toString();
   QDir d ( p );
-  if ( d.isReadable() )
-  {
-    /* Working Directory */
-    workdir = p;
+  if ( ! d.isReadable() )
+    QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
 
-    QString f = cfg->value ( "outputName", "qx11grab-XXXXXX.avi" ).toString();
-    QString outFile = QString ( "%1/%2" ).arg ( p, f );
-    QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
-    outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
-    QFileInfo info ( outFile );
-    if ( info.exists() )
-    {
-      QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ),
-                             trUtf8 ( "%1 already exists." ).arg ( outFile ) );
-    }
-    return outFile;
-  }
-  return QString();
+  return p;
 }
 
 bool FFProcess::create ( const QRect &r )
 {
-  QStringList videoOptions = cfg->getVideoOptions();
-  if ( r.isValid() && ! videoOptions.isEmpty() )
-  {
-    /* ffmpeg Binary */
-    program = cfg->ffbin();
-
-    arguments.clear();
-    /* Video Device with given Options */
-    addVideo ( r, videoOptions );
-    /* Audio */
-    addAudio ();
-    /* Output */
-    QString outFile = addOutput ();
-    if ( outFile.isEmpty() )
-      return false;
-
-    arguments << outFile;
+  if ( r.isValid() )
     return true;
-  }
-  else
-  {
 
-#ifdef QX11GRAB_DEBUG
-    qDebug() << Q_FUNC_INFO << videoOptions;
-#endif
-
-    emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
-  }
+  emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
   return false;
 }
 
-bool FFProcess::start()
+bool FFProcess::start ( const QStringList &cmd )
 {
-  if ( program.isEmpty() || arguments.size() < 2 || workdir.isEmpty() )
+  if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
 
+  QStringList arguments ( cmd );
+
+  if ( arguments.contains( application() ) )
+    arguments.removeOne( application() );
+
   m_QProcess = new QProcess ( this );
-  m_QProcess->setWorkingDirectory ( workdir );
+  m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
   m_QProcess->setReadChannel ( QProcess::StandardOutput );
   m_QProcess->setStandardErrorFile ( LOG_FILE );
@@ -137,11 +74,10 @@ bool FFProcess::start()
             this, SLOT ( startCheck() ) );
 
 #ifdef QX11GRAB_DEBUG
-  qDebug() << Q_FUNC_INFO << program << arguments;
+  qDebug() << Q_FUNC_INFO << application() << arguments;
 #endif
-  // return false;
 
-  m_QProcess->start ( program, arguments );
+  m_QProcess->start ( application(), arguments );
   return true;
 }
 

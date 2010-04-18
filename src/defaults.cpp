@@ -25,8 +25,8 @@
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QList>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QtCore/QRegExp>
+#include <QtCore/QTime>
 
 /* QtGui */
 #include <QtGui/QFileDialog>
@@ -207,26 +207,30 @@ const QString Defaults::binary()
   return ff_path->text();
 }
 
-const QString Defaults::ossdevice()
+const QStringList Defaults::ossdevice()
 {
-  QString vol;
+  QStringList cmd;
   if ( ff_oss->text().isEmpty() )
-    return QString();
+    return cmd;
+
+  cmd << "-f" << "oss" << "-i" << ff_oss->text();
 
   if ( ossVolume->value() != 256 )
-    vol = QString ( " -vol %1" ).arg ( QString::number ( ossVolume->value() ) );
+    cmd << "-vol" << QString::number ( ossVolume->value() );
 
-  return QString ( "-f oss -i %1%2" ).arg ( ff_oss->text(), vol );
+  return cmd;
 }
 
 const QString Defaults::output()
 {
-  QStringList cmd ( "-y" );
   QString p = outputDirectory->text();
   p.append ( "/" );
-  p.append ( outputName->text() );
-  cmd << p;
-  return cmd.join ( " " );
+
+  QString outFile = outputName->text();
+  QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
+  outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+  p.append ( outFile );
+  return p;
 }
 
 Defaults::~Defaults()

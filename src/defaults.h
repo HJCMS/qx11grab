@@ -25,6 +25,8 @@
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QSettings>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QLineEdit>
@@ -55,7 +57,7 @@ class Defaults : public QWidget
   public:
     Defaults ( QWidget * parent = 0 );
     const QString binary();
-    const QString ossdevice();
+    const QStringList ossdevice();
     const QString output();
     ~Defaults ();
 };

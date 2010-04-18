@@ -25,7 +25,6 @@
 #include <QtCore/QDebug>
 #include <QtCore/QHashIterator>
 #include <QtCore/QRegExp>
-#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QPalette>
@@ -220,11 +219,9 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
   }
 }
 
-const QString TableEditor::getCmd ( const QString &opts )
+const QStringList TableEditor::getCmd ()
 {
   QStringList cmd;
-  if ( ! opts.isEmpty() )
-    cmd << opts.split ( " " );
 
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
@@ -259,7 +256,7 @@ const QString TableEditor::getCmd ( const QString &opts )
         cmd << valItem->text();
     }
   }
-  return cmd.join ( " " );
+  return cmd;
 }
 
 TableEditor::~TableEditor()
