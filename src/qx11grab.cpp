@@ -556,4 +556,6 @@ void QX11Grab::perparePreview()
 
 QX11Grab::~QX11Grab()
 {
+  if ( m_FFProcess->isRunning() )
+    m_FFProcess->kill();
 }
