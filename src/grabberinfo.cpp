@@ -98,6 +98,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   setXBox = new QSpinBox ( this );
   setXBox->setObjectName ( QLatin1String ( "setXBox" ) );
+  setXBox->setRange ( 0, 5000 );
   setXBox->setValue ( 0 );
   gridLayout->addWidget ( setXBox, 4, 1, 1, 1 );
   // end: X Position
@@ -110,6 +111,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   setYBox = new QSpinBox ( this );
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
+  setYBox->setRange ( 0, 5000 );
   setYBox->setValue ( 30 );
   gridLayout->addWidget ( setYBox, 5, 1, 1, 1 );
   // end: Y Position
