@@ -6,7 +6,13 @@
 #ifndef SCREENCOMBOBOX_H
 #define SCREENCOMBOBOX_H
 
-#include <QComboBox>
+/* QtCore */
+#include <QtCore/QObject>
+#include <QtCore/QString>
+
+/* QtGui */
+#include <QtGui/QComboBox>
+#include <QtGui/QWidget>
 
 class DesktopInfo;
 

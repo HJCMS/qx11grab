@@ -8,7 +8,10 @@
 #include "desktopinfo.h"
 #include "rubberband.h"
 #include "windowgrabber.h"
-#include "settingsdialog.h"
+#include "grabberinfo.h"
+#include "defaults.h"
+#include "tableeditor.h"
+#include "metadata.h"
 #include "ffprocess.h"
 
 #ifdef HAVE_DBUS
@@ -29,13 +32,56 @@
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QRubberBand>
 #include <QtGui/QMessageBox>
+#include <QtGui/QDialogButtonBox>
+#include <QtGui/QIcon>
+#include <QtGui/QLineEdit>
+#include <QtGui/QPushButton>
+#include <QtGui/QTableWidget>
+#include <QtGui/QToolBox>
+#include <QtGui/QX11Info>
 
 QX11Grab::QX11Grab ( Settings *settings )
     : cfg ( settings )
 {
   setupUi ( this );
+  setMinimumWidth ( 500 );
+  setMinimumHeight ( 450 );
 
-  setDepthBox->hide();
+  QIcon boxIcon;
+  boxIcon.addFile ( QString::fromUtf8 ( ":/images/qx11grab.png" ), QSize(), QIcon::Normal, QIcon::Off );
+
+  QWidget* layerWidget = new QWidget ( this );
+  QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
+
+  QToolBox* toolBox = new QToolBox ( this, Qt::Widget );
+  verticalLayout->addWidget ( toolBox );
+
+  m_grabberInfo = new GrabberInfo ( toolBox );
+  toolBox->addItem ( m_grabberInfo, boxIcon, QString::fromUtf8 ( "QX11Grab" ) );
+
+  m_defaults = new Defaults ( toolBox );
+  toolBox->addItem ( m_defaults, boxIcon, QString::fromUtf8 ( "Default" ) );
+
+  m_metaData = new MetaData ( toolBox );
+  m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
+  toolBox->addItem ( m_metaData, boxIcon, QString::fromUtf8 ( "Metadata" ) );
+
+  m_videoEditor = new TableEditor ( toolBox );
+  m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
+  toolBox->addItem ( m_videoEditor, boxIcon, QString::fromUtf8 ( "Video" ) );
+
+  m_audioEditor = new TableEditor ( toolBox );
+  m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
+  toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
+
+  commandLineEdit = new QTextEdit ( this );
+  commandLineEdit->setObjectName ( "CommandLine" );
+  commandLineEdit->setToolTip ( trUtf8 ( "Display the current FFmpeg command." ) );
+  verticalLayout->addWidget ( commandLineEdit );
+
+  layerWidget->setLayout ( verticalLayout );
+  setCentralWidget ( layerWidget );
+
   TimeOutMessages = 5000;
 
   loadStats();
@@ -46,6 +92,7 @@ QX11Grab::QX11Grab ( Settings *settings )
   createActions();
   createEnviroment();
   createSystemTrayIcon();
+
 
 #ifdef HAVE_DBUS
 
@@ -65,31 +112,10 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
             this, SLOT ( pushToolTip ( const QString & ) ) );
 
-  connect ( screenComboBox, SIGNAL ( screenNameChanged ( const QString & ) ),
-            setModeName, SLOT ( setText ( const QString & ) ) );
-
-  connect ( screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
-            setWidthBox, SLOT ( setValue ( int ) ) );
-
-  connect ( screenComboBox, SIGNAL ( screenHeightChanged ( int ) ),
-            setHeightBox, SLOT ( setValue ( int ) ) );
-
-  connect ( screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
-            setDepthBox, SLOT ( setValue ( int ) ) );
-
-  connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
+  connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( int ) ),
             this, SLOT ( toRubber ( int ) ) );
 
-  connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( toRubber ( int ) ) );
-
-  connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( toRubber ( int ) ) );
-
-  connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( toRubber ( int ) ) );
-
-  connect ( showRubberband, SIGNAL ( clicked ( bool ) ),
+  connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
   connect ( actionGrabbing, SIGNAL ( triggered () ),
@@ -106,9 +132,6 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   connect ( m_FFProcess, SIGNAL ( down () ),
             this, SLOT ( setActionsBack () ) );
-
-  connect ( actionApplication, SIGNAL ( triggered() ),
-            this, SLOT ( openSettings() ) );
 
   connect ( actionMinimize, SIGNAL ( triggered() ),
             this, SLOT ( hide() ) );
@@ -179,14 +202,14 @@ void QX11Grab::createEnviroment()
 {
   m_DesktopInfo = new DesktopInfo ( this );
   FrameMode desktop = m_DesktopInfo->grabScreenGeometry ( centralWidget() );
-  setDepthBox->setValue ( desktop.depth );
+//  setDepthBox->setValue ( desktop.depth );
 
   m_RubberBand = new RubberBand ( qApp->desktop()->screen() );
   connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
   toRubber ( 1 );
-  if ( showRubberband->isChecked() )
+  if ( m_grabberInfo->RubberbandIsVisible() )
     m_RubberBand->show();
   else
     m_RubberBand->hide();
@@ -217,14 +240,14 @@ void QX11Grab::createSystemTrayIcon()
 
 void QX11Grab::swapRubberBand ()
 {
-  if ( showRubberband->isChecked() )
+  if ( m_grabberInfo->RubberbandIsVisible() )
   {
-    showRubberband->setChecked ( false );
+    m_grabberInfo->setRubberbandCheckBox ( false );
     m_RubberBand->hide();
   }
   else
   {
-    showRubberband->setChecked ( true );
+    m_grabberInfo->setRubberbandCheckBox ( true );
     m_RubberBand->show();
   }
 }
@@ -233,12 +256,12 @@ void QX11Grab::showRubber ( bool b )
 {
   if ( b )
   {
-    showRubberband->setChecked ( true );
+    m_grabberInfo->setRubberbandCheckBox ( true );
     m_RubberBand->show();
   }
   else
   {
-    showRubberband->setChecked ( false );
+    m_grabberInfo->setRubberbandCheckBox ( false );
     m_RubberBand->hide();
   }
 }
@@ -252,10 +275,9 @@ void QX11Grab::loadStats()
     resize ( cfg->value ( "windowSize", size() ).toSize() );
 
   if ( ! cfg->contains ( "Version" ) )
-  {
     cfg->setValue ( "Version", QX11GRAB_VERSION );
-    openSettings();
-  }
+
+  loadSettings();
 }
 
 void QX11Grab::saveStats()
@@ -273,12 +295,10 @@ void QX11Grab::toRubber ( int i )
   if ( ! m_RubberBand )
     return;
 
-  int w = setWidthBox->value();
-  int h = setHeightBox->value();
-  int x = setXBox->value();
-  int y = setYBox->value();
-  m_RubberBand->resize ( w, h );
-  m_RubberBand->move ( x, y );
+  QRect r = m_grabberInfo->getRect();
+  m_RubberBand->resize ( r.width(), r.height() );
+  m_RubberBand->move ( r.x(), r.y() );
+  perparePreview();
 }
 
 void QX11Grab::grabFromWindow()
@@ -286,16 +306,16 @@ void QX11Grab::grabFromWindow()
   if ( ! m_RubberBand )
     return;
 
-  WindowGrabber *grabber = new WindowGrabber ( this );
+  WindowGrabber* grabber = new WindowGrabber ( this );
   QRect rect = grabber->grabWindowRect();
 
   if ( rect.isValid() )
   {
-    setWidthBox->setValue ( rect.width() );
-    setHeightBox->setValue ( rect.height() );
-    setXBox->setValue ( rect.x() );
-    setYBox->setValue ( rect.y() );
-    setModeName->setText ( trUtf8 ( "grabbed Dimension" ) );
+    m_grabberInfo->setScreenWidth ( rect.width() );
+    m_grabberInfo->setScreenHeight ( rect.height() );
+    m_grabberInfo->setScreenX ( rect.x() );
+    m_grabberInfo->setScreenY ( rect.y() );
+    m_grabberInfo->setScreenMode ( trUtf8 ( "grabbed Dimension" ) );
     toRubber ( 1 );
   }
 
@@ -321,13 +341,6 @@ void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
     default:
       return;
   }
-}
-
-void QX11Grab::openSettings ()
-{
-  SettingsDialog *confDialog = new SettingsDialog ( centralWidget(), cfg );
-  confDialog->exec();
-  delete confDialog;
 }
 
 void QX11Grab::showEvent ( QShowEvent * )
@@ -391,8 +404,7 @@ void QX11Grab::startRecord()
   if ( ! m_RubberBand->isScalability() )
     return;
 
-  QRect rect ( setXBox->value(), setYBox->value(), setWidthBox->value(), setHeightBox->value() );
-  if ( m_FFProcess->create ( rect ) )
+  if ( m_FFProcess->create ( m_grabberInfo->getRect() ) )
   {
     stopRecordingWindow->setEnabled ( true );
     actionStopRecord->setEnabled ( true );
@@ -417,6 +429,69 @@ void QX11Grab::setActionsBack()
   startRecordingWindow->setEnabled ( true );
   actionStartRecord->setEnabled ( true );
   systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+}
+
+/**
+* Lade beim Start des Dialoges alle Einstellungen.
+*/
+void QX11Grab::loadSettings()
+{
+  m_defaults->load ( cfg );
+  m_metaData->load ( cfg );
+  m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
+  m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+  perparePreview();
+}
+
+/**
+* Speichere alle Einstellungen.
+*/
+void QX11Grab::saveSettings()
+{
+  m_defaults->save ( cfg );
+  m_metaData->save ( cfg );
+  m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
+  m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+}
+
+void QX11Grab::perparePreview()
+{
+  commandLineEdit->clear();
+
+  QString cmd ( m_defaults->binary () );
+  cmd.append ( QString::fromUtf8 ( " -f x11grab -xerror " ) );
+
+  QRect r = m_grabberInfo->getRect();
+  cmd.append ( QString ( "-r %1 -s %2x%3 " ).arg (
+                   QString::number ( m_grabberInfo->frameRate() ),
+                   QString::number ( r.width() ),
+                   QString::number ( r.height() )
+               ) );
+
+  QX11Info xInfo;
+  cmd.append ( QString ( "-i :%1.%2+%3,%4 " ) .arg (
+                   QString::number ( xInfo.screen() ),
+                   QString::number ( xInfo.appScreen() ),
+                   QString::number ( r.x() ),
+                   QString::number ( r.y() )
+               ) );
+
+  // Video Options
+  cmd.append ( m_videoEditor->getCmd () );
+
+  // MetaData
+  cmd.append ( QString::fromUtf8 ( " " ) );
+  cmd.append ( m_metaData->getCmd () );
+
+  // Audio Options
+  cmd.append ( QString::fromUtf8 ( " " ) );
+  cmd.append ( m_audioEditor->getCmd ( m_defaults->ossdevice() ) );
+
+  // Output Settings
+  cmd.append ( QString::fromUtf8 ( " " ) );
+  cmd.append ( m_defaults->output() );
+
+  commandLineEdit->setPlainText ( cmd );
 }
 
 QX11Grab::~QX11Grab()

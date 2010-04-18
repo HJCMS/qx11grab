@@ -18,6 +18,7 @@ SET (qx11grab_SOURCES
   desktopinfo.cpp
   defaults.cpp
   ffprocess.cpp
+  grabberinfo.cpp
   main.cpp
   metadata.cpp
   qx11grabadaptor.cpp
@@ -25,7 +26,6 @@ SET (qx11grab_SOURCES
   rubberband.cpp
   screencombobox.cpp
   settings.cpp
-  settingsdialog.cpp
   windowgrabber.cpp
 )
 
@@ -33,12 +33,12 @@ SET (qx11grab_HEADERS
   desktopinfo.h
   defaults.h
   ffprocess.h
+  grabberinfo.h
   metadata.h
   qx11grabadaptor.h
   qx11grab.h
   rubberband.h
   screencombobox.h
-  settingsdialog.h
   settings.h
   windowgrabber.h
 )

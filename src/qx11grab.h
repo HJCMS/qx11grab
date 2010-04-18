@@ -19,6 +19,7 @@
 #include <QtGui/QShowEvent>
 #include <QtGui/QHideEvent>
 #include <QtGui/QCloseEvent>
+#include <QtGui/QTextEdit>
 
 #include "version.h"
 #include "ui_qx11grabmain.h"
@@ -26,6 +27,10 @@
 class QAction;
 class QMenu;
 class Settings;
+class GrabberInfo;
+class Defaults;
+class MetaData;
+class TableEditor;
 class DesktopInfo;
 class RubberBand;
 class FFProcess;
@@ -46,6 +51,12 @@ class QX11Grab : public QMainWindow
   private:
     int TimeOutMessages;
     Settings *cfg;
+    GrabberInfo* m_grabberInfo;
+    Defaults* m_defaults;
+    MetaData* m_metaData;
+    TableEditor* m_videoEditor;
+    TableEditor* m_audioEditor;
+    QTextEdit* commandLineEdit;
     DesktopInfo *m_DesktopInfo;
     RubberBand *m_RubberBand;
     FFProcess *m_FFProcess;
@@ -71,9 +82,26 @@ class QX11Grab : public QMainWindow
 
 #endif
 
-  public:
-    QX11Grab( Settings *settings = 0 );
-    ~QX11Grab();
+  private Q_SLOTS:
+    void swapRubberBand ();
+    void showRubber ( bool );
+    void toRubber ( int );
+    void grabFromWindow();
+    void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
+    void showEvent ( QShowEvent * );
+    void hideEvent ( QHideEvent * );
+    void closeEvent ( QCloseEvent * );
+    void pushInfoMessage ( const QString & );
+    void pushErrorMessage ( const QString &, const QString & );
+    void pushToolTip ( const QString & );
+    void startRecord();
+    void setActionsBack();
+    void loadSettings();
+    void saveSettings();
+    void perparePreview();
+
+  Q_SIGNALS:
+    void startMinimized ();
 
 #ifdef HAVE_DBUS
 
@@ -83,24 +111,10 @@ class QX11Grab : public QMainWindow
 
 #endif
 
-  Q_SIGNALS:
-    void startMinimized ();
+  public:
+    QX11Grab ( Settings *settings = 0 );
+    ~QX11Grab();
 
-  private Q_SLOTS:
-    void swapRubberBand ();
-    void showRubber ( bool );
-    void toRubber ( int );
-    void grabFromWindow();
-    void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
-    void openSettings ();
-    void showEvent ( QShowEvent * );
-    void hideEvent ( QHideEvent * );
-    void closeEvent ( QCloseEvent * );
-    void pushInfoMessage ( const QString & );
-    void pushErrorMessage ( const QString &, const QString & );
-    void pushToolTip ( const QString & );
-    void startRecord();
-    void setActionsBack();
 };
 
 #endif
