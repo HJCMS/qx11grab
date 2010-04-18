@@ -46,14 +46,19 @@
     <addaction name="actionMinimize"/>
     <addaction name="actionQuit"/>
    </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionRefresh"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionQuit">
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
-   </property>
    <property name="text">
     <string>Quit</string>
    </property>
@@ -62,10 +67,6 @@
    </property>
   </action>
   <action name="actionMinimize">
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/minimize.png</normaloff>:/images/minimize.png</iconset>
-   </property>
    <property name="text">
     <string>Minimize</string>
    </property>
@@ -74,10 +75,6 @@
    </property>
   </action>
   <action name="actionStartRecord">
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/run.png</normaloff>:/images/run.png</iconset>
-   </property>
    <property name="text">
     <string>Recording</string>
    </property>
@@ -89,10 +86,6 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
-   </property>
    <property name="text">
     <string>Stop</string>
    </property>
@@ -101,10 +94,6 @@
    </property>
   </action>
   <action name="actionGrabbing">
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/window.png</normaloff>:/images/window.png</iconset>
-   </property>
    <property name="text">
     <string>Grabbing</string>
    </property>
@@ -116,12 +105,23 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
-   <property name="icon">
-    <iconset resource="qx11grab.qrc">
-     <normaloff>:/images/fail.png</normaloff>:/images/fail.png</iconset>
-   </property>
    <property name="text">
     <string>Kill</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="text">
+    <string>Refresh</string>
    </property>
   </action>
  </widget>

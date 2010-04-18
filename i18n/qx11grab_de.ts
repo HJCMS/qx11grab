@@ -2,6 +2,61 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de">
 <context>
+    <name>Defaults</name>
+    <message>
+        <source>FFmpeg Application:</source>
+        <translation>FFmpeg Anwendung:</translation>
+    </message>
+    <message>
+        <source>Output Filename:</source>
+        <translation>Ausgabe Dateiname:</translation>
+    </message>
+    <message>
+        <source>Output Directory:</source>
+        <translation>Ausgabe Verzeichnis:</translation>
+    </message>
+    <message>
+        <source>Audio Capture Device:</source>
+        <translation>Audio Schnittstelle:</translation>
+    </message>
+    <message>
+        <source>Change Audio Capture Device
+Default: /dev/dsp</source>
+        <translation>Setze die Audio Aufnahme Schnittstelle.
+Standard: /dev/dsp</translation>
+    </message>
+    <message>
+        <source>Audio Intensifier:</source>
+        <translation>Audio Verstärkung:</translation>
+    </message>
+    <message>
+        <source>Change Audio Volume (256=normal)</source>
+        <translation>Setze die Audio Lautstärke (256=Normal)</translation>
+    </message>
+    <message>
+        <source>Change Audio Amplifier.
+Default: 256=normal</source>
+        <translation>Setze die Audio Verstärkung.
+Standard: 256=Normal</translation>
+    </message>
+    <message>
+        <source>FFmpeg %1</source>
+        <translation>FFmpeg %1</translation>
+    </message>
+    <message>
+        <source>Other %1</source>
+        <translation>Andere %1</translation>
+    </message>
+    <message>
+        <source>FFmpeg Binary</source>
+        <translation>FFmpeg Programm</translation>
+    </message>
+    <message>
+        <source>Output Directory</source>
+        <translation>Ausgabe Verzeichnis</translation>
+    </message>
+</context>
+<context>
     <name>DesktopInfo</name>
     <message>
         <source>Unknown</source>
@@ -17,10 +72,6 @@
     <message>
         <source>Warning</source>
         <translation>Warnung</translation>
-    </message>
-    <message>
-        <source>%1 already exists.</source>
-        <translation>%1 Existiert bereits.</translation>
     </message>
     <message>
         <source>Dimension</source>
@@ -79,14 +130,82 @@
         <translation>Aufnahme gestartet schreibe nach: %1</translation>
     </message>
     <message>
-        <source>Audio</source>
-        <translation>Audio</translation>
+        <source>Permission Denied: %1.</source>
+        <translation>Zugriff Verweigert: %1</translation>
+    </message>
+</context>
+<context>
+    <name>GrabberInfo</name>
+    <message>
+        <source>FFmpeg Application:</source>
+        <translation>FFmpeg Programm:</translation>
     </message>
     <message>
-        <source>audio device is busy or not exists.
-disable audio recording.</source>
-        <translation>Die Audio Schnittstelle ist belegt oder esistiert nicht.
-Die Audio Aufnahme wurde deaktiviert!</translation>
+        <source>Width:</source>
+        <translation>Breite:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation>Höhe:</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>Name:</translation>
+    </message>
+    <message>
+        <source>Position X:</source>
+        <translation>Position X:</translation>
+    </message>
+    <message>
+        <source>Position Y:</source>
+        <translation>Position Y:</translation>
+    </message>
+    <message>
+        <source>Depth:</source>
+        <translation>Farbtiefe:</translation>
+    </message>
+    <message>
+        <source>Framerate:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Display Rubberband</source>
+        <translation>Zeige Gummiband</translation>
+    </message>
+    <message>
+        <source>Start Minimized</source>
+        <translation>Starte Minimiert</translation>
+    </message>
+</context>
+<context>
+    <name>MetaData</name>
+    <message>
+        <source>Title:</source>
+        <translation>Titel:</translation>
+    </message>
+    <message>
+        <source>Artist:</source>
+        <translation>Ersteller:</translation>
+    </message>
+    <message>
+        <source>Copyright:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Creation Date:</source>
+        <translation>Erstellungs Datum:</translation>
+    </message>
+    <message>
+        <source>Subject:</source>
+        <translation>Betreff:</translation>
+    </message>
+    <message>
+        <source>Description:</source>
+        <translation>Beschreibung:</translation>
+    </message>
+    <message>
+        <source>Medium:</source>
+        <translation>Medium:</translation>
     </message>
 </context>
 <context>
@@ -147,6 +266,18 @@ Die Audio Aufnahme wurde deaktiviert!</translation>
         <source>qx11grap not started</source>
         <translation>qx11grab ist nicht gestartet</translation>
     </message>
+    <message>
+        <source>Display the current FFmpeg command.</source>
+        <translation>Zeigt die aktuelle FFmpeg Argumenten übergabe.</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Neu laden</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
 </context>
 <context>
     <name>QX11GrabMain</name>
@@ -163,24 +294,12 @@ Die Audio Aufnahme wurde deaktiviert!</translation>
         <translation>Schließe die Anwendung</translation>
     </message>
     <message>
-        <source>Screen</source>
-        <translation>Darstellung</translation>
-    </message>
-    <message>
-        <source>Window</source>
-        <translation>Fenster</translation>
-    </message>
-    <message>
         <source>Minimize</source>
         <translation>Minimieren</translation>
     </message>
     <message>
         <source>Minimize to Systray</source>
         <translation>Minimiere in die Taskleiste</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation>Anwendung</translation>
     </message>
     <message>
         <source>Recording</source>
@@ -211,48 +330,20 @@ Die Audio Aufnahme wurde deaktiviert!</translation>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <source>Format:</source>
-        <translation>Format:</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation>Breite:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation>Höhe:</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation>Name:</translation>
-    </message>
-    <message>
-        <source>sqcif</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>read only</source>
-        <translation>Schreibgeschützt</translation>
-    </message>
-    <message>
-        <source>Position X:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Position Y:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Display Rubberband</source>
-        <translation>Zeige Gummiband</translation>
-    </message>
-    <message>
         <source>Action</source>
         <translation>Aktion</translation>
     </message>
     <message>
-        <source>Open Settings Dialog</source>
-        <translation>Öffne die Einstellungen</translation>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Load</source>
+        <translation>Laden</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Neu laden</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -279,165 +370,34 @@ Die Audio Aufnahme wurde deaktiviert!</translation>
     </message>
 </context>
 <context>
-    <name>SettingsDialog</name>
+    <name>TableEditorUi</name>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Speichern</translation>
+        <source>Codec:</source>
+        <translation>Kodierer:</translation>
     </message>
     <message>
-        <source>FFmpeg %1</source>
-        <translation>FFmpeg %1</translation>
-    </message>
-    <message>
-        <source>Other %1</source>
-        <translation>Andere %1</translation>
-    </message>
-    <message>
-        <source>FFmpeg Binary</source>
-        <translation>FFmpeg Programm</translation>
-    </message>
-    <message>
-        <source>Output Directory</source>
-        <translation>Ausgabe Verzeichnis</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsDialogMain</name>
-    <message>
-        <source>QX11Grab Settings</source>
-        <translation>QX11Grab Einstellungen</translation>
-    </message>
-    <message>
-        <source>Starting the Application Minimized</source>
-        <translation>Starte das Programm Minimiert</translation>
-    </message>
-    <message>
-        <source>Audio Device:</source>
-        <translation>Audio Schnittstelle:</translation>
-    </message>
-    <message>
-        <source>...</source>
+        <source>Parameter</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>ffmpeg Binary:</source>
-        <translation>ffmpeg Programm:</translation>
-    </message>
-    <message>
-        <source>Default Output Filename:</source>
-        <translation>Standard Dateiausgabe Name:</translation>
-    </message>
-    <message>
-        <source>Default Output Directory:</source>
-        <translation>Standard Ausgabe Verzeichnis:</translation>
-    </message>
-    <message>
-        <source>Application Defaults</source>
-        <translation>Programm Standards</translation>
-    </message>
-    <message>
-        <source>Argument</source>
-        <translation>Argument</translation>
     </message>
     <message>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
-    <message>
-        <source>0</source>
+    <message utf8="true">
+        <source>↑</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <source>↓</source>
         <translation></translation>
     </message>
     <message>
-        <source>1</source>
-        <translation></translation>
+        <source>Add</source>
+        <translation>Einfügen</translation>
     </message>
     <message>
-        <source>2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation>Metadaten</translation>
-    </message>
-    <message>
-        <source>Title:</source>
-        <translation>Titel:</translation>
-    </message>
-    <message>
-        <source>qx11grabbed</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Artist:</source>
-        <translation>Ersteller:</translation>
-    </message>
-    <message>
-        <source>Copyright:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Creative Commons</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Creation Date:</source>
-        <translation>Erstellungs Datum:</translation>
-    </message>
-    <message>
-        <source>Subject:</source>
-        <translation>Betreff:</translation>
-    </message>
-    <message>
-        <source>Description:</source>
-        <translation>Beschreibung:</translation>
-    </message>
-    <message>
-        <source>Record my X11 Windows</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Medium:</source>
-        <translation>Medium:</translation>
-    </message>
-    <message>
-        <source>qx11grab</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Video Settings</source>
-        <translation>Video Einstellungen</translation>
-    </message>
-    <message>
-        <source>Enable Audio Recording</source>
-        <translation>Aktiviere die Audio aufnahme</translation>
-    </message>
-    <message>
-        <source>Neue Zeile</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Audio Settings</source>
-        <translation>Audio Einstellungen</translation>
-    </message>
-    <message>
-        <source>Add New Video Options</source>
-        <translation>Füge eine neue Video Optionen Zeile ein</translation>
-    </message>
-    <message>
-        <source>Remove Selected Video Options</source>
-        <translation>Entferne die Ausgewählten Video Optionen</translation>
-    </message>
-    <message>
-        <source>Add New Audio Options</source>
-        <translation>Füge eine neue Audio Optionen Zeile ein</translation>
-    </message>
-    <message>
-        <source>Remove Selected Audio Options</source>
-        <translation>Entferne die Ausgewählten Audio Optionen</translation>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
     </message>
 </context>
 </TS>

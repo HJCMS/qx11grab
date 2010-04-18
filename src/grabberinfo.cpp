@@ -114,23 +114,41 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   gridLayout->addWidget ( setYBox, 5, 1, 1, 1 );
   // end: Y Position
 
-  // begin: Format Mode Name
+  // begin: Desktop Color Depth
   QLabel* txt7 = new QLabel ( this );
   txt7->setText ( trUtf8 ( "Depth:" ) );
   txt7->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt7, 6, 0, 1, 1 );
 
   QSpinBox* depth = new QSpinBox ( this );
+  depth->setDisabled ( true );
   gridLayout->addWidget ( depth, 6, 1, 1, 1 );
-  // end: Format Mode Name
+  // end: Desktop Color Depth
+
+  // begin: Frame Rate
+  QLabel* txt8 = new QLabel ( this );
+  txt8->setText ( trUtf8 ( "Framerate:" ) );
+  txt8->setAlignment ( labelAlignment );
+  gridLayout->addWidget ( txt8, 7, 0, 1, 1 );
+
+  setFrameRate = new QSpinBox ( this );
+  setFrameRate->setRange ( 0, 150 );
+  setFrameRate->setValue ( 25 );
+  gridLayout->addWidget ( setFrameRate, 7, 1, 1, 1 );
+  // end: Frame Rate
 
   showRubberband = new QCheckBox ( this );
   showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
   showRubberband->setChecked ( true );
-  gridLayout->addWidget ( showRubberband, 7, 0, 1, 2 );
+  gridLayout->addWidget ( showRubberband, 8, 0, 1, 2 );
+
+  startMinimized = new QCheckBox ( this );
+  startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
+  startMinimized->setChecked ( true );
+  gridLayout->addWidget ( startMinimized, 9, 0, 1, 2 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 8, 0, 1, 2 );
+  gridLayout->addItem ( spacer, 10, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
@@ -158,8 +176,24 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
 
+  connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
+            this, SIGNAL ( screenDataChanged ( int ) ) );
+
   connect ( showRubberband, SIGNAL ( toggled ( bool ) ),
             this, SIGNAL ( showRubber ( bool ) ) );
+}
+
+
+void GrabberInfo::load ( QSettings *cfg )
+{
+  showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
+  startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
+}
+
+void GrabberInfo::save ( QSettings *cfg )
+{
+  cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
+  cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
 }
 
 bool GrabberInfo::RubberbandIsVisible()
@@ -204,7 +238,8 @@ const QRect GrabberInfo::getRect()
 
 int GrabberInfo::frameRate()
 {
-  return 25;
+  int rate = setFrameRate->value();
+  return ( rate > 0 ) ? rate : 25;
 }
 
 GrabberInfo::~GrabberInfo()

@@ -25,6 +25,7 @@
 /* QtCore */
 #include <QtCore/QRect>
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -48,11 +49,17 @@ class GrabberInfo : public QWidget
     QSpinBox* setHeightBox;
     QSpinBox* setXBox;
     QSpinBox* setYBox;
+    QSpinBox* setFrameRate;
     QCheckBox* showRubberband;
+    QCheckBox* startMinimized;
 
   Q_SIGNALS:
     void showRubber ( bool );
     void screenDataChanged ( int );
+
+  public Q_SLOTS:
+    void load ( QSettings * );
+    void save ( QSettings * );
 
   public:
     GrabberInfo ( QWidget * parent = 0 );

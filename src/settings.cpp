@@ -15,7 +15,7 @@
 #include <QtGui/QMessageBox>
 
 Settings::Settings ( QObject *parent )
-    : QSettings ( QSettings::IniFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
+    : QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
 {
 }
 
@@ -166,5 +166,3 @@ const QStringList Settings::getAudioOptions()
 Settings::~Settings()
 {
 }
-
-

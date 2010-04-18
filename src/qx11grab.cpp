@@ -24,20 +24,19 @@
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QMenu>
 #include <QtGui/QAction>
+#include <QtGui/QDesktopWidget>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
+#include <QtGui/QKeySequence>
+#include <QtGui/QMenu>
+#include <QtGui/QMessageBox>
 #include <QtGui/QPixmap>
 #include <QtGui/QPushButton>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QRubberBand>
-#include <QtGui/QMessageBox>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QIcon>
-#include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
-#include <QtGui/QTableWidget>
+#include <QtGui/QRubberBand>
 #include <QtGui/QToolBox>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QX11Info>
 
 QX11Grab::QX11Grab ( Settings *settings )
@@ -79,6 +78,24 @@ QX11Grab::QX11Grab ( Settings *settings )
   commandLineEdit->setToolTip ( trUtf8 ( "Display the current FFmpeg command." ) );
   verticalLayout->addWidget ( commandLineEdit );
 
+  QWidget* layerActionsWidget = new QWidget ( this );
+
+  QHBoxLayout* horizontalLayout = new QHBoxLayout ( layerActionsWidget );
+  QPushButton* rerfreshBtn = new QPushButton ( layerActionsWidget );
+  rerfreshBtn->setText ( trUtf8 ( "Refresh" ) );
+  rerfreshBtn->setIcon ( getIcon ( "view-refresh" ) );
+  horizontalLayout->addWidget ( rerfreshBtn );
+
+  horizontalLayout->addStretch ( 1 );
+
+  QPushButton* saveBtn = new QPushButton ( layerActionsWidget );
+  saveBtn->setText ( trUtf8 ( "Save" ) );
+  saveBtn->setIcon ( getIcon ( "document-save" ) );
+  horizontalLayout->addWidget ( saveBtn );
+
+  layerActionsWidget->setLayout ( horizontalLayout );
+  verticalLayout->addWidget ( layerActionsWidget );
+
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
 
@@ -92,7 +109,6 @@ QX11Grab::QX11Grab ( Settings *settings )
   createActions();
   createEnviroment();
   createSystemTrayIcon();
-
 
 #ifdef HAVE_DBUS
 
@@ -138,6 +154,21 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   connect ( actionQuit, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );
+
+  connect ( actionSave, SIGNAL ( triggered() ),
+            this, SLOT ( saveSettings() ) );
+
+  connect ( actionLoad, SIGNAL ( triggered() ),
+            this, SLOT ( loadSettings() ) );
+
+  connect ( actionRefresh, SIGNAL ( triggered() ),
+            this, SLOT ( perparePreview() ) );
+
+  connect ( saveBtn, SIGNAL ( clicked() ),
+            this, SLOT ( saveSettings() ) );
+
+  connect ( rerfreshBtn, SIGNAL ( clicked() ),
+            this, SLOT ( perparePreview() ) );
 }
 
 #ifdef HAVE_DBUS
@@ -170,7 +201,8 @@ const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
   QIcon icon;
   QString file = QString::fromUtf8 ( ":%1/images/%2.png" ).arg ( group, name );
   icon.addPixmap ( QPixmap ( file ), QIcon::Normal, QIcon::Off );
-  return icon;
+
+  return QIcon::fromTheme ( name, icon );
 }
 
 void QX11Grab::createActions()
@@ -178,13 +210,13 @@ void QX11Grab::createActions()
   grabActionFromWindow = new QAction ( getIcon ( "window" ), trUtf8 ( "Grabbing" ), this );
   connect ( grabActionFromWindow, SIGNAL ( triggered() ), this, SLOT ( grabFromWindow() ) );
 
-  showRubberbandWindow = new QAction ( getIcon ( "grid" ), trUtf8 ( "Rubberband" ), this );
+  showRubberbandWindow = new QAction ( getIcon ( "view-grid" ), trUtf8 ( "Rubberband" ), this );
   connect ( showRubberbandWindow, SIGNAL ( triggered() ), this, SLOT ( swapRubberBand() ) );
 
-  startRecordingWindow = new QAction ( getIcon ( "run" ), trUtf8 ( "Recording" ), this );
+  startRecordingWindow = new QAction ( getIcon ( "run-build" ), trUtf8 ( "Recording" ), this );
   connect ( startRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( startRecord() ) );
 
-  stopRecordingWindow = new QAction ( getIcon ( "stop" ), trUtf8 ( "Stop" ), this );
+  stopRecordingWindow = new QAction ( getIcon ( "process-stop" ), trUtf8 ( "Stop" ), this );
   stopRecordingWindow->setEnabled ( false );
   connect ( stopRecordingWindow, SIGNAL ( triggered() ), m_FFProcess, SLOT ( stop () ) );
 
@@ -194,8 +226,36 @@ void QX11Grab::createActions()
   displayWindowAction = new QAction ( getIcon ( "maximize" ), trUtf8 ( "Show" ), this );
   connect ( displayWindowAction, SIGNAL ( triggered() ), this, SLOT ( showNormal() ) );
 
-  quitWindowAction = new QAction ( getIcon ( "fail" ), trUtf8 ( "Quit" ), this );
+  quitWindowAction = new QAction ( getIcon ( "application-exit" ), trUtf8 ( "Quit" ), this );
   connect ( quitWindowAction, SIGNAL ( triggered() ), qApp, SLOT ( quit() ) );
+
+  /* Window Icons */
+  actionGrabbing->setIcon ( getIcon ( "window" ) );
+  actionGrabbing->setShortcut( Qt::CTRL + Qt::Key_G );
+
+  actionStartRecord->setIcon ( getIcon ( "run-build" ) );
+  actionStartRecord->setShortcut( Qt::CTRL + Qt::Key_R );
+
+  actionStopRecord->setIcon ( getIcon ( "process-stop" ) );
+  actionStopRecord->setShortcut( Qt::CTRL + Qt::Key_E );
+
+  actionKillRecord->setIcon ( getIcon ( "window-close" ) );
+  actionKillRecord->setShortcut( Qt::CTRL + Qt::Key_Z );
+
+  actionMinimize->setIcon ( getIcon ( "minimize" ) );
+  actionMinimize->setShortcut( Qt::CTRL + Qt::Key_H );
+
+  actionQuit->setIcon ( getIcon ( "application-exit" ) );
+  actionQuit->setShortcut( QKeySequence::Quit );
+
+  actionSave->setIcon ( getIcon ( "document-save" ) );
+  actionSave->setShortcut( QKeySequence::Save );
+
+  actionLoad->setIcon ( getIcon ( "edit-redo" ) );
+  actionLoad->setShortcut( QKeySequence::Undo );
+
+  actionRefresh->setIcon ( getIcon ( "view-refresh" ) );
+  actionRefresh->setShortcut( QKeySequence::Refresh );
 }
 
 void QX11Grab::createEnviroment()
@@ -437,6 +497,7 @@ void QX11Grab::setActionsBack()
 */
 void QX11Grab::loadSettings()
 {
+  m_grabberInfo->load ( cfg );
   m_defaults->load ( cfg );
   m_metaData->load ( cfg );
   m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
@@ -449,6 +510,7 @@ void QX11Grab::loadSettings()
 */
 void QX11Grab::saveSettings()
 {
+  m_grabberInfo->save ( cfg );
   m_defaults->save ( cfg );
   m_metaData->save ( cfg );
   m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
@@ -483,6 +545,8 @@ void QX11Grab::perparePreview()
   commandLine << m_metaData->getCmd ();
   commandLine << m_defaults->ossdevice();
   commandLine << m_audioEditor->getCmd ();
+
+  // Output Options
   commandLine << "-y" << m_defaults->output();
 
   commandLineEdit->setPlainText ( commandLine.join ( " " ) );
