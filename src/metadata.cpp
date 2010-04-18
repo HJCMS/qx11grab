@@ -28,11 +28,13 @@
 #include <QtGui/QGridLayout>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QLabel>
+#include <QtGui/QPalette>
 
 MetaData::MetaData ( QWidget * parent )
     : QWidget ( parent )
 {
   setObjectName ( QLatin1String ( "metadata" ) );
+  setBackgroundRole ( QPalette::Window );
 
   QGridLayout* gridLayout = new QGridLayout ( this );
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );
@@ -119,7 +121,7 @@ void MetaData::load ( QSettings * cfg )
 
   foreach ( QLineEdit* edit, items )
   {
-    edit->setText ( cfg->value ( edit->objectName() ).toString() );
+    edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
   }
 }
 
@@ -138,6 +140,23 @@ void MetaData::save ( QSettings * cfg )
     else
       cfg->setValue ( edit->objectName(), edit->text() );
   }
+}
+
+const QString MetaData::getCmd()
+{
+  QStringList cmd;
+  QList<QLineEdit*> items;
+  items << metadata_INAM << metadata_IART << metadata_ICOP << metadata_ISBJ << metadata_ICMT << metadata_IMED;
+
+  foreach ( QLineEdit* edit, items )
+  {
+    if ( edit->text().isEmpty() )
+      continue;
+
+    QString param ( edit->objectName() );
+    cmd << QString ( "-metadata %1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
+  }
+  return cmd.join ( " " );
 }
 
 MetaData::~MetaData()

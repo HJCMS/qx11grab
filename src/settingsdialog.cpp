@@ -10,6 +10,7 @@
 #include "metadata.h"
 
 /* QtCore */
+#include <QtCore/QDebug>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -41,14 +42,15 @@ SettingsDialog::SettingsDialog ( QWidget * parent, Settings * settings )
   toolBox->addItem ( m_defaults, boxIcon, QString::fromUtf8 ( "Default" ) );
 
   m_metaData = new MetaData ( toolBox );
+  m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
   toolBox->addItem ( m_metaData, boxIcon, QString::fromUtf8 ( "Metadata" ) );
 
   m_videoEditor = new TableEditor ( toolBox );
-  m_videoEditor->setToolTip ( QString::fromUtf8 ( "vcodec" ) );
+  m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
   toolBox->addItem ( m_videoEditor, boxIcon, QString::fromUtf8 ( "Video" ) );
 
   m_audioEditor = new TableEditor ( toolBox );
-  m_audioEditor->setToolTip ( QString::fromUtf8 ( "acodec" ) );
+  m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
   toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
 
   commandLineEdit = new QTextEdit ( this );
@@ -66,6 +68,7 @@ SettingsDialog::SettingsDialog ( QWidget * parent, Settings * settings )
   loadSettings();
 
   // ButtonBox
+  connect ( btnSave, SIGNAL ( clicked() ), this, SLOT ( perparePreview() ) );
   connect ( btnSave, SIGNAL ( clicked() ), this, SLOT ( saveSettings() ) );
   connect ( btnClose, SIGNAL ( clicked() ), this, SLOT ( reject() ) );
 }
@@ -79,6 +82,7 @@ void SettingsDialog::loadSettings()
   m_metaData->load ( cfg );
   m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+  perparePreview();
 }
 
 /**
@@ -90,6 +94,22 @@ void SettingsDialog::saveSettings()
   m_metaData->save ( cfg );
   m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+}
+
+void SettingsDialog::perparePreview()
+{
+  commandLineEdit->clear();
+
+  QString cmd ( m_defaults->binary () );
+  cmd.append ( QString::fromUtf8 ( " -f x11grab -xerror @X11GRAB_PLACE_HOLDER@ " ) );
+  cmd.append ( m_videoEditor->getCmd () );
+//   cmd.append ( QString::fromUtf8 ( " " ) );
+//   cmd.append ( m_metaData->getCmd () );
+  cmd.append ( QString::fromUtf8 ( " " ) );
+  cmd.append ( m_audioEditor->getCmd ( m_defaults->ossdevice() ) );
+  cmd.append ( QString::fromUtf8 ( " " ) );
+  cmd.append ( m_defaults->output() );
+  commandLineEdit->setPlainText ( cmd );
 }
 
 SettingsDialog::~SettingsDialog()

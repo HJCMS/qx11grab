@@ -42,6 +42,9 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
     Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
 
   private:
+    QString currentType;
+    void findVideoCodecs();
+    void findAudioCodecs();
     const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
     QTableWidgetItem* createItem ( const QString & );
     void loadTableOptions ( const QString &, QSettings * );
@@ -57,6 +60,7 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
 
   public:
     TableEditor ( QWidget * parent = 0 );
+    const QString getCmd( const QString &opts = QString() );
     ~TableEditor ();
 };
 

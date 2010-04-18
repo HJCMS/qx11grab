@@ -28,6 +28,7 @@
 
 /* QtGui */
 #include <QtGui/QLineEdit>
+#include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
 class Defaults : public QWidget
@@ -40,6 +41,8 @@ class Defaults : public QWidget
     QLineEdit* ff_path;
     QLineEdit* outputName;
     QLineEdit* outputDirectory;
+    QLineEdit* ff_oss;
+    QSpinBox* ossVolume;
 
   private Q_SLOTS:
     void setFFmpegBinary();
@@ -51,6 +54,9 @@ class Defaults : public QWidget
 
   public:
     Defaults ( QWidget * parent = 0 );
+    const QString binary();
+    const QString ossdevice();
+    const QString output();
     ~Defaults ();
 };
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>356</width>
+    <width>524</width>
     <height>266</height>
    </rect>
   </property>
@@ -68,6 +68,15 @@
     <layout class="QHBoxLayout" name="tableLayout">
      <item>
       <widget class="QTableWidget" name="table">
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="statusTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
+       </property>
        <property name="showDropIndicator" stdset="0">
         <bool>false</bool>
        </property>
@@ -78,7 +87,7 @@
         <bool>true</bool>
        </property>
        <property name="selectionMode">
-        <enum>QAbstractItemView::SingleSelection</enum>
+        <enum>QAbstractItemView::ExtendedSelection</enum>
        </property>
        <property name="gridStyle">
         <enum>Qt::DashLine</enum>
@@ -91,6 +100,9 @@
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>150</number>
        </attribute>
        <attribute name="horizontalHeaderMinimumSectionSize">
         <number>150</number>
@@ -105,6 +117,9 @@
         <bool>true</bool>
        </attribute>
        <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>150</number>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
         <number>150</number>
        </attribute>
        <column>

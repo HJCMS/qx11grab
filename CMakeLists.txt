@@ -19,8 +19,13 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 ##############################################################
 SET (QT_MIN_VERSION 4.6.0)
 FIND_PACKAGE (Qt4 REQUIRED)
+FIND_PACKAGE (PkgConfig REQUIRED)
 SET( QT_USE_QTDBUS 1 )
 INCLUDE (${QT_USE_FILE})
+
+IF (NOT UNIX)
+  MESSAGE (FATAL_ERROR "Only Unix is Supported!")
+ENDIF (NOT UNIX)
 
 ##############################################################
 ## Set qx11grab Specific Information
@@ -50,13 +55,6 @@ INCLUDE (CheckCXXCompilerFlag)
 INCLUDE (MacroEnsureVersion)
 
 IF (CMAKE_COMPILER_IS_GNUCXX)
-
-  # gcc under Windows
-  IF (MINGW)
-    SET (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--export-all-symbols -Wl,--disable-auto-import")
-    SET (CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,--export-all-symbols -Wl,--disable-auto-import")
-    ADD_DEFINITIONS(-DQT_NO_DEBUG)
-  ENDIF (MINGW)
 
   # visibility support http://gcc.gnu.org/wiki/Visibility
   CHECK_CXX_COMPILER_FLAG (-fvisibility=hidden __CHECK_GCC_VISIBILITY)
@@ -146,6 +144,12 @@ SET (LIBRARY_OUTPUT_PATH
 )
 
 ##############################################################
+## FFmpeg avformat
+##############################################################
+
+PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.38.0 libavcodec>=52.35.0)
+
+##############################################################
 ## Configure files
 ##############################################################
 
@@ -159,6 +163,7 @@ CONFIGURE_FILE (src/version.h.cmake
 
 SET (QX11GRAB_INCLUDES
   ${QT_QTMAIN_INCLUDE_DIR}
+  ${FFMPEG_INCLUDEDIR}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/src
@@ -173,6 +178,7 @@ SET (QX11GRAB_LIBRARIES
   ${QT_QTMAIN_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
+  ${FFMPEG_LDFLAGS}
 )
 
 ##############################################################

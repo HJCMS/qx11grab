@@ -36,6 +36,7 @@ class SettingsDialog : public QDialog
   private Q_SLOTS:
     void loadSettings();
     void saveSettings();
+    void perparePreview();
 
   public:
     SettingsDialog ( QWidget * parent = 0, Settings * settings = 0 );

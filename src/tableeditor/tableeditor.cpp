@@ -28,13 +28,52 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
-// #include <QtGui>
+#include <QtGui/QPalette>
+
+/* FFmpeg */
+extern "C"
+{
+#include <libavformat/avformat.h>
+#include <libavcodec/avcodec.h>
+}
 
 TableEditor::TableEditor ( QWidget * parent )
     : QWidget ( parent )
 {
   setupUi ( this );
-  setAutoFillBackground ( true );
+  setBackgroundRole ( QPalette::Window );
+  currentType = QString::null;
+
+  connect ( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addTableRow() ) );
+  connect ( btnDel, SIGNAL ( clicked() ), this, SLOT ( delTableRow() ) );
+}
+
+void TableEditor::findVideoCodecs()
+{
+  av_register_all();
+  AVCodec *codec;
+  for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+  {
+    if ( ( codec->type == CODEC_TYPE_VIDEO ) && ( codec->encode ) )
+    {
+      QString itemName = QString ( "%1 (%2)" ).arg ( codec->long_name, codec->name );
+      codecSelection->addItem ( itemName, QVariant ( codec->name ) );
+    }
+  }
+}
+
+void TableEditor::findAudioCodecs()
+{
+  av_register_all();
+  AVCodec *codec;
+  for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+  {
+    if ( ( codec->type == CODEC_TYPE_AUDIO ) && ( codec->encode ) )
+    {
+      QString itemName = QString ( "%1 (%2)" ).arg ( codec->long_name, codec->name );
+      codecSelection->addItem ( itemName, QVariant ( codec->name ) );
+    }
+  }
 }
 
 /**
@@ -150,12 +189,77 @@ void TableEditor::delTableRow()
 
 void TableEditor::load ( const QString &type, QSettings *cfg )
 {
+  int codecIndex = 0;
+  currentType = type;
+  if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
+  {
+    findVideoCodecs();
+    codecIndex = codecSelection->findData ( cfg->value ( "video_codec" ) );
+  }
+  else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
+  {
+    findAudioCodecs();
+    codecIndex = codecSelection->findData ( cfg->value ( "audio_codec" ) );
+  }
+  codecSelection->setCurrentIndex ( codecIndex );
   loadTableOptions ( type, cfg );
 }
 
 void TableEditor::save ( const QString &type, QSettings *cfg )
 {
   saveTableOptions ( type, cfg );
+  if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
+  {
+    cfg->setValue ( QLatin1String ( "video_codec" ),
+                    codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString() );
+  }
+  else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
+  {
+    cfg->setValue ( QLatin1String ( "audio_codec" ),
+                    codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString() );
+  }
+}
+
+const QString TableEditor::getCmd ( const QString &opts )
+{
+  QStringList cmd;
+  if ( ! opts.isEmpty() )
+    cmd << opts.split ( " " );
+
+  if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
+  {
+    cmd << QLatin1String ( "-vcodec" );
+    cmd << codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString();
+  }
+  else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
+  {
+    cmd << QLatin1String ( "-acodec" );
+    cmd << codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString();
+  }
+
+  int rows = table->rowCount();
+  if ( rows >= 1 )
+  {
+    for ( int r = 0; r < rows; r++ )
+    {
+      // Argument
+      QTableWidgetItem* keyItem = table->item ( r, 0 );
+      /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
+      * Diese aber nicht Bearbeitet, dann verhindern das
+      * an dieser Stelle das Programm wegen fehlenden
+      * QTableWidgetItem Pointer nicht abstürzt! */
+      if ( ! keyItem || keyItem->text().isEmpty() )
+        continue;
+
+      cmd << keyItem->text();
+
+      // Wertzuweisung
+      QTableWidgetItem* valItem = table->item ( r, 1 );
+      if ( valItem && ! valItem->text().isEmpty() )
+        cmd << valItem->text();
+    }
+  }
+  return cmd.join ( " " );
 }
 
 TableEditor::~TableEditor()
