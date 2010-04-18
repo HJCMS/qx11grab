@@ -75,7 +75,7 @@ const QString FFProcess::addOutput ()
     QFileInfo info ( outFile );
     if ( info.exists() )
     {
-      QMessageBox::warning ( 0L, trUtf8 ( "Warning" ),
+      QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ),
                              trUtf8 ( "%1 already exists." ).arg ( outFile ) );
     }
     return outFile;

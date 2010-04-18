@@ -5,3 +5,6 @@ Makefile*
 Doxyfile
 *.log
 qx11grab.spec
+ctags
+testcmd.sh
+tags

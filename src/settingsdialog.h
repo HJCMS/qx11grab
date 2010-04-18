@@ -11,15 +11,15 @@
 
 /* QtGui */
 #include <QtGui/QDialog>
-#include <QtGui/QTableWidgetItem>
+#include <QtGui/QTextEdit>
 #include <QtGui/QWidget>
 
-#include "ui_settingsdialogmain.h"
-
 class Settings;
+class Defaults;
+class MetaData;
+class TableEditor;
 
 class SettingsDialog : public QDialog
-      , public Ui::SettingsDialogMain
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
@@ -27,21 +27,15 @@ class SettingsDialog : public QDialog
 
   private:
     Settings* cfg;
-    QTableWidgetItem* createItem ( const QString &data );
-    void setVideoOptionsTable();
-    void setAudioOptionsTable();
-    void saveVideoOptions();
-    void saveAudioOptions();
+    Defaults* m_defaults;
+    MetaData* m_metaData;
+    TableEditor* m_videoEditor;
+    TableEditor* m_audioEditor;
+    QTextEdit* commandLineEdit;
 
   private Q_SLOTS:
-    void addVideoRow();
-    void removeVideoRow();
-    void addAudioRow();
-    void removeAudioRow();
     void loadSettings();
     void saveSettings();
-    void setBinaryPath();
-    void setOutpuDirectory();
 
   public:
     SettingsDialog ( QWidget * parent = 0, Settings * settings = 0 );

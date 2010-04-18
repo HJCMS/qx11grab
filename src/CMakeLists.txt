@@ -3,18 +3,23 @@
 SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}/tableeditor
+  ${CMAKE_CURRENT_SOURCE_DIR}/tableeditor
   ${QX11GRAB_INCLUDES}
 )
 
+ADD_SUBDIRECTORY (tableeditor)
+
 SET (qx11grab_UI
   qx11grabmain.ui
-  settingsdialogmain.ui
 )
 
 SET (qx11grab_SOURCES
   desktopinfo.cpp
+  defaults.cpp
   ffprocess.cpp
   main.cpp
+  metadata.cpp
   qx11grabadaptor.cpp
   qx11grab.cpp
   rubberband.cpp
@@ -26,7 +31,9 @@ SET (qx11grab_SOURCES
 
 SET (qx11grab_HEADERS
   desktopinfo.h
+  defaults.h
   ffprocess.h
+  metadata.h
   qx11grabadaptor.h
   qx11grab.h
   rubberband.h
@@ -59,6 +66,7 @@ ADD_EXECUTABLE (qx11grab
 
 TARGET_LINK_LIBRARIES (qx11grab
   ${QX11GRAB_LIBRARIES}
+  TableEditor
 )
 
 INSTALL (TARGETS qx11grab DESTINATION bin)
