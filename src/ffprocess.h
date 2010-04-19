@@ -32,7 +32,7 @@ class FFProcess : public QObject
   public:
     FFProcess ( QObject *parent = 0, Settings *settings = 0 );
     bool create ( const QRect & );
-    ~FFProcess();
+    virtual ~FFProcess();
 
   public Q_SLOTS:
     bool start ( const QStringList &cmd );

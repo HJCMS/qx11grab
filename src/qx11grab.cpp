@@ -134,8 +134,14 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
-  connect ( actionGrabbing, SIGNAL ( triggered () ),
-            this, SLOT ( grabFromWindow () ) );
+  connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
+            this, SLOT ( showRubber ( bool ) ) );
+
+  connect ( m_videoEditor, SIGNAL ( postUpdate () ),
+            this, SLOT ( perparePreview () ) );
+
+  connect ( m_audioEditor, SIGNAL ( postUpdate () ),
+            this, SLOT ( perparePreview () ) );
 
   connect ( actionStartRecord, SIGNAL ( triggered () ),
             this, SLOT ( startRecord () ) );
@@ -419,6 +425,7 @@ void QX11Grab::closeEvent ( QCloseEvent *ev )
   {
     QMessageBox::warning ( this, trUtf8 ( "Warning" ), trUtf8 ( "Recorder is running." ) );
     ev->ignore();
+    m_FFProcess->deleteLater ();
   }
   saveStats();
 
@@ -556,6 +563,4 @@ void QX11Grab::perparePreview()
 
 QX11Grab::~QX11Grab()
 {
-  if ( m_FFProcess->isRunning() )
-    m_FFProcess->kill();
 }

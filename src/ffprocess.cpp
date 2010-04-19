@@ -195,7 +195,4 @@ void FFProcess::startCheck()
 }
 
 FFProcess::~FFProcess()
-{
-}
-
-
+{}

@@ -24,9 +24,11 @@
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QHashIterator>
+#include <QtCore/QRect>
 #include <QtCore/QRegExp>
 
 /* QtGui */
+#include <QtGui/QAbstractItemView>
 #include <QtGui/QPalette>
 
 /* FFmpeg */
@@ -43,10 +45,17 @@ TableEditor::TableEditor ( QWidget * parent )
   setBackgroundRole ( QPalette::Window );
   currentType = QString::null;
 
+  connect ( table, SIGNAL ( itemChanged ( QTableWidgetItem * ) ),
+            this, SIGNAL ( postUpdate() ) );
+  // Item Buttons
   connect ( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addTableRow() ) );
   connect ( btnDel, SIGNAL ( clicked() ), this, SLOT ( delTableRow() ) );
 }
 
+/**
+* Such mit Hilfe von AVCodec alle verfügbaren
+* Video Kodierungen und schreibe diese nach @ref codecSelection.
+*/
 void TableEditor::findVideoCodecs()
 {
   av_register_all();
@@ -61,6 +70,10 @@ void TableEditor::findVideoCodecs()
   }
 }
 
+/**
+* Such mit Hilfe von AVCodec alle verfügbaren
+* Audio Kodierungen und schreibe diese nach @ref codecSelection.
+*/
 void TableEditor::findAudioCodecs()
 {
   av_register_all();
@@ -87,6 +100,9 @@ QTableWidgetItem* TableEditor::createItem ( const QString &data )
   return item;
 }
 
+/**
+* Liest ein QSettings Gruppen Array aus
+*/
 const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QSettings *cfg )
 {
   QHash <QString,QVariant> map;
@@ -107,6 +123,37 @@ const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QS
   return map;
 }
 
+/**
+* Lese alle Inhalte aus der Tabelle und Schreibe sie in einen Hash
+*/
+const QHash<QString,QString> TableEditor::tableItems()
+{
+  QHash<QString,QString> hash;
+  for ( int r = 0; r < table->rowCount(); r++ )
+  {
+    // Argument
+    QTableWidgetItem* keyItem = table->item ( r, 0 );
+    /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
+    * Diese aber nicht Bearbeitet, dann verhindern das
+    * an dieser Stelle das Programm wegen fehlenden
+    * QTableWidgetItem Pointer nicht abstürzt! */
+    if ( ! keyItem || keyItem->text().isEmpty() )
+      continue;
+
+    // Wertzuweisung
+    QTableWidgetItem* valItem = table->item ( r, 1 );
+
+    if ( valItem && ! valItem->text().isEmpty() )
+      hash[keyItem->text() ] = valItem->text();
+    else
+      hash[keyItem->text() ] = "";
+  }
+  return hash;
+}
+
+/**
+* Tabelle befüllen
+*/
 void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
 {
   int row = 0;
@@ -129,42 +176,35 @@ void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
 
     row++;
   }
-}
-
-void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
-{
-  int rows = table->rowCount();
-  cfg->remove ( type );
-  if ( rows >= 1 )
-  {
-    cfg->beginWriteArray ( type );
-    for ( int r = 0; r < rows; r++ )
-    {
-      // Argument
-      QTableWidgetItem* keyItem = table->item ( r, 0 );
-      /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
-      * Diese aber nicht Bearbeitet, dann verhindern das
-      * an dieser Stelle das Programm wegen fehlenden
-      * QTableWidgetItem Pointer nicht abstürzt! */
-      if ( ! keyItem || keyItem->text().isEmpty() )
-        continue;
-
-      cfg->setArrayIndex ( r );
-      cfg->setValue ( "argument", keyItem->text() );
-
-      // Wertzuweisung
-      QTableWidgetItem* valItem = table->item ( r, 1 );
-      if ( valItem && ! valItem->text().isEmpty() )
-        cfg->setValue ( "value", valItem->text() );
-      else
-        cfg->setValue ( "value", "" );
-    }
-    cfg->endArray();
-  }
+  addTableRow();
 }
 
 /**
-* Eine neue Zeile ind Tabelle @ref audioOptions einfügen.
+* Alle Tabellen Inhalte Speichern
+*/
+void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
+{
+  QHash<QString,QString> hash = tableItems();
+  if ( hash.size() < 1 )
+    return;
+
+  int row = 0;
+  cfg->remove ( type );
+  cfg->beginWriteArray ( type );
+  QHashIterator<QString,QString> it ( hash );
+  while ( it.hasNext() )
+  {
+    it.next();
+    cfg->setArrayIndex ( row );
+    cfg->setValue ( "argument", it.key() );
+    cfg->setValue ( "value", it.value() );
+    row++;
+  }
+  cfg->endArray();
+}
+
+/**
+* Eine neue Zeile ind Tabelle @ref table einfügen.
 */
 void TableEditor::addTableRow()
 {
@@ -173,7 +213,7 @@ void TableEditor::addTableRow()
 }
 
 /**
-* Ausgewählte Zeile aus @ref audioOptions entfernen.
+* Ausgewählte Zeile aus @ref table entfernen.
 */
 void TableEditor::delTableRow()
 {
@@ -184,8 +224,13 @@ void TableEditor::delTableRow()
   int r = items.first()->row();
   if ( r >= 0 )
     table->removeRow ( r );
+
+  emit postUpdate();
 }
 
+/**
+* Standard Laden
+*/
 void TableEditor::load ( const QString &type, QSettings *cfg )
 {
   int codecIndex = 0;
@@ -204,6 +249,10 @@ void TableEditor::load ( const QString &type, QSettings *cfg )
   loadTableOptions ( type, cfg );
 }
 
+/**
+* Standard Speichern
+* @ref saveTableOptions
+*/
 void TableEditor::save ( const QString &type, QSettings *cfg )
 {
   saveTableOptions ( type, cfg );
@@ -219,6 +268,9 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
   }
 }
 
+/**
+* Die Komplette Argumenten Liste ausgeben
+*/
 const QStringList TableEditor::getCmd ()
 {
   QStringList cmd;
@@ -234,26 +286,16 @@ const QStringList TableEditor::getCmd ()
     cmd << codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString();
   }
 
-  int rows = table->rowCount();
-  if ( rows >= 1 )
+  QHash<QString,QString> hash = tableItems();
+  if ( hash.size() >= 1 )
   {
-    for ( int r = 0; r < rows; r++ )
+    QHashIterator<QString,QString> it ( hash );
+    while ( it.hasNext() )
     {
-      // Argument
-      QTableWidgetItem* keyItem = table->item ( r, 0 );
-      /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
-      * Diese aber nicht Bearbeitet, dann verhindern das
-      * an dieser Stelle das Programm wegen fehlenden
-      * QTableWidgetItem Pointer nicht abstürzt! */
-      if ( ! keyItem || keyItem->text().isEmpty() )
-        continue;
-
-      cmd << keyItem->text();
-
-      // Wertzuweisung
-      QTableWidgetItem* valItem = table->item ( r, 1 );
-      if ( valItem && ! valItem->text().isEmpty() )
-        cmd << valItem->text();
+      it.next();
+      cmd << it.key();
+      if ( ! it.value().isEmpty() )
+        cmd << it.value();
     }
   }
   return cmd;

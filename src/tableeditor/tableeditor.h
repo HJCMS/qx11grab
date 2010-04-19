@@ -47,6 +47,7 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
     void findVideoCodecs();
     void findAudioCodecs();
     const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
+    const QHash<QString,QString> tableItems();
     QTableWidgetItem* createItem ( const QString & );
     void loadTableOptions ( const QString &, QSettings * );
     void saveTableOptions ( const QString &, QSettings * );
@@ -54,6 +55,9 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
   private Q_SLOTS:
     void addTableRow();
     void delTableRow();
+
+  Q_SIGNALS:
+    void postUpdate();
 
   public Q_SLOTS:
     void load ( const QString &, QSettings * );
