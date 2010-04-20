@@ -143,6 +143,9 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_audioEditor, SIGNAL ( postUpdate () ),
             this, SLOT ( perparePreview () ) );
 
+  connect ( actionGrabbing, SIGNAL ( triggered () ),
+            this, SLOT ( grabFromWindow () ) );
+
   connect ( actionStartRecord, SIGNAL ( triggered () ),
             this, SLOT ( startRecord () ) );
 
