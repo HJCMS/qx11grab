@@ -176,6 +176,10 @@ Standard: 256=Normal</translation>
         <source>Start Minimized</source>
         <translation>Starte Minimiert</translation>
     </message>
+    <message>
+        <source>Enable Sound Recording</source>
+        <translation>Aktiviere Sound Aufnahme</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -382,14 +386,6 @@ Standard: 256=Normal</translation>
     <message>
         <source>Value</source>
         <translation>Wert</translation>
-    </message>
-    <message utf8="true">
-        <source>↑</source>
-        <translation></translation>
-    </message>
-    <message utf8="true">
-        <source>↓</source>
-        <translation></translation>
     </message>
     <message>
         <source>Add</source>

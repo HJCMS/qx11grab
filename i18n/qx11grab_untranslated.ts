@@ -195,28 +195,33 @@ Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="107"/>
+        <location filename="../src/grabberinfo.cpp" line="108"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="119"/>
+        <location filename="../src/grabberinfo.cpp" line="121"/>
         <source>Depth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="130"/>
+        <location filename="../src/grabberinfo.cpp" line="132"/>
         <source>Framerate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="141"/>
+        <location filename="../src/grabberinfo.cpp" line="143"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="146"/>
+        <location filename="../src/grabberinfo.cpp" line="148"/>
         <source>Start Minimized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/grabberinfo.cpp" line="153"/>
+        <source>Enable Sound Recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -261,32 +266,32 @@ Default: 256=normal</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="223"/>
+        <location filename="../src/qx11grab.cpp" line="232"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="226"/>
+        <location filename="../src/qx11grab.cpp" line="235"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="229"/>
+        <location filename="../src/qx11grab.cpp" line="238"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="294"/>
+        <location filename="../src/qx11grab.cpp" line="303"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="378"/>
+        <location filename="../src/qx11grab.cpp" line="387"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="219"/>
+        <location filename="../src/qx11grab.cpp" line="228"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -306,42 +311,42 @@ Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="420"/>
+        <location filename="../src/qx11grab.cpp" line="429"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="420"/>
+        <location filename="../src/qx11grab.cpp" line="429"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="440"/>
+        <location filename="../src/qx11grab.cpp" line="450"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="482"/>
+        <location filename="../src/qx11grab.cpp" line="492"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="482"/>
+        <location filename="../src/qx11grab.cpp" line="492"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="210"/>
+        <location filename="../src/qx11grab.cpp" line="219"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="213"/>
+        <location filename="../src/qx11grab.cpp" line="222"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="216"/>
+        <location filename="../src/qx11grab.cpp" line="225"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -460,37 +465,27 @@ Default: 256=normal</source>
 <context>
     <name>TableEditorUi</name>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="187"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="161"/>
         <source>Codec:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="189"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="163"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="191"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="165"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="192"/>
-        <source>↑</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="193"/>
-        <source>↓</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="194"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="166"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="195"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
