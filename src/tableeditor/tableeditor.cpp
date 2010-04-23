@@ -58,6 +58,7 @@ TableEditor::TableEditor ( QWidget * parent )
 */
 void TableEditor::findVideoCodecs()
 {
+  codecSelection->clear();
   av_register_all();
   AVCodec *codec;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
@@ -76,6 +77,7 @@ void TableEditor::findVideoCodecs()
 */
 void TableEditor::findAudioCodecs()
 {
+  codecSelection->clear();
   av_register_all();
   AVCodec *codec;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )

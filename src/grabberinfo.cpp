@@ -149,8 +149,13 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   startMinimized->setChecked ( true );
   gridLayout->addWidget ( startMinimized, 9, 0, 1, 2 );
 
+  soundRecording = new QCheckBox ( this );
+  soundRecording->setText ( trUtf8 ( "Enable Sound Recording" ) );
+  soundRecording->setChecked ( true );
+  gridLayout->addWidget ( soundRecording, 10, 0, 1, 2 );
+
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 10, 0, 1, 2 );
+  gridLayout->addItem ( spacer, 11, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
@@ -190,17 +195,24 @@ void GrabberInfo::load ( QSettings *cfg )
 {
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
+  soundRecording->setChecked ( cfg->value ( QLatin1String ( "SoundRecording" ) ).toBool() );
 }
 
 void GrabberInfo::save ( QSettings *cfg )
 {
   cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
+  cfg->setValue ( QLatin1String ( "SoundRecording" ), soundRecording->isChecked() );
 }
 
 bool GrabberInfo::RubberbandIsVisible()
 {
   return showRubberband->isChecked();
+}
+
+bool GrabberInfo::soundEnabled()
+{
+  return soundRecording->isChecked ();
 }
 
 void GrabberInfo::setRubberbandCheckBox ( bool b )

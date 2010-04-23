@@ -553,8 +553,11 @@ void QX11Grab::perparePreview()
   // Video Options
   commandLine << m_videoEditor->getCmd ();
   commandLine << m_metaData->getCmd ();
-  commandLine << m_defaults->ossdevice();
-  commandLine << m_audioEditor->getCmd ();
+  if ( m_grabberInfo->soundEnabled() )
+  {
+    commandLine << m_defaults->ossdevice();
+    commandLine << m_audioEditor->getCmd ();
+  }
 
   // Output Options
   commandLine << "-y" << m_defaults->output();

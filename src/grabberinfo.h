@@ -52,6 +52,7 @@ class GrabberInfo : public QWidget
     QSpinBox* setFrameRate;
     QCheckBox* showRubberband;
     QCheckBox* startMinimized;
+    QCheckBox* soundRecording;
 
   Q_SIGNALS:
     void showRubber ( bool );
@@ -64,6 +65,7 @@ class GrabberInfo : public QWidget
   public:
     GrabberInfo ( QWidget * parent = 0 );
     bool RubberbandIsVisible();
+    bool soundEnabled();
     void setRubberbandCheckBox ( bool b );
     void setScreenWidth ( int w );
     void setScreenHeight ( int h );
