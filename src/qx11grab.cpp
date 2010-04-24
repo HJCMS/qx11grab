@@ -566,7 +566,7 @@ void QX11Grab::perparePreview()
   // Audio Aufnahme
   if ( m_grabberInfo->soundEnabled() )
   {
-    commandLine << m_defaults->ossdevice();
+    commandLine << m_defaults->audioDeviceData();
     commandLine << m_audioEditor->getCmd ();
   }
 

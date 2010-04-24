@@ -19,47 +19,42 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef DEFAULTS_H
-#define DEFAULTS_H
+#ifndef AUDIODEVICE_H
+#define AUDIODEVICE_H
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QLineEdit>
+#include <QtGui/QRadioButton>
+#include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
-class AudioDevice;
-
-class Defaults : public QWidget
+class AudioDevice : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+    Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
 
   private:
-    QLineEdit* ff_path;
-    QLineEdit* outputName;
-    QLineEdit* outputDirectory;
-    AudioDevice* m_audioDevice;
-
-  private Q_SLOTS:
-    void setFFmpegBinary();
-    void setOutpuDirectory();
-
-  public Q_SLOTS:
-    void load ( QSettings * cfg );
-    void save ( QSettings * cfg );
+    QRadioButton* m_swap_alsa;
+    QRadioButton* m_swap_oss;
+    QSpinBox* intensifier;
+    QLineEdit* device;
 
   public:
-    Defaults ( QWidget * parent = 0 );
-    const QString binary();
-    const QStringList audioDeviceData();
-    const QString output();
-    ~Defaults ();
+    AudioDevice ( QWidget * parent = 0 );
+    void setVolume ( int );
+    int getVolume ();
+    void setAudioEngine ( const QString & );
+    const QString getAudioEngine ();
+    void setAudioDevice ( const QString & );
+    const QString getAudioDevice ();
+    const QStringList data();
+    ~AudioDevice();
 };
 
 #endif

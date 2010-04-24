@@ -2,6 +2,36 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de">
 <context>
+    <name>AudioDevice</name>
+    <message>
+        <source>Audio Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio Intensifier:</source>
+        <translation type="unfinished">Audio Verstärkung:</translation>
+    </message>
+    <message>
+        <source>Change Audio Volume (256=normal)</source>
+        <translation type="unfinished">Setze die Audio Lautstärke (256=Normal)</translation>
+    </message>
+    <message>
+        <source>Change Audio Amplifier.
+Default: 256=normal</source>
+        <translation type="unfinished">Setze die Audio Verstärkung.
+Standard: 256=Normal</translation>
+    </message>
+    <message>
+        <source>Audio Capture Device:</source>
+        <translation type="unfinished">Audio Schnittstelle:</translation>
+    </message>
+    <message>
+        <source>Change Audio Capture Device
+OSS Default: /dev/dsp or Alsa Default: default</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CommandPreview</name>
     <message>
         <source>Display the current FFmpeg command.</source>
@@ -21,30 +51,6 @@
     <message>
         <source>Output Directory:</source>
         <translation>Ausgabe Verzeichnis:</translation>
-    </message>
-    <message>
-        <source>Audio Capture Device:</source>
-        <translation>Audio Schnittstelle:</translation>
-    </message>
-    <message>
-        <source>Change Audio Capture Device
-Default: /dev/dsp</source>
-        <translation>Setze die Audio Aufnahme Schnittstelle.
-Standard: /dev/dsp</translation>
-    </message>
-    <message>
-        <source>Audio Intensifier:</source>
-        <translation>Audio Verstärkung:</translation>
-    </message>
-    <message>
-        <source>Change Audio Volume (256=normal)</source>
-        <translation>Setze die Audio Lautstärke (256=Normal)</translation>
-    </message>
-    <message>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <translation>Setze die Audio Verstärkung.
-Standard: 256=Normal</translation>
     </message>
     <message>
         <source>FFmpeg %1</source>

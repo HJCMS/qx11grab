@@ -28,6 +28,7 @@ SET (qx11grab_SOURCES
   settings.cpp
   windowgrabber.cpp
   commandpreview.cpp
+  audiodevice.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -43,6 +44,7 @@ SET (qx11grab_HEADERS
   settings.h
   windowgrabber.h
   commandpreview.h
+  audiodevice.h
 )
 
 SET (qx11grab_NOMOC

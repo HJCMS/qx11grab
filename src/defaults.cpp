@@ -20,6 +20,7 @@
 **/
 
 #include "defaults.h"
+#include "audiodevice.h"
 
 /* QtCore */
 #include <QtCore/QDir>
@@ -96,37 +97,13 @@ Defaults::Defaults ( QWidget * parent )
   gridLayout->addWidget ( setOutputBtn, 2, 2, 1, 1 );
   // end: Output Directory
 
-  // begin: Output Directory
-  QLabel* txt_ossdev = new QLabel ( this );
-  txt_ossdev->setText ( trUtf8 ( "Audio Capture Device:" ) );
-  txt_ossdev->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_ossdev, 3, 0, 1, 1 );
-
-  ff_oss = new QLineEdit ( this );
-  ff_oss->setObjectName ( QLatin1String ( "ff_oss" ) );
-  ff_oss->setText ( QString::fromUtf8 ( "/dev/dsp" ) );
-  ff_oss->setWhatsThis ( trUtf8 ( "Change Audio Capture Device\nDefault: /dev/dsp" ) );
-  gridLayout->addWidget ( ff_oss, 3, 1, 1, 2 );
-  // end: Output Directory
-
-  // begin: Audio Volume
-  QLabel* txt_volume = new QLabel ( this );
-  txt_volume->setText ( trUtf8 ( "Audio Intensifier:" ) );
-  txt_volume->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_volume, 4, 0, 1, 1 );
-
-  ossVolume = new QSpinBox ( this );
-  ossVolume->setSingleStep ( 2 );
-  ossVolume->setRange ( 0, 512 );
-  ossVolume->setValue ( 256 );
-  ossVolume->setObjectName ( QLatin1String ( "audio_intensifier" ) );
-  ossVolume->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
-  ossVolume->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
-  gridLayout->addWidget ( ossVolume, 4, 1, 1, 2 );
-  // end: Audio Volume
+  // begin: Audio Device
+  m_audioDevice = new AudioDevice ( this );
+  gridLayout->addWidget ( m_audioDevice, 3, 0, 1, 3 );
+  // end: Audio Device
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 5, 0, 1, 2 );
+  gridLayout->addItem ( spacer, 6, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
@@ -170,9 +147,11 @@ void Defaults::setOutpuDirectory()
 void Defaults::load ( QSettings * cfg )
 {
   QList<QLineEdit*> items;
-  items << outputDirectory << outputName << ff_path << ff_oss;
+  items << outputDirectory << outputName << ff_path;
 
-  ossVolume->setValue ( cfg->value ( ossVolume->objectName(), 256 ).toUInt() );
+  m_audioDevice->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
+  m_audioDevice->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
+  m_audioDevice->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
 
   foreach ( QLineEdit* edit, items )
   {
@@ -186,12 +165,19 @@ void Defaults::load ( QSettings * cfg )
 void Defaults::save ( QSettings * cfg )
 {
   QList<QLineEdit*> items;
-  items << outputDirectory << outputName << ff_path << ff_oss;
+  items << outputDirectory << outputName << ff_path;
 
-  if ( ossVolume->value() != 256 )
-    cfg->setValue ( ossVolume->objectName(), ossVolume->value() );
+  cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDevice->getAudioEngine() );
+
+  if ( m_audioDevice->getVolume() != 256 )
+    cfg->setValue ( QLatin1String ( "audio_intensifier" ), m_audioDevice->getVolume() );
   else
-    cfg->remove ( ossVolume->objectName() );
+    cfg->remove ( QLatin1String ( "audio_intensifier" ) );
+
+  if ( m_audioDevice->getAudioDevice().isEmpty() )
+    cfg->remove ( QLatin1String ( "audio_device" ) );
+  else
+    cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDevice->getAudioDevice() );
 
   foreach ( QLineEdit* edit, items )
   {
@@ -207,18 +193,9 @@ const QString Defaults::binary()
   return ff_path->text();
 }
 
-const QStringList Defaults::ossdevice()
+const QStringList Defaults::audioDeviceData()
 {
-  QStringList cmd;
-  if ( ff_oss->text().isEmpty() )
-    return cmd;
-
-  cmd << "-f" << "oss" << "-i" << ff_oss->text();
-
-  if ( ossVolume->value() != 256 )
-    cmd << "-vol" << QString::number ( ossVolume->value() );
-
-  return cmd;
+  return  m_audioDevice->data();
 }
 
 const QString Defaults::output()

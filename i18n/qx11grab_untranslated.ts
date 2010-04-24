@@ -2,6 +2,41 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AudioDevice</name>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="43"/>
+        <source>Audio Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="54"/>
+        <source>Audio Intensifier:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="63"/>
+        <source>Change Audio Volume (256=normal)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="64"/>
+        <source>Change Audio Amplifier.
+Default: 256=normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="68"/>
+        <source>Audio Capture Device:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="74"/>
+        <source>Change Audio Capture Device
+OSS Default: /dev/dsp or Alsa Default: default</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CommandPreview</name>
     <message>
         <location filename="../src/commandpreview.cpp" line="41"/>
@@ -12,64 +47,37 @@
 <context>
     <name>Defaults</name>
     <message>
-        <location filename="../src/defaults.cpp" line="57"/>
+        <location filename="../src/defaults.cpp" line="58"/>
         <source>FFmpeg Application:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="73"/>
+        <location filename="../src/defaults.cpp" line="74"/>
         <source>Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="85"/>
+        <location filename="../src/defaults.cpp" line="86"/>
         <source>Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="101"/>
-        <source>Audio Capture Device:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/defaults.cpp" line="108"/>
-        <source>Change Audio Capture Device
-Default: /dev/dsp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/defaults.cpp" line="114"/>
-        <source>Audio Intensifier:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/defaults.cpp" line="123"/>
-        <source>Change Audio Volume (256=normal)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/defaults.cpp" line="124"/>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/defaults.cpp" line="144"/>
+        <location filename="../src/defaults.cpp" line="121"/>
         <source>FFmpeg %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="145"/>
+        <location filename="../src/defaults.cpp" line="122"/>
         <source>Other %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="147"/>
+        <location filename="../src/defaults.cpp" line="124"/>
         <source>FFmpeg Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="160"/>
+        <location filename="../src/defaults.cpp" line="137"/>
         <source>Output Directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -77,12 +85,12 @@ Default: 256=normal</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="159"/>
+        <location filename="../src/desktopinfo.cpp" line="175"/>
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="132"/>
+        <location filename="../src/desktopinfo.cpp" line="148"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,87 +98,87 @@ Default: 256=normal</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="42"/>
+        <location filename="../src/ffprocess.cpp" line="58"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="52"/>
+        <location filename="../src/ffprocess.cpp" line="68"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="152"/>
-        <location filename="../src/ffprocess.cpp" line="156"/>
-        <location filename="../src/ffprocess.cpp" line="160"/>
-        <location filename="../src/ffprocess.cpp" line="164"/>
         <location filename="../src/ffprocess.cpp" line="168"/>
         <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="176"/>
+        <location filename="../src/ffprocess.cpp" line="180"/>
+        <location filename="../src/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess.cpp" line="188"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="152"/>
+        <location filename="../src/ffprocess.cpp" line="168"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="156"/>
+        <location filename="../src/ffprocess.cpp" line="172"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="160"/>
+        <location filename="../src/ffprocess.cpp" line="176"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="164"/>
+        <location filename="../src/ffprocess.cpp" line="180"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="168"/>
+        <location filename="../src/ffprocess.cpp" line="184"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="188"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess.cpp" line="200"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="199"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="188"/>
+        <location filename="../src/ffprocess.cpp" line="204"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="94"/>
+        <location filename="../src/ffprocess.cpp" line="110"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="107"/>
+        <location filename="../src/ffprocess.cpp" line="123"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="42"/>
+        <location filename="../src/ffprocess.cpp" line="58"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="52"/>
+        <location filename="../src/ffprocess.cpp" line="68"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -450,22 +458,22 @@ Default: 256=normal</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/rubberband.cpp" line="25"/>
+        <location filename="../src/rubberband.cpp" line="41"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="26"/>
+        <location filename="../src/rubberband.cpp" line="42"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="33"/>
+        <location filename="../src/rubberband.cpp" line="49"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="34"/>
+        <location filename="../src/rubberband.cpp" line="50"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
