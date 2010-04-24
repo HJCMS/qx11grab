@@ -45,6 +45,9 @@ TableEditor::TableEditor ( QWidget * parent )
   setBackgroundRole ( QPalette::Window );
   currentType = QString::null;
 
+  // onUpdate
+  connect ( codecSelection, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SIGNAL ( postUpdate() ) );
   connect ( table, SIGNAL ( itemChanged ( QTableWidgetItem * ) ),
             this, SIGNAL ( postUpdate() ) );
   // Item Buttons

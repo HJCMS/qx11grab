@@ -17,9 +17,9 @@
 #include <QtGui/QStatusBar>
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QShowEvent>
+#include <QtGui/QSplitter>
 #include <QtGui/QHideEvent>
 #include <QtGui/QCloseEvent>
-#include <QtGui/QTextEdit>
 
 #include "version.h"
 #include "ui_qx11grabmain.h"
@@ -34,6 +34,7 @@ class TableEditor;
 class DesktopInfo;
 class RubberBand;
 class FFProcess;
+class CommandPreview;
 
 #ifdef HAVE_DBUS
 
@@ -51,12 +52,13 @@ class QX11Grab : public QMainWindow
   private:
     int TimeOutMessages;
     Settings *cfg;
+    QSplitter* m_splitter;
     GrabberInfo* m_grabberInfo;
     Defaults* m_defaults;
     MetaData* m_metaData;
     TableEditor* m_videoEditor;
     TableEditor* m_audioEditor;
-    QTextEdit* commandLineEdit;
+    CommandPreview* m_commandPreview;
     DesktopInfo *m_DesktopInfo;
     RubberBand *m_RubberBand;
     FFProcess *m_FFProcess;

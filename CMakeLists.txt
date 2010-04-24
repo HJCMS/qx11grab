@@ -157,6 +157,10 @@ CONFIGURE_FILE (src/version.h.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/src/version.h
 )
 
+CONFIGURE_FILE (qx11grab.conf.cmake
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
+)
+
 ##############################################################
 ## INCLUDES
 ##############################################################
@@ -208,6 +212,11 @@ INSTALL (FILES
 INSTALL (FILES
   src/images/qx11grab.png
   DESTINATION share/pixmaps
+)
+
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
+  DESTINATION /etc/xdg/hjcms.de/
 )
 
 ## EOF

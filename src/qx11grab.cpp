@@ -13,6 +13,7 @@
 #include "tableeditor.h"
 #include "metadata.h"
 #include "ffprocess.h"
+#include "commandpreview.h"
 
 #ifdef HAVE_DBUS
 #include "qx11grabadaptor.h"
@@ -49,11 +50,16 @@ QX11Grab::QX11Grab ( Settings *settings )
   QIcon boxIcon;
   boxIcon.addFile ( QString::fromUtf8 ( ":/images/qx11grab.png" ), QSize(), QIcon::Normal, QIcon::Off );
 
+
   QWidget* layerWidget = new QWidget ( this );
+
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
 
+  m_splitter = new QSplitter ( Qt::Vertical, this );
+  verticalLayout->addWidget ( m_splitter );
+
   QToolBox* toolBox = new QToolBox ( this, Qt::Widget );
-  verticalLayout->addWidget ( toolBox );
+  m_splitter->insertWidget ( 0, toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
   toolBox->addItem ( m_grabberInfo, boxIcon, QString::fromUtf8 ( "QX11Grab" ) );
@@ -73,10 +79,8 @@ QX11Grab::QX11Grab ( Settings *settings )
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
   toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
 
-  commandLineEdit = new QTextEdit ( this );
-  commandLineEdit->setObjectName ( "CommandLine" );
-  commandLineEdit->setToolTip ( trUtf8 ( "Display the current FFmpeg command." ) );
-  verticalLayout->addWidget ( commandLineEdit );
+  m_commandPreview = new CommandPreview ( this );
+  m_splitter->insertWidget ( 1, m_commandPreview );
 
   QWidget* layerActionsWidget = new QWidget ( this );
 
@@ -98,6 +102,7 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
+//   setCentralWidget ( m_splitter );
 
   TimeOutMessages = 5000;
 
@@ -134,8 +139,8 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
-  connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
-            this, SLOT ( showRubber ( bool ) ) );
+  connect ( m_grabberInfo, SIGNAL ( postUpdate () ),
+            this, SLOT ( perparePreview () ) );
 
   connect ( m_videoEditor, SIGNAL ( postUpdate () ),
             this, SLOT ( perparePreview () ) );
@@ -240,31 +245,31 @@ void QX11Grab::createActions()
 
   /* Window Icons */
   actionGrabbing->setIcon ( getIcon ( "window" ) );
-  actionGrabbing->setShortcut( Qt::CTRL + Qt::Key_G );
+  actionGrabbing->setShortcut ( Qt::CTRL + Qt::Key_G );
 
   actionStartRecord->setIcon ( getIcon ( "run-build" ) );
-  actionStartRecord->setShortcut( Qt::CTRL + Qt::Key_R );
+  actionStartRecord->setShortcut ( Qt::CTRL + Qt::Key_R );
 
   actionStopRecord->setIcon ( getIcon ( "process-stop" ) );
-  actionStopRecord->setShortcut( Qt::CTRL + Qt::Key_E );
+  actionStopRecord->setShortcut ( Qt::CTRL + Qt::Key_E );
 
   actionKillRecord->setIcon ( getIcon ( "window-close" ) );
-  actionKillRecord->setShortcut( Qt::CTRL + Qt::Key_Z );
+  actionKillRecord->setShortcut ( Qt::CTRL + Qt::Key_Z );
 
   actionMinimize->setIcon ( getIcon ( "minimize" ) );
-  actionMinimize->setShortcut( Qt::CTRL + Qt::Key_H );
+  actionMinimize->setShortcut ( Qt::CTRL + Qt::Key_H );
 
   actionQuit->setIcon ( getIcon ( "application-exit" ) );
-  actionQuit->setShortcut( QKeySequence::Quit );
+  actionQuit->setShortcut ( QKeySequence::Quit );
 
   actionSave->setIcon ( getIcon ( "document-save" ) );
-  actionSave->setShortcut( QKeySequence::Save );
+  actionSave->setShortcut ( QKeySequence::Save );
 
   actionLoad->setIcon ( getIcon ( "edit-redo" ) );
-  actionLoad->setShortcut( QKeySequence::Undo );
+  actionLoad->setShortcut ( QKeySequence::Undo );
 
   actionRefresh->setIcon ( getIcon ( "view-refresh" ) );
-  actionRefresh->setShortcut( QKeySequence::Refresh );
+  actionRefresh->setShortcut ( QKeySequence::Refresh );
 }
 
 void QX11Grab::createEnviroment()
@@ -529,8 +534,6 @@ void QX11Grab::saveSettings()
 
 void QX11Grab::perparePreview()
 {
-  commandLineEdit->clear();
-
   QStringList commandLine;
 
   commandLine << m_defaults->binary ();
@@ -552,7 +555,12 @@ void QX11Grab::perparePreview()
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
-  commandLine << m_metaData->getCmd ();
+
+  // Meta Daten
+  if ( m_grabberInfo->metaEnabled() )
+    commandLine << m_metaData->getCmd ();
+
+  // Audio Aufnahme
   if ( m_grabberInfo->soundEnabled() )
   {
     commandLine << m_defaults->ossdevice();
@@ -562,7 +570,7 @@ void QX11Grab::perparePreview()
   // Output Options
   commandLine << "-y" << m_defaults->output();
 
-  commandLineEdit->setPlainText ( commandLine.join ( " " ) );
+  m_commandPreview->setCommandLine ( commandLine );
 
   cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
 }

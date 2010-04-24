@@ -149,13 +149,18 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   startMinimized->setChecked ( true );
   gridLayout->addWidget ( startMinimized, 9, 0, 1, 2 );
 
+  setMetadata = new QCheckBox ( this );
+  setMetadata->setText ( trUtf8 ( "Metadata" ) );
+  setMetadata->setChecked ( true );
+  gridLayout->addWidget ( setMetadata, 10, 0, 1, 2 );
+
   soundRecording = new QCheckBox ( this );
-  soundRecording->setText ( trUtf8 ( "Enable Sound Recording" ) );
+  soundRecording->setText ( trUtf8 ( "Enable Audio Recording" ) );
   soundRecording->setChecked ( true );
-  gridLayout->addWidget ( soundRecording, 10, 0, 1, 2 );
+  gridLayout->addWidget ( soundRecording, 11, 0, 1, 2 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 11, 0, 1, 2 );
+  gridLayout->addItem ( spacer, 12, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
@@ -188,14 +193,20 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   connect ( showRubberband, SIGNAL ( toggled ( bool ) ),
             this, SIGNAL ( showRubber ( bool ) ) );
-}
 
+  // Updates
+  connect ( setMetadata, SIGNAL ( stateChanged ( int ) ),
+            this, SIGNAL ( postUpdate () ) );
+  connect ( soundRecording, SIGNAL ( stateChanged ( int ) ),
+            this, SIGNAL ( postUpdate () ) );
+}
 
 void GrabberInfo::load ( QSettings *cfg )
 {
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
   soundRecording->setChecked ( cfg->value ( QLatin1String ( "SoundRecording" ) ).toBool() );
+  setMetadata->setChecked ( cfg->value ( QLatin1String ( "Metadata" ) ).toBool() );
 }
 
 void GrabberInfo::save ( QSettings *cfg )
@@ -203,6 +214,7 @@ void GrabberInfo::save ( QSettings *cfg )
   cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
   cfg->setValue ( QLatin1String ( "SoundRecording" ), soundRecording->isChecked() );
+  cfg->setValue ( QLatin1String ( "Metadata" ), setMetadata->isChecked() );
 }
 
 bool GrabberInfo::RubberbandIsVisible()
@@ -213,6 +225,11 @@ bool GrabberInfo::RubberbandIsVisible()
 bool GrabberInfo::soundEnabled()
 {
   return soundRecording->isChecked ();
+}
+
+bool GrabberInfo::metaEnabled()
+{
+  return setMetadata->isChecked ();
 }
 
 void GrabberInfo::setRubberbandCheckBox ( bool b )

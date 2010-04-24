@@ -27,6 +27,7 @@ SET (qx11grab_SOURCES
   screencombobox.cpp
   settings.cpp
   windowgrabber.cpp
+  commandpreview.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -41,6 +42,7 @@ SET (qx11grab_HEADERS
   screencombobox.h
   settings.h
   windowgrabber.h
+  commandpreview.h
 )
 
 SET (qx11grab_NOMOC

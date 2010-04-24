@@ -81,6 +81,8 @@ test -x configure || autoreconf -fvi
 
 %files
 %defattr(-, root, root)
+%dir %{_sysconfdir}/xdg/hjcms.de
+%config %{_sysconfdir}/xdg/hjcms.de/%{name}.conf
 %{_bindir}/%{name}
 @Q_LOCALE_DIR@/%{name}*.qm
 %{_datadir}/applications/%{name}.desktop
