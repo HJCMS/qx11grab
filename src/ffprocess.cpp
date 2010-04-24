@@ -1,6 +1,22 @@
-/***
-* Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010
-* Copyright: See COPYING file that comes with this distribution
+/**
+* This file is part of the qx11grab project
+*
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Library General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Library General Public License for more details.
+*
+* You should have received a copy of the GNU Library General Public License
+* along with this library; see the file COPYING.LIB.  If not, write to
+* the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301, USA.
 **/
 
 #include "ffprocess.h"
@@ -16,6 +32,11 @@
 #include <QtCore/QIODevice>
 #include <QtGui/QMessageBox>
 
+inline static const QString grabLogfile()
+{
+  return QString::fromUtf8 ( "/tmp/qx11grab.log" );
+}
+
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
     , cfg ( settings )
@@ -26,12 +47,12 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
 
 const QString FFProcess::application()
 {
-  return cfg->value ( QLatin1String ( "ff_path" ), "ffmpeg" ).toString();
+  return cfg->value ( QLatin1String ( "ff_path" ), QLatin1String ( "ffmpeg" ) ).toString();
 }
 
 const QString FFProcess::workdir()
 {
-  QString p = cfg->value ( "tempdir", "/tmp" ).toString();
+  QString p = cfg->value ( QLatin1String ( "tempdir" ), QLatin1String ( "/tmp" ) ).toString();
   QDir d ( p );
   if ( ! d.isReadable() )
     QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
@@ -55,14 +76,14 @@ bool FFProcess::start ( const QStringList &cmd )
 
   QStringList arguments ( cmd );
 
-  if ( arguments.contains( application() ) )
-    arguments.removeOne( application() );
+  if ( arguments.contains ( application() ) )
+    arguments.removeOne ( application() );
 
   m_QProcess = new QProcess ( this );
   m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
   m_QProcess->setReadChannel ( QProcess::StandardOutput );
-  m_QProcess->setStandardErrorFile ( LOG_FILE );
+  m_QProcess->setStandardErrorFile ( grabLogfile() );
 
   connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
             this, SLOT ( errors ( QProcess::ProcessError ) ) );
@@ -180,7 +201,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
       break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( LOG_FILE ) );
+      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( grabLogfile() ) );
       break;
 
     default:
@@ -191,7 +212,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 void FFProcess::startCheck()
 {
   if ( isRunning() )
-    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( LOG_FILE ) );
+    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( grabLogfile() ) );
 }
 
 FFProcess::~FFProcess()

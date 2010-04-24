@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CommandPreview</name>
+    <message>
+        <location filename="../src/commandpreview.cpp" line="41"/>
+        <source>Display the current FFmpeg command.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Defaults</name>
     <message>
         <location filename="../src/defaults.cpp" line="57"/>
@@ -82,87 +90,87 @@ Default: 256=normal</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="37"/>
+        <location filename="../src/ffprocess.cpp" line="42"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="47"/>
+        <location filename="../src/ffprocess.cpp" line="52"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="147"/>
-        <location filename="../src/ffprocess.cpp" line="151"/>
-        <location filename="../src/ffprocess.cpp" line="155"/>
-        <location filename="../src/ffprocess.cpp" line="159"/>
-        <location filename="../src/ffprocess.cpp" line="163"/>
-        <location filename="../src/ffprocess.cpp" line="167"/>
+        <location filename="../src/ffprocess.cpp" line="152"/>
+        <location filename="../src/ffprocess.cpp" line="156"/>
+        <location filename="../src/ffprocess.cpp" line="160"/>
+        <location filename="../src/ffprocess.cpp" line="164"/>
+        <location filename="../src/ffprocess.cpp" line="168"/>
+        <location filename="../src/ffprocess.cpp" line="172"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="147"/>
+        <location filename="../src/ffprocess.cpp" line="152"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="151"/>
+        <location filename="../src/ffprocess.cpp" line="156"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="155"/>
+        <location filename="../src/ffprocess.cpp" line="160"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="159"/>
+        <location filename="../src/ffprocess.cpp" line="164"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="163"/>
+        <location filename="../src/ffprocess.cpp" line="168"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="167"/>
+        <location filename="../src/ffprocess.cpp" line="172"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="179"/>
+        <location filename="../src/ffprocess.cpp" line="184"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="194"/>
+        <location filename="../src/ffprocess.cpp" line="199"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="183"/>
+        <location filename="../src/ffprocess.cpp" line="188"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="89"/>
+        <location filename="../src/ffprocess.cpp" line="94"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="102"/>
+        <location filename="../src/ffprocess.cpp" line="107"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="37"/>
+        <location filename="../src/ffprocess.cpp" line="42"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="47"/>
+        <location filename="../src/ffprocess.cpp" line="52"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -221,7 +229,12 @@ Default: 256=normal</source>
     </message>
     <message>
         <location filename="../src/grabberinfo.cpp" line="153"/>
-        <source>Enable Sound Recording</source>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/grabberinfo.cpp" line="158"/>
+        <source>Enable Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -266,87 +279,82 @@ Default: 256=normal</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="232"/>
+        <location filename="../src/qx11grab.cpp" line="245"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="235"/>
+        <location filename="../src/qx11grab.cpp" line="248"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="238"/>
+        <location filename="../src/qx11grab.cpp" line="251"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="303"/>
+        <location filename="../src/qx11grab.cpp" line="316"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="387"/>
+        <location filename="../src/qx11grab.cpp" line="400"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="228"/>
+        <location filename="../src/qx11grab.cpp" line="241"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="78"/>
-        <source>Display the current FFmpeg command.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="85"/>
+        <location filename="../src/qx11grab.cpp" line="106"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="92"/>
+        <location filename="../src/qx11grab.cpp" line="113"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="429"/>
+        <location filename="../src/qx11grab.cpp" line="442"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="429"/>
+        <location filename="../src/qx11grab.cpp" line="442"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="450"/>
+        <location filename="../src/qx11grab.cpp" line="458"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="492"/>
+        <location filename="../src/qx11grab.cpp" line="500"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="492"/>
+        <location filename="../src/qx11grab.cpp" line="500"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="219"/>
+        <location filename="../src/qx11grab.cpp" line="232"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="222"/>
+        <location filename="../src/qx11grab.cpp" line="235"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="225"/>
+        <location filename="../src/qx11grab.cpp" line="238"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>

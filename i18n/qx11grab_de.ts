@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de">
 <context>
+    <name>CommandPreview</name>
+    <message>
+        <source>Display the current FFmpeg command.</source>
+        <translation type="unfinished">Zeigt die aktuelle FFmpeg Argumenten übergabe.</translation>
+    </message>
+</context>
+<context>
     <name>Defaults</name>
     <message>
         <source>FFmpeg Application:</source>
@@ -177,8 +184,12 @@ Standard: 256=Normal</translation>
         <translation>Starte Minimiert</translation>
     </message>
     <message>
-        <source>Enable Sound Recording</source>
-        <translation>Aktiviere Sound Aufnahme</translation>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable Audio Recording</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -269,10 +280,6 @@ Standard: 256=Normal</translation>
     <message>
         <source>qx11grap not started</source>
         <translation>qx11grab ist nicht gestartet</translation>
-    </message>
-    <message>
-        <source>Display the current FFmpeg command.</source>
-        <translation>Zeigt die aktuelle FFmpeg Argumenten übergabe.</translation>
     </message>
     <message>
         <source>Refresh</source>

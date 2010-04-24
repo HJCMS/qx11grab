@@ -41,7 +41,7 @@ CommandPreview::CommandPreview ( QWidget * parent )
   layout->addWidget ( new QLabel ( trUtf8 ( "Display the current FFmpeg command." ), this ) );
 
   commandLineEdit = new QTextBrowser ( this );
-  commandLineEdit->setObjectName ( "CommandLine" );
+  commandLineEdit->setObjectName ( "commandlinebrowser" );
   layout->addWidget ( commandLineEdit );
 
   setLayout ( layout );
@@ -50,7 +50,7 @@ CommandPreview::CommandPreview ( QWidget * parent )
 void CommandPreview::setCommandLine ( QStringList &list )
 {
   QString buf ( list.join ( " " ) );
-  QString data = buf.replace ( QRegExp ( "[\\s\\t]+\\-" ), " \\\n -" );
+  QString data = buf.replace ( QRegExp ( "[\\s\\t]+\\-" ), QString::fromUtf8 ( " \\\n -" ) );
   QString html ( "<pre>" );
   html.append ( data );
   html.append ( "</pre>" );

@@ -1,6 +1,22 @@
-/***
-* Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010
-* Copyright: See COPYING file that comes with this distribution
+/**
+* This file is part of the qx11grab project
+*
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Library General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Library General Public License for more details.
+*
+* You should have received a copy of the GNU Library General Public License
+* along with this library; see the file COPYING.LIB.  If not, write to
+* the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301, USA.
 **/
 
 #include "qx11grab.h"
@@ -14,11 +30,7 @@
 #include "metadata.h"
 #include "ffprocess.h"
 #include "commandpreview.h"
-
-#ifdef HAVE_DBUS
 #include "qx11grabadaptor.h"
-#include <QtDBus/QDBusConnection>
-#endif
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -39,6 +51,9 @@
 #include <QtGui/QToolBox>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QX11Info>
+
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
 
 QX11Grab::QX11Grab ( Settings *settings )
     : cfg ( settings )
@@ -85,6 +100,8 @@ QX11Grab::QX11Grab ( Settings *settings )
   QWidget* layerActionsWidget = new QWidget ( this );
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout ( layerActionsWidget );
+  horizontalLayout->setContentsMargins ( 0, 2, 0, 2 );
+
   QPushButton* rerfreshBtn = new QPushButton ( layerActionsWidget );
   rerfreshBtn->setText ( trUtf8 ( "Refresh" ) );
   rerfreshBtn->setIcon ( getIcon ( "view-refresh" ) );
@@ -102,7 +119,6 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
-//   setCentralWidget ( m_splitter );
 
   TimeOutMessages = 5000;
 
@@ -115,13 +131,9 @@ QX11Grab::QX11Grab ( Settings *settings )
   createEnviroment();
   createSystemTrayIcon();
 
-#ifdef HAVE_DBUS
-
-  m_QX11GrabAdaptor = new QX11GrabAdaptor ( this );
+  m_busAdaptor = new QX11GrabAdaptor ( this );
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
-            m_QX11GrabAdaptor, SIGNAL ( message ( const QString & ) ) );
-
-#endif
+            m_busAdaptor, SIGNAL ( message ( const QString & ) ) );
 
   /* Signals */
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
@@ -185,9 +197,7 @@ QX11Grab::QX11Grab ( Settings *settings )
             this, SLOT ( perparePreview() ) );
 }
 
-#ifdef HAVE_DBUS
-
-void QX11Grab::start_record()
+void QX11Grab::record()
 {
   if ( ! m_FFProcess )
     return;
@@ -202,13 +212,11 @@ void QX11Grab::start_record()
   }
 }
 
-void QX11Grab::stop_record()
+void QX11Grab::stop()
 {
   if ( m_FFProcess->isRunning() )
     m_FFProcess->stop ();
 }
-
-#endif
 
 const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
 {
@@ -437,16 +445,11 @@ void QX11Grab::closeEvent ( QCloseEvent *ev )
   }
   saveStats();
 
-#ifdef HAVE_DBUS
-
-  if ( m_QX11GrabAdaptor )
+  if ( m_busAdaptor )
   {
     QDBusConnection::sessionBus().unregisterObject ( "/qx11grab", QDBusConnection::UnregisterNode );
-    delete m_QX11GrabAdaptor;
+    delete m_busAdaptor;
   }
-
-#endif
-
 }
 
 void QX11Grab::pushInfoMessage ( const QString &txt )
@@ -573,6 +576,17 @@ void QX11Grab::perparePreview()
   m_commandPreview->setCommandLine ( commandLine );
 
   cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
+}
+
+const QString QX11Grab::currentCommandLine()
+{
+  QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
+  return cmd.join ( " " );
+}
+
+const QString QX11Grab::getSettingsValue ( const QString &key )
+{
+  return cfg->value ( key, "" ).toString();
 }
 
 QX11Grab::~QX11Grab()

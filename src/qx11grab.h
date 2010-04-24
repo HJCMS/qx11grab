@@ -1,6 +1,22 @@
-/***
-* Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010
-* Copyright: See COPYING file that comes with this distribution
+/**
+* This file is part of the qx11grab project
+*
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Library General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Library General Public License for more details.
+*
+* You should have received a copy of the GNU Library General Public License
+* along with this library; see the file COPYING.LIB.  If not, write to
+* the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301, USA.
 **/
 
 #ifndef QX11GRAB_H
@@ -35,12 +51,7 @@ class DesktopInfo;
 class RubberBand;
 class FFProcess;
 class CommandPreview;
-
-#ifdef HAVE_DBUS
-
 class QX11GrabAdaptor;
-
-#endif
 
 class QX11Grab : public QMainWindow
       , protected Ui::QX11GrabMain
@@ -62,6 +73,7 @@ class QX11Grab : public QMainWindow
     DesktopInfo *m_DesktopInfo;
     RubberBand *m_RubberBand;
     FFProcess *m_FFProcess;
+    QX11GrabAdaptor *m_busAdaptor;
     QMenu *systemTrayMenu;
     QAction *grabActionFromWindow,
     *showRubberbandWindow,
@@ -78,14 +90,7 @@ class QX11Grab : public QMainWindow
     void loadStats();
     void saveStats();
 
-#ifdef HAVE_DBUS
-
-    QX11GrabAdaptor *m_QX11GrabAdaptor;
-
-#endif
-
   private Q_SLOTS:
-    void swapRubberBand ();
     void showRubber ( bool );
     void toRubber ( int );
     void grabFromWindow();
@@ -105,13 +110,12 @@ class QX11Grab : public QMainWindow
   Q_SIGNALS:
     void startMinimized ();
 
-#ifdef HAVE_DBUS
-
   public Q_SLOTS:
-    void start_record();
-    void stop_record();
-
-#endif
+    void swapRubberBand ();
+    void record();
+    void stop();
+    const QString currentCommandLine();
+    const QString getSettingsValue ( const QString &key );
 
   public:
     QX11Grab ( Settings *settings = 0 );
