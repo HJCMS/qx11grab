@@ -4,9 +4,11 @@ showRubberband=true
 startMinimized=false
 tempdir=/tmp
 outputName=@CMAKE_PROJECT_NAME@-XXXXXX.avi
-video_codec=rawvideo
-audio_codec=pcm_s16le
 SoundRecording=false
+audio_codec=pcm_s16le
+audio_engine=alsa
+audio_intensifier=280
+video_codec=rawvideo
 Metadata=false
 
 [metadata]
