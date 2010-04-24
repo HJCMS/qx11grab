@@ -5,7 +5,7 @@
     <name>CommandPreview</name>
     <message>
         <source>Display the current FFmpeg command.</source>
-        <translation type="unfinished">Zeigt die aktuelle FFmpeg Argumenten übergabe.</translation>
+        <translation>Zeigt die aktuellen FFmpeg Argumente an.</translation>
     </message>
 </context>
 <context>
@@ -185,11 +185,11 @@ Standard: 256=Normal</translation>
     </message>
     <message>
         <source>Metadata</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopfangaben</translation>
     </message>
     <message>
         <source>Enable Audio Recording</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiviere die Audio Aufnahme</translation>
     </message>
 </context>
 <context>

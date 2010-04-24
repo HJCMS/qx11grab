@@ -36,12 +36,13 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
+
 #include "version.h"
 #include "settings.h"
 #include "qx11grab.h"
-
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
 
 #ifdef Q_OS_UNIX
 #include <QX11Info>
