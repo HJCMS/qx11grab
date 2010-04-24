@@ -5,30 +5,31 @@
     <name>AudioDevice</name>
     <message>
         <source>Audio Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio Einstellungen</translation>
     </message>
     <message>
         <source>Audio Intensifier:</source>
-        <translation type="unfinished">Audio Verstärkung:</translation>
+        <translation>Audio Verstärker:</translation>
     </message>
     <message>
         <source>Change Audio Volume (256=normal)</source>
-        <translation type="unfinished">Setze die Audio Lautstärke (256=Normal)</translation>
+        <translation>Setze die Audio Lautstärke (256=Normal)</translation>
     </message>
     <message>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
-        <translation type="unfinished">Setze die Audio Verstärkung.
+        <translation>Setze die Audio Verstärkung.
 Standard: 256=Normal</translation>
     </message>
     <message>
         <source>Audio Capture Device:</source>
-        <translation type="unfinished">Audio Schnittstelle:</translation>
+        <translation>Audio Schnittstelle:</translation>
     </message>
     <message>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
-        <translation type="unfinished"></translation>
+        <translation>Wähle die Audio Aufnahme Schnittstelle
+OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>

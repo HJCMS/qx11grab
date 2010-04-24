@@ -41,6 +41,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
   vLayout->setContentsMargins ( 0, 2, 0, 2 );
 
   QGroupBox* audioGroup = new QGroupBox ( trUtf8 ( "Audio Settings" ), this );
+  audioGroup->setFlat ( true );
   QGridLayout* gridLayout = new QGridLayout ( audioGroup );
 
   m_swap_alsa = new QRadioButton ( trUtf8 ( "Advanced Linux Sound Architecture (Alsa)" ), audioGroup );
