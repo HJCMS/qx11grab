@@ -50,13 +50,16 @@
 bool isAlreadyRunning()
 {
   QString reg ( "de.hjcms.qx11grab" );
-  QDBusConnection *bus = new QDBusConnection ( QDBusConnection::sessionBus() );
+  QDBusConnection* bus = new QDBusConnection ( QDBusConnection::sessionBus() );
   if ( ! bus->registerService ( reg ) )
   {
     qWarning ( "QX11Grab Already Running" );
     QDBusConnection dbus = bus->connectToBus ( QDBusConnection::SessionBus, reg );
     QDBusMessage meth = QDBusMessage::createMethodCall ( reg, "/qx11grab", reg, "show" );
-    return dbus.send ( meth );
+    if ( dbus.send ( meth ) )
+      dbus.disconnectFromBus ( reg );
+
+    return true;
   }
   return false;
 }
