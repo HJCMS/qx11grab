@@ -1,0 +1,23 @@
+
+*** WARNING - This Application is NOT testet on Mac OS X and incompatible with Windows ***
+
+General "qx11grab" Requirements:
+  -  Qt 4 >= 4.6.0 (required)  http://qt.nokia.com/products/
+  -  Oxygen Icon Theme >= 4.4.0 (required) ftp://ftp.kde.org/pub/kde/stable/
+  -  libavformat >= 52.38.0 (required) http://www.ffmpeg.org
+  -  libavcodec >= 52.35.0 (required) http://www.ffmpeg.org
+  -  alsa-lib >= 1.0.0 (required) http://www.alsa-project.org
+
+For Mac OS X Cocoa, the binary package requires Mac OS X 10.5 (Leopard) or later
+and GCC 4.0.1 to develop applications.
+
+1) create a subdirectory build in source home directory
+2) open a terminal and change this directory
+3) run cmake
+  Unix
+    cmake -Wno-dev -DCMAKE_BUILD_TYPE:STRING=Release \
+      -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+      -DSYSCONF_INSTALL_DIR:PATH=/etc ../
+
+4) make
+5) make DESTDIR=/tmp/test install
