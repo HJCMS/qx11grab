@@ -31,6 +31,18 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation>Wähle die Audio Aufnahme Schnittstelle
 OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
+    <message>
+        <source>Advanced Linux Sound Architecture (Alsa)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Select ALSA Audio Capture Device</source>
+        <translation>Wähle die ALSA Audio Aufnahme Schnittstelle</translation>
+    </message>
 </context>
 <context>
     <name>CommandPreview</name>
@@ -151,10 +163,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <source>FFmpeg Application:</source>
-        <translation>FFmpeg Programm:</translation>
-    </message>
-    <message>
         <source>Width:</source>
         <translation>Breite:</translation>
     </message>
@@ -198,6 +206,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Enable Audio Recording</source>
         <translation>Aktiviere die Audio Aufnahme</translation>
     </message>
+    <message>
+        <source>Screen size:</source>
+        <translation>Bildschirmgröße:</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -228,6 +240,17 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Medium:</source>
         <translation>Medium:</translation>
+    </message>
+</context>
+<context>
+    <name>PicRecordInterface</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation>ALSA PCM Auswählen</translation>
+    </message>
+    <message>
+        <source>Available Cards:</source>
+        <translation>Verfügbare Karten:</translation>
     </message>
 </context>
 <context>

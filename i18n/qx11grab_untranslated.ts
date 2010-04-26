@@ -4,35 +4,50 @@
 <context>
     <name>AudioDevice</name>
     <message>
-        <location filename="../src/audiodevice.cpp" line="43"/>
+        <location filename="../src/audiodevice.cpp" line="45"/>
         <source>Audio Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="54"/>
+        <location filename="../src/audiodevice.cpp" line="49"/>
+        <source>Advanced Linux Sound Architecture (Alsa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="52"/>
+        <source>Open Sound System (OSS)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="58"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="63"/>
+        <location filename="../src/audiodevice.cpp" line="67"/>
         <source>Change Audio Volume (256=normal)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="64"/>
+        <location filename="../src/audiodevice.cpp" line="68"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="68"/>
+        <location filename="../src/audiodevice.cpp" line="72"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="74"/>
+        <location filename="../src/audiodevice.cpp" line="78"/>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audiodevice.cpp" line="84"/>
+        <source>Select ALSA Audio Capture Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -187,7 +202,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <name>GrabberInfo</name>
     <message>
         <location filename="../src/grabberinfo.cpp" line="48"/>
-        <source>FFmpeg Application:</source>
+        <source>Screen size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -281,6 +296,19 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../src/metadata.cpp" line="100"/>
         <source>Medium:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PicRecordInterface</name>
+    <message>
+        <location filename="../src/picrecordinterface.cpp" line="46"/>
+        <source>ALSA PCM Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/picrecordinterface.cpp" line="52"/>
+        <source>Available Cards:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

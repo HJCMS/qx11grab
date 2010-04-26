@@ -19,48 +19,34 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef AUDIODEVICE_H
-#define AUDIODEVICE_H
+#ifndef PICRECORDINTERFACE_H
+#define PICRECORDINTERFACE_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QLineEdit>
-#include <QtGui/QRadioButton>
-#include <QtGui/QSpinBox>
-#include <QtGui/QToolButton>
+#include <QtGui/QDialog>
+#include <QtGui/QListWidget>
 #include <QtGui/QWidget>
 
-class AudioDevice : public QWidget
+class PicRecordInterface : public QDialog
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
+    Q_PROPERTY ( QString card READ getCard WRITE setCard )
 
   private:
-    QRadioButton* m_swap_alsa;
-    QRadioButton* m_swap_oss;
-    QSpinBox* intensifier;
-    QLineEdit* device;
-    QToolButton* findAlsaPCMButton;
-    void setAlsaRecordingPCM();
-
-  private Q_SLOTS:
-    void getpcmClicked();
+    QListWidget* deviceList;
+    void initRecorderDevices();
 
   public:
-    AudioDevice ( QWidget * parent = 0 );
-    void setVolume ( int );
-    int getVolume ();
-    void setAudioEngine ( const QString & );
-    const QString getAudioEngine ();
-    void setAudioDevice ( const QString & );
-    const QString getAudioDevice ();
-    const QStringList data();
-    ~AudioDevice();
+    PicRecordInterface ( QWidget * parent = 0 );
+    const QString getCard ();
+    void setCard ( const QString & );
+    ~PicRecordInterface();
 };
 
 #endif

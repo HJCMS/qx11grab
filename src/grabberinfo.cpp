@@ -45,7 +45,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // begin: Size
   QLabel* txt1 = new QLabel ( this );
-  txt1->setText ( trUtf8 ( "FFmpeg Application:" ) );
+  txt1->setText ( trUtf8 ( "Screen size:" ) );
   txt1->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt1, 0, 0, 1, 1 );
 

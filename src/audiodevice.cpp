@@ -20,15 +20,17 @@
 **/
 
 #include "audiodevice.h"
+#include "picrecordinterface.h"
 
 /* QtCore */
+#include <QtCore/QDebug>
 #include <QtCore/QString>
 
 /* QtGui */
 #include <QtGui/QGridLayout>
 #include <QtGui/QGroupBox>
+#include <QtGui/QIcon>
 #include <QtGui/QLabel>
-#include <QtGui/QRadioButton>
 #include <QtGui/QVBoxLayout>
 
 AudioDevice::AudioDevice ( QWidget * parent )
@@ -48,7 +50,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
   gridLayout->addWidget ( m_swap_alsa, 0, 0, 1, 1 );
 
   m_swap_oss = new QRadioButton ( trUtf8 ( "Open Sound System (OSS)" ), audioGroup );
-  gridLayout->addWidget ( m_swap_oss, 0, 1, 1, 1 );
+  gridLayout->addWidget ( m_swap_oss, 0, 1, 1, 2 );
   // Setze Alsa als Standard
   m_swap_alsa->setChecked ( true );
 
@@ -64,7 +66,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
   intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
   intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
   intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
-  gridLayout->addWidget ( intensifier, 1, 1, 1, 1 );
+  gridLayout->addWidget ( intensifier, 1, 1, 1, 2 );
 
   QLabel* txt1 = new QLabel ( audioGroup );
   txt1->setText ( trUtf8 ( "Audio Capture Device:" ) );
@@ -74,13 +76,41 @@ AudioDevice::AudioDevice ( QWidget * parent )
   device = new QLineEdit ( audioGroup );
   device->setObjectName ( QLatin1String ( "device" ) );
   device->setWhatsThis ( trUtf8 ( "Change Audio Capture Device\nOSS Default: /dev/dsp or Alsa Default: default" ) );
-
   gridLayout->addWidget ( device, 2, 1, 1, 1 );
+
+  findAlsaPCMButton = new QToolButton ( audioGroup );
+  findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
+  findAlsaPCMButton->setIcon ( QIcon::fromTheme ( "preferences-desktop-sound" ) );
+  findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
+  findAlsaPCMButton->setDisabled ( true );
+  gridLayout->addWidget ( findAlsaPCMButton, 2, 2, 1, 1 );
 
   vLayout->addWidget ( audioGroup );
   vLayout->addStretch ( 1 );
 
   setLayout ( vLayout );
+
+  connect ( m_swap_alsa, SIGNAL ( toggled ( bool ) ),
+            findAlsaPCMButton, SLOT ( setEnabled ( bool ) ) );
+
+  connect ( findAlsaPCMButton, SIGNAL ( clicked () ),
+            this, SLOT ( getpcmClicked() ) );
+}
+
+void AudioDevice::setAlsaRecordingPCM()
+{
+  PicRecordInterface* dialog = new PicRecordInterface ( this );
+  dialog->setCard ( device->text() );
+  if ( dialog->exec() )
+    device->setText ( dialog->getCard() );
+
+  delete dialog;
+}
+
+void AudioDevice::getpcmClicked()
+{
+  if ( m_swap_alsa->isChecked() )
+    setAlsaRecordingPCM();
 }
 
 void AudioDevice::setVolume ( int i )
@@ -96,9 +126,15 @@ int AudioDevice::getVolume ()
 void AudioDevice::setAudioEngine ( const QString &t )
 {
   if ( t.contains ( QString::fromUtf8 ( "alsa" ) ) )
+  {
     m_swap_alsa->setChecked ( true );
+    findAlsaPCMButton->setDisabled ( false );
+  }
   else
+  {
     m_swap_oss->setChecked ( true );
+    findAlsaPCMButton->setDisabled ( true );
+  }
 }
 
 const QString AudioDevice::getAudioEngine ()
