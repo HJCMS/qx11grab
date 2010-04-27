@@ -157,7 +157,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Permission Denied: %1.</source>
-        <translation>Zugriff Verweigert: %1</translation>
+        <translation>Zugriff Verweigert: %1.</translation>
     </message>
 </context>
 <context>
@@ -199,16 +199,16 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Starte Minimiert</translation>
     </message>
     <message>
-        <source>Metadata</source>
-        <translation>Kopfangaben</translation>
-    </message>
-    <message>
         <source>Enable Audio Recording</source>
         <translation>Aktiviere die Audio Aufnahme</translation>
     </message>
     <message>
-        <source>Screen size:</source>
-        <translation>Bildschirmgröße:</translation>
+        <source>Dimension:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Insert Metadata</source>
+        <translation>Kopfdaten einfügen</translation>
     </message>
 </context>
 <context>
@@ -313,7 +313,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Neu laden</translation>
+        <translation>Auffrischen</translation>
     </message>
     <message>
         <source>Save</source>
@@ -384,7 +384,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Neu laden</translation>
+        <translation>Auffrischen</translation>
     </message>
     <message>
         <source>Settings</source>

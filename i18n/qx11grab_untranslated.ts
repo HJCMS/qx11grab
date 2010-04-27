@@ -202,7 +202,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <name>GrabberInfo</name>
     <message>
         <location filename="../src/grabberinfo.cpp" line="48"/>
-        <source>Screen size:</source>
+        <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -241,22 +241,22 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="143"/>
+        <location filename="../src/grabberinfo.cpp" line="145"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="148"/>
+        <location filename="../src/grabberinfo.cpp" line="150"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="153"/>
-        <source>Metadata</source>
+        <location filename="../src/grabberinfo.cpp" line="155"/>
+        <source>Insert Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/grabberinfo.cpp" line="158"/>
+        <location filename="../src/grabberinfo.cpp" line="160"/>
         <source>Enable Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>

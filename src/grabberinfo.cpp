@@ -45,7 +45,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // begin: Size
   QLabel* txt1 = new QLabel ( this );
-  txt1->setText ( trUtf8 ( "Screen size:" ) );
+  txt1->setText ( trUtf8 ( "Dimension:" ) );
   txt1->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt1, 0, 0, 1, 1 );
 
@@ -139,28 +139,32 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   gridLayout->addWidget ( setFrameRate, 7, 1, 1, 1 );
   // end: Frame Rate
 
+  QGridLayout* checkBoxLayout = new QGridLayout;
+
   showRubberband = new QCheckBox ( this );
   showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
   showRubberband->setChecked ( true );
-  gridLayout->addWidget ( showRubberband, 8, 0, 1, 2 );
+  checkBoxLayout->addWidget ( showRubberband, 0, 0, 1, 1 );
 
   startMinimized = new QCheckBox ( this );
   startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
   startMinimized->setChecked ( true );
-  gridLayout->addWidget ( startMinimized, 9, 0, 1, 2 );
+  checkBoxLayout->addWidget ( startMinimized, 0, 1, 1, 1 );
 
   setMetadata = new QCheckBox ( this );
-  setMetadata->setText ( trUtf8 ( "Metadata" ) );
+  setMetadata->setText ( trUtf8 ( "Insert Metadata" ) );
   setMetadata->setChecked ( true );
-  gridLayout->addWidget ( setMetadata, 10, 0, 1, 2 );
+  checkBoxLayout->addWidget ( setMetadata, 1, 0, 1, 1 );
 
   soundRecording = new QCheckBox ( this );
   soundRecording->setText ( trUtf8 ( "Enable Audio Recording" ) );
   soundRecording->setChecked ( true );
-  gridLayout->addWidget ( soundRecording, 11, 0, 1, 2 );
+  checkBoxLayout->addWidget ( soundRecording, 1, 1, 1, 1 );
+
+  gridLayout->addItem ( checkBoxLayout, 8, 0, 1, 2 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 12, 0, 1, 2 );
+  gridLayout->addItem ( spacer, 9, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
