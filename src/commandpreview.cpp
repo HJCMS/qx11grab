@@ -47,6 +47,9 @@ CommandPreview::CommandPreview ( QWidget * parent )
   setLayout ( layout );
 }
 
+/**
+*
+*/
 void CommandPreview::setCommandLine ( QStringList &list )
 {
   QString buf ( list.join ( " " ) );

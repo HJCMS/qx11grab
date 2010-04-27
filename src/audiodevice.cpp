@@ -82,7 +82,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
   findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
   findAlsaPCMButton->setIcon ( QIcon::fromTheme ( "preferences-desktop-sound" ) );
   findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
-  findAlsaPCMButton->setDisabled ( true );
+  findAlsaPCMButton->setDisabled ( true ); // Standard ist Deaktiviert
   gridLayout->addWidget ( findAlsaPCMButton, 2, 2, 1, 1 );
 
   vLayout->addWidget ( audioGroup );
@@ -97,6 +97,10 @@ AudioDevice::AudioDevice ( QWidget * parent )
             this, SLOT ( getpcmClicked() ) );
 }
 
+/**
+* Öffnet den Dialog für das setzen der ALSA
+* PCM Schnittstellen.
+*/
 void AudioDevice::setAlsaRecordingPCM()
 {
   PicRecordInterface* dialog = new PicRecordInterface ( this );
@@ -107,22 +111,35 @@ void AudioDevice::setAlsaRecordingPCM()
   delete dialog;
 }
 
+/**
+* Interne SLOT der ermittelt welches Audio System
+* gerade ausgewählt wurde.
+*/
 void AudioDevice::getpcmClicked()
 {
   if ( m_swap_alsa->isChecked() )
     setAlsaRecordingPCM();
 }
 
+/**
+* Setzt den Wert für die Audio-Verstärkung
+*/
 void AudioDevice::setVolume ( int i )
 {
   intensifier->setValue ( i );
 }
 
+/**
+* Gibt den aktuellen Status der Audio-Verstärkung zurück.
+*/
 int AudioDevice::getVolume ()
 {
   return intensifier->value();
 }
 
+/**
+* Setzt das Audio System, "alsa" oder "oss" sind erlaubt.
+*/
 void AudioDevice::setAudioEngine ( const QString &t )
 {
   if ( t.contains ( QString::fromUtf8 ( "alsa" ) ) )
@@ -137,21 +154,37 @@ void AudioDevice::setAudioEngine ( const QString &t )
   }
 }
 
+/**
+* Ermittelt den Aktuellen zustand der RadioBoxen und gibt
+* das entsprechend ausgewählte Audio System zurück.
+*/
 const QString AudioDevice::getAudioEngine ()
 {
   return m_swap_alsa->isChecked() ? QLatin1String ( "alsa" ) : QLatin1String ( "oss" );
 }
 
+/**
+* Setzt unbeachtet dessen welches Audio System gerade
+* ausgewählt ist, die Aufnahme Schnittstelle.
+*/
 void AudioDevice::setAudioDevice ( const QString &d )
 {
   device->setText ( d );
 }
 
+/**
+* Gibt unbeachtet dessen welches Audio System gerade
+* ausgewählt ist, die Aufnahme Schnittstelle zurück.
+*/
 const QString AudioDevice::getAudioDevice ()
 {
   return device->text();
 }
 
+/**
+* Erzeugt die Kommandozeilen Zeichenkette für die
+* FFmpeg Argumenten-Liste der Audio Aufnahme.
+*/
 const QStringList AudioDevice::data()
 {
   QStringList cmd;

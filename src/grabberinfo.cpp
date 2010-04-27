@@ -205,6 +205,9 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
             this, SIGNAL ( postUpdate () ) );
 }
 
+/**
+* Widget Einstellungen suchen und laden.
+*/
 void GrabberInfo::load ( QSettings *cfg )
 {
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
@@ -213,6 +216,9 @@ void GrabberInfo::load ( QSettings *cfg )
   setMetadata->setChecked ( cfg->value ( QLatin1String ( "Metadata" ) ).toBool() );
 }
 
+/**
+* Aktuelle Widget Einstellungen speichern.
+*/
 void GrabberInfo::save ( QSettings *cfg )
 {
   cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
@@ -221,56 +227,90 @@ void GrabberInfo::save ( QSettings *cfg )
   cfg->setValue ( QLatin1String ( "Metadata" ), setMetadata->isChecked() );
 }
 
+/**
+* Soll das Gummiband angezeigt werden?
+*/
 bool GrabberInfo::RubberbandIsVisible()
 {
   return showRubberband->isChecked();
 }
 
+/**
+* Ist die Audio Aufnahme aktiviert?
+*/
 bool GrabberInfo::soundEnabled()
 {
   return soundRecording->isChecked ();
 }
 
+/**
+* Sollen die Kopfdaten eingefügt werden?
+*/
 bool GrabberInfo::metaEnabled()
 {
   return setMetadata->isChecked ();
 }
 
+/**
+* SLOT für die Anzeige des Gummibandes
+*/
 void GrabberInfo::setRubberbandCheckBox ( bool b )
 {
   showRubberband->setChecked ( b );
 }
 
+/**
+* Aufnahme Breite in Pixel
+*/
 void GrabberInfo::setScreenWidth ( int w )
 {
   setWidthBox->setValue ( w );
 }
 
+/**
+* Aufnahme Höhe in Pixel
+*/
 void GrabberInfo::setScreenHeight ( int h )
 {
   setHeightBox->setValue ( h );
 }
 
+/**
+* Der Horizontale Aufnahme Startpunkt
+*/
 void GrabberInfo::setScreenX ( int x )
 {
   setXBox->setValue ( x );
 }
 
+/**
+* Der Vertikale Aufnahme Startpunkt
+*/
 void GrabberInfo::setScreenY ( int y )
 {
   setYBox->setValue ( y );
 }
 
+/**
+* Gibt die Aktuelle Dimension zurück.
+* Das Rückgabe format ist "WxH" oder z.B: "svga" Zeichenkette.
+*/
 void GrabberInfo::setScreenMode ( const QString &mode )
 {
   setModeName->setText ( mode );
 }
 
+/**
+* Gibt die Aktuelle Dimension in form eines QRect zurück.
+*/
 const QRect GrabberInfo::getRect()
 {
   return QRect ( setXBox->value(), setYBox->value(), setWidthBox->value(), setHeightBox->value() );
 }
 
+/**
+* Gibt die Aktuelle FrameRate zurück.
+*/
 int GrabberInfo::frameRate()
 {
   int rate = setFrameRate->value();
