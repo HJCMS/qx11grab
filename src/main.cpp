@@ -35,6 +35,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
+#include <QtGui/QX11Info>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
@@ -44,13 +45,15 @@
 #include "settings.h"
 #include "qx11grab.h"
 
-#ifdef Q_OS_UNIX
-#include <QX11Info>
-#endif
-
+/**
+* @short unique application check
+* Überprüft mit DBUS ob das Programm qx11grab bereits eine Session
+* gestartet hat. Wenn ja wird der Q_SLOT "show()" aufgerufen und
+* dieser Programm aufruf beendet sich wieder!
+*/
 bool isAlreadyRunning()
 {
-  QString reg ( "de.hjcms.qx11grab" );
+  QString reg = QX11GRAB_DBUS_DOMAIN_NAME;
   QDBusConnection* bus = new QDBusConnection ( QDBusConnection::sessionBus() );
   if ( ! bus->registerService ( reg ) )
   {
@@ -72,7 +75,9 @@ int main ( int argc, char *argv[] )
 
   Q_INIT_RESOURCE ( qx11grab );
 
+  // force require qt >= 4.6.* for QIcon::fromTheme
   QT_REQUIRE_VERSION ( argc, argv, "4.6.0" )
+
   QApplication app ( argc, argv, true );
   app.setApplicationName ( "qx11grab" );
   app.setApplicationVersion ( QX11GRAB_VERSION );

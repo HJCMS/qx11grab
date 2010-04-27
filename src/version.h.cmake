@@ -32,4 +32,6 @@
 "<p style=\" margin:0px; text-indent:0px;\"><span style=\" color:#ff0000;\">%1</span>: %2</p>" \
 "</body></html>"
 
+#define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
+
 #define OSS_IN_USE "Audio Device %s already in use\nDisable Capture with -f oss Option"
