@@ -48,11 +48,17 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
   arguments = QStringList();
 }
 
+/**
+* Gibt den Pfad zur ffmpeg zurück.
+*/
 const QString FFProcess::application()
 {
   return cfg->value ( QLatin1String ( "ff_path" ), QLatin1String ( "ffmpeg" ) ).toString();
 }
 
+/**
+* Das aktuelle Arbeits Verzeichnis
+*/
 const QString FFProcess::workdir()
 {
   QString p = cfg->value ( QLatin1String ( "tempdir" ), QLatin1String ( "/tmp" ) ).toString();
@@ -63,6 +69,9 @@ const QString FFProcess::workdir()
   return p;
 }
 
+/**
+* Überprüfe ob die Dimensionen in Ordnung sind
+*/
 bool FFProcess::create ( const QRect &r )
 {
   if ( r.isValid() )
@@ -72,6 +81,9 @@ bool FFProcess::create ( const QRect &r )
   return false;
 }
 
+/**
+* Starte die Aufnahme
+*/
 bool FFProcess::start ( const QStringList &cmd )
 {
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
@@ -105,6 +117,9 @@ bool FFProcess::start ( const QStringList &cmd )
   return true;
 }
 
+/**
+* Stoppe die Aufnahme
+*/
 bool FFProcess::stop()
 {
   if ( ! m_QProcess )
@@ -118,6 +133,9 @@ bool FFProcess::stop()
   return isRunning();
 }
 
+/**
+* Aufnahme abbrechen
+*/
 bool FFProcess::kill()
 {
   if ( ! m_QProcess )
@@ -129,6 +147,9 @@ bool FFProcess::kill()
   return true;
 }
 
+/**
+* Status Überprüfung
+*/
 bool FFProcess::isRunning()
 {
   if ( ! m_QProcess )
@@ -162,6 +183,9 @@ bool FFProcess::isRunning()
   }
 }
 
+/**
+* Fehler Meldungen verarbeiten
+*/
 void FFProcess::errors ( QProcess::ProcessError err )
 {
   QString errtxt = m_QProcess->errorString();
@@ -193,6 +217,9 @@ void FFProcess::errors ( QProcess::ProcessError err )
   }
 }
 
+/**
+* Beenden verarbeiten
+*/
 void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 {
   Q_UNUSED ( exitCode )
@@ -212,6 +239,9 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
   }
 }
 
+/**
+* Vor dem Starten auf laufenden Prozess prüfen!
+*/
 void FFProcess::startCheck()
 {
   if ( isRunning() )

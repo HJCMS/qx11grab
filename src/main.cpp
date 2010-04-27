@@ -109,7 +109,7 @@ int main ( int argc, char *argv[] )
 
   QX11Grab grab ( m_Settings );
 
-  if ( m_Settings->getBool ( "startMinimized" ) )
+  if ( m_Settings->value ( "startMinimized", false ).toBool() )
     grab.hide();
   else
     grab.show();
