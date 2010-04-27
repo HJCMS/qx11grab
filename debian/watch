@@ -1,3 +1,2 @@
 version=2
-opts=dversionmangle=s/\.dfsg// \
-http://qx11grab.hjcms.de/Downloads/qx11grab-(.*)\.tar\.bz2
+http://qx11grab.hjcms.de/cgi-bin/snapshot.git

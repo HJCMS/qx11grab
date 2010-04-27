@@ -19,6 +19,9 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#ifndef QX11GRAB_VERSION
+#include "version.h"
+#endif
 #include "qx11grab.h"
 #include "settings.h"
 #include "desktopinfo.h"
@@ -104,14 +107,14 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   QPushButton* rerfreshBtn = new QPushButton ( layerActionsWidget );
   rerfreshBtn->setText ( trUtf8 ( "Refresh" ) );
-  rerfreshBtn->setIcon ( getIcon ( "view-refresh" ) );
+  rerfreshBtn->setIcon ( getThemeIcon ( "view-refresh" ) );
   horizontalLayout->addWidget ( rerfreshBtn );
 
   horizontalLayout->addStretch ( 1 );
 
   QPushButton* saveBtn = new QPushButton ( layerActionsWidget );
   saveBtn->setText ( trUtf8 ( "Save" ) );
-  saveBtn->setIcon ( getIcon ( "document-save" ) );
+  saveBtn->setIcon ( getThemeIcon ( "document-save" ) );
   horizontalLayout->addWidget ( saveBtn );
 
   layerActionsWidget->setLayout ( horizontalLayout );
@@ -218,65 +221,56 @@ void QX11Grab::stop()
     m_FFProcess->stop ();
 }
 
-const QIcon QX11Grab::getIcon ( const QString &name, const QString &group )
-{
-  QIcon icon;
-  QString file = QString::fromUtf8 ( ":%1/images/%2.png" ).arg ( group, name );
-  icon.addPixmap ( QPixmap ( file ), QIcon::Normal, QIcon::Off );
-
-  return QIcon::fromTheme ( name, icon );
-}
-
 void QX11Grab::createActions()
 {
-  grabActionFromWindow = new QAction ( getIcon ( "window" ), trUtf8 ( "Grabbing" ), this );
+  grabActionFromWindow = new QAction ( getThemeIcon ( "window" ), trUtf8 ( "Grabbing" ), this );
   connect ( grabActionFromWindow, SIGNAL ( triggered() ), this, SLOT ( grabFromWindow() ) );
 
-  showRubberbandWindow = new QAction ( getIcon ( "view-grid" ), trUtf8 ( "Rubberband" ), this );
+  showRubberbandWindow = new QAction ( getThemeIcon ( "view-grid" ), trUtf8 ( "Rubberband" ), this );
   connect ( showRubberbandWindow, SIGNAL ( triggered() ), this, SLOT ( swapRubberBand() ) );
 
-  startRecordingWindow = new QAction ( getIcon ( "run-build" ), trUtf8 ( "Recording" ), this );
+  startRecordingWindow = new QAction ( getThemeIcon ( "media-record" ), trUtf8 ( "Recording" ), this );
   connect ( startRecordingWindow, SIGNAL ( triggered() ), this, SLOT ( startRecord() ) );
 
-  stopRecordingWindow = new QAction ( getIcon ( "process-stop" ), trUtf8 ( "Stop" ), this );
+  stopRecordingWindow = new QAction ( getThemeIcon ( "media-playback-stop" ), trUtf8 ( "Stop" ), this );
   stopRecordingWindow->setEnabled ( false );
   connect ( stopRecordingWindow, SIGNAL ( triggered() ), m_FFProcess, SLOT ( stop () ) );
 
-  minimizeWindowAction = new QAction ( getIcon ( "minimize" ), trUtf8 ( "Hide" ), this );
+  minimizeWindowAction = new QAction ( getThemeIcon ( "minimize" ), trUtf8 ( "Hide" ), this );
   connect ( minimizeWindowAction, SIGNAL ( triggered() ), this, SLOT ( hide() ) );
 
-  displayWindowAction = new QAction ( getIcon ( "maximize" ), trUtf8 ( "Show" ), this );
+  displayWindowAction = new QAction ( getThemeIcon ( "maximize" ), trUtf8 ( "Show" ), this );
   connect ( displayWindowAction, SIGNAL ( triggered() ), this, SLOT ( showNormal() ) );
 
-  quitWindowAction = new QAction ( getIcon ( "application-exit" ), trUtf8 ( "Quit" ), this );
+  quitWindowAction = new QAction ( getThemeIcon ( "application-exit" ), trUtf8 ( "Quit" ), this );
   connect ( quitWindowAction, SIGNAL ( triggered() ), qApp, SLOT ( quit() ) );
 
   /* Window Icons */
-  actionGrabbing->setIcon ( getIcon ( "window" ) );
+  actionGrabbing->setIcon ( getThemeIcon ( "window" ) );
   actionGrabbing->setShortcut ( Qt::CTRL + Qt::Key_G );
 
-  actionStartRecord->setIcon ( getIcon ( "run-build" ) );
+  actionStartRecord->setIcon ( getThemeIcon ( "media-record" ) );
   actionStartRecord->setShortcut ( Qt::CTRL + Qt::Key_R );
 
-  actionStopRecord->setIcon ( getIcon ( "process-stop" ) );
+  actionStopRecord->setIcon ( getThemeIcon ( "media-playback-stop" ) );
   actionStopRecord->setShortcut ( Qt::CTRL + Qt::Key_E );
 
-  actionKillRecord->setIcon ( getIcon ( "window-close" ) );
+  actionKillRecord->setIcon ( getThemeIcon ( "window-close" ) );
   actionKillRecord->setShortcut ( Qt::CTRL + Qt::Key_Z );
 
-  actionMinimize->setIcon ( getIcon ( "minimize" ) );
+  actionMinimize->setIcon ( getThemeIcon ( "minimize" ) );
   actionMinimize->setShortcut ( Qt::CTRL + Qt::Key_H );
 
-  actionQuit->setIcon ( getIcon ( "application-exit" ) );
+  actionQuit->setIcon ( getThemeIcon ( "application-exit" ) );
   actionQuit->setShortcut ( QKeySequence::Quit );
 
-  actionSave->setIcon ( getIcon ( "document-save" ) );
+  actionSave->setIcon ( getThemeIcon ( "document-save" ) );
   actionSave->setShortcut ( QKeySequence::Save );
 
-  actionLoad->setIcon ( getIcon ( "edit-redo" ) );
+  actionLoad->setIcon ( getThemeIcon ( "edit-redo" ) );
   actionLoad->setShortcut ( QKeySequence::Undo );
 
-  actionRefresh->setIcon ( getIcon ( "view-refresh" ) );
+  actionRefresh->setIcon ( getThemeIcon ( "view-refresh" ) );
   actionRefresh->setShortcut ( QKeySequence::Refresh );
 }
 
@@ -312,7 +306,7 @@ void QX11Grab::createSystemTrayIcon()
   systemTrayMenu->addAction ( quitWindowAction );
 
   systemTrayIcon = new QSystemTrayIcon ( this );
-  systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+  systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
   systemTrayIcon->setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
   systemTrayIcon->setContextMenu ( systemTrayMenu );
   connect ( systemTrayIcon, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
@@ -459,7 +453,7 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
                                   QSystemTrayIcon::Information, TimeOutMessages );
 
   if ( ! m_FFProcess->isRunning() )
-    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+    systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
 }
 
 void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
@@ -468,7 +462,7 @@ void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
     systemTrayIcon->showMessage ( title, txt, QSystemTrayIcon::Critical, TimeOutMessages );
 
   if ( ! m_FFProcess->isRunning() )
-    systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+    systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
 }
 
 void QX11Grab::pushToolTip ( const QString &txt )
@@ -493,7 +487,7 @@ void QX11Grab::startRecord()
     QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
     if ( m_FFProcess->start ( cmd ) )
     {
-      systemTrayIcon->setIcon ( getIcon ( "convert" ) );
+      systemTrayIcon->setIcon ( getThemeIcon ( "media-record" ) );
     }
   }
   else
@@ -507,7 +501,7 @@ void QX11Grab::setActionsBack()
   actionKillRecord->setEnabled ( false );
   startRecordingWindow->setEnabled ( true );
   actionStartRecord->setEnabled ( true );
-  systemTrayIcon->setIcon ( getIcon ( "qx11grab" ) );
+  systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
 }
 
 /**

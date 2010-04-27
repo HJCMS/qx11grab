@@ -22,6 +22,10 @@
 #include "audiodevice.h"
 #include "picrecordinterface.h"
 
+#ifndef QX11GRAB_VERSION
+#include "version.h"
+#endif
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QString>
@@ -80,7 +84,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
 
   findAlsaPCMButton = new QToolButton ( audioGroup );
   findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
-  findAlsaPCMButton->setIcon ( QIcon::fromTheme ( "preferences-desktop-sound" ) );
+  findAlsaPCMButton->setIcon ( getThemeIcon ( "audio-headset" ) );
   findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
   findAlsaPCMButton->setDisabled ( true ); // Standard ist Deaktiviert
   gridLayout->addWidget ( findAlsaPCMButton, 2, 2, 1, 1 );

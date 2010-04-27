@@ -37,7 +37,6 @@
 #include <QtGui/QHideEvent>
 #include <QtGui/QCloseEvent>
 
-#include "version.h"
 #include "ui_qx11grabmain.h"
 
 class QAction;
@@ -83,7 +82,6 @@ class QX11Grab : public QMainWindow
     *displayWindowAction,
     *quitWindowAction;
     QSystemTrayIcon *systemTrayIcon;
-    const QIcon getIcon ( const QString &name, const QString &group = QString::fromUtf8 ( "/" ) );
     void createActions();
     void createEnviroment();
     void createSystemTrayIcon();

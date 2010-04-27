@@ -21,7 +21,10 @@
 
 #include "ffprocess.h"
 #include "settings.h"
+
+#ifndef QX11GRAB_VERSION
 #include "version.h"
+#endif
 
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>

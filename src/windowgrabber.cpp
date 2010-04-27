@@ -20,7 +20,10 @@
 **/
 
 #include "windowgrabber.h"
+
+#ifndef QX11GRAB_VERSION
 #include "version.h"
+#endif
 
 #include <ctype.h>
 
