@@ -57,6 +57,7 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   map["audio-headset"] = "find";
   map["document-save"] = "save";
   map["edit-redo"] = "redo";
+  map["folder-open"] = "folder";
   map["maximize"] = "maximize";
   map["media-record"] = "convert";
   map["media-playback-stop"] = "stop";

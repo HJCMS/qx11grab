@@ -22,6 +22,10 @@
 #include "defaults.h"
 #include "audiodevice.h"
 
+#ifndef QX11GRAB_VERSION
+#include "version.h"
+#endif
+
 /* QtCore */
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
@@ -48,8 +52,7 @@ Defaults::Defaults ( QWidget * parent )
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );
   gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
 
-  QIcon folderIcon;
-  folderIcon.addFile ( QString::fromUtf8 ( ":/images/folder_normal.png" ), QSize(), QIcon::Normal, QIcon::Off );
+  QIcon folderIcon = getThemeIcon ( "folder-open" );
 
   Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
 

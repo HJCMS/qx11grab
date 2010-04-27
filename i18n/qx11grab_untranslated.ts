@@ -4,49 +4,49 @@
 <context>
     <name>AudioDevice</name>
     <message>
-        <location filename="../src/audiodevice.cpp" line="45"/>
+        <location filename="../src/audiodevice.cpp" line="49"/>
         <source>Audio Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="49"/>
+        <location filename="../src/audiodevice.cpp" line="53"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="52"/>
+        <location filename="../src/audiodevice.cpp" line="56"/>
         <source>Open Sound System (OSS)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="58"/>
+        <location filename="../src/audiodevice.cpp" line="62"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="67"/>
+        <location filename="../src/audiodevice.cpp" line="71"/>
         <source>Change Audio Volume (256=normal)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="68"/>
+        <location filename="../src/audiodevice.cpp" line="72"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="72"/>
+        <location filename="../src/audiodevice.cpp" line="76"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="78"/>
+        <location filename="../src/audiodevice.cpp" line="82"/>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audiodevice.cpp" line="84"/>
+        <location filename="../src/audiodevice.cpp" line="88"/>
         <source>Select ALSA Audio Capture Device</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,87 +113,87 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="58"/>
+        <location filename="../src/ffprocess.cpp" line="67"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="68"/>
+        <location filename="../src/ffprocess.cpp" line="80"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="168"/>
-        <location filename="../src/ffprocess.cpp" line="172"/>
-        <location filename="../src/ffprocess.cpp" line="176"/>
-        <location filename="../src/ffprocess.cpp" line="180"/>
-        <location filename="../src/ffprocess.cpp" line="184"/>
-        <location filename="../src/ffprocess.cpp" line="188"/>
+        <location filename="../src/ffprocess.cpp" line="195"/>
+        <location filename="../src/ffprocess.cpp" line="199"/>
+        <location filename="../src/ffprocess.cpp" line="203"/>
+        <location filename="../src/ffprocess.cpp" line="207"/>
+        <location filename="../src/ffprocess.cpp" line="211"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="168"/>
+        <location filename="../src/ffprocess.cpp" line="195"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="172"/>
+        <location filename="../src/ffprocess.cpp" line="199"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="176"/>
+        <location filename="../src/ffprocess.cpp" line="203"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="180"/>
+        <location filename="../src/ffprocess.cpp" line="207"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess.cpp" line="211"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="188"/>
+        <location filename="../src/ffprocess.cpp" line="215"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="200"/>
+        <location filename="../src/ffprocess.cpp" line="230"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="215"/>
+        <location filename="../src/ffprocess.cpp" line="248"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="204"/>
+        <location filename="../src/ffprocess.cpp" line="234"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="110"/>
+        <location filename="../src/ffprocess.cpp" line="128"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="123"/>
+        <location filename="../src/ffprocess.cpp" line="144"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="58"/>
+        <location filename="../src/ffprocess.cpp" line="67"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="68"/>
+        <location filename="../src/ffprocess.cpp" line="80"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -315,82 +315,82 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="245"/>
+        <location filename="../src/qx11grab.cpp" line="239"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="248"/>
+        <location filename="../src/qx11grab.cpp" line="242"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="251"/>
+        <location filename="../src/qx11grab.cpp" line="245"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="316"/>
+        <location filename="../src/qx11grab.cpp" line="310"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="400"/>
+        <location filename="../src/qx11grab.cpp" line="394"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="241"/>
+        <location filename="../src/qx11grab.cpp" line="235"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="106"/>
+        <location filename="../src/qx11grab.cpp" line="109"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="113"/>
+        <location filename="../src/qx11grab.cpp" line="116"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="442"/>
+        <location filename="../src/qx11grab.cpp" line="436"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="442"/>
+        <location filename="../src/qx11grab.cpp" line="436"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="458"/>
+        <location filename="../src/qx11grab.cpp" line="452"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="500"/>
+        <location filename="../src/qx11grab.cpp" line="494"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="500"/>
+        <location filename="../src/qx11grab.cpp" line="494"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="232"/>
+        <location filename="../src/qx11grab.cpp" line="226"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="235"/>
+        <location filename="../src/qx11grab.cpp" line="229"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="238"/>
+        <location filename="../src/qx11grab.cpp" line="232"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
