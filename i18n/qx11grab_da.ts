@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="da_DK">
 <context>
     <name>AudioDevice</name>
     <message>
@@ -100,13 +100,13 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="175"/>
-        <source>Fullscreen</source>
+        <location filename="../src/desktopinfo.cpp" line="148"/>
+        <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/desktopinfo.cpp" line="148"/>
-        <source>Unknown</source>
+        <location filename="../src/desktopinfo.cpp" line="175"/>
+        <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -114,12 +114,32 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <name>FFProcess</name>
     <message>
         <location filename="../src/ffprocess.cpp" line="67"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="67"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ffprocess.cpp" line="80"/>
+        <source>Dimension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="80"/>
         <source>Invalid Window geometry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="128"/>
+        <source>shutdown please wait ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess.cpp" line="144"/>
+        <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -168,33 +188,13 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="248"/>
-        <source>Recording started writing to: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ffprocess.cpp" line="234"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="128"/>
-        <source>shutdown please wait ...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess.cpp" line="144"/>
-        <source>force shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess.cpp" line="67"/>
-        <source>Warning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess.cpp" line="80"/>
-        <source>Dimension</source>
+        <location filename="../src/ffprocess.cpp" line="248"/>
+        <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -315,6 +315,36 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
+        <location filename="../src/qx11grab.cpp" line="109"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="116"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="226"/>
+        <source>Grabbing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="229"/>
+        <source>Rubberband</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="232"/>
+        <source>Recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="235"/>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/qx11grab.cpp" line="239"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
@@ -337,21 +367,6 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../src/qx11grab.cpp" line="394"/>
         <source>grabbed Dimension</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="235"/>
-        <source>Stop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="109"/>
-        <source>Refresh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="116"/>
-        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -379,27 +394,12 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="226"/>
-        <source>Grabbing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="229"/>
-        <source>Rubberband</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="232"/>
-        <source>Recording</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>QX11GrabMain</name>
     <message>
-        <location filename="../build/src/ui_qx11grabmain.h" line="138"/>
-        <source>Action</source>
+        <location filename="../build/src/ui_qx11grabmain.h" line="113"/>
+        <source>qx11grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -408,18 +408,13 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/ui_qx11grabmain.h" line="118"/>
-        <source>Minimize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../build/src/ui_qx11grabmain.h" line="113"/>
-        <source>qx11grab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../build/src/ui_qx11grabmain.h" line="116"/>
         <source>Close Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_qx11grabmain.h" line="118"/>
+        <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -475,6 +470,11 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../build/src/ui_qx11grabmain.h" line="137"/>
         <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../build/src/ui_qx11grabmain.h" line="138"/>
+        <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -21,7 +21,6 @@ BuildRequires:  libqt4-devel update-desktop-files
 BuildRequires:  qt4-devel
 %endif 
 Vendor:         Juergen Heinemann (Undefined) http://www.hjcms.de
-Prefix:         @prefix@
 
 %description
 qt4 applet for recording x11 windows with ffmpeg

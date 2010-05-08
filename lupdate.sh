@@ -6,7 +6,7 @@
 #################################################################
 
 ## -silent
-for i in qx11grab_de qx11grab_untranslated ; do
+for i in ar da de es fr iw ja_JP pl pt ru sk sl sv uk zh_CN zh_TW untranslated ; do
 	lupdate -noobsolete -extensions h,cpp,cxx \
-		src/ build/src -ts i18n/${i}.ts
+		src/ build/src -ts i18n/qx11grab_${i}.ts
 done
