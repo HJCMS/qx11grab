@@ -31,6 +31,18 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation>Vybrat nahrávací zařízení pro zachytávání zvuku
 Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
+    <message>
+        <source>Advanced Linux Sound Architecture (Alsa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select ALSA Audio Capture Device</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CommandPreview</name>
@@ -151,10 +163,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <source>FFmpeg Application:</source>
-        <translation>Program ffmpeg:</translation>
-    </message>
-    <message>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
@@ -191,12 +199,16 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>Spustit zmenšeně</translation>
     </message>
     <message>
-        <source>Metadata</source>
-        <translation>Hlavičkové údaje</translation>
-    </message>
-    <message>
         <source>Enable Audio Recording</source>
         <translation>Povolit nahrávání zvuku</translation>
+    </message>
+    <message>
+        <source>Dimension:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert Metadata</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -228,6 +240,17 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Medium:</source>
         <translation>Nosič:</translation>
+    </message>
+</context>
+<context>
+    <name>PicRecordInterface</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Cards:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

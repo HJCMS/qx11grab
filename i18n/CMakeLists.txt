@@ -4,6 +4,7 @@ SET (single_file_lng
   cs
 )
 
+## merge with qt_*.ts
 SET (multi_file_lng
   de
 )
