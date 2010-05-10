@@ -73,10 +73,12 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
 
-  m_splitter = new QSplitter ( Qt::Vertical, this );
+  m_splitter = new QSplitter ( Qt::Vertical, layerWidget );
+  m_splitter->setObjectName( QLatin1String( "splitter" ) );
   verticalLayout->addWidget ( m_splitter );
 
-  QToolBox* toolBox = new QToolBox ( this, Qt::Widget );
+  QToolBox* toolBox = new QToolBox ( m_splitter, Qt::Widget );
+  toolBox->setObjectName( QLatin1String( "toolbox" ) );
   m_splitter->insertWidget ( 0, toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
@@ -97,10 +99,11 @@ QX11Grab::QX11Grab ( Settings *settings )
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
   toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
 
-  m_commandPreview = new CommandPreview ( this );
+  m_commandPreview = new CommandPreview ( m_splitter );
   m_splitter->insertWidget ( 1, m_commandPreview );
 
-  QWidget* layerActionsWidget = new QWidget ( this );
+  QWidget* layerActionsWidget = new QWidget ( layerWidget );
+  layerActionsWidget->setObjectName ( QLatin1String( "layeractionswidget" ) );
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout ( layerActionsWidget );
   horizontalLayout->setContentsMargins ( 0, 2, 0, 2 );
