@@ -34,6 +34,7 @@
 /* FFmpeg */
 extern "C"
 {
+#include <libavutil/common.h>
 #include <libavformat/avformat.h>
 #include <libavcodec/avcodec.h>
 }

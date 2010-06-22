@@ -16,7 +16,7 @@ QT4_WRAP_UI (tableeditor_UIC ${tableeditor_UI})
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})
 
-# ADD_DEFINITIONS (${QT_DEFINITIONS})
+ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
 
 QT4_ADD_RESOURCES (tableeditor_RESRC ../qx11grab.qrc)
 

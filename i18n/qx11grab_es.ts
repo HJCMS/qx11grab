@@ -315,82 +315,82 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="109"/>
+        <location filename="../src/qx11grab.cpp" line="112"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="116"/>
+        <location filename="../src/qx11grab.cpp" line="119"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="226"/>
+        <location filename="../src/qx11grab.cpp" line="229"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="229"/>
+        <location filename="../src/qx11grab.cpp" line="232"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="232"/>
+        <location filename="../src/qx11grab.cpp" line="235"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="235"/>
+        <location filename="../src/qx11grab.cpp" line="238"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="239"/>
+        <location filename="../src/qx11grab.cpp" line="242"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="242"/>
+        <location filename="../src/qx11grab.cpp" line="245"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="245"/>
+        <location filename="../src/qx11grab.cpp" line="248"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="310"/>
+        <location filename="../src/qx11grab.cpp" line="313"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="394"/>
+        <location filename="../src/qx11grab.cpp" line="397"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="436"/>
+        <location filename="../src/qx11grab.cpp" line="439"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="436"/>
+        <location filename="../src/qx11grab.cpp" line="439"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="452"/>
+        <location filename="../src/qx11grab.cpp" line="455"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="494"/>
+        <location filename="../src/qx11grab.cpp" line="497"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="494"/>
+        <location filename="../src/qx11grab.cpp" line="497"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
