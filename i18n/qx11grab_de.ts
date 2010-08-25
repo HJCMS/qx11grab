@@ -109,7 +109,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>shutdown please wait ...</source>
-        <translation>Beende Bitte warten ...</translation>
+        <translation>Beende bitte warten ...</translation>
     </message>
     <message>
         <source>force shutdown</source>

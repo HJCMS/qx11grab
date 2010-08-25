@@ -486,22 +486,22 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/rubberband.cpp" line="41"/>
+        <location filename="../src/rubberband.cpp" line="71"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="42"/>
+        <location filename="../src/rubberband.cpp" line="72"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="49"/>
+        <location filename="../src/rubberband.cpp" line="79"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="50"/>
+        <location filename="../src/rubberband.cpp" line="80"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
