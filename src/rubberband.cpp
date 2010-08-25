@@ -22,15 +22,45 @@
 #include "rubberband.h"
 #include "desktopinfo.h"
 
+/* QtCore */
 #include <QtCore/QDebug>
 
-RubberBand::RubberBand ( QWidget *parent )
+/* QtGui */
+#include <QtGui/QBrush>
+#include <QtGui/QPainter>
+#include <QtGui/QPen>
+
+RubberBand::RubberBand ( QWidget * parent )
     : QRubberBand ( QRubberBand::Rectangle, parent )
 {
   setMinimumWidth ( 100 );
   setMinimumHeight ( 96 );
   m_DesktopInfo = new DesktopInfo ( this );
 
+}
+
+void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
+{
+  if ( !option )
+    return;
+
+  option->initFrom ( this );
+}
+
+void RubberBand::paintEvent ( QPaintEvent * event )
+{
+  QBrush brush;
+  brush.setStyle ( Qt::SolidPattern );
+  brush.setColor ( Qt::red );
+
+  QPen pen;
+  pen.setStyle ( Qt::SolidLine );
+  pen.setWidth ( 1 );
+
+  QPainter painter ( this );
+  painter.setBrush ( brush );
+  painter.setPen ( pen );
+  painter.drawRect ( event->rect() );
 }
 
 bool RubberBand::isScalability()

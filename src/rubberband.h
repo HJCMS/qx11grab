@@ -27,8 +27,10 @@
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QWidget>
+#include <QtGui/QPaintEvent>
 #include <QtGui/QRubberBand>
+#include <QtGui/QStyleOptionRubberBand>
+#include <QtGui/QWidget>
 
 class DesktopInfo;
 
@@ -39,14 +41,18 @@ class RubberBand : public QRubberBand
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    DesktopInfo *m_DesktopInfo;
+    DesktopInfo* m_DesktopInfo;
+
+  protected:
+    void initStyleOption ( QStyleOptionRubberBand * ) const;
+    void paintEvent ( QPaintEvent * );
 
   Q_SIGNALS:
     void warning ( const QString & );
     void error ( const QString &, const QString & );
 
   public:
-    RubberBand ( QWidget *parent = 0 );
+    RubberBand ( QWidget * parent = 0 );
     bool isScalability();
     ~RubberBand();
 
