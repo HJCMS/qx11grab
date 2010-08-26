@@ -54,11 +54,10 @@ void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
 
 void RubberBand::paintEvent ( QPaintEvent * event )
 {
-  QPen pen ( Qt::red, 2, Qt::SolidLine );
   QPainter painter ( this );
-  painter.setBrush ( Qt::NoBrush );
+  painter.setBrush ( Qt::red );
   painter.setBackgroundMode ( Qt::TransparentMode );
-  painter.setPen ( pen );
+  painter.setPen ( Qt::NoPen );
   painter.drawRect ( event->rect() );
 }
 
