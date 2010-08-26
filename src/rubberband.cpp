@@ -28,6 +28,7 @@
 /* QtGui */
 #include <QtGui/QBrush>
 #include <QtGui/QPainter>
+#include <QtGui/QPalette>
 #include <QtGui/QPen>
 
 RubberBand::RubberBand ( QWidget * parent )
@@ -35,30 +36,29 @@ RubberBand::RubberBand ( QWidget * parent )
 {
   setMinimumWidth ( 100 );
   setMinimumHeight ( 96 );
-  m_DesktopInfo = new DesktopInfo ( this );
+  setAutoFillBackground ( false );
+  setContentsMargins ( 0, 0, 0, 0 );
+  setAttribute ( Qt::WA_NoBackground, true );
+  setAttribute ( Qt::WA_NoSystemBackground, true );
+  setAttribute ( Qt::WA_SetPalette, false );
+  setAttribute ( Qt::WA_SetStyle, false );
+  setAttribute ( Qt::WA_PaintOnScreen, true );
 
+  m_DesktopInfo = new DesktopInfo ( this );
 }
 
 void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
 {
-  if ( !option )
-    return;
-
-  option->initFrom ( this );
+  if ( option )
+    option->initFrom ( this );
 }
 
 void RubberBand::paintEvent ( QPaintEvent * event )
 {
-  QBrush brush;
-  brush.setStyle ( Qt::SolidPattern );
-  brush.setColor ( Qt::red );
-
-  QPen pen;
-  pen.setStyle ( Qt::SolidLine );
-  pen.setWidth ( 1 );
-
+  QPen pen ( Qt::red, 2, Qt::SolidLine );
   QPainter painter ( this );
-  painter.setBrush ( brush );
+  painter.setBrush ( Qt::NoBrush );
+  painter.setBackgroundMode ( Qt::TransparentMode );
   painter.setPen ( pen );
   painter.drawRect ( event->rect() );
 }
@@ -85,5 +85,4 @@ bool RubberBand::isScalability()
 }
 
 RubberBand::~RubberBand()
-{
-}
+{}
