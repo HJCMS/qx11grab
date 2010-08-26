@@ -28,13 +28,12 @@
 /* QtGui */
 #include <QtGui/QBrush>
 #include <QtGui/QPainter>
-#include <QtGui/QPalette>
 #include <QtGui/QPen>
 
 RubberBand::RubberBand ( QWidget * parent )
     : QRubberBand ( QRubberBand::Rectangle, parent )
 {
-  setMinimumWidth ( 100 );
+  setMinimumWidth ( 128 );
   setMinimumHeight ( 96 );
   setAutoFillBackground ( false );
   setContentsMargins ( 0, 0, 0, 0 );

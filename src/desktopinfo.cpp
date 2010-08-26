@@ -176,7 +176,4 @@ const FrameMode DesktopInfo::grabScreenGeometry ( QWidget *parent )
 }
 
 DesktopInfo::~DesktopInfo()
-{
-}
-
-
+{}
