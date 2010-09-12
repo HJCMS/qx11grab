@@ -1,14 +1,14 @@
 Source: qx11grab
-Section: web
+Section: x11
 Priority: optional
 Maintainer: Juergen Heinemann (Undefined) <nospam@hjcms.de>
-Build-Depends: debhelper (>= 7.0.50~), cdbs (>= 0.4.88), libqt4-dev (>= 4.6), cmake (> 2.8), libavcodec-dev (>= 5.2), libavformat-dev (>= 5.2), libx11-dev (>= 1.3)
+Build-Depends: debhelper (>= 7.0.50~), cdbs (>= 0.4.88), libqt4-dev (>= 4.6), cmake (>= 2.8), libavcodec-dev (>= 5.2), libavformat-dev (>= 5.2), libx11-dev (>= 1.3), libasound2-dev
 Standards-Version: 3.8.4
 Homepage: http://qx11grab.hjcms.de
 Vcs-Browser: http://gitweb.hjcms.de/cgi-bin/index.cgi/qx11grab/log/
 
 Package: qx11grab
-Section: web
+Section: x11
 Architecture: any
 Suggests: ffmpeg-bin
 Depends: ${shlibs:Depends}, ${misc:Depends}, oxygen-icon-theme (>= 4.4)

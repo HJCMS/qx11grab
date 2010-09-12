@@ -95,7 +95,8 @@ SET (LIBRARY_OUTPUT_PATH
 ## FFmpeg avformat
 ##############################################################
 
-PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.38.0 libavcodec>=52.35.0)
+PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.31.0 libavcodec>=52.20.0)
+# PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.38.0 libavcodec>=52.35.0)
 
 ##############################################################
 ## Configure files
