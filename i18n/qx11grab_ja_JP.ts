@@ -262,6 +262,14 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     </message>
 </context>
 <context>
+    <name>LogViewer</name>
+    <message>
+        <location filename="../src/logviewer/logviewer.cpp" line="38"/>
+        <source>qx11grab logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <location filename="../src/metadata.cpp" line="46"/>
@@ -542,7 +550,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="34"/>
+        <location filename="../src/logviewer/textview.cpp" line="37"/>
         <source>wait for input ...</source>
         <translation type="unfinished"></translation>
     </message>

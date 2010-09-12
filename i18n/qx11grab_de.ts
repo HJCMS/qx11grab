@@ -212,6 +212,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>LogViewer</name>
+    <message>
+        <source>qx11grab logfile</source>
+        <translation>qx11grab Protokolldatei</translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>

@@ -212,6 +212,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>LogViewer</name>
+    <message>
+        <source>qx11grab logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>
