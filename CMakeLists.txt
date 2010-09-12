@@ -19,11 +19,9 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
 ##############################################################
 SET (QT_MIN_VERSION 4.6.0)
 FIND_PACKAGE (Qt4 REQUIRED)
+FIND_PACKAGE (Qt4 COMPONENTS QTDBUS)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
-
-SET( QT_USE_QTDBUS 1 )
-INCLUDE (${QT_USE_FILE})
 
 IF (NOT UNIX)
   MESSAGE (FATAL_ERROR "Only Unix is Supported!")
@@ -115,14 +113,15 @@ CONFIGURE_FILE (qx11grab.conf.cmake
 ## INCLUDES
 ##############################################################
 
+## QT_HEADERS_DIR
 SET (QX11GRAB_INCLUDES
-  ${QT_QTMAIN_INCLUDE_DIR}
-  ${FFMPEG_INCLUDEDIR}
-  ${ALSA_INCLUDE_DIR}
+  ${QT_INCLUDE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/src
   ${CMAKE_CURRENT_SOURCE_DIR}/src
+  ${FFMPEG_INCLUDEDIR}
+  ${ALSA_INCLUDE_DIR}
 )
 
 ##############################################################
@@ -130,7 +129,7 @@ SET (QX11GRAB_INCLUDES
 ##############################################################
 
 SET (QX11GRAB_LIBRARIES
-  ${QT_QTMAIN_LIBRARY}
+  ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
   ${FFMPEG_LDFLAGS}

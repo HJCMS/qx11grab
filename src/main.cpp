@@ -19,17 +19,20 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#ifndef QX11GRAB_VERSION
+#include "version.h"
+#endif
+
 #include <cstdlib>
 
 /* QtCore */
-#include <QtCore/QDebug>
-#include <QtCore/QObject>
 #include <QtCore/QCoreApplication>
-#include <QtCore/QTranslator>
-#include <QtCore/QLocale>
-#include <QtCore/QTextCodec>
-#include <QtCore/QStringList>
 #include <QtCore/QLibraryInfo>
+#include <QtCore/QLocale>
+#include <QtCore/QObject>
+#include <QtCore/QStringList>
+#include <QtCore/QTranslator>
+#include <QtCore/QTextCodec>
 
 /* QtGui */
 #include <QtGui/QApplication>
@@ -40,10 +43,6 @@
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
-
-#ifndef QX11GRAB_VERSION
-#include "version.h"
-#endif
 
 #include "settings.h"
 #include "qx11grab.h"
@@ -71,15 +70,12 @@ bool isAlreadyRunning()
   return false;
 }
 
-int main ( int argc, char *argv[] )
+int main ( int argc, char* argv[] )
 {
   if ( isAlreadyRunning() )
     return EXIT_SUCCESS;
 
   Q_INIT_RESOURCE ( qx11grab );
-
-  // force require qt >= 4.6.* for QIcon::fromTheme
-  QT_REQUIRE_VERSION ( argc, argv, "4.6.0" )
 
   QApplication app ( argc, argv, true );
   app.setApplicationName ( "qx11grab" );
@@ -105,7 +101,7 @@ int main ( int argc, char *argv[] )
   }
   app.installTranslator ( &translator );
 
-  Settings *m_Settings = new Settings ( &app );
+  Settings* m_Settings = new Settings ( &app );
 
   QX11Grab grab ( m_Settings );
 

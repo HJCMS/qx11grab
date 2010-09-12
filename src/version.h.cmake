@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QGlobalStatic>
 #include <QtCore/QMap>
 #include <QtCore/QString>
 
