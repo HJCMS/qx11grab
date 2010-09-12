@@ -113,87 +113,87 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess.cpp" line="67"/>
+        <location filename="../src/ffprocess.cpp" line="62"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="80"/>
+        <location filename="../src/ffprocess.cpp" line="75"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="195"/>
-        <location filename="../src/ffprocess.cpp" line="199"/>
-        <location filename="../src/ffprocess.cpp" line="203"/>
-        <location filename="../src/ffprocess.cpp" line="207"/>
-        <location filename="../src/ffprocess.cpp" line="211"/>
-        <location filename="../src/ffprocess.cpp" line="215"/>
+        <location filename="../src/ffprocess.cpp" line="190"/>
+        <location filename="../src/ffprocess.cpp" line="194"/>
+        <location filename="../src/ffprocess.cpp" line="198"/>
+        <location filename="../src/ffprocess.cpp" line="202"/>
+        <location filename="../src/ffprocess.cpp" line="206"/>
+        <location filename="../src/ffprocess.cpp" line="210"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="195"/>
+        <location filename="../src/ffprocess.cpp" line="190"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="199"/>
+        <location filename="../src/ffprocess.cpp" line="194"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="203"/>
+        <location filename="../src/ffprocess.cpp" line="198"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="207"/>
+        <location filename="../src/ffprocess.cpp" line="202"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="211"/>
+        <location filename="../src/ffprocess.cpp" line="206"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="215"/>
+        <location filename="../src/ffprocess.cpp" line="210"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="230"/>
+        <location filename="../src/ffprocess.cpp" line="225"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="248"/>
+        <location filename="../src/ffprocess.cpp" line="243"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="234"/>
+        <location filename="../src/ffprocess.cpp" line="229"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="128"/>
+        <location filename="../src/ffprocess.cpp" line="123"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="144"/>
+        <location filename="../src/ffprocess.cpp" line="139"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="67"/>
+        <location filename="../src/ffprocess.cpp" line="62"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess.cpp" line="80"/>
+        <location filename="../src/ffprocess.cpp" line="75"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -315,82 +315,87 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="242"/>
+        <location filename="../src/qx11grab.cpp" line="251"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="245"/>
+        <location filename="../src/qx11grab.cpp" line="254"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="248"/>
+        <location filename="../src/qx11grab.cpp" line="257"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="313"/>
+        <location filename="../src/qx11grab.cpp" line="322"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="397"/>
+        <location filename="../src/qx11grab.cpp" line="421"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="238"/>
+        <location filename="../src/qx11grab.cpp" line="247"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="112"/>
+        <location filename="../src/qx11grab.cpp" line="111"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="119"/>
+        <location filename="../src/qx11grab.cpp" line="116"/>
+        <source>Logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="124"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="439"/>
+        <location filename="../src/qx11grab.cpp" line="475"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="439"/>
+        <location filename="../src/qx11grab.cpp" line="475"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="455"/>
+        <location filename="../src/qx11grab.cpp" line="494"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="497"/>
+        <location filename="../src/qx11grab.cpp" line="546"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="497"/>
+        <location filename="../src/qx11grab.cpp" line="546"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="229"/>
+        <location filename="../src/qx11grab.cpp" line="238"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="232"/>
+        <location filename="../src/qx11grab.cpp" line="241"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="235"/>
+        <location filename="../src/qx11grab.cpp" line="244"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -486,22 +491,22 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/rubberband.cpp" line="71"/>
+        <location filename="../src/rubberband.cpp" line="69"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="72"/>
+        <location filename="../src/rubberband.cpp" line="70"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="79"/>
+        <location filename="../src/rubberband.cpp" line="77"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/rubberband.cpp" line="80"/>
+        <location filename="../src/rubberband.cpp" line="78"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -531,6 +536,14 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextView</name>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="34"/>
+        <source>wait for input ...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

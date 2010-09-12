@@ -34,9 +34,11 @@
 #include "ffprocess.h"
 #include "commandpreview.h"
 #include "qx11grabadaptor.h"
+#include "logviewer.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QFileInfo>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -48,8 +50,6 @@
 #include <QtGui/QMenu>
 #include <QtGui/QMessageBox>
 #include <QtGui/QPixmap>
-#include <QtGui/QPushButton>
-#include <QtGui/QPushButton>
 #include <QtGui/QRubberBand>
 #include <QtGui/QToolBox>
 #include <QtGui/QVBoxLayout>
@@ -59,26 +59,25 @@
 #include <QtDBus/QDBusConnection>
 
 QX11Grab::QX11Grab ( Settings *settings )
-    : cfg ( settings )
+    : QMainWindow(), cfg ( settings )
 {
   setupUi ( this );
   setMinimumWidth ( 500 );
   setMinimumHeight ( 450 );
 
   QIcon boxIcon;
-  boxIcon.addFile ( QString::fromUtf8 ( ":/images/qx11grab.png" ), QSize(), QIcon::Normal, QIcon::Off );
-
+  boxIcon.addFile ( QString::fromUtf8 ( "://images/qx11grab.png" ), QSize(), QIcon::Normal, QIcon::Off );
 
   QWidget* layerWidget = new QWidget ( this );
 
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
 
   m_splitter = new QSplitter ( Qt::Vertical, layerWidget );
-  m_splitter->setObjectName( QLatin1String( "splitter" ) );
+  m_splitter->setObjectName ( QLatin1String ( "splitter" ) );
   verticalLayout->addWidget ( m_splitter );
 
   QToolBox* toolBox = new QToolBox ( m_splitter, Qt::Widget );
-  toolBox->setObjectName( QLatin1String( "toolbox" ) );
+  toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
   m_splitter->insertWidget ( 0, toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
@@ -103,7 +102,7 @@ QX11Grab::QX11Grab ( Settings *settings )
   m_splitter->insertWidget ( 1, m_commandPreview );
 
   QWidget* layerActionsWidget = new QWidget ( layerWidget );
-  layerActionsWidget->setObjectName ( QLatin1String( "layeractionswidget" ) );
+  layerActionsWidget->setObjectName ( QLatin1String ( "layeractionswidget" ) );
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout ( layerActionsWidget );
   horizontalLayout->setContentsMargins ( 0, 2, 0, 2 );
@@ -112,6 +111,12 @@ QX11Grab::QX11Grab ( Settings *settings )
   rerfreshBtn->setText ( trUtf8 ( "Refresh" ) );
   rerfreshBtn->setIcon ( getThemeIcon ( "view-refresh" ) );
   horizontalLayout->addWidget ( rerfreshBtn );
+
+  logviewBtn = new QPushButton ( layerActionsWidget );
+  logviewBtn->setText ( trUtf8 ( "Logfile" ) );
+  logviewBtn->setIcon ( getThemeIcon ( "view-list-text" ) );
+  logviewBtn->setEnabled ( false );
+  horizontalLayout->addWidget ( logviewBtn );
 
   horizontalLayout->addStretch ( 1 );
 
@@ -196,11 +201,15 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( actionRefresh, SIGNAL ( triggered() ),
             this, SLOT ( perparePreview() ) );
 
+  connect ( rerfreshBtn, SIGNAL ( clicked() ),
+            this, SLOT ( perparePreview() ) );
+
+  connect ( logviewBtn, SIGNAL ( clicked() ),
+            this, SLOT ( openLogFileDialog() ) );
+
   connect ( saveBtn, SIGNAL ( clicked() ),
             this, SLOT ( saveSettings() ) );
 
-  connect ( rerfreshBtn, SIGNAL ( clicked() ),
-            this, SLOT ( perparePreview() ) );
 }
 
 void QX11Grab::record()
@@ -331,6 +340,9 @@ void QX11Grab::swapRubberBand ()
   }
 }
 
+/**
+* Ein/Ausblenden funktion für die Gummibandanzeige.
+*/
 void QX11Grab::showRubber ( bool b )
 {
   if ( b )
@@ -345,27 +357,36 @@ void QX11Grab::showRubber ( bool b )
   }
 }
 
+/**
+* Lese die Fenster Geometrien neu ein.
+*/
 void QX11Grab::loadStats()
 {
-  if ( cfg->contains ( "windowPos" ) )
-    move ( cfg->value ( "windowPos", pos() ).toPoint() );
+  if ( cfg->contains ( "window/position" ) )
+    move ( cfg->value ( "window/position", pos() ).toPoint() );
 
-  if ( cfg->contains ( "windowSize" ) )
-    resize ( cfg->value ( "windowSize", size() ).toSize() );
-
-  if ( ! cfg->contains ( "Version" ) )
-    cfg->setValue ( "Version", QX11GRAB_VERSION );
+  if ( cfg->contains ( "window/size" ) )
+    resize ( cfg->value ( "window/size", size() ).toSize() );
 
   loadSettings();
+
+  QFileInfo log ( qx11grabLogfile() );
+  logviewBtn->setEnabled ( log.exists() );
 }
 
+/**
+* Fenster Verhältnisse Speichern
+*/
 void QX11Grab::saveStats()
 {
-  cfg->setValue ( "windowState", saveState() );
-  cfg->setValue ( "windowPos", pos() );
-  cfg->setValue ( "windowSize", size() );
+  cfg->setValue ( "window/state", saveState() );
+  cfg->setValue ( "window/position", pos() );
+  cfg->setValue ( "window/size", size() );
 }
 
+/**
+* Sendet schiebe Informationen an die Klasse @class RubberBand
+*/
 void QX11Grab::toRubber ( int i )
 {
   if ( i < 1 )
@@ -380,6 +401,9 @@ void QX11Grab::toRubber ( int i )
   perparePreview();
 }
 
+/**
+* Fenster Dimensionen abgreifen
+*/
 void QX11Grab::grabFromWindow()
 {
   if ( ! m_RubberBand )
@@ -401,6 +425,9 @@ void QX11Grab::grabFromWindow()
   delete grabber;
 }
 
+/**
+* Statusleisten Aktionen verarbeiten
+*/
 void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 {
   switch ( type )
@@ -422,16 +449,25 @@ void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
   }
 }
 
+/**
+* Beim Maximieren die Fenster Geometrie laden
+*/
 void QX11Grab::showEvent ( QShowEvent * )
 {
   loadStats();
 }
 
+/**
+* Beim Minimieren die Fenster Geometrie speichern
+*/
 void QX11Grab::hideEvent ( QHideEvent * )
 {
   saveStats();
 }
 
+/**
+* Vor dem beenden einige prüfungen durchführen
+*/
 void QX11Grab::closeEvent ( QCloseEvent *ev )
 {
   if ( m_FFProcess->isRunning() )
@@ -449,6 +485,9 @@ void QX11Grab::closeEvent ( QCloseEvent *ev )
   }
 }
 
+/**
+* Informationen an die Statusleiste senden.
+*/
 void QX11Grab::pushInfoMessage ( const QString &txt )
 {
   if ( systemTrayIcon )
@@ -459,6 +498,9 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
     systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
 }
 
+/**
+* Fehler Meldungen an die Statusleiste senden.
+*/
 void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( systemTrayIcon )
@@ -468,12 +510,19 @@ void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
     systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
 }
 
+/**
+* Tips an die Statusleiste senden.
+*/
 void QX11Grab::pushToolTip ( const QString &txt )
 {
   if ( systemTrayIcon )
     systemTrayIcon->setToolTip ( txt );
 }
 
+/**
+* Starte die Aufnahme und Sperre gleichzeitig
+* einige Aktionen um doppel Klicks zu vermeiden.
+*/
 void QX11Grab::startRecord()
 {
   if ( ! m_RubberBand->isScalability() )
@@ -495,8 +544,13 @@ void QX11Grab::startRecord()
   }
   else
     QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
+
+  logviewBtn->setEnabled ( true );
 }
 
+/**
+* Beim beenden einer Aufnahme alles in die Neutrale Stellung bringen.
+*/
 void QX11Grab::setActionsBack()
 {
   stopRecordingWindow->setEnabled ( false );
@@ -532,6 +586,22 @@ void QX11Grab::saveSettings()
   m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
 }
 
+/**
+* Log Dialog öffnen
+*/
+void QX11Grab::openLogFileDialog()
+{
+  QFileInfo log ( qx11grabLogfile() );
+  if ( log.isReadable() )
+  {
+    LogViewer dialog ( log, centralWidget() );
+    dialog.exec();
+  }
+}
+
+/**
+* Kommando Zeile für Textausgabe Aufbereiten.
+*/
 void QX11Grab::perparePreview()
 {
   QStringList commandLine;
@@ -575,17 +645,22 @@ void QX11Grab::perparePreview()
   cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
 }
 
+/**
+* Liest die aktuelle Kommandozeile aus der Konfiguration
+*/
 const QString QX11Grab::currentCommandLine()
 {
   QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
   return cmd.join ( " " );
 }
 
+/**
+* Zeichenketten aus der Konfiguration lesen
+*/
 const QString QX11Grab::getSettingsValue ( const QString &key )
 {
   return cfg->value ( key, "" ).toString();
 }
 
 QX11Grab::~QX11Grab()
-{
-}
+{}

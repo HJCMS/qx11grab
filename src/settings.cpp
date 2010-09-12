@@ -28,7 +28,15 @@
 Settings::Settings ( QObject *parent )
     : QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
 {
-  setValue ( QLatin1String ( "Version" ), QX11GRAB_VERSION );
+  /** Veraltete Einstellungen bei einem neuen Versions Start in die Tonne drücken. */
+  if ( ! value ( QLatin1String ( "Version" ) ).toString().contains ( QX11GRAB_VERSION ) )
+  {
+    remove ( "windowPos" );
+    remove ( "windowSize" );
+    remove ( "windowState" );
+  }
+  else
+    setValue ( QLatin1String ( "Version" ), QX11GRAB_VERSION );
 }
 
 const QHash<QString,QVariant> Settings::readGroup ( const QString &group )

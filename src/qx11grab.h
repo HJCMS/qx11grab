@@ -28,14 +28,15 @@
 #include <QtCore/QRect>
 
 /* QtGui */
+#include <QtGui/QCloseEvent>
+#include <QtGui/QHideEvent>
 #include <QtGui/QMainWindow>
-#include <QtGui/QWidget>
-#include <QtGui/QStatusBar>
-#include <QtGui/QSystemTrayIcon>
+#include <QtGui/QPushButton>
 #include <QtGui/QShowEvent>
 #include <QtGui/QSplitter>
-#include <QtGui/QHideEvent>
-#include <QtGui/QCloseEvent>
+#include <QtGui/QStatusBar>
+#include <QtGui/QSystemTrayIcon>
+#include <QtGui/QWidget>
 
 #include "ui_qx11grabmain.h"
 
@@ -81,6 +82,7 @@ class QX11Grab : public QMainWindow
     *minimizeWindowAction,
     *displayWindowAction,
     *quitWindowAction;
+    QPushButton* logviewBtn;
     QSystemTrayIcon *systemTrayIcon;
     void createActions();
     void createEnviroment();
@@ -103,6 +105,7 @@ class QX11Grab : public QMainWindow
     void setActionsBack();
     void loadSettings();
     void saveSettings();
+    void openLogFileDialog();
     void perparePreview();
 
   Q_SIGNALS:

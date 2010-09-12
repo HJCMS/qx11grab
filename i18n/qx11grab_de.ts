@@ -319,6 +319,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
+    <message>
+        <source>Logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QX11GrabMain</name>
@@ -431,6 +435,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Remove</source>
         <translation>Entfernen</translation>
+    </message>
+</context>
+<context>
+    <name>TextView</name>
+    <message>
+        <source>wait for input ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

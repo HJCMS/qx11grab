@@ -1,14 +1,17 @@
 # CMakeLists.txt
 
+ADD_SUBDIRECTORY (tableeditor)
+ADD_SUBDIRECTORY (logviewer)
+
 SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${QX11GRAB_INCLUDES}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/tableeditor
   ${CMAKE_CURRENT_SOURCE_DIR}/tableeditor
+  ${CMAKE_CURRENT_BINARY_DIR}/logviewer
+  ${CMAKE_CURRENT_SOURCE_DIR}/logviewer
 )
-
-ADD_SUBDIRECTORY (tableeditor)
 
 SET (qx11grab_UI
   qx11grabmain.ui
@@ -72,6 +75,7 @@ ADD_EXECUTABLE (qx11grab
 
 TARGET_LINK_LIBRARIES (qx11grab
   TableEditor
+  LogViewer
   ${QX11GRAB_LIBRARIES}
 )
 

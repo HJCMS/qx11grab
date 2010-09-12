@@ -1,3 +1,7 @@
+2010/09/
+  Version: 0.2.2
+  Bugfix: Move Settings (windowPos/windowSize and windowState) in a separate Category to fix QMainWindow invalid loader behavior
+
 2010/04/05
   Version: 0.2.1
   Note: FFmpeg Version lower then Year 2010 now longer supported

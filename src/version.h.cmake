@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QMap>
 #include <QtCore/QString>
@@ -31,6 +32,7 @@
 /* QtGui */
 #include <QtGui/QIcon>
 #include <QtGui/QPixmap>
+#include <QtGui/QX11Info>
 
 /**
 * @short Version
@@ -43,9 +45,15 @@
 #define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
 
 /**
-* @short sound device is busy
+* @short recording logfile
 */
-#define OSS_IN_USE "audio device %s is busy"
+static inline const QString qx11grabLogfile()
+{
+  QString log;
+  log.sprintf ( "qx11grab-%s_%s.log", getenv ( "USER" ), getenv ( "DISPLAY" ) );
+  QDir dir ( QDir::tempPath() );
+  return dir.filePath ( log );
+}
 
 /**
 * @short fallback function

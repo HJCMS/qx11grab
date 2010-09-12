@@ -319,6 +319,10 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
+    <message>
+        <source>Logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QX11GrabMain</name>
@@ -431,6 +435,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Remove</source>
         <translation>Odstranit</translation>
+    </message>
+</context>
+<context>
+    <name>TextView</name>
+    <message>
+        <source>wait for input ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

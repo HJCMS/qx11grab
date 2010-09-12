@@ -35,11 +35,6 @@
 #include <QtCore/QIODevice>
 #include <QtGui/QMessageBox>
 
-inline static const QString grabLogfile()
-{
-  return QString::fromUtf8 ( "/tmp/qx11grab.log" );
-}
-
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
     , cfg ( settings )
@@ -98,7 +93,7 @@ bool FFProcess::start ( const QStringList &cmd )
   m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
   m_QProcess->setReadChannel ( QProcess::StandardOutput );
-  m_QProcess->setStandardErrorFile ( grabLogfile() );
+  m_QProcess->setStandardErrorFile ( qx11grabLogfile() );
 
   connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
             this, SLOT ( errors ( QProcess::ProcessError ) ) );
@@ -231,7 +226,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
       break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( grabLogfile() ) );
+      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( qx11grabLogfile() ) );
       break;
 
     default:
@@ -245,7 +240,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 void FFProcess::startCheck()
 {
   if ( isRunning() )
-    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( grabLogfile() ) );
+    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( qx11grabLogfile() ) );
 }
 
 FFProcess::~FFProcess()
