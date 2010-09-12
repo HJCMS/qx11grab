@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+GEOIP_DBBASE_DIR=/usr/share/GeoIP
+
+# -DCMAKE_BUILD_TYPE:STRING"MinSizeRel"
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+include /usr/share/cdbs/1/class/cmake.mk
+
+# Add here any variable or target overrides you need.

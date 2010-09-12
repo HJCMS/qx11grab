@@ -56,70 +56,18 @@ EXEC_PROGRAM (${QT_QMAKE_EXECUTABLE}
 INCLUDE (CheckCXXCompilerFlag)
 INCLUDE (MacroEnsureVersion)
 
+
+##############################################################
+## gcc g++ ld
+##############################################################
+
 IF (CMAKE_COMPILER_IS_GNUCXX)
 
-  # visibility support http://gcc.gnu.org/wiki/Visibility
-  CHECK_CXX_COMPILER_FLAG (-fvisibility=hidden __CHECK_GCC_VISIBILITY)
-  SET (__CHECK_GCC_VISIBILITY ${__CHECK_GCC_VISIBILITY} CACHE BOOL "GCC support for hidden visibility")
+  INCLUDE (CheckingGNUCXX)
 
-  # stack-protector support
-  CHECK_CXX_COMPILER_FLAG(-fstack-protector __CHECK_GCC_STACK_PROTECTOR)
-  SET (__CHECK_GCC_STACK_PROTECTOR ${__CHECK_GCC_STACK_PROTECTOR} CACHE BOOL "GCC support for stack-protector")
-
-  # buffer checks
-  CHECK_CXX_COMPILER_FLAG(-D_FORTIFY_SOURCE=2 __CHECK_GCC_FORTIFY_SOURCE)
-  SET (__CHECK_GCC_FORTIFY_SOURCE ${__CHECK_GCC_FORTIFY_SOURCE} CACHE BOOL "GCC support for -DFORTIFY_SOURCE")
-
-  # emit position-independent code
-  CHECK_CXX_COMPILER_FLAG(-fPIC __CHECK_GCC_FPIC)
-  SET (__CHECK_GCC_FPIC ${__CHECK_GCC_FPIC} CACHE BOOL "GCC support for -fPIC")
-
-  # get the gcc version
-  EXEC_PROGRAM (${CMAKE_C_COMPILER} ARGS --version OUTPUT_VARIABLE _gcc_version_info)
-
-  STRING (REGEX MATCH "[345]\\.[0-9]\\.[0-9]" _gcc_version "${_gcc_version_info}")
-  # gcc on mac just reports: "gcc (GCC) 3.3 20030304 ..." without the patch level, handle this here:
-  IF (NOT _gcc_version)
-    STRING (REGEX REPLACE ".*\\(GCC\\).* ([34]\\.[0-9]) .*" "\\1.0" _gcc_version "${_gcc_version_info}")
-  ENDIF (NOT _gcc_version)
-
-  MACRO_ENSURE_VERSION ("4.1.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_1)
-  MACRO_ENSURE_VERSION ("4.2.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_2)
-  MACRO_ENSURE_VERSION ("4.3.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_3)
-
-  IF (__CHECK_GCC_VISIBILITY AND GCC_IS_NEWER_THAN_4_1)
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
-
-    IF (GCC_IS_NEWER_THAN_4_2)
-        SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility-inlines-hidden")
-    ENDIF (GCC_IS_NEWER_THAN_4_2)
-
-  ENDIF (__CHECK_GCC_VISIBILITY AND GCC_IS_NEWER_THAN_4_1)
-
-  IF (GCC_IS_NEWER_THAN_4_2 AND __CHECK_GCC_VISIBILITY)
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_VISIBILITY")
-    ## Bugfix gcc-4.3 need explicit definition
-    ADD_DEFINITIONS (-DHAVE_VISIBILITY)
-  ENDIF (GCC_IS_NEWER_THAN_4_2 AND __CHECK_GCC_VISIBILITY)
-
-  IF (__CHECK_GCC_STACK_PROTECTOR)
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector -Wstack-protector")
-    IF(__CHECK_GCC_FORTIFY_SOURCE)
-      SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_FORTIFY_SOURCE=2")
-    ENDIF(__CHECK_GCC_FORTIFY_SOURCE)
-  ENDIF (__CHECK_GCC_STACK_PROTECTOR)
-
-  IF (__CHECK_GCC_FPIC)
-    SET (LIB_FPIC_CXXFLAGS "-fPIC")
-  ELSE (__CHECK_GCC_FPIC)
-    SET (LIB_FPIC_CXXFLAGS "")
-  ENDIF (__CHECK_GCC_FPIC)
-
-  IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -W -Wextra -Wno-long-long -DQX11GRAB_DEBUG")
-  ELSE (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-  ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  IF (CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
+    SET (TWEAKING_LDFLAGS "-Wl,--as-needed")
+  ENDIF(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
 
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 

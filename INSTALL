@@ -18,6 +18,12 @@ and GCC 4.0.1 to develop applications.
     cmake -Wno-dev -DCMAKE_BUILD_TYPE:STRING=Release \
       -DCMAKE_INSTALL_PREFIX:PATH=/usr \
       -DSYSCONF_INSTALL_DIR:PATH=/etc ../
+      -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
+      -DXHTMLDBG_BUILD_VERBOSE:BOOL=ON
+
+  Valid option for -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
 
 4) make
 5) make DESTDIR=/tmp/test install
+
+INSTALL_TREE:

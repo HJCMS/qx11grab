@@ -1,0 +1,31 @@
+This is QX11Grab
+
+-- INSTALLING SEE INSTALL
+
+If you have a source package (a .tar.gz,.tar.bz2 or .tar.lzma file), follow the
+instructions in the INSTALL file.
+
+-- SUPPORTED PLATFORMS
+
+  Only Linux is supported
+
+-- HOW TO REPORT A BUG
+
+If you think you have found a bug in qx11Grab, we would like to hear about it so that we can fix it. 
+The hjcms bug tracking system is open to the public at http://bugs.hjcms.de/.
+
+Before reporting a bug, please use the bug-tracker's search functions
+and consult https://landfill.bugzilla.org/bugzilla-3.6-branch/page.cgi?id=bug-writing.html
+to see if the issue is already known.
+
+Always include the following information in your bug report: the name
+and version number of your compiler; the name and version number of
+your operating system; the version of qx11Grab you are using, and what
+configure options it was compiled with.
+
+If the problem you are reporting is only visible at run-time, try to
+create a small test program that shows the problem when run. Often,
+such a program can be created with some minor changes to one of the many
+example programs in qx11Grab's examples directory, or to the autotests that
+are available in the public source repository on http://gitweb.hjcms.de/.
+

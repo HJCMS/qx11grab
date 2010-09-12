@@ -1,5 +1,6 @@
 build
 extras
+utils
 Makefile*
 *.kdev*
 Doxyfile

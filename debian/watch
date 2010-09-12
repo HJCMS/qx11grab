@@ -1,2 +1,10 @@
-version=2
-http://qx11grab.hjcms.de/cgi-bin/snapshot.git
+# Example watch control file for uscan
+# Rename this file to "watch" and then you can run the "uscan" command
+# to check for upstream updates and more.
+# See uscan(1) for format
+
+# Compulsory line, this is a version 3 file
+version=3
+
+# Uncommment to examine a FTP server
+#ftp://ftp.hjcms.de/qx11grab/(.*)/qx11grab-(.*)\.tar\.bz2 debian uupdate
