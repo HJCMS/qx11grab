@@ -321,7 +321,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Logfile</source>
-        <translation type="unfinished"></translation>
+        <translation>Protokolldatei</translation>
     </message>
 </context>
 <context>
@@ -441,7 +441,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <name>TextView</name>
     <message>
         <source>wait for input ...</source>
-        <translation type="unfinished"></translation>
+        <translation>warte auf Eingabe ...</translation>
     </message>
 </context>
 </TS>
