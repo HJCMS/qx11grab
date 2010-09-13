@@ -33,15 +33,15 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation type="unfinished"></translation>
+        <translation>Advanced Linux Sound Architecture (ALSA)</translation>
     </message>
     <message>
         <source>Open Sound System (OSS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Open Sound System (OSS)</translation>
     </message>
     <message>
         <source>Select ALSA Audio Capture Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat zařízení pro zachytávání zvuku ALSA</translation>
     </message>
 </context>
 <context>
@@ -204,18 +204,18 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Dimension:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozměr:</translation>
     </message>
     <message>
         <source>Insert Metadata</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit údaje (metadata)</translation>
     </message>
 </context>
 <context>
     <name>LogViewer</name>
     <message>
         <source>qx11grab logfile</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor se zápisem qx11grab</translation>
     </message>
 </context>
 <context>
@@ -253,11 +253,11 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>PicRecordInterface</name>
     <message>
         <source>ALSA PCM Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Výběr ALSA PCM</translation>
     </message>
     <message>
         <source>Available Cards:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupné karty:</translation>
     </message>
 </context>
 <context>
@@ -328,7 +328,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Logfile</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor se zápisem</translation>
     </message>
 </context>
 <context>
@@ -448,7 +448,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>TextView</name>
     <message>
         <source>wait for input ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Čeká se na vstup...</translation>
     </message>
 </context>
 </TS>

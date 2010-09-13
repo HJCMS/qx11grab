@@ -10,8 +10,7 @@ Vcs-Browser: http://gitweb.hjcms.de/cgi-bin/index.cgi/qx11grab/log/
 Package: qx11grab
 Section: x11
 Architecture: any
-Suggests: ffmpeg-bin
-Depends: ${shlibs:Depends}, ${misc:Depends}, oxygen-icon-theme (>= 4.4)
+Depends: ${shlibs:Depends}, ${misc:Depends}, oxygen-icon-theme (>= 4.4), ffmpeg
 Description: a systray program that uses FFmpeg for recording X11 desktop windows
   this program grab window dimensions with xevent and prepare the
   command line for ffmpeg with configuration options.
