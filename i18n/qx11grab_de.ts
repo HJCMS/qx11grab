@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.0" language="de_DE">
 <context>
     <name>AudioDevice</name>
     <message>
         <source>Audio Settings</source>
-        <translation>Audio Einstellungen</translation>
+        <translation variants="yes">
+            <lengthvariant>Audio Einstellungen</lengthvariant>
+            <lengthvariant>Audio</lengthvariant>
+        </translation>
     </message>
     <message>
         <source>Audio Intensifier:</source>
@@ -13,7 +16,10 @@
     </message>
     <message>
         <source>Change Audio Volume (256=normal)</source>
-        <translation>Setze die Audio Lautstärke (256=Normal)</translation>
+        <translation variants="yes">
+            <lengthvariant>Setze die Audio Lautstärke (256=Normal)</lengthvariant>
+            <lengthvariant>Lautstärke</lengthvariant>
+        </translation>
     </message>
     <message>
         <source>Change Audio Amplifier.
@@ -41,7 +47,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Select ALSA Audio Capture Device</source>
-        <translation>Wähle die ALSA Audio Aufnahme Schnittstelle</translation>
+        <translation variants="yes">
+            <lengthvariant>Wähle die ALSA Audio Aufnahme Schnittstelle</lengthvariant>
+            <lengthvariant>Schnittstelle für Audioaufnahme</lengthvariant>
+        </translation>
     </message>
 </context>
 <context>
@@ -59,11 +68,17 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Output Filename:</source>
-        <translation>Ausgabe Dateiname:</translation>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Dateiname:</lengthvariant>
+            <lengthvariant>Ausgabedatei:</lengthvariant>
+        </translation>
     </message>
     <message>
         <source>Output Directory:</source>
-        <translation>Ausgabe Verzeichnis:</translation>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Verzeichnis:</lengthvariant>
+            <lengthvariant>Zielverzeichnis:</lengthvariant>
+        </translation>
     </message>
     <message>
         <source>FFmpeg %1</source>
@@ -79,7 +94,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation>Ausgabe Verzeichnis</translation>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Verzeichnis</lengthvariant>
+            <lengthvariant>Zielverzeichnis</lengthvariant>
+        </translation>
     </message>
 </context>
 <context>
