@@ -4,8 +4,8 @@
 General "qx11grab" Requirements:
   -  Qt 4 >= 4.6.0 (required)  http://qt.nokia.com/products/
   -  Oxygen Icon Theme >= 4.4.0 (required) ftp://ftp.kde.org/pub/kde/stable/
-  -  libavformat >= 52.31.0 (required) >= 52.38.0 () http://www.ffmpeg.org
-  -  libavcodec >= 52.20.0 (required) >= 52.35.0 ()  http://www.ffmpeg.org
+  -  libavformat >= 52.31.0 (required) >= 52.38.0 (recommended) http://www.ffmpeg.org
+  -  libavcodec >= 52.20.0 (required) >= 52.35.0 (recommended)  http://www.ffmpeg.org
   -  alsa-lib >= 1.0.0 (required) http://www.alsa-project.org
   -  cmake >= 2.8.0 (required) http://www.cmake.org
 
