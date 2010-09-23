@@ -45,6 +45,15 @@
 #define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
 
 /**
+*
+*/
+struct AlsaAudioDevice {
+  QString hw;
+  QString name;
+  QString description;
+};
+
+/**
 * @short recording logfile
 */
 static inline const QString qx11grabLogfile()

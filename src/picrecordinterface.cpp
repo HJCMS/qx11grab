@@ -71,6 +71,7 @@ void PicRecordInterface::initRecorderDevices()
 {
   void **hints, **n;
   char *name;
+  QString hwIndex;
   QRegExp pattern ( "^.+=" );
   QRegExp cleaner ( "[\\n\\r]+.+$" );
   QStringList buffer;
@@ -92,11 +93,18 @@ void PicRecordInterface::initRecorderDevices()
       QString infoHint = QString ( snd_device_name_get_hint ( *n, "DESC" ) );
       if ( ! buffer.contains ( cardHint.remove ( pattern ) ) )
       {
+        int index = snd_card_get_index ( cardHint.toAscii().data() );
+        if ( index >= 0 )
+          hwIndex = QString ( "hw=%1" ).arg ( QString::number ( index ) );
+
         QListWidgetItem* item = new QListWidgetItem ( deviceList );
-        item->setText ( QString ( "%1 \"%2\"" ).arg ( cardHint, infoHint.remove ( cleaner ) ) );
+        item->setText ( QString ( "%1 \"%2\" %3" ).arg ( cardHint, infoHint.remove ( cleaner ), hwIndex ) );
         item->setData ( Qt::UserRole, cardHint );
+        item->setData ( Qt::ToolTipRole, hwIndex );
+        item->setData ( Qt::StatusTipRole, infoHint.remove ( cleaner ) );
         deviceList->addItem ( item );
         buffer << cardHint;
+        hwIndex.clear();
       }
     }
     ++n;
@@ -121,6 +129,16 @@ void PicRecordInterface::setCard ( const QString &c )
       break;
     }
   }
+}
+
+const AlsaAudioDevice PicRecordInterface::cardInfo ()
+{
+  AlsaAudioDevice d;
+  QListWidgetItem* item = deviceList->currentItem();
+  d.name = item->data ( Qt::UserRole ).toString();
+  d.hw = item->data ( Qt::ToolTipRole ).toString();
+  d.description = item->data ( Qt::StatusTipRole ).toString();
+  return d;
 }
 
 PicRecordInterface::~PicRecordInterface()

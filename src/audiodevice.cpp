@@ -109,9 +109,13 @@ void AudioDevice::setAlsaRecordingPCM()
 {
   PicRecordInterface* dialog = new PicRecordInterface ( this );
   dialog->setCard ( device->text() );
-  if ( dialog->exec() )
-    device->setText ( dialog->getCard() );
-
+  if ( dialog->exec() == QDialog::Accepted )
+  {
+    AlsaAudioDevice d = dialog->cardInfo();
+    device->setText ( d.name );
+    device->setToolTip ( d.hw );
+    device->setStatusTip ( d.description );
+  }
   delete dialog;
 }
 

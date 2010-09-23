@@ -7,7 +7,7 @@ General "qx11grab" Requirements:
   -  libavformat >= 52.31.0 (required) >= 52.38.0 (recommended) http://www.ffmpeg.org
   -  libavcodec >= 52.20.0 (required) >= 52.35.0 (recommended)  http://www.ffmpeg.org
   -  alsa-lib >= 1.0.0 (required) http://www.alsa-project.org
-  -  cmake >= 2.8.0 (required) http://www.cmake.org
+  -  cmake >= 2.8.0 (required for build) http://www.cmake.org
 
 For Mac OS X Cocoa, the binary package requires Mac OS X 10.5 (Leopard) or later
 and GCC 4.0.1 to develop applications.

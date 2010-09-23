@@ -31,6 +31,10 @@
 #include <QtGui/QListWidget>
 #include <QtGui/QWidget>
 
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
+
 class PicRecordInterface : public QDialog
 {
     Q_OBJECT
@@ -45,6 +49,7 @@ class PicRecordInterface : public QDialog
   public:
     PicRecordInterface ( QWidget * parent = 0 );
     const QString getCard ();
+    const AlsaAudioDevice cardInfo ();
     void setCard ( const QString & );
     ~PicRecordInterface();
 };
