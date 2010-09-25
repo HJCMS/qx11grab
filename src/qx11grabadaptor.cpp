@@ -28,7 +28,7 @@ QX11GrabAdaptor::QX11GrabAdaptor ( QObject *parent )
     : QDBusAbstractAdaptor ( parent )
 {
   rcDBus = new QDBusConnection ( QDBusConnection::sessionBus() );
-  rcDBus->registerService ( "de.hjcms.qx11grab" );
+  rcDBus->registerService ( QX11GRAB_DBUS_DOMAIN_NAME );
   rcDBus->sessionBus().registerObject ( "/qx11grab", parent, QDBusConnection::ExportAdaptors );
   setAutoRelaySignals ( false );
 }
@@ -64,16 +64,6 @@ const QString QX11GrabAdaptor::command()
   QMetaObject::invokeMethod ( parent(), "currentCommandLine", Q_RETURN_ARG ( QString, cmd ) );
   return cmd;
 }
-/*
-const QString QX11GrabAdaptor::Option ( const QString &key )
-{
-  QString val;
-  QMetaObject::invokeMethod ( parent(), "getSettingsValue",
-                              Q_RETURN_ARG ( QString, val ),
-                              Q_ARG ( QString, key ) );
-  return val;
-}
-*/
 
 QX11GrabAdaptor::~QX11GrabAdaptor()
 {

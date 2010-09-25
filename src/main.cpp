@@ -35,7 +35,6 @@
 #include <QtCore/QTextCodec>
 
 /* QtGui */
-#include <QtGui/QApplication>
 #include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QX11Info>
@@ -44,18 +43,37 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
 
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
+
 #include "settings.h"
 #include "qx11grab.h"
 
-/**
-* @short unique application check
-* Überprüft mit DBUS ob das Programm qx11grab bereits eine Session
-* gestartet hat. Wenn ja wird der Q_SLOT "show()" aufgerufen und
-* dieser Programm aufruf beendet sich wieder!
-*/
-bool isAlreadyRunning()
+/* KDE */
+#ifdef HAVE_KDE4_SUPPORT
+# include <KDE/KAboutData>
+# include <KDE/KUniqueApplication>
+# include <KDE/KCmdLineArgs>
+#else
+# include <QtGui/QApplication>
+#endif
+
+int main ( int argc, char* argv[] )
 {
-  QString reg = QX11GRAB_DBUS_DOMAIN_NAME;
+#ifdef HAVE_KDE4_SUPPORT
+
+  KAboutData about ( "qx11grab", "qx11grab", ki18n ( "qx11grab" ), QX11GRAB_VERSION,
+                     ki18n ( "A Desktop Recording Tool" ),
+                     KAboutData::License_LGPL,
+                     ki18n ( "Copyright (C) 2010 Developer" ) );
+
+  KCmdLineArgs::init ( argc, argv, &about );
+  KUniqueApplication app ( true );
+
+#else
+
+  QString reg ( QX11GRAB_DBUS_DOMAIN_NAME );
   QDBusConnection* bus = new QDBusConnection ( QDBusConnection::sessionBus() );
   if ( ! bus->registerService ( reg ) )
   {
@@ -65,19 +83,12 @@ bool isAlreadyRunning()
     if ( dbus.send ( meth ) )
       dbus.disconnectFromBus ( reg );
 
-    return true;
-  }
-  return false;
-}
-
-int main ( int argc, char* argv[] )
-{
-  if ( isAlreadyRunning() )
     return EXIT_SUCCESS;
-
-  Q_INIT_RESOURCE ( qx11grab );
-
+  }
   QApplication app ( argc, argv, true );
+
+#endif
+
   app.setApplicationName ( "qx11grab" );
   app.setApplicationVersion ( QX11GRAB_VERSION );
   app.setOrganizationDomain ( "hjcms.de" );

@@ -19,9 +19,6 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_VERSION
-#include "version.h"
-#endif
 #include "qx11grab.h"
 #include "settings.h"
 #include "desktopinfo.h"
@@ -47,7 +44,6 @@
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 #include <QtGui/QKeySequence>
-#include <QtGui/QMenu>
 #include <QtGui/QMessageBox>
 #include <QtGui/QPixmap>
 #include <QtGui/QRubberBand>
@@ -217,14 +213,22 @@ void QX11Grab::record()
   if ( ! m_FFProcess )
     return;
 
+#ifdef QT_NO_EXCEPTIONS
+
+  startRecord ();
+
+#else
+
   try
   {
     startRecord ();
   }
   catch ( const char* mess )
   {
-    qFatal ( "No XServer where found: (%s)", mess );
+    qWarning ( "No XServer where found: (%s)", mess );
   }
+
+#endif
 }
 
 void QX11Grab::stop()
@@ -305,7 +309,11 @@ void QX11Grab::createEnviroment()
 
 void QX11Grab::createSystemTrayIcon()
 {
+#ifdef HAVE_KDE4_SUPPORT
+  systemTrayMenu = new KMenu ( this );
+#else
   systemTrayMenu = new QMenu ( this );
+#endif
   systemTrayMenu->addAction ( grabActionFromWindow );
   systemTrayMenu->addAction ( showRubberbandWindow );
   systemTrayMenu->addSeparator();
@@ -317,12 +325,16 @@ void QX11Grab::createSystemTrayIcon()
   systemTrayMenu->addSeparator();
   systemTrayMenu->addAction ( quitWindowAction );
 
+#ifdef HAVE_KDE4_SUPPORT
+  systemTrayIcon = new KSystemTrayIcon ( this );
+#else
   systemTrayIcon = new QSystemTrayIcon ( this );
+  connect ( systemTrayIcon, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
+            this, SLOT ( systemTrayWatcher ( QSystemTrayIcon::ActivationReason ) ) );
+#endif
   systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
   systemTrayIcon->setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
   systemTrayIcon->setContextMenu ( systemTrayMenu );
-  connect ( systemTrayIcon, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
-            this, SLOT ( systemTrayWatcher ( QSystemTrayIcon::ActivationReason ) ) );
   systemTrayIcon->show();
 }
 

@@ -13,14 +13,17 @@ debug_build_target=$HOME/hjcms/qx11grab/build
 MY_CFLAGS="-O3 -mtune=athlon-xp -march=i686 -pedantic"
 
 runcmake() {
-	cmake \
-		-DCMAKE_CXX_FLAGS:STRING="$MY_CFLAGS" \
-		-DCMAKE_C_FLAGS:STRING="$MY_CFLAGS" \
-		-DCMAKE_INSTALL_PREFIX:PATH=/usr \
-		-DCMAKE_BUILD_TYPE:STRING=Debug \
-		-DQTIDY_ENABLE_FPIE:BOOL=ON \
-		-DCMAKE_SKIP_RPATH:BOOL=ON \
-		-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ../
+  cmake \
+    -DCMAKE_CXX_FLAGS:STRING="$MY_CFLAGS" \
+    -DCMAKE_C_FLAGS:STRING="$MY_CFLAGS" \
+    -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+    -DCMAKE_BUILD_TYPE:STRING=Debug \
+    -DQTIDY_ENABLE_FPIE:BOOL=ON \
+    -DCMAKE_SKIP_RPATH:BOOL=ON \
+    -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+    -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4) \
+    -DAutomoc4_DIR:PATH=$(dirname /usr/*/cmake/automoc4/Automoc4Config.cmake) \
+    ../
 }
 
 echo "cmake"

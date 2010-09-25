@@ -12,7 +12,7 @@ CMAKE_POLICY (VERSION 2.8)
 ##############################################################
 # where to look first for cmake modules, before ${CMAKE_ROOT}/cmake/Modules/ is checked
 ##############################################################
-SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
+SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 
 ##############################################################
 ## Requiered "QtCore QtGui QtXml QtNetwork"
@@ -22,6 +22,7 @@ FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
+FIND_PACKAGE (KDE4 4.5.0)
 
 IF (NOT UNIX)
   MESSAGE (FATAL_ERROR "Only Unix is Supported!")
@@ -137,6 +138,28 @@ SET (QX11GRAB_LIBRARIES
   ${FFMPEG_LDFLAGS}
   ${ALSA_LIBRARY}
 )
+
+##############################################################
+## KDE4 Support
+##############################################################
+
+IF (KDE4_FOUND)
+  SET (KDE4_SUPPORT 1)
+  SET (QX11GRAB_INCLUDES
+    ${QX11GRAB_INCLUDES}
+    ${KDE4_INCLUDE_DIR}
+  )
+  SET (QX11GRAB_LIBRARIES
+    ${QX11GRAB_LIBRARIES}
+    ${KDE4_KDECORE_LIBRARY}
+    ${KDE4_KDEUI_LIBRARY}
+  )
+  ## NOTE Exeptions needed by QX11Grab::record()
+  REMOVE_DEFINITIONS ("-DQT_NO_EXCEPTIONS")
+  STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+ELSE (KDE4_FOUND)
+  SET (KDE4_SUPPORT 0)
+ENDIF (KDE4_FOUND)
 
 ##############################################################
 ## SUBDIRECTORIES

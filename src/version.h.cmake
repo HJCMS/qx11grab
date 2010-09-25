@@ -40,9 +40,18 @@
 #define QX11GRAB_VERSION "@QX11GRAB_VERSION@"
 
 /**
+* @short KDE4 Support
+*/
+#define HAVE_KDE4_SUPPORT @KDE4_SUPPORT@
+
+/**
 * @short dbus Domain
 */
-#define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
+#ifdef HAVE_KDE4_SUPPORT
+# define QX11GRAB_DBUS_DOMAIN_NAME "org.kde.qx11grab"
+#else
+# define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
+#endif
 
 /**
 *

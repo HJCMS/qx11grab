@@ -22,6 +22,10 @@
 #ifndef QX11GRAB_H
 #define QX11GRAB_H
 
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
+
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -35,13 +39,21 @@
 #include <QtGui/QShowEvent>
 #include <QtGui/QSplitter>
 #include <QtGui/QStatusBar>
-#include <QtGui/QSystemTrayIcon>
 #include <QtGui/QWidget>
+
+/* KDE */
+#ifdef HAVE_KDE4_SUPPORT
+# include <KDE/KMainWindow>
+# include <KDE/KMenu>
+# include <KDE/KSystemTrayIcon>
+#else
+# include <QtGui/QMenu>
+# include <QtGui/QSystemTrayIcon>
+#endif
 
 #include "ui_qx11grabmain.h"
 
 class QAction;
-class QMenu;
 class Settings;
 class GrabberInfo;
 class Defaults;
@@ -53,7 +65,8 @@ class FFProcess;
 class CommandPreview;
 class QX11GrabAdaptor;
 
-class QX11Grab : public QMainWindow
+class QX11Grab
+      : public QMainWindow
       , protected Ui::QX11GrabMain
 {
     Q_OBJECT
@@ -74,7 +87,11 @@ class QX11Grab : public QMainWindow
     RubberBand *m_RubberBand;
     FFProcess *m_FFProcess;
     QX11GrabAdaptor *m_busAdaptor;
+#ifdef HAVE_KDE4_SUPPORT
+    KMenu *systemTrayMenu;
+#else
     QMenu *systemTrayMenu;
+#endif
     QAction *grabActionFromWindow,
     *showRubberbandWindow,
     *stopRecordingWindow,
@@ -83,7 +100,11 @@ class QX11Grab : public QMainWindow
     *displayWindowAction,
     *quitWindowAction;
     QPushButton* logviewBtn;
+#ifdef HAVE_KDE4_SUPPORT
+    KSystemTrayIcon *systemTrayIcon;
+#else
     QSystemTrayIcon *systemTrayIcon;
+#endif
     void createActions();
     void createEnviroment();
     void createSystemTrayIcon();
