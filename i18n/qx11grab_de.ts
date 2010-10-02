@@ -54,6 +54,25 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>CommandLineEdit</name>
+    <message>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Save current command list</source>
+        <translation>Aktuelle Kommandozeilen speichern</translation>
+    </message>
+    <message>
+        <source>Copy to clipboard</source>
+        <translation>Kopiere in das Clipboard</translation>
+    </message>
+    <message>
+        <source>Copy command list to Clipboard</source>
+        <translation>Kopiere die aktuelle Kommandozeile in das Clipboard</translation>
+    </message>
+</context>
+<context>
     <name>CommandPreview</name>
     <message>
         <source>Display the current FFmpeg command.</source>
@@ -440,6 +459,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>TableEditor</name>
+    <message>
+        <source>Customized</source>
+        <translation>Angepasst</translation>
+    </message>
+</context>
+<context>
     <name>TableEditorUi</name>
     <message>
         <source>Codec:</source>
@@ -467,6 +493,14 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>wait for input ...</source>
         <translation>warte auf Eingabe ...</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Auffrischen</translation>
+    </message>
+    <message>
+        <source>Refresh Logfile</source>
+        <translation>Logansicht auffrischen</translation>
     </message>
 </context>
 </TS>

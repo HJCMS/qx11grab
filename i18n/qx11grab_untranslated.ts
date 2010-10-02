@@ -52,9 +52,34 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     </message>
 </context>
 <context>
+    <name>CommandLineEdit</name>
+    <message>
+        <location filename="../src/commandlineedit.cpp" line="73"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/commandlineedit.cpp" line="74"/>
+        <location filename="../src/commandlineedit.cpp" line="75"/>
+        <source>Save current command list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/commandlineedit.cpp" line="78"/>
+        <source>Copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/commandlineedit.cpp" line="79"/>
+        <location filename="../src/commandlineedit.cpp" line="80"/>
+        <source>Copy command list to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CommandPreview</name>
     <message>
-        <location filename="../src/commandpreview.cpp" line="41"/>
+        <location filename="../src/commandpreview.cpp" line="42"/>
         <source>Display the current FFmpeg command.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -264,7 +289,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>LogViewer</name>
     <message>
-        <location filename="../src/logviewer/logviewer.cpp" line="38"/>
+        <location filename="../src/logviewer/logviewer.cpp" line="42"/>
         <source>qx11grab logfile</source>
         <translation type="unfinished"></translation>
     </message>
@@ -323,87 +348,87 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="251"/>
+        <location filename="../src/qx11grab.cpp" line="258"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="254"/>
+        <location filename="../src/qx11grab.cpp" line="261"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="257"/>
+        <location filename="../src/qx11grab.cpp" line="264"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="322"/>
+        <location filename="../src/qx11grab.cpp" line="339"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="421"/>
+        <location filename="../src/qx11grab.cpp" line="436"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="247"/>
+        <location filename="../src/qx11grab.cpp" line="254"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="111"/>
+        <location filename="../src/qx11grab.cpp" line="107"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="116"/>
+        <location filename="../src/qx11grab.cpp" line="112"/>
         <source>Logfile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="124"/>
+        <location filename="../src/qx11grab.cpp" line="120"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="475"/>
+        <location filename="../src/qx11grab.cpp" line="490"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="475"/>
+        <location filename="../src/qx11grab.cpp" line="490"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="494"/>
+        <location filename="../src/qx11grab.cpp" line="509"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="546"/>
+        <location filename="../src/qx11grab.cpp" line="571"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="546"/>
+        <location filename="../src/qx11grab.cpp" line="571"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="238"/>
+        <location filename="../src/qx11grab.cpp" line="245"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="241"/>
+        <location filename="../src/qx11grab.cpp" line="248"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="244"/>
+        <location filename="../src/qx11grab.cpp" line="251"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -520,29 +545,38 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     </message>
 </context>
 <context>
+    <name>TableEditor</name>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="90"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="122"/>
+        <source>Customized</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TableEditorUi</name>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="161"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="162"/>
         <source>Codec:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="163"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="164"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="165"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="166"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="166"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
+        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="168"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -550,8 +584,19 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="37"/>
+        <location filename="../src/logviewer/textview.cpp" line="44"/>
         <source>wait for input ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="68"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="69"/>
+        <location filename="../src/logviewer/textview.cpp" line="70"/>
+        <source>Refresh Logfile</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

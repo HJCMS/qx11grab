@@ -45,6 +45,25 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>CommandLineEdit</name>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Uložit</translation>
+    </message>
+    <message>
+        <source>Save current command list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy command list to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CommandPreview</name>
     <message>
         <source>Display the current FFmpeg command.</source>
@@ -422,6 +441,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>TableEditor</name>
+    <message>
+        <source>Customized</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TableEditorUi</name>
     <message>
         <source>Codec:</source>
@@ -449,6 +475,14 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>wait for input ...</source>
         <translation>Čeká se na vstup...</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Obnovit</translation>
+    </message>
+    <message>
+        <source>Refresh Logfile</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
