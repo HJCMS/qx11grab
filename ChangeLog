@@ -1,6 +1,6 @@
 2010/10/*
   Version: 0.2.3.rc1
-  Add: KDE4 Support
+  Add: KDE4 Support - This can be explicit Disabled with cmake -DDISABLE_KDE_SUPPORT:BOOL=ON
   Add: Customized Codec Selection
   Add: refresh logfile
   Add: Drag and Drop Support for Command line Preview
