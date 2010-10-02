@@ -1,3 +1,10 @@
+2010/10/*
+  Version: 0.2.3.rc1
+  Add: KDE4 Support
+  Add: Customized Codec Selection
+  Add: refresh logfile
+  Add: Drag and Drop Support for Command line Preview
+
 2010/09/17
   Version: 0.2.2
   Bugfix: Move Settings (windowPos/windowSize and windowState) in a separate Category to fix QMainWindow invalid loader behavior
