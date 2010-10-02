@@ -19,6 +19,10 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
+
 #include "textview.h"
 #include "highlighter.h"
 
@@ -27,9 +31,12 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
+#include <QtGui/QAction>
 #include <QtGui/QTextBlock>
 #include <QtGui/QTextCursor>
 #include <QtGui/QTextOption>
+#include <QtGui/QMenu>
+#include <QtGui/QPalette>
 
 TextView::TextView ( QWidget * parent )
     : QTextEdit ( parent )
@@ -49,6 +56,21 @@ TextView::TextView ( QWidget * parent )
   setPlainText ( source );
 
   m_highlighter = new Highlighter ( document() );
+}
+
+/**
+* Kontext Menü für das Editieren
+*/
+void TextView::contextMenuEvent ( QContextMenuEvent * e )
+{
+  QMenu* m = new QMenu ( this );
+
+  QAction* ac_reload = m->addAction ( getThemeIcon ( "view-refresh" ), trUtf8 ( "Refresh" ) );
+  ac_reload->setToolTip ( trUtf8 ( "Refresh Logfile" ) );
+  ac_reload->setStatusTip ( trUtf8 ( "Refresh Logfile" ) );
+  connect ( ac_reload, SIGNAL ( triggered() ), this, SIGNAL ( refresh() ) );
+
+  m->exec ( e->globalPos() );
 }
 
 void TextView::gotoLine ( int r )
@@ -86,6 +108,7 @@ void TextView::insertText ( const QString &data )
       buffer.append ( l );
   }
 
+  clear();
   setPlainText ( buffer.join ( "\n" ) );
   gotoLine ( ( document()->lineCount() - 1 ) );
 }

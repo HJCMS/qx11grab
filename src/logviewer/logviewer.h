@@ -42,6 +42,8 @@ class LogViewer : public QDialog
   private:
     const QFileInfo logFile;
     TextView* m_textView;
+
+  private Q_SLOTS:
     void readLog();
 
   public:

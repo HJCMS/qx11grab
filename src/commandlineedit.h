@@ -19,56 +19,43 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef TABLEEDITOR_H
-#define TABLEEDITOR_H
+#ifndef COMMANDLINEEDIT_H
+#define COMMANDLINEEDIT_H
+
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
 
 /* QtCore */
-#include <QtCore/QHash>
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QListWidget>
 #include <QtGui/QWidget>
-#include <QtGui/QTableWidgetItem>
 
-#include "ui_tableeditorui.h"
-
-class TableEditor : public QWidget, protected Ui::TableEditorUi
+class CommandLineEdit : public QListWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-
-  private:
-    QString currentType;
-    QStringList sharedVideoCodec;
-    QStringList sharedAudioCodec;
-    void findVideoCodecs();
-    void findAudioCodecs();
-    const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
-    const QHash<QString,QString> tableItems();
-    QTableWidgetItem* createItem ( const QString & );
-    void loadTableOptions ( const QString &, QSettings * );
-    void saveTableOptions ( const QString &, QSettings * );
+    Q_PROPERTY ( QStringList data READ data WRITE setData )
 
   private Q_SLOTS:
-    void addTableRow();
-    void delTableRow();
+    void clipper();
+    void save();
+
+  protected:
+    void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
-    void postUpdate();
-
-  public Q_SLOTS:
-    void load ( const QString &, QSettings * );
-    void save ( const QString &, QSettings * );
+    void dataSaved ( const QStringList & );
 
   public:
-    TableEditor ( QWidget * parent = 0 );
-    const QStringList getCmd();
-    ~TableEditor ();
+    CommandLineEdit ( QWidget * parent = 0 );
+    const QStringList data ();
+    void setData ( const QStringList & );
+    virtual ~CommandLineEdit();
 };
 
 #endif

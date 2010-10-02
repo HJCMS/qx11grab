@@ -27,6 +27,7 @@
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QContextMenuEvent>
 #include <QtGui/QTextEdit>
 #include <QtGui/QWidget>
 
@@ -44,6 +45,12 @@ class TextView : public QTextEdit
 
   private Q_SLOTS:
     void gotoLine ( int );
+
+  protected:
+    void contextMenuEvent ( QContextMenuEvent * );
+
+  Q_SIGNALS:
+    void refresh();
 
   public:
     TextView ( QWidget * parent = 0 );

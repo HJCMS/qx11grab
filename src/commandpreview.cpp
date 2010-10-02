@@ -20,6 +20,7 @@
 **/
 
 #include "commandpreview.h"
+#include "commandlineedit.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -40,11 +41,13 @@ CommandPreview::CommandPreview ( QWidget * parent )
 
   layout->addWidget ( new QLabel ( trUtf8 ( "Display the current FFmpeg command." ), this ) );
 
-  commandLineEdit = new QTextBrowser ( this );
-  commandLineEdit->setObjectName ( "commandlinebrowser" );
-  layout->addWidget ( commandLineEdit );
+  m_commandLineEdit = new CommandLineEdit ( this );
+  layout->addWidget ( m_commandLineEdit );
 
   setLayout ( layout );
+
+  connect ( m_commandLineEdit, SIGNAL ( dataSaved ( const QStringList & ) ),
+            this, SIGNAL ( dataSaved ( const QStringList & ) ) );
 }
 
 /**
@@ -53,13 +56,8 @@ CommandPreview::CommandPreview ( QWidget * parent )
 void CommandPreview::setCommandLine ( QStringList &list )
 {
   QString buf ( list.join ( " " ) );
-  QString data = buf.replace ( QRegExp ( "[\\s\\t]+\\-" ), QString::fromUtf8 ( " \\\n -" ) );
-  QString html ( "<pre>" );
-  html.append ( data );
-  html.append ( "</pre>" );
-
-  commandLineEdit->clear();
-  commandLineEdit->setHtml ( html );
+  QString cmd = buf.replace ( QRegExp ( "[\\s\\t]+\\-" ), QString::fromUtf8 ( "#-" ) );
+  m_commandLineEdit->setData ( cmd.split ( "#" ) );
 }
 
 CommandPreview::~CommandPreview()

@@ -28,8 +28,10 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QTextBrowser>
+#include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
+
+class CommandLineEdit;
 
 class CommandPreview : public QWidget
 {
@@ -38,10 +40,13 @@ class CommandPreview : public QWidget
     Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
 
   private:
-    QTextBrowser* commandLineEdit;
+    CommandLineEdit* m_commandLineEdit;
 
   public Q_SLOTS:
     void setCommandLine ( QStringList & );
+
+  Q_SIGNALS:
+     void dataSaved ( const QStringList & );
 
   public:
     CommandPreview ( QWidget * parent = 0 );

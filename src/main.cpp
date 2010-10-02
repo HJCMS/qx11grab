@@ -40,8 +40,10 @@
 #include <QtGui/QX11Info>
 
 /* QtDBus */
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
+#ifndef HAVE_KDE4_SUPPORT
+# include <QtDBus/QDBusConnection>
+# include <QtDBus/QDBusMessage>
+#endif
 
 #ifndef QX11GRAB_VERSION
 # include "version.h"
@@ -63,10 +65,16 @@ int main ( int argc, char* argv[] )
 {
 #ifdef HAVE_KDE4_SUPPORT
 
-  KAboutData about ( "qx11grab", "qx11grab", ki18n ( "qx11grab" ), QX11GRAB_VERSION,
-                     ki18n ( "A Desktop Recording Tool" ),
-                     KAboutData::License_LGPL,
-                     ki18n ( "Copyright (C) 2010 Developer" ) );
+  KAboutData about ( "qx11grab", 0, ki18n ( "XWindow Recorder" ),
+                     QX11GRAB_VERSION, ki18n ( "A Desktop Recording Tool" ),
+                     KAboutData::License_GPL_V3,
+                     ki18n ( "Copyright (C) 2006-2010, The HJCMS Developer Team" ),
+                     ki18n ( "Yet an other screencasting tool using ffmpeg" ),
+                     "http://www.hjcms.de", aboutMail() );
+
+  about.addAuthor ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( "Maintainer" ), aboutMail() );
+  about.setProgramIconName ( "qx11grab" );
+  about.setTranslator ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( aboutMail() ) );
 
   KCmdLineArgs::init ( argc, argv, &about );
   KUniqueApplication app ( true );
@@ -92,13 +100,13 @@ int main ( int argc, char* argv[] )
   app.setApplicationName ( "qx11grab" );
   app.setApplicationVersion ( QX11GRAB_VERSION );
   app.setOrganizationDomain ( "hjcms.de" );
+  app.setQuitOnLastWindowClosed ( false );
 
   if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
   {
     QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
     return EXIT_FAILURE;
   }
-  QApplication::setQuitOnLastWindowClosed ( false );
   QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
 
   QStringList transpaths ( QCoreApplication::applicationDirPath () );

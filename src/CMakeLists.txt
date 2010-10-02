@@ -30,6 +30,7 @@ SET (qx11grab_SOURCES
   screencombobox.cpp
   settings.cpp
   windowgrabber.cpp
+  commandlineedit.cpp
   commandpreview.cpp
   audiodevice.cpp
   picrecordinterface.cpp
@@ -47,6 +48,7 @@ SET (qx11grab_HEADERS
   screencombobox.h
   settings.h
   windowgrabber.h
+  commandlineedit.h
   commandpreview.h
   audiodevice.h
   picrecordinterface.h

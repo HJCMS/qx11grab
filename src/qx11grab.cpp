@@ -182,6 +182,9 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_FFProcess, SIGNAL ( down () ),
             this, SLOT ( setActionsBack () ) );
 
+  connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
+            this, SLOT ( updateCommandLine ( const QStringList & ) ) );
+
   connect ( actionMinimize, SIGNAL ( triggered() ),
             this, SLOT ( hide() ) );
 
@@ -529,6 +532,16 @@ void QX11Grab::pushToolTip ( const QString &txt )
 {
   if ( systemTrayIcon )
     systemTrayIcon->setToolTip ( txt );
+}
+
+/**
+* Die Daten wurden von @class CommandLineEdit modifiziert
+* und müssen neu geschrieben werden.
+**/
+void QX11Grab::updateCommandLine ( const QStringList &cmd )
+{
+  if ( cmd.contains ( m_defaults->binary() ) )
+    cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), cmd );
 }
 
 /**

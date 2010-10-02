@@ -22,7 +22,12 @@ FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
-FIND_PACKAGE (KDE4 4.5.0)
+
+## Disable KDE4 Framework Support
+OPTION (DISABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
+IF (NOT DISABLE_KDE_SUPPORT)
+  FIND_PACKAGE (KDE4 4.5.0)
+ENDIF (NOT DISABLE_KDE_SUPPORT)
 
 IF (NOT UNIX)
   MESSAGE (FATAL_ERROR "Only Unix is Supported!")
@@ -34,19 +39,10 @@ ENDIF (NOT UNIX)
 
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 2)
-SET (QX11GRAB_VERSION_RELEASE 2)
+SET (QX11GRAB_VERSION_RELEASE 3)
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}")
 SET (QX11GRAB_DISTRIBUTION_TEXT "compiled sources" CACHE STRING "Indicate the distribution in bug reports")
-SET (LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
-SET (QX11GRAB_CXXFLAGS "" CACHE STRING "Defined in pkg-config file")
-SET (QX11GRAB_REQUIRES "" CACHE STRING "Defined in pkg-config file")
 SET (QX11GRAB_RESOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/qx11grab.qrc")
-SET (CMAKE_INSTALL_RPATH_USE_LINK_PATH  TRUE)
-
-EXEC_PROGRAM (${QT_QMAKE_EXECUTABLE}
-  ARGS "-query QT_INSTALL_PREFIX"
-  OUTPUT_VARIABLE CMAKE_INSTALL_PREFIX
-)
 
 ##############################################################
 ## Set Header Definitions
@@ -93,12 +89,25 @@ SET (LIBRARY_OUTPUT_PATH
 )
 
 ##############################################################
-## FFmpeg avformat
+## FFmpeg 
 ##############################################################
 
-# PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.38.0 libavcodec>=52.35.0)
-# Debian Compatible
-PKG_CHECK_MODULES (FFMPEG REQUIRED libavformat>=52.31.0 libavcodec>=52.20.0)
+SET (FFMPEG_SUFFIX "" CACHE STRING
+  "ffmpeg pkg-config File Suffix (STRING)" FORCE
+)
+
+SET (FFMPEG_AVFORMAT_VERSION "52.38.0" CACHE STRING
+  "overwrite required libavformat Version (STRING)" FORCE
+)
+
+SET (FFMPEG_AVCODEC_VERSION "52.35.0" CACHE STRING
+  "overwrite required libavcodec Version (STRING)" FORCE
+)
+
+PKG_CHECK_MODULES (FFMPEG REQUIRED 
+  libavformat${FFMPEG_SUFFIX}>=${FFMPEG_AVFORMAT_VERSION}
+  libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
+)
 
 ##############################################################
 ## Configure files
@@ -140,11 +149,10 @@ SET (QX11GRAB_LIBRARIES
 )
 
 ##############################################################
-## KDE4 Support
+## KDE4 Framework Support
 ##############################################################
 
 IF (KDE4_FOUND)
-  SET (KDE4_SUPPORT 1)
   SET (QX11GRAB_INCLUDES
     ${QX11GRAB_INCLUDES}
     ${KDE4_INCLUDE_DIR}
@@ -157,9 +165,16 @@ IF (KDE4_FOUND)
   ## NOTE Exeptions needed by QX11Grab::record()
   REMOVE_DEFINITIONS ("-DQT_NO_EXCEPTIONS")
   STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-ELSE (KDE4_FOUND)
-  SET (KDE4_SUPPORT 0)
+  ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
 ENDIF (KDE4_FOUND)
+
+##############################################################
+## Debugger CXXFLAGS
+##############################################################
+
+IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQX11GRAB_DEBUG")
+ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ##############################################################
 ## SUBDIRECTORIES

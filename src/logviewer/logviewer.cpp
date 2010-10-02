@@ -19,6 +19,10 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
+
 #include "logviewer.h"
 #include "textview.h"
 
@@ -36,6 +40,7 @@ LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
 {
   setObjectName ( QLatin1String ( "logviewer" ) );
   setWindowTitle ( trUtf8 ( "qx11grab logfile" ) );
+  setWindowModality ( Qt::NonModal );
   setContentsMargins ( 0, 0, 0, 0 );
 
   QVBoxLayout* vLayout = new QVBoxLayout ( this );
@@ -45,6 +50,9 @@ LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
   vLayout->addWidget ( m_textView );
 
   setLayout ( vLayout );
+
+  connect ( m_textView, SIGNAL ( refresh() ),
+            this, SLOT ( readLog() ) );
 
   readLog();
 }

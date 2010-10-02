@@ -122,6 +122,7 @@ class QX11Grab
     void pushInfoMessage ( const QString & );
     void pushErrorMessage ( const QString &, const QString & );
     void pushToolTip ( const QString & );
+    void updateCommandLine ( const QStringList & );
     void startRecord();
     void setActionsBack();
     void loadSettings();

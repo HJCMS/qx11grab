@@ -96,7 +96,7 @@ ELSE (__CHECK_LINK_RDYNAMIC)
 ENDIF (__CHECK_LINK_RDYNAMIC)
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -W -Wabi -Wextra -Wno-long-long -Wctor-dtor-privacy -Wreorder -Wold-style-cast -Woverloaded-virtual -DQX11GRAB_DEBUG")
+  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -W -Wabi -Wextra -Wno-long-long -Wctor-dtor-privacy -Wreorder -Wold-style-cast -Woverloaded-virtual")
 ELSE (CMAKE_BUILD_TYPE STREQUAL "Debug")
   SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -W -Wno-long-long")
 ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")

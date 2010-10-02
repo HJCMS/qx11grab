@@ -23,6 +23,7 @@
 #define QX11GRAB_VERSION_H
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QGlobalStatic>
@@ -38,11 +39,6 @@
 * @short Version
 */
 #define QX11GRAB_VERSION "@QX11GRAB_VERSION@"
-
-/**
-* @short KDE4 Support
-*/
-#define HAVE_KDE4_SUPPORT @KDE4_SUPPORT@
 
 /**
 * @short dbus Domain
@@ -101,6 +97,17 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );
 
   return QIcon::fromTheme ( icon, fallbackIcon );
+}
+
+/**
+* @short Contact E-Mail
+*/
+static inline const char* aboutMail()
+{
+  QByteArray m ( "nospam" );
+  m.append ( "@" );
+  m.append ( "hjcms.de" );
+  return m.constData();
 }
 
 #endif

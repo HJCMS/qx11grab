@@ -41,10 +41,14 @@ extern "C"
 
 TableEditor::TableEditor ( QWidget * parent )
     : QWidget ( parent )
+    , sharedVideoCodec ( 0 )
+    , sharedAudioCodec ( 0 )
 {
   setupUi ( this );
   setBackgroundRole ( QPalette::Window );
   currentType = QString::null;
+
+  codecSelection->setEditable ( true );
 
   // onUpdate
   connect ( codecSelection, SIGNAL ( currentIndexChanged ( int ) ),
@@ -65,12 +69,25 @@ void TableEditor::findVideoCodecs()
   codecSelection->clear();
   av_register_all();
   AVCodec *codec;
+  int index = 0;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
   {
     if ( ( codec->type == CODEC_TYPE_VIDEO ) && ( codec->encode ) )
     {
-      QString itemName = QString ( "%1 (%2)" ).arg ( codec->long_name, codec->name );
-      codecSelection->addItem ( itemName, QVariant ( codec->name ) );
+      codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
+      codecSelection->setItemData ( index, codec->name, Qt::EditRole );
+      codecSelection->setItemData ( index, codec->long_name, Qt::ToolTipRole );
+      index++;
+    }
+  }
+  // Eigene Codec Definitionen einfügen
+  foreach ( QString custom, sharedVideoCodec )
+  {
+    if ( codecSelection->findData ( custom ) == -1 )
+    {
+      codecSelection->insertItem ( index, custom, QVariant ( custom ) );
+      codecSelection->setItemData ( index, custom, Qt::EditRole );
+      codecSelection->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
     }
   }
 }
@@ -84,12 +101,25 @@ void TableEditor::findAudioCodecs()
   codecSelection->clear();
   av_register_all();
   AVCodec *codec;
+  int index = 0;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
   {
     if ( ( codec->type == CODEC_TYPE_AUDIO ) && ( codec->encode ) )
     {
-      QString itemName = QString ( "%1 (%2)" ).arg ( codec->long_name, codec->name );
-      codecSelection->addItem ( itemName, QVariant ( codec->name ) );
+      codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
+      codecSelection->setItemData ( index, codec->name, Qt::EditRole );
+      codecSelection->setItemData ( index, codec->long_name, Qt::ToolTipRole );
+      index++;
+    }
+  }
+  // Eigene Codec Definitionen einfügen
+  foreach ( QString custom, sharedAudioCodec )
+  {
+    if ( codecSelection->findData ( custom ) == -1 )
+    {
+      codecSelection->insertItem ( index, custom, QVariant ( custom ) );
+      codecSelection->setItemData ( index, custom, Qt::EditRole );
+      codecSelection->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
     }
   }
 }
@@ -243,11 +273,13 @@ void TableEditor::load ( const QString &type, QSettings *cfg )
   currentType = type;
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
+    sharedVideoCodec << cfg->value ( "video_codec" ).toString();
     findVideoCodecs();
     codecIndex = codecSelection->findData ( cfg->value ( "video_codec" ) );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
+    sharedAudioCodec << cfg->value ( "audio_codec" ).toString();
     findAudioCodecs();
     codecIndex = codecSelection->findData ( cfg->value ( "audio_codec" ) );
   }
@@ -265,12 +297,12 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     cfg->setValue ( QLatin1String ( "video_codec" ),
-                    codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString() );
+                    codecSelection->itemText ( codecSelection->currentIndex() ) );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     cfg->setValue ( QLatin1String ( "audio_codec" ),
-                    codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString() );
+                    codecSelection->itemText ( codecSelection->currentIndex() ) );
   }
 }
 
@@ -284,12 +316,12 @@ const QStringList TableEditor::getCmd ()
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     cmd << QLatin1String ( "-vcodec" );
-    cmd << codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString();
+    cmd << codecSelection->itemText ( codecSelection->currentIndex() );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     cmd << QLatin1String ( "-acodec" );
-    cmd << codecSelection->itemData ( codecSelection->currentIndex(), Qt::UserRole ).toString();
+    cmd << codecSelection->itemText ( codecSelection->currentIndex() );
   }
 
   QHash<QString,QString> hash = tableItems();
