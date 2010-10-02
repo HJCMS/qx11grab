@@ -36,7 +36,7 @@ class MetaData : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
     QLineEdit* metadata_INAM;

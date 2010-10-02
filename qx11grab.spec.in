@@ -1,11 +1,11 @@
 ## Specfile for OpenSuSE Build Service
 
-%define packagename  qx11grab-@PACKAGE_VERSION@
+%define packagename  qx11grab-@QX11GRAB_VERSION@
 
 Name:           qx11grab
 Summary:        qt4 applet for recording x11 windows with ffmpeg
 Summary(de):    Qt4 Programm zum Aufnehmen von X11 Fenstern mit ffmpeg
-Version:        @PACKAGE_VERSION@
+Version:        @QX11GRAB_VERSION@
 Release:        0
 License:        GPLv2+
 AutoReqProv:    on
@@ -14,11 +14,11 @@ Group:          Productivity/Multimedia/Other
 Url:            http://qx11grab.hjcms.de
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires:       ffmpeg
-BuildRequires:  autoconf >= 2.62 automake >= 1.10
+BuildRequires:  cmake >= 2.8.0 ffmpeg-devel
 %if %{defined suse_version}
-BuildRequires:  libqt4-devel update-desktop-files
+BuildRequires:  libqt4-devel >= 4.6.0 update-desktop-files
 %else
-BuildRequires:  qt4-devel
+BuildRequires:  qt4-devel >= 4.6.0
 %endif 
 Vendor:         Juergen Heinemann (Undefined) http://www.hjcms.de
 
@@ -57,19 +57,33 @@ Autor: -------------
 %prep
 %setup -q
 
-test -x configure || autoreconf -fvi
+%__mkdir_p build
 
 %build
 
-%configure
+cd build
+cmake -Wno-dev \
+  -DCMAKE_CXX_FLAGS:STRING="$RPM_OPT_FLAGS" \
+  -DCMAKE_C_FLAGS:STRING="$RPM_OPT_FLAGS" \
+  -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+  -DCMAKE_BUILD_TYPE:STRING=Debug \
+  -DQTIDY_ENABLE_FPIE:BOOL=ON \
+  -DCMAKE_SKIP_RPATH:BOOL=ON \
+  -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+  -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4) \
+  -DAutomoc4_DIR:PATH=$(dirname /usr/*/cmake/automoc4/Automoc4Config.cmake) \
+  ../
 
 %__make
 
 %install
-%makeinstall
+
+pushd build
+  %makeinstall
+popd
 
 %if %{defined suse_version}
-%suse_update_desktop_file %{name} -r Utility DesktopUtility
+%suse_update_desktop_file qx11grab -r Utility DesktopUtility
 %endif 
 
 %post
@@ -81,13 +95,19 @@ test -x configure || autoreconf -fvi
 %files
 %defattr(-, root, root)
 %dir %{_sysconfdir}/xdg/hjcms.de
-%config %{_sysconfdir}/xdg/hjcms.de/%{name}.conf
-%{_bindir}/%{name}
-@Q_LOCALE_DIR@/%{name}*.qm
-%{_datadir}/applications/%{name}.desktop
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/*
-%{_datadir}/share/pixmaps/%{name}.png
+%config %{_sysconfdir}/xdg/hjcms.de/qx11grab.conf
+%{_bindir}/qx11grab
+%{_datadir}/qt*/translations/qx11grab*.qm
+%dir %{_datadir}/qx11grab
+%doc %{_datadir}/qx11grab/AUTHORS
+%doc %{_datadir}/qx11grab/COPYING
+%doc %{_datadir}/qx11grab/ChangeLog
+%doc %{_datadir}/qx11grab/NEWS
+%doc %{_datadir}/qx11grab/README
+%{_datadir}/qx11grab/qx11grab_untranslated.ts
+%{_datadir}/applications/qx11grab.desktop
+%{_datadir}/pixmaps/qx11grab.png
+%{_datadir}/share/dbus-1/services/*qx11grab.service
 
 %clean
 rm -rf %{buildroot}

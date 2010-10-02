@@ -43,11 +43,7 @@
 /**
 * @short dbus Domain
 */
-#ifdef HAVE_KDE4_SUPPORT
-# define QX11GRAB_DBUS_DOMAIN_NAME "org.kde.qx11grab"
-#else
-# define QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab"
-#endif
+#define QX11GRAB_DBUS_DOMAIN_NAME "@QX11GRAB_DBUS_DOMAIN_NAME@"
 
 /**
 *

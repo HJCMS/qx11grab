@@ -29,6 +29,8 @@ IF (NOT DISABLE_KDE_SUPPORT)
   FIND_PACKAGE (KDE4 4.5.0)
 ENDIF (NOT DISABLE_KDE_SUPPORT)
 
+SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab")
+
 IF (NOT UNIX)
   MESSAGE (FATAL_ERROR "Only Unix is Supported!")
 ENDIF (NOT UNIX)
@@ -110,18 +112,6 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
 )
 
 ##############################################################
-## Configure files
-##############################################################
-
-CONFIGURE_FILE (src/version.h.cmake
-  ${CMAKE_CURRENT_BINARY_DIR}/src/version.h
-)
-
-CONFIGURE_FILE (qx11grab.conf.cmake
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
-)
-
-##############################################################
 ## INCLUDES
 ##############################################################
 
@@ -166,7 +156,59 @@ IF (KDE4_FOUND)
   REMOVE_DEFINITIONS ("-DQT_NO_EXCEPTIONS")
   STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
+  SET (QX11GRAB_DBUS_DOMAIN_NAME "org.kde.qx11grab")
+ELSE (KDE4_FOUND)
 ENDIF (KDE4_FOUND)
+
+##############################################################
+## Configure Source Files
+##############################################################
+
+CONFIGURE_FILE (src/version.h.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/src/version.h
+)
+
+##############################################################
+## Default Configuration File
+##############################################################
+
+CONFIGURE_FILE (qx11grab.conf.cmake
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
+)
+
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
+  DESTINATION /etc/xdg/hjcms.de/
+)
+
+##############################################################
+## Desktop File
+##############################################################
+
+CONFIGURE_FILE (qx11grab.desktop.cmake
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.desktop
+)
+
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.desktop
+  DESTINATION share/applications
+)
+
+##############################################################
+## DBUS Service
+##############################################################
+
+FILE (WRITE ${ARCHIVE_OUTPUT_PATH}/${QX11GRAB_DBUS_DOMAIN_NAME}.service
+"[D-BUS Service]
+Name=${QX11GRAB_DBUS_DOMAIN_NAME}
+Exec=${CMAKE_INSTALL_PREFIX}/bin/qx11grab
+"
+)
+
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/${QX11GRAB_DBUS_DOMAIN_NAME}.service
+  DESTINATION share/dbus-1/services/
+)
 
 ##############################################################
 ## Debugger CXXFLAGS
@@ -196,18 +238,8 @@ INSTALL (FILES
 )
 
 INSTALL (FILES
-  qx11grab.desktop
-  DESTINATION share/applications
-)
-
-INSTALL (FILES
   src/images/qx11grab.png
   DESTINATION share/pixmaps
-)
-
-INSTALL (FILES
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
-  DESTINATION /etc/xdg/hjcms.de/
 )
 
 ## EOF

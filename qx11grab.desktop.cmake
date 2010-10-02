@@ -9,4 +9,6 @@ Icon=qx11grab
 Categories=Qt;KDE;X-KDE-Utilities-Desktop;Utility;Applet;
 StartupNotify=false
 X-KDE-StartupNotify=true
+X-DBUS-ServiceName=@QX11GRAB_DBUS_DOMAIN_NAME@
 X-DBUS-ServiceType=Unique
+X-KDE-AutoEmbed=false
