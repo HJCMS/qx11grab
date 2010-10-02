@@ -1,5 +1,6 @@
 2010/10/*
   Version: 0.2.3.rc1
+  Modified: By Default using Theora and libvosbis for Codecs in qx11grab.conf
   Add: KDE4 Support - This can be explicit Disabled with cmake -DDISABLE_KDE_SUPPORT:BOOL=ON
   Add: Customized Codec Selection
   Add: refresh logfile
