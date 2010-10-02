@@ -157,7 +157,6 @@ IF (KDE4_FOUND)
   STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
   SET (QX11GRAB_DBUS_DOMAIN_NAME "org.kde.qx11grab")
-ELSE (KDE4_FOUND)
 ENDIF (KDE4_FOUND)
 
 ##############################################################

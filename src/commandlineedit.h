@@ -38,7 +38,6 @@ class CommandLineEdit : public QListWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
     Q_PROPERTY ( QStringList data READ data WRITE setData )
 
   private Q_SLOTS:

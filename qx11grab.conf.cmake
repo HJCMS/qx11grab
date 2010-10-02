@@ -5,10 +5,10 @@ startMinimized=false
 tempdir=/tmp
 outputName=@CMAKE_PROJECT_NAME@-XXXXXX.avi
 SoundRecording=false
-audio_codec=pcm_s16le
 audio_engine=alsa
-audio_intensifier=280
-video_codec=rawvideo
+audio_intensifier=256
+video_codec=theora
+audio_codec=libvorbis
 Metadata=false
 
 [metadata]

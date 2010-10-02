@@ -35,7 +35,6 @@ class FFProcess : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
     Settings* cfg;

@@ -107,7 +107,7 @@ popd
 %{_datadir}/qx11grab/qx11grab_untranslated.ts
 %{_datadir}/applications/qx11grab.desktop
 %{_datadir}/pixmaps/qx11grab.png
-%{_datadir}/share/dbus-1/services/*qx11grab.service
+%{_datadir}/dbus-1/services/*.qx11grab.service
 
 %clean
 rm -rf %{buildroot}

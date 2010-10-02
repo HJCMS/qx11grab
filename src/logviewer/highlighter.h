@@ -38,7 +38,6 @@ class Highlighter : public QSyntaxHighlighter
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://hjcms.de" )
 
   private:
     int block_stat;

@@ -39,7 +39,6 @@ class PicRecordInterface : public QDialog
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
     Q_PROPERTY ( QString card READ getCard WRITE setCard )
 
   private:
