@@ -75,6 +75,9 @@ int main ( int argc, char* argv[] )
   about.addAuthor ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( "Maintainer" ), aboutMail() );
   about.setProgramIconName ( "qx11grab" );
   about.setTranslator ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( aboutMail() ) );
+  // NOTE needet for DBUS ;)
+  about.setHomepage ( "http://qx11grab.hjcms.de" );
+  about.setOrganizationDomain ( "hjcms.de" );
 
   KCmdLineArgs::init ( argc, argv, &about );
   KUniqueApplication app ( true );

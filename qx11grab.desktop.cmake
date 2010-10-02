@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-Name=qx11grab
+Name=@CMAKE_PROJECT_NAME@
 GenericName=X11 Window Recorder
 Comment=Application for recording x11 windows
 Comment[de]=Programm zum Aufnehmen von X11 Fenstern
-Exec=qx11grab
-Icon=qx11grab
+Exec=@CMAKE_PROJECT_NAME@
+Icon=@CMAKE_PROJECT_NAME@
 Categories=Qt;KDE;X-KDE-Utilities-Desktop;Utility;Applet;
 StartupNotify=false
 X-KDE-StartupNotify=true
