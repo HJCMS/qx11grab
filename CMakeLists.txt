@@ -111,6 +111,9 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
   libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
 )
 
+## required by FFmpeg
+ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+
 ##############################################################
 ## INCLUDES
 ##############################################################
