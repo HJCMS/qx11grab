@@ -39,28 +39,24 @@ Highlighter::Highlighter ( QTextDocument *parent )
   RuleHighlight step1; // Strings
   step1.pattern = QRegExp ( "(?!=[\\s\\>\\/])([\\\"\\\'](.*)[\\\"\\\'])" );
   stringFormat.setForeground ( Qt::red );
-  stringFormat.setBackground ( bg );
   step1.format = stringFormat;
   highlightRules.append ( step1 );
 
   RuleHighlight step2; // Predicates
   step2.pattern = QRegExp ( "([^|\\s][\\w]+(?=[=]))" );
   attributeFormat.setForeground ( Qt::blue );
-  attributeFormat.setBackground ( bg );
   step2.format = attributeFormat;
   highlightRules.append ( step2 );
 
   RuleHighlight step3; // KeyWords
   step3.pattern = QRegExp ( "((^|\\s+)[a-zA-Z][\\w]+:)" );
   keywordFormat.setForeground ( Qt::blue );
-  keywordFormat.setBackground ( bg );
   step3.format = keywordFormat;
   highlightRules.append ( step3 );
 
   RuleHighlight step4; // Error
   step4.pattern = QRegExp ( "\\b(error|fatal|warning|invalid)", Qt::CaseInsensitive );
-  errorFormat.setForeground ( Qt::yellow );
-  errorFormat.setBackground ( Qt::darkGray );
+  errorFormat.setForeground ( Qt::darkGray );
   step4.format = errorFormat;
   highlightRules.append ( step4 );
 }

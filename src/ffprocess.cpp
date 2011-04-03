@@ -122,8 +122,10 @@ bool FFProcess::stop()
 
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
+  // TODO Keine Ahnung was der Aufeinmal hat ???
   char quit = 'q';
   m_QProcess->write ( &quit );
+  m_QProcess->closeWriteChannel();
 
   return isRunning();
 }
