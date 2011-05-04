@@ -43,75 +43,83 @@
 #include <QtGui/QToolButton>
 
 Defaults::Defaults ( QWidget * parent )
-    : QWidget ( parent )
+        : QWidget ( parent )
 {
-  setObjectName ( QLatin1String ( "defaults" ) );
-  setBackgroundRole ( QPalette::Window );
+    setObjectName ( QLatin1String ( "defaults" ) );
+    setBackgroundRole ( QPalette::Window );
 
-  QGridLayout* gridLayout = new QGridLayout ( this );
-  gridLayout->setContentsMargins ( 2, 2, 2, 2 );
-  gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
+    QGridLayout* gridLayout = new QGridLayout ( this );
+    gridLayout->setContentsMargins ( 2, 2, 2, 2 );
+    gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
 
-  QIcon folderIcon = getThemeIcon ( "folder-open" );
+    QIcon folderIcon = getThemeIcon ( "folder-open" );
 
-  Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
+    Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
 
-  // begin: FFmpeg Binary
-  QLabel* txt_ffbinary = new QLabel ( this );
-  txt_ffbinary->setText ( trUtf8 ( "FFmpeg Application:" ) );
-  txt_ffbinary->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_ffbinary, 0, 0, 1, 1 );
+    int gridRow = 0;
+    // begin: Pulse pasuspender
+    m_setPasuspender = new QCheckBox ( this );
+    m_setPasuspender->setText ( trUtf8 ( "Enable temporarily suspend PulseAudio Server" ) );
+    m_setPasuspender->setToolTip ( trUtf8 ( "if ffmpeg is running tell PulseAudio sound server to temporarily suspend access to the audio devices" ) );
+    gridLayout->addWidget ( m_setPasuspender, gridRow, 0, 1, 3 );
+    // end: Pulse pasuspender
 
-  ff_path = new QLineEdit ( this );
-  ff_path->setObjectName ( QLatin1String ( "ff_path" ) );
-  ff_path->setText ( QString::fromUtf8 ( "/usr/bin/ffmpeg" ) );
-  gridLayout->addWidget ( ff_path, 0, 1, 1, 1 );
+    // begin: FFmpeg Binary
+    QLabel* txt_ffbinary = new QLabel ( this );
+    txt_ffbinary->setText ( trUtf8 ( "FFmpeg Application:" ) );
+    txt_ffbinary->setAlignment ( labelAlignment );
+    gridLayout->addWidget ( txt_ffbinary, ++gridRow, 0, 1, 1 );
 
-  QToolButton* setFFmpegBtn = new QToolButton ( this );
-  setFFmpegBtn->setIcon ( folderIcon );
-  gridLayout->addWidget ( setFFmpegBtn, 0, 2, 1, 1 );
-  // end: FFmpeg Binary
+    ff_path = new QLineEdit ( this );
+    ff_path->setObjectName ( QLatin1String ( "ff_path" ) );
+    ff_path->setText ( QString::fromUtf8 ( "/usr/bin/ffmpeg" ) );
+    gridLayout->addWidget ( ff_path, gridRow, 1, 1, 1 );
 
-  // begin: Output Filename
-  QLabel* txt_outfile = new QLabel ( this );
-  txt_outfile->setText ( trUtf8 ( "Output Filename:" ) );
-  txt_outfile->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_outfile, 1, 0, 1, 1 );
+    QToolButton* setFFmpegBtn = new QToolButton ( this );
+    setFFmpegBtn->setIcon ( folderIcon );
+    gridLayout->addWidget ( setFFmpegBtn, gridRow, 2, 1, 1 );
+    // end: FFmpeg Binary
 
-  outputName = new QLineEdit ( this );
-  outputName->setObjectName ( QLatin1String ( "outputName" ) );
-  outputName->setText ( QString::fromUtf8 ( "qx11grab-XXXXXX.avi" ) );
-  gridLayout->addWidget ( outputName, 1, 1, 1, 2 );
-  // end: Output Filename
+    // begin: Output Filename
+    QLabel* txt_outfile = new QLabel ( this );
+    txt_outfile->setText ( trUtf8 ( "Output Filename:" ) );
+    txt_outfile->setAlignment ( labelAlignment );
+    gridLayout->addWidget ( txt_outfile, ++gridRow, 0, 1, 1 );
 
-  // begin: Output Directory
-  QLabel* txt_outdir = new QLabel ( this );
-  txt_outdir->setText ( trUtf8 ( "Output Directory:" ) );
-  txt_outdir->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_outdir, 2, 0, 1, 1 );
+    outputName = new QLineEdit ( this );
+    outputName->setObjectName ( QLatin1String ( "outputName" ) );
+    outputName->setText ( QString::fromUtf8 ( "qx11grab-XXXXXX.avi" ) );
+    gridLayout->addWidget ( outputName, gridRow, 1, 1, 2 );
+    // end: Output Filename
 
-  outputDirectory = new QLineEdit ( this );
-  outputDirectory->setObjectName ( QLatin1String ( "tempdir" ) );
-  outputDirectory->setText ( QString::fromUtf8 ( "/tmp" ) );
-  gridLayout->addWidget ( outputDirectory, 2, 1, 1, 1 );
+    // begin: Output Directory
+    QLabel* txt_outdir = new QLabel ( this );
+    txt_outdir->setText ( trUtf8 ( "Output Directory:" ) );
+    txt_outdir->setAlignment ( labelAlignment );
+    gridLayout->addWidget ( txt_outdir, ++gridRow, 0, 1, 1 );
 
-  QToolButton* setOutputBtn = new QToolButton ( this );
-  setOutputBtn->setIcon ( folderIcon );
-  gridLayout->addWidget ( setOutputBtn, 2, 2, 1, 1 );
-  // end: Output Directory
+    outputDirectory = new QLineEdit ( this );
+    outputDirectory->setObjectName ( QLatin1String ( "tempdir" ) );
+    outputDirectory->setText ( QString::fromUtf8 ( "/tmp" ) );
+    gridLayout->addWidget ( outputDirectory, gridRow, 1, 1, 1 );
 
-  // begin: Audio Device
-  m_audioDevice = new AudioDevice ( this );
-  gridLayout->addWidget ( m_audioDevice, 3, 0, 1, 3 );
-  // end: Audio Device
+    QToolButton* setOutputBtn = new QToolButton ( this );
+    setOutputBtn->setIcon ( folderIcon );
+    gridLayout->addWidget ( setOutputBtn, gridRow, 2, 1, 1 );
+    // end: Output Directory
 
-  QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 6, 0, 1, 2 );
+    // begin: Audio Device
+    m_audioDevice = new AudioDevice ( this );
+    gridLayout->addWidget ( m_audioDevice, ++gridRow, 0, 1, 3 );
+    // end: Audio Device
 
-  setLayout ( gridLayout );
+    QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    gridLayout->addItem ( spacer, ++gridRow, 0, 1, 2 );
 
-  connect ( setFFmpegBtn, SIGNAL ( clicked() ), this, SLOT ( setFFmpegBinary() ) );
-  connect ( setOutputBtn, SIGNAL ( clicked() ), this, SLOT ( setOutpuDirectory() ) );
+    setLayout ( gridLayout );
+
+    connect ( setFFmpegBtn, SIGNAL ( clicked() ), this, SLOT ( setFFmpegBinary() ) );
+    connect ( setOutputBtn, SIGNAL ( clicked() ), this, SLOT ( setOutpuDirectory() ) );
 }
 
 /**
@@ -119,16 +127,16 @@ Defaults::Defaults ( QWidget * parent )
 */
 void Defaults::setFFmpegBinary()
 {
-  QString path ( "/usr/bin" );
-  QStringList filt;
-  filt << trUtf8 ( "FFmpeg %1" ).arg ( "ffmpeg* *ffmpeg" );
-  filt << trUtf8 ( "Other %1" ).arg ( "*" );
+    QString path ( "/usr/bin" );
+    QStringList filt;
+    filt << trUtf8 ( "FFmpeg %1" ).arg ( "ffmpeg* *ffmpeg" );
+    filt << trUtf8 ( "Other %1" ).arg ( "*" );
 
-  path = QFileDialog::getOpenFileName ( this, trUtf8 ( "FFmpeg Binary" ), path, filt.join ( ";;" ) );
+    path = QFileDialog::getOpenFileName ( this, trUtf8 ( "FFmpeg Binary" ), path, filt.join ( ";;" ) );
 
-  QFileInfo db ( path );
-  if ( db.exists() )
-    ff_path->setText ( db.absoluteFilePath() );
+    QFileInfo db ( path );
+    if ( db.exists() )
+        ff_path->setText ( db.absoluteFilePath() );
 }
 
 /**
@@ -136,12 +144,12 @@ void Defaults::setFFmpegBinary()
 */
 void Defaults::setOutpuDirectory()
 {
-  QString path ( "/tmp" );
-  path = QFileDialog::getExistingDirectory ( this, trUtf8 ( "Output Directory" ), path );
+    QString path ( "/tmp" );
+    path = QFileDialog::getExistingDirectory ( this, trUtf8 ( "Output Directory" ), path );
 
-  QFileInfo db ( path );
-  if ( db.isWritable() )
-    outputDirectory->setText ( path );
+    QFileInfo db ( path );
+    if ( db.isWritable() )
+        outputDirectory->setText ( path );
 }
 
 /**
@@ -149,17 +157,18 @@ void Defaults::setOutpuDirectory()
 */
 void Defaults::load ( QSettings * cfg )
 {
-  QList<QLineEdit*> items;
-  items << outputDirectory << outputName << ff_path;
+    QList<QLineEdit*> items;
+    items << outputDirectory << outputName << ff_path;
 
-  m_audioDevice->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
-  m_audioDevice->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
-  m_audioDevice->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
+    m_setPasuspender->setChecked( cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), false ).toBool() );
+    m_audioDevice->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
+    m_audioDevice->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
+    m_audioDevice->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
 
-  foreach ( QLineEdit* edit, items )
-  {
-    edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
-  }
+    foreach ( QLineEdit* edit, items )
+    {
+        edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
+    }
 }
 
 /**
@@ -167,50 +176,51 @@ void Defaults::load ( QSettings * cfg )
 */
 void Defaults::save ( QSettings * cfg )
 {
-  QList<QLineEdit*> items;
-  items << outputDirectory << outputName << ff_path;
+    QList<QLineEdit*> items;
+    items << outputDirectory << outputName << ff_path;
 
-  cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDevice->getAudioEngine() );
+    cfg->setValue ( QLatin1String ( "enable_pulse_pasuspender" ), m_setPasuspender->isChecked() );
+    cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDevice->getAudioEngine() );
 
-  if ( m_audioDevice->getVolume() != 256 )
-    cfg->setValue ( QLatin1String ( "audio_intensifier" ), m_audioDevice->getVolume() );
-  else
-    cfg->remove ( QLatin1String ( "audio_intensifier" ) );
-
-  if ( m_audioDevice->getAudioDevice().isEmpty() )
-    cfg->remove ( QLatin1String ( "audio_device" ) );
-  else
-    cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDevice->getAudioDevice() );
-
-  foreach ( QLineEdit* edit, items )
-  {
-    if ( edit->text().isEmpty() )
-      cfg->remove ( edit->objectName() );
+    if ( m_audioDevice->getVolume() != 256 )
+        cfg->setValue ( QLatin1String ( "audio_intensifier" ), m_audioDevice->getVolume() );
     else
-      cfg->setValue ( edit->objectName(), edit->text() );
-  }
+        cfg->remove ( QLatin1String ( "audio_intensifier" ) );
+
+    if ( m_audioDevice->getAudioDevice().isEmpty() )
+        cfg->remove ( QLatin1String ( "audio_device" ) );
+    else
+        cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDevice->getAudioDevice() );
+
+    foreach ( QLineEdit* edit, items )
+    {
+        if ( edit->text().isEmpty() )
+            cfg->remove ( edit->objectName() );
+        else
+            cfg->setValue ( edit->objectName(), edit->text() );
+    }
 }
 
 const QString Defaults::binary()
 {
-  return ff_path->text();
+    return ff_path->text();
 }
 
 const QStringList Defaults::audioDeviceData()
 {
-  return  m_audioDevice->data();
+    return  m_audioDevice->data();
 }
 
 const QString Defaults::output()
 {
-  QString p = outputDirectory->text();
-  p.append ( "/" );
+    QString p = outputDirectory->text();
+    p.append ( "/" );
 
-  QString outFile = outputName->text();
-  QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
-  outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
-  p.append ( outFile );
-  return p;
+    QString outFile = outputName->text();
+    QString timeStamp = QTime::currentTime().toString ( "hhmmss" );
+    outFile.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+    p.append ( outFile );
+    return p;
 }
 
 Defaults::~Defaults()

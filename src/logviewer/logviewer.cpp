@@ -41,7 +41,9 @@ LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
   setObjectName ( QLatin1String ( "logviewer" ) );
   setWindowTitle ( trUtf8 ( "qx11grab logfile" ) );
   setWindowModality ( Qt::NonModal );
-  setContentsMargins ( 0, 0, 0, 0 );
+  setContentsMargins ( 5, 5, 5, 15 );
+  setMinimumSize ( 350, 200 );
+  setSizeGripEnabled ( true );
 
   QVBoxLayout* vLayout = new QVBoxLayout ( this );
   vLayout->setMargin ( 0 );

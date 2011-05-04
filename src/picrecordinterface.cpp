@@ -40,105 +40,108 @@ extern "C"
 }
 
 PicRecordInterface::PicRecordInterface ( QWidget * parent )
-    : QDialog ( parent )
+        : QDialog ( parent )
 {
-  setObjectName ( QLatin1String ( "picrecordinterface" ) );
-  setWindowTitle ( trUtf8 ( "ALSA PCM Selection" ) );
-  setMinimumWidth ( 400 );
-  setSizeGripEnabled ( true );
+    setObjectName ( QLatin1String ( "picrecordinterface" ) );
+    setWindowTitle ( trUtf8 ( "ALSA PCM Selection" ) );
+    setMinimumWidth ( 400 );
+    setSizeGripEnabled ( true );
 
-  QVBoxLayout* vLayout = new QVBoxLayout ( this );
+    QVBoxLayout* vLayout = new QVBoxLayout ( this );
 
-  vLayout->addWidget ( new QLabel ( trUtf8 ( "Available Cards:" ) ) );
+    vLayout->addWidget ( new QLabel ( trUtf8 ( "Available Cards:" ) ) );
 
-  deviceList = new QListWidget ( this );
-  vLayout->addWidget ( deviceList );
+    deviceList = new QListWidget ( this );
+    vLayout->addWidget ( deviceList );
 
-  QDialogButtonBox* box = new QDialogButtonBox ( Qt::Horizontal , this );
-  box->setStandardButtons ( ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel ) );
-  box->setCenterButtons ( true );
-  vLayout->addWidget ( box );
+    QDialogButtonBox* box = new QDialogButtonBox ( Qt::Horizontal , this );
+    box->setStandardButtons ( ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel ) );
+    box->setCenterButtons ( true );
+    vLayout->addWidget ( box );
 
-  setLayout ( vLayout );
+    setLayout ( vLayout );
 
-  initRecorderDevices();
+    initRecorderDevices();
 
-  connect ( box, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
-  connect ( box, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
+    connect ( box, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
+    connect ( box, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 }
 
 void PicRecordInterface::initRecorderDevices()
 {
-  void **hints, **n;
-  char *name;
-  QString hwIndex;
-  QRegExp pattern ( "^.+=" );
-  QRegExp cleaner ( "[\\n\\r]+.+$" );
-  QStringList buffer;
+    void **hints, **n;
+    char *name;
+    QString hwIndex;
+    QRegExp pattern ( "^.+=" );
+    QRegExp cleaner ( "[\\n\\r]+.+$" );
+    QStringList buffer;
 
-  // zero if success, otherwise a negative error code
-  if ( snd_device_name_hint ( -1, "pcm", &hints ) < 0 )
-  {
-    qWarning ( "no alsa devices available" );
-    return;
-  }
-
-  n = hints;
-  while ( *n != NULL )
-  {
-    name = snd_device_name_get_hint ( *n, "NAME" );
-    if ( ( name != NULL ) && ( snd_device_name_get_hint ( *n, "IOID" ) == NULL ) )
+    /** @ref http://www.alsa-project.org/alsa-doc/alsa-lib/group___control.html
+    * zero if success, otherwise a negative error code
+    */
+    if ( snd_device_name_hint ( -1, "pcm", &hints ) < 0 )
     {
-      QString cardHint = QString ( name ).split ( "," ).first();
-      QString infoHint = QString ( snd_device_name_get_hint ( *n, "DESC" ) );
-      if ( ! buffer.contains ( cardHint.remove ( pattern ) ) )
-      {
-        int index = snd_card_get_index ( cardHint.toAscii().data() );
-        if ( index >= 0 )
-          hwIndex = QString ( "hw=%1" ).arg ( QString::number ( index ) );
-
-        QListWidgetItem* item = new QListWidgetItem ( deviceList );
-        item->setText ( QString ( "%1 \"%2\" %3" ).arg ( cardHint, infoHint.remove ( cleaner ), hwIndex ) );
-        item->setData ( Qt::UserRole, cardHint );
-        item->setData ( Qt::ToolTipRole, hwIndex );
-        item->setData ( Qt::StatusTipRole, infoHint.remove ( cleaner ) );
-        deviceList->addItem ( item );
-        buffer << cardHint;
-        hwIndex.clear();
-      }
+        qWarning ( "no alsa devices available" );
+        return;
     }
-    ++n;
-  }
-  snd_device_name_free_hint ( hints );
 
-  buffer.clear();
+    n = hints;
+    while ( *n != NULL )
+    {
+        name = snd_device_name_get_hint ( *n, "NAME" );
+        if ( ( name != NULL ) && ( snd_device_name_get_hint ( *n, "IOID" ) == NULL ) )
+        {
+            // qDebug () << Q_FUNC_INFO << QString ( name );
+            QString cardHint = QString ( name ).split ( "," ).first();
+            QString infoHint = QString ( snd_device_name_get_hint ( *n, "DESC" ) );
+            if ( ! buffer.contains ( cardHint.remove ( pattern ) ) )
+            {
+                int index = snd_card_get_index ( cardHint.toAscii().data() );
+                if ( index >= 0 )
+                    hwIndex = QString ( "hw=%1" ).arg ( QString::number ( index ) );
+
+                QListWidgetItem* item = new QListWidgetItem ( deviceList );
+                item->setText ( QString ( "%1 \"%2\" %3" ).arg ( cardHint, infoHint.remove ( cleaner ), hwIndex ) );
+                item->setData ( Qt::UserRole, cardHint );
+                item->setData ( Qt::ToolTipRole, hwIndex );
+                item->setData ( Qt::StatusTipRole, infoHint.remove ( cleaner ) );
+                deviceList->addItem ( item );
+                buffer << cardHint;
+                hwIndex.clear();
+            }
+        }
+        ++n;
+    }
+    snd_device_name_free_hint ( hints );
+
+    buffer.clear();
 }
 
 const QString PicRecordInterface::getCard ()
 {
-  return deviceList->currentItem()->data ( Qt::UserRole ).toString();
+    return deviceList->currentItem()->data ( Qt::UserRole ).toString();
 }
 
 void PicRecordInterface::setCard ( const QString &c )
 {
-  for ( int r = 0; r < deviceList->count(); r++ )
-  {
-    if ( deviceList->item ( r )->data ( Qt::UserRole ).toString() == c )
+    for ( int r = 0; r < deviceList->count(); r++ )
     {
-      deviceList->setCurrentRow ( r );
-      break;
+        if ( deviceList->item ( r )->data ( Qt::UserRole ).toString() == c )
+        {
+            deviceList->setCurrentRow ( r );
+            break;
+        }
     }
-  }
 }
 
 const AlsaAudioDevice PicRecordInterface::cardInfo ()
 {
-  AlsaAudioDevice d;
-  QListWidgetItem* item = deviceList->currentItem();
-  d.name = item->data ( Qt::UserRole ).toString();
-  d.hw = item->data ( Qt::ToolTipRole ).toString();
-  d.description = item->data ( Qt::StatusTipRole ).toString();
-  return d;
+    AlsaAudioDevice d;
+    QListWidgetItem* item = deviceList->currentItem();
+    d.name = item->data ( Qt::UserRole ).toString();
+    d.hw = item->data ( Qt::ToolTipRole ).toString();
+    d.description = item->data ( Qt::StatusTipRole ).toString();
+    return d;
 }
 
 PicRecordInterface::~PicRecordInterface()

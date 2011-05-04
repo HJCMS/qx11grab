@@ -9,3 +9,9 @@ qx11grab.spec
 ctags
 testcmd.sh
 tags
+.kdev4
+*.kdev4
+.kdev4
+*.kdev4
+.kdev4
+*.kdev4

@@ -36,11 +36,11 @@
 #include <QtGui/QMessageBox>
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
-    : QObject ( parent )
-    , cfg ( settings )
-    , xInfo()
+        : QObject ( parent )
+        , cfg ( settings )
+        , xInfo()
 {
-  arguments = QStringList();
+    arguments = QStringList();
 }
 
 /**
@@ -48,7 +48,7 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
 */
 const QString FFProcess::application()
 {
-  return cfg->value ( QLatin1String ( "ff_path" ), QLatin1String ( "ffmpeg" ) ).toString();
+    return  cfg->value ( QLatin1String ( "ff_path" ), QLatin1String ( "ffmpeg" ) ).toString();
 }
 
 /**
@@ -56,12 +56,12 @@ const QString FFProcess::application()
 */
 const QString FFProcess::workdir()
 {
-  QString p = cfg->value ( QLatin1String ( "tempdir" ), QLatin1String ( "/tmp" ) ).toString();
-  QDir d ( p );
-  if ( ! d.isReadable() )
-    QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
+    QString p = cfg->value ( QLatin1String ( "tempdir" ), QLatin1String ( "/tmp" ) ).toString();
+    QDir d ( p );
+    if ( ! d.isReadable() )
+        QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
 
-  return p;
+    return p;
 }
 
 /**
@@ -69,11 +69,11 @@ const QString FFProcess::workdir()
 */
 bool FFProcess::create ( const QRect &r )
 {
-  if ( r.isValid() )
-    return true;
+    if ( r.isValid() )
+        return true;
 
-  emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
-  return false;
+    emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
+    return false;
 }
 
 /**
@@ -81,35 +81,37 @@ bool FFProcess::create ( const QRect &r )
 */
 bool FFProcess::start ( const QStringList &cmd )
 {
-  if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
-    return false;
+    if (cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), false ).toBool())
+        QProcess::startDetached ( "pactl", QStringList() << "suspend-source" << "quelle" << "1" );
 
-  QStringList arguments ( cmd );
+    if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
+        return false;
 
-  if ( arguments.contains ( application() ) )
-    arguments.removeOne ( application() );
+    QStringList arguments ( cmd );
 
-  m_QProcess = new QProcess ( this );
-  m_QProcess->setWorkingDirectory ( workdir() );
-  m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
-  m_QProcess->setReadChannel ( QProcess::StandardOutput );
-  m_QProcess->setStandardErrorFile ( qx11grabLogfile() );
+    if ( arguments.contains ( application() ) )
+        arguments.removeOne ( application() );
 
-  connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
-            this, SLOT ( errors ( QProcess::ProcessError ) ) );
+    m_QProcess = new QProcess ( this );
+    m_QProcess->setWorkingDirectory ( workdir() );
+    m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
+    m_QProcess->setReadChannel ( QProcess::StandardOutput );
+    m_QProcess->setStandardErrorFile ( qx11grabLogfile() );
 
-  connect ( m_QProcess, SIGNAL ( finished ( int, QProcess::ExitStatus ) ),
-            this, SLOT ( exited ( int, QProcess::ExitStatus ) ) );
+    connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
+              this, SLOT ( errors ( QProcess::ProcessError ) ) );
 
-  connect ( m_QProcess, SIGNAL ( started() ),
-            this, SLOT ( startCheck() ) );
+    connect ( m_QProcess, SIGNAL ( finished ( int, QProcess::ExitStatus ) ),
+              this, SLOT ( exited ( int, QProcess::ExitStatus ) ) );
+
+    connect ( m_QProcess, SIGNAL ( started() ),
+              this, SLOT ( startCheck() ) );
 
 #ifdef QX11GRAB_DEBUG
-  qDebug() << Q_FUNC_INFO << application() << arguments;
+    qDebug() << Q_FUNC_INFO << application() << arguments;
 #endif
-
-  m_QProcess->start ( application(), arguments );
-  return true;
+    m_QProcess->start ( application(), arguments );
+    return true;
 }
 
 /**
@@ -117,17 +119,22 @@ bool FFProcess::start ( const QStringList &cmd )
 */
 bool FFProcess::stop()
 {
-  if ( ! m_QProcess )
-    return false;
+    if ( ! m_QProcess )
+        return false;
 
-  emit message ( trUtf8 ( "shutdown please wait ..." ) );
+    emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
-  // TODO Keine Ahnung was der Aufeinmal hat ???
-  char quit = 'q';
-  m_QProcess->write ( &quit );
-  m_QProcess->closeWriteChannel();
+    // FIXME Wenn der Sound Channel nicht stimmt entsteht ein loop!
+    char q = 'q';
+    if ( ( m_QProcess->write ( &q ) != -1 ) && ( m_QProcess->waitForBytesWritten () ) )
+      m_QProcess->closeWriteChannel();
+    else
+      m_QProcess->kill();
 
-  return isRunning();
+    if (cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), false ).toBool())
+        QProcess::startDetached ( "pactl", QStringList() << "suspend-source" << "quelle" << "0" );
+
+    return isRunning();
 }
 
 /**
@@ -135,13 +142,13 @@ bool FFProcess::stop()
 */
 bool FFProcess::kill()
 {
-  if ( ! m_QProcess )
-    return false;
+    if ( ! m_QProcess )
+        return false;
 
-  emit message ( trUtf8 ( "force shutdown" ) );
+    emit message ( trUtf8 ( "force shutdown" ) );
 
-  m_QProcess->kill ();
-  return true;
+    m_QProcess->kill ();
+    return true;
 }
 
 /**
@@ -149,35 +156,35 @@ bool FFProcess::kill()
 */
 bool FFProcess::isRunning()
 {
-  if ( ! m_QProcess )
-    return false;
+    if ( ! m_QProcess )
+        return false;
 
-  switch ( m_QProcess->state() )
-  {
+    switch ( m_QProcess->state() )
+    {
     case QProcess::NotRunning:
     {
-      emit down ();
-      return false;
+        emit down ();
+        return false;
     }
 
     case QProcess::Starting:
     {
-      emit running ();
-      return true;
+        emit running ();
+        return true;
     }
 
     case QProcess::Running:
     {
-      emit running ();
-      return true;
+        emit running ();
+        return true;
     }
 
     default:
     {
-      emit down ();
-      return false;
+        emit down ();
+        return false;
     }
-  }
+    }
 }
 
 /**
@@ -185,33 +192,33 @@ bool FFProcess::isRunning()
 */
 void FFProcess::errors ( QProcess::ProcessError err )
 {
-  QString errtxt = m_QProcess->errorString();
-  switch ( err )
-  {
+    QString errtxt = m_QProcess->errorString();
+    switch ( err )
+    {
     case QProcess::FailedToStart:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "FailedToStart (%1) ..." ).arg ( errtxt ) );
-      break;
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "FailedToStart (%1) ..." ).arg ( errtxt ) );
+        break;
 
     case QProcess::Crashed:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "Crashed (%1) ..." ).arg ( errtxt ) );
-      break;
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "Crashed (%1) ..." ).arg ( errtxt ) );
+        break;
 
     case QProcess::Timedout:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "Timedout (%1) ..." ).arg ( errtxt ) );
-      break;
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "Timedout (%1) ..." ).arg ( errtxt ) );
+        break;
 
     case QProcess::WriteError:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "WriteError (%1) ..." ).arg ( errtxt ) );
-      break;
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "WriteError (%1) ..." ).arg ( errtxt ) );
+        break;
 
     case QProcess::ReadError:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "ReadError (%1) ..." ).arg ( errtxt ) );
-      break;
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "ReadError (%1) ..." ).arg ( errtxt ) );
+        break;
 
     case QProcess::UnknownError:
-      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "UnknownError (%1) ..." ).arg ( errtxt ) );
-      break;
-  }
+        emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "UnknownError (%1) ..." ).arg ( errtxt ) );
+        break;
+    }
 }
 
 /**
@@ -219,21 +226,21 @@ void FFProcess::errors ( QProcess::ProcessError err )
 */
 void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 {
-  Q_UNUSED ( exitCode )
+    Q_UNUSED ( exitCode )
 
-  switch ( stat )
-  {
+    switch ( stat )
+    {
     case QProcess::NormalExit:
-      emit message ( trUtf8 ( "Recording finished." ) );
-      break;
+        emit message ( trUtf8 ( "Recording finished." ) );
+        break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( qx11grabLogfile() ) );
-      break;
+        emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( qx11grabLogfile() ) );
+        break;
 
     default:
-      return;
-  }
+        return;
+    }
 }
 
 /**
@@ -241,8 +248,8 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 */
 void FFProcess::startCheck()
 {
-  if ( isRunning() )
-    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( qx11grabLogfile() ) );
+    if ( isRunning() )
+        emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( qx11grabLogfile() ) );
 }
 
 FFProcess::~FFProcess()
