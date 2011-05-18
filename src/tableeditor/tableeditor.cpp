@@ -35,6 +35,7 @@
 extern "C"
 {
 #include <libavutil/common.h>
+#include <libavutil/avutil.h>
 #include <libavformat/avformat.h>
 #include <libavcodec/avcodec.h>
 }
@@ -72,7 +73,7 @@ void TableEditor::findVideoCodecs()
   int index = 0;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
   {
-    if ( ( codec->type == CODEC_TYPE_VIDEO ) && ( codec->encode ) )
+    if ( ( codec->type == AVMEDIA_TYPE_VIDEO ) && ( codec->encode ) )
     {
       codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
       codecSelection->setItemData ( index, codec->name, Qt::EditRole );
@@ -104,7 +105,7 @@ void TableEditor::findAudioCodecs()
   int index = 0;
   for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
   {
-    if ( ( codec->type == CODEC_TYPE_AUDIO ) && ( codec->encode ) )
+    if ( ( codec->type == AVMEDIA_TYPE_AUDIO ) && ( codec->encode ) )
     {
       codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
       codecSelection->setItemData ( index, codec->name, Qt::EditRole );
