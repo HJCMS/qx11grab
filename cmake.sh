@@ -10,10 +10,11 @@ source $HOME/hjcms/projectconfigurations.sh
 fi
 
 cmake -Wdev \
-	-DCMAKE_CXX_FLAGS:STRING="${CFLAGS:-"-O2"}" \
-	-DCMAKE_INSTALL_PREFIX:PATH=/usr \
-	-DCMAKE_BUILD_TYPE:STRING=Debug \
-	$CMAKE_EXTRAS ../
+  -DCMAKE_CXX_FLAGS:STRING="${CFLAGS:-"-O2"}" \
+  -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+  -DCMAKE_BUILD_TYPE:STRING=Debug \
+  -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4) \
+  $CMAKE_EXTRAS ../
 
 # cmake -Wdev \
 # 	-DCMAKE_CXX_FLAGS:STRING="${CFLAGS:-"-O2"}" \

@@ -5,9 +5,10 @@ PROJECT (qx11grab)
 CMAKE_MINIMUM_REQUIRED (VERSION 2.8.0 FATAL_ERROR)
 
 ##############################################################
-# CMP0002: we have multiple targets with the same name for the unit tests
+# CMP0017: we have multiple targets for CheckCXXSourceCompiles with kde4
 ##############################################################
-CMAKE_POLICY (VERSION 2.8)
+CMAKE_POLICY (SET CMP0017 OLD)
+ENABLE_LANGUAGE (CXX)
 
 ##############################################################
 # where to look first for cmake modules, before ${CMAKE_ROOT}/cmake/Modules/ is checked
