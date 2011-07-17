@@ -79,7 +79,7 @@ int main ( int argc, char* argv[] )
   about.setOrganizationDomain ( "hjcms.de" );
 
   KCmdLineArgs::init ( argc, argv, &about );
-  KApplication app ( true );
+  KUniqueApplication app ( true );
 
 #else
 
