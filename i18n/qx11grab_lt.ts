@@ -11,7 +11,7 @@
     <message>
         <location filename="../src/audiodevice.cpp" line="53"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagerinta Linux garso sistema (ALSA)</translation>
     </message>
     <message>
         <location filename="../src/audiodevice.cpp" line="56"/>
@@ -32,7 +32,8 @@
         <location filename="../src/audiodevice.cpp" line="72"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Keisti garsumą.
+Numatytasis: 256</translation>
     </message>
     <message>
         <location filename="../src/audiodevice.cpp" line="76"/>
@@ -502,7 +503,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     <message>
         <location filename="../src/rubberband.cpp" line="69"/>
         <source>Scalability Failure Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Dydžio keitimo klaida dėl pločio</translation>
     </message>
     <message>
         <location filename="../src/rubberband.cpp" line="70"/>
@@ -512,7 +513,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     <message>
         <location filename="../src/rubberband.cpp" line="77"/>
         <source>Scalability Failure Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Dydžio keitimo klaida dėl aukščio</translation>
     </message>
     <message>
         <location filename="../src/rubberband.cpp" line="78"/>
