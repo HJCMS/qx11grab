@@ -41,7 +41,6 @@ class Defaults : public QWidget
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
-    QCheckBox* m_setPasuspender;
     QLineEdit* ff_path;
     QLineEdit* outputName;
     QLineEdit* outputDirectory;

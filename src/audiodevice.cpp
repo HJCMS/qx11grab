@@ -27,6 +27,7 @@
 #endif
 
 /* QtCore */
+#include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QString>
 
@@ -38,67 +39,91 @@
 #include <QtGui/QVBoxLayout>
 
 AudioDevice::AudioDevice ( QWidget * parent )
-        : QWidget ( parent )
+    : QWidget ( parent )
 {
-    setObjectName ( QLatin1String ( "audiodevice" ) );
-    setContentsMargins ( 0, 2, 0, 2 );
+  setObjectName ( QLatin1String ( "audiodevice" ) );
+  setContentsMargins ( 0, 2, 0, 2 );
 
-    QVBoxLayout* vLayout = new QVBoxLayout ( this );
-    vLayout->setContentsMargins ( 0, 2, 0, 2 );
+  QVBoxLayout* vLayout = new QVBoxLayout ( this );
+  vLayout->setContentsMargins ( 0, 2, 0, 2 );
 
-    QGroupBox* audioGroup = new QGroupBox ( trUtf8 ( "Audio Settings" ), this );
-    audioGroup->setFlat ( true );
-    QGridLayout* gridLayout = new QGridLayout ( audioGroup );
+  QGroupBox* audioGroup = new QGroupBox ( trUtf8 ( "Audio Settings" ), this );
+  audioGroup->setFlat ( true );
 
-    m_swap_alsa = new QRadioButton ( trUtf8 ( "Advanced Linux Sound Architecture (Alsa)" ), audioGroup );
-    gridLayout->addWidget ( m_swap_alsa, 0, 0, 1, 1 );
+  int grow = 0; // GridLayout RowCount
+  QGridLayout* gridLayout = new QGridLayout ( audioGroup );
+  m_swapAudio = new QComboBox ( audioGroup );
+  m_swapAudio->insertItem ( NONE, trUtf8 ( "Audio System" ) );
+  m_swapAudio->insertItem ( ALSA, trUtf8 ( "Advanced Linux Sound Architecture (Alsa)" ) );
+  m_swapAudio->insertItem ( OSS, trUtf8 ( "Open Sound System (OSS)" ) );
+  m_swapAudio->insertItem ( PULSE, trUtf8 ( "Soundserver (Pulse)" ) );
+  m_swapAudio->setCurrentIndex ( 0 );
+  gridLayout->addWidget ( m_swapAudio, grow++, 0, 1, 3, Qt::AlignRight );
 
-    m_swap_oss = new QRadioButton ( trUtf8 ( "Open Sound System (OSS)" ), audioGroup );
-    gridLayout->addWidget ( m_swap_oss, 0, 1, 1, 2 );
-    // Setze Alsa als Standard
-    m_swap_alsa->setChecked ( true );
+  QLabel* txt0 = new QLabel ( audioGroup );
+  txt0->setText ( trUtf8 ( "Audio Intensifier:" ) );
+  txt0->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
+  gridLayout->addWidget ( txt0, grow, 0, 1, 1 );
 
-    QLabel* txt0 = new QLabel ( audioGroup );
-    txt0->setText ( trUtf8 ( "Audio Intensifier:" ) );
-    txt0->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
-    gridLayout->addWidget ( txt0, 1, 0, 1, 1 );
+  intensifier = new QSpinBox ( audioGroup );
+  intensifier->setSingleStep ( 2 );
+  intensifier->setRange ( 0, 512 );
+  intensifier->setValue ( 256 );
+  intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
+  intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
+  intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
+  gridLayout->addWidget ( intensifier, grow++, 1, 1, 2 );
 
-    intensifier = new QSpinBox ( audioGroup );
-    intensifier->setSingleStep ( 2 );
-    intensifier->setRange ( 0, 512 );
-    intensifier->setValue ( 256 );
-    intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
-    intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
-    intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
-    gridLayout->addWidget ( intensifier, 1, 1, 1, 2 );
+  QLabel* txt1 = new QLabel ( audioGroup );
+  txt1->setText ( trUtf8 ( "Audio Capture Device:" ) );
+  txt1->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
+  gridLayout->addWidget ( txt1, grow, 0, 1, 1 );
 
-    QLabel* txt1 = new QLabel ( audioGroup );
-    txt1->setText ( trUtf8 ( "Audio Capture Device:" ) );
-    txt1->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
-    gridLayout->addWidget ( txt1, 2, 0, 1, 1 );
+  device = new QLineEdit ( audioGroup );
+  device->setObjectName ( QLatin1String ( "device" ) );
+  device->setWhatsThis ( trUtf8 ( "Change Audio Capture Device\nOSS Default: /dev/dsp or Alsa Default: default" ) );
+  gridLayout->addWidget ( device, grow, 1, 1, 1 );
 
-    device = new QLineEdit ( audioGroup );
-    device->setObjectName ( QLatin1String ( "device" ) );
-    device->setWhatsThis ( trUtf8 ( "Change Audio Capture Device\nOSS Default: /dev/dsp or Alsa Default: default" ) );
-    gridLayout->addWidget ( device, 2, 1, 1, 1 );
+  findAlsaPCMButton = new QToolButton ( audioGroup );
+  findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
+  findAlsaPCMButton->setIcon ( getThemeIcon ( "audio-headset" ) );
+  findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
+  findAlsaPCMButton->setDisabled ( true ); // Standard ist Deaktiviert
+  gridLayout->addWidget ( findAlsaPCMButton, grow++, 2, 1, 1 );
 
-    findAlsaPCMButton = new QToolButton ( audioGroup );
-    findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
-    findAlsaPCMButton->setIcon ( getThemeIcon ( "audio-headset" ) );
-    findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
-    findAlsaPCMButton->setDisabled ( true ); // Standard ist Deaktiviert
-    gridLayout->addWidget ( findAlsaPCMButton, 2, 2, 1, 1 );
+  QLabel* txt2 = new QLabel ( audioGroup );
+  txt2->setText ( trUtf8 ( "Sample Format:" ) );
+  txt2->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
+  gridLayout->addWidget ( txt2, grow, 0, 1, 1 );
 
-    vLayout->addWidget ( audioGroup );
-    vLayout->addStretch ( 1 );
+  m_audioSampleFormat = new QComboBox ( audioGroup );
+  m_audioSampleFormat->setObjectName ( QLatin1String( "sample_fmt" ) );
+  m_audioSampleFormat->setToolTip ( trUtf8 ( "The sample format of the incoming audio buffers." ) );
+  m_audioSampleFormat->setWhatsThis ( trUtf8 ( "To show available sample formats use ffmpeg -sample_fmts" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "unknown" ), QVariant ( "NONE" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "unsigned 8 bits" ), QVariant ( "u8" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "signed 16 bits" ), QVariant ( "s16" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "signed 32 bits" ), QVariant ( "s32" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "float" ), QVariant ( "flt" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "double" ), QVariant ( "dbl" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "unsigned 8 bits, planar" ), QVariant ( "u8p" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "unsigned 16 bits, planar" ), QVariant ( "s16p" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "signed 32 bits, planar" ), QVariant ( "s32p" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "float, planar" ), QVariant ( "fltp" ) );
+  m_audioSampleFormat->addItem ( trUtf8 ( "double, planar" ), QVariant ( "dblp" ) );
+  m_audioSampleFormat->setCurrentIndex ( 0 );
+  gridLayout->addWidget ( m_audioSampleFormat, grow++, 1, 1, 2, Qt::AlignLeft );
 
-    setLayout ( vLayout );
+  vLayout->addWidget ( audioGroup );
+  vLayout->addStretch ( 1 );
 
-    connect ( m_swap_alsa, SIGNAL ( toggled ( bool ) ),
-              findAlsaPCMButton, SLOT ( setEnabled ( bool ) ) );
+  setLayout ( vLayout );
 
-    connect ( findAlsaPCMButton, SIGNAL ( clicked () ),
-              this, SLOT ( getpcmClicked() ) );
+  connect ( m_swapAudio, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SLOT ( audioEngineChanged ( int ) ) );
+
+  connect ( findAlsaPCMButton, SIGNAL ( clicked () ),
+            this, SLOT ( getpcmClicked() ) );
 }
 
 /**
@@ -107,16 +132,16 @@ AudioDevice::AudioDevice ( QWidget * parent )
 */
 void AudioDevice::setAlsaRecordingPCM()
 {
-    PicRecordInterface* dialog = new PicRecordInterface ( this );
-    dialog->setCard ( device->text() );
-    if ( dialog->exec() == QDialog::Accepted )
-    {
-        AlsaAudioDevice d = dialog->cardInfo();
-        device->setText ( d.name );
-        device->setToolTip ( d.hw );
-        device->setStatusTip ( d.description );
-    }
-    delete dialog;
+  PicRecordInterface* dialog = new PicRecordInterface ( this );
+  dialog->setCard ( device->text() );
+  if ( dialog->exec() == QDialog::Accepted )
+  {
+    AlsaAudioDevice d = dialog->cardInfo();
+    device->setText ( d.name );
+    device->setToolTip ( d.hw );
+    device->setStatusTip ( d.description );
+  }
+  delete dialog;
 }
 
 /**
@@ -125,8 +150,26 @@ void AudioDevice::setAlsaRecordingPCM()
 */
 void AudioDevice::getpcmClicked()
 {
-    if ( m_swap_alsa->isChecked() )
-        setAlsaRecordingPCM();
+  switch ( m_swapAudio->currentIndex() )
+  {
+    case NONE:
+      break;
+
+    case ALSA:
+      setAlsaRecordingPCM();
+      return;
+
+    case OSS:
+      break;
+
+    case PULSE:
+      // TODO http://ffmpeg.org/doxygen/trunk/pulse_8c.html
+      qDebug() << Q_FUNC_INFO << "TODO:PULSE";
+      break;
+
+    default:
+      return;
+  };
 }
 
 /**
@@ -134,7 +177,7 @@ void AudioDevice::getpcmClicked()
 */
 void AudioDevice::setVolume ( int i )
 {
-    intensifier->setValue ( i );
+  intensifier->setValue ( i );
 }
 
 /**
@@ -142,24 +185,58 @@ void AudioDevice::setVolume ( int i )
 */
 int AudioDevice::getVolume ()
 {
-    return intensifier->value();
+  return intensifier->value();
 }
 
 /**
-* Setzt das Audio System, "alsa" oder "oss" sind erlaubt.
+* Setzt das Audio System ueber die Auswahl Box
+*/
+void AudioDevice::audioEngineChanged ( int index )
+{
+  switch ( index )
+  {
+    case NONE:
+      findAlsaPCMButton->setDisabled ( true );
+      break;
+
+    case ALSA:
+      findAlsaPCMButton->setDisabled ( false );
+      break;
+
+    case OSS:
+      findAlsaPCMButton->setDisabled ( true );
+      break;
+
+    case PULSE:
+      findAlsaPCMButton->setDisabled ( true );
+      break;
+
+    default:
+      findAlsaPCMButton->setDisabled ( true );
+      break;
+  };
+}
+
+/**
+* Setzt das Audio System, "alsa","oss" oder "pulse" sind erlaubt.
 */
 void AudioDevice::setAudioEngine ( const QString &t )
 {
-    if ( t.contains ( QString::fromUtf8 ( "alsa" ) ) )
-    {
-        m_swap_alsa->setChecked ( true );
-        findAlsaPCMButton->setDisabled ( false );
-    }
-    else
-    {
-        m_swap_oss->setChecked ( true );
-        findAlsaPCMButton->setDisabled ( true );
-    }
+  if ( t.contains ( QString::fromUtf8 ( "alsa" ) ) )
+  {
+    m_swapAudio->setCurrentIndex ( ALSA );
+    findAlsaPCMButton->setDisabled ( false );
+  }
+  else if ( t.contains ( QString::fromUtf8 ( "oss" ) ) )
+  {
+    m_swapAudio->setCurrentIndex ( OSS );
+    findAlsaPCMButton->setDisabled ( true );
+  }
+  else if ( t.contains ( QString::fromUtf8 ( "pulse" ) ) )
+  {
+    m_swapAudio->setCurrentIndex ( PULSE );
+    findAlsaPCMButton->setDisabled ( true );
+  }
 }
 
 /**
@@ -168,7 +245,35 @@ void AudioDevice::setAudioEngine ( const QString &t )
 */
 const QString AudioDevice::getAudioEngine ()
 {
-    return m_swap_alsa->isChecked() ? QLatin1String ( "alsa" ) : QLatin1String ( "oss" );
+  QString devType;
+  switch ( m_swapAudio->currentIndex() )
+  {
+    case NONE:
+      devType = trUtf8 ( "Unknown" );
+      break;
+
+    case ALSA:
+      devType = QLatin1String ( "alsa" );
+      break;
+
+    case OSS:
+      devType = QLatin1String ( "oss" );
+      break;
+
+    case PULSE:
+      devType = QLatin1String ( "pulse" );
+      break;
+
+    default:
+      devType = trUtf8 ( "Unknown" );
+      break;
+  };
+  return devType;
+}
+
+void AudioDevice::setAudioDevice ( AudioDevice::AUDIODEV dev )
+{
+  m_swapAudio->setCurrentIndex ( dev );
 }
 
 /**
@@ -177,7 +282,7 @@ const QString AudioDevice::getAudioEngine ()
 */
 void AudioDevice::setAudioDevice ( const QString &d )
 {
-    device->setText ( d );
+  device->setText ( d );
 }
 
 /**
@@ -186,7 +291,32 @@ void AudioDevice::setAudioDevice ( const QString &d )
 */
 const QString AudioDevice::getAudioDevice ()
 {
-    return device->text();
+  return device->text();
+}
+
+/**
+* Setz das Aktuelle Sample Format
+*/
+void AudioDevice::setSampleFormat ( const QString &sfmt )
+{
+  for ( int i = 0; i < m_audioSampleFormat->count(); ++i )
+  {
+    if ( m_audioSampleFormat->itemData ( i, Qt::UserRole ).toString().compare ( sfmt ) == 0 )
+    {
+      m_audioSampleFormat->setCurrentIndex ( i );
+      break;
+    }
+  }
+}
+
+/**
+* Hole das Sample Format
+*/
+const QString AudioDevice::getSampleFormat()
+{
+  QString sample_fmt;
+  sample_fmt = m_audioSampleFormat->itemData ( m_audioSampleFormat->currentIndex(), Qt::UserRole ).toString();
+  return sample_fmt;
 }
 
 /**
@@ -195,19 +325,35 @@ const QString AudioDevice::getAudioDevice ()
 */
 const QStringList AudioDevice::data()
 {
-    QStringList cmd;
-    if ( device->text().isEmpty() )
-        return cmd;
-
-    if ( m_swap_alsa->isChecked() )
-        cmd << "-f" << "alsa" << "-i" << device->text();
-    else
-        cmd << "-f" << "oss" << "-i" << device->text();
-
-    if ( intensifier->value() != 256 )
-        cmd << "-vol" << QString::number ( intensifier->value() );
-
+  QStringList cmd;
+  if ( device->text().isEmpty() )
     return cmd;
+
+  switch ( m_swapAudio->currentIndex() )
+  {
+    case ALSA:
+      cmd << "-f" << "alsa" << "-i" << device->text();
+      break;
+
+    case OSS:
+      cmd << "-f" << "oss" << "-i" << device->text();
+      break;
+
+    case PULSE:
+      cmd << "-f" << "pulse" << "-i" << ( device->text().isEmpty() ? "default" : device->text() );
+      break;
+
+    default:
+      break;
+  };
+
+  if ( ! getSampleFormat().contains ( "NONE" ) )
+    cmd<< "-sample_fmt" << getSampleFormat();
+
+  if ( intensifier->value() != 256 )
+    cmd << "-vol" << QString::number ( intensifier->value() );
+
+  return cmd;
 }
 
 AudioDevice::~AudioDevice()

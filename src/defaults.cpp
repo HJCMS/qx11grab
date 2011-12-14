@@ -57,18 +57,11 @@ Defaults::Defaults ( QWidget * parent )
     Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
 
     int gridRow = 0;
-    // begin: Pulse pasuspender
-    m_setPasuspender = new QCheckBox ( this );
-    m_setPasuspender->setText ( trUtf8 ( "Enable temporarily suspend PulseAudio Server" ) );
-    m_setPasuspender->setToolTip ( trUtf8 ( "if ffmpeg is running tell PulseAudio sound server to temporarily suspend access to the audio devices" ) );
-    gridLayout->addWidget ( m_setPasuspender, gridRow, 0, 1, 3 );
-    // end: Pulse pasuspender
-
     // begin: FFmpeg Binary
     QLabel* txt_ffbinary = new QLabel ( this );
     txt_ffbinary->setText ( trUtf8 ( "FFmpeg Application:" ) );
     txt_ffbinary->setAlignment ( labelAlignment );
-    gridLayout->addWidget ( txt_ffbinary, ++gridRow, 0, 1, 1 );
+    gridLayout->addWidget ( txt_ffbinary, gridRow, 0, 1, 1 );
 
     ff_path = new QLineEdit ( this );
     ff_path->setObjectName ( QLatin1String ( "ff_path" ) );
@@ -157,13 +150,15 @@ void Defaults::setOutpuDirectory()
 */
 void Defaults::load ( QSettings * cfg )
 {
+    // DEPRECATED Config Option enable_pulse_pasuspender
+    cfg->remove ( QLatin1String ( "enable_pulse_pasuspender" ) );
+
     QList<QLineEdit*> items;
     items << outputDirectory << outputName << ff_path;
-
-    m_setPasuspender->setChecked( cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), false ).toBool() );
     m_audioDevice->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
     m_audioDevice->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
     m_audioDevice->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
+    m_audioDevice->setSampleFormat ( cfg->value ( QLatin1String ( "audio_sample_fmt" ) ).toString() );
 
     foreach ( QLineEdit* edit, items )
     {
@@ -179,7 +174,6 @@ void Defaults::save ( QSettings * cfg )
     QList<QLineEdit*> items;
     items << outputDirectory << outputName << ff_path;
 
-    cfg->setValue ( QLatin1String ( "enable_pulse_pasuspender" ), m_setPasuspender->isChecked() );
     cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDevice->getAudioEngine() );
 
     if ( m_audioDevice->getVolume() != 256 )
@@ -191,6 +185,11 @@ void Defaults::save ( QSettings * cfg )
         cfg->remove ( QLatin1String ( "audio_device" ) );
     else
         cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDevice->getAudioDevice() );
+
+    if ( m_audioDevice->getSampleFormat().isEmpty() )
+        cfg->remove ( QLatin1String ( "audio_sample_fmt" ) );
+    else
+        cfg->setValue ( QLatin1String ( "audio_sample_fmt" ), m_audioDevice->getSampleFormat() );
 
     foreach ( QLineEdit* edit, items )
     {

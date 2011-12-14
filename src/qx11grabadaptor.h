@@ -51,9 +51,6 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
 "  </interface>\n"
 "" )
 
-  protected:
-    QDBusConnection *rcDBus;
-
   public:
     QX11GrabAdaptor ( QObject *parent = 0 );
     virtual ~QX11GrabAdaptor();

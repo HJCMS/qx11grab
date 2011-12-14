@@ -35,15 +35,14 @@
 #include <QtCore/QTextCodec>
 
 /* QtGui */
+#include <QtGui/QApplication>
 #include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QX11Info>
 
 /* QtDBus */
-#ifndef HAVE_KDE4_SUPPORT
-# include <QtDBus/QDBusConnection>
-# include <QtDBus/QDBusMessage>
-#endif
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
 
 #ifndef QX11GRAB_VERSION
 # include "version.h"
@@ -51,38 +50,10 @@
 
 #include "settings.h"
 #include "qx11grab.h"
-
-/* KDE */
-#ifdef HAVE_KDE4_SUPPORT
-# include <KDE/KAboutData>
-# include <KDE/KUniqueApplication>
-# include <KDE/KCmdLineArgs>
-#else
-# include <QtGui/QApplication>
-#endif
+#include "qx11grabadaptor.h"
 
 int main ( int argc, char* argv[] )
 {
-#ifdef HAVE_KDE4_SUPPORT
-
-  KAboutData about ( "qx11grab", 0, ki18n ( "XWindow Recorder" ),
-                     QX11GRAB_VERSION, ki18n ( "A Desktop Recording Tool" ),
-                     KAboutData::License_GPL_V3,
-                     ki18n ( "Copyright (C) 2006-2010, The HJCMS Developer Team" ),
-                     ki18n ( "Yet an other screencasting tool using ffmpeg" ),
-                     "http://www.hjcms.de", aboutMail() );
-
-  about.addAuthor ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( "Maintainer" ), aboutMail() );
-  about.setProgramIconName ( "qx11grab" );
-  about.setTranslator ( ki18n ( "Juergen Heinemann (Undefined)" ), ki18n ( aboutMail() ) );
-  about.setHomepage ( "http://qx11grab.hjcms.de" );
-  about.setOrganizationDomain ( "hjcms.de" );
-
-  KCmdLineArgs::init ( argc, argv, &about );
-  KUniqueApplication app ( true );
-
-#else
-
   QString reg ( QX11GRAB_DBUS_DOMAIN_NAME );
   QDBusConnection* bus = new QDBusConnection ( QDBusConnection::sessionBus() );
   if ( ! bus->registerService ( reg ) )
@@ -95,10 +66,8 @@ int main ( int argc, char* argv[] )
 
     return EXIT_SUCCESS;
   }
+
   QApplication app ( argc, argv, true );
-
-#endif
-
   app.setApplicationName ( "qx11grab" );
   app.setApplicationVersion ( QX11GRAB_VERSION );
   app.setOrganizationDomain ( "hjcms.de" );
@@ -124,12 +93,14 @@ int main ( int argc, char* argv[] )
 
   Settings* m_Settings = new Settings ( &app );
 
-  QX11Grab grab ( m_Settings );
+  QX11Grab* grab = new  QX11Grab( m_Settings );
+  bus->registerObject ( QString( "/" ), grab, QDBusConnection::ExportAdaptors );
+  new QX11GrabAdaptor ( grab );
 
   if ( m_Settings->value ( "startMinimized", false ).toBool() )
-    grab.hide();
+    grab->hide();
   else
-    grab.show();
+    grab->show();
 
   return app.exec();
 }

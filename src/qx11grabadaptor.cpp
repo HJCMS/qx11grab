@@ -27,9 +27,6 @@
 QX11GrabAdaptor::QX11GrabAdaptor ( QObject *parent )
     : QDBusAbstractAdaptor ( parent )
 {
-  rcDBus = new QDBusConnection ( QDBusConnection::sessionBus() );
-  rcDBus->registerService ( QX11GRAB_DBUS_DOMAIN_NAME );
-  rcDBus->sessionBus().registerObject ( "/qx11grab", parent, QDBusConnection::ExportAdaptors );
   setAutoRelaySignals ( false );
 }
 
@@ -66,6 +63,4 @@ const QString QX11GrabAdaptor::command()
 }
 
 QX11GrabAdaptor::~QX11GrabAdaptor()
-{
-  rcDBus->unregisterObject ( "/qx11grab", QDBusConnection::UnregisterNode );
-}
+{}

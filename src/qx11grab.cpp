@@ -30,7 +30,6 @@
 #include "metadata.h"
 #include "ffprocess.h"
 #include "commandpreview.h"
-#include "qx11grabadaptor.h"
 #include "logviewer.h"
 
 /* QtCore */
@@ -51,9 +50,6 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QX11Info>
 
-/* QtDBus */
-#include <QtDBus/QDBusConnection>
-
 QX11Grab::QX11Grab ( Settings *settings )
     : QMainWindow(), cfg ( settings )
 {
@@ -68,13 +64,9 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
 
-  m_splitter = new QSplitter ( Qt::Vertical, layerWidget );
-  m_splitter->setObjectName ( QLatin1String ( "splitter" ) );
-  verticalLayout->addWidget ( m_splitter );
-
-  QToolBox* toolBox = new QToolBox ( m_splitter, Qt::Widget );
+  QToolBox* toolBox = new QToolBox ( layerWidget, Qt::Widget );
   toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
-  m_splitter->insertWidget ( 0, toolBox );
+  verticalLayout->addWidget ( toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
   toolBox->addItem ( m_grabberInfo, boxIcon, QString::fromUtf8 ( "QX11Grab" ) );
@@ -94,8 +86,8 @@ QX11Grab::QX11Grab ( Settings *settings )
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
   toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
 
-  m_commandPreview = new CommandPreview ( m_splitter );
-  m_splitter->insertWidget ( 1, m_commandPreview );
+  m_commandPreview = new CommandPreview ( toolBox );
+  toolBox->addItem ( m_commandPreview, boxIcon, QString::fromUtf8 ( "FFmpeg" ) );
 
   QWidget* layerActionsWidget = new QWidget ( layerWidget );
   layerActionsWidget->setObjectName ( QLatin1String ( "layeractionswidget" ) );
@@ -137,10 +129,6 @@ QX11Grab::QX11Grab ( Settings *settings )
   createActions();
   createEnviroment();
   createSystemTrayIcon();
-
-  m_busAdaptor = new QX11GrabAdaptor ( this );
-  connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
-            m_busAdaptor, SIGNAL ( message ( const QString & ) ) );
 
   /* Signals */
   connect ( m_FFProcess, SIGNAL ( message ( const QString & ) ),
@@ -312,11 +300,7 @@ void QX11Grab::createEnviroment()
 
 void QX11Grab::createSystemTrayIcon()
 {
-#ifdef HAVE_KDE4_SUPPORT
-  systemTrayMenu = new KMenu ( this );
-#else
   systemTrayMenu = new QMenu ( this );
-#endif
   systemTrayMenu->addAction ( grabActionFromWindow );
   systemTrayMenu->addAction ( showRubberbandWindow );
   systemTrayMenu->addSeparator();
@@ -328,13 +312,10 @@ void QX11Grab::createSystemTrayIcon()
   systemTrayMenu->addSeparator();
   systemTrayMenu->addAction ( quitWindowAction );
 
-#ifdef HAVE_KDE4_SUPPORT
-  systemTrayIcon = new KSystemTrayIcon ( this );
-#else
   systemTrayIcon = new QSystemTrayIcon ( this );
   connect ( systemTrayIcon, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
             this, SLOT ( systemTrayWatcher ( QSystemTrayIcon::ActivationReason ) ) );
-#endif
+
   systemTrayIcon->setIcon ( getThemeIcon ( "qx11grab" ) );
   systemTrayIcon->setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
   systemTrayIcon->setContextMenu ( systemTrayMenu );
@@ -492,12 +473,6 @@ void QX11Grab::closeEvent ( QCloseEvent *ev )
     m_FFProcess->deleteLater ();
   }
   saveStats();
-
-  if ( m_busAdaptor )
-  {
-    QDBusConnection::sessionBus().unregisterObject ( "/qx11grab", QDBusConnection::UnregisterNode );
-    delete m_busAdaptor;
-  }
 }
 
 /**
@@ -626,19 +601,27 @@ void QX11Grab::openLogFileDialog()
 
 /**
 * Kommando Zeile für Textausgabe Aufbereiten.
+*  X11grab indev AVOptions:
+*  -video_size    string A string describing frame size, such as 640x480 or hd720.
+*  -framerate     string
+*  -draw_mouse    int    Draw the mouse pointer.
+*  -follow_mouse  int    Move the grabbing region when the mouse pointer reaches within specified amount of pixels to the edge of region.
+*     centered           Keep the mouse pointer at the center of grabbing region when following.
+*  -show_region   int    Show the grabbing region.
 */
 void QX11Grab::perparePreview()
 {
   QStringList commandLine;
 
   commandLine << m_defaults->binary ();
-  commandLine << "-f" << "x11grab" << "-xerror";
+  commandLine << "-xerror" << "-f" << "x11grab";
 
   QRect r = m_grabberInfo->getRect();
-  commandLine << "-r" << QString::number ( m_grabberInfo->frameRate() );
-  commandLine << "-s" << QString ( "%1x%2" ).arg (
+  commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
+  commandLine << "-video_size" << QString ( "%1x%2" ).arg (
       QString::number ( r.width() ), QString::number ( r.height() )
   );
+  commandLine << "-r" << QString::number ( m_grabberInfo->frameRate() );
 
   QX11Info xInfo;
   commandLine << "-i" << QString ( ":%1.%2+%3,%4 " ) .arg (
@@ -647,6 +630,10 @@ void QX11Grab::perparePreview()
       QString::number ( r.x() ),
       QString::number ( r.y() )
   );
+
+  // Audio System
+  if ( m_grabberInfo->soundEnabled() )
+    commandLine << m_defaults->audioDeviceData();
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
@@ -657,10 +644,7 @@ void QX11Grab::perparePreview()
 
   // Audio Aufnahme
   if ( m_grabberInfo->soundEnabled() )
-  {
-    commandLine << m_defaults->audioDeviceData();
     commandLine << m_audioEditor->getCmd ();
-  }
 
   // Output Options
   commandLine << "-y" << m_defaults->output();

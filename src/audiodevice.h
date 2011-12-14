@@ -29,7 +29,7 @@
 
 /* QtGui */
 #include <QtGui/QLineEdit>
-#include <QtGui/QRadioButton>
+#include <QtGui/QComboBox>
 #include <QtGui/QSpinBox>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
@@ -38,28 +38,53 @@ class AudioDevice : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_ENUMS ( AUDIODEV )
 
   private:
-    QRadioButton* m_swap_alsa;
-    QRadioButton* m_swap_oss;
+    QComboBox* m_swapAudio;
     QSpinBox* intensifier;
     QLineEdit* device;
     QToolButton* findAlsaPCMButton;
+    QComboBox* m_audioSampleFormat;
     void setAlsaRecordingPCM();
 
   private Q_SLOTS:
     void getpcmClicked();
+    void audioEngineChanged ( int index );
 
   public:
+    enum AUDIODEV { NONE = 0, ALSA = 1, OSS = 2, PULSE = 3 };
+
     AudioDevice ( QWidget * parent = 0 );
+
     void setVolume ( int );
     int getVolume ();
+
     void setAudioEngine ( const QString & );
     const QString getAudioEngine ();
+
+    void setAudioDevice ( AudioDevice::AUDIODEV dev );
     void setAudioDevice ( const QString & );
     const QString getAudioDevice ();
+
+    /**
+    * Set the audio sample format.
+    * \see ffmpeg -sample_fmts
+    * \param sfmt sample format
+    */
+    void setSampleFormat ( const QString &sfmt );
+
+    /**
+    * Get the audio sample format.
+    */
+    const QString getSampleFormat();
+
+    /**
+    * Configured commandline String
+    */
     const QStringList data();
-    ~AudioDevice();
+
+    virtual ~AudioDevice();
 };
 
 #endif

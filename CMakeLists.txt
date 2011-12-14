@@ -25,10 +25,10 @@ FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
 
 ## Disable KDE4 Framework Support
-OPTION (DISABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
-IF (NOT DISABLE_KDE_SUPPORT)
+OPTION (ENABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
+IF (ENABLE_KDE_SUPPORT)
   FIND_PACKAGE (KDE4 4.5.0)
-ENDIF (NOT DISABLE_KDE_SUPPORT)
+ENDIF (ENABLE_KDE_SUPPORT)
 
 SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.${CMAKE_PROJECT_NAME}")
 
@@ -54,7 +54,6 @@ SET (QX11GRAB_RESOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/qx11grab.qrc")
 INCLUDE (CheckCXXCompilerFlag)
 INCLUDE (MacroEnsureVersion)
 
-
 ##############################################################
 ## gcc g++ ld
 ##############################################################
@@ -63,17 +62,16 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 
   INCLUDE (CheckingGNUCXX)
 
-  IF (CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
-    SET (TWEAKING_LDFLAGS "-Wl,--as-needed")
-  ENDIF(CMAKE_BUILD_TYPE STREQUAL "MinSizeRel")
+  SET (QX11GRAB_LDFLAGS "" CACHE STRING "additional project linker flags")
+
+  IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET (QX11GRAB_LDFLAGS "${QX11GRAB_LDFLAGS} -Wl,--build-id")
+  ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 
-##############################################################
-## APPEND|REMOVE DEFINITIONS
-##############################################################
-
-REMOVE_DEFINITIONS (-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT)
+IF (PULSEAUDIO_FOUND)
+ENDIF (PULSEAUDIO_FOUND)
 
 ##############################################################
 ## SET Working output Directory
@@ -96,7 +94,7 @@ SET (LIBRARY_OUTPUT_PATH
 ##############################################################
 
 SET (FFMPEG_SUFFIX "" CACHE STRING
-  "ffmpeg pkg-config File Suffix (STRING)" FORCE
+  "ffmpeg pkg-config or library File Suffix (STRING)" FORCE
 )
 
 SET (FFMPEG_AVFORMAT_VERSION "52.38.0" CACHE STRING
@@ -107,11 +105,18 @@ SET (FFMPEG_AVCODEC_VERSION "52.35.0" CACHE STRING
   "overwrite required libavcodec Version (STRING)" FORCE
 )
 
+SET (FFMPEG_SWRESAMPLE_VERSION "0.5.0" CACHE STRING
+  "overwrite required libswresample Version (STRING)" FORCE
+)
+
 PKG_CHECK_MODULES (FFMPEG REQUIRED 
   libavformat${FFMPEG_SUFFIX}>=${FFMPEG_AVFORMAT_VERSION}
   libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
+  libswresample${FFMPEG_SUFFIX}>=${FFMPEG_SWRESAMPLE_VERSION}
 )
 
+## NOTE Exeptions needed by QX11Grab::record()
+REMOVE_DEFINITIONS (-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT -DQT_NO_EXCEPTIONS)
 ## required by FFmpeg
 ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
 
@@ -156,8 +161,6 @@ IF (KDE4_FOUND)
     ${KDE4_KDECORE_LIBRARY}
     ${KDE4_KDEUI_LIBRARY}
   )
-  ## NOTE Exeptions needed by QX11Grab::record()
-  REMOVE_DEFINITIONS ("-DQT_NO_EXCEPTIONS")
   STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
 ENDIF (KDE4_FOUND)

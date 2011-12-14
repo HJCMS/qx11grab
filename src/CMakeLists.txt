@@ -24,7 +24,6 @@ SET (qx11grab_SOURCES
   grabberinfo.cpp
   main.cpp
   metadata.cpp
-  qx11grabadaptor.cpp
   qx11grab.cpp
   rubberband.cpp
   screencombobox.cpp
@@ -34,6 +33,7 @@ SET (qx11grab_SOURCES
   commandpreview.cpp
   audiodevice.cpp
   picrecordinterface.cpp
+  qx11grabadaptor.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -42,7 +42,6 @@ SET (qx11grab_HEADERS
   ffprocess.h
   grabberinfo.h
   metadata.h
-  qx11grabadaptor.h
   qx11grab.h
   rubberband.h
   screencombobox.h
@@ -52,6 +51,7 @@ SET (qx11grab_HEADERS
   commandpreview.h
   audiodevice.h
   picrecordinterface.h
+  qx11grabadaptor.h
 )
 
 SET (qx11grab_NOMOC
@@ -84,7 +84,7 @@ TARGET_LINK_LIBRARIES (qx11grab
 SET_TARGET_PROPERTIES (qx11grab PROPERTIES
   LINKER_LANGUAGE CXX
   COMPILE_FLAGS "${LIB_FPIC_CXXFLAGS} ${APP_PIE_CXXFLAGS}"
-  LINK_FLAGS "${LIB_FPIC_CXXFLAGS} ${APP_PIE_LDFLAGS} ${TWEAKING_LDFLAGS}"
+  LINK_FLAGS "${APP_PIE_LDFLAGS} ${LIB_FPIC_CXXFLAGS} -Wl,--as-needed ${QX11GRAB_LDFLAGS}"
 )
 
 INSTALL (TARGETS qx11grab DESTINATION bin)

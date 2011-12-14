@@ -35,20 +35,6 @@
 #include <QtCore/QIODevice>
 #include <QtGui/QMessageBox>
 
-static inline bool qx11grabSuspendArts()
-{
-  QStringList args;
-  args << "-q" << "terminate";
-  return QProcess::startDetached ( "artsshell", args );
-}
-
-static inline bool qx11grabSuspendPulse()
-{
-  QStringList args ( "qx11grab" );
-  // QProcess::startDetached ( "pactl", QStringList() << "suspend-source" << "quelle" << "1" );
-  return QProcess::startDetached ( "pasuspender", args );
-}
-
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
     , cfg ( settings )
@@ -95,13 +81,6 @@ bool FFProcess::create ( const QRect &r )
 */
 bool FFProcess::start ( const QStringList &cmd )
 {
-  // shutdown Sound Daemons
-  if ( cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), true ).toBool() )
-  {
-    qx11grabSuspendArts();
-    qx11grabSuspendPulse();
-  }
-
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
 
@@ -128,6 +107,7 @@ bool FFProcess::start ( const QStringList &cmd )
 #ifdef QX11GRAB_DEBUG
   qDebug() << Q_FUNC_INFO << application() << arguments;
 #endif
+  
   m_QProcess->start ( application(), arguments );
   return true;
 }
@@ -148,9 +128,6 @@ bool FFProcess::stop()
     m_QProcess->closeWriteChannel();
   else
     m_QProcess->kill();
-
-  if ( cfg->value ( QLatin1String ( "enable_pulse_pasuspender" ), false ).toBool() )
-    QProcess::startDetached ( "pactl", QStringList() << "suspend-source" << "quelle" << "0" );
 
   return isRunning();
 }

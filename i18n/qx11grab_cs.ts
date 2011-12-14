@@ -43,6 +43,74 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Select ALSA Audio Capture Device</source>
         <translation>Vybrat zařízení pro zachytávání zvuku ALSA</translation>
     </message>
+    <message>
+        <source>Audio System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soundserver (Pulse)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sample Format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The sample format of the incoming audio buffers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To show available sample formats use ffmpeg -sample_fmts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsigned 8 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed 16 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed 32 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsigned 8 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsigned 16 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed 32 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>float, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">Neznámý</translation>
+    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>

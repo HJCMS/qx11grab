@@ -52,6 +52,74 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
             <lengthvariant>Schnittstelle für Audioaufnahme</lengthvariant>
         </translation>
     </message>
+    <message>
+        <source>Audio System</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Soundserver (Pulse)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Sample Format:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>The sample format of the incoming audio buffers.</source>
+        <translation>Das sample format für den eingehende Audio Puffer.</translation>
+    </message>
+    <message>
+        <source>To show available sample formats use ffmpeg -sample_fmts</source>
+        <translation>Für eine Anzeige der Vorhandenen Sample Formate siehe ffmpeg -sample_fmts</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>unbekannt</translation>
+    </message>
+    <message>
+        <source>unsigned 8 bits</source>
+        <translation>ohne Vorzeichen 8 Bits</translation>
+    </message>
+    <message>
+        <source>signed 16 bits</source>
+        <translation>ohne Vorzeichen 16 Bits</translation>
+    </message>
+    <message>
+        <source>signed 32 bits</source>
+        <translation>ohne Vorzeichen 32 Bits</translation>
+    </message>
+    <message>
+        <source>float</source>
+        <translation>32-Bit-Gleitkommazahl</translation>
+    </message>
+    <message>
+        <source>double</source>
+        <translation>64-Bit-Gleitkommazahl</translation>
+    </message>
+    <message>
+        <source>unsigned 8 bits, planar</source>
+        <translation>ohne Vorzeichen 8 Bits, flach</translation>
+    </message>
+    <message>
+        <source>unsigned 16 bits, planar</source>
+        <translation>ohne Vorzeichen 16 Bits, flach</translation>
+    </message>
+    <message>
+        <source>signed 32 bits, planar</source>
+        <translation>ohne Vorzeichen 32 Bits, flach</translation>
+    </message>
+    <message>
+        <source>float, planar</source>
+        <translation>32-Bit-Gleitkommazahl, flach</translation>
+    </message>
+    <message>
+        <source>double, planar</source>
+        <translation>64-Bit-Gleitkommazahl, flach</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Unbekannt</translation>
+    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>
@@ -447,7 +515,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Frame Width must be a multiple of 2</source>
-        <translation>Rahmenbreite muss durch 2 Teilbar sein.</translation>
+        <translation>Rahmenbreite muss durch 2 Teilbar sein</translation>
     </message>
     <message>
         <source>Scalability Failure Height</source>
@@ -455,7 +523,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Frame Height must be a multiple of 2</source>
-        <translation>Rahmenhöhe muss durch 2 Teilbar sein.</translation>
+        <translation>Rahmenhöhe muss durch 2 Teilbar sein</translation>
     </message>
 </context>
 <context>
