@@ -19,25 +19,42 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "@CLASSNAME@.h"
-
-/* QX11Grab */
-// #include ""
+#include "toolbar.h"
+#include "menubar.h"
 
 /* QtCore */
-#include <QtCore/QDebug>
+#include <QtCore/QString>
 
-/* QtGui */
-// #include <QtGui/QVBoxLayout>
-
-/* QtDBus */
-// #include <QtDBus>
-
-@CLASSNAME@::@CLASSNAME@( QObject * parent )
-  : QObject ( parent )
+ToolBar::ToolBar ( QX11Grab * parent )
+    : QToolBar ( parent )
+    , mainWindow ( parent )
 {
-  setObjectName ( QLatin1String( "@CLASSNAME@" ) );
+  setObjectName ( QLatin1String ( "ToolBar" ) );
+
+  QAction* refreh = MenuBar::refreshAction ( this );
+  addAction ( refreh );
+
+  m_viewLogAction = MenuBar::viewAction ( this );
+  m_viewLogAction->setEnabled ( false );
+  addAction ( m_viewLogAction );
+
+  QAction* save = MenuBar::saveAction ( this );
+  addAction ( save );
+
+  connect ( refreh, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( perparePreview() ) );
+
+  connect ( m_viewLogAction, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( openLogFileDialog() ) );
+
+  connect ( save, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( saveSettings() ) );
 }
 
-@CLASSNAME@::~@CLASSNAME@()
+void ToolBar::setActionsEnabled ( bool b )
+{
+  m_viewLogAction->setEnabled ( b );
+}
+
+ToolBar::~ToolBar()
 {}

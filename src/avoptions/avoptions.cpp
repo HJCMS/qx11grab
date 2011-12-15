@@ -19,41 +19,19 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef SCREENCOMBOBOX_H
-#define SCREENCOMBOBOX_H
+#include "avoptions.h"
 
 /* QtCore */
-#include <QtCore/QObject>
-#include <QtCore/QString>
+// #include <QtCore>
 
 /* QtGui */
-#include <QtGui/QComboBox>
-#include <QtGui/QWidget>
+// #include <QtGui>
 
-class DesktopInfo;
-
-class ScreenComboBox : public QComboBox
+AVOptions::AVOptions ( QObject * parent )
+    : QObject ( parent )
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
+  setObjectName ( "AVOptions" );
+}
 
-  private:
-    DesktopInfo *m_DesktopInfo;
-    void setItems();
-
-  public:
-    ScreenComboBox ( QWidget *parent = 0 );
-    ~ScreenComboBox();
-
-  Q_SIGNALS:
-    void screenNameChanged ( const QString & );
-    void screenWidthChanged ( int );
-    void screenHeightChanged ( int );
-    void screenDepthChanged ( int );
-
-  private Q_SLOTS:
-    void setDataChanged ( int );
-
-};
-
-#endif
+AVOptions::~AVOptions()
+{}

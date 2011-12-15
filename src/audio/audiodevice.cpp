@@ -20,7 +20,7 @@
 **/
 
 #include "audiodevice.h"
-#include "picrecordinterface.h"
+#include "alsaaudiodevicedialog.h"
 
 #ifndef QX11GRAB_VERSION
 #include "version.h"
@@ -132,7 +132,7 @@ AudioDevice::AudioDevice ( QWidget * parent )
 */
 void AudioDevice::setAlsaRecordingPCM()
 {
-  PicRecordInterface* dialog = new PicRecordInterface ( this );
+  AlsaAudioDeviceDialog* dialog = new AlsaAudioDeviceDialog ( this );
   dialog->setCard ( device->text() );
   if ( dialog->exec() == QDialog::Accepted )
   {

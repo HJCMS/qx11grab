@@ -2,6 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="cs_CZ">
 <context>
+    <name>AlsaAudioDeviceDialog</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation type="unfinished">Výběr ALSA PCM</translation>
+    </message>
+    <message>
+        <source>Available Cards:</source>
+        <translation type="unfinished">Dostupné karty:</translation>
+    </message>
+</context>
+<context>
     <name>AudioDevice</name>
     <message>
         <source>Audio Settings</source>
@@ -306,6 +317,121 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>MenuBar</name>
+    <message>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kill</source>
+        <translation type="unfinished">Zrušit</translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Uložit</translation>
+    </message>
+    <message>
+        <source>Load</source>
+        <translation type="unfinished">Nahrát</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">Ukončit</translation>
+    </message>
+    <message>
+        <source>Close Application</source>
+        <translation type="unfinished">Zavřít program</translation>
+    </message>
+    <message>
+        <source>Grabbing</source>
+        <translation type="unfinished">Snímání</translation>
+    </message>
+    <message>
+        <source>get Size from Window</source>
+        <translation type="unfinished">Získat velikost z okna</translation>
+    </message>
+    <message>
+        <source>Rubberband</source>
+        <translation type="unfinished">Gumový pás</translation>
+    </message>
+    <message>
+        <source>Recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Recording</source>
+        <translation type="unfinished">Spustit nahrávání</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Zastavit</translation>
+    </message>
+    <message>
+        <source>Stop Recording</source>
+        <translation type="unfinished">Zastavit nahrávání</translation>
+    </message>
+    <message>
+        <source>Kill Recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished">Skrýt</translation>
+    </message>
+    <message>
+        <source>Minimize to Systray</source>
+        <translation type="unfinished">Zmenšit do oznamovací části panelu</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished">Ukázat </translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Obnovit</translation>
+    </message>
+    <message>
+        <source>Refresh Commandline Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FFmpeg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FFmpeg Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QX11Grab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QX11Grab Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save current Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logfile</source>
+        <translation type="unfinished">Soubor se zápisem</translation>
+    </message>
+    <message>
+        <source>Open FFmpeg Protocoll</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>
@@ -337,50 +463,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
-    <name>PicRecordInterface</name>
-    <message>
-        <source>ALSA PCM Selection</source>
-        <translation>Výběr ALSA PCM</translation>
-    </message>
-    <message>
-        <source>Available Cards:</source>
-        <translation>Dostupné karty:</translation>
-    </message>
-</context>
-<context>
     <name>QX11Grab</name>
-    <message>
-        <source>Grabbing</source>
-        <translation>Snímat</translation>
-    </message>
-    <message>
-        <source>Rubberband</source>
-        <translation>Gumový pás</translation>
-    </message>
-    <message>
-        <source>Recording</source>
-        <translation>Nahrávání</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Zastavit</translation>
-    </message>
-    <message>
-        <source>Hide</source>
-        <translation>Skrýt</translation>
-    </message>
-    <message>
-        <source>Show</source>
-        <translation>Ukázat </translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Ukončit</translation>
-    </message>
-    <message>
-        <source>qx11grab: recording X11 Windows with ffmpeg</source>
-        <translation>qx11grab: Nahrávají se okna X11 s ffmpeg</translation>
-    </message>
     <message>
         <source>grabbed Dimension</source>
         <translation>Sejmut rozměr</translation>
@@ -406,87 +489,8 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>qx11grab není spuštěn</translation>
     </message>
     <message>
-        <source>Refresh</source>
-        <translation>Obnovit</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Uložit</translation>
-    </message>
-    <message>
-        <source>Logfile</source>
-        <translation>Soubor se zápisem</translation>
-    </message>
-</context>
-<context>
-    <name>QX11GrabMain</name>
-    <message>
-        <source>qx11grab</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Ukončit</translation>
-    </message>
-    <message>
-        <source>Close Application</source>
-        <translation>Zavřít program</translation>
-    </message>
-    <message>
-        <source>Minimize</source>
-        <translation>Zmenšit</translation>
-    </message>
-    <message>
-        <source>Minimize to Systray</source>
-        <translation>Zmenšit do oznamovací části panelu</translation>
-    </message>
-    <message>
-        <source>Recording</source>
-        <translation>Nahrávání</translation>
-    </message>
-    <message>
-        <source>Start Recording</source>
-        <translation>Spustit nahrávání</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Zastavit</translation>
-    </message>
-    <message>
-        <source>Stop Recording</source>
-        <translation>Zastavit nahrávání</translation>
-    </message>
-    <message>
-        <source>Grabbing</source>
-        <translation>Snímání</translation>
-    </message>
-    <message>
-        <source>get Size from Window</source>
-        <translation>Získat velikost z okna</translation>
-    </message>
-    <message>
-        <source>Kill</source>
-        <translation>Zrušit</translation>
-    </message>
-    <message>
-        <source>Action</source>
-        <translation>Činnost</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Uložit</translation>
-    </message>
-    <message>
-        <source>Load</source>
-        <translation>Nahrát</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Obnovit</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Nastavení</translation>
+        <source>QX11Grab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -506,6 +510,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Frame Height must be a multiple of 2</source>
         <translation>Výška snímku musí být násobkem 2</translation>
+    </message>
+</context>
+<context>
+    <name>SystemTray</name>
+    <message>
+        <source>qx11grab: recording X11 Windows with ffmpeg</source>
+        <translation type="unfinished">qx11grab: Nahrávají se okna X11 s ffmpeg</translation>
     </message>
 </context>
 <context>

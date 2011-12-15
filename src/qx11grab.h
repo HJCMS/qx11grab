@@ -32,6 +32,7 @@
 #include <QtCore/QRect>
 
 /* QtGui */
+#include <QtGui/QAction>
 #include <QtGui/QCloseEvent>
 #include <QtGui/QHideEvent>
 #include <QtGui/QMainWindow>
@@ -42,10 +43,9 @@
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QWidget>
 
-#include "ui_qx11grabmain.h"
-
-class QAction;
 class Settings;
+class MenuBar;
+class ToolBar;
 class GrabberInfo;
 class Defaults;
 class MetaData;
@@ -54,16 +54,17 @@ class DesktopInfo;
 class RubberBand;
 class FFProcess;
 class CommandPreview;
+class SystemTray;
 
-class QX11Grab
-      : public QMainWindow
-      , protected Ui::QX11GrabMain
+class QX11Grab : public QMainWindow
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
 
   private:
-    Settings *cfg;
+    Settings* cfg;
+    MenuBar* m_menuBar;
+    ToolBar* m_toolBar;
     int TimeOutMessages;
     GrabberInfo* m_grabberInfo;
     Defaults* m_defaults;
@@ -71,20 +72,12 @@ class QX11Grab
     TableEditor* m_videoEditor;
     TableEditor* m_audioEditor;
     CommandPreview* m_commandPreview;
-    DesktopInfo *m_DesktopInfo;
-    RubberBand *m_RubberBand;
-    FFProcess *m_FFProcess;
-    QMenu* systemTrayMenu;
-    QAction* grabActionFromWindow;
-    QAction* showRubberbandWindow;
-    QAction* stopRecordingWindow;
-    QAction* startRecordingWindow;
-    QAction* minimizeWindowAction;
-    QAction* displayWindowAction;
-    QAction* quitWindowAction;
-    QPushButton* logviewBtn;
-    QSystemTrayIcon *systemTrayIcon;
-    void createActions();
+    DesktopInfo* m_DesktopInfo;
+    RubberBand* m_RubberBand;
+    FFProcess* m_FFProcess;
+    // SysTray
+    SystemTray* m_systemTray;
+    // triggred Actions
     void createEnviroment();
     void createSystemTrayIcon();
     void loadStats();
@@ -110,6 +103,8 @@ class QX11Grab
     void perparePreview();
 
   Q_SIGNALS:
+    void stopRecording();
+    void killProcess();
     void startMinimized ();
 
   public Q_SLOTS:

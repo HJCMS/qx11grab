@@ -19,25 +19,20 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "@CLASSNAME@.h"
-
-/* QX11Grab */
-// #include ""
+#ifndef ALSAAUDIODEVICE_H
+#define ALSAAUDIODEVICE_H
 
 /* QtCore */
-#include <QtCore/QDebug>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
-/* QtGui */
-// #include <QtGui/QVBoxLayout>
-
-/* QtDBus */
-// #include <QtDBus>
-
-@CLASSNAME@::@CLASSNAME@( QObject * parent )
-  : QObject ( parent )
+class AlsaAudioDevice
 {
-  setObjectName ( QLatin1String( "@CLASSNAME@" ) );
-}
+  public:
+    const QString hw;
+    const QString name;
+    const QString description;
+    AlsaAudioDevice ( const QString &dev, const QString &title, const QString &info );
+};
 
-@CLASSNAME@::~@CLASSNAME@()
-{}
+#endif

@@ -94,25 +94,41 @@ SET (LIBRARY_OUTPUT_PATH
 ##############################################################
 
 SET (FFMPEG_SUFFIX "" CACHE STRING
-  "ffmpeg pkg-config or library File Suffix (STRING)" FORCE
+  "ffmpeg pkg-config or library file suffix (STRING)" FORCE
 )
 
-SET (FFMPEG_AVFORMAT_VERSION "52.38.0" CACHE STRING
+SET (FFMPEG_AVFORMAT_VERSION "53.24.0" CACHE STRING
   "overwrite required libavformat Version (STRING)" FORCE
 )
 
-SET (FFMPEG_AVCODEC_VERSION "52.35.0" CACHE STRING
+SET (FFMPEG_AVCODEC_VERSION "53.42.0" CACHE STRING
   "overwrite required libavcodec Version (STRING)" FORCE
 )
 
-SET (FFMPEG_SWRESAMPLE_VERSION "0.5.0" CACHE STRING
-  "overwrite required libswresample Version (STRING)" FORCE
+SET (FFMPEG_AVUTIL_VERSION "51.32.0" CACHE STRING
+  "overwrite required libavutil Version (STRING)" FORCE
 )
 
 PKG_CHECK_MODULES (FFMPEG REQUIRED 
   libavformat${FFMPEG_SUFFIX}>=${FFMPEG_AVFORMAT_VERSION}
   libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
-  libswresample${FFMPEG_SUFFIX}>=${FFMPEG_SWRESAMPLE_VERSION}
+  libavutil${FFMPEG_SUFFIX}>=${FFMPEG_AVUTIL_VERSION}
+)
+
+##############################################################
+## PulseAudio 
+##############################################################
+
+SET (PULSE_SUFFIX "" CACHE STRING
+  "pulse pkg-config or library file suffix (STRING)" FORCE
+)
+
+SET (PULSE_SIMPLE_VERSION "1.0" CACHE STRING
+  "overwrite required libpulse-simple Version (STRING)" FORCE
+)
+
+PKG_CHECK_MODULES (PULSE REQUIRED 
+  libpulse-simple${PULSE_SUFFIX}>=${PULSE_SIMPLE_VERSION}
 )
 
 ## NOTE Exeptions needed by QX11Grab::record()
@@ -133,6 +149,7 @@ SET (QX11GRAB_INCLUDES
   ${CMAKE_CURRENT_SOURCE_DIR}/src
   ${FFMPEG_INCLUDEDIR}
   ${ALSA_INCLUDE_DIR}
+  ${PULSE_INCLUDEDIR}
 )
 
 ##############################################################
@@ -143,8 +160,6 @@ SET (QX11GRAB_LIBRARIES
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
-  ${FFMPEG_LDFLAGS}
-  ${ALSA_LIBRARY}
 )
 
 ##############################################################

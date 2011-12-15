@@ -19,34 +19,37 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef WINDOWGRABBER_H
-#define WINDOWGRABBER_H
+#ifndef ALSAAUDIODEVICEDIALOG_H
+#define ALSAAUDIODEVICEDIALOG_H
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QRect>
+#include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QDialog>
+#include <QtGui/QListWidget>
 #include <QtGui/QWidget>
-#include <QtGui/QX11Info>
 
-class WindowGrabber : public QObject
+/* QX11Grab */
+#include "alsaaudiodevice.h"
+
+class AlsaAudioDeviceDialog : public QDialog
 {
     Q_OBJECT
-    Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_PROPERTY ( QString card READ getCard WRITE setCard )
 
   private:
-    const QX11Info xInfo;
-    int getValidValue ( int );
+    QListWidget* deviceList;
+    void initRecorderDevices();
 
   public:
-    WindowGrabber ( QObject *parent = 0 );
-
-    /** grab Window Dimension from X-Server */
-    const QRect grabWindowRect();
-
-    ~WindowGrabber();
-
+    AlsaAudioDeviceDialog ( QWidget * parent = 0 );
+    const QString getCard ();
+    const AlsaAudioDevice cardInfo ();
+    void setCard ( const QString & );
+    ~AlsaAudioDeviceDialog();
 };
 
 #endif

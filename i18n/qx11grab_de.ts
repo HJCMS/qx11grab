@@ -2,6 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de_DE">
 <context>
+    <name>AlsaAudioDeviceDialog</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation>ALSA PCM Auswählen</translation>
+    </message>
+    <message>
+        <source>Available Cards:</source>
+        <translation>Verfügbare Karten:</translation>
+    </message>
+</context>
+<context>
     <name>AudioDevice</name>
     <message>
         <source>Audio Settings</source>
@@ -324,6 +335,121 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>MenuBar</name>
+    <message>
+        <source>File</source>
+        <translation>Datei</translation>
+    </message>
+    <message>
+        <source>Kill</source>
+        <translation>Abbrechen</translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation>Konfigurieren</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Speichern</translation>
+    </message>
+    <message>
+        <source>Load</source>
+        <translation>Laden</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Hilfe</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>Beenden</translation>
+    </message>
+    <message>
+        <source>Close Application</source>
+        <translation>Schließe die Anwendung</translation>
+    </message>
+    <message>
+        <source>Grabbing</source>
+        <translation>Abgreifen</translation>
+    </message>
+    <message>
+        <source>get Size from Window</source>
+        <translation>Nehme die Fenstergröße</translation>
+    </message>
+    <message>
+        <source>Rubberband</source>
+        <translation>Gummiband</translation>
+    </message>
+    <message>
+        <source>Recording</source>
+        <translation>Aufnahme</translation>
+    </message>
+    <message>
+        <source>Start Recording</source>
+        <translation>Starte Aufnahme</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Beenden</translation>
+    </message>
+    <message>
+        <source>Stop Recording</source>
+        <translation>Beende die Aufnahme</translation>
+    </message>
+    <message>
+        <source>Kill Recording</source>
+        <translation>Aufnahme Abbrechen</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Ausblenden</translation>
+    </message>
+    <message>
+        <source>Minimize to Systray</source>
+        <translation>Minimiere in die Taskleiste</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Anzeigen</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Auffrischen</translation>
+    </message>
+    <message>
+        <source>Refresh Commandline Preview</source>
+        <translation>Erneuere die Befehlsketten Vorschau</translation>
+    </message>
+    <message>
+        <source>FFmpeg</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>FFmpeg Homepage</source>
+        <translation>FFmpeg Webseite</translation>
+    </message>
+    <message>
+        <source>QX11Grab</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>QX11Grab Homepage</source>
+        <translation>QX11Grab Webseite</translation>
+    </message>
+    <message>
+        <source>Save current Settings</source>
+        <translation>Speichere die aktuellen Einstellungen</translation>
+    </message>
+    <message>
+        <source>Logfile</source>
+        <translation>Protokolldatei</translation>
+    </message>
+    <message>
+        <source>Open FFmpeg Protocoll</source>
+        <translation>Öffne FFmpeg Protokoll</translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>
@@ -355,50 +481,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
-    <name>PicRecordInterface</name>
-    <message>
-        <source>ALSA PCM Selection</source>
-        <translation>ALSA PCM Auswählen</translation>
-    </message>
-    <message>
-        <source>Available Cards:</source>
-        <translation>Verfügbare Karten:</translation>
-    </message>
-</context>
-<context>
     <name>QX11Grab</name>
-    <message>
-        <source>Grabbing</source>
-        <translation>Abgreifen</translation>
-    </message>
-    <message>
-        <source>Rubberband</source>
-        <translation>Gummiband</translation>
-    </message>
-    <message>
-        <source>Recording</source>
-        <translation>Aufnahme</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Beenden</translation>
-    </message>
-    <message>
-        <source>Hide</source>
-        <translation>Ausblenden</translation>
-    </message>
-    <message>
-        <source>Show</source>
-        <translation>Anzeigen</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Beenden</translation>
-    </message>
-    <message>
-        <source>qx11grab: recording X11 Windows with ffmpeg</source>
-        <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
-    </message>
     <message>
         <source>grabbed Dimension</source>
         <translation>Abgegriffene Dimension</translation>
@@ -424,87 +507,8 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>qx11grab ist nicht gestartet</translation>
     </message>
     <message>
-        <source>Refresh</source>
-        <translation>Auffrischen</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Speichern</translation>
-    </message>
-    <message>
-        <source>Logfile</source>
-        <translation>Protokolldatei</translation>
-    </message>
-</context>
-<context>
-    <name>QX11GrabMain</name>
-    <message>
-        <source>qx11grab</source>
+        <source>QX11Grab</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Beenden</translation>
-    </message>
-    <message>
-        <source>Close Application</source>
-        <translation>Schließe die Anwendung</translation>
-    </message>
-    <message>
-        <source>Minimize</source>
-        <translation>Minimieren</translation>
-    </message>
-    <message>
-        <source>Minimize to Systray</source>
-        <translation>Minimiere in die Taskleiste</translation>
-    </message>
-    <message>
-        <source>Recording</source>
-        <translation>Aufnahme</translation>
-    </message>
-    <message>
-        <source>Start Recording</source>
-        <translation>Starte Aufnahme</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Beenden</translation>
-    </message>
-    <message>
-        <source>Stop Recording</source>
-        <translation>Beende die Aufnahme</translation>
-    </message>
-    <message>
-        <source>Grabbing</source>
-        <translation>Abgreifen</translation>
-    </message>
-    <message>
-        <source>get Size from Window</source>
-        <translation>Nehme die Fenstergröße</translation>
-    </message>
-    <message>
-        <source>Kill</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
-        <source>Action</source>
-        <translation>Aktion</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Speichern</translation>
-    </message>
-    <message>
-        <source>Load</source>
-        <translation>Laden</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Auffrischen</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -524,6 +528,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Frame Height must be a multiple of 2</source>
         <translation>Rahmenhöhe muss durch 2 Teilbar sein</translation>
+    </message>
+</context>
+<context>
+    <name>SystemTray</name>
+    <message>
+        <source>qx11grab: recording X11 Windows with ffmpeg</source>
+        <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
     </message>
 </context>
 <context>

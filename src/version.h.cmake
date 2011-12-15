@@ -46,15 +46,6 @@
 #define QX11GRAB_DBUS_DOMAIN_NAME "@QX11GRAB_DBUS_DOMAIN_NAME@"
 
 /**
-*
-*/
-struct AlsaAudioDevice {
-  QString hw;
-  QString name;
-  QString description;
-};
-
-/**
 * @short recording logfile
 */
 static inline const QString qx11grabLogfile()
@@ -72,20 +63,9 @@ static inline const QString qx11grabLogfile()
 static inline const QIcon getThemeIcon ( const QString &icon )
 {
   QMap<QString,QString> map;
-  map["application-exit"] = "stop";
-  map["audio-headset"] = "find";
-  map["document-save"] = "save";
-  map["edit-redo"] = "redo";
-  map["folder-open"] = "folder";
   map["maximize"] = "maximize";
-  map["media-record"] = "convert";
-  map["media-playback-stop"] = "stop";
   map["minimize"] = "minimize";
   map["qx11grab"] = "qx11grab";
-  map["view-refresh"] = "refresh";
-  map["view-grid"] = "grid";
-  map["window"] = "window";
-  map["window-close"] = "stop";
 
   // qDebug() << key << map[key];
   QIcon fallbackIcon;

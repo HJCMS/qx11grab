@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,38 +19,41 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef PICRECORDINTERFACE_H
-#define PICRECORDINTERFACE_H
-
-/* QtCore */
-#include <QtCore/QObject>
-#include <QtCore/QString>
-
-/* QtGui */
-#include <QtGui/QDialog>
-#include <QtGui/QListWidget>
-#include <QtGui/QWidget>
+#ifndef SYSTEMTRAY_H
+#define SYSTEMTRAY_H
 
 #ifndef QX11GRAB_VERSION
 # include "version.h"
 #endif
 
-class PicRecordInterface : public QDialog
+/* QtCore */
+#include <QtCore/QObject>
+
+/* QtGui */
+#include <QtGui/QAction>
+#include <QtGui/QSystemTrayIcon>
+#include <QtGui/QWidget>
+
+/* QX11Grab */
+#include "qx11grab.h"
+
+class SystemTray : public QSystemTrayIcon
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_PROPERTY ( QString card READ getCard WRITE setCard )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QListWidget* deviceList;
-    void initRecorderDevices();
+    QX11Grab* mainWindow;
+    QAction* m_actionStartRecord;
+    QAction* m_actionStopRecord;
+
+  public Q_SLOTS:
+    void setActionsEnabled ( bool b = true );
 
   public:
-    PicRecordInterface ( QWidget * parent = 0 );
-    const QString getCard ();
-    const AlsaAudioDevice cardInfo ();
-    void setCard ( const QString & );
-    ~PicRecordInterface();
+    SystemTray ( QX11Grab * parent );
+    ~SystemTray();
 };
 
 #endif

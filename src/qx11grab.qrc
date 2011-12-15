@@ -1,24 +1,10 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
   <qresource prefix="/">
-    <file>images/apply.png</file>
-    <file>images/convert.png</file>
-    <file>images/fail.png</file>
-    <file>images/find.png</file>
-    <file>images/folder.png</file>
     <file>images/grid.png</file>
     <file>images/maximize.png</file>
     <file>images/minimize.png</file>
     <file>images/qx11grab-64.png</file>
     <file>images/qx11grab.png</file>
-    <file>images/record.png</file>
-    <file>images/redo.png</file>
-    <file>images/refresh.png</file>
-    <file>images/running.png</file>
-    <file>images/run.png</file>
-    <file>images/save.png</file>
-    <file>images/stop.png</file>
-    <file>images/view.png</file>
-    <file>images/window.png</file>
   </qresource>
 </RCC>

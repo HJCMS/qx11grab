@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,42 +19,36 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef RUBBERBAND_H
-#define RUBBERBAND_H
+#ifndef TOOLBAR_H
+#define TOOLBAR_H
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QPaintEvent>
-#include <QtGui/QRubberBand>
-#include <QtGui/QStyleOptionRubberBand>
+#include <QtGui/QAction>
+#include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
-class DesktopInfo;
+/* QX11Grab */
+#include "qx11grab.h"
 
-class RubberBand : public QRubberBand
+class ToolBar : public QToolBar
 {
     Q_OBJECT
-    Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    DesktopInfo* m_DesktopInfo;
+    QX11Grab* mainWindow;
+    QAction* m_viewLogAction;
 
-  protected:
-    void initStyleOption ( QStyleOptionRubberBand * ) const;
-    void paintEvent ( QPaintEvent * );
-
-  Q_SIGNALS:
-    void warning ( const QString & );
-    void error ( const QString &, const QString & );
+  public Q_SLOTS:
+    void setActionsEnabled ( bool b = true );
 
   public:
-    RubberBand ( QWidget * parent = 0 );
-    bool isScalability();
-    ~RubberBand();
-
+    ToolBar ( QX11Grab * parent );
+    ~ToolBar();
 };
 
 #endif

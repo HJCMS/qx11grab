@@ -2,12 +2,16 @@
 *** WARNING - This Application is NOT testet on Mac OS X and incompatible with Windows ***
 
 General "qx11grab" Requirements:
-  -  Qt 4 >= 4.6.0 (required)  http://qt.nokia.com/products/
-  -  Oxygen Icon Theme >= 4.4.0 (required) ftp://ftp.kde.org/pub/kde/stable/
-  -  libavformat >= 52.31.0 (required) >= 52.38.0 (recommended) http://www.ffmpeg.org
-  -  libavcodec >= 52.20.0 (required) >= 52.35.0 (recommended)  http://www.ffmpeg.org
+  -  Qt 4 >= 4.7.1 (required)  http://qt.nokia.com/products/
+  -  Oxygen Icon Theme >= 4.6.0 (required) ftp://ftp.kde.org/pub/kde/stable/
+  -  FFmpeg >= 0.9 (required) http://www.ffmpeg.org
+  -  libavformat >= 53.24.0 (required) http://www.ffmpeg.org
+  -  libavcodec >= 52.20.0 (required)  http://www.ffmpeg.org
+  -  libavutil >= 51.32.0 (required)  http://www.ffmpeg.org
   -  alsa-lib >= 1.0.0 (required) http://www.alsa-project.org
   -  cmake >= 2.8.0 (required for build) http://www.cmake.org
+  -  pulseaudio >= 1.0 (required) http://pulseaudio.org/
+  -  alsa >= 1.0.24 (required) http://alsa-project.org
 
 For Mac OS X Cocoa, the binary package requires Mac OS X 10.5 (Leopard) or later
 and GCC 4.0.1 to develop applications.
@@ -43,8 +47,7 @@ INSTALL_TREE:
         |   `-- qx11grab.png
         |-- qt
         |   `-- translations
-        |       |-- qx11grab_cs.qm
-        |       `-- qx11grab_de.qm
+        |       |-- qx11grab_*.qm
         `-- qx11grab
             |-- AUTHORS
             |-- COPYING

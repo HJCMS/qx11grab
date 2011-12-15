@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,23 +19,28 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef $HEADERGUARD$
-#define $HEADERGUARD$
+#ifndef @CLASSNAME@_H
+#define @CLASSNAME@_H
 
 /* QtCore */
-#include <QtCore>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui>
+// #include <QtGui/QWidget>
 
-class $CLASSNAME$$INHERITANCE$
+/* QX11Grab */
+// #include ""
+
+class @CLASSNAME@ : public QObject
 {
-  $QOBJECT$
+  Q_OBJECT
   Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-  Q_CLASSINFO ( "URL", "http://xhtmldbg.hjcms.de" )
+  Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   public:
-    $CONSTRUCTORDECLARATIONS$
+    @CLASSNAME@ (QObject * parent = 0);
+    ~@CLASSNAME@();
 };
 
 #endif
