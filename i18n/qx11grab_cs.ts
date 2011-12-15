@@ -79,10 +79,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>unsigned 8 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -96,14 +92,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>double</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>unsigned 8 bits, planar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>unsigned 16 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -121,6 +109,18 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Unknown</source>
         <translation type="unfinished">Neznámý</translation>
+    </message>
+    <message>
+        <source>signed  8 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsigned  8 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed 16 bits, planar</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -364,7 +364,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Recording</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nahrává se</translation>
     </message>
     <message>
         <source>Start Recording</source>

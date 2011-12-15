@@ -88,16 +88,12 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>unbekannt</translation>
     </message>
     <message>
-        <source>unsigned 8 bits</source>
-        <translation>ohne Vorzeichen 8 Bits</translation>
-    </message>
-    <message>
         <source>signed 16 bits</source>
-        <translation>ohne Vorzeichen 16 Bits</translation>
+        <translation>Vorzeichen 16 Bits</translation>
     </message>
     <message>
         <source>signed 32 bits</source>
-        <translation>ohne Vorzeichen 32 Bits</translation>
+        <translation>Vorzeichen 32 Bits</translation>
     </message>
     <message>
         <source>float</source>
@@ -108,16 +104,8 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>64-Bit-Gleitkommazahl</translation>
     </message>
     <message>
-        <source>unsigned 8 bits, planar</source>
-        <translation>ohne Vorzeichen 8 Bits, flach</translation>
-    </message>
-    <message>
-        <source>unsigned 16 bits, planar</source>
-        <translation>ohne Vorzeichen 16 Bits, flach</translation>
-    </message>
-    <message>
         <source>signed 32 bits, planar</source>
-        <translation>ohne Vorzeichen 32 Bits, flach</translation>
+        <translation>Vorzeichen 32 Bits, flach</translation>
     </message>
     <message>
         <source>float, planar</source>
@@ -130,6 +118,18 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Unknown</source>
         <translation>Unbekannt</translation>
+    </message>
+    <message>
+        <source>signed  8 bits</source>
+        <translation>Vorzeichen  8 Bits</translation>
+    </message>
+    <message>
+        <source>unsigned  8 bits, planar</source>
+        <translation>ohne Vorzeichen  8 Bits, flach</translation>
+    </message>
+    <message>
+        <source>signed 16 bits, planar</source>
+        <translation>Vorzeichen 16 Bits, flach</translation>
     </message>
 </context>
 <context>

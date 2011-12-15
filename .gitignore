@@ -1,6 +1,7 @@
 build
 extras
-utils
+tests
+apis
 Makefile*
 *.kdev*
 Doxyfile

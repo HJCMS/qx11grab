@@ -89,63 +89,63 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="103"/>
+        <location filename="../src/audio/audiodevice.cpp" line="104"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="104"/>
-        <source>unsigned 8 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/audio/audiodevice.cpp" line="105"/>
-        <source>signed 16 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="106"/>
-        <source>signed 32 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="107"/>
-        <source>float</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="108"/>
-        <source>double</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="109"/>
-        <source>unsigned 8 bits, planar</source>
+        <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevice.cpp" line="110"/>
-        <source>unsigned 16 bits, planar</source>
+        <source>unsigned  8 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevice.cpp" line="111"/>
-        <source>signed 32 bits, planar</source>
+        <source>signed 16 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevice.cpp" line="106"/>
+        <source>signed 16 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevice.cpp" line="107"/>
+        <source>signed 32 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevice.cpp" line="108"/>
+        <source>float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevice.cpp" line="109"/>
+        <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevice.cpp" line="112"/>
-        <source>float, planar</source>
+        <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevice.cpp" line="113"/>
+        <source>float, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevice.cpp" line="114"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="252"/>
-        <location filename="../src/audio/audiodevice.cpp" line="268"/>
+        <location filename="../src/audio/audiodevice.cpp" line="253"/>
+        <location filename="../src/audio/audiodevice.cpp" line="269"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
