@@ -70,9 +70,6 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 
-IF (PULSEAUDIO_FOUND)
-ENDIF (PULSEAUDIO_FOUND)
-
 ##############################################################
 ## SET Working output Directory
 ##############################################################
@@ -136,7 +133,13 @@ PKG_CHECK_MODULES (PULSE REQUIRED
 ## NOTE Exeptions needed by QX11Grab::record()
 REMOVE_DEFINITIONS (-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT -DQT_NO_EXCEPTIONS)
 ## required by FFmpeg
-ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+IF (FFMPEG_FOUND)
+  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+ENDIF (FFMPEG_FOUND)
+
+IF (PULSE_FOUND)
+  ADD_DEFINITIONS (-DHAVE_PULSE)
+ENDIF (PULSE_FOUND)
 
 ##############################################################
 ## INCLUDES

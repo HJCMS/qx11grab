@@ -30,6 +30,7 @@
 /* QtGui */
 #include <QtGui/QLineEdit>
 #include <QtGui/QComboBox>
+#include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
@@ -43,6 +44,7 @@ class AudioDeviceWidget : public QWidget
   private:
     QComboBox* m_swapAudio;
     QSpinBox* intensifier;
+    QSlider* m_slider;
     QLineEdit* device;
     QToolButton* findAlsaPCMButton;
     QComboBox* m_audioSampleFormat;

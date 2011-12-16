@@ -62,11 +62,13 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   m_swapAudio->setCurrentIndex ( 0 );
   gridLayout->addWidget ( m_swapAudio, grow++, 0, 1, 3, Qt::AlignRight );
 
+  // Volume {
   QLabel* txt0 = new QLabel ( audioGroup );
   txt0->setText ( trUtf8 ( "Audio Intensifier:" ) );
   txt0->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt0, grow, 0, 1, 1 );
 
+  QHBoxLayout* h2Layout = new QHBoxLayout;
   intensifier = new QSpinBox ( audioGroup );
   intensifier->setSingleStep ( 2 );
   intensifier->setRange ( 0, 512 );
@@ -74,7 +76,18 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
   intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
   intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
-  gridLayout->addWidget ( intensifier, grow++, 1, 1, 2 );
+  h2Layout->addWidget ( intensifier );
+
+  m_slider = new QSlider ( Qt::Horizontal, this );
+  m_slider->setObjectName ( QLatin1String ( "setXSlider" ) );
+  m_slider->setSingleStep ( 1 );
+  m_slider->setMinimum ( 0 );
+  m_slider->setMaximum ( 512 );
+  m_slider->setValue ( 256 );
+  h2Layout->addWidget ( m_slider );
+
+  gridLayout->addLayout ( h2Layout, grow++, 1, 1, 2 );
+  // } Volume
 
   QLabel* txt1 = new QLabel ( audioGroup );
   txt1->setText ( trUtf8 ( "Audio Capture Device:" ) );
@@ -99,7 +112,7 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   gridLayout->addWidget ( txt2, grow, 0, 1, 1 );
 
   m_audioSampleFormat = new QComboBox ( audioGroup );
-  m_audioSampleFormat->setObjectName ( QLatin1String( "sample_fmt" ) );
+  m_audioSampleFormat->setObjectName ( QLatin1String ( "sample_fmt" ) );
   m_audioSampleFormat->setToolTip ( trUtf8 ( "The sample format of the incoming audio buffers." ) );
   m_audioSampleFormat->setWhatsThis ( trUtf8 ( "To show available sample formats use ffmpeg -sample_fmts" ) );
   int sfIndex = 0;
@@ -121,6 +134,12 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   vLayout->addStretch ( 1 );
 
   setLayout ( vLayout );
+
+  connect ( m_slider, SIGNAL ( valueChanged ( int ) ),
+            intensifier, SLOT ( setValue ( int ) ) );
+
+  connect ( intensifier, SIGNAL ( valueChanged ( int ) ),
+            m_slider, SLOT ( setValue ( int ) ) );
 
   connect ( m_swapAudio, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( audioEngineChanged ( int ) ) );

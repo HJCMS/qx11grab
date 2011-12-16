@@ -23,13 +23,18 @@
 #include "screencombobox.h"
 
 /* QtCore */
+#include <QtCore/QDebug>
+#include <QtCore/QRect>
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QApplication>
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
 #include <QtGui/QPalette>
 #include <QtGui/QSpacerItem>
+#include <QtGui/QX11Info>
 
 GrabberInfo::GrabberInfo ( QWidget * parent )
     : QWidget ( parent )
@@ -37,6 +42,10 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setObjectName ( QLatin1String ( "grabberinfo" ) );
   setBackgroundRole ( QPalette::Window );
 
+  QX11Info xinfo;
+  QRect desktopRect = QApplication::desktop()->availableGeometry ( xinfo.screen() );
+
+  int grow = 0;
   QGridLayout* gridLayout = new QGridLayout ( this );
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );
   gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
@@ -47,96 +56,124 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   QLabel* txt1 = new QLabel ( this );
   txt1->setText ( trUtf8 ( "Dimension:" ) );
   txt1->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt1, 0, 0, 1, 1 );
+  gridLayout->addWidget ( txt1, grow, 0, 1, 1 );
 
   screenComboBox = new ScreenComboBox ( this );
-  gridLayout->addWidget ( screenComboBox, 0, 1, 1, 1 );
+  gridLayout->addWidget ( screenComboBox, grow++, 1, 1, 2 );
   // end: Size
 
   // begin: Width
   QLabel* txt2 = new QLabel ( this );
   txt2->setText ( trUtf8 ( "Width:" ) );
   txt2->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt2, 1, 0, 1, 1 );
+  gridLayout->addWidget ( txt2, grow, 0, 1, 1 );
 
   setWidthBox = new QSpinBox ( this );
   setWidthBox->setObjectName ( QLatin1String ( "setWidthBox" ) );
   setWidthBox->setRange ( 10, 2800 );
   setWidthBox->setValue ( 100 );
-  gridLayout->addWidget ( setWidthBox, 1, 1, 1, 1 );
+  gridLayout->addWidget ( setWidthBox, grow, 1, 1, 1 );
+
+  setWidthSlider = new QSlider ( Qt::Horizontal, this );
+  setWidthSlider->setObjectName ( QLatin1String ( "setWidthSlider" ) );
+  setWidthSlider->setSingleStep ( 2 );
+  setWidthSlider->setMinimum ( desktopRect.left() );
+  setWidthSlider->setMaximum ( desktopRect.right() );
+  gridLayout->addWidget ( setWidthSlider, grow++, 2, 1, 1 );
   // end: Width
 
   // begin: Height
   QLabel* txt3 = new QLabel ( this );
   txt3->setText ( trUtf8 ( "Height:" ) );
   txt3->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt3, 2, 0, 1, 1 );
+  gridLayout->addWidget ( txt3, grow, 0, 1, 1 );
 
   setHeightBox = new QSpinBox ( this );
   setHeightBox->setObjectName ( QLatin1String ( "setHeightBox" ) );
   setHeightBox->setRange ( 10, 2800 );
   setHeightBox->setValue ( 96 );
-  gridLayout->addWidget ( setHeightBox, 2, 1, 1, 1 );
+  gridLayout->addWidget ( setHeightBox, grow, 1, 1, 1 );
+
+  setHeightSlider = new QSlider ( Qt::Horizontal, this );
+  setHeightSlider->setObjectName ( QLatin1String ( "setHeightSlider" ) );
+  setHeightSlider->setSingleStep ( 2 );
+  setHeightSlider->setMinimum ( desktopRect.left() );
+  setHeightSlider->setMaximum ( desktopRect.right() );
+  gridLayout->addWidget ( setHeightSlider, grow++, 2, 1, 1 );
   // end: Height
 
   // begin: Format Mode Name
   QLabel* txt4 = new QLabel ( this );
   txt4->setText ( trUtf8 ( "Name:" ) );
   txt4->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt4, 3, 0, 1, 1 );
+  gridLayout->addWidget ( txt4, grow, 0, 1, 1 );
 
   setModeName = new QLineEdit ( this );
   setModeName->setObjectName ( QLatin1String ( "setModeName" ) );
-  gridLayout->addWidget ( setModeName, 3, 1, 1, 1 );
+  gridLayout->addWidget ( setModeName, grow++, 1, 1, 2 );
   // end: Format Mode Name
 
   // begin: X Position
   QLabel* txt5 = new QLabel ( this );
   txt5->setText ( trUtf8 ( "Position X:" ) );
   txt5->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt5, 4, 0, 1, 1 );
+  gridLayout->addWidget ( txt5, grow, 0, 1, 1 );
 
   setXBox = new QSpinBox ( this );
   setXBox->setObjectName ( QLatin1String ( "setXBox" ) );
   setXBox->setRange ( 0, 5000 );
   setXBox->setValue ( 0 );
-  gridLayout->addWidget ( setXBox, 4, 1, 1, 1 );
+  gridLayout->addWidget ( setXBox, grow, 1, 1, 1 );
+
+  setXSlider = new QSlider ( Qt::Horizontal, this );
+  setXSlider->setObjectName ( QLatin1String ( "setXSlider" ) );
+  setXSlider->setSingleStep ( 1 );
+  setXSlider->setMinimum ( desktopRect.left() );
+  setXSlider->setMaximum ( desktopRect.right() );
+  gridLayout->addWidget ( setXSlider, grow++, 2, 1, 1 );
   // end: X Position
 
   // begin: Y Position
   QLabel* txt6 = new QLabel ( this );
   txt6->setText ( trUtf8 ( "Position Y:" ) );
   txt6->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt6, 5, 0, 1, 1 );
+  gridLayout->addWidget ( txt6, grow, 0, 1, 1 );
 
   setYBox = new QSpinBox ( this );
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
   setYBox->setRange ( 0, 5000 );
   setYBox->setValue ( 30 );
-  gridLayout->addWidget ( setYBox, 5, 1, 1, 1 );
+  gridLayout->addWidget ( setYBox, grow, 1, 1, 1 );
+
+  setYSlider = new QSlider ( Qt::Horizontal, this );
+  setYSlider->setObjectName ( QLatin1String ( "setYSlider" ) );
+  setYSlider->setSingleStep ( 1 );
+  setYSlider->setMinimum ( desktopRect.top() );
+  setYSlider->setMaximum ( desktopRect.bottom() );
+  gridLayout->addWidget ( setYSlider, grow++, 2, 1, 1 );
   // end: Y Position
 
   // begin: Desktop Color Depth
   QLabel* txt7 = new QLabel ( this );
   txt7->setText ( trUtf8 ( "Depth:" ) );
   txt7->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt7, 6, 0, 1, 1 );
+  gridLayout->addWidget ( txt7, grow, 0, 1, 1 );
 
   QSpinBox* depth = new QSpinBox ( this );
   depth->setDisabled ( true );
-  gridLayout->addWidget ( depth, 6, 1, 1, 1 );
+  gridLayout->addWidget ( depth, grow++, 1, 1, 2 );
   // end: Desktop Color Depth
 
   // begin: Frame Rate
   QLabel* txt8 = new QLabel ( this );
   txt8->setText ( trUtf8 ( "Framerate:" ) );
   txt8->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt8, 7, 0, 1, 1 );
+  gridLayout->addWidget ( txt8, grow, 0, 1, 1 );
 
   setFrameRate = new QSpinBox ( this );
   setFrameRate->setRange ( 0, 150 );
   setFrameRate->setValue ( 25 );
-  gridLayout->addWidget ( setFrameRate, 7, 1, 1, 1 );
+  gridLayout->addWidget ( setFrameRate, grow++, 1, 1, 2 );
   // end: Frame Rate
 
   QGridLayout* checkBoxLayout = new QGridLayout;
@@ -161,10 +198,10 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   soundRecording->setChecked ( true );
   checkBoxLayout->addWidget ( soundRecording, 1, 1, 1, 1 );
 
-  gridLayout->addItem ( checkBoxLayout, 8, 0, 1, 2 );
+  gridLayout->addItem ( checkBoxLayout, grow++, 0, 1, 3 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 9, 0, 1, 2 );
+  gridLayout->addItem ( spacer, grow++, 0, 1, 2 );
 
   setLayout ( gridLayout );
 
@@ -183,14 +220,38 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
 
+  connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
+            setWidthSlider, SLOT ( setValue ( int ) ) );
+
+  connect ( setWidthSlider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( sliderUpdateChanged ( int ) ) );
+
   connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
+
+  connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
+            setHeightSlider, SLOT ( setValue ( int ) ) );
+
+  connect ( setHeightSlider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( sliderUpdateChanged ( int ) ) );
 
   connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
 
+  connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
+            setXSlider, SLOT ( setValue ( int ) ) );
+
+  connect ( setXSlider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( sliderUpdateChanged ( int ) ) );
+
   connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
+
+  connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
+            setYSlider, SLOT ( setValue ( int ) ) );
+
+  connect ( setYSlider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( sliderUpdateChanged ( int ) ) );
 
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
@@ -203,6 +264,19 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
             this, SIGNAL ( postUpdate () ) );
   connect ( soundRecording, SIGNAL ( stateChanged ( int ) ),
             this, SIGNAL ( postUpdate () ) );
+}
+
+/**
+* Wenn einer der Slider bewegt wird
+*/
+void GrabberInfo::sliderUpdateChanged ( int )
+{
+  setXBox->setValue ( setXSlider->value() );
+  setYBox->setValue ( setYSlider->value() );
+  if ( ( setWidthSlider->value() % 2 ) == 0 )
+    setWidthBox->setValue ( setWidthSlider->value() );
+  if ( ( setHeightSlider->value() % 2 ) == 0 )
+    setHeightBox->setValue ( setHeightSlider->value() );
 }
 
 /**

@@ -31,6 +31,7 @@
 /* QtGui */
 #include <QtGui/QCheckBox>
 #include <QtGui/QLineEdit>
+#include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
@@ -45,14 +46,21 @@ class GrabberInfo : public QWidget
     ScreenComboBox* screenComboBox;
     QLineEdit* setModeName;
     QSpinBox* setWidthBox;
+    QSlider* setWidthSlider;
     QSpinBox* setHeightBox;
+    QSlider* setHeightSlider;
     QSpinBox* setXBox;
+    QSlider* setXSlider;
     QSpinBox* setYBox;
+    QSlider* setYSlider;
     QSpinBox* setFrameRate;
     QCheckBox* showRubberband;
     QCheckBox* startMinimized;
     QCheckBox* soundRecording;
     QCheckBox* setMetadata;
+
+  private Q_SLOTS:
+    void sliderUpdateChanged ( int );
 
   Q_SIGNALS:
     void showRubber ( bool );

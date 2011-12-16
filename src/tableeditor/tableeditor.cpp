@@ -71,7 +71,6 @@ TableEditor::TableEditor ( QWidget * parent )
   m_tableWidget = new QTableWidget ( this );
   m_tableWidget->setObjectName ( QLatin1String ( "TableEditor/TableWidget" ) );
   m_tableWidget->setColumnCount ( 2 );
-
   QIcon cIcon = QIcon::fromTheme ( "view-form-table" );
   QTableWidgetItem* th0 = new QTableWidgetItem ( cIcon, trUtf8 ( "Parameter" ), QTableWidgetItem::UserType );
   m_tableWidget->setHorizontalHeaderItem ( 0, th0 );
