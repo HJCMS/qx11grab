@@ -2,65 +2,72 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="cs_CZ">
 <context>
-    <name>AlsaAudioDeviceDialog</name>
-    <message>
-        <source>ALSA PCM Selection</source>
-        <translation type="unfinished">Výběr ALSA PCM</translation>
-    </message>
+    <name>AbstractAudioDialog</name>
     <message>
         <source>Available Cards:</source>
         <translation type="unfinished">Dostupné karty:</translation>
     </message>
+    <message>
+        <source>Fallback Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>AudioDevice</name>
+    <name>AlsaAudioDialog</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation type="unfinished">Výběr ALSA PCM</translation>
+    </message>
+</context>
+<context>
+    <name>AudioDeviceWidget</name>
     <message>
         <source>Audio Settings</source>
-        <translation>Nastavení zvuku</translation>
-    </message>
-    <message>
-        <source>Audio Intensifier:</source>
-        <translation>Zesilovač zvuku:</translation>
-    </message>
-    <message>
-        <source>Change Audio Volume (256=normal)</source>
-        <translation>Nastavit sílu hlasitosti zvuku (256=obvyklá)</translation>
-    </message>
-    <message>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <translation>Nastavit zesílení zvuku.
-Výchozí: 256=obvyklé</translation>
-    </message>
-    <message>
-        <source>Audio Capture Device:</source>
-        <translation>Zařízení pro zachytávání zvuku:</translation>
-    </message>
-    <message>
-        <source>Change Audio Capture Device
-OSS Default: /dev/dsp or Alsa Default: default</source>
-        <translation>Vybrat nahrávací zařízení pro zachytávání zvuku
-Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
-    </message>
-    <message>
-        <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation>Advanced Linux Sound Architecture (ALSA)</translation>
-    </message>
-    <message>
-        <source>Open Sound System (OSS)</source>
-        <translation>Open Sound System (OSS)</translation>
-    </message>
-    <message>
-        <source>Select ALSA Audio Capture Device</source>
-        <translation>Vybrat zařízení pro zachytávání zvuku ALSA</translation>
+        <translation type="unfinished">Nastavení zvuku</translation>
     </message>
     <message>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced Linux Sound Architecture (Alsa)</source>
+        <translation type="unfinished">Advanced Linux Sound Architecture (ALSA)</translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <translation type="unfinished">Open Sound System (OSS)</translation>
+    </message>
+    <message>
         <source>Soundserver (Pulse)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio Intensifier:</source>
+        <translation type="unfinished">Zesilovač zvuku:</translation>
+    </message>
+    <message>
+        <source>Change Audio Volume (256=normal)</source>
+        <translation type="unfinished">Nastavit sílu hlasitosti zvuku (256=obvyklá)</translation>
+    </message>
+    <message>
+        <source>Change Audio Amplifier.
+Default: 256=normal</source>
+        <translation type="unfinished">Nastavit zesílení zvuku.
+Výchozí: 256=obvyklé</translation>
+    </message>
+    <message>
+        <source>Audio Capture Device:</source>
+        <translation type="unfinished">Zařízení pro zachytávání zvuku:</translation>
+    </message>
+    <message>
+        <source>Change Audio Capture Device
+OSS Default: /dev/dsp or Alsa Default: default</source>
+        <translation type="unfinished">Vybrat nahrávací zařízení pro zachytávání zvuku
+Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
+    </message>
+    <message>
+        <source>Select ALSA Audio Capture Device</source>
+        <translation type="unfinished">Vybrat zařízení pro zachytávání zvuku ALSA</translation>
     </message>
     <message>
         <source>Sample Format:</source>
@@ -76,6 +83,10 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -95,6 +106,14 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>unsigned  8 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>signed 16 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -109,18 +128,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Unknown</source>
         <translation type="unfinished">Neznámý</translation>
-    </message>
-    <message>
-        <source>signed  8 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>unsigned  8 bits, planar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>signed 16 bits, planar</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -460,6 +467,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Medium:</source>
         <translation>Nosič:</translation>
+    </message>
+</context>
+<context>
+    <name>PulseAudioDialog</name>
+    <message>
+        <source>Pulse Device Selection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

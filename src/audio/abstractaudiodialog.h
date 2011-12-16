@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef ALSAAUDIODEVICEDIALOG_H
-#define ALSAAUDIODEVICEDIALOG_H
+#ifndef ABSTRACTAUDIODIALOG_H
+#define ABSTRACTAUDIODIALOG_H
 
 /* QtCore */
 #include <QtCore/QObject>
@@ -28,28 +28,44 @@
 
 /* QtGui */
 #include <QtGui/QDialog>
+#include <QtGui/QDialogButtonBox>
 #include <QtGui/QListWidget>
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "alsaaudiodevice.h"
+#include "audiodevice.h"
 
-class AlsaAudioDeviceDialog : public QDialog
+class AbstractAudioDialog : public QDialog
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_PROPERTY ( QString card READ getCard WRITE setCard )
 
   private:
-    QListWidget* deviceList;
-    void initRecorderDevices();
+    QDialogButtonBox* m_buttonBox;
+
+  protected:
+    /**
+    * Device ListWidget for User Selection
+    */
+    QListWidget* m_deviceListWidget;
+
+    /**
+    * This Virtual Method is used for Initial Audio
+    * Interfaces and is needet to set in subclass construtor
+    */
+    virtual void initInterface() = 0;
 
   public:
-    AlsaAudioDeviceDialog ( QWidget * parent = 0 );
+    AbstractAudioDialog ( QWidget * parent = 0 );
+
+    /**
+    * Current 
+    */
     const QString getCard ();
-    const AlsaAudioDevice cardInfo ();
+    const AudioDevice cardInfo ();
     void setCard ( const QString & );
-    ~AlsaAudioDeviceDialog();
+    ~AbstractAudioDialog();
 };
 
 #endif

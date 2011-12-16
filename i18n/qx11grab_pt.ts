@@ -2,150 +2,158 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pt_PT">
 <context>
-    <name>AlsaAudioDeviceDialog</name>
+    <name>AbstractAudioDialog</name>
     <message>
-        <location filename="../src/audio/alsaaudiodevicedialog.cpp" line="47"/>
-        <source>ALSA PCM Selection</source>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="49"/>
+        <source>Available Cards:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/alsaaudiodevicedialog.cpp" line="53"/>
-        <source>Available Cards:</source>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="86"/>
+        <source>Fallback Interface</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>AudioDevice</name>
+    <name>AlsaAudioDialog</name>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="50"/>
+        <location filename="../src/audio/alsaaudiodialog.cpp" line="43"/>
+        <source>ALSA PCM Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AudioDeviceWidget</name>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="52"/>
         <source>Audio Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="56"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="58"/>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="57"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="59"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="58"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
         <source>Open Sound System (OSS)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="59"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
         <source>Soundserver (Pulse)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="64"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="66"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="73"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="75"/>
         <source>Change Audio Volume (256=normal)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="74"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="76"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="78"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="80"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="84"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="86"/>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="90"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="92"/>
         <source>Select ALSA Audio Capture Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="95"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="97"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="101"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="103"/>
         <source>The sample format of the incoming audio buffers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="102"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="104"/>
         <source>To show available sample formats use ffmpeg -sample_fmts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="104"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="106"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="105"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="107"/>
         <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="110"/>
-        <source>unsigned  8 bits, planar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="111"/>
-        <source>signed 16 bits, planar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevice.cpp" line="106"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="108"/>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="107"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="109"/>
         <source>signed 32 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="108"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="110"/>
         <source>float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="109"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="111"/>
         <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="112"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="112"/>
+        <source>unsigned  8 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="113"/>
+        <source>signed 16 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="113"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="115"/>
         <source>float, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="114"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevice.cpp" line="253"/>
-        <location filename="../src/audio/audiodevice.cpp" line="269"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="271"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="287"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -573,6 +581,14 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../src/utils/metadata.cpp" line="100"/>
         <source>Medium:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PulseAudioDialog</name>
+    <message>
+        <location filename="../src/audio/pulseaudiodialog.cpp" line="131"/>
+        <source>Pulse Device Selection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

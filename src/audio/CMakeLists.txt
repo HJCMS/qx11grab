@@ -3,18 +3,22 @@
 SET(_subproject "Audio")
 
 SET (_subproject_SOURCES
+  audiodevicewidget.cpp
+  abstractaudiodialog.cpp
+  alsaaudiodialog.cpp
+  pulseaudiodialog.cpp
   audiodevice.cpp
-  alsaaudiodevicedialog.cpp
-  alsaaudiodevice.cpp
 )
 
 SET (_subproject_HEADERS
-  audiodevice.h
-  alsaaudiodevicedialog.h
+  audiodevicewidget.h
+  abstractaudiodialog.h
+  alsaaudiodialog.h
+  pulseaudiodialog.h
 )
 
 SET (_subproject_NOMOC_HEADERS
-  alsaaudiodevice.h
+  audiodevice.h
 )
 
 QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})

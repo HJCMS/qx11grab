@@ -124,11 +124,11 @@ SET (PULSE_SUFFIX "" CACHE STRING
 )
 
 SET (PULSE_SIMPLE_VERSION "1.0" CACHE STRING
-  "overwrite required libpulse-simple Version (STRING)" FORCE
+  "overwrite required libpulse Version (STRING)" FORCE
 )
 
 PKG_CHECK_MODULES (PULSE REQUIRED 
-  libpulse-simple${PULSE_SUFFIX}>=${PULSE_SIMPLE_VERSION}
+  libpulse${PULSE_SUFFIX}>=${PULSE_SIMPLE_VERSION}
 )
 
 ## NOTE Exeptions needed by QX11Grab::record()

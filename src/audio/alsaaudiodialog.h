@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,20 +19,32 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef ALSAAUDIODEVICE_H
-#define ALSAAUDIODEVICE_H
+#ifndef ALSAAUDIODIALOG_H
+#define ALSAAUDIODIALOG_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
-class AlsaAudioDevice
+/* QtGui */
+#include <QtGui/QDialog>
+#include <QtGui/QListWidget>
+#include <QtGui/QWidget>
+
+/* QX11Grab */
+#include "abstractaudiodialog.h"
+
+class AlsaAudioDialog : public AbstractAudioDialog
 {
+    Q_OBJECT
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+
+  private:
+    void initInterface();
+
   public:
-    const QString hw;
-    const QString name;
-    const QString description;
-    AlsaAudioDevice ( const QString &dev, const QString &title, const QString &info );
+    AlsaAudioDialog ( QWidget * parent = 0 );
+    ~AlsaAudioDialog();
 };
 
 #endif

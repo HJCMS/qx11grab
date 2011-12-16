@@ -20,7 +20,7 @@
 **/
 
 #include "defaults.h"
-#include "audiodevice.h"
+#include "audiodevicewidget.h"
 
 #ifndef QX11GRAB_VERSION
 #include "version.h"
@@ -102,8 +102,8 @@ Defaults::Defaults ( QWidget * parent )
     // end: Output Directory
 
     // begin: Audio Device
-    m_audioDevice = new AudioDevice ( this );
-    gridLayout->addWidget ( m_audioDevice, ++gridRow, 0, 1, 3 );
+    m_audioDeviceWidget = new AudioDeviceWidget ( this );
+    gridLayout->addWidget ( m_audioDeviceWidget, ++gridRow, 0, 1, 3 );
     // end: Audio Device
 
     QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
@@ -155,10 +155,10 @@ void Defaults::load ( QSettings * cfg )
 
     QList<QLineEdit*> items;
     items << outputDirectory << outputName << ff_path;
-    m_audioDevice->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
-    m_audioDevice->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
-    m_audioDevice->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
-    m_audioDevice->setSampleFormat ( cfg->value ( QLatin1String ( "audio_sample_fmt" ) ).toString() );
+    m_audioDeviceWidget->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
+    m_audioDeviceWidget->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
+    m_audioDeviceWidget->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
+    m_audioDeviceWidget->setSampleFormat ( cfg->value ( QLatin1String ( "audio_sample_fmt" ) ).toString() );
 
     foreach ( QLineEdit* edit, items )
     {
@@ -174,22 +174,22 @@ void Defaults::save ( QSettings * cfg )
     QList<QLineEdit*> items;
     items << outputDirectory << outputName << ff_path;
 
-    cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDevice->getAudioEngine() );
+    cfg->setValue ( QLatin1String ( "audio_engine" ), m_audioDeviceWidget->getAudioEngine() );
 
-    if ( m_audioDevice->getVolume() != 256 )
-        cfg->setValue ( QLatin1String ( "audio_intensifier" ), m_audioDevice->getVolume() );
+    if ( m_audioDeviceWidget->getVolume() != 256 )
+        cfg->setValue ( QLatin1String ( "audio_intensifier" ), m_audioDeviceWidget->getVolume() );
     else
         cfg->remove ( QLatin1String ( "audio_intensifier" ) );
 
-    if ( m_audioDevice->getAudioDevice().isEmpty() )
+    if ( m_audioDeviceWidget->getAudioDevice().isEmpty() )
         cfg->remove ( QLatin1String ( "audio_device" ) );
     else
-        cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDevice->getAudioDevice() );
+        cfg->setValue ( QLatin1String ( "audio_device" ), m_audioDeviceWidget->getAudioDevice() );
 
-    if ( m_audioDevice->getSampleFormat().isEmpty() )
+    if ( m_audioDeviceWidget->getSampleFormat().isEmpty() )
         cfg->remove ( QLatin1String ( "audio_sample_fmt" ) );
     else
-        cfg->setValue ( QLatin1String ( "audio_sample_fmt" ), m_audioDevice->getSampleFormat() );
+        cfg->setValue ( QLatin1String ( "audio_sample_fmt" ), m_audioDeviceWidget->getSampleFormat() );
 
     foreach ( QLineEdit* edit, items )
     {
@@ -207,7 +207,7 @@ const QString Defaults::binary()
 
 const QStringList Defaults::audioDeviceData()
 {
-    return  m_audioDevice->data();
+    return  m_audioDeviceWidget->data();
 }
 
 const QString Defaults::output()

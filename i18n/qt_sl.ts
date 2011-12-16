@@ -1,64 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.0" language="sl">
+    <extra-po-header-po_revision_date>2010-08-29 00:26+0200</extra-po-header-po_revision_date>
+    <extra-po-headers>MIME-Version,Content-Type,Content-Transfer-Encoding,Plural-Forms,X-Language,X-Qt-Contexts,Last-Translator,PO-Revision-Date,Project-Id-Version,Language-Team,X-Generator</extra-po-headers>
+    <extra-po-header-x_generator>Lokalize 1.1</extra-po-header-x_generator>
+    <extra-po-header-language_team>Slovenian &lt;lugos-slo@lugos.si&gt;</extra-po-header-language_team>
+    <extra-po-header-project_id_version></extra-po-header-project_id_version>
+    <extra-po-header_comment># Jure Repinc &lt;jlp@holodeck1.com&gt;, 2010.</extra-po-header_comment>
+    <extra-po-header-last_translator>Jure Repinc &lt;jlp@holodeck1.com&gt;</extra-po-header-last_translator>
 <context>
     <name>CloseButton</name>
     <message>
         <source>Close Tab</source>
-        <translation>Schließen</translation>
+        <translation>Zapri zavihek</translation>
     </message>
 </context>
 <context>
     <name>FakeReply</name>
     <message>
         <source>Fake error !</source>
-        <translation>Fake error !</translation>
+        <translation>Lažna napaka.</translation>
     </message>
     <message>
         <source>Invalid URL</source>
-        <translation>Ungültige URL</translation>
+        <translation>Neveljaven URL</translation>
     </message>
 </context>
 <context>
     <name>MAC_APPLICATION_MENU</name>
     <message>
         <source>Services</source>
-        <translation>Dienste</translation>
+        <translation>Storitve</translation>
     </message>
     <message>
         <source>Hide %1</source>
-        <translation>%1 ausblenden</translation>
+        <translation>Skrij %1</translation>
     </message>
     <message>
         <source>Hide Others</source>
-        <translation>Andere ausblenden</translation>
+        <translation>Skrij druge</translation>
     </message>
     <message>
         <source>Show All</source>
-        <translation>Alle anzeigen</translation>
+        <translation>Prikaži vse</translation>
     </message>
     <message>
         <source>Preferences...</source>
-        <translation>Einstellungen...</translation>
+        <translation>Nastavitve ...</translation>
     </message>
     <message>
         <source>Quit %1</source>
-        <translation>%1 beenden</translation>
+        <translation>Končaj %1</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation>Über %1</translation>
+        <translation>O %1</translation>
     </message>
 </context>
 <context>
     <name>Phonon::</name>
     <message>
         <source>Notifications</source>
-        <translation>Benachrichtigungen</translation>
+        <translation>Obvestila</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>Glasba</translation>
     </message>
     <message>
         <source>Video</source>
@@ -66,34 +73,34 @@
     </message>
     <message>
         <source>Communication</source>
-        <translation>Kommunikation</translation>
+        <translation>Komunikacija</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation>Spiele</translation>
+        <translation>Igre</translation>
     </message>
     <message>
         <source>Accessibility</source>
-        <translation>Eingabehilfen</translation>
+        <translation>Dostopnost</translation>
     </message>
 </context>
 <context>
     <name>Phonon::AudioOutput</name>
     <message>
         <source>&lt;html&gt;The audio playback device &lt;b&gt;%1&lt;/b&gt; does not work.&lt;br/&gt;Falling back to &lt;b&gt;%2&lt;/b&gt;.&lt;/html&gt;</source>
-        <translation>&lt;html&gt;Das Audiogerät &lt;b&gt;%1&lt;/b&gt; funktioniert nicht.&lt;br/&gt;Es wird stattdessen &lt;b&gt;%2&lt;/b&gt; verwendet.&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;Naprava za predvajanje zvoka &lt;b&gt;%1&lt;/b&gt; ne deluje.&lt;br/&gt;Preklapljanje na &lt;b&gt;%2&lt;/b&gt;.&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;html&gt;Switching to the audio playback device &lt;b&gt;%1&lt;/b&gt;&lt;br/&gt;which just became available and has higher preference.&lt;/html&gt;</source>
-        <translation>&lt;html&gt;Das Audiogerät &lt;b&gt;%1&lt;/b&gt; wurde aktiviert,&lt;br/&gt;da es gerade verfügbar und höher priorisiert ist.&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;Preklapljanje na napravo za predvajanje zvoka &lt;b&gt;%1&lt;/b&gt;,&lt;br/&gt;ki je ravnokar postala dostopna in ima višjo preferenco.&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Revert back to device &apos;%1&apos;</source>
-        <translation>Zurückschalten zum Gerät &apos;%1&apos;</translation>
+        <translation>Povrni nazaj na napravo »%1«</translation>
     </message>
     <message>
         <source>&lt;html&gt;Switching to the audio playback device &lt;b&gt;%1&lt;/b&gt;&lt;br/&gt;which has higher preference or is specifically configured for this stream.&lt;/html&gt;</source>
-        <translation>&lt;html&gt;Es wird zum Audiogerät &lt;b&gt;%1&lt;/b&gt; geschaltet, &lt;br/&gt;da es höher priorisiert ist oder spezifisch für diesen Stream konfiguriert wurde.&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;Preklapljanje na napravo za predvajanje zvoka &lt;b&gt;%1&lt;/b&gt;,&lt;br/&gt;ki ima višjo preferenco ali pa je posebej nastavljena za ta tok.&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -101,14 +108,14 @@
     <message>
         <source>Warning: You do not seem to have the package gstreamer0.10-plugins-good installed.
           Some video features have been disabled.</source>
-        <translation>Achtung: Das Paket gstreamer0.10-plugins-good ist nicht installiert.
-Einige Video-Funktionen stehen nicht zur Verfügung.</translation>
+        <translation>Opozorilo: kot kaže paket gstreamer0.10-plugins-good ni nameščen.
+          Nekatere možnosti predvajanja videa so onemogočene.</translation>
     </message>
     <message>
         <source>Warning: You do not seem to have the base GStreamer plugins installed.
           All audio and video support has been disabled</source>
-        <translation>Achtung: Die grundlegenden GStreamer-Plugins sind nicht installiert.￼
-Die Audio- und Video-Unterstützung steht nicht zur Verfügung.</translation>
+        <translation>Opozorilo: kot kaže osnovni vstavki za GStreamer niso nameščeni.
+          Vsa podpora za zvok in video je onemogočena.</translation>
     </message>
 </context>
 <context>
@@ -118,230 +125,227 @@ Die Audio- und Video-Unterstützung steht nicht zur Verfügung.</translation>
 
 Check your GStreamer installation and make sure you 
 have libgstreamer-plugins-base installed.</source>
-        <translation>Das Abspielen konnte nicht gestartet werden.
+        <translation>Ni moč začeti predvajanja.
 
-Bitte überprüfen Sie Ihre GStreamer-Installation und stellen Sie sicher, dass das Paket libgstreamer-plugins-base installiert ist.</translation>
+Preverite namestitev GStreamerja in se prepričajte, 
+da je nameščen paket libgstreamer-plugins-base.</translation>
     </message>
     <message>
         <source>Missing codec helper script assistant.</source>
-        <translation>Der Skript-Hilfsassistent des Codecs fehlt.</translation>
+        <translation>Manjka pomožni skript pomočnika za kodeke.</translation>
     </message>
     <message>
         <source>Plugin codec installation failed for codec: %0</source>
-        <translation>Die Installation des Codec-Plugins ist fehlgeschlagen für: %0</translation>
+        <translation>Namesitev vstavka s kodekom ni uspela: %0</translation>
     </message>
     <message>
         <source>A required codec is missing. You need to install the following codec(s) to play this content: %0</source>
-        <translation>Es sind nicht alle erforderlichen Codecs installiert. Um diesen Inhalt abzuspielen, muss der folgende Codec installiert werden: %0</translation>
+        <translation>Manjka potreben kodek. Za predvajanje te vsebine morate namestiti sledeče kodeke: %0</translation>
     </message>
     <message>
         <source>Could not open media source.</source>
-        <translation>Die Medienquelle konnte nicht geöffnet werden.</translation>
+        <translation>Ni moč odpreti večpredstavnostnega vira.</translation>
     </message>
     <message>
         <source>Invalid source type.</source>
-        <translation>Ungültiger Typ der Medienquelle.</translation>
+        <translation>Neveljavna vrsta vira.</translation>
     </message>
     <message>
         <source>Could not locate media source.</source>
-        <translation>Die Medienquelle konnte nicht gefunden werden.</translation>
+        <translation>Ni moč najti večpredstavnostnega vira.</translation>
     </message>
     <message>
         <source>Could not open audio device. The device is already in use.</source>
-        <translation>Das Audiogerät konnte nicht geöffnet werden, da es bereits in Benutzung ist.</translation>
+        <translation>Ni moč odpreti zvočne naprave. Naprava je že v uporabi.</translation>
     </message>
     <message>
         <source>Could not decode media source.</source>
-        <translation>Die Medienquelle konnte nicht gefunden werden.</translation>
+        <translation>Ni moč dekodirati večpredstavnostnega vira.</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF</name>
     <message>
         <source>Audio Output</source>
-        <translation>Audio-Ausgabe</translation>
+        <translation>Predvajanje zvoka</translation>
     </message>
     <message>
         <source>The audio output device</source>
-        <translation>Audio-Ausgabegerät</translation>
+        <translation>Naprava za predvajanje zvoka</translation>
     </message>
     <message>
         <source>No error</source>
-        <translation>Kein Fehler</translation>
+        <translation>Brez napake</translation>
     </message>
     <message>
         <source>Not found</source>
-        <translation>Nicht gefunden</translation>
+        <translation>Ni najdeno</translation>
     </message>
     <message>
         <source>Out of memory</source>
-        <translation>Es ist kein Speicher mehr verfügbar</translation>
+        <translation>Zmanjkalo pomnilnika</translation>
     </message>
     <message>
         <source>Not supported</source>
-        <translation>Nicht unterstützt</translation>
+        <translation>Ni podprto</translation>
     </message>
     <message>
         <source>Overflow</source>
-        <translation>Überlauf</translation>
+        <translation>Prekoračitev zgornje meje</translation>
     </message>
     <message>
         <source>Underflow</source>
-        <translation>Unterlauf</translation>
+        <translation>Prekoračitev spodnje meje</translation>
     </message>
     <message>
         <source>Already exists</source>
-        <translation>Existiert bereits</translation>
+        <translation>Že obstaja</translation>
     </message>
     <message>
         <source>Path not found</source>
-        <translation>Pfad konnte nicht gefunden werden</translation>
+        <translation>Pot ni najdena</translation>
     </message>
     <message>
         <source>In use</source>
-        <translation>Bereits in Verwendung</translation>
+        <translation>V uporabi</translation>
     </message>
     <message>
         <source>Not ready</source>
-        <translation>Nicht bereit</translation>
+        <translation>Ni pripravljeno</translation>
     </message>
     <message>
         <source>Access denied</source>
-        <translation>Zugriff verweigert</translation>
+        <translation>Dostop zavrnjen</translation>
     </message>
     <message>
         <source>Could not connect</source>
-        <translation>Es konnte keine Verbindung hergestellt werden</translation>
+        <translation>Povezava ni mogoča</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Getrennt</translation>
+        <translation>Povezava prekinjena</translation>
     </message>
     <message>
         <source>Permission denied</source>
-        <translation>Zugriff verweigert</translation>
+        <translation>Ni dovoljenja</translation>
     </message>
     <message>
         <source>Insufficient bandwidth</source>
-        <translation>Unzureichende Bandweite</translation>
+        <translation>Pasovna širina ni zadostna</translation>
     </message>
     <message>
         <source>Network unavailable</source>
-        <translation>Netzwerk nicht verfügbar</translation>
+        <translation>Omrežje ni na voljo</translation>
     </message>
     <message>
         <source>Network communication error</source>
-        <translation>Fehler bei der Kommunikation über das Netzwerk</translation>
+        <translation>Napaka komunikacije prek omrežja</translation>
     </message>
     <message>
         <source>Streaming not supported</source>
-        <translation>Streaming nicht unterstützt</translation>
+        <translation>Pretakanje ni podprto</translation>
     </message>
     <message>
         <source>Server alert</source>
-        <translation>Server alert</translation>
+        <translation>Opozorilo strežnika</translation>
     </message>
     <message>
         <source>Invalid protocol</source>
-        <translation>Ungültiges Protokoll</translation>
+        <translation>Neveljaven protokol</translation>
     </message>
     <message>
         <source>Invalid URL</source>
-        <translation>Ungültige URL</translation>
+        <translation>Neveljaven URL</translation>
     </message>
     <message>
         <source>Multicast error</source>
-        <translation>Multicast-Fehler</translation>
+        <translation>Napaka oddajanja večim</translation>
     </message>
     <message>
         <source>Proxy server error</source>
-        <translation>Fehler bei Proxy-Server-Kommunikation</translation>
+        <translation>Napaka posredniškega strežnika</translation>
     </message>
     <message>
         <source>Proxy server not supported</source>
-        <translation>Proxy-Server nicht unterstützt</translation>
+        <translation>Posredniški strežnik ni podprt</translation>
     </message>
     <message>
         <source>Audio output error</source>
-        <translation>Fehler bei Audio-Ausgabe</translation>
+        <translation>Napaka predvajanja zvoka</translation>
     </message>
     <message>
         <source>Video output error</source>
-        <translation>Fehler bei Video-Ausgabe</translation>
+        <translation>Napaka prevajanja videa</translation>
     </message>
     <message>
         <source>Decoder error</source>
-        <translation>Fehler im Decoder</translation>
+        <translation>Napaka dekodirnika</translation>
     </message>
     <message>
         <source>Audio or video components could not be played</source>
-        <translation>Audio- oder Videokomponenten konnten nicht abgespielt werden</translation>
+        <translation>Zvočne ali video komponente ni bilo moč predvajati</translation>
     </message>
     <message>
         <source>DRM error</source>
-        <translation>DRM-Fehler</translation>
+        <translation>Napaka upravljanja z omejitvami</translation>
     </message>
     <message>
         <source>Unknown error (%1)</source>
-        <translation>Unbekannter Fehler (%1)</translation>
+        <translation>Neznana napaka (%1)</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::AbstractMediaPlayer</name>
     <message>
         <source>Not ready to play</source>
-        <translation>Das Abspielen ist im Grundzustand nicht möglich</translation>
+        <translation>Ni pripravljen na predvajanje</translation>
     </message>
     <message>
         <source>Error opening file</source>
-        <translation>Die Datei konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju datoteke</translation>
     </message>
     <message>
         <source>Error opening URL</source>
-        <translation>Der URL konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju URL-ja</translation>
     </message>
     <message>
         <source>Error opening resource</source>
-        <translation>Die Ressource konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju vira</translation>
     </message>
     <message>
         <source>Error opening source: resource not opened</source>
-        <translation>Die Quelle konnte nicht geöffnet werden: Ressource nicht geöffnet</translation>
+        <translation>Napaka pri odporanju vira: vir ni bil odprt</translation>
     </message>
     <message>
         <source>Setting volume failed</source>
-        <translation>Die Lautstärke konnte nicht eingestellt werden</translation>
+        <translation>Nastavljanje glasnosti ni uspelo</translation>
     </message>
     <message>
         <source>Loading clip failed</source>
-        <translation>Das Laden des Clips ist fehlgeschlagen</translation>
+        <translation>Nalaganje posnetka ni uspelo</translation>
     </message>
     <message>
         <source>Playback complete</source>
-        <translation>Abspielen beendet</translation>
-    </message>
-    <message>
-        <source>Download error</source>
-        <translation>Fehler beim Download</translation>
+        <translation>Predvajanje je zaključeno</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::AbstractVideoPlayer</name>
     <message>
         <source>Pause failed</source>
-        <translation>Fehler bei Pause-Funktion</translation>
+        <translation>Prekinitev ni uspela</translation>
     </message>
     <message>
         <source>Seek failed</source>
-        <translation>Suchoperation fehlgeschlagen</translation>
+        <translation>Pomik ni uspel</translation>
     </message>
     <message>
         <source>Getting position failed</source>
-        <translation>Die Position konnte nicht bestimmt werden</translation>
+        <translation>Pridobivanje položaja ni uspelo</translation>
     </message>
     <message>
         <source>Opening clip failed</source>
-        <translation>Der Clip konnte nicht geöffnet werden</translation>
+        <translation>Odpiranje posnetka ni uspelo</translation>
     </message>
 </context>
 <context>
@@ -355,195 +359,201 @@ Bitte überprüfen Sie Ihre GStreamer-Installation und stellen Sie sicher, dass 
     <name>Phonon::MMF::AudioPlayer</name>
     <message>
         <source>Getting position failed</source>
-        <translation>Die Position konnte nicht bestimmt werden</translation>
+        <translation>Pridobivanje položaja ni uspelo</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::DsaVideoPlayer</name>
     <message>
         <source>Video display error</source>
-        <translation>Fehler bei der Video-Anzeige</translation>
+        <translation>Napaka prikaza videa</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::EffectFactory</name>
     <message>
         <source>Enabled</source>
-        <translation>Aktiviert</translation>
+        <translation>Omogočeno</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::EnvironmentalReverb</name>
     <message>
         <source>Decay HF ratio (%)</source>
-        <extracomment>DecayHFRatio: Ratio of high-frequency decay time to the value specified by DecayTime.</extracomment>
-        <translation>Hochfrequenz-Abklingverhältnis (%)</translation>
+        <extracomment>DecayHFRatio: Ratio of high-frequency decay time to the value specified by DecayTime.
+</extracomment>
+        <translation>VF razmerje zamrtja (%)</translation>
     </message>
     <message>
         <source>Decay time (ms)</source>
-        <extracomment>DecayTime: Time over which reverberation is diminished.</extracomment>
-        <translation>Abklingzeit (ms)</translation>
+        <extracomment>DecayTime: Time over which reverberation is diminished.
+</extracomment>
+        <translation>Čas zamrtja (ms)</translation>
     </message>
     <message>
         <source>Density (%)</source>
-        <extracomment>Density Delay between first and subsequent reflections. Note that the S60 platform documentation does not make clear the distinction between this value and the Diffusion value.</extracomment>
-        <translation>Dichte (%)</translation>
+        <extracomment>Density Delay between first and subsequent reflections. Note that the S60 platform documentation does not make clear the distinction between this value and the Diffusion value.
+</extracomment>
+        <translation>Gostota (%)</translation>
     </message>
     <message>
         <source>Diffusion (%)</source>
-        <extracomment>Diffusion: Delay between first and subsequent reflections. Note that the S60 platform documentation does not make clear the distinction between this value and the Density value.</extracomment>
-        <translation>Diffusion (%)</translation>
+        <extracomment>Diffusion: Delay between first and subsequent reflections. Note that the S60 platform documentation does not make clear the distinction between this value and the Density value.
+</extracomment>
+        <translation>Razpršitev (%)</translation>
     </message>
     <message>
         <source>Reflections delay (ms)</source>
-        <extracomment>ReflectionsDelay: Amount of delay between the arrival the direct path from the source and the arrival of the first reflection.</extracomment>
-        <translation>Verzögerung des Echos (ms)</translation>
+        <extracomment>ReflectionsDelay: Amount of delay between the arrival the direct path from the source and the arrival of the first reflection.
+</extracomment>
+        <translation>Zamik odbojev (ms)</translation>
     </message>
     <message>
         <source>Reflections level (mB)</source>
-        <extracomment>ReflectionsLevel: Amplitude of reflections. This value is corrected by the RoomLevel to give the final reflection amplitude.</extracomment>
-        <translation>Stärke des Echos (mB)</translation>
+        <extracomment>ReflectionsLevel: Amplitude of reflections. This value is corrected by the RoomLevel to give the final reflection amplitude.
+</extracomment>
+        <translation>Glasnost odbojev (mB)</translation>
     </message>
     <message>
         <source>Reverb delay (ms)</source>
-        <extracomment>ReverbDelay: Amount of time between arrival of the first reflection and start of the late reverberation.</extracomment>
-        <translation>Verzögerung des Nachhalls (ms)</translation>
+        <extracomment>ReverbDelay: Amount of time between arrival of the first reflection and start of the late reverberation.
+</extracomment>
+        <translation>Zamik odmeva (ms)</translation>
     </message>
     <message>
         <source>Reverb level (mB)</source>
-        <extracomment>ReverbLevel Amplitude of reverberations. This value is corrected by the RoomLevel to give the final reverberation amplitude.</extracomment>
-        <translation>Stärke des Nachhalls (mB)</translation>
+        <extracomment>ReverbLevel Amplitude of reverberations. This value is corrected by the RoomLevel to give the final reverberation amplitude.
+</extracomment>
+        <translation>Glasnost odmeva (ms)</translation>
     </message>
     <message>
         <source>Room HF level</source>
-        <extracomment>RoomHFLevel: Amplitude of low-pass filter used to attenuate the high frequency component of reflected sound.</extracomment>
-        <translation>Hochfrequenz-Pegel des Raums</translation>
+        <extracomment>RoomHFLevel: Amplitude of low-pass filter used to attenuate the high frequency component of reflected sound.
+</extracomment>
+        <translation>VF glasnost prostora</translation>
     </message>
     <message>
         <source>Room level (mB)</source>
-        <extracomment>RoomLevel: Master volume control for all reflected sound.</extracomment>
-        <translation>Pegel des Raums (mB)</translation>
+        <extracomment>RoomLevel: Master volume control for all reflected sound.
+</extracomment>
+        <translation>Glasnost prostora (mB)</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::MediaObject</name>
     <message>
         <source>Error opening source: type not supported</source>
-        <translation>Die Quelle konnte nicht geöffnet werden: Dieser Typ wird nicht unterstützt</translation>
+        <translation>Napaka pri odpiranju vira: vrsta ni podprta</translation>
     </message>
     <message>
         <source>Error opening source: resource is compressed</source>
-        <translation>Die Quelle konnte nicht geöffnet werden: Die Ressource ist komprimiert</translation>
+        <translation>Napaka pri odporanju vira: vir je stisnjen</translation>
     </message>
     <message>
         <source>Error opening source: resource not valid</source>
-        <translation>Die Quelle konnte nicht geöffnet werden: Ungültige Ressource</translation>
+        <translation>Napaka pri odporanju vira: vir ni veljaven</translation>
     </message>
     <message>
         <source>Error opening source: media type could not be determined</source>
-        <translation>Die Quelle konnte nicht geöffnet werden: Der Medientyp konnte nicht bestimmt werden</translation>
-    </message>
-    <message>
-        <source>Failed to set requested IAP</source>
-        <translation>Der angeforderte Internetzugriffspunkt konnte nicht gesetzt werden</translation>
+        <translation>Napaka pri odpiranju vira: ni bilo moč ugotoviti vrste večpredstavnostne datoteke</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::StereoWidening</name>
     <message>
         <source>Level (%)</source>
-        <translation>Stärke (%)</translation>
+        <translation>Stopnja (%)</translation>
     </message>
 </context>
 <context>
     <name>Phonon::MMF::SurfaceVideoPlayer</name>
     <message>
         <source>Video display error</source>
-        <translation>Fehler bei der Video-Anzeige</translation>
+        <translation>Napaka prikaza videa</translation>
     </message>
 </context>
 <context>
     <name>Phonon::VolumeSlider</name>
     <message>
         <source>Volume: %1%</source>
-        <translation>Lautstärke: %1%</translation>
+        <translation>Glasnost: %1 %</translation>
     </message>
     <message>
         <source>Use this slider to adjust the volume. The leftmost position is 0%, the rightmost is %1%</source>
-        <translation>Mit diesem Regler stellen Sie die Lautstärke ein. Die Position links entspricht 0%; die Position rechts entspricht %1%</translation>
+        <translation>Uporabite ta drsnik, da nastavite glasnost. Skrajno levi položaj je 0 %, skrajno desni pa %1 %.</translation>
     </message>
     <message>
         <source>Muted</source>
-        <translation>Stummschaltung</translation>
+        <translation>Utišan</translation>
     </message>
 </context>
 <context>
     <name>Q3Accel</name>
     <message>
         <source>%1, %2 not defined</source>
-        <translation>%1, %2 sind nicht definiert</translation>
+        <translation>%1, %2 ni definiran</translation>
     </message>
     <message>
         <source>Ambiguous %1 not handled</source>
-        <translation>Mehrdeutige %1 können nicht verarbeitet werden</translation>
+        <translation>Brez rokovanja z dvoumnim %1</translation>
     </message>
 </context>
 <context>
     <name>Q3DataTable</name>
     <message>
         <source>True</source>
-        <translation>Wahr</translation>
+        <translation>Pravilno</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>Falsch</translation>
+        <translation>Napačno</translation>
     </message>
     <message>
         <source>Insert</source>
-        <translation>Einfügen</translation>
+        <translation>Vstavi</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Aktualisieren</translation>
+        <translation>Posodobi</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
     </message>
 </context>
 <context>
     <name>Q3FileDialog</name>
     <message>
         <source>Copy or Move a File</source>
-        <translation>Datei kopieren oder verschieben</translation>
+        <translation>Skopiraj ali premakni datoteko</translation>
     </message>
     <message>
         <source>Read: %1</source>
-        <translation>Lesen: %1</translation>
+        <translation>Branje: %1</translation>
     </message>
     <message>
         <source>Write: %1</source>
-        <translation>Schreiben: %1</translation>
+        <translation>Pisanje: %1</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation>Alle Dateien (*)</translation>
+        <translation>Vse datoteke (*)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Vrsta</translation>
     </message>
     <message>
         <source>Date</source>
@@ -551,219 +561,219 @@ Bitte überprüfen Sie Ihre GStreamer-Installation und stellen Sie sicher, dass 
     </message>
     <message>
         <source>Attributes</source>
-        <translation>Attribute</translation>
+        <translation>Lastnosti</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
+        <translation>&amp;V redu</translation>
     </message>
     <message>
         <source>Look &amp;in:</source>
-        <translation>Su&amp;chen in:</translation>
+        <translation>Išči &amp;v:</translation>
     </message>
     <message>
         <source>File &amp;name:</source>
-        <translation>Datei&amp;name:</translation>
+        <translation>Ime &amp;datoteke:</translation>
     </message>
     <message>
         <source>File &amp;type:</source>
-        <translation>Datei&amp;typ:</translation>
+        <translation>&amp;Vrsta datoteke:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Zurück</translation>
+        <translation>Nazaj</translation>
     </message>
     <message>
         <source>One directory up</source>
-        <translation>Ein Verzeichnis zurück</translation>
+        <translation>Za eno mapo navzgor</translation>
     </message>
     <message>
         <source>Create New Folder</source>
-        <translation>Neuen Ordner erstellen</translation>
+        <translation>Ustvari novo mapo</translation>
     </message>
     <message>
         <source>List View</source>
-        <translation>Liste</translation>
+        <translation>Prikaz seznama</translation>
     </message>
     <message>
         <source>Detail View</source>
-        <translation>Ausführlich</translation>
+        <translation>Prikaz podrobnosti</translation>
     </message>
     <message>
         <source>Preview File Info</source>
-        <translation>Vorschau der Datei-Informationen</translation>
+        <translation>Podatki ogleda datoteke</translation>
     </message>
     <message>
         <source>Preview File Contents</source>
-        <translation>Vorschau des Datei-Inhalts</translation>
+        <translation>Vsebina ogleda datoteke</translation>
     </message>
     <message>
         <source>Read-write</source>
-        <translation>Lesen/Schreiben</translation>
+        <translation>Branje in pisanje</translation>
     </message>
     <message>
         <source>Read-only</source>
-        <translation>Nur Lesen</translation>
+        <translation>Samo za branje</translation>
     </message>
     <message>
         <source>Write-only</source>
-        <translation>Nur Schreiben</translation>
+        <translation>Samo za pisanje</translation>
     </message>
     <message>
         <source>Inaccessible</source>
-        <translation>Gesperrt</translation>
+        <translation>Nedostopno</translation>
     </message>
     <message>
         <source>Symlink to File</source>
-        <translation>Verknüpfung mit Datei</translation>
+        <translation>Simbolna povezava do datoteke</translation>
     </message>
     <message>
         <source>Symlink to Directory</source>
-        <translation>Verknüpfung mit Verzeichnis</translation>
+        <translation>Simbolna povezava do mape</translation>
     </message>
     <message>
         <source>Symlink to Special</source>
-        <translation>Verknüpfung mit Spezialdatei</translation>
+        <translation>Simbolna povezava do posebnega</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>Datei</translation>
+        <translation>Datoteka</translation>
     </message>
     <message>
         <source>Dir</source>
-        <translation>Verzeichnis</translation>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Special</source>
-        <translation>Spezialattribut</translation>
+        <translation>Posebno</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation>Odpri</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation>Speichern unter</translation>
+        <translation>Shrani kot</translation>
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation>&amp;Öffnen</translation>
+        <translation>&amp;Odpri</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>S&amp;peichern</translation>
+        <translation>&amp;Shrani</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>&amp;Umbenennen</translation>
+        <translation>Pre&amp;imenuj</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Löschen</translation>
+        <translation>&amp;Izbriši</translation>
     </message>
     <message>
         <source>R&amp;eload</source>
-        <translation>Erne&amp;ut laden</translation>
+        <translation>&amp;Znova naloži</translation>
     </message>
     <message>
         <source>Sort by &amp;Name</source>
-        <translation>Nach &amp;Namen sortieren</translation>
+        <translation>Razvrsti po &amp;imenu</translation>
     </message>
     <message>
         <source>Sort by &amp;Size</source>
-        <translation>Nach &amp;Größe sortieren</translation>
+        <translation>Razvrsti po &amp;velikosti</translation>
     </message>
     <message>
         <source>Sort by &amp;Date</source>
-        <translation>Nach &amp;Datum sortieren</translation>
+        <translation>Razvrsti po &amp;datumu</translation>
     </message>
     <message>
         <source>&amp;Unsorted</source>
-        <translation>&amp;Unsortiert</translation>
+        <translation>&amp;Brez razvrščanja</translation>
     </message>
     <message>
         <source>Sort</source>
-        <translation>Sortieren</translation>
+        <translation>Razvrsti</translation>
     </message>
     <message>
         <source>Show &amp;hidden files</source>
-        <translation>&amp;Versteckte Dateien anzeigen</translation>
+        <translation>Prikaži &amp;skrite datoteke</translation>
     </message>
     <message>
         <source>the file</source>
-        <translation>die Datei</translation>
+        <translation>datoteko</translation>
     </message>
     <message>
         <source>the directory</source>
-        <translation>das Verzeichnis</translation>
+        <translation>mapo</translation>
     </message>
     <message>
         <source>the symlink</source>
-        <translation>die Verknüpfung</translation>
+        <translation>simbolno povezavo</translation>
     </message>
     <message>
         <source>Delete %1</source>
-        <translation>%1 löschen</translation>
+        <translation>Izbriši %1</translation>
     </message>
     <message>
         <source>&lt;qt&gt;Are you sure you wish to delete %1 &quot;%2&quot;?&lt;/qt&gt;</source>
-        <translation>&lt;qt&gt;Sind Sie sicher, dass Sie %1 &quot;%2&quot; löschen möchten?&lt;/qt&gt;</translation>
+        <translation>&lt;qt&gt;Ali res želite izbrisati %1 »%2«?&lt;/qt&gt;</translation>
     </message>
     <message>
         <source>&amp;Yes</source>
-        <translation>&amp;Ja</translation>
+        <translation>&amp;Da</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>&amp;Nein</translation>
+        <translation>&amp;Ne</translation>
     </message>
     <message>
         <source>New Folder 1</source>
-        <translation>Neues Verzeichnis 1</translation>
+        <translation>Nova mapa 1</translation>
     </message>
     <message>
         <source>New Folder</source>
-        <translation>Neues Verzeichnis</translation>
+        <translation>Nova mapa</translation>
     </message>
     <message>
         <source>New Folder %1</source>
-        <translation>Neues Verzeichnis %1</translation>
+        <translation>Nova mapa %1</translation>
     </message>
     <message>
         <source>Find Directory</source>
-        <translation>Verzeichnis suchen</translation>
+        <translation>Najdi mapo</translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation>Verzeichnisse</translation>
+        <translation>Mape</translation>
     </message>
     <message>
         <source>Directory:</source>
-        <translation>Verzeichnis:</translation>
+        <translation>Mapa:</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fehler</translation>
+        <translation>Napaka</translation>
     </message>
     <message>
         <source>%1
 File not found.
 Check path and filename.</source>
         <translation>%1
-Datei kann nicht gefunden werden.
-Überprüfen Sie Pfad und Dateinamen.</translation>
+Datoteke ni moč najti.
+Preverite pot in ime datoteke.</translation>
     </message>
     <message>
         <source>All Files (*.*)</source>
-        <translation>Alle Dateien (*.*)</translation>
+        <translation>Vse datoteke (*.*)</translation>
     </message>
     <message>
         <source>Open </source>
-        <translation>Öffnen</translation>
+        <translation>Odpri </translation>
     </message>
     <message>
         <source>Select a Directory</source>
-        <translation>Wählen Sie ein Verzeichnis</translation>
+        <translation>Izberite mapo</translation>
     </message>
 </context>
 <context>
@@ -771,19 +781,19 @@ Datei kann nicht gefunden werden.
     <message>
         <source>Could not read directory
 %1</source>
-        <translation>Konnte Verzeichnis nicht lesen
+        <translation>Ni bilo moč brati mape
 %1</translation>
     </message>
     <message>
         <source>Could not create directory
 %1</source>
-        <translation>Konnte Verzeichnis nicht erstellen
+        <translation>Ni bilo moč ustvariti mape
 %1</translation>
     </message>
     <message>
         <source>Could not remove file or directory
 %1</source>
-        <translation>Konnte Datei oder Verzeichnis nicht löschen
+        <translation>Ni bilo moč odstraniti datoteke ali mape
 %1</translation>
     </message>
     <message>
@@ -791,21 +801,21 @@ Datei kann nicht gefunden werden.
 %1
 to
 %2</source>
-        <translation>Konnte nicht umbenannt werden:
+        <translation>Ni bilo moč preimenovati
 %1
-nach
+v
 %2</translation>
     </message>
     <message>
         <source>Could not open
 %1</source>
-        <translation>Konnte nicht geöffnet werden:
+        <translation>Ni moč odpreti
 %1</translation>
     </message>
     <message>
         <source>Could not write
 %1</source>
-        <translation>Konnte nicht geschrieben werden:
+        <translation>Ni bilo moč zapisati
 %1</translation>
     </message>
 </context>
@@ -813,380 +823,380 @@ nach
     <name>Q3MainWindow</name>
     <message>
         <source>Line up</source>
-        <translation>Ausrichten</translation>
+        <translation>V vrsto</translation>
     </message>
     <message>
         <source>Customize...</source>
-        <translation>Anpassen...</translation>
+        <translation>Prilagodi ...</translation>
     </message>
 </context>
 <context>
     <name>Q3NetworkProtocol</name>
     <message>
         <source>Operation stopped by the user</source>
-        <translation>Operation von Benutzer angehalten</translation>
+        <translation>Dejanje zaustavil uporabnik</translation>
     </message>
 </context>
 <context>
     <name>Q3ProgressDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
 </context>
 <context>
     <name>Q3TabDialog</name>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Anwenden</translation>
+        <translation>Uveljavi</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Hilfe</translation>
+        <translation>Pomoč</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation>Voreinstellungen</translation>
+        <translation>Privzetosti</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
 </context>
 <context>
     <name>Q3TextEdit</name>
     <message>
         <source>&amp;Undo</source>
-        <translation>&amp;Rückgängig</translation>
+        <translation>&amp;Razveljavi</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>Wieder&amp;herstellen</translation>
+        <translation>&amp;Uveljavi</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>&amp;Ausschneiden</translation>
+        <translation>&amp;Izreži</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopieren</translation>
+        <translation>S&amp;kopiraj</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>Einf&amp;ügen</translation>
+        <translation>Pri&amp;lepi</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Löschen</translation>
+        <translation>Počisti</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation>Alles auswählen</translation>
+        <translation>Izberi vse</translation>
     </message>
 </context>
 <context>
     <name>Q3TitleBar</name>
     <message>
         <source>System</source>
-        <translation>System</translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Restore up</source>
-        <translation>Wiederherstellen</translation>
+        <translation>Obnovi</translation>
     </message>
     <message>
         <source>Minimize</source>
-        <translation>Minimieren</translation>
+        <translation>Pomanjšaj</translation>
     </message>
     <message>
         <source>Restore down</source>
-        <translation>Wiederherstellen</translation>
+        <translation>Obnovi</translation>
     </message>
     <message>
         <source>Maximize</source>
-        <translation>Maximieren</translation>
+        <translation>Razpni</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Contains commands to manipulate the window</source>
-        <translation>Enthält Befehle zum Ändern der Fenstergröße</translation>
+        <translation>Vsebuje ukaze za upravljanje z oknom</translation>
     </message>
     <message>
         <source>Puts a minimized window back to normal</source>
-        <translation>Stellt ein minimiertes Fenster wieder her</translation>
+        <translation>Obnovi pomanjšano okno na običajno velikost</translation>
     </message>
     <message>
         <source>Moves the window out of the way</source>
-        <translation>Minimiert das Fenster</translation>
+        <translation>Umakne okno, da ni v napoto</translation>
     </message>
     <message>
         <source>Puts a maximized window back to normal</source>
-        <translation>Stellt ein maximiertes Fenster wieder her</translation>
+        <translation>Obnovi razpeto okno</translation>
     </message>
     <message>
         <source>Makes the window full screen</source>
-        <translation>Vollbildmodus</translation>
+        <translation>Razpne okno čez ves zaslon</translation>
     </message>
     <message>
         <source>Closes the window</source>
-        <translation>Schließt das Fenster</translation>
+        <translation>Zapre okno</translation>
     </message>
     <message>
         <source>Displays the name of the window and contains controls to manipulate it</source>
-        <translation>Zeigt den Namen des Fensters und enthält Befehle zum Ändern</translation>
+        <translation>Prikazuje ime okna in vsebuje gumbe za nadzor okna</translation>
     </message>
 </context>
 <context>
     <name>Q3ToolBar</name>
     <message>
         <source>More...</source>
-        <translation>Mehr...</translation>
+        <translation>Več ...</translation>
     </message>
 </context>
 <context>
     <name>Q3UrlOperator</name>
     <message>
         <source>The protocol `%1&apos; is not supported</source>
-        <translation>Das Protokoll `%1&apos; wird nicht unterstützt</translation>
+        <translation>Protokol »%1« ni podprt.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support listing directories</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Auflisten von Verzeichnissen</translation>
+        <translation>Protokol »%1« ne podpira izpisa seznama map.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support creating new directories</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Anlegen neuer Verzeichnisse</translation>
+        <translation>Protokol »%1« ne podpira ustvarjanja novih map.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support removing files or directories</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Löschen von Dateien oder Verzeichnissen</translation>
+        <translation>Protokol »%1« ne podpira odstranjevanja datotek ali map.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support renaming files or directories</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Umbenennen von Dateien oder Verzeichnissen</translation>
+        <translation>Protokol »%1« ne podpira preimenovanja datotek ali map.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support getting files</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Laden von Dateien</translation>
+        <translation>Protokol »%1« ne podpira prejemanja datotek.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support putting files</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Speichern von Dateien</translation>
+        <translation>Protokol »%1« ne podpira pošiljanja datotek.</translation>
     </message>
     <message>
         <source>The protocol `%1&apos; does not support copying or moving files or directories</source>
-        <translation>Das Protokoll `%1&apos; unterstützt nicht das Kopieren oder Verschieben von Dateien oder Verzeichnissen</translation>
+        <translation>Protokol »%1« ne podpira kopiranja ali premikanja datotek ali map.</translation>
     </message>
     <message>
         <source>(unknown)</source>
-        <translation>(unbekannt)</translation>
+        <translation>(neznano)</translation>
     </message>
 </context>
 <context>
     <name>Q3Wizard</name>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Abbrechen</translation>
+        <translation>&amp;Prekliči</translation>
     </message>
     <message>
         <source>&lt; &amp;Back</source>
-        <translation>&lt; &amp;Zurück</translation>
+        <translation>&lt; Na&amp;zaj</translation>
     </message>
     <message>
         <source>&amp;Next &gt;</source>
-        <translation>&amp;Weiter &gt;</translation>
+        <translation>&amp;Naprej &gt;</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation>Ab&amp;schließen</translation>
+        <translation>&amp;Končaj</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
+        <translation>&amp;Pomoč</translation>
     </message>
 </context>
 <context>
     <name>QAbstractSocket</name>
     <message>
         <source>Host not found</source>
-        <translation>Rechner konnte nicht gefunden werden</translation>
+        <translation>Ni moč najti gostitelja</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation>Verbindung verweigert</translation>
+        <translation>Povezava je zavrnjena</translation>
     </message>
     <message>
         <source>Connection timed out</source>
-        <translation>Das Zeitlimit für die Verbindung wurde überschritten</translation>
+        <translation>Čas za povezavo je potekel</translation>
     </message>
     <message>
         <source>Operation on socket is not supported</source>
-        <translation>Diese Socket-Operation wird nicht unterstützt</translation>
+        <translation>Dejanje na vtičnici ni podprto</translation>
     </message>
     <message>
         <source>Socket operation timed out</source>
-        <translation>Das Zeitlimit für die Operation wurde überschritten</translation>
+        <translation>Čas za dejanje na vtičnici je potekel</translation>
     </message>
     <message>
         <source>Socket is not connected</source>
-        <translation>Nicht verbunden</translation>
+        <translation>Vtičnica ni povezana.</translation>
     </message>
     <message>
         <source>Network unreachable</source>
-        <translation>Das Netzwerk ist nicht erreichbar</translation>
+        <translation>Omrežje ni dosegljivo</translation>
     </message>
 </context>
 <context>
     <name>QAbstractSpinBox</name>
     <message>
         <source>&amp;Step up</source>
-        <translation>&amp;Inkrementieren</translation>
+        <translation>Korak &amp;gor</translation>
     </message>
     <message>
         <source>Step &amp;down</source>
-        <translation>&amp;Dekrementieren</translation>
+        <translation>Korak &amp;dol</translation>
     </message>
     <message>
         <source>&amp;Select All</source>
-        <translation>&amp;Alles auswählen</translation>
+        <translation>Izberi &amp;vse</translation>
     </message>
 </context>
 <context>
     <name>QAccessibleButton</name>
     <message>
         <source>Press</source>
-        <translation>Drücken</translation>
+        <translation>Pritisni</translation>
     </message>
 </context>
 <context>
     <name>QApplication</name>
+    <message>
+        <source>Activate</source>
+        <translation>Aktiviraj</translation>
+    </message>
+    <message>
+        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
+        <translation>Izvršljiva datoteka »%1« potrebuje Qt %2, najden pa je bil Qt %3.</translation>
+    </message>
+    <message>
+        <source>Incompatible Qt Library Error</source>
+        <translation>Napaka nezdružljivosti knjižnice Qt</translation>
+    </message>
     <message>
         <source>QT_LAYOUT_DIRECTION</source>
         <comment>Translate this string to the string &apos;LTR&apos; in left-to-right languages or to &apos;RTL&apos; in right-to-left languages (such as Hebrew and Arabic) to get proper widget layout.</comment>
         <translation>LTR</translation>
     </message>
     <message>
-        <source>Executable &apos;%1&apos; requires Qt %2, found Qt %3.</source>
-        <translation>Die Anwendung &apos;%1&apos; benötigt Qt %2; es wurde aber Qt %3 gefunden.</translation>
-    </message>
-    <message>
-        <source>Incompatible Qt Library Error</source>
-        <translation>Die Qt-Bibliothek ist inkompatibel</translation>
-    </message>
-    <message>
-        <source>Activate</source>
-        <translation>Aktivieren</translation>
-    </message>
-    <message>
         <source>Activates the program&apos;s main window</source>
-        <translation>Aktiviert das Hauptfenster der Anwendung</translation>
+        <translation>Aktivira glavno okno programa</translation>
     </message>
 </context>
 <context>
     <name>QAxSelect</name>
     <message>
         <source>Select ActiveX Control</source>
-        <translation>ActiveX-Element auswählen</translation>
+        <translation>Izberite kontrolnik ActiveX</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Abbrechen</translation>
+        <translation>&amp;Prekliči</translation>
     </message>
     <message>
         <source>COM &amp;Object:</source>
-        <translation>COM-&amp;Objekt:</translation>
+        <translation>&amp;Objekt COM:</translation>
     </message>
 </context>
 <context>
     <name>QCheckBox</name>
     <message>
         <source>Uncheck</source>
-        <translation>Löschen</translation>
+        <translation>Odznači</translation>
     </message>
     <message>
         <source>Check</source>
-        <translation>Ankreuzen</translation>
+        <translation>Označi</translation>
     </message>
     <message>
         <source>Toggle</source>
-        <translation>Umschalten</translation>
+        <translation>Preklopi</translation>
     </message>
 </context>
 <context>
     <name>QColorDialog</name>
     <message>
         <source>Hu&amp;e:</source>
-        <translation>Farb&amp;ton:</translation>
+        <translation>&amp;Odtenek:</translation>
     </message>
     <message>
         <source>&amp;Sat:</source>
-        <translation>&amp;Sättigung:</translation>
+        <translation>&amp;Zasičenost:</translation>
     </message>
     <message>
         <source>&amp;Val:</source>
-        <translation>&amp;Helligkeit:</translation>
+        <translation>&amp;Vrednost:</translation>
     </message>
     <message>
         <source>&amp;Red:</source>
-        <translation>&amp;Rot:</translation>
+        <translation>&amp;Rdeča:</translation>
     </message>
     <message>
         <source>&amp;Green:</source>
-        <translation>&amp;Grün:</translation>
+        <translation>&amp;Zelena:</translation>
     </message>
     <message>
         <source>Bl&amp;ue:</source>
-        <translation>Bla&amp;u:</translation>
+        <translation>&amp;Modra:</translation>
     </message>
     <message>
         <source>A&amp;lpha channel:</source>
-        <translation>A&amp;lphakanal:</translation>
+        <translation>Kanal &amp;alfa:</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>Farbauswahl</translation>
+        <translation>Izberite barvo</translation>
     </message>
     <message>
         <source>&amp;Basic colors</source>
-        <translation>Grundfar&amp;ben</translation>
+        <translation>&amp;Osnovne barve</translation>
     </message>
     <message>
         <source>&amp;Custom colors</source>
-        <translation>&amp;Benutzerdefinierte Farben</translation>
+        <translation>Barve po &amp;meri</translation>
     </message>
     <message>
         <source>&amp;Add to Custom Colors</source>
-        <translation>Zu benutzerdefinierten Farben &amp;hinzufügen</translation>
+        <translation>&amp;Dodaj lastnim barvam</translation>
     </message>
 </context>
 <context>
     <name>QComboBox</name>
     <message>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation>Odpri</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>Falsch</translation>
+        <translation>Napačno</translation>
     </message>
     <message>
         <source>True</source>
-        <translation>Wahr</translation>
+        <translation>Pravilno</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
 </context>
 <context>
@@ -1194,568 +1204,524 @@ nach
     <message>
         <source>%1: key is empty</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: Ungültige Schlüsselangabe (leer)</translation>
+        <translation>%1: ključ je prazen</translation>
     </message>
     <message>
         <source>%1: unable to make key</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: Es kann kein Schlüssel erzeugt werden</translation>
+        <translation>%1: ni moč ustvariti ključa</translation>
     </message>
     <message>
         <source>%1: ftok failed</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: ftok-Aufruf ist fehlgeschlagen</translation>
+        <translation>%1: funkcija ftok ni uspela</translation>
     </message>
     <message>
         <source>%1: already exists</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: existiert bereits</translation>
+        <translation>%1: že obstaja</translation>
     </message>
     <message>
         <source>%1: does not exist</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: Nicht existent</translation>
+        <translation>%1: ne obstaja</translation>
     </message>
     <message>
         <source>%1: out of resources</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: Keine Ressourcen mehr verfügbar</translation>
-    </message>
-    <message>
-        <source>%1: permission denied</source>
-        <comment>QSystemSemaphore</comment>
-        <translation>%1: Zugriff verweigert</translation>
+        <translation>%1: zmanjkalo je virov</translation>
     </message>
     <message>
         <source>%1: unknown error %2</source>
         <comment>QSystemSemaphore</comment>
-        <translation>%1: Unbekannter Fehler %2</translation>
+        <translation>%1: neznana napaka %2</translation>
     </message>
 </context>
 <context>
     <name>QDB2Driver</name>
     <message>
         <source>Unable to connect</source>
-        <translation>Es kann keine Verbindung aufgebaut werden</translation>
+        <translation>Ni moč vzpostaviti povezave</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion kann nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion kann nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
     <message>
         <source>Unable to set autocommit</source>
-        <translation>&apos;autocommit&apos; kann nicht aktiviert werden</translation>
+        <translation>Ni moč nastaviti samodejnega udejanjanja</translation>
     </message>
 </context>
 <context>
     <name>QDB2Result</name>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl kann nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
     <message>
         <source>Unable to prepare statement</source>
-        <translation>Der Befehl kann nicht initialisiert werden</translation>
+        <translation>Ni moč pripraviti izjave</translation>
     </message>
     <message>
         <source>Unable to bind variable</source>
-        <translation>Die Variable kann nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti spremenljivke</translation>
     </message>
     <message>
         <source>Unable to fetch record %1</source>
-        <translation>Der Datensatz %1 kann nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti zapisa %1</translation>
     </message>
     <message>
         <source>Unable to fetch next</source>
-        <translation>Der nächste Datensatz kann nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti sledečega</translation>
     </message>
     <message>
         <source>Unable to fetch first</source>
-        <translation>Der erste Datensatz kann nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti prvega</translation>
     </message>
 </context>
 <context>
     <name>QDateTimeEdit</name>
     <message>
         <source>AM</source>
-        <translation>AM</translation>
+        <translation>dop.</translation>
     </message>
     <message>
         <source>am</source>
-        <translation>am</translation>
+        <translation>dop.</translation>
     </message>
     <message>
         <source>PM</source>
-        <translation>PM</translation>
+        <translation>pop.</translation>
     </message>
     <message>
         <source>pm</source>
-        <translation>pm</translation>
+        <translation>pop.</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeAbstractAnimation</name>
     <message>
         <source>Cannot animate non-existent property &quot;%1&quot;</source>
-        <translation>Die Eigenschaft &quot;%1&quot; existiert nicht und kann daher nicht animiert werden</translation>
+        <translation>Neobstoječe lastnosti »%1« ni moč animirati</translation>
     </message>
     <message>
         <source>Cannot animate read-only property &quot;%1&quot;</source>
-        <translation>Die Eigenschaft &quot;%1&quot; ist schreibgeschützt und kann daher nicht animiert werden</translation>
+        <translation>Lastnosti »%1«, ki je samo za branje, ni moč animirati</translation>
     </message>
     <message>
         <source>Animation is an abstract class</source>
-        <translation>Die Klasse Animation ist abstrakt</translation>
+        <translation>Animacija je abstrakten razred</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeAnchorAnimation</name>
     <message>
         <source>Cannot set a duration of &lt; 0</source>
-        <translation>Es kann keine Zeitdauer &lt;0 gesetzt werden</translation>
+        <translation>Trajanja, ki je krajše od 0, ni moč nastaviti</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeAnchors</name>
     <message>
         <source>Possible anchor loop detected on fill.</source>
-        <translation>Bei der Fülloperation wurde eine potentielle Endlosschleife der Anker festgestellt.</translation>
+        <translation>Ob zapolnjevanju je bila zaznana možna zanka sidra.</translation>
     </message>
     <message>
         <source>Possible anchor loop detected on centerIn.</source>
-        <translation>Bei der Operation &apos;centerIn&apos; wurde eine potentielle Endlosschleife der Anker festgestellt.</translation>
+        <translation>Ob usrediščanju je bila zaznana možna zanka sidra.</translation>
     </message>
     <message>
         <source>Cannot anchor to an item that isn&apos;t a parent or sibling.</source>
-        <translation>Das Ziel eines Anker muss ein Elternelement oder Element der gleichen Ebene sein.</translation>
+        <translation>Na objekt, ki ni nadrejen ali enakovreden, se ni moč zasidrati.</translation>
     </message>
     <message>
         <source>Possible anchor loop detected on vertical anchor.</source>
-        <translation>Bei einem vertikalen Anker wurde eine potentielle Endlosschleife der Anker festgestellt.</translation>
+        <translation>Ob navpičnem sidru je bila zaznana možna zanka sidra.</translation>
     </message>
     <message>
         <source>Possible anchor loop detected on horizontal anchor.</source>
-        <translation>Bei einem horizontalen Anker wurde eine potentielle Endlosschleife der Anker festgestellt.</translation>
+        <translation>Ob vodoravnem sidru je bila zaznana možna zanka sidra.</translation>
     </message>
     <message>
         <source>Cannot specify left, right, and hcenter anchors.</source>
-        <translation>Ankerangaben für links, rechts und horizontal zentriert dürfen nicht zusammen auftreten.</translation>
+        <translation>Levih, desnih in vodoravno sredinskih sider ni moč določiti.</translation>
     </message>
     <message>
         <source>Cannot anchor to a null item.</source>
-        <translation>Es kann kein Anker zu einem Null-Element angegeben werden.</translation>
+        <translation>Na neobstoječ objekt se ni moč zasidrati.</translation>
     </message>
     <message>
         <source>Cannot anchor a horizontal edge to a vertical edge.</source>
-        <translation>Es kann kein Anker zu einer horizontalen oder vertikalen Kante angegeben werden.</translation>
+        <translation>Vodoravnega roba ni moč zasidrati na navpični rob.</translation>
     </message>
     <message>
         <source>Cannot anchor item to self.</source>
-        <translation>Ein Element kann keinen Anker zu sich selbst haben.</translation>
+        <translation>Objekta ni moč zasidrati samega nase.</translation>
     </message>
     <message>
         <source>Cannot specify top, bottom, and vcenter anchors.</source>
-        <translation>Ankerangaben für oben, unten und vertikal zentriert dürfen nicht zusammen auftreten.</translation>
+        <translation>Vrhnjih, spodnjih in navpično sredinskih sider ni moč določiti.</translation>
     </message>
     <message>
         <source>Baseline anchor cannot be used in conjunction with top, bottom, or vcenter anchors.</source>
-        <translation>Ein Baseline-Anker darf nicht zusammen mit weiteren Ankerangaben für oben, unten und vertikal zentriert verwendet werden.</translation>
+        <translation>Sidra na osnovnici ni moč uporabiti skupaj z vrhnjimi, spodnjimi ali navpično sredinskimi sidri.</translation>
     </message>
     <message>
         <source>Cannot anchor a vertical edge to a horizontal edge.</source>
-        <translation>Vertikale und horizontale Kanten können nicht mit Ankern verbunden werden.</translation>
+        <translation>Navpičnega roba ni moč zasidrati na vodoravni rob.</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeAnimatedImage</name>
     <message>
         <source>Qt was built without support for QMovie</source>
-        <translation>Diese Version der Qt-Bibliothek wurde ohne Unterstützung für die Klasse QMovie erstellt</translation>
-    </message>
-</context>
-<context>
-    <name>QDeclarativeApplication</name>
-    <message>
-        <source>Application is an abstract class</source>
-        <translation>&apos;Application&apos; ist eine abstrakte Klasse</translation>
+        <translation>Qt je bil zgrajen brez podpore za QMovie</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeBehavior</name>
     <message>
         <source>Cannot change the animation assigned to a Behavior.</source>
-        <translation>Die zu einem Behavior-Element gehörende Animation kann nicht geändert werden.</translation>
+        <translation>Animacije, ki je prirejena obnašanju, ni moč spremeniti.</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeBinding</name>
     <message>
         <source>Binding loop detected for property &quot;%1&quot;</source>
-        <translation>Bei der für die Eigenschaft &quot;%1&quot; angegebenen Bindung wurde eine Endlosschleife festgestellt</translation>
+        <translation>Za lastnost »%1« je bila zaznana zanka vezave</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeCompiledBindings</name>
     <message>
         <source>Binding loop detected for property &quot;%1&quot;</source>
-        <translation>Bei der für die Eigenschaft &quot;%1&quot; angegebenen Bindung wurde eine Endlosschleife festgestellt</translation>
+        <translation>Za lastnost »%1« je bila zaznana zanka vezave</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeCompiler</name>
     <message>
         <source>Invalid property assignment: &quot;%1&quot; is a read-only property</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: &quot;%1&quot; ist schreibgeschützt</translation>
+        <translation>Neveljavna prireditev lastnosti: »%1« je lastnost, ki je samo za branje</translation>
     </message>
     <message>
         <source>Invalid property assignment: unknown enumeration</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Unbekannter Aufzählungswert</translation>
+        <translation>Neveljavna prireditev lastnosti: neznano oštevilčenje</translation>
     </message>
     <message>
         <source>Invalid property assignment: string expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Zeichenkette erwartet</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je niz</translation>
     </message>
     <message>
         <source>Invalid property assignment: url expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine URL erwartet</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je URL</translation>
     </message>
     <message>
         <source>Invalid property assignment: unsigned int expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine vorzeichenloser Ganzzahlwert erwartet</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovano je nepredznačeno celo število</translation>
     </message>
     <message>
         <source>Invalid property assignment: int expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird ein Ganzzahlwert erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: float expected</source>
-        <translation type="obsolete">Ungültige Zuweisung bei Eigenschaft: Es wird eine Gleitkommazahl erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: double expected</source>
-        <translation type="obsolete">Ungültige Zuweisung bei Eigenschaft: Es wird eine Gleitkommazahl (double) erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: color expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Farbspezifikation erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: date expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Datumsangabe erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: time expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Zeitangabe erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: datetime expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Datumsangabe erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: point expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Koordinatenangabe für einen Punkt erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: size expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Größenangabe erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: rect expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es werden Parameter für ein Rechteck erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: boolean expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird ein boolescher Wert erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: 3D vector expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird ein dreidimensionaler Vektor erwartet</translation>
-    </message>
-    <message>
-        <source>Invalid property assignment: unsupported type &quot;%1&quot;</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Der Typ &quot;%1&quot; ist nicht unterstützt</translation>
-    </message>
-    <message>
-        <source>Element is not creatable.</source>
-        <translation>Das Element kann nicht erzeugt werden.</translation>
-    </message>
-    <message>
-        <source>Component elements may not contain properties other than id</source>
-        <translation>Komponenten dürfen außer id keine weiteren Eigenschaften enthalten</translation>
-    </message>
-    <message>
-        <source>Invalid component id specification</source>
-        <translation>Ungültige Komponentenspezifikation</translation>
-    </message>
-    <message>
-        <source>id is not unique</source>
-        <translation>ID-Wert nicht eindeutig</translation>
-    </message>
-    <message>
-        <source>Invalid component body specification</source>
-        <translation>Inhalt der Komponente ungültig</translation>
-    </message>
-    <message>
-        <source>Cannot create empty component specification</source>
-        <translation>Es kann keine leere Komponentenangabe erzeugt werden</translation>
-    </message>
-    <message>
-        <source>Empty signal assignment</source>
-        <translation>Leere Signalzuweisung</translation>
-    </message>
-    <message>
-        <source>Empty property assignment</source>
-        <translation>Leere Eigenschaftszuweisung</translation>
-    </message>
-    <message>
-        <source>Attached properties cannot be used here</source>
-        <translation>An dieser Stelle können keine Eigenschaften des Typs &apos;attached&apos; verwendet werden</translation>
-    </message>
-    <message>
-        <source>Non-existent attached object</source>
-        <translation>Es existiert kein Bezugselement für die Eigenschaft</translation>
-    </message>
-    <message>
-        <source>Invalid attached object assignment</source>
-        <translation>Ungültige Zuweisung des Bezugselements</translation>
-    </message>
-    <message>
-        <source>Cannot assign to non-existent default property</source>
-        <translation>Es kann keine Zuweisung erfolgen, da keine Vorgabe-Eigenschaft existiert</translation>
-    </message>
-    <message>
-        <source>Cannot assign to non-existent property &quot;%1&quot;</source>
-        <translation>Es kann keine Zuweisung erfolgen, da keine Eigenschaft des Namens &apos;%1&quot; existiert</translation>
-    </message>
-    <message>
-        <source>Invalid use of namespace</source>
-        <translation>Ungültige Verwendung eines Namensraums</translation>
-    </message>
-    <message>
-        <source>Not an attached property name</source>
-        <translation>Kein gültiger Name einer Eigenschaft des Typs &apos;attached&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid use of id property</source>
-        <translation>Ungültige Verwendung einer Eigenschaft des Typs &apos;Id&apos;</translation>
-    </message>
-    <message>
-        <source>Incorrectly specified signal assignment</source>
-        <translation>Angegebene Signalzuweisung ist nicht korrekt</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovano je celo število</translation>
     </message>
     <message>
         <source>Invalid property assignment: number expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird eine Zahl erwartet</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovano je število</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: color expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovana je barva</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: date expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je datum</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: time expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je čas</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: datetime expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovana sta datum in čas</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: point expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovana je točka</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: size expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovana je velikost</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: rect expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je pravokotnik</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: boolean expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovana je logična vrednost</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: 3D vector expected</source>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je 3D vektor</translation>
+    </message>
+    <message>
+        <source>Invalid property assignment: unsupported type &quot;%1&quot;</source>
+        <translation>Neveljavna prireditev lastnosti: nepodprta vrsta »%1«</translation>
+    </message>
+    <message>
+        <source>Element is not creatable.</source>
+        <translation>Elementa ni moč ustvariti.</translation>
+    </message>
+    <message>
+        <source>Component elements may not contain properties other than id</source>
+        <translation>Elementi komponent ne smejo vsebovati drugih lastnosti kot ID</translation>
+    </message>
+    <message>
+        <source>Invalid component id specification</source>
+        <translation>Neveljavno določen ID komponente</translation>
+    </message>
+    <message>
+        <source>id is not unique</source>
+        <translation>ID ni edinstven</translation>
+    </message>
+    <message>
+        <source>Invalid component body specification</source>
+        <translation>Neveljavno določeno telo komponente</translation>
     </message>
     <message>
         <source>Component objects cannot declare new properties.</source>
-        <translation>Komponentenobjekte können keine neuen Eigenschaften deklarieren.</translation>
+        <translation>Objekti komponent ne morejo deklarirati novih lastnosti.</translation>
     </message>
     <message>
         <source>Component objects cannot declare new signals.</source>
-        <translation>Komponentenobjekte können keine neuen Signale deklarieren.</translation>
+        <translation>Objekti komponent ne morejo deklarirati novih signalov.</translation>
     </message>
     <message>
         <source>Component objects cannot declare new functions.</source>
-        <translation>Komponentenobjekte können keine neuen Funktionen deklarieren.</translation>
+        <translation>Objekti komponent ne morejo deklarirati novih funkcij.</translation>
     </message>
     <message>
-        <source>&quot;%1.%2&quot; is not available in %3 %4.%5.</source>
-        <translation>&quot;%1.%2&quot; ist in %3 %4.%5 nicht verfügbar.</translation>
+        <source>Cannot create empty component specification</source>
+        <translation>Prazne specifikacije komponente ni moč ustvariti</translation>
     </message>
     <message>
-        <source>&quot;%1.%2&quot; is not available due to component versioning.</source>
-        <translation>&quot;%1.%2&quot; ist in dieser Version der Komponente nicht verfügbar </translation>
+        <source>Incorrectly specified signal assignment</source>
+        <translation>Napačno določena prireditev signalu</translation>
     </message>
     <message>
         <source>Cannot assign a value to a signal (expecting a script to be run)</source>
-        <translation>Einem Signal können keine Werte zugewiesen werden (es wird ein Skript erwartet)</translation>
+        <translation>Signalu ni moč prirediti vrednosti (pričakovan je skript, ki bo zagnan)</translation>
+    </message>
+    <message>
+        <source>Empty signal assignment</source>
+        <translation>Prazna prireditev signalu</translation>
+    </message>
+    <message>
+        <source>Empty property assignment</source>
+        <translation>Prazna prireditev lastnosti</translation>
+    </message>
+    <message>
+        <source>Attached properties cannot be used here</source>
+        <translation>Pripete lastnosti tu ne morejo biti uporabljene</translation>
+    </message>
+    <message>
+        <source>Non-existent attached object</source>
+        <translation>Neobstoječ pripet objekt</translation>
+    </message>
+    <message>
+        <source>Invalid attached object assignment</source>
+        <translation>Neveljavna prireditev pripetega objekta</translation>
+    </message>
+    <message>
+        <source>Cannot assign to non-existent default property</source>
+        <translation>Neobstoječi privzeti lastnosti ni moč prirediti</translation>
+    </message>
+    <message>
+        <source>Cannot assign to non-existent property &quot;%1&quot;</source>
+        <translation>Neobstoječi lastnosti »%1« ni moč prirediti</translation>
+    </message>
+    <message>
+        <source>Invalid use of namespace</source>
+        <translation>Napačna raba imenskega prostora</translation>
+    </message>
+    <message>
+        <source>Not an attached property name</source>
+        <translation>Ni ime pripete lastnosti</translation>
+    </message>
+    <message>
+        <source>Invalid use of id property</source>
+        <translation>Napačna raba lastnosti ID</translation>
     </message>
     <message>
         <source>Property has already been assigned a value</source>
-        <translation>Der Eigenschaft wurde bereits ein Wert zugewiesen</translation>
+        <translation>Lastnosti je že bila prirejena vrednost</translation>
     </message>
     <message>
         <source>Invalid grouped property access</source>
-        <translation>Falsche Gruppierung bei Zugriff auf Eigenschaft</translation>
+        <translation>Neveljaven dostop do skupinske lastnosti</translation>
     </message>
     <message>
         <source>Cannot assign a value directly to a grouped property</source>
-        <translation>Bei einer Eigenschaft, die Teil einer Gruppierung ist, ist keine direkte Wertzuweisung zulässig</translation>
+        <translation>Skupinski lastnosti ni moč neposredno prirediti vrednosti</translation>
     </message>
     <message>
         <source>Invalid property use</source>
-        <translation>Ungültige Verwendung von Eigenschaften</translation>
+        <translation>Neveljavna raba lastnosti</translation>
     </message>
     <message>
         <source>Property assignment expected</source>
-        <translation>Zuweisung an Eigenschaft erwartet</translation>
+        <translation>Pričakovana je prireditev lastnosti</translation>
     </message>
     <message>
         <source>Single property assignment expected</source>
-        <translation>Einzelne Zuweisung an Eigenschaft erwartet</translation>
+        <translation>Pričakovana je enojna prireditev lastnosti</translation>
     </message>
     <message>
         <source>Unexpected object assignment</source>
-        <translation>Unerwartete Zuweisung des Objekts</translation>
+        <translation>Nepričakovana prireditev objekta</translation>
     </message>
     <message>
         <source>Cannot assign object to list</source>
-        <translation>Zuweisung eines Objekts an eine Liste nicht zulässig</translation>
+        <translation>Objekta ni moč prirediti seznamu</translation>
     </message>
     <message>
         <source>Can only assign one binding to lists</source>
-        <translation>Listen kann nur eine einzige Bindung zugewiesen werden</translation>
+        <translation>Seznamom je moč prirediti le eno vezavo</translation>
     </message>
     <message>
         <source>Cannot assign primitives to lists</source>
-        <translation>Zuweisung eines einfachen Werts (primitive) an eine Liste nicht zulässig</translation>
+        <translation>Seznamom ni moč prirediti osnovnih tipov</translation>
     </message>
     <message>
         <source>Cannot assign multiple values to a script property</source>
-        <translation>Eine Zuweisung mehrerer Werte an eine Skript-Eigenschaft ist nicht zulässig</translation>
+        <translation>Lastnosti »script« ni moč prirediti več vrednosti</translation>
     </message>
     <message>
         <source>Invalid property assignment: script expected</source>
-        <translation>Ungültige Zuweisung bei Eigenschaft: Es wird ein Skript erwartet</translation>
-    </message>
-    <message>
-        <source>Cannot assign multiple values to a singular property</source>
-        <translation>Eine Zuweisung mehrerer Werte an eine einfache Eigenschaft ist nicht zulässig</translation>
+        <translation>Neveljavna prireditev lastnosti: pričakovan je skript</translation>
     </message>
     <message>
         <source>Cannot assign object to property</source>
-        <translation>Zuweisung eines Objekts an eine Eigenschaft nicht zulässig</translation>
+        <translation>Objekta ni moč prirediti lastnosti</translation>
     </message>
     <message>
         <source>&quot;%1&quot; cannot operate on &quot;%2&quot;</source>
-        <translation>&quot;%1&quot; kann nicht auf  &quot;%2&quot; angewandt werden</translation>
+        <translation>»%1« ne more delovati na »%2«</translation>
     </message>
     <message>
         <source>Duplicate default property</source>
-        <translation>Mehrfaches Auftreten der Vorgabe-Eigenschaft</translation>
+        <translation>Podvojena privzeta lastnost</translation>
     </message>
     <message>
         <source>Duplicate property name</source>
-        <translation>Mehrfaches Auftreten eines Eigenschaftsnamens</translation>
+        <translation>Podvojeno ime lastnosti</translation>
     </message>
     <message>
         <source>Property names cannot begin with an upper case letter</source>
-        <translation>Eigenschaftsnamen dürfen nicht mit einem Großbuchstaben beginnen</translation>
+        <translation>Imena lastnosti se ne smejo začeti z veliko črko</translation>
     </message>
     <message>
         <source>Illegal property name</source>
-        <translation>Ungültiger Name der Eigenschaft</translation>
+        <translation>Neveljavno ime lastnosti</translation>
     </message>
     <message>
         <source>Duplicate signal name</source>
-        <translation>Mehrfaches Auftreten eines Signalnamens</translation>
+        <translation>Podvojeno ime signala</translation>
     </message>
     <message>
         <source>Signal names cannot begin with an upper case letter</source>
-        <translation>Signalnamen dürfen nicht mit einem Großbuchstaben beginnen</translation>
+        <translation>Imena signalov se ne smejo začeti z veliko črko</translation>
     </message>
     <message>
         <source>Illegal signal name</source>
-        <translation>Ungültiger Name für Signal</translation>
+        <translation>Neveljavno ime signala</translation>
     </message>
     <message>
         <source>Duplicate method name</source>
-        <translation>Mehrfaches Auftreten eines Methodennamens</translation>
+        <translation>Podvojeno ime metode</translation>
     </message>
     <message>
         <source>Method names cannot begin with an upper case letter</source>
-        <translation>Methodennamen dürfen nicht mit einem Großbuchstaben beginnen</translation>
+        <translation>Imena metod se ne smejo začeti z veliko črko</translation>
     </message>
     <message>
         <source>Illegal method name</source>
-        <translation>Ungültiger Name für Methode</translation>
+        <translation>Neveljavno ime metode</translation>
     </message>
     <message>
         <source>Property value set multiple times</source>
-        <translation>Mehrfache Zuweisung eines Wertes an eine Eigenschaft</translation>
+        <translation>Vrednost lastnosti je bila nastavljena večkrat</translation>
     </message>
     <message>
         <source>Invalid property nesting</source>
-        <translation>Ungültige Schachtelung von Eigenschaften</translation>
+        <translation>Neveljavno gnezdenje lastnosti</translation>
     </message>
     <message>
         <source>Cannot override FINAL property</source>
-        <translation>Eine als &apos;FINAL&apos; ausgewiesene Eigenschaft kann nicht überschrieben werden</translation>
+        <translation>Lastnosti FINAL ni moč povoziti</translation>
     </message>
     <message>
         <source>Invalid property type</source>
-        <translation>Ungültiger Typ der Eigenschaft</translation>
+        <translation>Neveljavna vrsta lastnosti</translation>
     </message>
     <message>
         <source>Invalid empty ID</source>
-        <translation>Ungültiger (leerer) Id-Wert</translation>
+        <translation>Neveljaven prazen ID</translation>
     </message>
     <message>
         <source>IDs cannot start with an uppercase letter</source>
-        <translation>Id-Werte dürfen nicht mit einem Großbuchstaben beginnen</translation>
+        <translation>ID-ji se ne smejo začeti z veliko črko</translation>
     </message>
     <message>
         <source>IDs must start with a letter or underscore</source>
-        <translation>Id-Werte müssen mit einem Buchstaben oder Unterstrich beginnen</translation>
+        <translation>ID-ji se morajo začeti s črko ali podčrtajem</translation>
     </message>
     <message>
         <source>IDs must contain only letters, numbers, and underscores</source>
-        <translation>Id-Werte dürfen nur Buchstaben oder Unterstriche enthalten</translation>
+        <translation>ID-ji lahko vsebujejo le črke, števke in podčrtaje</translation>
     </message>
     <message>
         <source>ID illegally masks global JavaScript property</source>
-        <translation>Der Id-Wert überdeckt eine globale Eigenschaft aus JavaScript</translation>
+        <translation>ID neveljavno zakriva globalno lastnost JavaScripta</translation>
     </message>
     <message>
         <source>No property alias location</source>
-        <translation>Alias-Eigenschaft ohne Quellangabe</translation>
+        <translation>Brez lokacije aliasa lastnosti</translation>
     </message>
     <message>
         <source>Invalid alias location</source>
-        <translation>Ungültige Quellangabe bei Alias-Eigenschaft</translation>
-    </message>
-    <message>
-        <source>Invalid alias reference. An alias reference must be specified as &lt;id&gt;, &lt;id&gt;.&lt;property&gt; or &lt;id&gt;.&lt;value property&gt;.&lt;property&gt;</source>
-        <translation>Ungültige Alias-Referenz. Eine Alias-Referenz muss in der Form &lt;id&gt;, &lt;id&gt;.&lt;property&gt; or &lt;id&gt;.&lt;value property&gt;.&lt;property&gt; angegeben werden</translation>
-    </message>
-    <message>
-        <source>Alias property exceeds alias bounds</source>
-        <translation>Die Alias-Eigenschaft überschreitet die Grenzen des Alias</translation>
+        <translation>Neveljavna lokacija aliasa</translation>
     </message>
     <message>
         <source>Invalid alias reference. An alias reference must be specified as &lt;id&gt; or &lt;id&gt;.&lt;property&gt;</source>
-        <translation type="obsolete">Ungültige Referenzierung einer Alias-Eigenschaft. Die Referenz muss in der Form &lt;id&gt; oder &lt;id&gt;.&lt;property&gt; angegeben werden</translation>
+        <translation>Neveljavna referenca aliasa. Referenca aliasa mora biti določena kot &lt;id&gt; ali &lt;id&gt;.&lt;lastnost&gt;</translation>
     </message>
     <message>
         <source>Invalid alias reference. Unable to find id &quot;%1&quot;</source>
-        <translation>Ungültige Referenzierung einer Alias-Eigenschaft. Der Id-Wert &quot;%1&quot; konnte nicht gefunden werden</translation>
+        <translation>Neveljavna referenca aliasa. ID-ja »%1« ni moč najti</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeComponent</name>
     <message>
         <source>Invalid empty URL</source>
-        <translation>Ungültige (leere) URL</translation>
-    </message>
-    <message>
-        <source>createObject: value is not an object</source>
-        <translation>createObject: Der Wert ist kein Objekt</translation>
+        <translation>Neveljaven prazen URL</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeCompositeTypeManager</name>
     <message>
         <source>Resource %1 unavailable</source>
-        <translation type="obsolete">Auf die Ressource %1 konnte nicht zugegriffen werden</translation>
+        <translation type="obsolete">Vir %1 ni na voljo</translation>
     </message>
     <message>
         <source>Namespace %1 cannot be used as a type</source>
-        <translation type="obsolete">Der Namensraum %1 kann nicht als Typangabe verwendet werden</translation>
+        <translation type="obsolete">Imenskega prostora %1 ni moč uporabiti kot vrste</translation>
     </message>
     <message>
         <source>%1 %2</source>
@@ -1763,455 +1729,402 @@ nach
     </message>
     <message>
         <source>Type %1 unavailable</source>
-        <translation type="obsolete">Der Typ  %1 ist nicht verfügbar</translation>
+        <translation type="obsolete">Vrsta %1 ni na voljo</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeConnections</name>
     <message>
         <source>Cannot assign to non-existent property &quot;%1&quot;</source>
-        <translation>Es kann keine Zuweisung erfolgen, da keine Eigenschaft des Namens &quot;%1&quot; existiert</translation>
+        <translation>Neobstoječi lastnosti »%1« ni moč prirediti</translation>
     </message>
     <message>
         <source>Connections: nested objects not allowed</source>
-        <translation>Verbindungen: Verschachtelte Objekte sind nicht zulässig</translation>
+        <translation>Povezave: gnezdeni objekti niso dovoljeni</translation>
     </message>
     <message>
         <source>Connections: syntax error</source>
-        <translation>Verbindungen: Syntaxfehler</translation>
+        <translation>Povezave: napaka v skladnji</translation>
     </message>
     <message>
         <source>Connections: script expected</source>
-        <translation>Verbindungen: Skript erwartet</translation>
+        <translation>Povezave: pričakovan je skript</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeEngine</name>
     <message>
         <source>executeSql called outside transaction()</source>
-        <translation>&apos;executeSql&apos; wurde außerhalb von &apos;transaction()&apos; aufgerufen</translation>
+        <translation>executeSql je bil klican izven transaction()</translation>
     </message>
     <message>
         <source>Read-only Transaction</source>
-        <translation>Schreibgeschützte Transaktion</translation>
+        <translation>Transakcija samo za branje</translation>
     </message>
     <message>
         <source>Version mismatch: expected %1, found %2</source>
-        <translation>Die Version %2 kann nicht verwendet werden; es wird %1 benötigt</translation>
+        <translation>Neujemanje različic: pričakovana %1, najdena %2</translation>
     </message>
     <message>
         <source>SQL transaction failed</source>
-        <translation>Die SQL-Transaktion ist fehlgeschlagen</translation>
+        <translation>Transakcija SQL ni uspela</translation>
     </message>
     <message>
         <source>transaction: missing callback</source>
-        <translation>callback fehlt bei Transaktion</translation>
+        <translation>transaction: manjka povratni klic</translation>
     </message>
     <message>
         <source>SQL: database version mismatch</source>
-        <translation>SQL: Die Version der Datenbank entspricht nicht der erwarteten Version</translation>
+        <translation>SQL: neujemanje različice podatkovne zbirke</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeFlipable</name>
     <message>
         <source>front is a write-once property</source>
-        <translation>&apos;front&apos; kann nur einmal zugewiesen werden</translation>
+        <translation>front je lastnost, ki se jo lahko zapiše samo enkrat</translation>
     </message>
     <message>
         <source>back is a write-once property</source>
-        <translation>&apos;back&apos; kann nur einmal zugewiesen werden</translation>
+        <translation>back je lastnost, ki se jo lahko zapiše samo enkrat</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeImportDatabase</name>
     <message>
-        <source>cannot load module &quot;%1&quot;: File name case mismatch for &quot;%2&quot;</source>
-        <translation>Der Module &quot;%1&quot; kann nicht geladen werden: Der Dateiname &quot;%2&quot; unterscheidet sich in der Groß/Kleinschreibung</translation>
-    </message>
-    <message>
         <source>module &quot;%1&quot; definition &quot;%2&quot; not readable</source>
-        <translation>Modul &quot;%1&quot; Definition &quot;%2&quot; kann nicht gelesen werden</translation>
+        <translation>definicije »%2« modula »%1« ni moč brati</translation>
     </message>
     <message>
         <source>plugin cannot be loaded for module &quot;%1&quot;: %2</source>
-        <translation>Das Plugin des Moduls &quot;%1&quot; kann nicht geladen werden: %2</translation>
+        <translation>vstavka za modul »%1« ni moč naložiti: %2</translation>
     </message>
     <message>
         <source>module &quot;%1&quot; plugin &quot;%2&quot; not found</source>
-        <translation>Modul &quot;%1&quot; Plugin &quot;%2&quot; konnte nicht gefunden werden</translation>
+        <translation>vstavek »%2« modula »%1« ni bil najden</translation>
     </message>
     <message>
         <source>module &quot;%1&quot; version %2.%3 is not installed</source>
-        <translation>Modul &quot;%1&quot; Version %2.%3 ist nicht installiert</translation>
+        <translation>modul »%1« različice %2.%3 ni nameščen</translation>
     </message>
     <message>
         <source>module &quot;%1&quot; is not installed</source>
-        <translation>Modul &quot;%1&quot; ist nicht installiert</translation>
+        <translation>modul »%1« ni nameščen</translation>
     </message>
     <message>
         <source>&quot;%1&quot;: no such directory</source>
-        <translation>Das Verzeichnis &quot;%1&quot; existiert nicht</translation>
+        <translation>»%1«: mapa ne obstaja</translation>
     </message>
     <message>
         <source>import &quot;%1&quot; has no qmldir and no namespace</source>
-        <translation>&quot;qmldir&quot; und Namensraum fehlen bei dem Import &quot;%1&quot;</translation>
+        <translation>uvoz »%1« nima niti qmldir-a niti imenskega prostora</translation>
     </message>
     <message>
         <source>- %1 is not a namespace</source>
-        <translation>- %1 ist kein gültiger Namensraum</translation>
+        <translation>– %1 ni imenski prostor</translation>
     </message>
     <message>
         <source>- nested namespaces not allowed</source>
-        <translation>- geschachtelte Namensräume sind nicht zulässig</translation>
+        <translation>– gnezdeni imenski prostori niso dovoljeni</translation>
     </message>
     <message>
         <source>local directory</source>
-        <translation>Lokales Verzeichnis</translation>
+        <translation>krajevna mapa</translation>
     </message>
     <message>
         <source>is ambiguous. Found in %1 and in %2</source>
-        <translation>ist mehrdeutig. Es kommt in %1 und in %2 vor</translation>
+        <translation>je dvoumno. Najdeno v %1 in %2</translation>
     </message>
     <message>
         <source>is ambiguous. Found in %1 in version %2.%3 and %4.%5</source>
-        <translation>ist mehrdeutig. Es kommt in %1 in den Version %2.%3 und %4.%5 vor</translation>
+        <translation>je dvoumno. Najdeno v %1 v različicah %2.%3 in %4.%5</translation>
     </message>
     <message>
         <source>is instantiated recursively</source>
-        <translation>wird rekursiv instanziiert</translation>
+        <translation>je instanciran rekurzivno</translation>
     </message>
     <message>
         <source>is not a type</source>
-        <translation>ist kein Typ</translation>
-    </message>
-    <message>
-        <source>File name case mismatch for &quot;%2&quot;</source>
-        <translation>Die Groß/Kleinschreibung des Dateinamens &quot;%2&quot; stimmt nicht überein</translation>
+        <translation>ni vrsta</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeKeyNavigationAttached</name>
     <message>
         <source>KeyNavigation is only available via attached properties</source>
-        <translation>Tastennavigation ist nur über Eigenschaften des Typs &apos;attached&apos; verfügbar</translation>
+        <translation>KeyNavigation je na voljo samo s pripetimi lastnostmi</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeKeysAttached</name>
     <message>
         <source>Keys is only available via attached properties</source>
-        <translation>Die Unterstützung für Tasten ist nur über Eigenschaften des Typs &apos;attached&apos; verfügbar</translation>
-    </message>
-</context>
-<context>
-    <name>QDeclarativeLayoutMirroringAttached</name>
-    <message>
-        <source>LayoutDirection attached property only works with Items</source>
-        <translation>Eigenschaften des Typs &apos;attached&apos; können nur mit Elementen der Klasse Item verwendet werden</translation>
-    </message>
-    <message>
-        <source>LayoutMirroring is only available via attached properties</source>
-        <translation>LayoutMirroring ist nur in Verbindung mit Eigenschaften des Typs &quot;attached&quot; möglich</translation>
+        <translation>Keys je na voljo samo s pripetimi lastnostmi</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeListModel</name>
     <message>
         <source>remove: index %1 out of range</source>
-        <translation>remove: Der Index %1 ist außerhalb des gültigen Bereichs</translation>
+        <translation>remove: indeks %1 je izven obsega</translation>
     </message>
     <message>
         <source>insert: value is not an object</source>
-        <translation>insert: Der Wert ist kein Objekt</translation>
+        <translation>insert: vrednost ni objekt</translation>
     </message>
     <message>
         <source>insert: index %1 out of range</source>
-        <translation>insert: Der Index %1 ist außerhalb des gültigen Bereichs</translation>
+        <translation>insert: indeks %1 je izven obsega</translation>
     </message>
     <message>
         <source>move: out of range</source>
-        <translation>move: Außerhalb des gültigen Bereichs</translation>
+        <translation>move: izven obsega</translation>
     </message>
     <message>
         <source>append: value is not an object</source>
-        <translation>append: Der Wert ist kein Objekt</translation>
+        <translation>append: vrednost ni objekt</translation>
     </message>
     <message>
         <source>set: value is not an object</source>
-        <translation>set: Der Wert ist kein Objekt</translation>
+        <translation>set: vrednost ni objekt</translation>
     </message>
     <message>
         <source>set: index %1 out of range</source>
-        <translation>set: Der Index %1 ist außerhalb des gültigen Bereichs</translation>
+        <translation>set: indeks %1 je izven obsega</translation>
     </message>
     <message>
         <source>ListElement: cannot contain nested elements</source>
-        <translation>ListElement kann keine geschachtelten Elemente enthalten</translation>
+        <translation>ListElement: ni moč vsebovati gnezdenih elementov</translation>
     </message>
     <message>
         <source>ListElement: cannot use reserved &quot;id&quot; property</source>
-        <translation>ListElement: Die &quot;id&quot;-Eigenschaft kann nicht verwendet werden</translation>
+        <translation>ListElement: ne more uporabiti rezervirane lastnosti »id«</translation>
     </message>
     <message>
         <source>ListElement: cannot use script for property value</source>
-        <translation>ListElement: Es kann kein Skript für den Wert der Eigenschaft verwendet werden</translation>
+        <translation>ListElement: ne more uporabiti skripta za vrednost lastnosti</translation>
     </message>
     <message>
         <source>ListModel: undefined property &apos;%1&apos;</source>
-        <translation>ListModel: Die Eigenschaft &apos;%1&apos; ist nicht definiert</translation>
+        <translation>ListModel: nedoločena lastnost »%1«</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeLoader</name>
     <message>
         <source>Loader does not support loading non-visual elements.</source>
-        <translation>Das Laden nicht-visueller Elemente ist nicht unterstützt.</translation>
+        <translation>Loader ne podpira nalaganja elementov, ki niso vidni.</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeParentAnimation</name>
     <message>
         <source>Unable to preserve appearance under complex transform</source>
-        <translation>Das Erscheinungsbild kann bei einer komplexen Transformation nicht beibehalten werden</translation>
+        <translation>Pod kompleksnim preoblikovanjem ni moč obdržati videza</translation>
     </message>
     <message>
         <source>Unable to preserve appearance under non-uniform scale</source>
-        <translation>Das Erscheinungsbild kann bei einer nicht-uniformen Skalierung nicht beibehalten werden</translation>
+        <translation>Pod ne-enakovrednim povečevanjem ni moč obdržati videza</translation>
     </message>
     <message>
         <source>Unable to preserve appearance under scale of 0</source>
-        <translation>Das Erscheinungsbild kann bei einer Skalierung mit 0 nicht beibehalten werden</translation>
+        <translation>Pod povečavo 0 ni moč obdržati videza</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeParentChange</name>
     <message>
         <source>Unable to preserve appearance under complex transform</source>
-        <translation>Das Erscheinungsbild kann bei einer komplexen Transformation nicht beibehalten werden</translation>
+        <translation>Pod kompleksnim preoblikovanjem ni moč obdržati videza</translation>
     </message>
     <message>
         <source>Unable to preserve appearance under non-uniform scale</source>
-        <translation>Das Erscheinungsbild kann bei einer nicht-uniformen Skalierung nicht beibehalten werden</translation>
+        <translation>Pod ne-enakovrednim povečevanjem ni moč obdržati videza</translation>
     </message>
     <message>
         <source>Unable to preserve appearance under scale of 0</source>
-        <translation>Das Erscheinungsbild kann bei einer Skalierung mit 0 nicht beibehalten werden</translation>
+        <translation>Pod povečavo 0 ni moč obdržati videza</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeParser</name>
     <message>
+        <source>Illegal unicode escape sequence</source>
+        <translation>Neveljavno ubežno zaporedje Unicode</translation>
+    </message>
+    <message>
         <source>Illegal character</source>
-        <translation>Ungültiges Zeichen</translation>
+        <translation>Neveljaven znak</translation>
     </message>
     <message>
         <source>Unclosed string at end of line</source>
-        <translation>Zeichenkette am Zeilenende nicht abgeschlossen</translation>
+        <translation>Nezaprt niz na koncu vrstice</translation>
     </message>
     <message>
         <source>Illegal escape sequence</source>
-        <translation>Ungültige Escape-Sequenz</translation>
-    </message>
-    <message>
-        <source>Illegal unicode escape sequence</source>
-        <translation>Ungültige Unicode-Escape-Sequenz</translation>
+        <translation>Neveljavno ubežno zaporedje</translation>
     </message>
     <message>
         <source>Unclosed comment at end of file</source>
-        <translation>Kommentar am Dateiende nicht abgeschlossen</translation>
+        <translation>Nezaprt komentar na koncu datoteke</translation>
     </message>
     <message>
         <source>Illegal syntax for exponential number</source>
-        <translation>Ungültige Syntax des Exponenten</translation>
+        <translation>Neveljavna skladnja za eksponentno število</translation>
     </message>
     <message>
         <source>Identifier cannot start with numeric literal</source>
-        <translation>Ein Bezeichner darf nicht mit einem numerischen Literal beginnen</translation>
+        <translation>Identifikator se ne sme začeti s številskim literalom</translation>
     </message>
     <message>
         <source>Unterminated regular expression literal</source>
-        <translation>Regulärer Ausdruck nicht abgeschlossen</translation>
+        <translation>Nezaključen literal regularnega izraza</translation>
     </message>
     <message>
         <source>Invalid regular expression flag &apos;%0&apos;</source>
-        <translation>Ungültiger Modifikator &apos;%0&apos; bei regulärem Ausdruck</translation>
+        <translation>Neveljavna zastavica »%0« regularnega izraza</translation>
     </message>
     <message>
         <source>Unterminated regular expression backslash sequence</source>
-        <translation>Backslash-Sequenz in regulärem Ausdruck nicht abgeschlossen</translation>
+        <translation>Nezaključeno zaporedij poševnic nazaj v regularnem izrazu</translation>
     </message>
     <message>
         <source>Unterminated regular expression class</source>
-        <translation>Klasse im regulären Ausdruck nicht abgeschlossen</translation>
+        <translation>Nezaključen razred regularnega izraza</translation>
     </message>
     <message>
         <source>Syntax error</source>
-        <translation>Syntaxfehler</translation>
+        <translation>Skladenjska napaka</translation>
     </message>
     <message>
         <source>Unexpected token `%1&apos;</source>
-        <translation>Unerwartetes Element &apos;%1&apos;</translation>
+        <translation>Nepričakovan žeton »%1«</translation>
     </message>
     <message>
         <source>Expected token `%1&apos;</source>
-        <translation>Es wird das Element &apos;%1&apos; erwartet</translation>
+        <translation>Pričakovan žeton »%1«</translation>
     </message>
     <message>
         <source>Property value set multiple times</source>
-        <translation>Mehrfache Zuweisung eines Wertes an eine Eigenschaft</translation>
+        <translation>Vrednost lastnosti je bila nastavljena večkrat</translation>
     </message>
     <message>
         <source>Expected type name</source>
-        <translation>Es wird ein Typname erwartet</translation>
+        <translation>Pričakovano ime vrste</translation>
     </message>
     <message>
         <source>Invalid import qualifier ID</source>
-        <translation>Ungültige Id-Angabe bei Import</translation>
+        <translation>Neveljaven ID kvalifikatorja uvoza</translation>
     </message>
     <message>
         <source>Reserved name &quot;Qt&quot; cannot be used as an qualifier</source>
-        <translation>Der reservierte Name &quot;Qt&quot; kann nicht als Bezeichner verwendet werden</translation>
+        <translation>Rezerviranega imena »Qt« ni moč uporabiti kot kvalifikatorja</translation>
     </message>
     <message>
         <source>Script import qualifiers must be unique.</source>
-        <translation>Der für den Skript-Import angegebene Qualifizierer muss eindeutig sein.</translation>
+        <translation>Kvalifikatorji uvozov skriptov morajo biti edinstveni.</translation>
     </message>
     <message>
         <source>Script import requires a qualifier</source>
-        <translation>Der Skript-Import erfordert die Angabe eines Qualifizierers.</translation>
+        <translation>Uvozi skriptov potrebujejo kvalifikator</translation>
     </message>
     <message>
         <source>Library import requires a version</source>
-        <translation>Der Import einer Bibliothek erfordert eine Versionsangabe</translation>
+        <translation>Uvozi knjižnic potrebujejo različico</translation>
     </message>
     <message>
         <source>Expected parameter type</source>
-        <translation>Es wird eine Typangabe für den Parameter erwartet</translation>
+        <translation>Pričakovana vrsta parametra</translation>
     </message>
     <message>
         <source>Invalid property type modifier</source>
-        <translation>Ungültiger Modifikator für den Typ der Eigenschaft</translation>
+        <translation>Neveljaven modifikator vrste lastnosti</translation>
     </message>
     <message>
         <source>Unexpected property type modifier</source>
-        <translation>Modifikator für den Typ der Eigenschaft an dieser Stelle nicht zulässig</translation>
+        <translation>Nepričakovan modifikator vrste lastnosti</translation>
     </message>
     <message>
         <source>Expected property type</source>
-        <translation>Typangabe für Eigenschaft erwartet</translation>
+        <translation>Pričakovana vrsta lastnosti</translation>
     </message>
     <message>
         <source>Readonly not yet supported</source>
-        <translation>&apos;read-only&apos; wird an dieser Stelle noch nicht unterstützt</translation>
+        <translation>Tisti, ki so samo za branje, še niso podprti</translation>
     </message>
     <message>
         <source>JavaScript declaration outside Script element</source>
-        <translation>Eine JavaScript-Deklaration ist außerhalb eines Skriptelementes nicht zulässig</translation>
+        <translation>Deklaracija JavaScripta izven elementa Script</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativePauseAnimation</name>
     <message>
         <source>Cannot set a duration of &lt; 0</source>
-        <translation>Es kann keine Zeitdauer &lt;0 gesetzt werden</translation>
+        <translation>Trajanja, ki je krajše od 0, ni moč nastaviti</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativePixmap</name>
     <message>
         <source>Error decoding: %1: %2</source>
-        <translation>Fehler beim Dekodieren: %1: %2</translation>
+        <translation>Napaka dekodiranja: %1: %2</translation>
     </message>
     <message>
         <source>Failed to get image from provider: %1</source>
-        <translation>Bilddaten konnten nicht erhalten werden: %1</translation>
+        <translation>Od ponudnika ni bilo moč dobiti slike: %1</translation>
     </message>
     <message>
         <source>Cannot open: %1</source>
-        <translation>Fehlschlag beim Öffnen: %1</translation>
-    </message>
-</context>
-<context>
-    <name>QDeclarativePixmapCache</name>
-    <message>
-        <source>Error decoding: %1: %2</source>
-        <translation type="obsolete">Fehler beim Decodieren: %1: %2</translation>
-    </message>
-    <message>
-        <source>Failed to get image from provider: %1</source>
-        <translation type="obsolete">Bilddaten konnten nicht erhalten werden: %1</translation>
-    </message>
-    <message>
-        <source>Cannot open: %1</source>
-        <translation type="obsolete">Fehlschlag beim Öffnen: %1</translation>
-    </message>
-    <message>
-        <source>Unknown Error loading %1</source>
-        <translation type="obsolete">Unbekannter Fehler beim Laden von %1</translation>
+        <translation>Ni moč odpreti %1:</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativePropertyAnimation</name>
     <message>
         <source>Cannot set a duration of &lt; 0</source>
-        <translation>Es kann keine Zeitdauer &lt;0 gesetzt werden</translation>
+        <translation>Trajanja, ki je krajše od 0, ni moč nastaviti</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativePropertyChanges</name>
     <message>
         <source>PropertyChanges does not support creating state-specific objects.</source>
-        <translation>Die Erzeugung von Objekten, die einem Zustand zugeordnet sind, wird von PropertyChanges nicht unterstützt.</translation>
+        <translation>PropertyChanges ne podpira ustvarjanja objektov sprecifičnih za stanje.</translation>
     </message>
     <message>
         <source>Cannot assign to non-existent property &quot;%1&quot;</source>
-        <translation>Es kann keine Zuweisung erfolgen, da keine Eigenschaft des Namens &apos;%1&quot; existiert</translation>
+        <translation>Neobstoječi lastnosti »%1« ni moč prirediti</translation>
     </message>
     <message>
         <source>Cannot assign to read-only property &quot;%1&quot;</source>
-        <translation>Die Eigenschaft &quot;%1&quot; ist schreibgeschützt und kann daher nicht zugewiesen werden</translation>
+        <translation>Ni moč prirediti lastnosti »%1«, ki je samo za branje</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeTextInput</name>
     <message>
         <source>Could not load cursor delegate</source>
-        <translation>Cursor-Delegate konnte nicht geladen werden</translation>
+        <translation>Ni bilo moč naložiti delegata za kazalec</translation>
     </message>
     <message>
         <source>Could not instantiate cursor delegate</source>
-        <translation>Cursor-Delegate konnte nicht instanziiert werden</translation>
+        <translation>Ni bilo moč instancirati delegata za kazalec</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeTypeData</name>
     <message>
-        <source>Type %1 unavailable</source>
-        <translation type="obsolete">Der Typ  %1 ist nicht verfügbar</translation>
-    </message>
-    <message>
-        <source>Namespace %1 cannot be used as a type</source>
-        <translation type="obsolete">Der Namensraum %1 kann nicht als Typangabe verwendet werden</translation>
-    </message>
-    <message>
-        <source>%1 %2</source>
-        <translation type="obsolete">%1 %2</translation>
-    </message>
-</context>
-<context>
-    <name>QDeclarativeTypeLoader</name>
-    <message>
         <source>Script %1 unavailable</source>
-        <translation>Das Skript %1 ist nicht verfügbar</translation>
+        <translation>Skript %1 ni na voljo</translation>
     </message>
     <message>
         <source>Type %1 unavailable</source>
-        <translation>Der Typ %1 ist nicht verfügbar</translation>
+        <translation>Vrsta %1 ni na voljo</translation>
     </message>
     <message>
         <source>Namespace %1 cannot be used as a type</source>
-        <translation>Der Namensraum %1 kann nicht als Typangabe verwendet werden</translation>
+        <translation>Imenskega prostora %1 ni moč uporabiti kot vrste</translation>
     </message>
     <message>
         <source>%1 %2</source>
@@ -2222,67 +2135,67 @@ nach
     <name>QDeclarativeVME</name>
     <message>
         <source>Unable to create object of type %1</source>
-        <translation>Es konnte kein Objekt des Typs %1 erzeugt werden</translation>
+        <translation>Ni moč ustvariti objekta vrste %1</translation>
     </message>
     <message>
         <source>Cannot assign value %1 to property %2</source>
-        <translation>Der Wert &apos;%1&apos; kann der Eigenschaft %2 nicht zugewiesen werden</translation>
+        <translation>Lastnosti %2 ni moč prirediti vrednosti %1</translation>
     </message>
     <message>
         <source>Cannot assign object type %1 with no default method</source>
-        <translation>Der Objekttyp %1 kann nicht zugewiesen werden, da keine Vorgabe-Methode existiert</translation>
+        <translation>Ni moč prirediti objekta vrste %1 brez privzete metode</translation>
     </message>
     <message>
         <source>Cannot connect mismatched signal/slot %1 %vs. %2</source>
-        <translation>Es kann keine Verbindung zwischen dem Signal %1 und dem Slot %2 hergestellt werden, da sie nicht zusammenpassen</translation>
+        <translation>Ni moč povezati neujemajočih signalov in rež: %1 in %2</translation>
     </message>
     <message>
         <source>Cannot assign an object to signal property %1</source>
-        <translation>Der Signal-Eigenschaft %1 kann kein Objekt zugewiesen werden</translation>
+        <translation>Objekta ni moč prirediti lastnosi signala %1</translation>
     </message>
     <message>
         <source>Cannot assign object to list</source>
-        <translation>Zuweisung eines Objekts an eine Liste nicht zulässig</translation>
+        <translation>Objekta ni moč prirediti seznamu</translation>
     </message>
     <message>
         <source>Cannot assign object to interface property</source>
-        <translation>Der Eigenschaft der Schnittstelle kann kein Objekt zugewiesen werden</translation>
+        <translation>Objekta ni moč prirediti lastnosti vmesnika</translation>
     </message>
     <message>
         <source>Unable to create attached object</source>
-        <translation>Es konnte kein &apos;attached&apos;-Objekt erzeugt werden</translation>
+        <translation>Ni moč ustvariti pripetega objekta</translation>
     </message>
     <message>
         <source>Cannot set properties on %1 as it is null</source>
-        <translation>Es können keine Eigenschaften auf %1 gesetzt werden, da es &apos;null&apos; ist</translation>
+        <translation>Ni moč nastaviti lastnosti za %1, saj ne obstaja</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeVisualDataModel</name>
     <message>
         <source>Delegate component must be Item type.</source>
-        <translation>Delegate-Komponente muss vom Typ &apos;Item&apos; sein</translation>
+        <translation>Komponenta delegata mora biti vrste Item.</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeXmlListModel</name>
     <message>
         <source>Qt was built without support for xmlpatterns</source>
-        <translation>Diese Version der Qt-Bibliothek wurde ohne Unterstützung für xmlpatterns erstellt</translation>
+        <translation>Qt je bil zgrajen brez podpore za xmlpatterns</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeXmlListModelRole</name>
     <message>
         <source>An XmlRole query must not start with &apos;/&apos;</source>
-        <translation>Eine XmlRole-Abfrage darf nicht mit &apos;/&apos; beginnen</translation>
+        <translation>Poizvedba XmlRole se ne sme začeti z »/«</translation>
     </message>
 </context>
 <context>
     <name>QDeclarativeXmlRoleList</name>
     <message>
         <source>An XmlListModel query must start with &apos;/&apos; or &quot;//&quot;</source>
-        <translation>Eine XmlListModel-Abfrage muss mit &apos;/&apos; oder &quot;//&quot; beginnen</translation>
+        <translation>Poizvedba XmlListModel se mora začeti z »/« ali »//«</translation>
     </message>
 </context>
 <context>
@@ -2293,565 +2206,565 @@ nach
     </message>
     <message>
         <source>SpeedoMeter</source>
-        <translation>Tachometer</translation>
+        <translation>SpeedoMeter</translation>
     </message>
     <message>
         <source>SliderHandle</source>
-        <translation>Schieberegler</translation>
+        <translation>SliderHandle</translation>
     </message>
 </context>
 <context>
     <name>QDialog</name>
     <message>
         <source>What&apos;s This?</source>
-        <translation>Direkthilfe</translation>
+        <translation>Kaj je to?</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Fertig</translation>
+        <translation>Opravljeno</translation>
     </message>
 </context>
 <context>
     <name>QDialogButtonBox</name>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Speichern</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>S&amp;peichern</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation>Öffnen</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Abbrechen</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Schließen</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>Schl&amp;ießen</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Anwenden</translation>
-    </message>
-    <message>
-        <source>Reset</source>
-        <translation>Zurücksetzen</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Hilfe</translation>
-    </message>
-    <message>
-        <source>Don&apos;t Save</source>
-        <translation>Nicht speichern</translation>
-    </message>
-    <message>
-        <source>Discard</source>
-        <translation>Verwerfen</translation>
-    </message>
-    <message>
-        <source>&amp;Yes</source>
-        <translation>&amp;Ja</translation>
-    </message>
-    <message>
-        <source>Yes to &amp;All</source>
-        <translation>Ja, &amp;alle</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation>&amp;Nein</translation>
-    </message>
-    <message>
-        <source>N&amp;o to All</source>
-        <translation>N&amp;ein, keine</translation>
-    </message>
-    <message>
-        <source>Save All</source>
-        <translation>Alles speichern</translation>
-    </message>
-    <message>
-        <source>Abort</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
-        <source>Retry</source>
-        <translation>Wiederholen</translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation>Ignorieren</translation>
-    </message>
-    <message>
-        <source>Restore Defaults</source>
-        <translation>Voreinstellungen</translation>
-    </message>
-    <message>
-        <source>Close without Saving</source>
-        <translation>Schließen ohne Speichern</translation>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
+        <translation>&amp;V redu</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Shrani</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Shrani</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Odpri</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Prekliči</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Prekliči</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Zapri</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zapri</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Uveljavi</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Ponastavi</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Pomoč</translation>
+    </message>
+    <message>
+        <source>Don&apos;t Save</source>
+        <translation>Ne shrani</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Zavrzi</translation>
+    </message>
+    <message>
+        <source>&amp;Yes</source>
+        <translation>&amp;Da</translation>
+    </message>
+    <message>
+        <source>Yes to &amp;All</source>
+        <translation>Da za &amp;vse</translation>
+    </message>
+    <message>
+        <source>&amp;No</source>
+        <translation>&amp;Ne</translation>
+    </message>
+    <message>
+        <source>N&amp;o to All</source>
+        <translation>N&amp;e za vse</translation>
+    </message>
+    <message>
+        <source>Save All</source>
+        <translation>Shrani vse</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation>Prekini</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Poskusi znova</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Spreglej</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation>Obnovi privzete vrednosti</translation>
+    </message>
+    <message>
+        <source>Close without Saving</source>
+        <translation>Zapri brez shranjevanja</translation>
     </message>
 </context>
 <context>
     <name>QDirModel</name>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <source>Kind</source>
         <comment>Match OS X Finder</comment>
-        <translation>Art</translation>
+        <translation>Vrste</translation>
     </message>
     <message>
         <source>Type</source>
         <comment>All other platforms</comment>
-        <translation>Typ</translation>
+        <translation>Vrsta</translation>
     </message>
     <message>
         <source>Date Modified</source>
-        <translation>Änderungsdatum</translation>
+        <translation>Datum spremembe</translation>
     </message>
 </context>
 <context>
     <name>QDockWidget</name>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Andocken</translation>
+        <translation>Zasidraj</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Herauslösen</translation>
+        <translation>Naj lebdi</translation>
     </message>
 </context>
 <context>
     <name>QDoubleSpinBox</name>
     <message>
         <source>More</source>
-        <translation>Mehr</translation>
+        <translation>Več</translation>
     </message>
     <message>
         <source>Less</source>
-        <translation>Weniger</translation>
+        <translation>Manj</translation>
     </message>
 </context>
 <context>
     <name>QErrorMessage</name>
     <message>
-        <source>&amp;Show this message again</source>
-        <translation>Diese Meldung wieder an&amp;zeigen</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
-    </message>
-    <message>
         <source>Debug Message:</source>
-        <translation>Debug-Ausgabe:</translation>
+        <translation>Sporočilo razhroščevanja:</translation>
     </message>
     <message>
         <source>Warning:</source>
-        <translation>Achtung:</translation>
+        <translation>Opozorilo:</translation>
     </message>
     <message>
         <source>Fatal Error:</source>
-        <translation>Fehler:</translation>
+        <translation>Usodna napaka:</translation>
+    </message>
+    <message>
+        <source>&amp;Show this message again</source>
+        <translation>&amp;To sporočilo naslednjič spet prikaži</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;V redu</translation>
     </message>
 </context>
 <context>
     <name>QFile</name>
     <message>
         <source>Destination file exists</source>
-        <translation>Die Zieldatei existiert bereits</translation>
+        <translation>Ciljna datoteka obstaja</translation>
     </message>
     <message>
         <source>Will not rename sequential file using block copy</source>
-        <translation>Eine sequentielle Datei kann nicht durch blockweises Kopieren umbenannt werden</translation>
+        <translation>Sekvenčna datoteka ne bo preimenovana z uporabo kopiranja blokov</translation>
     </message>
     <message>
         <source>Cannot remove source file</source>
-        <translation>Die Quelldatei kann nicht entfernt werden</translation>
+        <translation>Ni moč odstraniti izvorne datoteke</translation>
     </message>
     <message>
         <source>Cannot open %1 for input</source>
-        <translation>%1 kann nicht zum Lesen geöffnet werden</translation>
+        <translation>Ni moč odpreti %1 za vhod</translation>
     </message>
     <message>
         <source>Cannot open for output</source>
-        <translation>Das Öffnen zum Schreiben ist fehlgeschlagen</translation>
+        <translation>Ni moč odpreti za izhod</translation>
     </message>
     <message>
         <source>Failure to write block</source>
-        <translation>Der Datenblock konnte nicht geschrieben werden</translation>
+        <translation>Neuspeh pri zapisovanju bloka</translation>
     </message>
     <message>
         <source>Cannot create %1 for output</source>
-        <translation>%1 kann nicht erstellt werden</translation>
+        <translation>Ni moč ustvariti %1 za izhod</translation>
     </message>
 </context>
 <context>
     <name>QFileDialog</name>
     <message>
         <source>All Files (*)</source>
-        <translation>Alle Dateien (*)</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation>Zurück</translation>
-    </message>
-    <message>
-        <source>List View</source>
-        <translation>Liste</translation>
-    </message>
-    <message>
-        <source>Detail View</source>
-        <translation>Details</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>Datei</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation>Öffnen</translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation>Speichern unter</translation>
-    </message>
-    <message>
-        <source>&amp;Open</source>
-        <translation>&amp;Öffnen</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>S&amp;peichern</translation>
-    </message>
-    <message>
-        <source>Recent Places</source>
-        <translation>Zuletzt besucht</translation>
-    </message>
-    <message>
-        <source>&amp;Rename</source>
-        <translation>&amp;Umbenennen</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation>&amp;Löschen</translation>
-    </message>
-    <message>
-        <source>Show &amp;hidden files</source>
-        <translation>&amp;Versteckte Dateien anzeigen</translation>
-    </message>
-    <message>
-        <source>New Folder</source>
-        <translation>Neues Verzeichnis</translation>
-    </message>
-    <message>
-        <source>Find Directory</source>
-        <translation>Verzeichnis suchen</translation>
+        <translation>Vse datoteke (*)</translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation>Verzeichnisse</translation>
+        <translation>Mape</translation>
     </message>
     <message>
-        <source>All Files (*.*)</source>
-        <translation>Alle Dateien (*.*)</translation>
+        <source>&amp;Open</source>
+        <translation>&amp;Odpri</translation>
     </message>
     <message>
-        <source>Directory:</source>
-        <translation>Verzeichnis:</translation>
+        <source>&amp;Save</source>
+        <translation>&amp;Shrani</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Odpri</translation>
     </message>
     <message>
         <source>%1 already exists.
 Do you want to replace it?</source>
-        <translation>Die Datei %1 existiert bereits.
-Soll sie überschrieben werden?</translation>
+        <translation>%1 že obstaja.
+Ali jo želite nadomestiti?</translation>
     </message>
     <message>
         <source>%1
 File not found.
 Please verify the correct file name was given.</source>
         <translation>%1
-Die Datei konnte nicht gefunden werden.
-Stellen Sie sicher, dass der Dateiname richtig ist.</translation>
+Datoteka ni bila najdena.
+Preverite, ali je bilo podano pravilno ime datoteke.</translation>
     </message>
     <message>
         <source>My Computer</source>
-        <translation>Mein Computer</translation>
+        <translation>Moj računalnik</translation>
+    </message>
+    <message>
+        <source>&amp;Rename</source>
+        <translation>Pre&amp;imenuj</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Izbriši</translation>
+    </message>
+    <message>
+        <source>Show &amp;hidden files</source>
+        <translation>Prikaži &amp;skrite datoteke</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Nazaj</translation>
     </message>
     <message>
         <source>Parent Directory</source>
-        <translation>Übergeordnetes Verzeichnis</translation>
+        <translation>Matična mapa</translation>
+    </message>
+    <message>
+        <source>List View</source>
+        <translation>Prikaz seznama</translation>
+    </message>
+    <message>
+        <source>Detail View</source>
+        <translation>Prikaz podrobnosti</translation>
     </message>
     <message>
         <source>Files of type:</source>
-        <translation>Dateien des Typs:</translation>
+        <translation>Datoteke vrste:</translation>
+    </message>
+    <message>
+        <source>Directory:</source>
+        <translation>Mapa:</translation>
     </message>
     <message>
         <source>%1
 Directory not found.
 Please verify the correct directory name was given.</source>
         <translation>%1
-Das Verzeichnis konnte nicht gefunden werden.
-Stellen Sie sicher, dass der Verzeichnisname richtig ist.</translation>
+Mapa ni bila najdena.
+Preverite, ali je bilo podano pravilno ime mape.</translation>
     </message>
     <message>
         <source>&apos;%1&apos; is write protected.
 Do you want to delete it anyway?</source>
-        <translation>&apos;%1&apos; ist schreibgeschützt.
-Möchten Sie die Datei trotzdem löschen?</translation>
+        <translation>»%1« je zaščitena pred pisanjem.
+Ali jo kljub temu želite izbrisati?</translation>
     </message>
     <message>
         <source>Are sure you want to delete &apos;%1&apos;?</source>
-        <translation>Sind Sie sicher, dass Sie &apos;%1&apos; löschen möchten?</translation>
+        <translation>Ali res želite izbrisati »%1«?</translation>
     </message>
     <message>
         <source>Could not delete directory.</source>
-        <translation>Konnte Verzeichnis nicht löschen.</translation>
+        <translation>Ni bilo moč izbrisati mape.</translation>
+    </message>
+    <message>
+        <source>Recent Places</source>
+        <translation>Nedavna mesta</translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation>Vse datoteke (*.*)</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation>Shrani kot</translation>
     </message>
     <message>
         <source>Drive</source>
-        <translation>Laufwerk</translation>
+        <translation>Pogon</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation>Datoteka</translation>
     </message>
     <message>
         <source>File Folder</source>
         <comment>Match Windows Explorer</comment>
-        <translation>Ordner</translation>
+        <translation>Mapa z datotekami</translation>
     </message>
     <message>
         <source>Folder</source>
         <comment>All other platforms</comment>
-        <translation>Order</translation>
+        <translation>Mapa</translation>
     </message>
     <message>
         <source>Alias</source>
         <comment>Mac OS X Finder</comment>
-        <translation>Alias</translation>
+        <translation>Drugo ime</translation>
     </message>
     <message>
         <source>Shortcut</source>
         <comment>All other platforms</comment>
-        <translation>Symbolischer Link</translation>
+        <translation>Bližnjica</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Unbekannt</translation>
+        <translation>Neznano</translation>
+    </message>
+    <message>
+        <source>Find Directory</source>
+        <translation>Najdi mapo</translation>
     </message>
     <message>
         <source>Show </source>
-        <translation>Anzeigen </translation>
+        <translation>Prikaži </translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation>Vorwärts</translation>
+        <translation>Naprej</translation>
+    </message>
+    <message>
+        <source>New Folder</source>
+        <translation>Nova mapa</translation>
     </message>
     <message>
         <source>&amp;New Folder</source>
-        <translation>&amp;Neues Verzeichnis</translation>
+        <translation>&amp;Nova mapa</translation>
     </message>
     <message>
         <source>&amp;Choose</source>
-        <translation>&amp;Auswählen</translation>
+        <translation>Iz&amp;berite</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Löschen</translation>
+        <translation>Odstrani</translation>
     </message>
     <message>
         <source>File &amp;name:</source>
-        <translation>Datei&amp;name:</translation>
+        <translation>Ime &amp;datoteke:</translation>
     </message>
     <message>
         <source>Look in:</source>
-        <translation>Suchen in:</translation>
+        <translation>Išči v:</translation>
     </message>
     <message>
         <source>Create New Folder</source>
-        <translation>Neuen Ordner erstellen</translation>
+        <translation>Ustvari novo mapo</translation>
     </message>
     <message>
         <source>Go back</source>
-        <translation>Zurück</translation>
+        <translation>Vrni se nazaj</translation>
     </message>
     <message>
         <source>Go forward</source>
-        <translation>Vor</translation>
+        <translation>Napreduj naprej</translation>
     </message>
     <message>
         <source>Go to the parent directory</source>
-        <translation>Gehe zum übergeordneten Verzeichnis</translation>
+        <translation>Pojdi v matično mapo</translation>
     </message>
     <message>
         <source>Create a New Folder</source>
-        <translation>Neuen Ordner erstellen</translation>
+        <translation>Ustvari novo mapo</translation>
     </message>
     <message>
         <source>Change to list view mode</source>
-        <translation>Wechsle zu Listenansicht</translation>
+        <translation>Preklopi v način prikaza seznama</translation>
     </message>
     <message>
         <source>Change to detail view mode</source>
-        <translation>Wechsle zu Detailansicht</translation>
+        <translation>Preklopi v način prikaza podrobnosti</translation>
     </message>
 </context>
 <context>
     <name>QFileSystemModel</name>
     <message>
-        <source>%1 TB</source>
-        <translation>%1 TB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 GB</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation>%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 KB</translation>
-    </message>
-    <message>
-        <source>%1 bytes</source>
-        <translation>%1 Byte</translation>
-    </message>
-    <message>
         <source>Invalid filename</source>
-        <translation>Ungültiger Dateiname</translation>
+        <translation>Napačno ime datoteke</translation>
     </message>
     <message>
         <source>&lt;b&gt;The name &quot;%1&quot; can not be used.&lt;/b&gt;&lt;p&gt;Try using another name, with fewer characters or no punctuations marks.</source>
-        <translation>&lt;b&gt;Der Name &quot;%1&quot; kann nicht verwendet werden.&lt;/b&gt;&lt;p&gt;Versuchen Sie, die Sonderzeichen zu entfernen oder einen kürzeren Namen zu verwenden.</translation>
+        <translation>&lt;b&gt;Imena »%1« ne morete uporabiti.&lt;/b&gt;&lt;p&gt;Poskusite z drugim imenom, ki vsebuje manj znakov ali pa ne vsebuje ločil.</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <source>Kind</source>
         <comment>Match OS X Finder</comment>
-        <translation>Art</translation>
+        <translation>Vrste</translation>
     </message>
     <message>
         <source>Type</source>
         <comment>All other platforms</comment>
-        <translation>Typ</translation>
+        <translation>Vrsta</translation>
     </message>
     <message>
         <source>Date Modified</source>
-        <translation>Änderungsdatum</translation>
+        <translation>Datum spremembe</translation>
     </message>
     <message>
         <source>My Computer</source>
-        <translation>Mein Computer</translation>
+        <translation>Moj računalnik</translation>
     </message>
     <message>
         <source>Computer</source>
-        <translation>Computer</translation>
+        <translation>Računalnik</translation>
+    </message>
+    <message>
+        <source>%1 TB</source>
+        <translation>%1 TiB</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 GiB</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 MiB</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 KiB</translation>
+    </message>
+    <message>
+        <source>%1 bytes</source>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 byte(s)</source>
-        <translation>%1 byte</translation>
+        <translation>%1 B</translation>
     </message>
 </context>
 <context>
     <name>QFontDatabase</name>
     <message>
         <source>Normal</source>
-        <translation>Normal</translation>
+        <translation>Običajno</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation>Fett</translation>
+        <translation>Polkrepko</translation>
     </message>
     <message>
         <source>Demi Bold</source>
-        <translation>Halbfett</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Black</source>
-        <translation>Schwarz</translation>
+        <translation>Krepko</translation>
     </message>
     <message>
         <source>Demi</source>
-        <translation>Semi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Leicht</translation>
+        <translation>Lahko</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation>Kursiv</translation>
+        <translation>Ležeče</translation>
     </message>
     <message>
         <source>Oblique</source>
-        <translation>Schräggestellt</translation>
+        <translation>Nagnjeno</translation>
     </message>
     <message>
         <source>Any</source>
-        <translation>Alle</translation>
+        <translation>Katerikoli</translation>
     </message>
     <message>
         <source>Latin</source>
-        <translation>Lateinisch</translation>
+        <translation>Latinska</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation>Griechisch</translation>
+        <translation>Grška</translation>
     </message>
     <message>
         <source>Cyrillic</source>
-        <translation>Kyrillisch</translation>
+        <translation>Cirilica</translation>
     </message>
     <message>
         <source>Armenian</source>
-        <translation>Armenisch</translation>
+        <translation>Armenska</translation>
     </message>
     <message>
         <source>Hebrew</source>
-        <translation>Hebräisch</translation>
+        <translation>Hebrejska</translation>
     </message>
     <message>
         <source>Arabic</source>
-        <translation>Arabisch</translation>
+        <translation>Arabska</translation>
     </message>
     <message>
         <source>Syriac</source>
-        <translation>Syrisch</translation>
+        <translation>Sirijska</translation>
     </message>
     <message>
         <source>Thaana</source>
@@ -2863,7 +2776,7 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>Bengali</source>
-        <translation>Bengalisch</translation>
+        <translation>Bengalska</translation>
     </message>
     <message>
         <source>Gurmukhi</source>
@@ -2879,11 +2792,11 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>Tamil</source>
-        <translation>Tamilisch</translation>
+        <translation>Tamilska</translation>
     </message>
     <message>
         <source>Telugu</source>
-        <translation>Telugu</translation>
+        <translation>Teluška</translation>
     </message>
     <message>
         <source>Kannada</source>
@@ -2899,59 +2812,59 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>Thai</source>
-        <translation>Thailändisch</translation>
+        <translation>Tajska</translation>
     </message>
     <message>
         <source>Lao</source>
-        <translation>Laotisch</translation>
+        <translation>Laoška</translation>
     </message>
     <message>
         <source>Tibetan</source>
-        <translation>Tibetisch</translation>
+        <translation>Tibetanska</translation>
     </message>
     <message>
         <source>Myanmar</source>
-        <translation>Myanmar</translation>
+        <translation>Mjanmarska</translation>
     </message>
     <message>
         <source>Georgian</source>
-        <translation>Georgisch</translation>
+        <translation>Gruzijska</translation>
     </message>
     <message>
         <source>Khmer</source>
-        <translation>Khmer</translation>
+        <translation>Kmerska</translation>
     </message>
     <message>
         <source>Simplified Chinese</source>
-        <translation>Chinesisch (Kurzzeichen)</translation>
+        <translation>Poenostavljena kitajska</translation>
     </message>
     <message>
         <source>Traditional Chinese</source>
-        <translation>Chinesisch (Langzeichen)</translation>
+        <translation>Tradicionalna kitajska</translation>
     </message>
     <message>
         <source>Japanese</source>
-        <translation>Japanisch</translation>
+        <translation>Japonska</translation>
     </message>
     <message>
         <source>Korean</source>
-        <translation>Koreanisch</translation>
+        <translation>Korejska</translation>
     </message>
     <message>
         <source>Vietnamese</source>
-        <translation>Vietnamesisch</translation>
+        <translation>Vietnamska</translation>
     </message>
     <message>
         <source>Symbol</source>
-        <translation>Symbol</translation>
+        <translation>Simbol</translation>
     </message>
     <message>
         <source>Ogham</source>
-        <translation>Ogham</translation>
+        <translation>Oghamska</translation>
     </message>
     <message>
         <source>Runic</source>
-        <translation>Runen</translation>
+        <translation>Runska</translation>
     </message>
     <message>
         <source>N&apos;Ko</source>
@@ -2962,441 +2875,441 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     <name>QFontDialog</name>
     <message>
         <source>&amp;Font</source>
-        <translation>&amp;Schriftart</translation>
+        <translation>&amp;Pisava</translation>
     </message>
     <message>
         <source>Font st&amp;yle</source>
-        <translation>Schrifts&amp;til</translation>
+        <translation>&amp;Slog pisave</translation>
     </message>
     <message>
         <source>&amp;Size</source>
-        <translation>&amp;Größe</translation>
+        <translation>&amp;Velikost</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation>Effekte</translation>
+        <translation>Učinki</translation>
     </message>
     <message>
         <source>Stri&amp;keout</source>
-        <translation>Durch&amp;gestrichen</translation>
+        <translation>P&amp;rečrtaj</translation>
     </message>
     <message>
         <source>&amp;Underline</source>
-        <translation>&amp;Unterstrichen</translation>
+        <translation>Po&amp;dčrtaj</translation>
     </message>
     <message>
         <source>Sample</source>
-        <translation>Beispiel</translation>
-    </message>
-    <message>
-        <source>Select Font</source>
-        <translation>Schriftart auswählen</translation>
+        <translation>Vzorec</translation>
     </message>
     <message>
         <source>Wr&amp;iting System</source>
-        <translation>&amp;Schriftsystem</translation>
+        <translation>S&amp;istem pisanja</translation>
+    </message>
+    <message>
+        <source>Select Font</source>
+        <translation>Izberite pisavo</translation>
     </message>
 </context>
 <context>
     <name>QFtp</name>
     <message>
-        <source>Host %1 found</source>
-        <translation>Rechner %1 gefunden</translation>
-    </message>
-    <message>
-        <source>Host found</source>
-        <translation>Rechner gefunden</translation>
-    </message>
-    <message>
-        <source>Connected to host %1</source>
-        <translation>Verbunden mit Rechner %1</translation>
-    </message>
-    <message>
-        <source>Connected to host</source>
-        <translation>Verbindung mit Rechner besteht</translation>
-    </message>
-    <message>
-        <source>Connection to %1 closed</source>
-        <translation>Verbindung mit %1 beendet</translation>
-    </message>
-    <message>
-        <source>Connection closed</source>
-        <translation>Verbindung beendet</translation>
+        <source>Not connected</source>
+        <translation>Brez povezave</translation>
     </message>
     <message>
         <source>Host %1 not found</source>
-        <translation>Rechner %1 konnte nicht gefunden werden</translation>
+        <translation>Gostitelj %1 ni bil najden</translation>
     </message>
     <message>
         <source>Connection refused to host %1</source>
-        <translation>Verbindung mit %1 verweigert</translation>
+        <translation>Povezava z gostiteljem %1 je bila zavrnjena</translation>
     </message>
     <message>
         <source>Connection timed out to host %1</source>
-        <translation>Das Zeitlimit für die Verbindung zu &apos;%1&apos; wurde überschritten</translation>
+        <translation>Čas za povezavo z gostiteljem %1 je potekel</translation>
+    </message>
+    <message>
+        <source>Connected to host %1</source>
+        <translation>Povezan z gostiteljem %1</translation>
+    </message>
+    <message>
+        <source>Connection refused for data connection</source>
+        <translation>Podatkovna povezava je bila zavrnjena</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>Connecting to host failed:
 %1</source>
-        <translation>Verbindung mit Rechner ist fehlgeschlagen:
+        <translation>Povezovanje z gostiteljem ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Login failed:
 %1</source>
-        <translation>Anmeldung ist fehlgeschlagen:
+        <translation>Prijava ni uspela:
 %1</translation>
     </message>
     <message>
         <source>Listing directory failed:
 %1</source>
-        <translation>Der Inhalt des Verzeichnisses kann nicht angezeigt werden:
+        <translation>Izpis seznama map ni uspel:
 %1</translation>
     </message>
     <message>
         <source>Changing directory failed:
 %1</source>
-        <translation>Ändern des Verzeichnisses ist fehlgeschlagen:
+        <translation>Spreminjanje mape ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Downloading file failed:
 %1</source>
-        <translation>Herunterladen der Datei ist fehlgeschlagen:
+        <translation>Prejemanje datoteke ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Uploading file failed:
 %1</source>
-        <translation>Hochladen der Datei ist fehlgeschlagen:
+        <translation>Pošiljanje datoteke ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Removing file failed:
 %1</source>
-        <translation>Löschen der Datei ist fehlgeschlagen:
+        <translation>Odstranjevanje datoteke ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Creating directory failed:
 %1</source>
-        <translation>Erstellen des Verzeichnisses ist fehlgeschlagen:
+        <translation>Ustvarjanje mape ni uspelo:
 %1</translation>
     </message>
     <message>
         <source>Removing directory failed:
 %1</source>
-        <translation>Löschen des Verzeichnisses ist fehlgeschlagen:
+        <translation>Odstranjevanje mape ni uspelo:
 %1</translation>
     </message>
     <message>
-        <source>Not connected</source>
-        <translation>Keine Verbindung</translation>
+        <source>Connection closed</source>
+        <translation>Povezava je bila prekinjena</translation>
     </message>
     <message>
-        <source>Connection refused for data connection</source>
-        <translation>Verbindung für die Daten Verbindung verweigert</translation>
+        <source>Host %1 found</source>
+        <translation>Gostitelj %1 je bil najden</translation>
+    </message>
+    <message>
+        <source>Connection to %1 closed</source>
+        <translation>Povezava s %1 je bila prekinjena</translation>
+    </message>
+    <message>
+        <source>Host found</source>
+        <translation>Gostitelj je bil najden</translation>
+    </message>
+    <message>
+        <source>Connected to host</source>
+        <translation>Povezan z gostiteljem</translation>
     </message>
 </context>
 <context>
     <name>QHostInfo</name>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>No host name given</source>
-        <translation>Es wurde kein Hostname angegeben</translation>
+        <translation>Podano ni bilo nobeno ime gostitelja</translation>
     </message>
 </context>
 <context>
     <name>QHostInfoAgent</name>
     <message>
         <source>Host not found</source>
-        <translation>Rechner konnte nicht gefunden werden</translation>
+        <translation>Ni moč najti gostitelja</translation>
     </message>
     <message>
         <source>Unknown address type</source>
-        <translation>Unbekannter Adresstyp</translation>
+        <translation>Neznana vrsta naslova</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>No host name given</source>
-        <translation>Es wurde kein Hostname angegeben</translation>
+        <translation>Podano ni bilo nobeno ime gostitelja</translation>
     </message>
     <message>
         <source>Invalid hostname</source>
-        <translation>Ungültiger Rechnername</translation>
+        <translation>Neveljavno ime gostitelja</translation>
     </message>
 </context>
 <context>
     <name>QHttp</name>
     <message>
-        <source>Connection refused</source>
-        <translation>Verbindung verweigert</translation>
-    </message>
-    <message>
-        <source>Host %1 not found</source>
-        <translation>Rechner %1 konnte nicht gefunden werden</translation>
-    </message>
-    <message>
-        <source>Wrong content length</source>
-        <translation>Ungültige Längenangabe</translation>
-    </message>
-    <message>
-        <source>HTTP request failed</source>
-        <translation>HTTP-Anfrage fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>Host %1 found</source>
-        <translation>Rechner %1 gefunden</translation>
-    </message>
-    <message>
-        <source>Host found</source>
-        <translation>Rechner gefunden</translation>
-    </message>
-    <message>
-        <source>Connected to host %1</source>
-        <translation>Verbunden mit Rechner %1</translation>
-    </message>
-    <message>
-        <source>Connected to host</source>
-        <translation>Verbindung mit Rechner besteht</translation>
-    </message>
-    <message>
-        <source>Connection to %1 closed</source>
-        <translation>Verbindung mit %1 beendet</translation>
-    </message>
-    <message>
-        <source>Connection closed</source>
-        <translation>Verbindung beendet</translation>
-    </message>
-    <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>Request aborted</source>
-        <translation>Anfrage wurde abgebrochen</translation>
+        <translation>Zahteva prekinjena</translation>
     </message>
     <message>
         <source>No server set to connect to</source>
-        <translation>Für die Verbindung wurde kein Server-Rechner angegeben</translation>
+        <translation>Strežnik za povezavo ni nastavljen</translation>
+    </message>
+    <message>
+        <source>Wrong content length</source>
+        <translation>Napačna dolžina vsebine</translation>
     </message>
     <message>
         <source>Server closed connection unexpectedly</source>
-        <translation>Der Server hat die Verbindung unerwartet geschlossen</translation>
-    </message>
-    <message>
-        <source>Invalid HTTP response header</source>
-        <translation>Der Kopfteil der HTTP-Antwort ist ungültig</translation>
+        <translation>Strežnik je nepričakovano prekinil povezavo</translation>
     </message>
     <message>
         <source>Unknown authentication method</source>
-        <translation>Unbekannte Authentifizierungsmethode</translation>
-    </message>
-    <message>
-        <source>Invalid HTTP chunked body</source>
-        <translation>Der Inhalt (chunked body) der HTTP-Antwort ist ungültig</translation>
+        <translation>Neznan način overjanja</translation>
     </message>
     <message>
         <source>Error writing response to device</source>
-        <translation>Beim Schreiben der Antwort auf das Ausgabegerät ist ein Fehler aufgetreten</translation>
+        <translation>Napaka pri pisanju odziva na napravo</translation>
+    </message>
+    <message>
+        <source>Connection refused</source>
+        <translation>Povezava je zavrnjena</translation>
+    </message>
+    <message>
+        <source>Host %1 not found</source>
+        <translation>Gostitelj %1 ni bil najden</translation>
+    </message>
+    <message>
+        <source>HTTP request failed</source>
+        <translation>Zahtevek HTTP ni uspel</translation>
+    </message>
+    <message>
+        <source>Invalid HTTP response header</source>
+        <translation>Neveljavna glava odgovora HTTP</translation>
+    </message>
+    <message>
+        <source>Invalid HTTP chunked body</source>
+        <translation>Neveljavno razdeljeno telo HTTP</translation>
+    </message>
+    <message>
+        <source>Host %1 found</source>
+        <translation>Gostitelj %1 je bil najden</translation>
+    </message>
+    <message>
+        <source>Connected to host %1</source>
+        <translation>Povezan z gostiteljem %1</translation>
+    </message>
+    <message>
+        <source>Connection to %1 closed</source>
+        <translation>Povezava s %1 je bila prekinjena</translation>
+    </message>
+    <message>
+        <source>Host found</source>
+        <translation>Gostitelj je bil najden</translation>
+    </message>
+    <message>
+        <source>Connected to host</source>
+        <translation>Povezan z gostiteljem</translation>
+    </message>
+    <message>
+        <source>Connection closed</source>
+        <translation>Povezava je bila prekinjena</translation>
     </message>
     <message>
         <source>Proxy authentication required</source>
-        <translation>Proxy-Authentifizierung erforderlich</translation>
+        <translation>Potrebna je overitev pri posredniku</translation>
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>Authentifizierung erforderlich</translation>
-    </message>
-    <message>
-        <source>Proxy requires authentication</source>
-        <translation>Der Proxy-Server verlangt eine Authentifizierung</translation>
-    </message>
-    <message>
-        <source>Host requires authentication</source>
-        <translation>Der Hostrechner verlangt eine Authentifizierung</translation>
-    </message>
-    <message>
-        <source>Data corrupted</source>
-        <translation>Die Daten sind verfälscht</translation>
-    </message>
-    <message>
-        <source>SSL handshake failed</source>
-        <translation>Im Ablauf des SSL-Protokolls ist ein Fehler aufgetreten.</translation>
-    </message>
-    <message>
-        <source>Unknown protocol specified</source>
-        <translation>Es wurde ein unbekanntes Protokoll angegeben</translation>
+        <translation>Potrebna je overitev</translation>
     </message>
     <message>
         <source>Connection refused (or timed out)</source>
-        <translation>Verbindung verweigert oder Zeitlimit überschritten</translation>
+        <translation>Povezava je bila zavrnjena (ali pa je potekel čas)</translation>
+    </message>
+    <message>
+        <source>Proxy requires authentication</source>
+        <translation>Posrednik zahteva overitev</translation>
+    </message>
+    <message>
+        <source>Host requires authentication</source>
+        <translation>Gostitelj zahteva overitev</translation>
+    </message>
+    <message>
+        <source>Data corrupted</source>
+        <translation>Podatki so okvarjeni</translation>
+    </message>
+    <message>
+        <source>Unknown protocol specified</source>
+        <translation>Naveden je bil neznan protokol</translation>
+    </message>
+    <message>
+        <source>SSL handshake failed</source>
+        <translation>Rokovanje SSL ni uspelo</translation>
     </message>
     <message>
         <source>HTTPS connection requested but SSL support not compiled in</source>
-        <translation>Die angeforderte HTTPS-Verbindung kann nicht aufgebaut werden, da keine SSL-Unterstützung vorhanden ist</translation>
+        <translation>Zahtevana je bila povezava HTTPS, a podpora za SSL ni bila vgrajena</translation>
     </message>
 </context>
 <context>
     <name>QHttpSocketEngine</name>
     <message>
         <source>Did not receive HTTP response from proxy</source>
-        <translation>Keine HTTP-Antwort vom Proxy-Server</translation>
+        <translation>Od posrednika ni bil prejet odgovor HTTP</translation>
     </message>
     <message>
         <source>Error parsing authentication request from proxy</source>
-        <translation>Fehler beim Auswerten der Authentifizierungsanforderung des Proxy-Servers</translation>
+        <translation>Napaka pri razčlenjevanju overitvenega zahtevka od posrednika</translation>
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>Authentifizierung erforderlich</translation>
+        <translation>Potrebna je overitev</translation>
     </message>
     <message>
         <source>Proxy denied connection</source>
-        <translation>Der Proxy-Server hat den Aufbau einer Verbindung verweigert</translation>
+        <translation>Posrednik je zavrnil povezavo</translation>
     </message>
     <message>
         <source>Error communicating with HTTP proxy</source>
-        <translation>Fehler bei der Kommunikation mit dem Proxy-Server</translation>
+        <translation>Napaka pri komunikaciji s posrednikom HTTP</translation>
     </message>
     <message>
         <source>Proxy server not found</source>
-        <translation>Es konnte kein Proxy-Server gefunden werden</translation>
+        <translation>Posredniški strežnik ni bil najden</translation>
     </message>
     <message>
         <source>Proxy connection refused</source>
-        <translation>Der Proxy-Server hat den Aufbau einer Verbindung verweigert</translation>
+        <translation>Povezava s posrednikom je bila zavrnjena</translation>
     </message>
     <message>
         <source>Proxy server connection timed out</source>
-        <translation>Bei der Verbindung mit dem Proxy-Server wurde ein Zeitlimit überschritten</translation>
+        <translation>Čas za povezavo s posredniškim strežnikom je potekel</translation>
     </message>
     <message>
         <source>Proxy connection closed prematurely</source>
-        <translation>Der Proxy-Server hat die Verbindung vorzeitig beendet</translation>
+        <translation>Povezava s posrednikom je bila prekinjena predčasno</translation>
     </message>
 </context>
 <context>
     <name>QIBaseDriver</name>
     <message>
         <source>Error opening database</source>
-        <translation>Die Datenbankverbindung konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju podatkovne zbirke</translation>
     </message>
     <message>
         <source>Could not start transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni bilo moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion konnte nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
 </context>
 <context>
     <name>QIBaseResult</name>
     <message>
         <source>Unable to create BLOB</source>
-        <translation>Es konnte kein BLOB erzeugt werden</translation>
+        <translation>Ni moč ustvariti BLOB-a</translation>
     </message>
     <message>
         <source>Unable to write BLOB</source>
-        <translation>Der BLOB konnte nicht geschrieben werden</translation>
+        <translation>Ni moč zapisati BLOB-a</translation>
     </message>
     <message>
         <source>Unable to open BLOB</source>
-        <translation>Der BLOB konnte nicht geöffnet werden</translation>
+        <translation>Ni moč odpreti BLOB-a</translation>
     </message>
     <message>
         <source>Unable to read BLOB</source>
-        <translation>Der BLOB konnte nicht gelesen werden</translation>
+        <translation>Ni moč prebrati BLOB-a</translation>
     </message>
     <message>
         <source>Could not find array</source>
-        <translation>Das Feld konnte nicht gefunden werden</translation>
+        <translation>Ni bilo moč najti polja</translation>
     </message>
     <message>
         <source>Could not get array data</source>
-        <translation>Die Daten des Feldes konnten nicht gelesen werden</translation>
+        <translation>Ni bilo moč pridobiti podatkov iz polja</translation>
     </message>
     <message>
         <source>Could not get query info</source>
-        <translation>Die erforderlichen Informationen zur Abfrage sind nicht verfügbar</translation>
+        <translation>Ni bilo moč pridobiti podatkov o poizvedbi</translation>
     </message>
     <message>
         <source>Could not start transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni bilo moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Could not allocate statement</source>
-        <translation>Die Allokation des Befehls ist fehlgeschlagen</translation>
+        <translation>Ni bilo moč dodeliti prostora za izjavo</translation>
     </message>
     <message>
         <source>Could not prepare statement</source>
-        <translation>Der Befehl konnte nicht initialisiert werden</translation>
+        <translation>Ni bilo moč pripraviti izjave</translation>
     </message>
     <message>
         <source>Could not describe input statement</source>
-        <translation>Es konnte keine Beschreibung des Eingabebefehls erhalten werden</translation>
+        <translation>Ni bilo moč opisati vhodne izjave</translation>
     </message>
     <message>
         <source>Could not describe statement</source>
-        <translation>Es konnte keine Beschreibung des Befehls erhalten werden</translation>
+        <translation>Ni bilo moč opisati izjave</translation>
     </message>
     <message>
         <source>Unable to close statement</source>
-        <translation>Der Befehl konnte nicht geschlossen werden</translation>
+        <translation>Ni moč zaključiti izjave</translation>
     </message>
     <message>
         <source>Unable to execute query</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti poizvedbe</translation>
     </message>
     <message>
         <source>Could not fetch next item</source>
-        <translation>Das nächste Element konnte nicht abgeholt werden</translation>
+        <translation>Ni bilo moč pridobiti sledeče postavke</translation>
     </message>
     <message>
         <source>Could not get statement info</source>
-        <translation>Es ist keine Information zum Befehl verfügbar</translation>
+        <translation>Ni bilo moč pridobiti podatkov o izjavi</translation>
     </message>
 </context>
 <context>
     <name>QIODevice</name>
     <message>
         <source>Permission denied</source>
-        <translation>Zugriff verweigert</translation>
+        <translation>Nimate dovoljenja</translation>
     </message>
     <message>
         <source>Too many open files</source>
-        <translation>Zu viele Dateien geöffnet</translation>
+        <translation>Preveč odprtih datotek</translation>
     </message>
     <message>
         <source>No such file or directory</source>
-        <translation>Die Datei oder das Verzeichnis konnte nicht gefunden werden</translation>
+        <translation>Ta datoteka ali mapa ne obstaja</translation>
     </message>
     <message>
         <source>No space left on device</source>
-        <translation>Kein freier Speicherplatz auf dem Gerät vorhanden</translation>
+        <translation>Ni prostora na napravi</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
 </context>
 <context>
@@ -3411,251 +3324,251 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>XIM input method</source>
-        <translation>XIM-Eingabemethode</translation>
+        <translation>Način za vnašanje XIM</translation>
     </message>
     <message>
         <source>Windows input method</source>
-        <translation>Windows-Eingabemethode</translation>
+        <translation>Način za vnašanje Windows</translation>
     </message>
     <message>
         <source>Mac OS X input method</source>
-        <translation>Mac OS X-Eingabemethode</translation>
+        <translation>Način za vnašanje Mac OS X</translation>
     </message>
     <message>
         <source>S60 FEP input method</source>
-        <translation>S60-FEP-Eingabemethode</translation>
+        <translation>Način za vnašanje S60 FEP</translation>
     </message>
 </context>
 <context>
     <name>QInputDialog</name>
     <message>
         <source>Enter a value:</source>
-        <translation>Geben Sie einen Wert ein:</translation>
+        <translation>Vnesite vrednost:</translation>
     </message>
 </context>
 <context>
     <name>QLibrary</name>
     <message>
         <source>Could not mmap &apos;%1&apos;: %2</source>
-        <translation type="obsolete">Operation mmap fehlgeschlagen für &apos;%1&apos;: %2</translation>
+        <translation type="obsolete">Ni bilo moč izvesti funkcije mmap za »%1«: %2</translation>
     </message>
     <message>
         <source>Plugin verification data mismatch in &apos;%1&apos;</source>
-        <translation>Die Prüfdaten des Plugins &apos;%1&apos; stimmen nicht überein</translation>
+        <translation>Neujemanje podatkov za potrjevanje vstavkov v »%1«</translation>
     </message>
     <message>
         <source>Could not unmap &apos;%1&apos;: %2</source>
-        <translation type="obsolete">Operation unmap fehlgeschlagen für &apos;%1&apos;: %2</translation>
+        <translation type="obsolete">Ni bilo moč izvesti funkcije unmap za »%1«: %2</translation>
     </message>
     <message>
         <source>The plugin &apos;%1&apos; uses incompatible Qt library. (%2.%3.%4) [%5]</source>
-        <translation>Das Plugin &apos;%1&apos; verwendet eine inkompatible Qt-Bibliothek. (%2.%3.%4) [%5]</translation>
+        <translation>Vstavek »%1« uporablja nezdružljivo knjižnico Qt. (%2.%3.%4) [%5]</translation>
     </message>
     <message>
         <source>The plugin &apos;%1&apos; uses incompatible Qt library. Expected build key &quot;%2&quot;, got &quot;%3&quot;</source>
-        <translation>Das Plugin &apos;%1&apos; verwendet eine inkompatible Qt-Bibliothek. Erforderlicher build-spezifischer Schlüssel &quot;%2&quot;, erhalten &quot;%3&quot;</translation>
+        <translation>Vstavek »%1« uporablja nezdružljivo knjižnico Qt. Pričakovan je bil ključ gradnje »%2«, dobljen je bil »%3«</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>The shared library was not found.</source>
-        <translation>Die dynamische Bibliothek konnte nicht gefunden werden.</translation>
+        <translation>Deljena knjižnica ni bila najdena.</translation>
     </message>
     <message>
         <source>The file &apos;%1&apos; is not a valid Qt plugin.</source>
-        <translation>Die Datei &apos;%1&apos; ist kein gültiges Qt-Plugin.</translation>
+        <translation>Datoteka »%1« ni veljaven vstavek Qt.</translation>
     </message>
     <message>
         <source>The plugin &apos;%1&apos; uses incompatible Qt library. (Cannot mix debug and release libraries.)</source>
-        <translation>Das Plugin &apos;%1&apos; verwendet eine inkompatible Qt-Bibliothek. (Im Debug- bzw. Release-Modus erstellte Bibliotheken können nicht zusammen verwendet werden.)</translation>
+        <translation>Vstavek »%1« uporablja nezdružljivo knjižnico Qt. (Ni moč mešati knjižnic za razhroščevanje in izdajo.)</translation>
     </message>
     <message>
         <source>Cannot load library %1: %2</source>
-        <translation>Die Bibliothek %1 kann nicht geladen werden: %2</translation>
+        <translation>Ni moč naložiti knjižnice %1: %2</translation>
     </message>
     <message>
         <source>Cannot unload library %1: %2</source>
-        <translation>Die Bibliothek %1 kann nicht entladen werden: %2</translation>
+        <translation>Ni moč odstraniti knjižnice %1: %2</translation>
     </message>
     <message>
         <source>Cannot resolve symbol &quot;%1&quot; in %2: %3</source>
-        <translation>Das Symbol &quot;%1&quot; kann in %2 nicht aufgelöst werden: %3</translation>
+        <translation>Ni moč razrešiti simbola »%1« v %2: %3</translation>
     </message>
 </context>
 <context>
     <name>QLineEdit</name>
     <message>
-        <source>Select All</source>
-        <translation>Alles auswählen</translation>
-    </message>
-    <message>
         <source>&amp;Undo</source>
-        <translation>&amp;Rückgängig</translation>
+        <translation>&amp;Razveljavi</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>Wieder&amp;herstellen</translation>
+        <translation>&amp;Uveljavi</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>&amp;Ausschneiden</translation>
+        <translation>&amp;Izreži</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopieren</translation>
+        <translation>S&amp;kopiraj</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>Einf&amp;ügen</translation>
+        <translation>Pri&amp;lepi</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Izberi vse</translation>
     </message>
 </context>
 <context>
     <name>QLocalServer</name>
     <message>
         <source>%1: Name error</source>
-        <translation>%1: Fehlerhafter Name</translation>
+        <translation>%1: napaka v imenu</translation>
     </message>
     <message>
         <source>%1: Permission denied</source>
-        <translation>%1: Zugriff verweigert</translation>
+        <translation>%1: nimate dovoljenja</translation>
     </message>
     <message>
         <source>%1: Address in use</source>
-        <translation>%1: Die Adresse wird bereits verwendet</translation>
+        <translation>%1: naslov je že v uporabi</translation>
     </message>
     <message>
         <source>%1: Unknown error %2</source>
-        <translation>%1: Unbekannter Fehler %2</translation>
+        <translation>%1: neznana napaka %2</translation>
     </message>
 </context>
 <context>
     <name>QLocalSocket</name>
     <message>
         <source>%1: Connection refused</source>
-        <translation>%1: Der Verbindungsaufbau wurde verweigert</translation>
+        <translation>%1: povezava je bila zavrnjena</translation>
     </message>
     <message>
         <source>%1: Remote closed</source>
-        <translation>%1: Die Verbindung wurde von der Gegenseite geschlossen</translation>
+        <translation>%1: oddaljeni je prekinil</translation>
     </message>
     <message>
         <source>%1: Invalid name</source>
-        <translation>%1: Ungültiger Name</translation>
+        <translation>%1: neveljavno ime</translation>
     </message>
     <message>
         <source>%1: Socket access error</source>
-        <translation>%1: Fehler beim Zugriff auf den Socket</translation>
+        <translation>%1: napaka pri dostopu do vtičnice</translation>
     </message>
     <message>
         <source>%1: Socket resource error</source>
-        <translation>%1: Socket-Fehler (Ressourcenproblem)</translation>
+        <translation>%1: napaka vira vtičnice</translation>
     </message>
     <message>
         <source>%1: Socket operation timed out</source>
-        <translation>%1: Zeitüberschreitung bei Socket-Operation</translation>
+        <translation>%1: čas za dejanje na vtičnici je potekel</translation>
     </message>
     <message>
         <source>%1: Datagram too large</source>
-        <translation>%1: Das Datagramm ist zu groß</translation>
+        <translation>%1: datagram je prevelik</translation>
     </message>
     <message>
         <source>%1: Connection error</source>
-        <translation>%1: Verbindungsfehler</translation>
+        <translation>%1: napaka povezave</translation>
     </message>
     <message>
         <source>%1: The socket operation is not supported</source>
-        <translation>%1: Diese Socket-Operation wird nicht unterstützt</translation>
+        <translation>%1: dejanje na vtičnici ni podprto</translation>
     </message>
     <message>
         <source>%1: Unknown error</source>
-        <translation>%1: Unbekannter Fehler</translation>
+        <translation>%1: neznana napaka</translation>
     </message>
     <message>
         <source>%1: Unknown error %2</source>
-        <translation>%1: Unbekannter Fehler %2</translation>
+        <translation>%1: neznana napaka %2</translation>
     </message>
 </context>
 <context>
     <name>QMYSQLDriver</name>
     <message>
         <source>Unable to open database &apos;</source>
-        <translation>Die Datenbankverbindung kann nicht geöffnet werden &apos;</translation>
+        <translation>Ni moč odpreti podatkovne zbirke »</translation>
     </message>
     <message>
         <source>Unable to connect</source>
-        <translation>Es kann keine Verbindung aufgebaut werden</translation>
+        <translation>Ni moč vzpostaviti povezave</translation>
     </message>
     <message>
         <source>Unable to begin transaction</source>
-        <translation>Es kann keine Transaktion gestartet werden</translation>
+        <translation>Ni moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion kann nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion kann nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
 </context>
 <context>
     <name>QMYSQLResult</name>
     <message>
         <source>Unable to fetch data</source>
-        <translation>Es konnten keine Daten abgeholt werden</translation>
+        <translation>Ni moč pridobiti podatkov</translation>
     </message>
     <message>
         <source>Unable to execute query</source>
-        <translation>Die Abfrage konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti poizvedbe</translation>
     </message>
     <message>
         <source>Unable to store result</source>
-        <translation>Das Ergebnis konnte nicht gespeichert werden</translation>
+        <translation>Ni moč shraniti rezultata</translation>
     </message>
     <message>
         <source>Unable to prepare statement</source>
-        <translation>Der Befehl konnte nicht initialisiert werden</translation>
+        <translation>Ni moč pripraviti izjave</translation>
     </message>
     <message>
         <source>Unable to reset statement</source>
-        <translation>Der Befehl konnte nicht zurückgesetzt werden</translation>
+        <translation>Ni moč ponastaviti izjave</translation>
     </message>
     <message>
         <source>Unable to bind value</source>
-        <translation>Der Wert konnte nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti vrednosti</translation>
     </message>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
     <message>
         <source>Unable to bind outvalues</source>
-        <translation>Die Ausgabewerte konnten nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti izhodnih vrednosti</translation>
     </message>
     <message>
         <source>Unable to store statement results</source>
-        <translation>Die Ergebnisse des Befehls konnten nicht gespeichert werden</translation>
+        <translation>Ni moč shraniti rezultatov izjave</translation>
     </message>
     <message>
         <source>Unable to execute next query</source>
-        <translation>Die folgende Abfrage kann nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti sledeče poizvedbe</translation>
     </message>
     <message>
         <source>Unable to store next result</source>
-        <translation>Das folgende Ergebnis kann nicht gespeichert werden</translation>
+        <translation>Ni moč shraniti sledečega rezultata</translation>
     </message>
 </context>
 <context>
     <name>QMdiArea</name>
     <message>
         <source>(Untitled)</source>
-        <translation>(Unbenannt)</translation>
+        <translation>(neimenovano)</translation>
     </message>
 </context>
 <context>
@@ -3666,720 +3579,708 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Minimize</source>
-        <translation>Minimieren</translation>
+        <translation>Pomanjšaj</translation>
     </message>
     <message>
         <source>Restore Down</source>
-        <translation>Wiederherstellen</translation>
+        <translation>Obnovi navzdol</translation>
     </message>
     <message>
         <source>&amp;Restore</source>
-        <translation>Wieder&amp;herstellen</translation>
+        <translation>&amp;Obnovi</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation>Ver&amp;schieben</translation>
+        <translation>&amp;Premakni</translation>
     </message>
     <message>
         <source>&amp;Size</source>
-        <translation>Größe ä&amp;ndern</translation>
+        <translation>&amp;Velikost</translation>
     </message>
     <message>
         <source>Mi&amp;nimize</source>
-        <translation>M&amp;inimieren</translation>
+        <translation>Po&amp;manjšaj</translation>
     </message>
     <message>
         <source>Ma&amp;ximize</source>
-        <translation>Ma&amp;ximieren</translation>
+        <translation>&amp;Razpni</translation>
     </message>
     <message>
         <source>Stay on &amp;Top</source>
-        <translation>Im &amp;Vordergrund bleiben</translation>
+        <translation>Ostani na &amp;vrhu</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Schl&amp;ießen</translation>
-    </message>
-    <message>
-        <source>Maximize</source>
-        <translation>Maximieren</translation>
-    </message>
-    <message>
-        <source>Unshade</source>
-        <translation>Herabrollen</translation>
-    </message>
-    <message>
-        <source>Shade</source>
-        <translation>Aufrollen</translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation>Wiederherstellen</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Hilfe</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menü</translation>
+        <translation>&amp;Zapri</translation>
     </message>
     <message>
         <source>- [%1]</source>
         <translation>- [%1]</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Razpni</translation>
+    </message>
+    <message>
+        <source>Unshade</source>
+        <translation>Razvij</translation>
+    </message>
+    <message>
+        <source>Shade</source>
+        <translation>Zvij</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Obnovi</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Pomoč</translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation>Meni</translation>
     </message>
 </context>
 <context>
     <name>QMenu</name>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation>Odpri</translation>
     </message>
     <message>
         <source>Execute</source>
-        <translation>Ausführen</translation>
+        <translation>Izvedi</translation>
     </message>
 </context>
 <context>
     <name>QMenuBar</name>
     <message>
         <source>Actions</source>
-        <translation>Optionen</translation>
+        <translation>Dejanja</translation>
     </message>
 </context>
 <context>
     <name>QMessageBox</name>
     <message>
+        <source>Help</source>
+        <translation>Pomoč</translation>
+    </message>
+    <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>&lt;h3&gt;About Qt&lt;/h3&gt;&lt;p&gt;This program uses Qt version %1.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Über Qt&lt;/h3&gt;&lt;p&gt;Dieses Programm verwendet Qt Version %1.&lt;/p&gt;</translation>
+        <translation>&lt;h3&gt;O Qt&lt;/h3&gt;&lt;p&gt;Ta program uporablja Qt različice %1.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Qt is a C++ toolkit for cross-platform application development.&lt;/p&gt;&lt;p&gt;Qt provides single-source portability across MS&amp;nbsp;Windows, Mac&amp;nbsp;OS&amp;nbsp;X, Linux, and all major commercial Unix variants. Qt is also available for embedded devices as Qt for Embedded Linux and Qt for Windows CE.&lt;/p&gt;&lt;p&gt;Qt is available under three different licensing options designed to accommodate the needs of our various users.&lt;/p&gt;&lt;p&gt;Qt licensed under our commercial license agreement is appropriate for development of proprietary/commercial software where you do not want to share any source code with third parties or otherwise cannot comply with the terms of the GNU LGPL version 2.1 or GNU GPL version 3.0.&lt;/p&gt;&lt;p&gt;Qt licensed under the GNU LGPL version 2.1 is appropriate for the development of Qt applications (proprietary or open source) provided you can comply with the terms and conditions of the GNU LGPL version 2.1.&lt;/p&gt;&lt;p&gt;Qt licensed under the GNU General Public License version 3.0 is appropriate for the development of Qt applications where you wish to use such applications in combination with software subject to the terms of the GNU GPL version 3.0 or where you are otherwise willing to comply with the terms of the GNU GPL version 3.0.&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;http://qt.nokia.com/products/licensing&quot;&gt;qt.nokia.com/products/licensing&lt;/a&gt; for an overview of Qt licensing.&lt;/p&gt;&lt;p&gt;Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).&lt;/p&gt;&lt;p&gt;Qt is a Nokia product. See &lt;a href=&quot;http://qt.nokia.com/&quot;&gt;qt.nokia.com&lt;/a&gt; for more information.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Qt je skupek gradnikov C++ za razvoj programov, ki tečejo na več platformah.&lt;/p&gt;&lt;p&gt;Qt omogoča isto kodo prenašati med platformami Linux, Mac&amp;nbsp;OS&amp;nbsp;X, Windows in vsemi večjimi variantami UNIX-a. Qt je na voljo tudi za vgrajene naprave in sicer kot Qt for Embedded Linux in Qt for Windows CE.&lt;/p&gt;&lt;p&gt;Qt je na voljo pod tremi možnimi licenčnimi pogoji, ki ustrezajo različnim željam uporabnikov.&lt;/p&gt;&lt;p&gt;Qt pod licenco GNU General Public License različice 3.0 (&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GPLv3.0&lt;/a&gt;) je primeren za razvoj programov Qt, ki so povsem &lt;a href=&quot;http://www.gnu.org/philosophy/free-sw.html&quot;&gt;prosti in odprto-kodni&lt;/a&gt;. S to licenco se uporabnikom programa zagotovijo vse pravice in svoboščine, kot jih je imel izdelovalec programa.&lt;/p&gt;&lt;p&gt;Qt pod licenco GNU Lesser General Public License različice 2.1 (&lt;a href=&quot;http://www.gnu.org/licenses/lgpl-2.1.html&quot;&gt;LGPLv2.1&lt;/a&gt;) omogoča tudi razvoj programov, ki uporabnikom ne zagotavljajo vseh pravic in svoboščin, kot jih je imel izdelovalec. Omogoča na primer tudi razvoj zaprto-kodnih programov.&lt;/p&gt;&lt;p&gt;Qt pod posebno komercialno licenco je namenjen razvoju lastniških in zaprto-kodnih programov, kjer izdelovalec z uporabniki noče deliti nič izvorne kode ter pravic in svoboščin, ali pa ne more ustreči pogojem licenc GPLv3.0 ali LGPLv2.1.&lt;/p&gt;&lt;p&gt;Za pregled licenčnih možnosti si oglejte spletno stran &lt;a href=&quot;http://qt.nokia.com/products/licensing&quot;&gt;qt.nokia.com/products/licensing&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Avtorske pravice © 2009 Nokia Corporation in/ali podružnice ter zunanji prispevajoči.&lt;/p&gt;&lt;p&gt;Qt je proizvod podjetja Nokia. Za dodatne podatke si oglejte &lt;a href=&quot;http://qt.nokia.com/&quot;&gt;qt.nokia.com&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Prevedel: &lt;a href=&quot;mailto:jlp@holodeck1.com&quot;&gt;Jure Repinc&lt;/a&gt;, &lt;a href=&quot;http://www.lugos.si/&quot;&gt;LUGOS&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>About Qt</source>
-        <translation>Über Qt</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Hilfe</translation>
+        <translation>O Qt</translation>
     </message>
     <message>
         <source>Show Details...</source>
-        <translation>Details einblenden...</translation>
+        <translation>Prikaži podrobnosti ...</translation>
     </message>
     <message>
         <source>Hide Details...</source>
-        <translation>Details ausblenden...</translation>
+        <translation>Skrij podrobnosti ...</translation>
     </message>
 </context>
 <context>
     <name>QMultiInputContext</name>
     <message>
         <source>Select IM</source>
-        <translation>Eingabemethode auswählen</translation>
+        <translation>Izberite način vnašanja</translation>
     </message>
 </context>
 <context>
     <name>QMultiInputContextPlugin</name>
     <message>
         <source>Multiple input method switcher</source>
-        <translation>Umschalter für Eingabemethoden</translation>
+        <translation>Orodje za preklop med načini vnašanja</translation>
     </message>
     <message>
         <source>Multiple input method switcher that uses the context menu of the text widgets</source>
-        <translation>Mehrfachumschalter für Eingabemethoden, der das Kontextmenü des Text-Widgets verwendet</translation>
+        <translation>Orodje za preklop med več načini vnašanja, ki uporablja priročni meni besedilnih gradnikov</translation>
     </message>
 </context>
 <context>
     <name>QNativeSocketEngine</name>
     <message>
         <source>The remote host closed the connection</source>
-        <translation>Der entfernte Rechner hat die Verbindung geschlossen</translation>
+        <translation>Oddaljen gostitelj je prekinil povezavo</translation>
     </message>
     <message>
         <source>Network operation timed out</source>
-        <translation>Das Zeitlimit für die Operation wurde überschritten</translation>
+        <translation>Čas za omrežni postopek je potekel</translation>
     </message>
     <message>
         <source>Out of resources</source>
-        <translation>Keine Ressourcen verfügbar</translation>
+        <translation>Zmanjkalo je virov</translation>
     </message>
     <message>
         <source>Unsupported socket operation</source>
-        <translation> Socket-Kommando nicht unterstützt</translation>
+        <translation>Nepodprto dejanje za vtičnico</translation>
     </message>
     <message>
         <source>Protocol type not supported</source>
-        <translation>Das Protokoll wird nicht unterstützt</translation>
+        <translation>Vrsta protokola ni podprta</translation>
     </message>
     <message>
         <source>Invalid socket descriptor</source>
-        <translation>Ungültiger Socket-Deskriptor</translation>
+        <translation>Neveljaven opisnik vtičnice</translation>
     </message>
     <message>
         <source>Network unreachable</source>
-        <translation>Das Netzwerk ist nicht erreichbar</translation>
+        <translation>Omrežje ni dosegljivo</translation>
     </message>
     <message>
         <source>Permission denied</source>
-        <translation>Zugriff verweigert</translation>
+        <translation>Nimate dovoljenja</translation>
     </message>
     <message>
         <source>Connection timed out</source>
-        <translation>Das Zeitlimit für die Verbindung wurde überschritten</translation>
+        <translation>Čas za povezavo je potekel</translation>
     </message>
     <message>
         <source>Connection refused</source>
-        <translation>Verbindung verweigert</translation>
+        <translation>Povezava je zavrnjena</translation>
     </message>
     <message>
         <source>The bound address is already in use</source>
-        <translation>Die angegebene Adresse ist bereits in Gebrauch</translation>
+        <translation>Naslov za vezavo je že v uporabi</translation>
     </message>
     <message>
         <source>The address is not available</source>
-        <translation>Die Adresse ist nicht verfügbar</translation>
+        <translation>Naslov ni na voljo</translation>
     </message>
     <message>
         <source>The address is protected</source>
-        <translation>Die Adresse ist geschützt</translation>
+        <translation>Naslov je zaščiten</translation>
     </message>
     <message>
         <source>Unable to send a message</source>
-        <translation>Die Nachricht konnte nicht gesendet werden</translation>
+        <translation>Ni moč poslati sporočila</translation>
     </message>
     <message>
         <source>Unable to receive a message</source>
-        <translation>Die Nachricht konnte nicht empfangen werden</translation>
+        <translation>Ni moč prejeti sporočila</translation>
     </message>
     <message>
         <source>Unable to write</source>
-        <translation>Der Schreibvorgang konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč zapisovati</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation>Netzwerkfehler</translation>
+        <translation>Napaka v omrežju</translation>
     </message>
     <message>
         <source>Another socket is already listening on the same port</source>
-        <translation>Auf diesem Port hört bereits ein anderer Socket</translation>
+        <translation>Druga vtičnica že posluša na istih vratih</translation>
     </message>
     <message>
         <source>Unable to initialize non-blocking socket</source>
-        <translation>Der nichtblockierende Socket konnte nicht initialisiert werden</translation>
+        <translation>Ni moč inicializirati ne-blokirne vtičnice</translation>
     </message>
     <message>
         <source>Unable to initialize broadcast socket</source>
-        <translation>Der Broadcast-Socket konnte nicht initialisiert werden</translation>
+        <translation>Ni moč inicializirati vtičnice za oddajanje</translation>
     </message>
     <message>
         <source>Attempt to use IPv6 socket on a platform with no IPv6 support</source>
-        <translation>Es wurde versucht, einen IPv6-Socket auf einem System ohne IPv6-Unterstützung zu verwenden</translation>
+        <translation>Poskus uporabe vtičnice IPv6 na platformi brez podpore za IPv6</translation>
     </message>
     <message>
         <source>Host unreachable</source>
-        <translation>Der Zielrechner kann nicht erreicht werden</translation>
+        <translation>Gostitelj ni dosegljiv</translation>
     </message>
     <message>
         <source>Datagram was too large to send</source>
-        <translation>Das Datagram konnte nicht gesendet werden, weil es zu groß ist</translation>
+        <translation>Datagram je bil prevelik za pošiljanje</translation>
     </message>
     <message>
         <source>Operation on non-socket</source>
-        <translation>Operation kann nur auf einen Socket angewandt werden</translation>
+        <translation>Dejanje na ne-vtičnici</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>The proxy type is invalid for this operation</source>
-        <translation>Die Operation kann mit dem Proxy-Typ nicht durchgeführt werden</translation>
+        <translation>Vrsta posrednika za to dejanje ni veljavna</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessCacheBackend</name>
     <message>
         <source>Error opening %1</source>
-        <translation>%1 konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju %1</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessDataBackend</name>
     <message>
         <source>Operation not supported on %1</source>
-        <translation>Diese Operation wird von %1 nicht unterstützt</translation>
+        <translation>Dejanje na %1 ni podprto</translation>
     </message>
     <message>
         <source>Invalid URI: %1</source>
-        <translation>Ungültiger URI: %1</translation>
+        <translation>Neveljaven URI: %1</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessDebugPipeBackend</name>
     <message>
         <source>Write error writing to %1: %2</source>
-        <translation>Fehler beim Schreiben zu %1: %2</translation>
+        <translation>Napaka pri zapisovanju v %1: %2</translation>
     </message>
     <message>
         <source>Socket error on %1: %2</source>
-        <translation>Socket-Fehler bei %1: %2</translation>
+        <translation>Napaka vtičnice na %1: %2</translation>
     </message>
     <message>
         <source>Remote host closed the connection prematurely on %1</source>
-        <translation>Der entfernte Rechner hat die Verbindung zu %1 vorzeitig beendet</translation>
+        <translation>Oddaljen gostitelj je predčasno prekinil povezavo na %1</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessFileBackend</name>
     <message>
         <source>Request for opening non-local file %1</source>
-        <translation>Anforderung zum Öffnen einer Datei über Netzwerk %1</translation>
+        <translation>Zahtevek za odprtje ne-krajevne datoteke %1</translation>
     </message>
     <message>
         <source>Error opening %1: %2</source>
-        <translation>%1 konnte nicht geöffnet werden: %2</translation>
+        <translation>Napaka pri odpiranju %1: %2</translation>
     </message>
     <message>
         <source>Write error writing to %1: %2</source>
-        <translation>Fehler beim Schreiben zur Datei %1: %2</translation>
+        <translation>Napaka pri zapisovanju v %1: %2</translation>
     </message>
     <message>
         <source>Cannot open %1: Path is a directory</source>
-        <translation>%1 kann nicht geöffnet werden: Der Pfad spezifiziert ein Verzeichnis</translation>
+        <translation>Ni moč odpreti %1: pot je mapa</translation>
     </message>
     <message>
         <source>Read error reading from %1: %2</source>
-        <translation>Beim Lesen von der Datei %1 trat ein Fehler auf: %2</translation>
+        <translation>Napaka pri branju iz %1: %2</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessFtpBackend</name>
     <message>
         <source>No suitable proxy found</source>
-        <translation>Es konnte kein geeigneter Proxy-Server gefunden werden</translation>
+        <translation>Najden ni bil noben primeren posrednik</translation>
     </message>
     <message>
         <source>Cannot open %1: is a directory</source>
-        <translation>%1 kann nicht geöffnet werden: Es handelt sich um ein Verzeichnis</translation>
+        <translation>Ni moč odpreti %1: to je mapa</translation>
     </message>
     <message>
         <source>Logging in to %1 failed: authentication required</source>
-        <translation>Die Anmeldung bei %1 ist fehlgeschlagen: Es ist eine Authentifizierung erforderlich</translation>
+        <translation>Prijava v %1 ni uspela: potrebna je overitev</translation>
     </message>
     <message>
         <source>Error while downloading %1: %2</source>
-        <translation>Beim Herunterladen von %1 trat ein Fehler auf: %2</translation>
+        <translation>Napaka med prejemanjem %1: %2</translation>
     </message>
     <message>
         <source>Error while uploading %1: %2</source>
-        <translation>Beim Hochladen von %1 trat ein Fehler auf: %2</translation>
+        <translation>Napaka med pošiljanjem %1: %2</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessHttpBackend</name>
     <message>
         <source>No suitable proxy found</source>
-        <translation>Es konnte kein geeigneter Proxy-Server gefunden werden</translation>
+        <translation>Najden ni bil noben primeren posrednik</translation>
     </message>
 </context>
 <context>
     <name>QNetworkAccessManager</name>
     <message>
         <source>Network access is disabled.</source>
-        <translation>Der Zugriff auf das Netzwerk ist nicht gestattet.</translation>
+        <translation>Omrežni dostop je onemogočen.</translation>
     </message>
 </context>
 <context>
     <name>QNetworkReply</name>
     <message>
         <source>Error downloading %1 - server replied: %2</source>
-        <translation>Beim Herunterladen von %1 trat ein Fehler auf - Die Antwort des Servers ist: %2</translation>
+        <translation>Napaka med prejemanjem %1 - strežnikov odgovor: %2</translation>
     </message>
     <message>
         <source>Protocol &quot;%1&quot; is unknown</source>
-        <translation>Das Protokoll &quot;%1&quot; ist unbekannt</translation>
+        <translation>Neznan protokol »%1«</translation>
     </message>
     <message>
         <source>Network session error.</source>
-        <translation>Fehler bei Netzwerkverbindung.</translation>
+        <translation>Napaka omrežne seje.</translation>
     </message>
     <message>
         <source>Temporary network failure.</source>
-        <translation>Das Netzwerk ist zurzeit ausgefallen.</translation>
+        <translation>Začasna omrežna napaka.</translation>
     </message>
 </context>
 <context>
     <name>QNetworkReplyImpl</name>
     <message>
         <source>Operation canceled</source>
-        <translation>Operation abgebrochen</translation>
+        <translation>Postopek je bil preklican</translation>
     </message>
 </context>
 <context>
     <name>QNetworkSession</name>
     <message>
         <source>Invalid configuration.</source>
-        <translation>Ungültige Konfiguration.</translation>
+        <translation>Neveljavna nastavitev.</translation>
     </message>
 </context>
 <context>
     <name>QNetworkSessionPrivateImpl</name>
     <message>
-        <source>Unknown session error.</source>
-        <translation>Unbekannter Fehler bei Netzwerkverbindung.</translation>
-    </message>
-    <message>
-        <source>The session was aborted by the user or system.</source>
-        <translation>Die Verbindung wurde vom Benutzer oder vom Betriebssystem unterbrochen.</translation>
-    </message>
-    <message>
-        <source>The requested operation is not supported by the system.</source>
-        <translation>Die angeforderte Operation wird vom System nicht unterstützt.</translation>
-    </message>
-    <message>
-        <source>The specified configuration cannot be used.</source>
-        <translation>Die angegebene Konfiguration kann nicht verwendet werden.</translation>
-    </message>
-    <message>
-        <source>Roaming was aborted or is not possible.</source>
-        <translation>Das Roaming wurde abgebrochen oder ist hier nicht möglich.</translation>
-    </message>
-    <message>
         <source>Roaming error</source>
-        <translation>Fehler beim Roaming</translation>
+        <translation>Napaka potovanja</translation>
     </message>
     <message>
         <source>Session aborted by user or system</source>
-        <translation>Die Verbindung wurde vom Benutzer oder vom Betriebssystem unterbrochen</translation>
+        <translation>Sejo je preklical uporabnik ali pa sistem</translation>
     </message>
     <message>
         <source>Unidentified Error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
+    </message>
+    <message>
+        <source>Unknown session error.</source>
+        <translation>Neznana napaka seje.</translation>
+    </message>
+    <message>
+        <source>The session was aborted by the user or system.</source>
+        <translation>Sejo je preklical uporabnik ali pa sistem.</translation>
+    </message>
+    <message>
+        <source>The requested operation is not supported by the system.</source>
+        <translation>Sistem ne podpira zahtevanega dejanja.</translation>
+    </message>
+    <message>
+        <source>The specified configuration cannot be used.</source>
+        <translation>Navedenih nastavitev ni moč uporabiti.</translation>
+    </message>
+    <message>
+        <source>Roaming was aborted or is not possible.</source>
+        <translation>Potovanje je bilo preklicano ali pa ni možno.</translation>
     </message>
 </context>
 <context>
     <name>QOCIDriver</name>
     <message>
         <source>Unable to logon</source>
-        <translation>Logon-Vorgang fehlgeschlagen</translation>
+        <translation>Ni se moč prijaviti</translation>
     </message>
     <message>
         <source>Unable to initialize</source>
         <comment>QOCIDriver</comment>
-        <translation>Initialisierung fehlgeschlagen</translation>
+        <translation>Ni moč inicializirati</translation>
     </message>
     <message>
         <source>Unable to begin transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion konnte nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
 </context>
 <context>
     <name>QOCIResult</name>
     <message>
         <source>Unable to bind column for batch execute</source>
-        <translation>Die Spalte konnte nicht für den Stapelverarbeitungs-Befehl gebunden werden</translation>
+        <translation>Ni moč prikleniti stolpca za paketno izvršitev</translation>
     </message>
     <message>
         <source>Unable to execute batch statement</source>
-        <translation>Der Stapelverarbeitungs-Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti paketne izjave</translation>
     </message>
     <message>
         <source>Unable to goto next</source>
-        <translation>Kann nicht zum nächsten Element gehen</translation>
+        <translation>Ni se moč prestaviti na naslednjega</translation>
     </message>
     <message>
         <source>Unable to alloc statement</source>
-        <translation>Die Allokation des Befehls ist fehlgeschlagen</translation>
+        <translation>Ni moč dodeliti izjave</translation>
     </message>
     <message>
         <source>Unable to prepare statement</source>
-        <translation>Der Befehl konnte nicht initialisiert werden</translation>
+        <translation>Ni moč pripraviti izjave</translation>
     </message>
     <message>
         <source>Unable to get statement type</source>
-        <translation>Der Anweisungstyp kann nicht bestimmt werden</translation>
+        <translation>Ni moč pridobiti vrste izjave</translation>
     </message>
     <message>
         <source>Unable to bind value</source>
-        <translation>Der Wert konnte nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti vrednosti</translation>
     </message>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
 </context>
 <context>
     <name>QODBCDriver</name>
     <message>
         <source>Unable to connect</source>
-        <translation>Es kann keine Verbindung aufgebaut werden</translation>
+        <translation>Ni moč vzpostaviti povezave</translation>
     </message>
     <message>
         <source>Unable to disable autocommit</source>
-        <translation>&apos;autocommit&apos; konnte nicht deaktiviert werden</translation>
+        <translation>Ni moč onemogočiti samodejnega udejanjanja</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion konnte nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
     <message>
         <source>Unable to enable autocommit</source>
-        <translation>&apos;autocommit&apos; konnte nicht aktiviert werden</translation>
+        <translation>Ni moč omogočiti samodejnega udejanjanja</translation>
     </message>
     <message>
         <source>Unable to connect - Driver doesn&apos;t support all functionality required</source>
-        <translation>Es kann keine Verbindung aufgebaut werden weil der Treiber die benötigte Funktionalität nicht vollständig unterstützt</translation>
+        <translation>Ni se moč povezati - gonilnik ne podpira vseh potrebnih zmožnosti</translation>
     </message>
 </context>
 <context>
     <name>QODBCResult</name>
     <message>
         <source>QODBCResult::reset: Unable to set &apos;SQL_CURSOR_STATIC&apos; as statement attribute. Please check your ODBC driver configuration</source>
-        <translation>QODBCResult::reset: &apos;SQL_CURSOR_STATIC&apos; konnte nicht als Attribut des Befehls gesetzt werden. Bitte prüfen Sie die Konfiguration Ihres ODBC-Treibers</translation>
+        <translation>QODBCResult::reset: ni moč nastaviti &apos;SQL_CURSOR_STATIC&apos; kot lastnosti izjave. Preverite nastavitve gonilnika ODBC</translation>
     </message>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
     <message>
         <source>Unable to fetch next</source>
-        <translation>Der nächste Datensatz konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti sledečega</translation>
     </message>
     <message>
         <source>Unable to prepare statement</source>
-        <translation>Der Befehl konnte nicht initialisiert werden</translation>
+        <translation>Ni moč pripraviti izjave</translation>
     </message>
     <message>
         <source>Unable to bind variable</source>
-        <translation>Die Variable konnte nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti spremenljivke</translation>
     </message>
     <message>
         <source>Unable to fetch last</source>
-        <translation>Der letzte Datensatz konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti zadnjega</translation>
     </message>
     <message>
         <source>Unable to fetch</source>
-        <translation>Es konnten keine Daten abgeholt werden</translation>
+        <translation>Ni moč pridobiti</translation>
     </message>
     <message>
         <source>Unable to fetch first</source>
-        <translation>Der erste Datensatz konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti prvega</translation>
     </message>
     <message>
         <source>Unable to fetch previous</source>
-        <translation>Der vorherige Datensatz konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti predhodnega</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
+        <source>PulseAudio Sound Server</source>
+        <translation>Zvočni strežnik PulseAudio</translation>
+    </message>
+    <message>
         <source>&quot;%1&quot; duplicates a previous role name and will be disabled.</source>
-        <translation>&quot;%1&quot; ist bereits als Name einer Rolle vergeben und wird daher deaktiviert.</translation>
+        <translation>»%1« podvaja obstoječe ime vloge in bo onemogočena.</translation>
     </message>
     <message>
         <source>invalid query: &quot;%1&quot;</source>
-        <translation>Ungültige Abfrage: &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>PulseAudio Sound Server</source>
-        <translation>PulseAudio-Sound-Server</translation>
+        <translation>neveljavna poizvedba: »%1«</translation>
     </message>
 </context>
 <context>
     <name>QPPDOptionsModel</name>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation>Wert</translation>
+        <translation>Vrednost</translation>
     </message>
 </context>
 <context>
     <name>QPSQLDriver</name>
     <message>
         <source>Unable to connect</source>
-        <translation>Es kann keine Verbindung aufgebaut werden</translation>
+        <translation>Ni moč vzpostaviti povezave</translation>
     </message>
     <message>
         <source>Could not begin transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni bilo moč začeti transakcije</translation>
     </message>
     <message>
         <source>Could not commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni bilo moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Could not rollback transaction</source>
-        <translation>Die Transaktion konnte nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni bilo moč razveljaviti transakcije</translation>
     </message>
     <message>
         <source>Unable to subscribe</source>
-        <translation>Die Registrierung ist fehlgeschlagen</translation>
+        <translation>Ni se moč naročiti</translation>
     </message>
     <message>
         <source>Unable to unsubscribe</source>
-        <translation>Die Registrierung konnte nicht aufgehoben werden</translation>
+        <translation>Ni moč preklicati naročnine</translation>
     </message>
 </context>
 <context>
     <name>QPSQLResult</name>
     <message>
         <source>Unable to create query</source>
-        <translation>Es konnte keine Abfrage erzeugt werden</translation>
+        <translation>Ni moč ustvariti poizvedbe</translation>
     </message>
     <message>
         <source>Unable to prepare statement</source>
-        <translation>Der Befehl konnte nicht initialisiert werden</translation>
+        <translation>Ni moč pripraviti izjave</translation>
     </message>
 </context>
 <context>
     <name>QPageSetupWidget</name>
     <message>
         <source>Centimeters (cm)</source>
-        <translation>Zentimeter (cm)</translation>
+        <translation>Centimetri (cm)</translation>
     </message>
     <message>
         <source>Millimeters (mm)</source>
-        <translation>Millimeter (mm)</translation>
+        <translation>Milimetri (mm)</translation>
     </message>
     <message>
         <source>Inches (in)</source>
-        <translation>Zoll (in)</translation>
+        <translation>Palci (in)</translation>
     </message>
     <message>
         <source>Points (pt)</source>
-        <translation>Punkte (pt)</translation>
+        <translation>Pike (pt)</translation>
     </message>
     <message>
         <source>Form</source>
-        <translation>Formular</translation>
+        <translation>Obrazec</translation>
     </message>
     <message>
         <source>Paper</source>
-        <translation>Papier</translation>
+        <translation>Papir</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation>Seitengröße:</translation>
+        <translation>Velikost strani:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Breite:</translation>
+        <translation>Širina:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Höhe:</translation>
+        <translation>Višina:</translation>
     </message>
     <message>
         <source>Paper source:</source>
-        <translation>Papierquelle:</translation>
+        <translation>Vir papirja:</translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation>Ausrichtung</translation>
+        <translation>Usmeritev</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation>Hochformat</translation>
+        <translation>Pokončno</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation>Querformat</translation>
+        <translation>Ležeče</translation>
     </message>
     <message>
         <source>Reverse landscape</source>
-        <translation>Umgekehrtes Querformat</translation>
+        <translation>Obrnjeno ležeče</translation>
     </message>
     <message>
         <source>Reverse portrait</source>
-        <translation>Umgekehrtes Hochformat</translation>
+        <translation>Obrnjeno pokončno</translation>
     </message>
     <message>
         <source>Margins</source>
-        <translation>Ränder</translation>
+        <translation>Robovi</translation>
     </message>
     <message>
         <source>top margin</source>
-        <translation>Oberer Rand</translation>
+        <translation>vrhnji rob</translation>
     </message>
     <message>
         <source>left margin</source>
-        <translation>Linker Rand</translation>
+        <translation>levi rob</translation>
     </message>
     <message>
         <source>right margin</source>
-        <translation>Rechter Rand</translation>
+        <translation>desni rob</translation>
     </message>
     <message>
         <source>bottom margin</source>
-        <translation>Unterer Rand</translation>
+        <translation>spodnji rob</translation>
     </message>
 </context>
 <context>
     <name>QPluginLoader</name>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
     <message>
         <source>The plugin was not loaded.</source>
-        <translation>Das Plugin wurde nicht geladen.</translation>
+        <translation>Vstavek ni bil naložen.</translation>
     </message>
 </context>
 <context>
     <name>QPrintDialog</name>
     <message>
         <source>locally connected</source>
-        <translation>direkt verbunden</translation>
+        <translation>krajevno povezan</translation>
     </message>
     <message>
         <source>Aliases: %1</source>
-        <translation>Alias: %1</translation>
+        <translation>Vzdevki: %1</translation>
     </message>
     <message>
         <source>unknown</source>
-        <translation>unbekannt</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>Print all</source>
-        <translation>Alles drucken</translation>
-    </message>
-    <message>
-        <source>Print range</source>
-        <translation>Bereich drucken</translation>
+        <translation>neznano</translation>
     </message>
     <message>
         <source>A0 (841 x 1189 mm)</source>
@@ -4396,6 +4297,10 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     <message>
         <source>A3 (297 x 420 mm)</source>
         <translation>A3 (297 x 420 mm)</translation>
+    </message>
+    <message>
+        <source>A4 (210 x 297 mm, 8.26 x 11.7 inches)</source>
+        <translation>A4 (210 x 297 mm, 8,26 x 11,7 palcev)</translation>
     </message>
     <message>
         <source>A5 (148 x 210 mm)</source>
@@ -4438,6 +4343,10 @@ Möchten Sie die Datei trotzdem löschen?</translation>
         <translation>B4 (250 x 353 mm)</translation>
     </message>
     <message>
+        <source>B5 (176 x 250 mm, 6.93 x 9.84 inches)</source>
+        <translation>B5 (176 x 250 mm, 6,93 x 9,84 palcev)</translation>
+    </message>
+    <message>
         <source>B6 (125 x 176 mm)</source>
         <translation>B6 (125 x 176 mm)</translation>
     </message>
@@ -4466,12 +4375,24 @@ Möchten Sie die Datei trotzdem löschen?</translation>
         <translation>DLE (110 x 220 mm)</translation>
     </message>
     <message>
+        <source>Executive (7.5 x 10 inches, 191 x 254 mm)</source>
+        <translation>Executive (7,5 x 10 palcev, 191 x 254 mm)</translation>
+    </message>
+    <message>
         <source>Folio (210 x 330 mm)</source>
         <translation>Folio (210 x 330 mm)</translation>
     </message>
     <message>
         <source>Ledger (432 x 279 mm)</source>
         <translation>Ledger (432 x 279 mm)</translation>
+    </message>
+    <message>
+        <source>Legal (8.5 x 14 inches, 216 x 356 mm)</source>
+        <translation>Legal (8,5 x 14 palcev, 216 x 356 mm)</translation>
+    </message>
+    <message>
+        <source>Letter (8.5 x 11 inches, 216 x 279 mm)</source>
+        <translation>Letter (8,5 x 11 palcev, 216 x 279 mm)</translation>
     </message>
     <message>
         <source>Tabloid (279 x 432 mm)</source>
@@ -4483,69 +4404,57 @@ Möchten Sie die Datei trotzdem löschen?</translation>
     </message>
     <message>
         <source>Print current page</source>
-        <translation>Diese Seite drucken</translation>
+        <translation>Natisni trenutno stran</translation>
     </message>
     <message>
-        <source>A4 (210 x 297 mm, 8.26 x 11.7 inches)</source>
-        <translation>A4 (210 x 297 mm)</translation>
-    </message>
-    <message>
-        <source>B5 (176 x 250 mm, 6.93 x 9.84 inches)</source>
-        <translation>B5 (176 x 250 mm)</translation>
-    </message>
-    <message>
-        <source>Executive (7.5 x 10 inches, 191 x 254 mm)</source>
-        <translation>Executive (7,5 x 10 Zoll, 191 x 254 mm)</translation>
-    </message>
-    <message>
-        <source>Legal (8.5 x 14 inches, 216 x 356 mm)</source>
-        <translation>Legal (8,5 x 14 Zoll, 216 x 356 mm)</translation>
-    </message>
-    <message>
-        <source>Letter (8.5 x 11 inches, 216 x 279 mm)</source>
-        <translation>Letter (8,5 x 11 Zoll, 216 x 279 mm)</translation>
-    </message>
-    <message>
-        <source>Print selection</source>
-        <translation>Auswahl drucken</translation>
+        <source>OK</source>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Drucken</translation>
+        <translation>Natisni</translation>
     </message>
     <message>
         <source>Print To File ...</source>
-        <translation>In Datei drucken ...</translation>
+        <translation>Natisni v datoteko ...</translation>
+    </message>
+    <message>
+        <source>Print range</source>
+        <translation>Natisni obseg</translation>
+    </message>
+    <message>
+        <source>Print all</source>
+        <translation>Natisni vse</translation>
     </message>
     <message>
         <source>File %1 is not writable.
 Please choose a different file name.</source>
-        <translation>Die Datei %1 ist schreibgeschützt.
-Bitte wählen Sie einen anderen Dateinamen.</translation>
+        <translation>V datoteko %1 ni moč pisati.
+Izberite drugo ime datoteke.</translation>
     </message>
     <message>
         <source>%1 already exists.
 Do you want to overwrite it?</source>
-        <translation>Die Datei %1 existiert bereits.
-Soll sie überschrieben werden?</translation>
+        <translation>%1 že obstaja.
+Ali jo želite nadomestiti?</translation>
     </message>
     <message>
         <source>File exists</source>
-        <translation>Die Datei existiert bereits</translation>
+        <translation>Datoteka obstaja</translation>
     </message>
     <message>
         <source>&lt;qt&gt;Do you want to overwrite it?&lt;/qt&gt;</source>
-        <translation>&lt;qt&gt;Soll sie überschrieben werden?&lt;/qt&gt;</translation>
+        <translation>&lt;qt&gt;Ali jo želite nadomestiti?&lt;/qt&gt;</translation>
+    </message>
+    <message>
+        <source>Print selection</source>
+        <translation>Natisni izbor</translation>
     </message>
     <message>
         <source>%1 is a directory.
 Please choose a different file name.</source>
-        <translation>%1 ist ein Verzeichnis.
-Bitte wählen Sie einen anderen Dateinamen.</translation>
-    </message>
-    <message>
-        <source>The &apos;From&apos; value cannot be greater than the &apos;To&apos; value.</source>
-        <translation>Die Angabe für die erste Seite darf nicht größer sein als die für die letzte Seite.</translation>
+        <translation>%1 je mapa.
+Izberite drugo ime datoteke.</translation>
     </message>
     <message>
         <source>A0</source>
@@ -4669,255 +4578,259 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Benutzerdefiniert</translation>
+        <translation>Po meri</translation>
     </message>
     <message>
         <source>&amp;Options &gt;&gt;</source>
-        <translation>&amp;Einstellungen &gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;Options &lt;&lt;</source>
-        <translation>&amp;Einstellungen &lt;&lt; </translation>
-    </message>
-    <message>
-        <source>Print to File (PDF)</source>
-        <translation>In PDF-Datei drucken</translation>
-    </message>
-    <message>
-        <source>Print to File (Postscript)</source>
-        <translation>In Postscript-Datei drucken</translation>
-    </message>
-    <message>
-        <source>Local file</source>
-        <translation>Lokale Datei</translation>
-    </message>
-    <message>
-        <source>Write %1 file</source>
-        <translation>Schreiben der Datei %1</translation>
+        <translation>&amp;Možnosti »</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation>&amp;Drucken</translation>
+        <translation>Na&amp;tisni</translation>
+    </message>
+    <message>
+        <source>&amp;Options &lt;&lt;</source>
+        <translation>&amp;Možnosti «</translation>
+    </message>
+    <message>
+        <source>Print to File (PDF)</source>
+        <translation>Natisni v datoteko (PDF)</translation>
+    </message>
+    <message>
+        <source>Print to File (Postscript)</source>
+        <translation>Natisni v datoteko (PostScript)</translation>
+    </message>
+    <message>
+        <source>Local file</source>
+        <translation>Krajevna datoteka</translation>
+    </message>
+    <message>
+        <source>Write %1 file</source>
+        <translation>Zapiši datoteko %1</translation>
+    </message>
+    <message>
+        <source>The &apos;From&apos; value cannot be greater than the &apos;To&apos; value.</source>
+        <translation>Vrednost »Od« ne more biti večja od vrednosti »Do«.</translation>
     </message>
 </context>
 <context>
     <name>QPrintPreviewDialog</name>
     <message>
+        <source>Page Setup</source>
+        <translation>Nastavitve strani</translation>
+    </message>
+    <message>
         <source>%1%</source>
-        <translation>%1%</translation>
+        <translation>%1 %</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Druckvorschau</translation>
+        <translation>Ogled tiskanja</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation>Nächste Seite</translation>
+        <translation>Naslednja stran</translation>
     </message>
     <message>
         <source>Previous page</source>
-        <translation>Vorige Seite</translation>
+        <translation>Predhodna stran</translation>
     </message>
     <message>
         <source>First page</source>
-        <translation>Erste Seite</translation>
+        <translation>Prva stran</translation>
     </message>
     <message>
         <source>Last page</source>
-        <translation>Letzte Seite</translation>
+        <translation>Zadnja stran</translation>
     </message>
     <message>
         <source>Fit width</source>
-        <translation>Breite anpassen</translation>
+        <translation>Prilagodi širini</translation>
     </message>
     <message>
         <source>Fit page</source>
-        <translation>Seite anpassen</translation>
+        <translation>Prilagodi strani</translation>
     </message>
     <message>
         <source>Zoom in</source>
-        <translation>Vergrößern</translation>
+        <translation>Povečaj</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation>Verkleinern</translation>
+        <translation>Zmanjšaj</translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation>Hochformat</translation>
+        <translation>Pokončno</translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation>Querformat</translation>
+        <translation>Ležeče</translation>
     </message>
     <message>
         <source>Show single page</source>
-        <translation>Einzelne Seite anzeigen</translation>
+        <translation>Prikaži enojno stran</translation>
     </message>
     <message>
         <source>Show facing pages</source>
-        <translation>Gegenüberliegende Seiten anzeigen</translation>
+        <translation>Prikaži dve strani</translation>
     </message>
     <message>
         <source>Show overview of all pages</source>
-        <translation>Übersicht aller Seiten</translation>
+        <translation>Prikaži ogled vseh strani</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Drucken</translation>
+        <translation>Natisni</translation>
     </message>
     <message>
         <source>Page setup</source>
-        <translation>Seite einrichten</translation>
+        <translation>Nastavitve strani</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Export to PDF</source>
-        <translation>PDF exportieren</translation>
+        <translation>Izvozi v PDF</translation>
     </message>
     <message>
         <source>Export to PostScript</source>
-        <translation>PostScript exportieren</translation>
-    </message>
-    <message>
-        <source>Page Setup</source>
-        <translation>Seite einrichten</translation>
+        <translation>Izvozi v PostScript</translation>
     </message>
 </context>
 <context>
     <name>QPrintPropertiesWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formular</translation>
+        <translation>Obrazec</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation>Seite</translation>
+        <translation>Stran</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>Erweitert</translation>
+        <translation>Napredno</translation>
     </message>
 </context>
 <context>
     <name>QPrintSettingsOutput</name>
     <message>
         <source>Form</source>
-        <translation>Formular</translation>
+        <translation>Obrazec</translation>
     </message>
     <message>
         <source>Copies</source>
-        <translation>Anzahl Exemplare</translation>
+        <translation>Izvodi</translation>
     </message>
     <message>
         <source>Print range</source>
-        <translation>Bereich drucken</translation>
+        <translation>Obseg tiskanja</translation>
     </message>
     <message>
         <source>Print all</source>
-        <translation>Alles drucken</translation>
+        <translation>Natisni vse</translation>
     </message>
     <message>
         <source>Pages from</source>
-        <translation>Seiten von</translation>
+        <translation>Strani od</translation>
     </message>
     <message>
         <source>to</source>
-        <translation>bis</translation>
+        <translation>do</translation>
     </message>
     <message>
         <source>Selection</source>
-        <translation>Auswahl</translation>
+        <translation>Izbor</translation>
     </message>
     <message>
         <source>Output Settings</source>
-        <translation>Ausgabeeinstellungen</translation>
+        <translation>Nastavitve izpisa</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation>Anzahl Exemplare:</translation>
+        <translation>Izvodi:</translation>
     </message>
     <message>
         <source>Collate</source>
-        <translation>Sortieren</translation>
+        <translation>Združi</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation>Umgekehrt</translation>
+        <translation>V nasprotno smer</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Optionen</translation>
+        <translation>Možnosti</translation>
     </message>
     <message>
         <source>Color Mode</source>
-        <translation>Farbmodus</translation>
+        <translation>Barvni način</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation>Farbe</translation>
+        <translation>Barva</translation>
     </message>
     <message>
         <source>Grayscale</source>
-        <translation>Graustufen</translation>
+        <translation>Sivinsko</translation>
     </message>
     <message>
         <source>Duplex Printing</source>
-        <translation>Duplexdruck</translation>
+        <translation>Dvostransko tiskanje</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Kein</translation>
+        <translation>Brez</translation>
     </message>
     <message>
         <source>Long side</source>
-        <translation>Lange Seite</translation>
+        <translation>Dolga stranica</translation>
     </message>
     <message>
         <source>Short side</source>
-        <translation>Kurze Seite</translation>
+        <translation>Kratka stranica</translation>
     </message>
     <message>
         <source>Current Page</source>
-        <translation></translation>
+        <translation>Trenutna stran</translation>
     </message>
 </context>
 <context>
     <name>QPrintWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formular</translation>
+        <translation>Obrazec</translation>
     </message>
     <message>
         <source>Printer</source>
-        <translation>Drucker</translation>
+        <translation>Tiskalnik</translation>
     </message>
     <message>
         <source>&amp;Name:</source>
-        <translation>&amp;Name:</translation>
+        <translation>&amp;Ime:</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation>&amp;Eigenschaften</translation>
+        <translation>&amp;Lastnosti ...</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation>Standort:</translation>
+        <translation>Lokacija:</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation>Vorschau</translation>
+        <translation>Ogled</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Typ:</translation>
+        <translation>Vrsta:</translation>
     </message>
     <message>
         <source>Output &amp;file:</source>
-        <translation>Ausgabe&amp;datei:</translation>
+        <translation>Izhodna d&amp;atoteka:</translation>
     </message>
     <message>
         <source>...</source>
@@ -4928,187 +4841,187 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     <name>QProcess</name>
     <message>
         <source>Could not open input redirection for reading</source>
-        <translation>Die Eingabeumleitung konnte nicht zum Lesen geöffnet werden</translation>
+        <translation>Preusmeritve vhoda ni bilo moč odpreti za branje</translation>
     </message>
     <message>
         <source>Could not open output redirection for writing</source>
-        <translation>Die Ausgabeumleitung konnte nicht zum Lesen geöffnet werden</translation>
+        <translation>Preusmeritve izhoda ni bilo moč odpreti za pisanje</translation>
     </message>
     <message>
         <source>Resource error (fork failure): %1</source>
-        <translation>Ressourcenproblem (&quot;fork failure&quot;): %1</translation>
+        <translation>Napaka vira (spodletela odcepitev): %1</translation>
     </message>
     <message>
         <source>Process operation timed out</source>
-        <translation>Zeitüberschreitung</translation>
+        <translation>Čas za dejanje procesa je potekel</translation>
     </message>
     <message>
         <source>Error reading from process</source>
-        <translation>Das Lesen vom Prozess ist fehlgeschlagen</translation>
+        <translation>Napaka pri branju iz procesa</translation>
     </message>
     <message>
         <source>Error writing to process</source>
-        <translation>Das Schreiben zum Prozess ist fehlgeschlagen</translation>
+        <translation>Napak pri pisanju v proces</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation>Der Prozess ist abgestürzt</translation>
+        <translation>Program se je sesul</translation>
     </message>
     <message>
         <source>No program defined</source>
-        <translation>Es wurde kein Programm angegeben</translation>
+        <translation>Določenega ni nobenega programa</translation>
     </message>
     <message>
         <source>Process failed to start: %1</source>
-        <translation>Das Starten des Prozesses ist fehlgeschlagen: %1</translation>
+        <translation>Proces se ni uspel zagnati: %1</translation>
     </message>
 </context>
 <context>
     <name>QProgressDialog</name>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
 </context>
 <context>
     <name>QPushButton</name>
     <message>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation>Odpri</translation>
     </message>
 </context>
 <context>
     <name>QRadioButton</name>
     <message>
         <source>Check</source>
-        <translation>Ankreuzen</translation>
+        <translation>Označi</translation>
     </message>
 </context>
 <context>
     <name>QRegExp</name>
     <message>
         <source>no error occurred</source>
-        <translation>kein Fehler</translation>
+        <translation>ni nobene napake</translation>
     </message>
     <message>
         <source>disabled feature used</source>
-        <translation>deaktivierte Eigenschaft wurde benutzt</translation>
+        <translation>uporabljena onemogočena zmožnost</translation>
     </message>
     <message>
         <source>bad char class syntax</source>
-        <translation>falsche Syntax für Zeichenklasse</translation>
+        <translation>napačna sintaksa znakovnega razreda</translation>
     </message>
     <message>
         <source>bad lookahead syntax</source>
-        <translation>falsche Syntax für Lookahead</translation>
+        <translation>napačna sintaksa pogleda naprej</translation>
     </message>
     <message>
         <source>bad repetition syntax</source>
-        <translation>falsche Syntax für Wiederholungen</translation>
+        <translation>napačna sintaksa ponavljanja</translation>
     </message>
     <message>
         <source>invalid octal value</source>
-        <translation>ungültiger Oktal-Wert</translation>
+        <translation>neveljavna osmiška vrednost</translation>
     </message>
     <message>
         <source>missing left delim</source>
-        <translation>fehlende linke Begrenzung</translation>
+        <translation>manjkajoč levi razmejitelj</translation>
     </message>
     <message>
         <source>unexpected end</source>
-        <translation>unerwartetes Ende</translation>
+        <translation>nepričakovan konece</translation>
     </message>
     <message>
         <source>met internal limit</source>
-        <translation>internes Limit erreicht</translation>
+        <translation>dosežena notranja omejitev</translation>
     </message>
     <message>
         <source>invalid interval</source>
-        <translation>ungültiges Intervall</translation>
+        <translation>neveljaven interval</translation>
     </message>
     <message>
         <source>invalid category</source>
-        <translation>ungültige Kategorie</translation>
+        <translation>neveljavna kategorija</translation>
     </message>
 </context>
 <context>
     <name>QSQLite2Driver</name>
     <message>
         <source>Error opening database</source>
-        <translation>Die Datenbankverbindung konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju podatkovne zbirke</translation>
     </message>
     <message>
         <source>Unable to begin transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion kann nicht rückgängig gemacht werden</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
 </context>
 <context>
     <name>QSQLite2Result</name>
     <message>
         <source>Unable to fetch results</source>
-        <translation>Das Ergebnis konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti rezultatov</translation>
     </message>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
 </context>
 <context>
     <name>QSQLiteDriver</name>
     <message>
         <source>Error opening database</source>
-        <translation>Die Datenbankverbindung konnte nicht geöffnet werden</translation>
+        <translation>Napaka pri odpiranju podatkovne zbirke</translation>
     </message>
     <message>
         <source>Error closing database</source>
-        <translation>Die Datenbankverbindung konnte nicht geschlossen werden</translation>
+        <translation>Napaka pri zapiranju podatkovne zbirke</translation>
     </message>
     <message>
         <source>Unable to begin transaction</source>
-        <translation>Es konnte keine Transaktion gestartet werden</translation>
+        <translation>Ni moč začeti transakcije</translation>
     </message>
     <message>
         <source>Unable to commit transaction</source>
-        <translation>Die Transaktion konnte nicht durchgeführt werden (Operation &apos;commit&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč udejaniti transakcije</translation>
     </message>
     <message>
         <source>Unable to rollback transaction</source>
-        <translation>Die Transaktion konnte nicht rückgängig gemacht werden (Operation &apos;rollback&apos; fehlgeschlagen)</translation>
+        <translation>Ni moč razveljaviti transakcije</translation>
     </message>
 </context>
 <context>
     <name>QSQLiteResult</name>
     <message>
         <source>Unable to fetch row</source>
-        <translation>Der Datensatz konnte nicht abgeholt werden</translation>
+        <translation>Ni moč pridobiti vrstice</translation>
     </message>
     <message>
         <source>Unable to execute statement</source>
-        <translation>Der Befehl konnte nicht ausgeführt werden</translation>
+        <translation>Ni moč izvesti izjave</translation>
     </message>
     <message>
         <source>Unable to reset statement</source>
-        <translation>Der Befehl konnte nicht zurückgesetzt werden</translation>
+        <translation>Ni moč ponastaviti izjave</translation>
     </message>
     <message>
         <source>Unable to bind parameters</source>
-        <translation>Die Parameter konnte nicht gebunden werden</translation>
+        <translation>Ni moč prikleniti parametrov</translation>
     </message>
     <message>
         <source>Parameter count mismatch</source>
-        <translation>Die Anzahl der Parameter ist falsch</translation>
+        <translation>Neujemanje v številu parametrov</translation>
     </message>
     <message>
         <source>No query</source>
-        <translation>Kein Abfrage</translation>
+        <translation>Brez poizvedbe</translation>
     </message>
 </context>
 <context>
@@ -5119,49 +5032,49 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Stelle</translation>
+        <translation>Lokacija</translation>
     </message>
     <message>
         <source>Condition</source>
-        <translation>Bedingung</translation>
+        <translation>Pogoj</translation>
     </message>
     <message>
         <source>Ignore-count</source>
-        <translation>Auslösen nach</translation>
+        <translation>Število prezrtij</translation>
     </message>
     <message>
         <source>Single-shot</source>
-        <translation>Einmal auslösen</translation>
+        <translation>Enojen zadetek</translation>
     </message>
     <message>
         <source>Hit-count</source>
-        <translation>Ausgelöst</translation>
+        <translation>Število zadetkov</translation>
     </message>
 </context>
 <context>
     <name>QScriptBreakpointsWidget</name>
     <message>
         <source>New</source>
-        <translation>Neu</translation>
+        <translation>Nova</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
     </message>
 </context>
 <context>
     <name>QScriptDebugger</name>
     <message>
         <source>Go to Line</source>
-        <translation>Gehe zu Zeile</translation>
+        <translation>Pojdi v vrstico</translation>
     </message>
     <message>
         <source>Line:</source>
-        <translation>Zeile:</translation>
+        <translation>Vrstica:</translation>
     </message>
     <message>
         <source>Interrupt</source>
-        <translation>Unterbrechen</translation>
+        <translation>Prekini</translation>
     </message>
     <message>
         <source>Shift+F5</source>
@@ -5169,7 +5082,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Weiter</translation>
+        <translation>Nadaljuj</translation>
     </message>
     <message>
         <source>F5</source>
@@ -5177,7 +5090,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Step Into</source>
-        <translation>Einzelschritt herein</translation>
+        <translation>Vstopi</translation>
     </message>
     <message>
         <source>F11</source>
@@ -5185,7 +5098,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Step Over</source>
-        <translation>Einzelschritt über</translation>
+        <translation>Prestopi</translation>
     </message>
     <message>
         <source>F10</source>
@@ -5193,7 +5106,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Step Out</source>
-        <translation>Einzelschritt heraus</translation>
+        <translation>Izstopi</translation>
     </message>
     <message>
         <source>Shift+F11</source>
@@ -5201,7 +5114,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Run to Cursor</source>
-        <translation>Bis Cursor ausführen</translation>
+        <translation>Zaženi do kazalca</translation>
     </message>
     <message>
         <source>Ctrl+F10</source>
@@ -5209,11 +5122,11 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Run to New Script</source>
-        <translation>Bis zu neuem Skript ausführen</translation>
+        <translation>Zaženi do novega skripta</translation>
     </message>
     <message>
         <source>Toggle Breakpoint</source>
-        <translation>Haltepunkt umschalten</translation>
+        <translation>Preklopi prekinitveno točko</translation>
     </message>
     <message>
         <source>F9</source>
@@ -5221,19 +5134,19 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Clear Debug Output</source>
-        <translation>Debug-Ausgabe löschen</translation>
+        <translation>Počisti razhroščevalni izhod</translation>
     </message>
     <message>
         <source>Clear Error Log</source>
-        <translation>Fehlerausgabe löschen</translation>
+        <translation>Počisti dnevnik napak</translation>
     </message>
     <message>
         <source>Clear Console</source>
-        <translation>Konsole löschen</translation>
+        <translation>Počisti konzolo</translation>
     </message>
     <message>
         <source>&amp;Find in Script...</source>
-        <translation>&amp;Suche im Skript...</translation>
+        <translation>Najdi v &amp;skriptu ...</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
@@ -5241,7 +5154,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Find &amp;Next</source>
-        <translation>&amp;Nächste Fundstelle</translation>
+        <translation>Najdi &amp;naslednje</translation>
     </message>
     <message>
         <source>F3</source>
@@ -5249,7 +5162,7 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Find &amp;Previous</source>
-        <translation>&amp;Vorhergehende Fundstelle</translation>
+        <translation>Najdi &amp;predhodno</translation>
     </message>
     <message>
         <source>Shift+F3</source>
@@ -5261,283 +5174,284 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation>Debuggen</translation>
+        <translation>Razhrošči</translation>
     </message>
 </context>
 <context>
     <name>QScriptDebuggerCodeFinderWidget</name>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation>Vorige</translation>
+        <translation>Predhodno</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Nächste</translation>
+        <translation>Naslednje</translation>
     </message>
     <message>
         <source>Case Sensitive</source>
-        <translation>Groß/Kleinschreibung beachten</translation>
+        <translation>Občutljivo na velikost črk</translation>
     </message>
     <message>
         <source>Whole words</source>
-        <translation>Ganze Worte</translation>
+        <translation>Cele besede</translation>
     </message>
     <message>
         <source>&lt;img src=&quot;:/qt/scripttools/debugging/images/wrap.png&quot;&gt;&amp;nbsp;Search wrapped</source>
-        <translation>&lt;img src=&quot;:/qt/scripttools/debugging/images/wrap.png&quot;&gt;&amp;nbsp;Die Suche hat das Ende erreicht</translation>
+        <translation>&lt;img src=&quot;:/qt/scripttools/debugging/images/wrap.png&quot;&gt;&amp;nbsp;Iskanje se nadaljuje na drugem koncu</translation>
     </message>
 </context>
 <context>
     <name>QScriptDebuggerLocalsModel</name>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation>Wert</translation>
+        <translation>Vrednost</translation>
     </message>
 </context>
 <context>
     <name>QScriptDebuggerStackModel</name>
     <message>
         <source>Level</source>
-        <translation>Ebene</translation>
+        <translation>Stopnja</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Stelle</translation>
+        <translation>Lokacija</translation>
     </message>
 </context>
 <context>
     <name>QScriptEdit</name>
     <message>
         <source>Toggle Breakpoint</source>
-        <translation>Haltepunkt umschalten</translation>
+        <translation>Preklopi prekinitveno točko</translation>
     </message>
     <message>
         <source>Disable Breakpoint</source>
-        <translation>Haltepunkt deaktivieren</translation>
+        <translation>Onemogoči prekinitveno točko</translation>
     </message>
     <message>
         <source>Enable Breakpoint</source>
-        <translation>Haltepunkt aktivieren</translation>
+        <translation>Omogoči prekinitveno točko</translation>
     </message>
     <message>
         <source>Breakpoint Condition:</source>
-        <translation>Bedingung:</translation>
+        <translation>Pogoj za prelomno točko:</translation>
     </message>
 </context>
 <context>
     <name>QScriptEngineDebugger</name>
     <message>
         <source>Loaded Scripts</source>
-        <translation>Geladene Skripte</translation>
+        <translation>Naloženi skripti</translation>
     </message>
     <message>
         <source>Breakpoints</source>
-        <translation>Haltepunkte</translation>
+        <translation>Prelomne točke</translation>
     </message>
     <message>
         <source>Stack</source>
-        <translation>Stapel</translation>
+        <translation>Sklad</translation>
     </message>
     <message>
         <source>Locals</source>
-        <translation>Lokale Variablen</translation>
+        <translation>Krajevno</translation>
     </message>
     <message>
         <source>Console</source>
-        <translation>Konsole</translation>
+        <translation>Konzola</translation>
     </message>
     <message>
         <source>Debug Output</source>
-        <translation>Debug-Ausgabe</translation>
+        <translation>Razhroščevalni izhod</translation>
     </message>
     <message>
         <source>Error Log</source>
-        <translation>Fehlerausgabe</translation>
+        <translation>Dnevnik napak</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Išči</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Ansicht</translation>
+        <translation>Videz</translation>
     </message>
     <message>
         <source>Qt Script Debugger</source>
-        <translation>Qt Script Debugger</translation>
+        <translation>Razhroščevalnik za Qt Script</translation>
     </message>
 </context>
 <context>
     <name>QScriptNewBreakpointWidget</name>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
 </context>
 <context>
     <name>QScrollBar</name>
     <message>
         <source>Scroll here</source>
-        <translation>Hierher scrollen</translation>
+        <translation>Premakni sem</translation>
     </message>
     <message>
         <source>Left edge</source>
-        <translation>Linker Rand</translation>
+        <translation>Levi rob</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Anfang</translation>
+        <translation>Vrh</translation>
     </message>
     <message>
         <source>Right edge</source>
-        <translation>Rechter Rand</translation>
+        <translation>Desni rob</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Ende</translation>
+        <translation>Dno</translation>
     </message>
     <message>
         <source>Page left</source>
-        <translation>Eine Seite nach links</translation>
+        <translation>Za stran levo</translation>
     </message>
     <message>
         <source>Page up</source>
-        <translation>Eine Seite nach oben</translation>
+        <translation>Za stran gor</translation>
     </message>
     <message>
         <source>Page right</source>
-        <translation>Eine Seite nach rechts</translation>
+        <translation>Za stran desno</translation>
     </message>
     <message>
         <source>Page down</source>
-        <translation>Eine Seite nach unten</translation>
+        <translation>Za stran dol</translation>
     </message>
     <message>
         <source>Scroll left</source>
-        <translation>Nach links scrollen</translation>
+        <translation>Premakni levo</translation>
     </message>
     <message>
         <source>Scroll up</source>
-        <translation>Nach oben scrollen</translation>
+        <translation>Premakni gor</translation>
     </message>
     <message>
         <source>Scroll right</source>
-        <translation>Nach rechts scrollen</translation>
+        <translation>Premakni desno</translation>
     </message>
     <message>
         <source>Scroll down</source>
-        <translation>Nach unten scrollen</translation>
+        <translation>Premakni dol</translation>
     </message>
     <message>
         <source>Line up</source>
-        <translation>Ausrichten</translation>
+        <translation>V vrsto</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation>Položaj</translation>
     </message>
     <message>
         <source>Line down</source>
-        <translation>Eine Zeile nach unten</translation>
+        <translation>Za vrstico dol</translation>
     </message>
 </context>
 <context>
     <name>QSharedMemory</name>
     <message>
+        <source>%1: unable to set key on lock</source>
+        <translation>%1: ni moč nastaviti ključa na zaklep</translation>
+    </message>
+    <message>
         <source>%1: create size is less then 0</source>
-        <translation>%1: Die Größenangabe für die Erzeugung ist kleiner als Null</translation>
+        <translation>%1: velikost je manjša od 0</translation>
     </message>
     <message>
         <source>%1: unable to lock</source>
-        <translation>%1: Sperrung fehlgeschlagen</translation>
+        <translation>%1: ni moč zakleniti</translation>
     </message>
     <message>
         <source>%1: unable to unlock</source>
-        <translation>%1: Die Sperrung konnte nicht aufgehoben werden</translation>
+        <translation>%1: ni moč odkleniti</translation>
     </message>
     <message>
         <source>%1: permission denied</source>
-        <translation>%1: Zugriff verweigert</translation>
+        <translation>%1: nimate dovoljenja</translation>
     </message>
     <message>
         <source>%1: already exists</source>
-        <translation>%1: existiert bereits</translation>
+        <translation>%1: že obstaja</translation>
     </message>
     <message>
         <source>%1: doesn&apos;t exists</source>
-        <translation>%1: existiert nicht</translation>
+        <translation>%1: ne obstaja</translation>
     </message>
     <message>
         <source>%1: out of resources</source>
-        <translation>%1: Keine Ressourcen mehr verfügbar</translation>
+        <translation>%1: zmanjkalo je virov</translation>
     </message>
     <message>
         <source>%1: unknown error %2</source>
-        <translation>%1: Unbekannter Fehler %2</translation>
+        <translation>%1: neznana napaka %2</translation>
     </message>
     <message>
         <source>%1: key is empty</source>
-        <translation>%1: Ungültige Schlüsselangabe (leer)</translation>
+        <translation>%1: ključ je prazen</translation>
     </message>
     <message>
         <source>%1: ftok failed</source>
-        <translation>%1: ftok-Aufruf ist fehlgeschlagen</translation>
+        <translation>%1: funkcija ftok ni uspela</translation>
     </message>
     <message>
         <source>%1: unable to make key</source>
-        <translation>%1: Es kann kein Schlüssel erzeugt werden</translation>
+        <translation>%1: ni moč ustvariti ključa</translation>
     </message>
     <message>
         <source>%1: doesn&apos;t exist</source>
-        <translation>%1: existiert nicht</translation>
+        <translation>%1: ne obstaja</translation>
     </message>
     <message>
         <source>%1: UNIX key file doesn&apos;t exist</source>
-        <translation>%1: Die Unix-Schlüsseldatei existiert nicht</translation>
+        <translation>%1: UNIX-ova zaklepna datoteka ne obstaja</translation>
     </message>
     <message>
         <source>%1: system-imposed size restrictions</source>
-        <translation>%1: Ein systembedingtes Limit der Größe wurde erreicht</translation>
+        <translation>%1: sistemsko vsiljene omejitve velikosti</translation>
     </message>
     <message>
         <source>%1: not attached</source>
-        <translation>%1: nicht verbunden</translation>
+        <translation>%1: ni pripeto</translation>
     </message>
     <message>
         <source>%1: invalid size</source>
-        <translation>%1: Ungültige Größe</translation>
+        <translation>%1: neveljavna velikost</translation>
     </message>
     <message>
         <source>%1: key error</source>
-        <translation>%1: Fehlerhafter Schlüssel</translation>
+        <translation>%1: napaka ključa</translation>
     </message>
     <message>
         <source>%1: size query failed</source>
-        <translation>%1: Die Abfrage der Größe ist fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>%1: unable to set key on lock</source>
-        <translation>%1: Es kann kein Schlüssel für die Sperrung gesetzt werden</translation>
+        <translation>%1: poizvedba po velikosti ni uspela</translation>
     </message>
 </context>
 <context>
     <name>QShortcut</name>
     <message>
         <source>Space</source>
-        <extracomment>This and all following &quot;incomprehensible&quot; strings in QShortcut context are key names. Please use the localized names appearing on actual keyboards or whatever is commonly used.</extracomment>
-        <translation>Leertaste</translation>
+        <extracomment>This and all following &quot;incomprehensible&quot; strings in QShortcut context are key names. Please use the localized names appearing on actual keyboards or whatever is commonly used.
+</extracomment>
+        <translation>Preslednica</translation>
     </message>
     <message>
         <source>Esc</source>
@@ -5545,15 +5459,15 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Tab</source>
-        <translation>Tab</translation>
+        <translation>Tabulator</translation>
     </message>
     <message>
         <source>Backtab</source>
-        <translation>Rück-Tab</translation>
+        <translation>Tabulator nazaj</translation>
     </message>
     <message>
         <source>Backspace</source>
-        <translation>Rücktaste</translation>
+        <translation>Vračalka</translation>
     </message>
     <message>
         <source>Return</source>
@@ -5561,23 +5475,23 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation>Enter</translation>
+        <translation>Vnesi</translation>
     </message>
     <message>
         <source>Ins</source>
-        <translation>Einfg</translation>
+        <translation>Ins</translation>
     </message>
     <message>
         <source>Del</source>
-        <translation>Entf</translation>
+        <translation>Del</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation>Pause</translation>
+        <translation>Premor</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Druck</translation>
+        <translation>Natisni</translation>
     </message>
     <message>
         <source>SysReq</source>
@@ -5585,317 +5499,319 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation>Pos1</translation>
+        <translation>Začetek</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>Ende</translation>
+        <translation>Konec</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Links</translation>
+        <translation>Levo</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation>Hoch</translation>
+        <translation>Gor</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Rechts</translation>
+        <translation>Desno</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation>Runter</translation>
+        <translation>Dol</translation>
     </message>
     <message>
         <source>PgUp</source>
-        <translation>Bild aufwärts</translation>
+        <translation>PgUp</translation>
     </message>
     <message>
         <source>PgDown</source>
-        <translation>Bild abwärts</translation>
+        <translation>PgDown</translation>
     </message>
     <message>
         <source>CapsLock</source>
-        <translation>Feststelltaste</translation>
+        <translation>CapsLock</translation>
     </message>
     <message>
         <source>NumLock</source>
-        <translation>Zahlen-Feststelltaste</translation>
+        <translation>NumLock</translation>
     </message>
     <message>
         <source>ScrollLock</source>
-        <translation>Rollen-Feststelltaste</translation>
+        <translation>ScrollLock</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation>Menü</translation>
+        <translation>Meni</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Hilfe</translation>
+        <translation>Pomoč</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Zurück</translation>
+        <translation>Predhodna</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation>Vorwärts</translation>
+        <translation>Naslednja</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation>Abbrechen</translation>
+        <translation>Ustavi</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Aktualisieren</translation>
+        <translation>Osveži</translation>
     </message>
     <message>
         <source>Volume Down</source>
-        <translation>Lautstärke -</translation>
+        <translation>Tiše</translation>
     </message>
     <message>
         <source>Volume Mute</source>
-        <translation>Ton aus</translation>
+        <translation>Tiho</translation>
     </message>
     <message>
         <source>Volume Up</source>
-        <translation>Lautstärke +</translation>
+        <translation>Glasneje</translation>
     </message>
     <message>
         <source>Bass Boost</source>
-        <translation>Bass-Boost</translation>
+        <translation>Ojačanje basov</translation>
     </message>
     <message>
         <source>Bass Up</source>
-        <translation>Bass +</translation>
+        <translation>Več basov</translation>
     </message>
     <message>
         <source>Bass Down</source>
-        <translation>Bass -</translation>
+        <translation>Manj basov</translation>
     </message>
     <message>
         <source>Treble Up</source>
-        <translation>Höhen +</translation>
+        <translation>Več visokih tonov</translation>
     </message>
     <message>
         <source>Treble Down</source>
-        <translation>Höhen -</translation>
+        <translation>Manj visokih tonov</translation>
     </message>
     <message>
         <source>Media Play</source>
-        <translation>Wiedergabe</translation>
+        <translation>Predvajaj večpredstavnost</translation>
     </message>
     <message>
         <source>Media Stop</source>
-        <translation>Stopp</translation>
+        <translation>Ustavi večpredstavnost</translation>
     </message>
     <message>
         <source>Media Previous</source>
-        <translation>Vorheriger</translation>
+        <translation>Predhodna večpredstavnost</translation>
     </message>
     <message>
         <source>Media Next</source>
-        <translation>Nächster</translation>
+        <translation>Naslednja večpredstavnost</translation>
     </message>
     <message>
         <source>Media Record</source>
-        <translation>Aufzeichnen</translation>
+        <translation>Snemaj večpredstavnost</translation>
     </message>
     <message>
         <source>Media Pause</source>
-        <extracomment>Media player pause button</extracomment>
-        <translation>Pause</translation>
+        <extracomment>Media player pause button
+</extracomment>
+        <translation>Prekini večpredstavnost</translation>
     </message>
     <message>
         <source>Toggle Media Play/Pause</source>
-        <extracomment>Media player button to toggle between playing and paused</extracomment>
-        <translation>Wiedergabe/Pause</translation>
+        <extracomment>Media player button to toggle between playing and paused
+</extracomment>
+        <translation>Preklopi predvajanje/prekinitev večpredstavnosti</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation>Favoriten</translation>
+        <translation>Priljubljeno</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Suchen</translation>
+        <translation>Išči</translation>
     </message>
     <message>
         <source>Standby</source>
-        <translation>Standby</translation>
+        <translation>V pripravljenost</translation>
     </message>
     <message>
         <source>Open URL</source>
-        <translation>URL öffnen</translation>
+        <translation>Odpri URL</translation>
     </message>
     <message>
         <source>Launch Mail</source>
-        <translation>Mail starten</translation>
+        <translation>Zaženi pošto</translation>
     </message>
     <message>
         <source>Launch Media</source>
-        <translation>Medienspieler starten</translation>
+        <translation>Zaženi večpredstavnost</translation>
     </message>
     <message>
         <source>Launch (0)</source>
-        <translation>(0) starten</translation>
+        <translation>Zaženi (0)</translation>
     </message>
     <message>
         <source>Launch (1)</source>
-        <translation>(1) starten</translation>
+        <translation>Zaženi (1)</translation>
     </message>
     <message>
         <source>Launch (2)</source>
-        <translation>(2) starten</translation>
+        <translation>Zaženi (2)</translation>
     </message>
     <message>
         <source>Launch (3)</source>
-        <translation>(3) starten</translation>
+        <translation>Zaženi (3)</translation>
     </message>
     <message>
         <source>Launch (4)</source>
-        <translation>(4) starten</translation>
+        <translation>Zaženi (4)</translation>
     </message>
     <message>
         <source>Launch (5)</source>
-        <translation>(5) starten</translation>
+        <translation>Zaženi (5)</translation>
     </message>
     <message>
         <source>Launch (6)</source>
-        <translation>(6) starten</translation>
+        <translation>Zaženi (6)</translation>
     </message>
     <message>
         <source>Launch (7)</source>
-        <translation>(7) starten</translation>
+        <translation>Zaženi (7)</translation>
     </message>
     <message>
         <source>Launch (8)</source>
-        <translation>(8) starten</translation>
+        <translation>Zaženi (8)</translation>
     </message>
     <message>
         <source>Launch (9)</source>
-        <translation>(9) starten</translation>
+        <translation>Zaženi (9)</translation>
     </message>
     <message>
         <source>Launch (A)</source>
-        <translation>(A) starten</translation>
+        <translation>Zaženi (A)</translation>
     </message>
     <message>
         <source>Launch (B)</source>
-        <translation>(B) starten</translation>
+        <translation>Zaženi (B)</translation>
     </message>
     <message>
         <source>Launch (C)</source>
-        <translation>(C) starten</translation>
+        <translation>Zaženi (C)</translation>
     </message>
     <message>
         <source>Launch (D)</source>
-        <translation>(D) starten</translation>
+        <translation>Zaženi (D)</translation>
     </message>
     <message>
         <source>Launch (E)</source>
-        <translation>(E) starten</translation>
+        <translation>Zaženi (E)</translation>
     </message>
     <message>
         <source>Launch (F)</source>
-        <translation>(F) starten</translation>
+        <translation>Zaženi (F)</translation>
     </message>
     <message>
         <source>Monitor Brightness Up</source>
-        <translation>Monitor heller</translation>
+        <translation>Povečaj svetlost zaslona</translation>
     </message>
     <message>
         <source>Monitor Brightness Down</source>
-        <translation>Monitor dunkler</translation>
+        <translation>Zmanjšaj svetlost zaslona</translation>
     </message>
     <message>
         <source>Keyboard Light On/Off</source>
-        <translation>Tastaturbeleuchtung Ein/Aus</translation>
+        <translation>Vklop/izklop lučk na tipkovnici</translation>
     </message>
     <message>
         <source>Keyboard Brightness Up</source>
-        <translation>Tastaturbeleuchtung heller</translation>
+        <translation>Povečaj svetlost tipkovnice</translation>
     </message>
     <message>
         <source>Keyboard Brightness Down</source>
-        <translation>Tastaturbeleuchtung dunkler</translation>
+        <translation>Zmanjšaj svetlost tipkovnice</translation>
     </message>
     <message>
         <source>Power Off</source>
-        <translation>Ausschalten</translation>
+        <translation>Izklopi</translation>
     </message>
     <message>
         <source>Wake Up</source>
-        <translation>Aufwecken</translation>
+        <translation>Zbudi</translation>
     </message>
     <message>
         <source>Eject</source>
-        <translation>Auswerfen</translation>
+        <translation>Izvrzi</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Bildschirmschoner</translation>
+        <translation>Ohranjevalnik zaslona</translation>
     </message>
     <message>
         <source>WWW</source>
-        <translation>Internet</translation>
+        <translation>Svetovni splet</translation>
     </message>
     <message>
         <source>Sleep</source>
-        <translation>Schlafmodus</translation>
+        <translation>V pripravljenost</translation>
     </message>
     <message>
         <source>LightBulb</source>
-        <translation>Beleuchtung</translation>
+        <translation>Žarnica</translation>
     </message>
     <message>
         <source>Shop</source>
-        <translation>Shop</translation>
+        <translation>Trgovina</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Verlauf</translation>
+        <translation>Zgodovina</translation>
     </message>
     <message>
         <source>Add Favorite</source>
-        <translation>Lesezeichen hinzufügen</translation>
+        <translation>Dodaj priljubljeno</translation>
     </message>
     <message>
         <source>Hot Links</source>
-        <translation>Empfohlene Verweise</translation>
+        <translation>Vroče povezave</translation>
     </message>
     <message>
         <source>Adjust Brightness</source>
-        <translation>Helligkeit einstellen</translation>
+        <translation>Prilagodi svetlost</translation>
     </message>
     <message>
         <source>Finance</source>
-        <translation>Finanzen</translation>
+        <translation>Finance</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Community</translation>
+        <translation>Skupnost</translation>
     </message>
     <message>
         <source>Audio Rewind</source>
-        <translation>Audio rückspulen</translation>
+        <translation>Previj zvok</translation>
     </message>
     <message>
         <source>Back Forward</source>
-        <translation>Hinterstes nach vorn</translation>
+        <translation>Nazaj naprej</translation>
     </message>
     <message>
         <source>Application Left</source>
-        <translation>Anwendung links</translation>
+        <translation>Program levo</translation>
     </message>
     <message>
         <source>Application Right</source>
-        <translation>Anwendung rechts</translation>
+        <translation>Program desno</translation>
     </message>
     <message>
         <source>Book</source>
-        <translation>Buch</translation>
+        <translation>Knjiga</translation>
     </message>
     <message>
         <source>CD</source>
@@ -5903,31 +5819,31 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation>Rechner</translation>
+        <translation>Računalo</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Löschen</translation>
+        <translation>Počisti</translation>
     </message>
     <message>
         <source>Clear Grab</source>
-        <translation>Zugriff löschen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopieren</translation>
+        <translation>Skopiraj</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Ausschneiden</translation>
+        <translation>Izreži</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation>Anzeigen</translation>
+        <translation type="unfinished">Prikaz</translation>
     </message>
     <message>
         <source>DOS</source>
@@ -5935,23 +5851,23 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation>Dokumente</translation>
+        <translation>Dokumenti</translation>
     </message>
     <message>
         <source>Spreadsheet</source>
-        <translation>Spreadsheet</translation>
+        <translation>Preglednica</translation>
     </message>
     <message>
         <source>Browser</source>
-        <translation>Browser</translation>
+        <translation>Brskalnik</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation>Spiel</translation>
+        <translation>Igra</translation>
     </message>
     <message>
         <source>Go</source>
-        <translation>Los</translation>
+        <translation type="unfinished">Pojdi</translation>
     </message>
     <message>
         <source>iTouch</source>
@@ -5959,43 +5875,43 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Logoff</source>
-        <translation>Logoff</translation>
+        <translation>Odjavi</translation>
     </message>
     <message>
         <source>Market</source>
-        <translation>Markt</translation>
+        <translation>Trg</translation>
     </message>
     <message>
         <source>Meeting</source>
-        <translation>Versammlung</translation>
+        <translation>Srečanje</translation>
     </message>
     <message>
         <source>Keyboard Menu</source>
-        <translation>Tastaturmenü</translation>
+        <translation type="unfinished">Meni tipkovnice</translation>
     </message>
     <message>
         <source>Menu PB</source>
-        <translation>Menü PB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My Sites</source>
-        <translation>Meine Orte</translation>
+        <translation>Moje strani</translation>
     </message>
     <message>
         <source>News</source>
-        <translation>Nachrichten</translation>
+        <translation>Novice</translation>
     </message>
     <message>
         <source>Home Office</source>
-        <translation>Home Office</translation>
+        <translation>Domača pisarna</translation>
     </message>
     <message>
         <source>Option</source>
-        <translation>Option</translation>
+        <translation>Možnost</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Einfügen</translation>
+        <translation>Prilepi</translation>
     </message>
     <message>
         <source>Phone</source>
@@ -6003,59 +5919,59 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Reply</source>
-        <translation>Antworten</translation>
+        <translation>Odgovori</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation>Neu laden</translation>
+        <translation>Znova naloži</translation>
     </message>
     <message>
         <source>Rotate Windows</source>
-        <translation>Fenster rotieren</translation>
+        <translation>Zavrti okna</translation>
     </message>
     <message>
         <source>Rotation PB</source>
-        <translation>Rotation PB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rotation KB</source>
-        <translation>Rotation KB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Speichern</translation>
+        <translation>Shrani</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation>Senden</translation>
+        <translation>Pošlji</translation>
     </message>
     <message>
         <source>Spellchecker</source>
-        <translation>Rechtschreibprüfung</translation>
+        <translation>Črkovalnik</translation>
     </message>
     <message>
         <source>Split Screen</source>
-        <translation>Bildschirm teilen</translation>
+        <translation>Razdeli zaslon</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation>Hilfe</translation>
+        <translation>Podpora</translation>
     </message>
     <message>
         <source>Task Panel</source>
-        <translation>Task-Leiste</translation>
+        <translation type="unfinished">Opravilna vrstica</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>Konzola</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Werkzeuge</translation>
+        <translation>Orodja</translation>
     </message>
     <message>
         <source>Travel</source>
-        <translation>Reise</translation>
+        <translation>Potovanje</translation>
     </message>
     <message>
         <source>Video</source>
@@ -6063,47 +5979,47 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Word Processor</source>
-        <translation>Textverarbeitung</translation>
+        <translation>Urejevalnik besedil</translation>
     </message>
     <message>
         <source>XFer</source>
-        <translation>XFer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation>Vergrößern</translation>
+        <translation>Povečaj</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation>Verkleinern</translation>
+        <translation>Zmanjšaj</translation>
     </message>
     <message>
         <source>Away</source>
-        <translation>Abwesend</translation>
+        <translation>Odsoten</translation>
     </message>
     <message>
         <source>Messenger</source>
-        <translation>Messenger</translation>
+        <translation>Sporočilnik</translation>
     </message>
     <message>
         <source>WebCam</source>
-        <translation>WebCam</translation>
+        <translation>Spletna kamera</translation>
     </message>
     <message>
         <source>Mail Forward</source>
-        <translation>Weiterleitung</translation>
+        <translation>Posreduj sporočilo</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation>Bilder</translation>
+        <translation>Slike</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>Glasba</translation>
     </message>
     <message>
         <source>Battery</source>
-        <translation>Batterie</translation>
+        <translation>Baterija</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -6111,87 +6027,87 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Wireless</source>
-        <translation>Drahtlos</translation>
+        <translation>Brezžično</translation>
     </message>
     <message>
         <source>Ultra Wide Band</source>
-        <translation>Ultra Wide Band</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Audio Forward</source>
-        <translation>Audio vorspulen</translation>
+        <translation>Zvok naprej</translation>
     </message>
     <message>
         <source>Audio Repeat</source>
-        <translation>Audio wiederholen</translation>
+        <translation>Zvok ponavljanje</translation>
     </message>
     <message>
         <source>Audio Random Play</source>
-        <translation>Audio zufällige Auswahl spielen</translation>
+        <translation>Zvok naključno</translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation>Untertitel</translation>
+        <translation>Podnaslov</translation>
     </message>
     <message>
         <source>Audio Cycle Track</source>
-        <translation>Audiospur wechseln</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Zeit</translation>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Ansicht</translation>
+        <translation>Prikaz</translation>
     </message>
     <message>
         <source>Top Menu</source>
-        <translation>Hauptmenü</translation>
+        <translation>Vrhnji meni</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Pause</translation>
+        <translation>Ustavi</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Hibernate</translation>
+        <translation type="unfinished">V hibernacijo</translation>
     </message>
     <message>
         <source>Print Screen</source>
-        <translation>Bildschirm drucken</translation>
+        <translation>Natisni zaslon</translation>
     </message>
     <message>
         <source>Page Up</source>
-        <translation>Bild aufwärts</translation>
+        <translation>Za stran gor</translation>
     </message>
     <message>
         <source>Page Down</source>
-        <translation>Bild abwärts</translation>
+        <translation>Za stran dol</translation>
     </message>
     <message>
         <source>Caps Lock</source>
-        <translation>Feststelltaste</translation>
+        <translation>Caps Lock</translation>
     </message>
     <message>
         <source>Num Lock</source>
-        <translation>Zahlen-Feststelltaste</translation>
+        <translation>Num Lock</translation>
     </message>
     <message>
         <source>Number Lock</source>
-        <translation>Zahlen-Feststelltaste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scroll Lock</source>
-        <translation>Rollen-Feststelltaste</translation>
+        <translation type="unfinished">Scroll Lock</translation>
     </message>
     <message>
         <source>Insert</source>
-        <translation>Einfügen</translation>
+        <translation>Vstavi</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
     </message>
     <message>
         <source>Escape</source>
@@ -6199,74 +6115,81 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>System Request</source>
-        <translation>System Request</translation>
+        <translation>Sistemska zahteva</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Auswählen</translation>
+        <translation>Izberi</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>Da</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Nein</translation>
+        <translation>Ne</translation>
     </message>
     <message>
         <source>Context1</source>
-        <translation>Kontext1</translation>
+        <translation>Kontekst1</translation>
     </message>
     <message>
         <source>Context2</source>
-        <translation>Kontext2</translation>
+        <translation>Kontekst2</translation>
     </message>
     <message>
         <source>Context3</source>
-        <translation>Kontext3</translation>
+        <translation>Kontekst3</translation>
     </message>
     <message>
         <source>Context4</source>
-        <translation>Kontext4</translation>
+        <translation>Kontekst4</translation>
     </message>
     <message>
         <source>Call</source>
-        <extracomment>Button to start a call (note: a separate button is used to end the call)</extracomment>
-        <translation>Anruf</translation>
+        <extracomment>Button to start a call (note: a separate button is used to end the call)
+</extracomment>
+        <translation>Pokliči</translation>
     </message>
     <message>
         <source>Hangup</source>
-        <extracomment>Button to end a call (note: a separate button is used to start the call)</extracomment>
-        <translation>Auflegen</translation>
+        <extracomment>Button to end a call (note: a separate button is used to start the call)
+</extracomment>
+        <translation>Odloži</translation>
     </message>
     <message>
         <source>Toggle Call/Hangup</source>
-        <extracomment>Button that will hang up if we&apos;re in call, or make a call if we&apos;re not.</extracomment>
-        <translation>Anrufen/Aufhängen</translation>
+        <extracomment>Button that will hang up if we&apos;re in call, or make a call if we&apos;re not.
+</extracomment>
+        <translation>Preklopi pokliči/odloži</translation>
     </message>
     <message>
         <source>Flip</source>
-        <translation>Umdrehen</translation>
+        <translation>Obrni</translation>
     </message>
     <message>
         <source>Voice Dial</source>
-        <extracomment>Button to trigger voice dialing</extracomment>
-        <translation>Sprachwahl</translation>
+        <extracomment>Button to trigger voice dialling
+</extracomment>
+        <translation>Glasovni klic</translation>
     </message>
     <message>
         <source>Last Number Redial</source>
-        <extracomment>Button to redial the last number called</extracomment>
-        <translation>Wahlwiederholung</translation>
+        <extracomment>Button to redial the last number called
+</extracomment>
+        <translation>Ponovni klic zadnje številke</translation>
     </message>
     <message>
         <source>Camera Shutter</source>
-        <extracomment>Button to trigger the camera shutter (take a picture)</extracomment>
-        <translation>Auslöser</translation>
+        <extracomment>Button to trigger the camera shutter (take a picture)
+</extracomment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Camera Focus</source>
-        <extracomment>Button to focus the camera</extracomment>
-        <translation>Scharfstellen</translation>
+        <extracomment>Button to focus the camera
+</extracomment>
+        <translation>Fokus fotoaparata</translation>
     </message>
     <message>
         <source>Kanji</source>
@@ -6274,15 +6197,15 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Muhenkan</source>
-        <translation>Muhenkan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Henkan</source>
-        <translation>Henkan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Romaji</source>
-        <translation>Romaji</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hiragana</source>
@@ -6294,107 +6217,107 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Hiragana Katakana</source>
-        <translation>Hiragana Katakana</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zenkaku</source>
-        <translation>Zenkaku</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hankaku</source>
-        <translation>Hankaku</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zenkaku Hankaku</source>
-        <translation>Zenkaku Hankaku</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Touroku</source>
-        <translation>Touroku</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Massyo</source>
-        <translation>Massyo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Kana Lock</source>
-        <translation>Kana Lock</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Kana Shift</source>
-        <translation>Kana Shift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Eisu Shift</source>
-        <translation>Eisu Shift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Eisu toggle</source>
-        <translation>Eisu toggle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Code input</source>
-        <translation>Code-Eingabe</translation>
+        <translation>Vnos kode</translation>
     </message>
     <message>
         <source>Multiple Candidate</source>
-        <translation>Mehrere Vorschläge</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Previous Candidate</source>
-        <translation>Vorheriger Vorschlag</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul</source>
-        <translation>Hangeul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Start</source>
-        <translation>Hangeul Anfang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul End</source>
-        <translation>Hangeul Ende</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Hanja</source>
-        <translation>Hangeul-Hanja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Jamo</source>
-        <translation>Hangeul-Jamo</translation>
+        <translation>Hangul Jamo</translation>
     </message>
     <message>
         <source>Hangul Romaja</source>
-        <translation>Hangeul-Romaja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Jeonja</source>
-        <translation>Hangeul-Jeonja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Banja</source>
-        <translation>Hangeul-Banja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul PreHanja</source>
-        <translation>Hangeul-PreHanja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul PostHanja</source>
-        <translation>Hangeul-PostHanja</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hangul Special</source>
-        <translation>Hangeul Special</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ctrl</source>
-        <translation>Strg</translation>
+        <translation>Ctrl</translation>
     </message>
     <message>
         <source>Shift</source>
-        <translation>Umschalt</translation>
+        <translation>Shift</translation>
     </message>
     <message>
         <source>Alt</source>
@@ -6414,1259 +6337,1257 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
     </message>
     <message>
         <source>Home Page</source>
-        <translation>Startseite</translation>
+        <translation>Domača stran</translation>
     </message>
 </context>
 <context>
     <name>QSlider</name>
     <message>
         <source>Page left</source>
-        <translation>Eine Seite nach links</translation>
+        <translation>Za stran levo</translation>
     </message>
     <message>
         <source>Page up</source>
-        <translation>Eine Seite nach oben</translation>
+        <translation>Za stran gor</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation>Položaj</translation>
     </message>
     <message>
         <source>Page right</source>
-        <translation>Eine Seite nach rechts</translation>
+        <translation>Za stran desno</translation>
     </message>
     <message>
         <source>Page down</source>
-        <translation>Eine Seite nach unten</translation>
+        <translation>Za stran dol</translation>
     </message>
 </context>
 <context>
     <name>QSocks5SocketEngine</name>
     <message>
         <source>Connection to proxy refused</source>
-        <translation>Der Proxy-Server hat den Aufbau einer Verbindung verweigert</translation>
+        <translation>Povezava s posrednikom je bila zavrnjena</translation>
     </message>
     <message>
         <source>Connection to proxy closed prematurely</source>
-        <translation>Der Proxy-Server hat die Verbindung vorzeitig beendet</translation>
+        <translation>Povezava s posrednikom je bila prekinjena predčasno</translation>
     </message>
     <message>
         <source>Proxy host not found</source>
-        <translation>Der Proxy-Server konnte nicht gefunden werden</translation>
+        <translation>Ni moč najti gostitelja posrednika</translation>
     </message>
     <message>
         <source>Connection to proxy timed out</source>
-        <translation>Bei der Verbindung mit dem Proxy-Server wurde ein Zeitlimit überschritten</translation>
+        <translation>Čas za povezavo s posrednikom je potekel</translation>
     </message>
     <message>
         <source>Proxy authentication failed</source>
-        <translation>Die Authentifizierung beim Proxy-Server ist fehlgeschlagen</translation>
+        <translation>Neuspešno overjanje posrednika</translation>
     </message>
     <message>
         <source>Proxy authentication failed: %1</source>
-        <translation>Die Authentifizierung beim Proxy-Server ist fehlgeschlagen: %1</translation>
+        <translation>Neuspešno overjanje posrednika: %1</translation>
     </message>
     <message>
         <source>SOCKS version 5 protocol error</source>
-        <translation>Protokoll-Fehler (SOCKS Version 5)</translation>
+        <translation>Napaka protokola SOCKS različice 5</translation>
     </message>
     <message>
         <source>General SOCKSv5 server failure</source>
-        <translation>Allgemeiner Fehler bei der Kommunikation mit dem SOCKSv5-Server</translation>
+        <translation>Splošna napaka strežnika SOCKSv5</translation>
     </message>
     <message>
         <source>Connection not allowed by SOCKSv5 server</source>
-        <translation>Der SOCKSv5-Server hat die Verbindung verweigert</translation>
+        <translation>Strežnik SOCKSv5 ne dovoljuje povezave</translation>
     </message>
     <message>
         <source>TTL expired</source>
-        <translation>TTL verstrichen</translation>
+        <translation>TTL je zapadel</translation>
     </message>
     <message>
         <source>SOCKSv5 command not supported</source>
-        <translation>Dieses SOCKSv5-Kommando wird nicht unterstützt</translation>
+        <translation>Ukaz SOCKSv5 ni podprt</translation>
     </message>
     <message>
         <source>Address type not supported</source>
-        <translation>Dieser Adresstyp wird nicht unterstützt</translation>
+        <translation>Vrsta naslova ni podprta</translation>
     </message>
     <message>
         <source>Unknown SOCKSv5 proxy error code 0x%1</source>
-        <translation>Unbekannten Fehlercode vom SOCKSv5-Proxy-Server erhalten: 0x%1</translation>
+        <translation>Neznana koda napake posrednika SOCKSv5: 0x%1</translation>
     </message>
     <message>
         <source>Network operation timed out</source>
-        <translation>Das Zeitlimit für die Operation wurde überschritten</translation>
+        <translation>Čas za omrežni postopek je potekel</translation>
     </message>
 </context>
 <context>
     <name>QSoftKeyManager</name>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>V redu</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Auswählen</translation>
+        <translation>Izbor</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Fertig</translation>
+        <translation>Opravljeno</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Optionen</translation>
+        <translation>Možnosti</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Beenden</translation>
+        <translation>Končaj</translation>
     </message>
 </context>
 <context>
     <name>QSpinBox</name>
     <message>
         <source>More</source>
-        <translation>Mehr</translation>
+        <translation>Več</translation>
     </message>
     <message>
         <source>Less</source>
-        <translation>Weniger</translation>
+        <translation>Manj</translation>
     </message>
 </context>
 <context>
     <name>QSql</name>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
     </message>
     <message>
         <source>Delete this record?</source>
-        <translation>Diesen Datensatz löschen?</translation>
+        <translation>Ali izbrišem ta zapis?</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>Da</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Nein</translation>
+        <translation>Ne</translation>
     </message>
     <message>
         <source>Insert</source>
-        <translation>Einfügen</translation>
+        <translation>Vstavi</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Aktualisieren</translation>
+        <translation>Posodobi</translation>
     </message>
     <message>
         <source>Save edits?</source>
-        <translation>Änderungen speichern?</translation>
+        <translation>Ali shranim urejanja?.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>Prekliči</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
+        <translation>Potrdi</translation>
     </message>
     <message>
         <source>Cancel your edits?</source>
-        <translation>Änderungen verwerfen?</translation>
+        <translation>Ali želite preklicati urejanja?</translation>
     </message>
 </context>
 <context>
     <name>QSslSocket</name>
     <message>
         <source>Unable to write data: %1</source>
-        <translation>Die Daten konnten nicht geschrieben werden: %1</translation>
+        <translation>Ni moč zapisati podatkov: %1</translation>
     </message>
     <message>
         <source>Unable to decrypt data: %1</source>
-        <translation>Die Daten konnten nicht entschlüsselt werden: %1</translation>
+        <translation>Ni moč dešifrirati podatkov: %1</translation>
     </message>
     <message>
         <source>Error while reading: %1</source>
-        <translation>Beim Lesen ist ein Fehler aufgetreten: %1</translation>
+        <translation>Napaka med branjem: %1</translation>
     </message>
     <message>
         <source>Error during SSL handshake: %1</source>
-        <translation>Im Ablauf des SSL-Protokolls ist ein Fehler aufgetreten: %1</translation>
+        <translation>Napaka med rokovanjem SSL: %1</translation>
     </message>
     <message>
         <source>Error creating SSL context (%1)</source>
-        <translation>Es konnte keine SSL-Kontextstruktur erzeugt werden (%1)</translation>
+        <translation>Napaka pri ustvarjanju konteksta SSL (%1)</translation>
     </message>
     <message>
         <source>Invalid or empty cipher list (%1)</source>
-        <translation>Ungültige oder leere Schlüsselliste (%1)</translation>
+        <translation>Neveljaven ali prazen seznam šifer (%1)</translation>
     </message>
     <message>
         <source>Private key does not certify public key, %1</source>
-        <translation>Der private Schlüssel passt nicht zum öffentlichen Schlüssel, %1</translation>
+        <translation>Zasebni ključ ne potrjuje javnega ključa: %1</translation>
     </message>
     <message>
         <source>Error creating SSL session, %1</source>
-        <translation>Es konnte keine SSL-Sitzung erzeugt werden, %1</translation>
+        <translation>Napaka pri ustvarjanju seje SSL: %1</translation>
     </message>
     <message>
         <source>Error creating SSL session: %1</source>
-        <translation>Es konnte keine SSL-Sitzung erzeugt werden: %1</translation>
-    </message>
-    <message>
-        <source>The peer certificate is blacklisted</source>
-        <translation>Das Zertifikat der Gegenstelle ist in einer Schwarzen Liste enthalten</translation>
+        <translation>Napaka pri ustvarjanju seje SSL: %1</translation>
     </message>
     <message>
         <source>Cannot provide a certificate with no key, %1</source>
-        <translation>Ohne Schlüssel kann kein Zertifikat zur Verfügung gestellt werden, %1</translation>
+        <translation>Ni moč priskrbeti potrdila brez ključa, %1</translation>
     </message>
     <message>
         <source>Error loading local certificate, %1</source>
-        <translation>Das lokale Zertifikat konnte nicht geladen werden, %1</translation>
+        <translation>Napaka pri nalaganju krajevnega potrdila, %1</translation>
     </message>
     <message>
         <source>Error loading private key, %1</source>
-        <translation>Der private Schlüssel konnte nicht geladen werden, %1</translation>
+        <translation>Napaka pri nalaganju zasebnega ključa, %1</translation>
     </message>
     <message>
         <source>No error</source>
-        <translation>Kein Fehler</translation>
+        <translation>Brez napake</translation>
     </message>
     <message>
         <source>The issuer certificate could not be found</source>
-        <translation>Das Zertifikat des Ausstellers konnte nicht gefunden werden</translation>
+        <translation>Potrdila izdajatelja ni bilo moč najti</translation>
     </message>
     <message>
         <source>The certificate signature could not be decrypted</source>
-        <translation>Die Signatur des Zertifikats konnte nicht entschlüsselt werden</translation>
+        <translation>Podpisa potrdila ni bilo moč dešifrirati</translation>
     </message>
     <message>
         <source>The public key in the certificate could not be read</source>
-        <translation>Der öffentliche Schlüssel konnte nicht gelesen werden</translation>
+        <translation>Javnega ključa iz potrdila ni bilo moč prebrati</translation>
     </message>
     <message>
         <source>The signature of the certificate is invalid</source>
-        <translation>Die Signatur des Zertifikats ist ungültig</translation>
+        <translation>Podpis potrdila ni veljaven</translation>
     </message>
     <message>
         <source>The certificate is not yet valid</source>
-        <translation>Das Zertifikat ist noch nicht gültig</translation>
+        <translation>Potrdilo še ni veljavno</translation>
     </message>
     <message>
         <source>The certificate has expired</source>
-        <translation>Die Gültigkeit des Zertifikats ist abgelaufen</translation>
+        <translation>Potrdilo je preteklo</translation>
     </message>
     <message>
         <source>The certificate&apos;s notBefore field contains an invalid time</source>
-        <translation>Das Feld &apos;notBefore&apos; des Zertifikats enthält eine ungültige Zeit</translation>
+        <translation>Polje notBefore (ne pred) potrdila vsebuje neveljaven čas</translation>
     </message>
     <message>
         <source>The certificate&apos;s notAfter field contains an invalid time</source>
-        <translation>Das Feld &apos;notAfter&apos; des Zertifikats enthält eine ungültige Zeit</translation>
+        <translation>Polje notAfter (ne po) potrdila vsebuje neveljaven čas</translation>
     </message>
     <message>
         <source>The certificate is self-signed, and untrusted</source>
-        <translation>Das Zertifikat ist selbstsigniert und daher nicht vertrauenswürdig</translation>
+        <translation>Potrdilo je samo-podpisano in nezaupano</translation>
     </message>
     <message>
         <source>The root certificate of the certificate chain is self-signed, and untrusted</source>
-        <translation>Das oberste Zertifikat der Kette ist selbstsigniert und daher nicht vertrauenswürdig</translation>
+        <translation>Vrhnje potrdilo verige potrdil je samo-podpisano in nezaupano</translation>
     </message>
     <message>
         <source>The issuer certificate of a locally looked up certificate could not be found</source>
-        <translation>Das Zertifikat des Ausstellers eines lokal gefundenen Zertifikats konnte nicht gefunden werden</translation>
+        <translation>Potrdila izdajatelja za krajevno najdeno potrdilo ni bilo moč najti</translation>
     </message>
     <message>
         <source>No certificates could be verified</source>
-        <translation>Keines der Zertifikate konnte verifiziert werden</translation>
+        <translation>Preveriti ni bilo moč nobenega potrdila</translation>
     </message>
     <message>
         <source>One of the CA certificates is invalid</source>
-        <translation>Eines der Zertifikate der Zertifizierungsstelle ist ungültig</translation>
+        <translation>Eno izmed potrdil avtoritete za potrdila ni veljavno</translation>
     </message>
     <message>
         <source>The basicConstraints path length parameter has been exceeded</source>
-        <translation>Die Länge des basicConstraints-Pfades wurde überschritten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The supplied certificate is unsuitable for this purpose</source>
-        <translation>Das angegebene Zertifikat kann in diesem Fall nicht verwendet werden</translation>
+        <translation>Predloženo potrdilo ni primerno za ta namen</translation>
     </message>
     <message>
         <source>The root CA certificate is not trusted for this purpose</source>
-        <translation>Das oberste Zertifikat der Zertifizierungsstelle ist für diesen Fall nicht vertrauenswürdig</translation>
+        <translation>Potrdilo vrhovne avtoritete za potrdila ni zaupano za ta namen</translation>
     </message>
     <message>
         <source>The root CA certificate is marked to reject the specified purpose</source>
-        <translation>Das oberste Zertifikat der Zertifizierungsstelle weist diesen Fall auf Grund einer speziellen Kennzeichnung zurück</translation>
+        <translation>Potrdilo vrhovne avtoritete za potrdila je označeno za zavrnitev navedenega namena</translation>
     </message>
     <message>
         <source>The current candidate issuer certificate was rejected because its subject name did not match the issuer name of the current certificate</source>
-        <translation>Das Zertifikat des betrachteten Ausstellers wurde zurückgewiesen da sein Subjektname nicht dem Namen des Austellers des aktuellen Zertifikats entspricht</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The current candidate issuer certificate was rejected because its issuer name and serial number was present and did not match the authority key identifier of the current certificate</source>
-        <translation>Das Zertifikat des betrachteten Ausstellers wurde zurückgewiesen da Ausstellername und Seriennummer vorhanden sind und nicht dem Bezeichner der Zertifizierungsstelle des aktuellen Zertifikats entsprechen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The peer did not present any certificate</source>
-        <translation>Die Gegenstelle hat kein Zertifikat angegeben</translation>
+        <translation>Vrstnik ni predložil nobenega potrdila</translation>
     </message>
     <message>
         <source>The host name did not match any of the valid hosts for this certificate</source>
-        <translation>Der Name des Hosts ist keiner aus der Liste der für dieses Zertifikat gültigen Hosts</translation>
+        <translation>Ime gostitelja se ne ujema z nobenim izmed veljavnih gostiteljev za to potrdilo</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
 </context>
 <context>
     <name>QStateMachine</name>
     <message>
         <source>Missing initial state in compound state &apos;%1&apos;</source>
-        <translation>Der Anfangszustand des zusammengesetzten Zustands &apos;%1&apos; fehlt</translation>
+        <translation>V sestavljenem stanju »%1« manjka začetno stanje</translation>
     </message>
     <message>
         <source>Missing default state in history state &apos;%1&apos;</source>
-        <translation>Der Anfangszustand im Verlauf bei Zustand &apos;%1&apos; fehlt</translation>
+        <translation>V zgodovinskem stanju »%1« manjka privzeto stanje</translation>
     </message>
     <message>
         <source>No common ancestor for targets and source of transition from state &apos;%1&apos;</source>
-        <translation>Die Ziele und die Quelle des Übergangs vom Zustand &apos;%1&apos; haben keinen gemeinsamen Ursprung</translation>
+        <translation>Za cilje in začetek prehoda iz stanja »%1« ni skupnega prednika</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
+        <translation>Neznana napaka</translation>
     </message>
 </context>
 <context>
     <name>QSystemSemaphore</name>
     <message>
-        <source>%1: does not exist</source>
-        <translation>%1: Nicht existent</translation>
-    </message>
-    <message>
         <source>%1: out of resources</source>
-        <translation>%1: Keine Ressourcen mehr verfügbar</translation>
+        <translation>%1: zmanjkalo je virov</translation>
     </message>
     <message>
         <source>%1: permission denied</source>
-        <translation>%1: Zugriff verweigert</translation>
+        <translation>%1: nimate dovoljenja</translation>
     </message>
     <message>
         <source>%1: already exists</source>
-        <translation>%1: Existiert bereits</translation>
+        <translation>%1: že obstaja</translation>
+    </message>
+    <message>
+        <source>%1: does not exist</source>
+        <translation>%1: ne obstaja</translation>
     </message>
     <message>
         <source>%1: unknown error %2</source>
-        <translation>%1: Unbekannter Fehler %2</translation>
+        <translation>%1: neznana napaka %2</translation>
     </message>
 </context>
 <context>
     <name>QTDSDriver</name>
     <message>
         <source>Unable to open connection</source>
-        <translation>Die Datenbankverbindung kann nicht geöffnet werden</translation>
+        <translation>Ni moč vzpostaviti povezave</translation>
     </message>
     <message>
         <source>Unable to use database</source>
-        <translation>Die Datenbank kann nicht verwendet werden</translation>
+        <translation>Podatkovne zbirke ni moč uporabljati</translation>
     </message>
 </context>
 <context>
     <name>QTabBar</name>
     <message>
         <source>Scroll Left</source>
-        <translation>Nach links scrollen</translation>
+        <translation>Premakni levo</translation>
     </message>
     <message>
         <source>Scroll Right</source>
-        <translation>Nach rechts scrollen</translation>
+        <translation>Premakni desno</translation>
     </message>
 </context>
 <context>
     <name>QTcpServer</name>
     <message>
         <source>Operation on socket is not supported</source>
-        <translation>Diese Socket-Operation wird nicht unterstützt</translation>
+        <translation>Dejanje na vtičnici ni podprto</translation>
     </message>
 </context>
 <context>
     <name>QTextControl</name>
     <message>
         <source>&amp;Undo</source>
-        <translation>&amp;Rückgängig</translation>
+        <translation>&amp;Razveljavi</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>Wieder&amp;herstellen</translation>
+        <translation>&amp;Uveljavi</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>&amp;Ausschneiden</translation>
+        <translation>&amp;Izreži</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopieren</translation>
+        <translation>S&amp;kopiraj</translation>
     </message>
     <message>
         <source>Copy &amp;Link Location</source>
-        <translation>&amp;Link-Adresse kopieren</translation>
+        <translation>Skopiraj &amp;povezavo do lokacije</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>Einf&amp;ügen</translation>
+        <translation>Pri&amp;lepi</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Izbriši</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation>Alles auswählen</translation>
+        <translation>Izberi vse</translation>
     </message>
 </context>
 <context>
     <name>QToolButton</name>
     <message>
         <source>Press</source>
-        <translation>Drücken</translation>
+        <translation>Pritisni</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation>Odpri</translation>
     </message>
 </context>
 <context>
     <name>QUdpSocket</name>
     <message>
         <source>This platform does not support IPv6</source>
-        <translation>Diese Plattform unterstützt kein IPv6</translation>
+        <translation>Ta platforma ne podpira IPv6</translation>
     </message>
 </context>
 <context>
     <name>QUndoGroup</name>
     <message>
         <source>Undo</source>
-        <translation>Rückgängig</translation>
+        <translation>Razveljavi</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Wiederherstellen</translation>
+        <translation>Uveljavi</translation>
     </message>
 </context>
 <context>
     <name>QUndoModel</name>
     <message>
         <source>&lt;empty&gt;</source>
-        <translation>&lt;leer&gt;</translation>
+        <translation>&lt;prazno&gt;</translation>
     </message>
 </context>
 <context>
     <name>QUndoStack</name>
     <message>
         <source>Undo</source>
-        <translation>Rückgängig</translation>
+        <translation>Razveljavi</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Wiederherstellen</translation>
+        <translation>Uveljavi</translation>
     </message>
 </context>
 <context>
     <name>QUnicodeControlCharacterMenu</name>
     <message>
         <source>LRM Left-to-right mark</source>
-        <translation>LRM Left-to-right mark</translation>
+        <translation>LRM (oznaka z-leve-na-desno)</translation>
     </message>
     <message>
         <source>RLM Right-to-left mark</source>
-        <translation>RLM Right-to-left mark</translation>
+        <translation>RLM (oznaka z-desne-na-levo)</translation>
     </message>
     <message>
         <source>ZWJ Zero width joiner</source>
-        <translation>ZWJ Zero width joiner</translation>
+        <translation>ZWJ (združevalec s širino nič)</translation>
     </message>
     <message>
         <source>ZWNJ Zero width non-joiner</source>
-        <translation>ZWNJ Zero width non-joiner</translation>
+        <translation>ZWNJ (ne-združevalec s širino nič)</translation>
     </message>
     <message>
         <source>ZWSP Zero width space</source>
-        <translation>ZWSP Zero width space</translation>
+        <translation>ZWSP (presledek s širino nič)</translation>
     </message>
     <message>
         <source>LRE Start of left-to-right embedding</source>
-        <translation>LRE Start of left-to-right embedding</translation>
+        <translation>LRE (začetek vgrajevanja z leve na desno)</translation>
     </message>
     <message>
         <source>RLE Start of right-to-left embedding</source>
-        <translation>RLE Start of right-to-left embedding</translation>
+        <translation>RLE (začetek vgrajevanja z desne na levo)</translation>
     </message>
     <message>
         <source>LRO Start of left-to-right override</source>
-        <translation>LRO Start of left-to-right override</translation>
+        <translation>LRO (začetek nadomeščanja z leve na desno)</translation>
     </message>
     <message>
         <source>RLO Start of right-to-left override</source>
-        <translation>RLO Start of right-to-left override</translation>
+        <translation>RLO (začetek nadomeščanja z desne na levo)</translation>
     </message>
     <message>
         <source>PDF Pop directional formatting</source>
-        <translation>PDF Pop directional formatting</translation>
+        <translation>PDF (odstrani oblikovanje usmerjenosti)</translation>
     </message>
     <message>
         <source>Insert Unicode control character</source>
-        <translation>Unicode-Kontrollzeichen einfügen</translation>
+        <translation>Vstavi kontrolni znak Unicode</translation>
     </message>
 </context>
 <context>
     <name>QWebFrame</name>
     <message>
         <source>Request cancelled</source>
-        <translation>Anfrage wurde abgebrochen</translation>
+        <translation>Zahtevek je bil preklican</translation>
     </message>
     <message>
         <source>Request blocked</source>
-        <translation>Anfrage wurde abgewiesen</translation>
+        <translation>Zahtevek je bil blokiran</translation>
     </message>
     <message>
         <source>Cannot show URL</source>
-        <translation>Der URL kann nicht angezeigt werden</translation>
+        <translation>Lokacije ni moč prikazati</translation>
     </message>
     <message>
         <source>Frame load interrupted by policy change</source>
-        <translation>Das Laden des Rahmens wurde durch eine Änderung der Richtlinien unterbrochen</translation>
+        <translation>Nalaganje okvirja je bilo prekinjeno zaradi spremembe pravil</translation>
     </message>
     <message>
         <source>Cannot show mimetype</source>
-        <translation>Dieser Mime-Typ kann nicht angezeigt werden</translation>
+        <translation>Vrste MIME ni moč prikazati</translation>
     </message>
     <message>
         <source>File does not exist</source>
-        <translation>Die Datei existiert nicht</translation>
+        <translation>Datoteka ne obstaja</translation>
     </message>
 </context>
 <context>
     <name>QWebPage</name>
     <message>
+        <source>Redirection limit reached</source>
+        <translation>Dosežena je bila omejitev preusmeritev</translation>
+    </message>
+    <message>
+        <source>Bad HTTP request</source>
+        <translation>Napačen zahtevek HTTP</translation>
+    </message>
+    <message>
         <source>Submit</source>
         <comment>default label for Submit buttons in forms on web pages</comment>
-        <translation>Senden</translation>
+        <translation>Pošlji</translation>
     </message>
     <message>
         <source>Submit</source>
         <comment>Submit (input element) alt text for &lt;input&gt; elements with no alt, title, or value</comment>
-        <translation>Senden</translation>
+        <translation>Pošlji</translation>
     </message>
     <message>
         <source>Reset</source>
         <comment>default label for Reset buttons in forms on web pages</comment>
-        <translation>Rücksetzen</translation>
+        <translation>Ponastavi</translation>
+    </message>
+    <message>
+        <source>This is a searchable index. Enter search keywords: </source>
+        <comment>text that appears at the start of nearly-obsolete web pages in the form of a &apos;searchable index&apos;</comment>
+        <translation>To je stvarno kazalo z iskanjem. Vnesite iskane besede: </translation>
     </message>
     <message>
         <source>Choose File</source>
         <comment>title for file button used in HTML forms</comment>
-        <translation>Durchsuchen</translation>
+        <translation>Izberite datoteko</translation>
     </message>
     <message>
         <source>No file selected</source>
         <comment>text to display in file button used in HTML forms when no file is selected</comment>
-        <translation>Es ist keine Datei ausgewählt</translation>
+        <translation>Datoteka ni izbrana</translation>
     </message>
     <message>
         <source>Open in New Window</source>
         <comment>Open in New Window context menu item</comment>
-        <translation>In neuem Fenster öffnen</translation>
+        <translation>Odpri v novem oknu</translation>
     </message>
     <message>
         <source>Save Link...</source>
         <comment>Download Linked File context menu item</comment>
-        <translation>Ziel speichern unter...</translation>
+        <translation>Shrani povezavo ...</translation>
     </message>
     <message>
         <source>Copy Link</source>
         <comment>Copy Link context menu item</comment>
-        <translation>Link-Adresse kopieren</translation>
+        <translation>Skopiraj povezavo</translation>
     </message>
     <message>
         <source>Open Image</source>
         <comment>Open Image in New Window context menu item</comment>
-        <translation>Grafik in neuem Fenster öffnen</translation>
+        <translation>Odpri sliko</translation>
     </message>
     <message>
         <source>Save Image</source>
         <comment>Download Image context menu item</comment>
-        <translation>Grafik speichern unter</translation>
+        <translation>Shrani sliko</translation>
     </message>
     <message>
         <source>Copy Image</source>
         <comment>Copy Link context menu item</comment>
-        <translation>Grafik kopieren</translation>
+        <translation>Kopiraj sliko</translation>
     </message>
     <message>
         <source>Open Frame</source>
         <comment>Open Frame in New Window context menu item</comment>
-        <translation>Frame öffnen</translation>
+        <translation>Odpri okvir</translation>
     </message>
     <message>
         <source>Copy</source>
         <comment>Copy context menu item</comment>
-        <translation>Kopieren</translation>
+        <translation>Skopiraj</translation>
     </message>
     <message>
         <source>Go Back</source>
         <comment>Back context menu item</comment>
-        <translation>Zurück</translation>
+        <translation>Pojdi nazaj</translation>
     </message>
     <message>
         <source>Go Forward</source>
         <comment>Forward context menu item</comment>
-        <translation>Vor</translation>
+        <translation>Pojdi naprej</translation>
     </message>
     <message>
         <source>Stop</source>
         <comment>Stop context menu item</comment>
-        <translation>Abbrechen</translation>
+        <translation>Ustavi</translation>
     </message>
     <message>
         <source>Reload</source>
         <comment>Reload context menu item</comment>
-        <translation>Neu laden</translation>
+        <translation>Znova naloži</translation>
     </message>
     <message>
         <source>Cut</source>
         <comment>Cut context menu item</comment>
-        <translation>Ausschneiden</translation>
+        <translation>Izreži</translation>
     </message>
     <message>
         <source>Paste</source>
         <comment>Paste context menu item</comment>
-        <translation>Einfügen</translation>
+        <translation>Prilepi</translation>
     </message>
     <message>
         <source>No Guesses Found</source>
         <comment>No Guesses Found context menu item</comment>
-        <translation>Keine Vorschläge gefunden</translation>
+        <translation>Najdenega ni nobenega ugibanja</translation>
     </message>
     <message>
         <source>Ignore</source>
         <comment>Ignore Spelling context menu item</comment>
-        <translation>Ignorieren</translation>
+        <translation>Prezri</translation>
     </message>
     <message>
         <source>Add To Dictionary</source>
         <comment>Learn Spelling context menu item</comment>
-        <translation>In Wörterbuch aufnehmen</translation>
+        <translation>Dodaj v slovar</translation>
     </message>
     <message>
         <source>Search The Web</source>
         <comment>Search The Web context menu item</comment>
-        <translation>Im Web suchen</translation>
+        <translation>Iščite po spletu</translation>
     </message>
     <message>
         <source>Look Up In Dictionary</source>
         <comment>Look Up in Dictionary context menu item</comment>
-        <translation>Im Wörterbuch nachschauen</translation>
+        <translation>Poišči v slovarju</translation>
     </message>
     <message>
         <source>Open Link</source>
         <comment>Open Link context menu item</comment>
-        <translation>Adresse öffnen</translation>
+        <translation>Odpri povezavo</translation>
     </message>
     <message>
         <source>Ignore</source>
         <comment>Ignore Grammar context menu item</comment>
-        <translation>Ignorieren</translation>
+        <translation>Prezri</translation>
     </message>
     <message>
         <source>Spelling</source>
         <comment>Spelling and Grammar context sub-menu item</comment>
-        <translation>Rechtschreibung</translation>
+        <translation>Črkovanje</translation>
     </message>
     <message>
         <source>Show Spelling and Grammar</source>
         <comment>menu item title</comment>
-        <translation>Rechtschreibung und Grammatik anzeigen</translation>
+        <translation>Prikaži črkovanje in slovnico</translation>
     </message>
     <message>
         <source>Hide Spelling and Grammar</source>
         <comment>menu item title</comment>
-        <translation>Rechtschreibung und Grammatik nicht anzeigen</translation>
+        <translation>Skrij črkovanje in slovnico</translation>
     </message>
     <message>
         <source>Check Spelling</source>
         <comment>Check spelling context menu item</comment>
-        <translation>Rechtschreibung prüfen</translation>
+        <translation>Preveri črkovanje</translation>
     </message>
     <message>
         <source>Check Spelling While Typing</source>
         <comment>Check spelling while typing context menu item</comment>
-        <translation>Rechtschreibung während des Schreibens überprüfen</translation>
+        <translation>Preveri črkovanje med tipkanjem</translation>
     </message>
     <message>
         <source>Check Grammar With Spelling</source>
         <comment>Check grammar with spelling context menu item</comment>
-        <translation>Grammatik mit Rechtschreibung zusammen überprüfen</translation>
+        <translation>Preveri slovnico in črkovanje</translation>
     </message>
     <message>
         <source>Fonts</source>
         <comment>Font context sub-menu item</comment>
-        <translation>Fonts</translation>
+        <translation>Pisave</translation>
     </message>
     <message>
         <source>Bold</source>
         <comment>Bold context menu item</comment>
-        <translation>Fett</translation>
+        <translation>Polkrepko</translation>
     </message>
     <message>
         <source>Italic</source>
         <comment>Italic context menu item</comment>
-        <translation>Kursiv</translation>
+        <translation>Ležeče</translation>
     </message>
     <message>
         <source>Underline</source>
         <comment>Underline context menu item</comment>
-        <translation>Unterstrichen</translation>
+        <translation>Podčrtano</translation>
     </message>
     <message>
         <source>Outline</source>
         <comment>Outline context menu item</comment>
-        <translation>Umriss</translation>
+        <translation>Obris</translation>
     </message>
     <message>
         <source>Direction</source>
         <comment>Writing direction context sub-menu item</comment>
-        <translation>Schreibrichtung</translation>
+        <translation>Smer</translation>
     </message>
     <message>
         <source>Text Direction</source>
         <comment>Text direction context sub-menu item</comment>
-        <translation>Schreibrichtung</translation>
+        <translation>Smer besedila</translation>
     </message>
     <message>
         <source>Default</source>
         <comment>Default writing direction context menu item</comment>
-        <translation>Vorgabe</translation>
+        <translation>Privzeta</translation>
     </message>
     <message>
         <source>Left to Right</source>
         <comment>Left to Right context menu item</comment>
-        <translation>Von links nach rechts</translation>
+        <translation>Z leve na desno</translation>
     </message>
     <message>
         <source>Right to Left</source>
         <comment>Right to Left context menu item</comment>
-        <translation>Von rechts nach links</translation>
+        <translation>Z desne na levo</translation>
     </message>
     <message>
         <source>Missing Plug-in</source>
         <comment>Label text to be used when a plug-in is missing</comment>
-        <translation>Fehlendes Plugin</translation>
+        <translation>Manjkajoč vstavek</translation>
     </message>
     <message>
         <source>Loading...</source>
         <comment>Media controller status message when the media is loading</comment>
-        <translation>Lädt...</translation>
+        <translation>Nalaganje ...</translation>
     </message>
     <message>
         <source>Live Broadcast</source>
         <comment>Media controller status message when watching a live broadcast</comment>
-        <translation>Live-Übertragung</translation>
+        <translation>Prenos v živo</translation>
     </message>
     <message>
         <source>Audio Element</source>
         <comment>Media controller element</comment>
-        <translation>Audio-Element</translation>
+        <translation>Zvočni element</translation>
     </message>
     <message>
         <source>Video Element</source>
         <comment>Media controller element</comment>
-        <translation>Video-Element</translation>
+        <translation>Video element</translation>
     </message>
     <message>
         <source>Mute Button</source>
         <comment>Media controller element</comment>
-        <translation>Stummschalttaste</translation>
+        <translation>Gumb za utišanje</translation>
     </message>
     <message>
         <source>Unmute Button</source>
         <comment>Media controller element</comment>
-        <translation>Abstelltaste für Stummschaltung</translation>
+        <translation>Gumb za preklic utišanja</translation>
     </message>
     <message>
         <source>Play Button</source>
         <comment>Media controller element</comment>
-        <translation>Abspielknopf</translation>
+        <translation>Gumb za predvajanje</translation>
     </message>
     <message>
         <source>Pause Button</source>
         <comment>Media controller element</comment>
-        <translation>Pause-Knopf</translation>
+        <translation>Gumb za premor</translation>
     </message>
     <message>
         <source>Slider</source>
         <comment>Media controller element</comment>
-        <translation>Schieberegler</translation>
+        <translation>Drsnik</translation>
     </message>
     <message>
         <source>Slider Thumb</source>
         <comment>Media controller element</comment>
-        <translation>Schieberegler-Griff</translation>
+        <translation>Ročka na drsniku</translation>
     </message>
     <message>
         <source>Rewind Button</source>
         <comment>Media controller element</comment>
-        <translation>Rückspultaste</translation>
+        <translation>Gumb za previjanje</translation>
     </message>
     <message>
         <source>Return to Real-time Button</source>
         <comment>Media controller element</comment>
-        <translation>Kehre zu Echtzeit zurück</translation>
+        <translation>Gumb za vrnitev na resnični čas</translation>
     </message>
     <message>
         <source>Elapsed Time</source>
         <comment>Media controller element</comment>
-        <translation>Spielzeit</translation>
+        <translation>Pretečeni čas</translation>
     </message>
     <message>
         <source>Remaining Time</source>
         <comment>Media controller element</comment>
-        <translation>Verbleibende Zeit</translation>
+        <translation>Preostali čas</translation>
     </message>
     <message>
         <source>Status Display</source>
         <comment>Media controller element</comment>
-        <translation>Statusanzeige</translation>
+        <translation>Prikaz stanja</translation>
     </message>
     <message>
         <source>Fullscreen Button</source>
         <comment>Media controller element</comment>
-        <translation>Vollbild-Taste</translation>
+        <translation>Gumb za cel zaslon</translation>
     </message>
     <message>
         <source>Seek Forward Button</source>
         <comment>Media controller element</comment>
-        <translation>Vorlauftaste</translation>
+        <translation>Gumb za pomik naprej</translation>
     </message>
     <message>
         <source>Seek Back Button</source>
         <comment>Media controller element</comment>
-        <translation>Rücklauftaste</translation>
+        <translation>Gumb za pomik nazaj</translation>
     </message>
     <message>
         <source>Audio element playback controls and status display</source>
         <comment>Media controller element</comment>
-        <translation>Audio-Steuerung und Statusanzeige</translation>
+        <translation>Nadzor in prikaz stanja elementa za predvajanje zvoka</translation>
     </message>
     <message>
         <source>Video element playback controls and status display</source>
         <comment>Media controller element</comment>
-        <translation>Video-Steuerung und Statusanzeige</translation>
+        <translation>Nadzor in prikaz stanja elementa za predvajanje videa</translation>
     </message>
     <message>
         <source>Mute audio tracks</source>
         <comment>Media controller element</comment>
-        <translation>Schalte Tonspuren stumm</translation>
+        <translation>Utišaj zvočne sledi</translation>
     </message>
     <message>
         <source>Unmute audio tracks</source>
         <comment>Media controller element</comment>
-        <translation>Stummschaltung der Tonspuren aufheben</translation>
+        <translation>Prekliči utišanje zvočnih sledi</translation>
     </message>
     <message>
         <source>Begin playback</source>
         <comment>Media controller element</comment>
-        <translation>Abspielen</translation>
+        <translation>Začni predvajanje</translation>
     </message>
     <message>
         <source>Pause playback</source>
         <comment>Media controller element</comment>
-        <translation>Pause</translation>
+        <translation>Prekini predvajanje</translation>
     </message>
     <message>
         <source>Movie time scrubber</source>
         <comment>Media controller element</comment>
-        <translation>Abspielzeit</translation>
+        <translation>Drsnik za mesto v posnetku</translation>
     </message>
     <message>
         <source>Movie time scrubber thumb</source>
         <comment>Media controller element</comment>
-        <translation>Griff zur Einstellung der Abspielzeit</translation>
+        <translation>Drsnik za mesto v posnetku</translation>
     </message>
     <message>
         <source>Rewind movie</source>
         <comment>Media controller element</comment>
-        <translation>Film zurückspulen</translation>
+        <translation>Previj film</translation>
     </message>
     <message>
         <source>Return streaming movie to real-time</source>
         <comment>Media controller element</comment>
-        <translation>Setze Film auf Echtzeit zurück</translation>
+        <translation>Povrni film na resnični čas</translation>
     </message>
     <message>
         <source>Current movie time</source>
         <comment>Media controller element</comment>
-        <translation>Abspielzeit des Films</translation>
+        <translation>Trenutni čas filma</translation>
     </message>
     <message>
         <source>Remaining movie time</source>
         <comment>Media controller element</comment>
-        <translation>Verbleibende Zeit des Films</translation>
+        <translation>Preostali čas filma</translation>
     </message>
     <message>
         <source>Current movie status</source>
         <comment>Media controller element</comment>
-        <translation>Status des Films</translation>
+        <translation>Trenutno stanje filma</translation>
     </message>
     <message>
         <source>Play movie in full-screen mode</source>
         <comment>Media controller element</comment>
-        <translation>Film im Vollbildmodus abspielen</translation>
+        <translation>Predvajaj film čez ves zaslon</translation>
     </message>
     <message>
         <source>Seek quickly back</source>
         <comment>Media controller element</comment>
-        <translation>Schnelles Rückwärtssuchen</translation>
+        <translation>Hitro se pomakni nazaj</translation>
     </message>
     <message>
         <source>Seek quickly forward</source>
         <comment>Media controller element</comment>
-        <translation>Schnelles Vorwärtssuchen</translation>
+        <translation>Hitro se pomakni naprej</translation>
     </message>
     <message>
         <source>Indefinite time</source>
         <comment>Media time description</comment>
-        <translation>Unbegrenzte Zeit</translation>
+        <translation>Nedoločen čas</translation>
     </message>
     <message>
         <source>%1 days %2 hours %3 minutes %4 seconds</source>
         <comment>Media time description</comment>
-        <translation>%1 Tage %2 Stunden %3 Minuten %4 Sekunden</translation>
+        <translation>%1 dni %2 ur %3 minut %4 sekund</translation>
     </message>
     <message>
         <source>%1 hours %2 minutes %3 seconds</source>
         <comment>Media time description</comment>
-        <translation>%1 Stunden %2 Minuten %3 Sekunden</translation>
+        <translation>%1 ur %2 minut %3 sekund</translation>
     </message>
     <message>
         <source>%1 minutes %2 seconds</source>
         <comment>Media time description</comment>
-        <translation>%1 Minuten %2 Sekunden</translation>
+        <translation>%1 minut %2 sekund</translation>
     </message>
     <message>
         <source>%1 seconds</source>
         <comment>Media time description</comment>
-        <translation>%1 Sekunden</translation>
+        <translation>%1 sekund</translation>
     </message>
     <message>
         <source>Inspect</source>
         <comment>Inspect Element context menu item</comment>
-        <translation>Prüfen</translation>
+        <translation>Preglej.</translation>
     </message>
     <message>
         <source>No recent searches</source>
         <comment>Label for only item in menu that appears when clicking on the search field image, when no searches have been performed</comment>
-        <translation>Es existieren noch keine Suchanfragen</translation>
+        <translation>Ni nedavnih iskanj</translation>
     </message>
     <message>
         <source>Recent searches</source>
         <comment>label for first item in the menu that appears when clicking on the search field image, used as embedded menu title</comment>
-        <translation>Bisherige Suchanfragen</translation>
+        <translation>Nedavna iskanja</translation>
     </message>
     <message>
         <source>Clear recent searches</source>
         <comment>menu item in Recent Searches menu that empties menu&apos;s contents</comment>
-        <translation>Gespeicherte Suchanfragen löschen</translation>
+        <translation>Počisti nedavna iskanja</translation>
     </message>
     <message>
         <source>Unknown</source>
         <comment>Unknown filesize FTP directory listing item</comment>
-        <translation>Unbekannt</translation>
+        <translation>Neznana</translation>
+    </message>
+    <message>
+        <source>%1 (%2x%3 pixels)</source>
+        <comment>Title string for images</comment>
+        <translation>%1 (%2×%3 pik)</translation>
     </message>
     <message>
         <source>Web Inspector - %2</source>
         <translation>Web Inspector - %2</translation>
     </message>
     <message>
-        <source>%1 (%2x%3 pixels)</source>
-        <comment>Title string for images</comment>
-        <translation>%1 (%2x%3 Pixel)</translation>
-    </message>
-    <message>
-        <source>Redirection limit reached</source>
-        <translation>Maximal Anzahl von Weiterleitungen wurde erreicht</translation>
-    </message>
-    <message>
-        <source>Bad HTTP request</source>
-        <translation>Ungültige HTTP-Anforderung</translation>
-    </message>
-    <message>
-        <source>This is a searchable index. Enter search keywords: </source>
-        <comment>text that appears at the start of nearly-obsolete web pages in the form of a &apos;searchable index&apos;</comment>
-        <translation>Dieser Index verfügt über eine Suchfunktion. Geben Sie einen Suchbegriff ein:</translation>
-    </message>
-    <message>
         <source>Scroll here</source>
-        <translation>Hierher scrollen</translation>
+        <translation>Premakni sem</translation>
     </message>
     <message>
         <source>Left edge</source>
-        <translation>Linker Rand</translation>
+        <translation>Levi rob</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Anfang</translation>
+        <translation>Vrh</translation>
     </message>
     <message>
         <source>Right edge</source>
-        <translation>Rechter Rand</translation>
+        <translation>Desni rob</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Ende</translation>
+        <translation>Dno</translation>
     </message>
     <message>
         <source>Page left</source>
-        <translation>Eine Seite nach links</translation>
+        <translation>Za stran levo</translation>
     </message>
     <message>
         <source>Page up</source>
-        <translation>Eine Seite nach oben</translation>
+        <translation>Za stran gor</translation>
     </message>
     <message>
         <source>Page right</source>
-        <translation>Eine Seite nach rechts</translation>
+        <translation>Za stran desno</translation>
     </message>
     <message>
         <source>Page down</source>
-        <translation>Eine Seite nach unten</translation>
+        <translation>Za stran dol</translation>
     </message>
     <message>
         <source>Scroll left</source>
-        <translation>Nach links scrollen</translation>
+        <translation>Premakni levo</translation>
     </message>
     <message>
         <source>Scroll up</source>
-        <translation>Nach oben scrollen</translation>
+        <translation>Premakni gor</translation>
     </message>
     <message>
         <source>Scroll right</source>
-        <translation>Nach rechts scrollen</translation>
+        <translation>Premakni desno</translation>
     </message>
     <message>
         <source>Scroll down</source>
-        <translation>Nach unten scrollen</translation>
+        <translation>Premakni dol</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s)</source>
         <comment>number of chosen file</comment>
         <translation>
-            <numerusform>Eine Datei</numerusform>
-            <numerusform>%n Dateien</numerusform>
+            <numerusform>%n datoteka</numerusform>
+            <numerusform>%n datoteki</numerusform>
+            <numerusform>%n datoteke</numerusform>
+            <numerusform>%n datotek</numerusform>
         </translation>
     </message>
     <message>
         <source>JavaScript Alert - %1</source>
-        <translation>JavaScript-Hinweis - %1</translation>
+        <translation>Opozorilo JavaScript - %1</translation>
     </message>
     <message>
         <source>JavaScript Confirm - %1</source>
-        <translation>JavaScript-Bestätigung - %1</translation>
+        <translation>Potrditev JavaScript - %1</translation>
     </message>
     <message>
         <source>JavaScript Prompt - %1</source>
-        <translation>JavaScript-Eingabeaufforderung - %1</translation>
+        <translation>Poziv JavaScript - %1</translation>
     </message>
     <message>
         <source>JavaScript Problem - %1</source>
-        <translation>JavaScript-Problem - %1</translation>
+        <translation>Težava JavaScript - %1</translation>
     </message>
     <message>
         <source>The script on this page appears to have a problem. Do you want to stop the script?</source>
-        <translation>Das Skript dieser Webseite ist fehlerhaft. Möchten Sie es anhalten?</translation>
+        <translation>Kot kaže ima skript na tej strani težavo. Ali želite ustaviti skript?</translation>
     </message>
     <message>
         <source>Move the cursor to the next character</source>
-        <translation>Positionsmarke auf nächstes Zeichen setzen</translation>
+        <translation>Premakni kazalec na naslednji znak</translation>
     </message>
     <message>
         <source>Move the cursor to the previous character</source>
-        <translation>Positionsmarke auf vorheriges Zeichen setzen</translation>
+        <translation>Premakni kazalec na prejšnji znak</translation>
     </message>
     <message>
         <source>Move the cursor to the next word</source>
-        <translation>Positionsmarke auf nächstes Wort setzen</translation>
+        <translation>Premakni kazalec v naslednjo besedo</translation>
     </message>
     <message>
         <source>Move the cursor to the previous word</source>
-        <translation>Positionsmarke auf vorherige Wort setzen</translation>
+        <translation>Premakni kazalec v prejšnjo besedo</translation>
     </message>
     <message>
         <source>Move the cursor to the next line</source>
-        <translation>Positionsmarke auf nächste Zeile setzen</translation>
+        <translation>Premakni kazalec v naslednjo vrstico</translation>
     </message>
     <message>
         <source>Move the cursor to the previous line</source>
-        <translation>Positionsmarke auf vorherige Zeile setzen</translation>
+        <translation>Premakni kazalec v prejšnjo vrstico</translation>
     </message>
     <message>
         <source>Move the cursor to the start of the line</source>
-        <translation>Positionsmarke auf Zeilenanfang setzen</translation>
+        <translation>Premakni kazalec na začetek vrstice</translation>
     </message>
     <message>
         <source>Move the cursor to the end of the line</source>
-        <translation>Positionsmarke auf Zeilenende setzen</translation>
+        <translation>Premakni kazalec na konec vrstice</translation>
     </message>
     <message>
         <source>Move the cursor to the start of the block</source>
-        <translation>Positionsmarke auf Anfang des Blocks setzen</translation>
+        <translation>Premakni kazalec na začetek bloka</translation>
     </message>
     <message>
         <source>Move the cursor to the end of the block</source>
-        <translation>Positionsmarke auf Ende des Blocks setzen</translation>
+        <translation>Premakni kazalec na konec bloka</translation>
     </message>
     <message>
         <source>Move the cursor to the start of the document</source>
-        <translation>Positionsmarke auf Anfang des Dokuments setzen</translation>
+        <translation>Premakni kazalec na začetek dokumenta</translation>
     </message>
     <message>
         <source>Move the cursor to the end of the document</source>
-        <translation>Positionsmarke auf Ende des Dokuments setzen</translation>
+        <translation>Premakni kazalec na konec dokumenta</translation>
     </message>
     <message>
         <source>Select all</source>
-        <translation>Alles auswählen</translation>
+        <translation>Izberi vse</translation>
     </message>
     <message>
         <source>Select to the next character</source>
-        <translation>Bis zum nächsten Zeichen markieren</translation>
+        <translation>Izberi do naslednjega znaka</translation>
     </message>
     <message>
         <source>Select to the previous character</source>
-        <translation>Bis zum vorherigen Zeichen markieren</translation>
+        <translation>Izberi do prejšnjega znaka</translation>
     </message>
     <message>
         <source>Select to the next word</source>
-        <translation>Bis zum nächsten Wort markieren</translation>
+        <translation>Izberi do naslednje besede</translation>
     </message>
     <message>
         <source>Select to the previous word</source>
-        <translation>Bis zum vorherigen Wort markieren</translation>
+        <translation>Izberi do prejšnje besede</translation>
     </message>
     <message>
         <source>Select to the next line</source>
-        <translation>Bis zur nächsten Zeile markieren</translation>
+        <translation>Izberi do naslednje vrstice</translation>
     </message>
     <message>
         <source>Select to the previous line</source>
-        <translation>Bis zur vorherigen Zeile markieren</translation>
+        <translation>Izberi do prejšnje vrstice</translation>
     </message>
     <message>
         <source>Select to the start of the line</source>
-        <translation>Bis zum Zeilenanfang markieren</translation>
+        <translation>Izberi do začetka vrstice</translation>
     </message>
     <message>
         <source>Select to the end of the line</source>
-        <translation>Bis zum Zeilenende markieren</translation>
+        <translation>Izberi do konca vrstice</translation>
     </message>
     <message>
         <source>Select to the start of the block</source>
-        <translation>Bis zum Anfang des Blocks markieren</translation>
+        <translation>Izberi do začetka bloka</translation>
     </message>
     <message>
         <source>Select to the end of the block</source>
-        <translation>Bis zum Ende des Blocks markieren</translation>
+        <translation>Izberi do konca bloka</translation>
     </message>
     <message>
         <source>Select to the start of the document</source>
-        <translation>Bis zum Anfang des Dokuments markieren</translation>
+        <translation>Izberi do začetka dokumenta</translation>
     </message>
     <message>
         <source>Select to the end of the document</source>
-        <translation>Bis zum Ende des Dokuments markieren</translation>
+        <translation>Izberi do konca dokumenta</translation>
     </message>
     <message>
         <source>Delete to the start of the word</source>
-        <translation>Bis zum Anfang des Wortes löschen</translation>
+        <translation>Izbriši do začetka besede</translation>
     </message>
     <message>
         <source>Delete to the end of the word</source>
-        <translation>Bis zum Ende des Wortes löschen</translation>
+        <translation>Izbriši do konca besede</translation>
     </message>
     <message>
         <source>Insert a new paragraph</source>
-        <translation>Neuen Abschnitt einfügen</translation>
+        <translation>Vstavi nov odstavek</translation>
     </message>
     <message>
         <source>Insert a new line</source>
-        <translation>Neue Zeile einfügen</translation>
+        <translation>Vstavi novo vrstico</translation>
     </message>
     <message>
         <source>Paste and Match Style</source>
-        <translation>Einfügen und dem Stil anpassen</translation>
+        <translation>Prilepi in uskladi slog</translation>
     </message>
     <message>
         <source>Remove formatting</source>
-        <translation>Formatierung entfernen</translation>
+        <translation>Odstrani oblikovanje</translation>
     </message>
     <message>
         <source>Strikethrough</source>
-        <translation>Durchgestrichen</translation>
+        <translation>Prečrtano</translation>
     </message>
     <message>
         <source>Subscript</source>
-        <translation>Tiefstellung</translation>
+        <translation>Podpisano</translation>
     </message>
     <message>
         <source>Superscript</source>
-        <translation>Hochstellung</translation>
+        <translation>Nadpisano</translation>
     </message>
     <message>
         <source>Insert Bulleted List</source>
-        <translation>Liste mit Punkten einfügen</translation>
+        <translation>Vstavi navadni seznam</translation>
     </message>
     <message>
         <source>Insert Numbered List</source>
-        <translation>Nummerierte Liste einfügen</translation>
+        <translation>Vstavi oštevilčeni seznam</translation>
     </message>
     <message>
         <source>Indent</source>
-        <translation>Einrücken</translation>
+        <translation>Zamakni</translation>
     </message>
     <message>
         <source>Outdent</source>
-        <translation>Einrückung aufheben</translation>
+        <translation>Odzamakni</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Zentrieren</translation>
+        <translation>Sredinsko</translation>
     </message>
     <message>
         <source>Justify</source>
-        <translation>Ausrichten</translation>
+        <translation>Obojestransko</translation>
     </message>
     <message>
         <source>Align Left</source>
-        <translation>Linksbündig ausrichten</translation>
+        <translation>Poravnaj levo</translation>
     </message>
     <message>
         <source>Align Right</source>
-        <translation>Rechtsbündig ausrichten</translation>
+        <translation>Poravnaj desno</translation>
     </message>
 </context>
 <context>
     <name>QWhatsThisAction</name>
     <message>
         <source>What&apos;s This?</source>
-        <translation>Direkthilfe</translation>
+        <translation>Kaj je to?</translation>
     </message>
 </context>
 <context>
@@ -7679,2189 +7600,2193 @@ Bitte wählen Sie einen anderen Dateinamen.</translation>
 <context>
     <name>QWizard</name>
     <message>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Hilfe</translation>
-    </message>
-    <message>
-        <source>&lt; &amp;Back</source>
-        <translation>&lt; &amp;Zurück</translation>
-    </message>
-    <message>
-        <source>&amp;Finish</source>
-        <translation>Ab&amp;schließen</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
-    </message>
-    <message>
         <source>Go Back</source>
-        <translation>Zurück</translation>
+        <translation>Pojdi nazaj</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Weiter</translation>
+        <translation>Nadaljuj</translation>
     </message>
     <message>
         <source>Commit</source>
-        <translation>Anwenden</translation>
+        <translation>Uveljavi</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Fertig</translation>
+        <translation>Opravljeno</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Pomoč</translation>
+    </message>
+    <message>
+        <source>&lt; &amp;Back</source>
+        <translation>&lt; Na&amp;zaj</translation>
+    </message>
+    <message>
+        <source>&amp;Finish</source>
+        <translation>&amp;Zaključi</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Prekliči</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Pomoč</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>&amp;Weiter</translation>
+        <translation>&amp;Naprej</translation>
     </message>
     <message>
         <source>&amp;Next &gt;</source>
-        <translation>&amp;Weiter &gt;</translation>
+        <translation>&amp;Naprej &gt;</translation>
     </message>
 </context>
 <context>
     <name>QWorkspace</name>
     <message>
         <source>&amp;Restore</source>
-        <translation>Wieder&amp;herstellen</translation>
+        <translation>&amp;Obnovi</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation>Ver&amp;schieben</translation>
+        <translation>&amp;Premakni</translation>
     </message>
     <message>
         <source>&amp;Size</source>
-        <translation>&amp;Größe ändern</translation>
+        <translation>&amp;Velikost</translation>
     </message>
     <message>
         <source>Mi&amp;nimize</source>
-        <translation>M&amp;inimieren</translation>
+        <translation>Po&amp;manjšaj</translation>
     </message>
     <message>
         <source>Ma&amp;ximize</source>
-        <translation>Ma&amp;ximieren</translation>
+        <translation>&amp;Razpni</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Schl&amp;ießen</translation>
+        <translation>&amp;Zapri</translation>
     </message>
     <message>
         <source>Stay on &amp;Top</source>
-        <translation>Im &amp;Vordergrund bleiben</translation>
-    </message>
-    <message>
-        <source>Minimize</source>
-        <translation>Minimieren</translation>
-    </message>
-    <message>
-        <source>Restore Down</source>
-        <translation>Wiederherstellen</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Ostani na &amp;vrhu</translation>
     </message>
     <message>
         <source>Sh&amp;ade</source>
-        <translation>&amp;Aufrollen</translation>
+        <translation>Zvi&amp;j</translation>
     </message>
     <message>
         <source>%1 - [%2]</source>
         <translation>%1 - [%2]</translation>
     </message>
     <message>
+        <source>Minimize</source>
+        <translation>Pomanjšaj</translation>
+    </message>
+    <message>
+        <source>Restore Down</source>
+        <translation>Obnovi navzdol</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zapri</translation>
+    </message>
+    <message>
         <source>&amp;Unshade</source>
-        <translation>&amp;Herabrollen</translation>
+        <translation>Razv&amp;ij</translation>
     </message>
 </context>
 <context>
     <name>QXml</name>
     <message>
         <source>no error occurred</source>
-        <translation>kein Fehler</translation>
+        <translation>ni nobene napake</translation>
     </message>
     <message>
         <source>error triggered by consumer</source>
-        <translation>Konsument löste Fehler aus</translation>
+        <translation>napako povzročil uporabnik</translation>
     </message>
     <message>
         <source>unexpected end of file</source>
-        <translation>unerwartetes Ende der Datei</translation>
+        <translation>nepričakovan konec datoteke</translation>
     </message>
     <message>
         <source>more than one document type definition</source>
-        <translation>mehrere Dokumenttypdefinitionen</translation>
+        <translation>več kot ena definicija vrste dokumenta</translation>
     </message>
     <message>
         <source>error occurred while parsing element</source>
-        <translation>Fehler beim Parsen eines Elements</translation>
+        <translation>napaka med analiziranjem elementa</translation>
     </message>
     <message>
         <source>tag mismatch</source>
-        <translation>Element-Tags sind nicht richtig geschachtelt</translation>
+        <translation>neprimerna oznaka</translation>
     </message>
     <message>
         <source>error occurred while parsing content</source>
-        <translation>Fehler beim Parsen des Inhalts eines Elements</translation>
+        <translation>napaka med analiziranje vsebine</translation>
     </message>
     <message>
         <source>unexpected character</source>
-        <translation>unerwartetes Zeichen</translation>
+        <translation>nepričakovan znak</translation>
     </message>
     <message>
         <source>invalid name for processing instruction</source>
-        <translation>kein gültiger Name für eine Processing-Instruktion</translation>
+        <translation>nepravilno ime za ukaz obdelave</translation>
     </message>
     <message>
         <source>version expected while reading the XML declaration</source>
-        <translation>fehlende Version beim Parsen der XML-Deklaration</translation>
+        <translation>pričakovana različica med branjem deklaracije XML</translation>
     </message>
     <message>
         <source>wrong value for standalone declaration</source>
-        <translation>falscher Wert für die Standalone-Deklaration</translation>
-    </message>
-    <message>
-        <source>error occurred while parsing document type definition</source>
-        <translation>Fehler beim Parsen der Dokumenttypdefinition</translation>
-    </message>
-    <message>
-        <source>letter is expected</source>
-        <translation>ein Buchstabe ist an dieser Stelle erforderlich</translation>
-    </message>
-    <message>
-        <source>error occurred while parsing comment</source>
-        <translation>Fehler beim Parsen eines Kommentars</translation>
-    </message>
-    <message>
-        <source>error occurred while parsing reference</source>
-        <translation>Fehler beim Parsen einer Referenz</translation>
-    </message>
-    <message>
-        <source>internal general entity reference not allowed in DTD</source>
-        <translation>in einer DTD ist keine interne allgemeine Entity-Referenz erlaubt</translation>
-    </message>
-    <message>
-        <source>external parsed general entity reference not allowed in attribute value</source>
-        <translation>in einem Attribut-Wert sind keine externen Entity-Referenzen erlaubt</translation>
-    </message>
-    <message>
-        <source>external parsed general entity reference not allowed in DTD</source>
-        <translation>in der DTD sind keine externen Entity-Referenzen erlaubt </translation>
-    </message>
-    <message>
-        <source>unparsed entity reference in wrong context</source>
-        <translation>nicht-analysierte Entity-Referenz im falschen Kontext verwendet</translation>
-    </message>
-    <message>
-        <source>recursive entities</source>
-        <translation>rekursive Entity</translation>
-    </message>
-    <message>
-        <source>error in the text declaration of an external entity</source>
-        <translation>Fehler in der Text-Deklaration einer externen Entity</translation>
+        <translation>napačna vrednost za samostojno deklaracijo</translation>
     </message>
     <message>
         <source>encoding declaration or standalone declaration expected while reading the XML declaration</source>
-        <translation>fehlende Kodierung-Deklaration oder Standalone-Deklaration beim Parsen der XML-Deklaration</translation>
+        <translation>deklaracija kodiranja ali samostojna deklaracija je bila pričakovana med branjem deklaracije XML</translation>
     </message>
     <message>
         <source>standalone declaration expected while reading the XML declaration</source>
-        <translation>fehlende Standalone-Deklaration beim Parsen der XML Deklaration</translation>
+        <translation>samostojna deklaracija pričakovana med branjem deklaracije XML</translation>
+    </message>
+    <message>
+        <source>error occurred while parsing document type definition</source>
+        <translation>napaka med analiziranjem vrste definicije dokumenta</translation>
+    </message>
+    <message>
+        <source>letter is expected</source>
+        <translation>pričakovana je črka</translation>
+    </message>
+    <message>
+        <source>error occurred while parsing comment</source>
+        <translation>napaka med analiziranjem komentarja</translation>
+    </message>
+    <message>
+        <source>error occurred while parsing reference</source>
+        <translation>napaka med analiziranjem reference</translation>
+    </message>
+    <message>
+        <source>internal general entity reference not allowed in DTD</source>
+        <translation>referenca notranje splošne entitete ni dovoljena v DTD</translation>
+    </message>
+    <message>
+        <source>external parsed general entity reference not allowed in attribute value</source>
+        <translation>referenca zunanje analizirane splošne entitete ni dovoljena v vrednosti atributa</translation>
+    </message>
+    <message>
+        <source>external parsed general entity reference not allowed in DTD</source>
+        <translation>referenca zunanje analizirane splošne entitete ni dovoljena v DTD</translation>
+    </message>
+    <message>
+        <source>unparsed entity reference in wrong context</source>
+        <translation>referenca neanalizirane entitete v napačnem kontekstu</translation>
+    </message>
+    <message>
+        <source>recursive entities</source>
+        <translation>rekurzivne entitete</translation>
+    </message>
+    <message>
+        <source>error in the text declaration of an external entity</source>
+        <translation>napaka v besedilni deklaraciji zunanje entitete</translation>
     </message>
 </context>
 <context>
     <name>QXmlPatternistCLI</name>
     <message>
         <source>Warning in %1, at line %2, column %3: %4</source>
-        <translation>Warnung in %1, bei Zeile %2, Spalte %3: %4</translation>
+        <translation>Opozorilo v %1, vrstica %2, stolpec %3: %4</translation>
     </message>
     <message>
         <source>Warning in %1: %2</source>
-        <translation>Warnung in %1: %2</translation>
+        <translation>Opozorilo v %1: %2</translation>
     </message>
     <message>
         <source>Unknown location</source>
-        <translation>Unbekannter Ort</translation>
+        <translation>Neznana lokacija</translation>
     </message>
     <message>
         <source>Error %1 in %2, at line %3, column %4: %5</source>
-        <translation>Fehler %1 in %2, bei Zeile %3, Spalte %4: %5</translation>
+        <translation>Napaka %1 v %2, vrstica %3, stolpec %4: %5</translation>
     </message>
     <message>
         <source>Error %1 in %2: %3</source>
-        <translation>Fehler %1 in %2: %3</translation>
+        <translation>Napaka %1 v %2: %3</translation>
     </message>
 </context>
 <context>
     <name>QXmlStream</name>
     <message>
         <source>Extra content at end of document.</source>
-        <translation>Überzähliger Inhalt nach Ende des Dokuments.</translation>
+        <translation>Dodatna vsebina na koncu dokumenta.</translation>
     </message>
     <message>
         <source>Invalid entity value.</source>
-        <translation>Ungültiger Entity-Wert.</translation>
+        <translation>Neveljavna vrednost entitete.</translation>
     </message>
     <message>
         <source>Invalid XML character.</source>
-        <translation>Ungültiges XML-Zeichen.</translation>
+        <translation>Neveljaven znak XML.</translation>
     </message>
     <message>
         <source>Sequence &apos;]]&gt;&apos; not allowed in content.</source>
-        <translation>Im Inhalt ist die Zeichenfolge &apos;]]&gt;&apos; nicht erlaubt.</translation>
+        <translation>Zaporedje »]]&gt;« v vsebini ni dovoljeno.</translation>
     </message>
     <message>
         <source>Namespace prefix &apos;%1&apos; not declared</source>
-        <translation>Der Namensraum-Präfix &apos;%1&apos; wurde nicht deklariert</translation>
+        <translation>Predpona imenskega prostora »%1« ni deklarirana</translation>
     </message>
     <message>
         <source>Attribute redefined.</source>
-        <translation>Redefinition eines Attributes.</translation>
+        <translation>Atribut je redefiniran.</translation>
     </message>
     <message>
         <source>Unexpected character &apos;%1&apos; in public id literal.</source>
-        <translation>&apos;%1&apos; ist kein gültiges Zeichen in einer public-id-Angabe.</translation>
+        <translation>Nepričakovan znak »%1« v javnem literalu ID-ja.</translation>
     </message>
     <message>
         <source>Invalid XML version string.</source>
-        <translation>Ungültige XML-Versionsangabe.</translation>
+        <translation>Neveljaven niz različice XML.</translation>
     </message>
     <message>
         <source>Unsupported XML version.</source>
-        <translation>Diese XML-Version wird nicht unterstützt.</translation>
+        <translation>Nepodprta različica XML.</translation>
     </message>
     <message>
         <source>%1 is an invalid encoding name.</source>
-        <translation>%1 ist kein gültiger Name für die Kodierung.</translation>
+        <translation>%1 ni veljavno ime kodiranja.</translation>
     </message>
     <message>
         <source>Encoding %1 is unsupported</source>
-        <translation>Die Kodierung %1 wird nicht unterstützt</translation>
+        <translation>Kodiranje %1 ni podprto</translation>
     </message>
     <message>
         <source>Standalone accepts only yes or no.</source>
-        <translation>Der Wert für das &apos;Standalone&apos;-Attribut kann nur &apos;yes&apos; oder &apos;no&apos; sein.</translation>
+        <translation>Samostojni (standalone) sprejema samo da (yes) ali ne (no).</translation>
     </message>
     <message>
         <source>Invalid attribute in XML declaration.</source>
-        <translation>Die XML-Deklaration enthält ein ungültiges Attribut.</translation>
+        <translation>Neveljaven atribut v deklaraciji XML.</translation>
     </message>
     <message>
         <source>Premature end of document.</source>
-        <translation>Vorzeitiges Ende des Dokuments.</translation>
+        <translation>Predčasen konec dokumenta.</translation>
     </message>
     <message>
         <source>Invalid document.</source>
-        <translation>Ungültiges Dokument.</translation>
+        <translation>Neveljaven dokument..</translation>
     </message>
     <message>
         <source>Expected </source>
-        <translation>Es wurde </translation>
+        <translation>Pričakovan</translation>
     </message>
     <message>
         <source>, but got &apos;</source>
-        <translation>erwartet, stattdessen erhalten &apos;</translation>
+        <translation>, vendar prejel &apos;</translation>
     </message>
     <message>
         <source>Unexpected &apos;</source>
-        <translation>Ungültig an dieser Stelle &apos; </translation>
+        <translation>Nepričakovan &apos;</translation>
     </message>
     <message>
         <source>Expected character data.</source>
-        <translation>Es wurden Zeichendaten erwartet.</translation>
+        <translation>Pričakoval znakovne podatke.</translation>
     </message>
     <message>
         <source>Recursive entity detected.</source>
-        <translation>Es wurde eine rekursive Entity festgestellt.</translation>
+        <translation>Zaznana je bila rekurzivna entiteta.</translation>
     </message>
     <message>
         <source>Start tag expected.</source>
-        <translation>Öffnendes Element erwartet.</translation>
+        <translation>Pričakovana je bila začetna oznaka.</translation>
     </message>
     <message>
         <source>XML declaration not at start of document.</source>
-        <translation>Die XML-Deklaration befindet sich nicht am Anfang des Dokuments.</translation>
+        <translation>Deklaracija XML ni na začetku dokumenta.</translation>
     </message>
     <message>
         <source>NDATA in parameter entity declaration.</source>
-        <translation>Eine Parameter-Entity-Deklaration darf kein NDATA enthalten.</translation>
+        <translation>NDATA v parametru deklaracije entitete.</translation>
     </message>
     <message>
         <source>%1 is an invalid processing instruction name.</source>
-        <translation>%1 ist kein gültiger Name für eine Prozessing-Instruktion.</translation>
+        <translation>%1 ni veljavno ime ukaza obdelave.</translation>
     </message>
     <message>
         <source>Invalid processing instruction name.</source>
-        <translation>Der Name der Prozessing-Instruktion ist ungültig.</translation>
+        <translation>Neveljavno ime ukaza obdelave.</translation>
     </message>
     <message>
         <source>Illegal namespace declaration.</source>
-        <translation>Ungültige Namensraum-Deklaration.</translation>
+        <translation>Neveljavna deklaracija imenskega prostora.</translation>
     </message>
     <message>
         <source>Invalid XML name.</source>
-        <translation>Ungültiger XML-Name.</translation>
+        <translation>Neveljavno ime XML.</translation>
     </message>
     <message>
         <source>Opening and ending tag mismatch.</source>
-        <translation>Die Anzahl der öffnenden Elemente stimmt nicht mit der Anzahl der schließenden Elemente überein.</translation>
+        <translation>Začetni in zaključni oznaki se ne ujemata.</translation>
     </message>
     <message>
         <source>Reference to unparsed entity &apos;%1&apos;.</source>
-        <translation>Es wurde die ungeparste Entity &apos;%1&apos; referenziert.</translation>
+        <translation>Referenca na nerazčlenjeno entiteto »%1«.</translation>
     </message>
     <message>
         <source>Entity &apos;%1&apos; not declared.</source>
-        <translation>Die Entity &apos;%1&apos; ist nicht deklariert.</translation>
+        <translation>Entiteta »%1« ni deklarirana.</translation>
     </message>
     <message>
         <source>Reference to external entity &apos;%1&apos; in attribute value.</source>
-        <translation>Im Attributwert wurde die externe Entity &apos;%1&apos; referenziert.</translation>
+        <translation>Referenca na zunanjo entiteto »%1« v vrednosti lastnosti.</translation>
     </message>
     <message>
         <source>Invalid character reference.</source>
-        <translation>Ungültige Zeichenreferenz.</translation>
+        <translation>Neveljavna znakovna referenca.</translation>
     </message>
     <message>
         <source>Encountered incorrectly encoded content.</source>
-        <translation>Es wurde Inhalt mit einer ungültigen Kodierung gefunden.</translation>
+        <translation>Naletel na napačno zakodirano vsebino.</translation>
     </message>
     <message>
         <source>The standalone pseudo attribute must appear after the encoding.</source>
-        <translation>Das Standalone-Pseudoattribut muss der Kodierung unmittelbar folgen.</translation>
+        <translation>Samostojni psevdo-atribut se mora pojaviti za kodiranjem.</translation>
     </message>
     <message>
         <source>%1 is an invalid PUBLIC identifier.</source>
-        <translation>%1 ist keine gültige Angabe für eine PUBLIC-Id.</translation>
+        <translation>%1 ni veljaven javni identifikator.</translation>
     </message>
 </context>
 <context>
     <name>QtXmlPatterns</name>
     <message>
-        <source>At least one component must be present.</source>
-        <translation>Es muss mindestens eine Komponente vorhanden sein.</translation>
-    </message>
-    <message>
-        <source>%1 is not a valid value of type %2.</source>
-        <translation>%1 ist kein gültiger Wert des Typs %2.</translation>
-    </message>
-    <message>
-        <source>When casting to %1 from %2, the source value cannot be %3.</source>
-        <translation>Bei einer &quot;cast&quot;-Operation von %1 zu %2 darf der Wert nicht %3 sein.</translation>
-    </message>
-    <message>
-        <source>Effective Boolean Value cannot be calculated for a sequence containing two or more atomic values.</source>
-        <translation>Der effektive boolesche Wert einer Sequenz aus zwei oder mehreren atomaren Werten kann nicht berechnet werden.</translation>
-    </message>
-    <message>
-        <source>The data of a processing instruction cannot contain the string %1</source>
-        <translation>Die Daten einer Processing-Anweisung dürfen nicht die Zeichenkette %1 enthalten</translation>
-    </message>
-    <message>
-        <source>%1 is an invalid %2</source>
-        <translation>%1 ist kein gültiges %2</translation>
-    </message>
-    <message>
-        <source>%1 is not a valid XML 1.0 character.</source>
-        <translation>%1 ist kein gültiges XML-1.0-Zeichen.</translation>
-    </message>
-    <message>
-        <source>%1 was called.</source>
-        <translation>%1 wurde gerufen.</translation>
-    </message>
-    <message>
-        <source>In the replacement string, %1 must be followed by at least one digit when not escaped.</source>
-        <translation>In der Ersetzung muss auf %1 eine Ziffer folgen, wenn es nicht durch ein Escape-Zeichen geschützt ist.</translation>
-    </message>
-    <message>
-        <source>In the replacement string, %1 can only be used to escape itself or %2, not %3</source>
-        <translation>In der Ersetzung kann %1 nur verwendet werden, um sich selbst oder %2 schützen, nicht jedoch für %3</translation>
-    </message>
-    <message>
-        <source>%1 matches newline characters</source>
-        <translation>Der Ausdruck &apos;%1&apos; schließt Zeilenvorschübe ein</translation>
-    </message>
-    <message>
-        <source>Matches are case insensitive</source>
-        <translation>Groß/Kleinschreibung wird nicht beachtet</translation>
-    </message>
-    <message>
-        <source>%1 is an invalid regular expression pattern: %2</source>
-        <translation>%1 ist kein gültiger regulärer Ausdruck: %2</translation>
-    </message>
-    <message>
-        <source>It will not be possible to retrieve %1.</source>
-        <translation>%1 kann nicht bestimmt werden.</translation>
-    </message>
-    <message>
-        <source>The default collection is undefined</source>
-        <translation>Für eine Kollektion ist keine Vorgabe definiert</translation>
-    </message>
-    <message>
-        <source>%1 cannot be retrieved</source>
-        <translation>%1 kann nicht bestimmt werden</translation>
-    </message>
-    <message>
-        <source>The item %1 did not match the required type %2.</source>
-        <translation>Das Element %1 entspricht nicht dem erforderlichen Typ %2.</translation>
-    </message>
-    <message>
-        <source>%1 is an unknown schema type.</source>
-        <translation>%1 ist ein unbekannter Schema-Typ.</translation>
-    </message>
-    <message>
-        <source>A template with name %1 has already been declared.</source>
-        <translation>Eine Vorlage des Namens %1 existiert bereits.</translation>
-    </message>
-    <message>
-        <source>Only one %1 declaration can occur in the query prolog.</source>
-        <translation>Der Anfrage-Prolog darf nur eine %1-Deklaration enthalten.</translation>
-    </message>
-    <message>
-        <source>The initialization of variable %1 depends on itself</source>
-        <translation>Die Initialisierung der Variable %1 hängt von ihrem eigenem Wert ab</translation>
-    </message>
-    <message>
-        <source>The variable %1 is unused</source>
-        <translation>Die Variable %1 wird nicht verwendet</translation>
-    </message>
-    <message>
-        <source>Version %1 is not supported. The supported XQuery version is 1.0.</source>
-        <translation>Die Version %1 wird nicht unterstützt. Die unterstützte Version von XQuery ist 1.0.</translation>
-    </message>
-    <message>
-        <source>No function with signature %1 is available</source>
-        <translation>Es existiert keine Funktion mit der Signatur %1</translation>
-    </message>
-    <message>
-        <source>It is not possible to redeclare prefix %1.</source>
-        <translation>Der Präfix %1 kann nicht redeklariert werden.</translation>
-    </message>
-    <message>
-        <source>Prefix %1 is already declared in the prolog.</source>
-        <translation>Der Präfix %1 wurde bereits im Prolog deklariert.</translation>
-    </message>
-    <message>
-        <source>The name of an option must have a prefix. There is no default namespace for options.</source>
-        <translation>Der Name einer Option muss einen Präfix haben. Es gibt keine Namensraum-Vorgabe für Optionen.</translation>
-    </message>
-    <message>
-        <source>The Schema Import feature is not supported, and therefore %1 declarations cannot occur.</source>
-        <translation>Die Deklaration %1 ist unzulässig, da Schema-Import nicht unterstützt wird.</translation>
-    </message>
-    <message>
-        <source>The target namespace of a %1 cannot be empty.</source>
-        <translation>Der Ziel-Namensraum von %1 darf nicht leer sein.</translation>
-    </message>
-    <message>
-        <source>The module import feature is not supported</source>
-        <translation>Modul-Import wird nicht unterstützt</translation>
-    </message>
-    <message>
-        <source>The namespace of a user defined function in a library module must be equivalent to the module namespace. In other words, it should be %1 instead of %2</source>
-        <translation>Der Namensraum einer nutzerdefinierten Funktion aus einem Bibliotheksmodul muss dem Namensraum des Moduls entsprechen (%1 anstatt %2) </translation>
-    </message>
-    <message>
-        <source>A function already exists with the signature %1.</source>
-        <translation>Es existiert bereits eine Funktion mit der Signatur %1.</translation>
-    </message>
-    <message>
-        <source>No external functions are supported. All supported functions can be used directly, without first declaring them as external</source>
-        <translation>Externe Funktionen werden nicht unterstützt. Alle unterstützten Funktionen können direkt verwendet werden, ohne sie als extern zu deklarieren</translation>
-    </message>
-    <message>
-        <source>The %1-axis is unsupported in XQuery</source>
-        <translation>Die %1-Achse wird in XQuery nicht unterstützt</translation>
-    </message>
-    <message>
-        <source>The namespace URI cannot be the empty string when binding to a prefix, %1.</source>
-        <translation>Der Namensraum-URI darf nicht leer sein, wenn er an den Präfix %1 gebunden ist.</translation>
-    </message>
-    <message>
-        <source>%1 is an invalid namespace URI.</source>
-        <translation>%1 ist kein gültiger Namensraum-URI.</translation>
-    </message>
-    <message>
-        <source>It is not possible to bind to the prefix %1</source>
-        <translation>Der Präfix %1 kann nicht gebunden werden</translation>
-    </message>
-    <message>
-        <source>Two namespace declaration attributes have the same name: %1.</source>
-        <translation>Es wurden zwei Namensraum-Deklarationsattribute gleichen Namens (%1) gefunden.</translation>
-    </message>
-    <message>
-        <source>The namespace URI must be a constant and cannot use enclosed expressions.</source>
-        <translation>Ein Namensraum-URI muss eine Konstante sein und darf keine eingebetteten Ausdrücke verwenden.</translation>
-    </message>
-    <message>
-        <source>%1 is not in the in-scope attribute declarations. Note that the schema import feature is not supported.</source>
-        <translation>%1 befindet sich nicht unter den Attributdeklarationen im Bereich. Schema-Import wird nicht unterstützt.</translation>
-    </message>
-    <message>
-        <source>empty</source>
-        <translation>leer</translation>
-    </message>
-    <message>
-        <source>zero or one</source>
-        <translation>kein oder ein</translation>
-    </message>
-    <message>
-        <source>exactly one</source>
-        <translation>genau ein</translation>
-    </message>
-    <message>
-        <source>one or more</source>
-        <translation>ein oder mehrere</translation>
-    </message>
-    <message>
-        <source>zero or more</source>
-        <translation>kein oder mehrere</translation>
-    </message>
-    <message>
-        <source>The focus is undefined.</source>
-        <translation>Es ist kein Fokus definiert.</translation>
-    </message>
-    <message>
-        <source>An attribute by name %1 has already been created.</source>
-        <translation>Es wurde bereits ein Attribut mit dem Namen %1 erzeugt.</translation>
-    </message>
-    <message>
         <source>Network timeout.</source>
-        <translation>Das Zeitlimit der Netzwerkoperation wurde überschritten.</translation>
+        <translation>Čas za omrežje je potekel.</translation>
     </message>
     <message>
         <source>Element %1 can&apos;t be serialized because it appears outside the document element.</source>
-        <translation>Das Element %1 kann nicht serialisiert werden, da es außerhalb des Dokumentenelements erscheint.</translation>
+        <translation>Elementa %1 ni moč serializirati, ker se nahaja zunaj elementa dokumenta.</translation>
     </message>
     <message>
         <source>Year %1 is invalid because it begins with %2.</source>
-        <translation>%1 ist keine gültige Jahresangabe, da es mit %2 beginnt.</translation>
+        <translation>Leto %1 ni veljavno, ker se začne z %2.</translation>
     </message>
     <message>
         <source>Day %1 is outside the range %2..%3.</source>
-        <translation>Die Tagesangabe %1 ist außerhalb des Bereiches %2..%3.</translation>
+        <translation>Dan %1 je izven obsega %2..%3.</translation>
     </message>
     <message>
         <source>Month %1 is outside the range %2..%3.</source>
-        <translation>Die Monatsangabe %1 ist außerhalb des Bereiches %2..%3.</translation>
+        <translation>Mesec %1 je izven obsega %2..%3.</translation>
     </message>
     <message>
         <source>Overflow: Can&apos;t represent date %1.</source>
-        <translation>Das Datum %1 kann nicht dargestellt werden (Überlauf).</translation>
+        <translation>Prekoračitev: ni moč predstaviti datuma %1.</translation>
     </message>
     <message>
         <source>Day %1 is invalid for month %2.</source>
-        <translation>Die Tagesangabe %1 ist für den Monat %2 ungültig.</translation>
+        <translation>Dan %1 za mesec %2 ni veljaven.</translation>
     </message>
     <message>
         <source>Time 24:%1:%2.%3 is invalid. Hour is 24, but minutes, seconds, and milliseconds are not all 0; </source>
-        <translation>Die Zeitangabe 24:%1:%2.%3 ist ungültig. Bei der Stundenangabe 24 müssen Minuten, Sekunden und Millisekunden 0 sein.</translation>
+        <translation>Čas 24:%1:%2.%3 ni veljaven. Ura je 24, vendar minute, sekunde in milisekunde niso vse 0; </translation>
     </message>
     <message>
         <source>Time %1:%2:%3.%4 is invalid.</source>
-        <translation>Die Zeitangabe %1:%2:%3.%4 ist ungültig.</translation>
+        <translation>Čas %1:%2:%3.%4 ni veljaven.</translation>
     </message>
     <message>
         <source>Overflow: Date can&apos;t be represented.</source>
-        <translation>Das Datum kann nicht dargestellt werden (Überlauf).</translation>
+        <translation>Prekoračitev: datuma ni moč predstaviti.</translation>
+    </message>
+    <message>
+        <source>At least one component must be present.</source>
+        <translation>Prisotna mora biti vsaj ena komponenta.</translation>
     </message>
     <message>
         <source>At least one time component must appear after the %1-delimiter.</source>
-        <translation>Bei Vorhandensein eines %1-Begrenzers muss mindestens eine Komponente vorhanden sein.</translation>
+        <translation>Za razmejiteljem %1 se mora pojaviti vsaj ena časovna komponenta.</translation>
     </message>
     <message>
-        <source>Dividing a value of type %1 by %2 (not-a-number) is not allowed.</source>
-        <translation>Die Division eines Werts des Typs %1 durch %2 (kein numerischer Wert) ist nicht zulässig.</translation>
+        <source>%1 is not a valid value of type %2.</source>
+        <translation>%1 ni veljavna vrednost vrste %2.</translation>
     </message>
     <message>
-        <source>Dividing a value of type %1 by %2 or %3 (plus or minus zero) is not allowed.</source>
-        <translation>Die Division eines Werts des Typs %1 durch %2 oder %3 (positiv oder negativ Null) ist nicht zulässig.</translation>
-    </message>
-    <message>
-        <source>Multiplication of a value of type %1 by %2 or %3 (plus or minus infinity) is not allowed.</source>
-        <translation>Die Multiplikation eines Werts des Typs %1 mit %2 oder %3 (positiv oder negativ unendlich) ist nicht zulässig.</translation>
-    </message>
-    <message>
-        <source>A value of type %1 cannot have an Effective Boolean Value.</source>
-        <translation>Ein Wert des Typs %1 kann keinen effektiven booleschen Wert haben.</translation>
-    </message>
-    <message>
-        <source>Value %1 of type %2 exceeds maximum (%3).</source>
-        <translation>Der Wert %1 des Typs %2 überschreitet das Maximum (%3).</translation>
-    </message>
-    <message>
-        <source>Value %1 of type %2 is below minimum (%3).</source>
-        <translation>Der Wert %1 des Typs %2 unterschreitet das Minimum (%3).</translation>
-    </message>
-    <message>
-        <source>A value of type %1 must contain an even number of digits. The value %2 does not.</source>
-        <translation>Die Stellenzahl eines Wertes des Typs %1 muss geradzahlig sein. Das ist bei %2 nicht der Fall.</translation>
-    </message>
-    <message>
-        <source>%1 is not valid as a value of type %2.</source>
-        <translation>%1 ist kein gültiger Wert des Typs %2.</translation>
-    </message>
-    <message>
-        <source>Operator %1 cannot be used on type %2.</source>
-        <translation>Der Operator %1 kann nicht auf den Typ %2 angewandt werden.</translation>
-    </message>
-    <message>
-        <source>Operator %1 cannot be used on atomic values of type %2 and %3.</source>
-        <translation>Der Operator %1 kann nicht auf atomare Werte der Typen %2 und %3 angewandt werden.</translation>
-    </message>
-    <message>
-        <source>The namespace URI in the name for a computed attribute cannot be %1.</source>
-        <translation>Der Namensraum-URI im Namen eines berechneten Attributes darf nicht %1 sein.</translation>
-    </message>
-    <message>
-        <source>The name for a computed attribute cannot have the namespace URI %1 with the local name %2.</source>
-        <translation>Der Name eines berechneten Attributes darf keinen Namensraum-URI %1 mit dem lokalen Namen %2 haben.</translation>
-    </message>
-    <message>
-        <source>Type error in cast, expected %1, received %2.</source>
-        <translation>Typfehler bei &quot;cast&quot;-Operation; es wurde %1 erwartet, aber %2 empfangen.</translation>
-    </message>
-    <message>
-        <source>When casting to %1 or types derived from it, the source value must be of the same type, or it must be a string literal. Type %2 is not allowed.</source>
-        <translation>Bei einer &quot;cast&quot;-Operation zum Typ %1 oder abgeleitetenTypen muss der Quellwert ein Zeichenketten-Literal oder ein Wert gleichen Typs sein. Der Typ %2 ist ungültig.</translation>
-    </message>
-    <message>
-        <source>A comment cannot contain %1</source>
-        <translation>Ein Kommentar darf %1 nicht enthalten</translation>
-    </message>
-    <message>
-        <source>A comment cannot end with a %1.</source>
-        <translation>Ein Kommentar darf nicht auf %1 enden.</translation>
-    </message>
-    <message>
-        <source>An attribute node cannot be a child of a document node. Therefore, the attribute %1 is out of place.</source>
-        <translation>Ein Attributknoten darf nicht als Kind eines Dokumentknotens erscheinen. Es erschien ein Attributknoten mit dem Namen %1.</translation>
-    </message>
-    <message>
-        <source>A library module cannot be evaluated directly. It must be imported from a main module.</source>
-        <translation>Ein Bibliotheksmodul kann nicht direkt ausgewertet werden, er muss von einem Hauptmodul importiert werden.</translation>
-    </message>
-    <message>
-        <source>No template by name %1 exists.</source>
-        <translation>Es existiert keine Vorlage mit dem Namen %1.</translation>
-    </message>
-    <message>
-        <source>A value of type %1 cannot be a predicate. A predicate must have either a numeric type or an Effective Boolean Value type.</source>
-        <translation>Werte des Typs %1 dürfen keine Prädikate sein. Für Prädikate sind nur numerische oder effektive boolesche Typen zulässig.</translation>
-    </message>
-    <message>
-        <source>A positional predicate must evaluate to a single numeric value.</source>
-        <translation>Ein positionales Prädikat muss sich als einfacher, numerischer Wert auswerten lassen.</translation>
-    </message>
-    <message>
-        <source>The target name in a processing instruction cannot be %1 in any combination of upper and lower case. Therefore, %2 is invalid.</source>
-        <translation>Der Zielname einer Processing-Anweisung kann nicht %1 (unabhängig von Groß/Kleinschreibung) sein. %2 ist daher ungültig.</translation>
-    </message>
-    <message>
-        <source>%1 is not a valid target name in a processing instruction. It must be a %2 value, e.g. %3.</source>
-        <translation>%1 ist kein gültiger Zielname einer Processing-Anweisung, es muss ein %2 Wert wie zum Beispiel %3 sein.</translation>
-    </message>
-    <message>
-        <source>The last step in a path must contain either nodes or atomic values. It cannot be a mixture between the two.</source>
-        <translation>Der letzte Schritt eines Pfades kann entweder nur Knoten oder nur atomare Werte enthalten. Sie dürfen nicht zusammen auftreten.</translation>
-    </message>
-    <message>
-        <source>No namespace binding exists for the prefix %1</source>
-        <translation>Es existiert keine Namensraum-Bindung für den Präfix %1</translation>
-    </message>
-    <message>
-        <source>No namespace binding exists for the prefix %1 in %2</source>
-        <translation>Es existiert keine Namensraum-Bindung für den Präfix %1 in %2</translation>
-    </message>
-    <message>
-        <source>The first argument to %1 cannot be of type %2. It must be a numeric type, xs:yearMonthDuration or xs:dayTimeDuration.</source>
-        <translation>Das erste Argument von %1 darf nicht vom Typ %2 sein; es muss numerisch, xs:yearMonthDuration oder xs:dayTimeDuration sein.</translation>
-    </message>
-    <message>
-        <source>The first argument to %1 cannot be of type %2. It must be of type %3, %4, or %5.</source>
-        <translation>Das erste Argument von %1 kann nicht vom Typ %2 sein, es muss einer der Typen %3, %4 oder %5 sein.</translation>
-    </message>
-    <message>
-        <source>The second argument to %1 cannot be of type %2. It must be of type %3, %4, or %5.</source>
-        <translation>Das zweite Argument von %1 kann nicht vom Typ %2 sein, es muss einer der Typen %3, %4 oder %5 sein.</translation>
-    </message>
-    <message>
-        <source>If both values have zone offsets, they must have the same zone offset. %1 and %2 are not the same.</source>
-        <translation>Wenn beide Werte mit Zeitzonen angegeben werden, müssen diese übereinstimmen. %1 und %2 sind daher unzulässig.</translation>
-    </message>
-    <message>
-        <source>%1 must be followed by %2 or %3, not at the end of the replacement string.</source>
-        <translation>Auf %1 muss %2 oder %3 folgen; es kann nicht am Ende der Ersetzung erscheinen.</translation>
-    </message>
-    <message>
-        <source>%1 and %2 match the start and end of a line.</source>
-        <translation>Die Ausdrücke %1 und %2 passen jeweils auf den Anfang oder das Ende einer beliebigen Zeile.</translation>
-    </message>
-    <message>
-        <source>Whitespace characters are removed, except when they appear in character classes</source>
-        <translation>Leerzeichen werden entfernt, sofern sie nicht in Zeichenklassen erscheinen</translation>
-    </message>
-    <message>
-        <source>%1 is an invalid flag for regular expressions. Valid flags are:</source>
-        <translation>%1 ist kein gültiger Modifikator für reguläre Ausdrücke. Gültige Modifikatoren sind:</translation>
-    </message>
-    <message>
-        <source>If the first argument is the empty sequence or a zero-length string (no namespace), a prefix cannot be specified. Prefix %1 was specified.</source>
-        <translation>Es kann kein Präfix angegeben werden, wenn das erste Argument leer oder eine leere Zeichenkette (kein Namensraum) ist. Es wurde der Präfix %1 angegeben.</translation>
-    </message>
-    <message>
-        <source>The normalization form %1 is unsupported. The supported forms are %2, %3, %4, and %5, and none, i.e. the empty string (no normalization).</source>
-        <translation>Die Normalisierungsform %1 wird nicht unterstützt. Die unterstützten Normalisierungsformen sind %2, %3, %4 and %5, und &quot;kein&quot; (eine leere Zeichenkette steht für &quot;keine Normalisierung&quot;).</translation>
-    </message>
-    <message>
-        <source>A zone offset must be in the range %1..%2 inclusive. %3 is out of range.</source>
-        <translation>Eine Zeitzonen-Differenz muss im Bereich %1..%2 (einschließlich) liegen. %3 liegt außerhalb des Bereiches.</translation>
-    </message>
-    <message>
-        <source>Required cardinality is %1; got cardinality %2.</source>
-        <translation>Die erforderliche Kardinalität ist %1 (gegenwärtig %2).</translation>
-    </message>
-    <message>
-        <source>The encoding %1 is invalid. It must contain Latin characters only, must not contain whitespace, and must match the regular expression %2.</source>
-        <translation>Die Kodierung %1 ist ungültig; sie darf nur aus lateinischen Buchstaben bestehen und muss dem regulären Ausdruck %2 entsprechen.</translation>
-    </message>
-    <message>
-        <source>The keyword %1 cannot occur with any other mode name.</source>
-        <translation>Das Schlüsselwort %1 kann nicht mit einem anderen Modusnamen zusammen verwendet werden.</translation>
-    </message>
-    <message>
-        <source>No variable with name %1 exists</source>
-        <translation>Es existiert keine Variable des Namens %1</translation>
-    </message>
-    <message>
-        <source>The value of attribute %1 must be of type %2, which %3 isn&apos;t.</source>
-        <translation>Der Wert des Attributs %1 muss vom Typ %2 sein, was bei %3 nicht der Fall ist.</translation>
-    </message>
-    <message>
-        <source>The prefix %1 cannot be bound. By default, it is already bound to the namespace %2.</source>
-        <translation>Der Präfix %1 kann nicht gebunden werden. Er ist bereits per Vorgabe an den Namensraum %2 gebunden.</translation>
-    </message>
-    <message>
-        <source>A variable with name %1 has already been declared.</source>
-        <translation>Eine Variable des Namens %1 wurde bereits deklariert.</translation>
-    </message>
-    <message>
-        <source>No value is available for the external variable with name %1.</source>
-        <translation>Es ist kein Wert für die externe Variable des Namens %1 verfügbar.</translation>
-    </message>
-    <message>
-        <source>A stylesheet function must have a prefixed name.</source>
-        <translation>Der Name einer Stylesheet-Funktion muss einen Präfix haben.</translation>
-    </message>
-    <message>
-        <source>The namespace %1 is reserved; therefore user defined functions may not use it. Try the predefined prefix %2, which exists for these cases.</source>
-        <translation>Der Namensraum %1 ist reserviert und kann daher von nutzerdefinierten Funktionen nicht verwendet werden (für diesen Zweck gibt es den vordefinierten Präfix %2).</translation>
-    </message>
-    <message>
-        <source>An argument with name %1 has already been declared. Every argument name must be unique.</source>
-        <translation>Es wurde bereits ein Argument des Namens %1 deklariert. Argumentnamen müssen eindeutig sein.</translation>
-    </message>
-    <message>
-        <source>When function %1 is used for matching inside a pattern, the argument must be a variable reference or a string literal.</source>
-        <translation>Bei der Verwendung der Funktion %1 zur Auswertung innerhalb eines Suchmusters muss das Argument eine Variablenreferenz oder ein Zeichenketten-Literal sein.</translation>
-    </message>
-    <message>
-        <source>In an XSL-T pattern, the first argument to function %1 must be a string literal, when used for matching.</source>
-        <translation>Bei einem XSL-T-Suchmuster muss das erste Argument zur Funktion %1 bei der Verwendung zur Suche ein Zeichenketten-Literal sein.</translation>
-    </message>
-    <message>
-        <source>In an XSL-T pattern, the first argument to function %1 must be a literal or a variable reference, when used for matching.</source>
-        <translation>Bei einem XSL-T-Suchmuster muss das erste Argument zur Funktion %1 bei der Verwendung zur Suche ein Literal oder eine Variablenreferenz sein.</translation>
-    </message>
-    <message>
-        <source>In an XSL-T pattern, function %1 cannot have a third argument.</source>
-        <translation>Bei einem XSL-T-Suchmuster darf die Funktion %1 kein drittes Argument haben.</translation>
-    </message>
-    <message>
-        <source>In an XSL-T pattern, only function %1 and %2, not %3, can be used for matching.</source>
-        <translation>Bei einem XSL-T-Suchmuster dürfen nur die Funktionen %1 und %2, nicht jedoch %3 zur Suche verwendet werden.</translation>
-    </message>
-    <message>
-        <source>In an XSL-T pattern, axis %1 cannot be used, only axis %2 or %3 can.</source>
-        <translation>Bei einem XSL-T-Suchmuster dürfen nur die Achsen %2 oder %3 verwendet werden, nicht jedoch %1.</translation>
-    </message>
-    <message>
-        <source>%1 is an invalid template mode name.</source>
-        <translation>%1 ist kein gültiger Name für einen Vorlagenmodus.</translation>
-    </message>
-    <message>
-        <source>The name of a variable bound in a for-expression must be different from the positional variable. Hence, the two variables named %1 collide.</source>
-        <translation>Der Name der gebundenen Variablen eines for-Ausdrucks muss sich von dem der Positionsvariable unterscheiden. Die zwei Variablen mit dem Namen %1 stehen im Konflikt.</translation>
-    </message>
-    <message>
-        <source>The Schema Validation Feature is not supported. Hence, %1-expressions may not be used.</source>
-        <translation>%1-Ausdrücke können nicht verwendet werden, da Schemavalidierung nicht unterstützt wird. </translation>
-    </message>
-    <message>
-        <source>None of the pragma expressions are supported. Therefore, a fallback expression must be present</source>
-        <translation>Es muss ein fallback-Ausdruck vorhanden sein, da keine pragma-Ausdrücke unterstützt werden</translation>
-    </message>
-    <message>
-        <source>Each name of a template parameter must be unique; %1 is duplicated.</source>
-        <translation>Die Namen von Vorlagenparametern müssen eindeutig sein, %1 existiert bereits.</translation>
-    </message>
-    <message>
-        <source>No function with name %1 is available.</source>
-        <translation>Es ist keine Funktion des Namens %1 verfügbar.</translation>
-    </message>
-    <message>
-        <source>%1 is not a valid numeric literal.</source>
-        <translation>%1 ist kein gültiger numerischer Literal.</translation>
-    </message>
-    <message>
-        <source>W3C XML Schema identity constraint selector</source>
-        <translation>W3C XML Schema identity constraint selector</translation>
-    </message>
-    <message>
-        <source>W3C XML Schema identity constraint field</source>
-        <translation>W3C XML Schema identity constraint field</translation>
-    </message>
-    <message>
-        <source>A construct was encountered which is disallowed in the current language(%1).</source>
-        <translation>Es wurde ein Sprachkonstrukt angetroffen, was in der aktuellen Sprache (%1) nicht erlaubt ist.</translation>
-    </message>
-    <message>
-        <source>Namespace %1 can only be bound to %2 (and it is, in either case, pre-declared).</source>
-        <translation>Der Namensraum %1 kann nur an %2 gebunden werden. Dies ist bereits vordeklariert.</translation>
-    </message>
-    <message>
-        <source>Prefix %1 can only be bound to %2 (and it is, in either case, pre-declared).</source>
-        <translation>Der Präfix %1 kann nur an %2 gebunden werden. Dies ist bereits vordeklariert.</translation>
-    </message>
-    <message>
-        <source>An attribute with name %1 has already appeared on this element.</source>
-        <translation>Das Element hat bereits ein Attribut des Namens %1.</translation>
-    </message>
-    <message>
-        <source>A direct element constructor is not well-formed. %1 is ended with %2.</source>
-        <translation>Es wurde ein fehlerhafter direkter Element-Konstruktor gefunden. %1 endet mit %2.</translation>
-    </message>
-    <message>
-        <source>The name %1 does not refer to any schema type.</source>
-        <translation>Der Name %1 hat keinen Bezug zu einem Schematyp.</translation>
-    </message>
-    <message>
-        <source>%1 is an complex type. Casting to complex types is not possible. However, casting to atomic types such as %2 works.</source>
-        <translation>%1 ist ein komplexer Typ. Eine &quot;cast&quot;-Operation zu komplexen Typen ist nicht möglich. Es können allerdings &quot;cast&quot;-Operationen zu atomare Typen wie %2 durchgeführt werden.</translation>
-    </message>
-    <message>
-        <source>%1 is not an atomic type. Casting is only possible to atomic types.</source>
-        <translation>%1 ist kein atomarer Typ. &quot;cast&quot;-Operation können nur zu atomaren Typen durchgeführt werden.</translation>
-    </message>
-    <message>
-        <source>%1 is not a valid name for a processing-instruction.</source>
-        <translation>%1 ist kein gültiger Name für eine Processing-Instruktion.</translation>
-    </message>
-    <message>
-        <source>The name of an extension expression must be in a namespace.</source>
-        <translation>Der Name eines Erweiterungsausdrucks muss sich in einem Namensraum befinden.</translation>
-    </message>
-    <message>
-        <source>Required type is %1, but %2 was found.</source>
-        <translation>Der erforderliche Typ ist %1, es wurde aber %2 angegeben.</translation>
-    </message>
-    <message>
-        <source>Promoting %1 to %2 may cause loss of precision.</source>
-        <translation>Die Wandlung von %1 zu %2 kann zu einem Verlust an Genauigkeit führen.</translation>
-    </message>
-    <message>
-        <source>It&apos;s not possible to add attributes after any other kind of node.</source>
-        <translation>Attribute dürfen nicht auf andere Knoten folgen.</translation>
-    </message>
-    <message>
-        <source>Only the Unicode Codepoint Collation is supported(%1). %2 is unsupported.</source>
-        <translation>Es wird nur Unicode Codepoint Collation unterstützt (%1). %2 wird nicht unterstützt.</translation>
+        <source>When casting to %1 from %2, the source value cannot be %3.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Integer division (%1) by zero (%2) is undefined.</source>
-        <translation>Die Ganzzahldivision (%1) durch Null (%2) ist nicht definiert.</translation>
+        <translation>Deljenje celega števila (%1) z nič (%2) ni določeno.</translation>
     </message>
     <message>
         <source>Division (%1) by zero (%2) is undefined.</source>
-        <translation>Die Division (%1) durch Null (%2) ist nicht definiert.</translation>
+        <translation>Deljenje (%1) z nič (%2) ni določeno.</translation>
     </message>
     <message>
         <source>Modulus division (%1) by zero (%2) is undefined.</source>
-        <translation>Die Modulo-Division (%1) durch Null (%2) ist nicht definiert.</translation>
+        <translation>Ostanek deljenja (%1) z nič (%2) ni določen.</translation>
+    </message>
+    <message>
+        <source>Dividing a value of type %1 by %2 (not-a-number) is not allowed.</source>
+        <translation>Deljenje vrednosti vrste %1 z %2 (ni število) ni dovoljeno.</translation>
+    </message>
+    <message>
+        <source>Dividing a value of type %1 by %2 or %3 (plus or minus zero) is not allowed.</source>
+        <translation>Deljenje vrednosti vrste %1 z %2 ali %3 (pozitivna ali negativna nič) ni dovoljeno.</translation>
+    </message>
+    <message>
+        <source>Multiplication of a value of type %1 by %2 or %3 (plus or minus infinity) is not allowed.</source>
+        <translation>Množenje vrednosti vrste %1 z %2 ali %3 (pozitivna ali negativna neskončnost) ni dovoljeno.</translation>
+    </message>
+    <message>
+        <source>A value of type %1 cannot have an Effective Boolean Value.</source>
+        <translation>Vrednost vrste %1 ne more imeti dejanske logične vrednosti.</translation>
+    </message>
+    <message>
+        <source>Effective Boolean Value cannot be calculated for a sequence containing two or more atomic values.</source>
+        <translation>Dejanske logične vrednosti ni moč izračunati za zaporedje, ki vsebuje dve ali več atomičnih vrednosti.</translation>
+    </message>
+    <message>
+        <source>Value %1 of type %2 exceeds maximum (%3).</source>
+        <translation>Vrednost %1 vrste %2 presega maksimum (%3).</translation>
+    </message>
+    <message>
+        <source>Value %1 of type %2 is below minimum (%3).</source>
+        <translation>Vrednost %1 vrste %2 je pod minimumom (%3).</translation>
+    </message>
+    <message>
+        <source>A value of type %1 must contain an even number of digits. The value %2 does not.</source>
+        <translation>Vrednost vrste %1 mora vsebovati sodo število števk. Vrednost %2 temu ne zadošča.</translation>
+    </message>
+    <message>
+        <source>%1 is not valid as a value of type %2.</source>
+        <translation>%1 ni veljavna kot vrednost vrste %2.</translation>
+    </message>
+    <message>
+        <source>Operator %1 cannot be used on type %2.</source>
+        <translation>Operatorja %1 ni moč uporabiti na vrsti %2.</translation>
+    </message>
+    <message>
+        <source>Operator %1 cannot be used on atomic values of type %2 and %3.</source>
+        <translation>Operatorja %1 ni moč uporabiti na atomičnih vrednostih vrst %2 in %3.</translation>
+    </message>
+    <message>
+        <source>The namespace URI in the name for a computed attribute cannot be %1.</source>
+        <translation>URI imenskega prostora v imenu izračunane lastnosti ne more biti %1.</translation>
+    </message>
+    <message>
+        <source>The name for a computed attribute cannot have the namespace URI %1 with the local name %2.</source>
+        <translation>Ime izračunane lastnosti ne more imeti URI-ja imenskega prostora %1 s krajevnim imenom %2.</translation>
+    </message>
+    <message>
+        <source>Type error in cast, expected %1, received %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When casting to %1 or types derived from it, the source value must be of the same type, or it must be a string literal. Type %2 is not allowed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A comment cannot contain %1</source>
+        <translation>Komentar ne more vsebovati %1</translation>
+    </message>
+    <message>
+        <source>A comment cannot end with a %1.</source>
+        <translation>Komentar se ne more končati z %1.</translation>
+    </message>
+    <message>
+        <source>An attribute node cannot be a child of a document node. Therefore, the attribute %1 is out of place.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A library module cannot be evaluated directly. It must be imported from a main module.</source>
+        <translation>Modula knjižnice ni moč ovrednotiti neposredno. Uvoziti ga je potrebno iz glavnega modula.</translation>
+    </message>
+    <message>
+        <source>No template by name %1 exists.</source>
+        <translation>Predloga z imenom %1 ne obstaja.</translation>
+    </message>
+    <message>
+        <source>A value of type %1 cannot be a predicate. A predicate must have either a numeric type or an Effective Boolean Value type.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A positional predicate must evaluate to a single numeric value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The target name in a processing instruction cannot be %1 in any combination of upper and lower case. Therefore, %2 is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not a valid target name in a processing instruction. It must be a %2 value, e.g. %3.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The last step in a path must contain either nodes or atomic values. It cannot be a mixture between the two.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The data of a processing instruction cannot contain the string %1</source>
+        <translation>Podatki ukaza za obdelavo ne morejo vsebovati niza %1</translation>
+    </message>
+    <message>
+        <source>No namespace binding exists for the prefix %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No namespace binding exists for the prefix %1 in %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is an invalid %2</source>
+        <translation>%1 ni veljaven %2</translation>
     </message>
     <message numerus="yes">
         <source>%1 takes at most %n argument(s). %2 is therefore invalid.</source>
         <translation>
-            <numerusform>%1 hat nur %n Argument; die Angabe %2 ist daher ungültig.</numerusform>
-            <numerusform>%1 hat nur %n Argumente; die Angabe %2 ist daher ungültig.</numerusform>
+            <numerusform>%1 potrebuje največ %n argument. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje največ %n argumenta. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje največ %n argumente. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje največ %n argumentov. %2 zato ni veljavno.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%1 requires at least %n argument(s). %2 is therefore invalid.</source>
         <translation>
-            <numerusform>%1 erfordert mindestens ein Argument; die Angabe %3 ist daher ungültig.</numerusform>
-            <numerusform>%1 erfordert mindestens %n Argumente; die Angabe %3 ist daher ungültig.</numerusform>
+            <numerusform>%1 potrebuje najmanj %n argument. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje najmanj %n argumenta. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje najmanj %n argumente. %2 zato ni veljavno.</numerusform>
+            <numerusform>%1 potrebuje najmanj %n argumentov. %2 zato ni veljavno.</numerusform>
         </translation>
     </message>
     <message>
+        <source>The first argument to %1 cannot be of type %2. It must be a numeric type, xs:yearMonthDuration or xs:dayTimeDuration.</source>
+        <translation>Prvi argument za %1 ne more biti vrste %2. Mora biti številčne vrste, xs:yearMonthDuration ali xs:dayTimeDuration.</translation>
+    </message>
+    <message>
+        <source>The first argument to %1 cannot be of type %2. It must be of type %3, %4, or %5.</source>
+        <translation>Prvi argument za %1 ne more biti vrste %2. Mora biti vrste %3, %4 ali %5.</translation>
+    </message>
+    <message>
+        <source>The second argument to %1 cannot be of type %2. It must be of type %3, %4, or %5.</source>
+        <translation>Drugi argument za %1 ne more biti vrste %2. Mora biti vrste %3, %4 ali %5.</translation>
+    </message>
+    <message>
+        <source>%1 is not a valid XML 1.0 character.</source>
+        <translation>%1 ni veljaven znak XML 1.0.</translation>
+    </message>
+    <message>
+        <source>If both values have zone offsets, they must have the same zone offset. %1 and %2 are not the same.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 was called.</source>
+        <translation>%1 je bila klicana.</translation>
+    </message>
+    <message>
+        <source>%1 must be followed by %2 or %3, not at the end of the replacement string.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In the replacement string, %1 must be followed by at least one digit when not escaped.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In the replacement string, %1 can only be used to escape itself or %2, not %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 matches newline characters</source>
+        <translation>%1 se ujema z znaki za novo vrstico</translation>
+    </message>
+    <message>
+        <source>%1 and %2 match the start and end of a line.</source>
+        <translation>%1 in %2 se ujemata z začetkom in koncem vrstice.</translation>
+    </message>
+    <message>
+        <source>Matches are case insensitive</source>
+        <translation>Ujemanja niso občutljiva na velikost črk</translation>
+    </message>
+    <message>
+        <source>Whitespace characters are removed, except when they appear in character classes</source>
+        <translation>Znaki za presledke so odstranjeni, razen ko se pojavijo v znakovnih razredih</translation>
+    </message>
+    <message>
+        <source>%1 is an invalid regular expression pattern: %2</source>
+        <translation>%1 ni veljaven vzorec regularnega izraza: %2</translation>
+    </message>
+    <message>
+        <source>%1 is an invalid flag for regular expressions. Valid flags are:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If the first argument is the empty sequence or a zero-length string (no namespace), a prefix cannot be specified. Prefix %1 was specified.</source>
+        <translation>Če je prvi argument prazno zaporedje, ali pa niz z dolžino nič (brez imenskega prostora), predpone ni moč določiti. Določena je bila predpona %1.</translation>
+    </message>
+    <message>
+        <source>It will not be possible to retrieve %1.</source>
+        <translation>%1 ne bo možno pridobiti.</translation>
+    </message>
+    <message>
         <source>The root node of the second argument to function %1 must be a document node. %2 is not a document node.</source>
-        <translation>Der übergeordnete Knoten des zweiten Arguments der Funktion %1 muss ein Dokumentknoten sein, was bei %2 nicht der Fall ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The namespace for a user defined function cannot be empty (try the predefined prefix %1 which exists for cases like this)</source>
-        <translation>Der Namensraum einer benutzerdefinierten Funktion darf nicht leer sein (für diesen Zweck gibt es den vordefinierten Präfix %1)</translation>
+        <source>The default collection is undefined</source>
+        <translation>Privzeta zbirka ni določena.</translation>
     </message>
     <message>
-        <source>A default namespace declaration must occur before function, variable, and option declarations.</source>
-        <translation>Die Deklaration des Default-Namensraums muss vor Funktions-, Variablen- oder Optionsdeklaration erfolgen.</translation>
+        <source>%1 cannot be retrieved</source>
+        <translation>%1 ni moč pridobiti</translation>
     </message>
     <message>
-        <source>Namespace declarations must occur before function, variable, and option declarations.</source>
-        <translation>Namensraums-Deklarationen müssen vor Funktions- Variablen- oder Optionsdeklarationen stehen.</translation>
+        <source>The normalization form %1 is unsupported. The supported forms are %2, %3, %4, and %5, and none, i.e. the empty string (no normalization).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Module imports must occur before function, variable, and option declarations.</source>
-        <translation>Modul-Importe müssen vor Funktions-, Variablen- oder Optionsdeklarationen stehen.</translation>
+        <source>A zone offset must be in the range %1..%2 inclusive. %3 is out of range.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not a whole number of minutes.</source>
-        <translation>%1 ist keine ganzzahlige Minutenangabe.</translation>
+        <translation>%1 ni celovito število minut.</translation>
+    </message>
+    <message>
+        <source>Required cardinality is %1; got cardinality %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The item %1 did not match the required type %2.</source>
+        <translation>Postavka %1 se ne ujema z zahtevano vrsto %2.</translation>
+    </message>
+    <message>
+        <source>%1 is an unknown schema type.</source>
+        <translation>%1 ni znana vrsta sheme.</translation>
+    </message>
+    <message>
+        <source>A template with name %1 has already been declared.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only one %1 declaration can occur in the query prolog.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The initialization of variable %1 depends on itself</source>
+        <translation>Inicializacija spremenljivke %1 je odvisna od same sebe.</translation>
+    </message>
+    <message>
+        <source>The variable %1 is unused</source>
+        <translation>Spremenljivka %1 ni uporabljena</translation>
+    </message>
+    <message>
+        <source>Version %1 is not supported. The supported XQuery version is 1.0.</source>
+        <translation>Različica %1 ni podprta. Podpra različica XQuery je 1.0.</translation>
+    </message>
+    <message>
+        <source>The encoding %1 is invalid. It must contain Latin characters only, must not contain whitespace, and must match the regular expression %2.</source>
+        <translation>Kodiranje %1 ni veljavno. Vsebovati mora le znake latinske abecede, ne sme vsebovati presledkov in se mora ujemati z regularnim izrazom %2.</translation>
+    </message>
+    <message>
+        <source>No function with signature %1 is available</source>
+        <translation>Na voljo ni nobene funkcije s podpisom %1</translation>
+    </message>
+    <message>
+        <source>A default namespace declaration must occur before function, variable, and option declarations.</source>
+        <translation>Deklaracije privzetega imenskega prostora se mora pojaviti pred deklaracijami funkcij, spremenljivk in možnosti.</translation>
+    </message>
+    <message>
+        <source>Namespace declarations must occur before function, variable, and option declarations.</source>
+        <translation>Deklaracije imenskih prostorov se morajo pojaviti pred deklaracijami funkcij, spremenljivk in možnosti.</translation>
+    </message>
+    <message>
+        <source>Module imports must occur before function, variable, and option declarations.</source>
+        <translation>Uvozi modulov se morajo pojaviti pred deklaracijami funkcij, spremenljivk in možnosti.</translation>
+    </message>
+    <message>
+        <source>It is not possible to redeclare prefix %1.</source>
+        <translation>Predpone %1 ni moč znova deklarirati.</translation>
+    </message>
+    <message>
+        <source>Prefix %1 is already declared in the prolog.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name of an option must have a prefix. There is no default namespace for options.</source>
+        <translation>Ime možnosti mora vsebovati predpono. Privzeti imenski prostor za možnosti ne obstaja.</translation>
+    </message>
+    <message>
+        <source>The Schema Import feature is not supported, and therefore %1 declarations cannot occur.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The target namespace of a %1 cannot be empty.</source>
+        <translation>Ciljni imenski prostor za %1 ne sme biti prazen.</translation>
+    </message>
+    <message>
+        <source>The module import feature is not supported</source>
+        <translation>Zmožnost uvažanja modulov ni podprta</translation>
+    </message>
+    <message>
+        <source>The keyword %1 cannot occur with any other mode name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A stylesheet function must have a prefixed name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The namespace for a user defined function cannot be empty (try the predefined prefix %1 which exists for cases like this)</source>
+        <translation>Imenski prostor za uporabniško določeno funkcijo ne sme biti prazen (poskusite z vnaprej določeno predpono %1, ki obstaja za take primere)</translation>
+    </message>
+    <message>
+        <source>The namespace %1 is reserved; therefore user defined functions may not use it. Try the predefined prefix %2, which exists for these cases.</source>
+        <translation>Imenski prostor %1 je rezerviran, zato ga uporabniško določene funkcije ne smejo uporabiti. Poskusite z vnaprej določeno predpono %2, ki obstaja za take primere.</translation>
+    </message>
+    <message>
+        <source>The namespace of a user defined function in a library module must be equivalent to the module namespace. In other words, it should be %1 instead of %2</source>
+        <translation>Imenski prostor uporabniško določene funkcije v modulu knjižnice mora biti enak imenskemu prostoru modula. Z drugimi besedami, moral bi biti %1, namesto %2.</translation>
+    </message>
+    <message>
+        <source>A function already exists with the signature %1.</source>
+        <translation>Funkcija s podpisom %1 že obstaja.</translation>
+    </message>
+    <message>
+        <source>No external functions are supported. All supported functions can be used directly, without first declaring them as external</source>
+        <translation>Zunanje funkcije niso podprte. Vse podprte funkcije je moč uporabiti neposredno, brez da bi jih najprej deklarirali kot zunanje.</translation>
+    </message>
+    <message>
+        <source>No variable with name %1 exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The value of attribute %1 must be of type %2, which %3 isn&apos;t.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The prefix %1 cannot be bound. By default, it is already bound to the namespace %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A variable with name %1 has already been declared.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No value is available for the external variable with name %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An argument with name %1 has already been declared. Every argument name must be unique.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When function %1 is used for matching inside a pattern, the argument must be a variable reference or a string literal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In an XSL-T pattern, the first argument to function %1 must be a string literal, when used for matching.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In an XSL-T pattern, the first argument to function %1 must be a literal or a variable reference, when used for matching.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In an XSL-T pattern, function %1 cannot have a third argument.</source>
+        <translation>V XSL-T vzorcu funkcija %1 ne more imeti tretjega argumenta.</translation>
+    </message>
+    <message>
+        <source>In an XSL-T pattern, only function %1 and %2, not %3, can be used for matching.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In an XSL-T pattern, axis %1 cannot be used, only axis %2 or %3 can.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is an invalid template mode name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name of a variable bound in a for-expression must be different from the positional variable. Hence, the two variables named %1 collide.</source>
+        <translation>Ime spremenljivke priklenjene v izrazu »for« se mora razlikovati od spremenljivke položaja. Spremenljivki z imenom %1 zato trčita.</translation>
+    </message>
+    <message>
+        <source>The Schema Validation Feature is not supported. Hence, %1-expressions may not be used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None of the pragma expressions are supported. Therefore, a fallback expression must be present</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each name of a template parameter must be unique; %1 is duplicated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %1-axis is unsupported in XQuery</source>
+        <translation>Os %1 v XQuery ni podprta</translation>
+    </message>
+    <message>
+        <source>No function with name %1 is available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An attribute with name %1 has already appeared on this element.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not a valid name for a processing-instruction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not a valid numeric literal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>W3C XML Schema identity constraint selector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>W3C XML Schema identity constraint field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A construct was encountered which is disallowed in the current language(%1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The namespace URI cannot be the empty string when binding to a prefix, %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is an invalid namespace URI.</source>
+        <translation>%1 ni veljaven URI imenskega prostora.</translation>
+    </message>
+    <message>
+        <source>It is not possible to bind to the prefix %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Namespace %1 can only be bound to %2 (and it is, in either case, pre-declared).</source>
+        <translation>Imenski prostor %1 je lahko navezan le na %2 (in je, v vsakem primeru, preddeklariran)</translation>
+    </message>
+    <message>
+        <source>Prefix %1 can only be bound to %2 (and it is, in either case, pre-declared).</source>
+        <translation>Predpona %1 je lahko navezana le na %2 (in je, v vsakem primeru, preddeklarirana)</translation>
+    </message>
+    <message>
+        <source>Two namespace declaration attributes have the same name: %1.</source>
+        <translation>Dva atributa deklaracije imenskega prostora imata isto ime: %1</translation>
+    </message>
+    <message>
+        <source>The namespace URI must be a constant and cannot use enclosed expressions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A direct element constructor is not well-formed. %1 is ended with %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name %1 does not refer to any schema type.</source>
+        <translation>Ime %1 se ne nanaša na nobeno vrsto sheme.</translation>
+    </message>
+    <message>
+        <source>%1 is an complex type. Casting to complex types is not possible. However, casting to atomic types such as %2 works.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not an atomic type. Casting is only possible to atomic types.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 is not in the in-scope attribute declarations. Note that the schema import feature is not supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name of an extension expression must be in a namespace.</source>
+        <translation>Ime razširitvenega izraza mora biti v imenskem prostoru.</translation>
+    </message>
+    <message>
+        <source>empty</source>
+        <translation>prazno</translation>
+    </message>
+    <message>
+        <source>zero or one</source>
+        <translation>nič ali en</translation>
+    </message>
+    <message>
+        <source>exactly one</source>
+        <translation>točno en</translation>
+    </message>
+    <message>
+        <source>one or more</source>
+        <translation>en ali več</translation>
+    </message>
+    <message>
+        <source>zero or more</source>
+        <translation>nič ali več</translation>
+    </message>
+    <message>
+        <source>Required type is %1, but %2 was found.</source>
+        <translation>Zahtevana vrsta je %1, najdena pa je bila %2.</translation>
+    </message>
+    <message>
+        <source>Promoting %1 to %2 may cause loss of precision.</source>
+        <translation>Povišanje %1 v %2 lahko povzroči izgubo natančnosti.</translation>
+    </message>
+    <message>
+        <source>The focus is undefined.</source>
+        <translation>Fokus ni definiran.</translation>
+    </message>
+    <message>
+        <source>It&apos;s not possible to add attributes after any other kind of node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An attribute by name %1 has already been created.</source>
+        <translation>Atribut z imenom %1 je že bil ustvarjen.</translation>
+    </message>
+    <message>
+        <source>Only the Unicode Codepoint Collation is supported(%1). %2 is unsupported.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 can&apos;t be serialized because it appears at the top level.</source>
-        <translation>Das Attributelement %1 kann nicht serialisiert werden, da es auf der höchsten Ebene erscheint.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is an unsupported encoding.</source>
-        <translation>Die Kodierung %1 wird nicht unterstützt.</translation>
+        <translation>%1 ni podprto kodiranje.</translation>
     </message>
     <message>
         <source>%1 contains octets which are disallowed in the requested encoding %2.</source>
-        <translation>%1 enthält Oktette, die in der Kodierung %2 nicht zulässig sind.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The codepoint %1, occurring in %2 using encoding %3, is an invalid XML character.</source>
-        <translation>Der Code-Punkt %1 aus %2 mit der Kodierung %3 ist kein gültiges XML-Zeichen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ambiguous rule match.</source>
-        <translation>Mehrdeutige Regel.</translation>
+        <translation>Dvoumno ujemanje s pravilom.</translation>
     </message>
     <message>
         <source>In a namespace constructor, the value for a namespace cannot be an empty string.</source>
-        <translation>Im Konstruktor eines Namensraums darf der Wert des Namensraumes keine leere Zeichenkette sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The prefix must be a valid %1, which %2 is not.</source>
-        <translation>Der Präfix muss ein gültiger %1 sein. Das ist bei %2 nicht der Fall.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The prefix %1 cannot be bound.</source>
-        <translation>Der Präfix %1 kann nicht gebunden werden</translation>
+        <translation>Predpone %1 ni moč navezati.</translation>
     </message>
     <message>
         <source>Only the prefix %1 can be bound to %2 and vice versa.</source>
-        <translation>An %2 kann nur der Präfix %1 gebunden werden (und umgekehrt).</translation>
+        <translation>Na %2 je lahko navezana le predpona %1 in obratno.</translation>
     </message>
     <message>
         <source>The parameter %1 is required, but no corresponding %2 is supplied.</source>
-        <translation>Es wurde kein entsprechendes %2 für den erforderlichen Parameter %1 angegeben.</translation>
+        <translation>Potreben je parameter %1, vendar ustrezen %2 ni bil podan.</translation>
     </message>
     <message>
         <source>The parameter %1 is passed, but no corresponding %2 exists.</source>
-        <translation>Es existiert kein entsprechendes %2 für den übergebenen Parameter %1.</translation>
+        <translation>Podan je bil parameter %1, vendar ustrezen %2 ne obstaja.</translation>
     </message>
     <message>
         <source>The URI cannot have a fragment</source>
-        <translation>Der URI darf kein Fragment enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 is not allowed at this location.</source>
-        <translation>Das Element %1 darf nicht an dieser Stelle stehen.</translation>
+        <translation>Element %1 na tej lokaciji ni dovoljen.</translation>
     </message>
     <message>
         <source>Text nodes are not allowed at this location.</source>
-        <translation>An dieser Stelle dürfen keine Textknoten stehen.</translation>
+        <translation>Besedilna vozlišča na tej lokaciji niso dovoljena.</translation>
     </message>
     <message>
         <source>Parse error: %1</source>
-        <translation>Parse-Fehler: %1</translation>
+        <translation>Napaka pri razčlenjevanju: %1</translation>
     </message>
     <message>
         <source>The value of the XSL-T version attribute must be a value of type %1, which %2 isn&apos;t.</source>
-        <translation>Der Wert eines XSL-T-Versionsattributes muss vom Typ %1 sein, was bei %2 nicht der Fall ist.</translation>
+        <translation>Vrednost lastnosti različice XSL-T mora biti vrednost vrste %1, %2 pa to ni.</translation>
     </message>
     <message>
         <source>Running an XSL-T 1.0 stylesheet with a 2.0 processor.</source>
-        <translation>Es wird ein XSL-T-1.0-Stylesheet mit einem Prozessor der Version 2.0 verarbeitet.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unknown XSL-T attribute %1.</source>
-        <translation>Unbekanntes XSL-T-Attribut: %1.</translation>
+        <translation>Neznana XSL-T lastnost %1.</translation>
     </message>
     <message>
         <source>Attribute %1 and %2 are mutually exclusive.</source>
-        <translation>Die Attribute %1 und %2 schließen sich gegenseitig aus.</translation>
+        <translation>Lastnosti %1 in %2 sta medsebojno izključujoči.</translation>
     </message>
     <message>
         <source>In a simplified stylesheet module, attribute %1 must be present.</source>
-        <translation>In einem vereinfachten Stylesheet-Modul muss das Attribut %1 vorhanden sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If element %1 has no attribute %2, it cannot have attribute %3 or %4.</source>
-        <translation>Das Element %1 darf keines der Attribute %3 oder %4 haben, solange es nicht das Attribut %2 hat.</translation>
+        <translation>Če element %1 nima lastnosti %2, ne more imeti lastnosti %3 ali %4.</translation>
     </message>
     <message>
         <source>Element %1 must have at least one of the attributes %2 or %3.</source>
-        <translation>Das Element %1 muss mindestens eines der Attribute %2 oder %3 haben.</translation>
+        <translation>Element %1 mora imeti vsaj eno izmed lastnosti %2 in %3.</translation>
     </message>
     <message>
         <source>At least one mode must be specified in the %1-attribute on element %2.</source>
-        <translation>Im %1-Attribut des Elements %2 muss mindestens ein Modus angegeben werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 must come last.</source>
-        <translation>Das Element %1 muss zuletzt stehen.</translation>
+        <translation>Element %1 mora biti zadnji.</translation>
     </message>
     <message>
         <source>At least one %1-element must occur before %2.</source>
-        <translation>Vor %2 muss mindestens ein %1-Element stehen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only one %1-element can appear.</source>
-        <translation>Es darf nur ein einziges %1-Element stehen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>At least one %1-element must occur inside %2.</source>
-        <translation>In %2 muss mindestens ein %1-Element stehen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When attribute %1 is present on %2, a sequence constructor cannot be used.</source>
-        <translation>Es kann kein Sequenzkonstruktor verwendet werden, wenn %2 ein Attribut %1 hat.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 must have either a %2-attribute or a sequence constructor.</source>
-        <translation>Das Element %1 muss entweder ein %2-Attribut haben oder es muss ein Sequenzkonstruktor verwendet werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When a parameter is required, a default value cannot be supplied through a %1-attribute or a sequence constructor.</source>
-        <translation>Der Defaultwert eines erforderlichen Parameters kann weder durch ein %1-Attribut noch durch einen Sequenzkonstruktor angegeben werden. </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 cannot have children.</source>
-        <translation>Das Element %1 kann keine Kindelemente haben.</translation>
+        <translation>Element %1 ne more imeti podelementov.</translation>
     </message>
     <message>
         <source>Element %1 cannot have a sequence constructor.</source>
-        <translation>Das Element %1 kann keinen Sequenzkonstruktor haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The attribute %1 cannot appear on %2, when it is a child of %3.</source>
-        <translation>%2 darf nicht das Attribut %1 haben, wenn es ein Kindelement von %3 ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A parameter in a function cannot be declared to be a tunnel.</source>
-        <translation>Der Parameter einer Funktion kann nicht als Tunnel deklariert werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This processor is not Schema-aware and therefore %1 cannot be used.</source>
-        <translation>%1 kann nicht verwendet werden, da dieser Prozessor keine Schemas unterstützt.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Top level stylesheet elements must be in a non-null namespace, which %1 isn&apos;t.</source>
-        <translation>Die zuoberst stehenden Elemente eines Stylesheets dürfen sich nicht im Null-Namensraum befinden, was bei %1 der Fall ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The value for attribute %1 on element %2 must either be %3 or %4, not %5.</source>
-        <translation>Der Wert des Attributs %1 des Elements %2 kann nur %3 oder %4 sein, nicht jedoch %5.</translation>
+        <translation>Vrednost lastnosti %1 elementa %2 mora biti %3 ali %4 in ne %5.</translation>
     </message>
     <message>
         <source>Attribute %1 cannot have the value %2.</source>
-        <translation>Das Attribut %1 darf nicht den Wert %2 haben.</translation>
+        <translation>Lastnost %1 ne more imeti vrednosti %2.</translation>
     </message>
     <message>
         <source>The attribute %1 can only appear on the first %2 element.</source>
-        <translation>Nur das erste %2-Element darf das Attribut %1 haben.</translation>
+        <translation>Lastnost %1 se lahko pojavi le pri prvem elementu %2.</translation>
     </message>
     <message>
         <source>At least one %1 element must appear as child of %2.</source>
-        <translation>%2 muss mindestens ein %1-Kindelement haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 has inheritance loop in its base type %2.</source>
-        <translation>%1 hat eine zirkuläre Vererbung im Basistyp %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Circular inheritance of base type %1.</source>
-        <translation>Zirkuläre Vererbung im Basistyp %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Circular inheritance of union %1.</source>
-        <translation>Zirkuläre Vererbung bei der Vereinigung %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to derive from %2 by restriction as the latter defines it as final.</source>
-        <translation>%1 darf nicht durch Einschränkung von %2 abgeleitet werden, da letzterer sie als final deklariert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to derive from %2 by extension as the latter defines it as final.</source>
-        <translation>%1 darf nicht durch Erweiterung von %2 abgeleitet werden, da letzterer sie als final deklariert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type of simple type %1 cannot be complex type %2.</source>
-        <translation>Der komplexe Typ %2 kann nicht Basisklasse des einfachen Typs %1 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 cannot have direct base type %2.</source>
-        <translation>Der einfache Typ %1 kann nicht den unmittelbaren Basistyp %2 haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 is not allowed to have base type %2.</source>
-        <translation>Der einfache Typ %1 darf nicht den Basistyp %2 haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 can only have simple atomic type as base type.</source>
-        <translation>Der einfache Typ %1 kann nur einen einfachen. atomaren Basistyp haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 cannot derive from %2 as the latter defines restriction as final.</source>
-        <translation>%1 darf nicht von %2 abgeleitet werden, da letzterer die Einschränkung als final deklariert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Variety of item type of %1 must be either atomic or union.</source>
-        <translation>Die Varietät der Typen von %1 muss entweder atomar oder eine Vereinigung sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Variety of member types of %1 must be atomic.</source>
-        <translation>Die Varietät der Typen von %1 muss atomar sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to derive from %2 by list as the latter defines it as final.</source>
-        <translation>%1 darf nicht durch Listen von %2 abgeleitet werden, da letzterer sie als final deklariert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 is only allowed to have %2 facet.</source>
-        <translation>Der einfache Typ %1 darf nur die Facette %2 haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type of simple type %1 must have variety of type list.</source>
-        <translation>Der Basistyp des einfachen Typs %1 muss eine Varietät des Typs Liste haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type of simple type %1 has defined derivation by restriction as final.</source>
-        <translation>Der Basistyp des einfachen Typs %1 definiert Vererbung durch Einschränkung als final.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Item type of base type does not match item type of %1.</source>
-        <translation>Der Elementtyp des Basistyps entspricht nicht dem Elementtyp von %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type %1 contains not allowed facet type %2.</source>
-        <translation>Der einfache Typ %1 enthält einen nicht erlaubten Facettentyp %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to derive from %2 by union as the latter defines it as final.</source>
-        <translation>%1 darf nicht durch Vereinigung von %2 abgeleitet werden, da sie letzterer sie als final deklariert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to have any facets.</source>
-        <translation>%1 darf keine Facetten haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type %1 of simple type %2 must have variety of union.</source>
-        <translation>Der Basistyp %1 des einfachen Typs %2 muss eine Varietät des Typs Vereinigung haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type %1 of simple type %2 is not allowed to have restriction in %3 attribute.</source>
-        <translation>Der Basistyp %1 des einfachen Typs %2 darf keine Einschränkung im %3 Attribut haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Member type %1 cannot be derived from member type %2 of %3&apos;s base type %4.</source>
-        <translation>Der Typ %1 des Mitglieds darf nicht vom Typ %2 des Mitglieds vom Basistyp %4 von %3 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derivation method of %1 must be extension because the base type %2 is a simple type.</source>
-        <translation>Erweiterung muss als Vererbungsmethode für %1 verwendet werden, da der Basistyp %2 ein einfacher Typ ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 has duplicated element %2 in its content model.</source>
-        <translation>Der komplexe Typ %1 hat ein dupliziertes Element %2 in seinem Inhaltsmodell.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 has non-deterministic content.</source>
-        <translation>Der komplexe Typ %1 hat nicht-deterministischen Inhalt.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attributes of complex type %1 are not a valid extension of the attributes of base type %2: %3.</source>
-        <translation>Die Attribute des komplexen Typs %1 sind keine gültige Erweiterung der Attribute des Basistyps %2: %3.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Content model of complex type %1 is not a valid extension of content model of %2.</source>
-        <translation>Das Inhaltsmodell des komplexen Typs %1 ist keine gültige Erweiterung des Inhaltsmodells von %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 must have simple content.</source>
-        <translation>Der komplexe Typ %1 kann nur einfachen Inhalt haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 must have the same simple type as its base class %2.</source>
-        <translation>Der komplexe Typ %1 kann nur einen einfachen Typ als Basisklasse %2 haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 cannot be derived from base type %2%3.</source>
-        <translation>Der komplexe Typ %1 kann nicht vom Basistyp %2 abgeleitet werden%3.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attributes of complex type %1 are not a valid restriction from the attributes of base type %2: %3.</source>
-        <translation>Die Attribute des komplexen Typs %1 sind keine gültige Einschränkung der Attribute des Basistyps %2: %3.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 with simple content cannot be derived from complex base type %2.</source>
-        <translation>Der komplexe Typ %1 einfachen Inhalts darf nicht vom komplexen Basistyp %2 abgeleitet werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Item type of simple type %1 cannot be a complex type.</source>
-        <translation>Der Elementtyp des einfachen Typs %1 kann kein komplexer Typ sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Member type of simple type %1 cannot be a complex type.</source>
-        <translation>Der Typ eines Mitglieds des einfachen Typs %1 kann kein komplexer Typ sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not allowed to have a member type with the same name as itself.</source>
-        <translation>%1 darf keinen Typ eines Mitglieds desselben Namens haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet collides with %2 facet.</source>
-        <translation>Die Facette %1 steht im Widerspruch zu der Facette %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must have the same value as %2 facet of base type.</source>
-        <translation>Die Facette %1 muss denselben Wert wie die Facette %2 des Basistyps haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be equal or greater than %2 facet of base type.</source>
-        <translation>Die Facette %1 muss größer oder gleich der Facette %2 des Basistyps sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be less than or equal to %2 facet of base type.</source>
-        <translation>Die Facette %1 muss kleiner oder gleich der Facette %2 des Basistyps sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet contains invalid regular expression</source>
-        <translation>Die Facette %1 enthält einen ungültigen regulären Ausdruck</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unknown notation %1 used in %2 facet.</source>
-        <translation>Die Facette %2 enthält eine ungültige Notation %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet contains invalid value %2: %3.</source>
-        <translation>Die Facette %1 enthält einen ungültigen Wert %2: %3.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet cannot be %2 or %3 if %4 facet of base type is %5.</source>
-        <translation>Die Facette %1 kann nicht %2 oder %3 sein, wenn die Facette %4 des Basistyps %5 ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet cannot be %2 if %3 facet of base type is %4.</source>
-        <translation>Die Facette %1 kann nicht %2 sein, wenn die Facette %3 des Basistyps %4 ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be less than or equal to %2 facet.</source>
-        <translation>Die Facette %1 muss kleiner oder gleich der Facette %2 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be less than %2 facet of base type.</source>
-        <translation>Die Facette %1 muss kleiner der Facette %2 des Basistyps sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet and %2 facet cannot appear together.</source>
-        <translation>Die Facetten %1 und %2 können nicht zusammen erscheinen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be greater than %2 facet of base type.</source>
-        <translation>Die Facette %1 muss größer als die Facette %2 des Basistyps sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be less than %2 facet.</source>
-        <translation>Die Facette %1 muss kleiner als die Facette %2 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 facet must be greater than or equal to %2 facet of base type.</source>
-        <translation>Die Facette %1 muss größer oder gleich der Facette %2 des Basistyps sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type contains not allowed facet %1.</source>
-        <translation>Der einfache Typ enthält eine unzulässige Facette %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1, %2, %3, %4, %5 and %6 facets are not allowed when derived by list.</source>
-        <translation>Die Facetten %1, %2, %3, %4, %5 und %6 sind bei Vererbung durch Listen nicht zulässig.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only %1 and %2 facets are allowed when derived by union.</source>
-        <translation>Bei Vererbung durch Vereinigung sind nur die Facetten %1 und %2 zulässig.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 contains %2 facet with invalid data: %3.</source>
-        <translation>%1 enthält eine Facette %2 mit ungültigen Daten: %3.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute group %1 contains attribute %2 twice.</source>
-        <translation>Die Attributgruppe %1 enthält das Attribut %2 zweimal.</translation>
+        <translation>Skupina lastnosti %1 dvakrat vsebuje lastnost %2.</translation>
     </message>
     <message>
         <source>Attribute group %1 contains two different attributes that both have types derived from %2.</source>
-        <translation>Die Attributgruppe %1 enthält zwei verschiedene Attribute mit Typen, die von %2 abgeleitet sind.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute group %1 contains attribute %2 that has value constraint but type that inherits from %3.</source>
-        <translation>Die Attributgruppe %1 enthält ein Attribut %2 mit einer Einschränkung des Werts, dessen Typ aber von %3 abgeleitet ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 contains attribute %2 twice.</source>
-        <translation>Der komplexe Typ %1 enthält das Attribut %2 doppelt.</translation>
+        <translation>Kompleksna vrsta %1 dvakrat vsebuje lastnost %2.</translation>
     </message>
     <message>
         <source>Complex type %1 contains two different attributes that both have types derived from %2.</source>
-        <translation>Die Attributgruppe %1 enthält zwei verschiedene Attribute mit Typen, die beide von %2 abgeleitet sind.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 contains attribute %2 that has value constraint but type that inherits from %3.</source>
-        <translation>Der komplexe Typ %1 enthält ein Attribut %2 mit einer Einschränkung des Werts, dessen Typ aber von %3 abgeleitet ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 is not allowed to have a value constraint if its base type is complex.</source>
-        <translation>Das Element %1 darf keine Einschränkung des Werts haben, wenn der Basistyp komplex ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 is not allowed to have a value constraint if its type is derived from %2.</source>
-        <translation>Das Element %1 darf keine Einschränkung des Werts haben, wenn sein Typ von %2 abgeleitet ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Value constraint of element %1 is not of elements type: %2.</source>
-        <translation>Die Einschränkung des Werts des Elements %1 ist nicht vom Typ des Elements: %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 is not allowed to have substitution group affiliation as it is no global element.</source>
-        <translation>Das Element %1 kann nicht zu einer Substitutionsgruppe gehören, da es kein globales Element ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of element %1 cannot be derived from type of substitution group affiliation.</source>
-        <translation>Der Typ des Elements %1 kann nicht vom Typ der zugehörigen Substitutionsgruppe abgeleitet werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Value constraint of attribute %1 is not of attributes type: %2.</source>
-        <translation>Die Einschränkung des Werts des Attributs %1 ist nicht vom Typ des Attributs: %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 has value constraint but has type derived from %2.</source>
-        <translation>Das Attribut %1 hat eine Einschränkung des Werts, während sein Typ von %2 abgeleitet ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 attribute in derived complex type must be %2 like in base type.</source>
-        <translation>Das Attribut %1 in einem abgeleiteten komplexen Typ muss wie im Basistyp &apos;%2&apos; sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 in derived complex type must have %2 value constraint like in base type.</source>
-        <translation>Das Attribut %1 in einem abgeleiteten komplexen Typ muss wie der Basistyp eine Einschränkung des Werts (%2) haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 in derived complex type must have the same %2 value constraint like in base type.</source>
-        <translation>Das Attribut %1 in einem abgeleiteten komplexen Typ muss die gleiche Einschränkung des Werts (%2) wie der Basistyp haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 in derived complex type must have %2 value constraint.</source>
-        <translation>Das Attribut %1 in einem abgeleiteten komplexen Typ muss die Einschränkung des Werts &apos;%2&apos; haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>processContent of base wildcard must be weaker than derived wildcard.</source>
-        <translation>Das &apos;processContent&apos;-Attribut des Basissuchmusters muss schwächer sein als das des abgeleiteten Suchmusters.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 exists twice with different types.</source>
-        <translation>Es existieren zwei Vorkommen verschiedenen Typs des Elements %1.</translation>
+        <translation>Element %1 obstaja dvakrat, z različnima vrstama.</translation>
     </message>
     <message>
         <source>Particle contains non-deterministic wildcards.</source>
-        <translation>Der Partikel enthält nicht-deterministische Suchmuster.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base attribute %1 is required but derived attribute is not.</source>
-        <translation>Das Basisattribut %1 ist erforderlich, nicht jedoch das abgeleitete Attribut.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of derived attribute %1 cannot be validly derived from type of base attribute.</source>
-        <translation>Der Typ des abgeleiteten Attributs %1 kann nicht aus Typ des Basisattributs bestimmt werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Value constraint of derived attribute %1 does not match value constraint of base attribute.</source>
-        <translation>Die Einschränkung des Werts des abgeleiteten Attributs %1 entspricht nicht der Einschränkung des Werts des Basisattributs.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived attribute %1 does not exist in the base definition.</source>
-        <translation>Das abgeleitete Attribut %1 existiert in der Basisdefinition nicht.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived attribute %1 does not match the wildcard in the base definition.</source>
-        <translation>Das abgeleitete Attribut %1 entspricht nicht dem Suchmuster in der Basisdefinition.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base attribute %1 is required but missing in derived definition.</source>
-        <translation>Das erforderliche Basisattribut %1 fehlt in der abgeleiteten Definition.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived definition contains an %1 element that does not exists in the base definition</source>
-        <translation>Die abgeleitete Definition enthält ein Element %1, was in der Basisdefinition nicht existiert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived wildcard is not a subset of the base wildcard.</source>
-        <translation>Das abgeleitete Suchmuster ist keine Untermenge des Basissuchmusters.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 of derived wildcard is not a valid restriction of %2 of base wildcard</source>
-        <translation>Das Attribut %1 des abgeleiteten Suchmusters ist keine gültige Einschränkung des Attributs &apos;%2&apos; des Basissuchmusters</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 from base type is missing in derived type.</source>
-        <translation>Das Attribut %1 des Basistyps fehlt im abgeleiteten Typ.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of derived attribute %1 differs from type of base attribute.</source>
-        <translation>Der Typ des abgeleiteten Attributs %1 unterscheidet sich vom Basistyp.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base definition contains an %1 element that is missing in the derived definition</source>
-        <translation>Das Element %1 des Basistyps fehlt in der abgeleiteten Definition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 references unknown %2 or %3 element %4.</source>
-        <translation>%1 verweist auf ein unbekanntes Element %4 (&apos;%2&apos; oder &apos;%3&apos;).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 references identity constraint %2 that is no %3 or %4 element.</source>
-        <translation>%1 verweist auf eine Identitätseinschränkung %2, die weder ein &apos;%3&apos; noch ein &apos;%4&apos; Element ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 has a different number of fields from the identity constraint %2 that it references.</source>
-        <translation>Bei %1 unterscheidet sich die Anzahl der Felder von der der Identitätseinschränkung %2, auf die es verweist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type %1 of %2 element cannot be resolved.</source>
-        <translation>Der Basistyp %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Item type %1 of %2 element cannot be resolved.</source>
-        <translation>Der Subtyp %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Member type %1 of %2 element cannot be resolved.</source>
-        <translation>Der Subtyp %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type %1 of %2 element cannot be resolved.</source>
-        <translation>Der Typ %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Base type %1 of complex type cannot be resolved.</source>
-        <translation>Der Basistyp %1 des komplexen Typs kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 cannot have complex base type that has a %2.</source>
-        <translation>%1 kann keinen komplexen Basistyp haben, der &apos;%2&apos; spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Content model of complex type %1 contains %2 element so it cannot be derived by extension from a non-empty type.</source>
-        <translation>Das Inhaltsmodell des komplexen Typs %1enthält ein Element &apos;%2&apos;; es kann daher nicht durch Erweiterung von einem Typ abgeleitet werden, der nicht leer ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 cannot be derived by extension from %2 as the latter contains %3 element in its content model.</source>
-        <translation>Der komplexe Typ %1 kann nicht durch Erweiterung von %2 abgeleitet werden, da letzterer ein &apos;%3&apos;-Element in seinem Inhaltsmodell hat.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of %1 element must be a simple type, %2 is not.</source>
-        <translation>Der Typ des Elements %1 muss ein einfacher Typ sein, was %2 nicht ist.</translation>
+        <translation>Vrsta elementa %1 mora biti preprosta, %2 to ni.</translation>
     </message>
     <message>
         <source>Substitution group %1 of %2 element cannot be resolved.</source>
-        <translation>Die Substitutionsgruppe %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Substitution group %1 has circular definition.</source>
-        <translation>Die Substitutionsgruppe %1 hat eine zirkuläre Definition.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicated element names %1 in %2 element.</source>
-        <translation>Der Elementname %1 kommt im Element %2 mehrfach vor.</translation>
+        <translation>Podvojeni imeni elementov %1 v elementu %2.</translation>
     </message>
     <message>
         <source>Reference %1 of %2 element cannot be resolved.</source>
-        <translation>Der Verweis %1 des Elements %2 kann nicht aufgelöst werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Circular group reference for %1.</source>
-        <translation>Zirkulärer Verweis bei %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element is not allowed in this scope</source>
-        <translation>Das Element %1 ist in diesem Bereich nicht zulässig</translation>
+        <translation>Element %1 v tem obsegu ni dovoljen</translation>
     </message>
     <message>
         <source>%1 element cannot have %2 attribute with value other than %3.</source>
-        <translation>Der Wert des Attributs %2 des Elements %1 kann nur %3 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element cannot have %2 attribute with value other than %3 or %4.</source>
-        <translation>Der Wert des Attributs %2 des Elements %1 kann nur %3 oder %4 sein.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 or %2 attribute of reference %3 does not match with the attribute declaration %4.</source>
-        <translation>Das Attribut %1 oder %2 des Verweises %3 entspricht nicht der Attributsdeklaration %4.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute group %1 has circular reference.</source>
-        <translation>Die Attributgruppe %1 hat einen zirkulären Verweis.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 attribute in %2 must have %3 use like in base type %4.</source>
-        <translation>Das Attribut %1 aus %2 muss die Verwendung &apos;%3&apos; spezifizieren, wie im Basistyp %4.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute wildcard of %1 is not a valid restriction of attribute wildcard of base type %2.</source>
-        <translation>Das Attributssuchmuster %1 ist keine gültige Einschränkung des Attributssuchmuster des Basistyps %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 has attribute wildcard but its base type %2 has not.</source>
-        <translation>%1 hat ein Attributssuchmuster, nicht jedoch sein Basistyp %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Union of attribute wildcard of type %1 and attribute wildcard of its base type %2 is not expressible.</source>
-        <translation>Die Vereinigung der Attributssuchmuster des Typs %1 und seines Basistyps %2 ergibt keinen gültigen Ausdruck.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enumeration facet contains invalid content: {%1} is not a value of type %2.</source>
-        <translation>Ungültiger Inhalt einer Aufzählungsfacette: {%1} ist kein Wert des Typs %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Namespace prefix of qualified name %1 is not defined.</source>
-        <translation>Der Namensraum-Präfix des qualifizierten Namens %1 ist nicht definiert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element %2 is not a valid restriction of the %3 element it redefines: %4.</source>
-        <translation>Das Element %2 (%1) ist keine gültige Einschränkung des überschriebenen Elements (%3): %4.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Empty particle cannot be derived from non-empty particle.</source>
-        <translation>Es kann kein leerer Partikel von einem Partikel abgeleitet werden, der nicht leer ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived particle is missing element %1.</source>
-        <translation>Das Element %1 fehlt im abgeleiteten Partikel.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived element %1 is missing value constraint as defined in base particle.</source>
-        <translation>Im abgeleiteten Element %1 fehlt Einschränkung des Wertes, wie sie im Basispartikel definiert ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived element %1 has weaker value constraint than base particle.</source>
-        <translation>Das abgeleitete Element %1 hat eine schwächere Einschränkung des Wertes als der Basispartikel.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fixed value constraint of element %1 differs from value constraint in base particle.</source>
-        <translation>Die feste Einschränkung des Wertes des Elements %1 unterscheidet sich von der Einschränkung des Wertes des Basispartikels.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Derived element %1 cannot be nillable as base element is not nillable.</source>
-        <translation>Das abgeleitete Element %1 kann kein &apos;nillable&apos;-Attribut haben, da das Basiselement keines spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block constraints of derived element %1 must not be more weaker than in the base element.</source>
-        <translation>Die Blockeinschränkung des abgeleiteten Elements %1 darf nicht schwächer sein als im Basiselement.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Simple type of derived element %1 cannot be validly derived from base element.</source>
-        <translation>Der einfache Typ des abgeleiteten Elements %1 kann nicht vom Basiselement abgeleitet werden.</translation>
+        <translation>Preproste vrste izpeljanega elementa %1 ni moč veljavno izpeljati iz osnovnega elementa.</translation>
     </message>
     <message>
         <source>Complex type of derived element %1 cannot be validly derived from base element.</source>
-        <translation>Der komplexe Typ des abgeleiteten Elements %1 kann nicht vom Basiselement abgeleitet werden.</translation>
+        <translation>Kompleksne vrste izpeljanega elementa %1 ni moč veljavno izpeljati iz osnovnega elementa.</translation>
     </message>
     <message>
         <source>Element %1 is missing in derived particle.</source>
-        <translation>Das Element %1 fehlt im abgeleiteten Partikel.</translation>
+        <translation>Element %1 v izpeljanem delcu manjka.</translation>
     </message>
     <message>
         <source>Element %1 does not match namespace constraint of wildcard in base particle.</source>
-        <translation>Das Element %1 entspricht nicht der Namensraumeinschränkung des Basispartikels.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wildcard in derived particle is not a valid subset of wildcard in base particle.</source>
-        <translation>Das Suchmuster im abgeleiteten Partikel ist keine gültige Untermenge des Suchmusters des Basispartikels.</translation>
+        <translation>Vzorec v izpeljanem delcu ni veljavna podmnoživa vzorca iz osnovnega razreda.</translation>
     </message>
     <message>
         <source>processContent of wildcard in derived particle is weaker than wildcard in base particle.</source>
-        <translation>Das processContent-Attribut des Suchmusters des abgeleiteten Partikels ist schwächer als das Suchmuster des Basispartikels.</translation>
+        <translation>processContent vzorca v izpeljanem delcu je šibkejši kot vzorec v osnovnem delcu.</translation>
     </message>
     <message>
         <source>Derived particle allows content that is not allowed in the base particle.</source>
-        <translation>Der abgeleitete Partikel gestattet Inhalt, der für den Basispartikel nicht zulässig ist.</translation>
+        <translation>Izpeljani delec dovoljuje vsebino, ki v osnovnem delcu ni dovoljena.</translation>
     </message>
     <message>
         <source>Can not process unknown element %1, expected elements are: %2.</source>
-        <translation>Das unbekannte Element %1 kann nicht verarbeitet werden; zulässig wären: %2.</translation>
+        <translation>Ni moč obdelati neznanega elementa %1, pričakovani elementi so: %2.</translation>
     </message>
     <message>
         <source>Element %1 is not allowed in this scope, possible elements are: %2.</source>
-        <translation>Das Element %1 ist in diesem Bereich nicht zulässig; möglich wären: %2.</translation>
+        <translation>Element %1 v tem obsegu ni dovoljen, možni elementi so: %2.</translation>
     </message>
     <message>
         <source>Child element is missing in that scope, possible child elements are: %1.</source>
-        <translation>Das Unterelement fehlt im Bereich; mögliche Unterelemente wären: %1.</translation>
+        <translation>V tem obsegu manjka podelement, možni podelementi so: %1.</translation>
     </message>
     <message>
         <source>Document is not a XML schema.</source>
-        <translation>Das Dokument ist kein XML-Schema.</translation>
+        <translation>Dokument ni shema XML.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element contains invalid content: {%3} is not a value of type %4.</source>
-        <translation>Das Attribut %1 des Elements %2 enthält ungültigen Inhalt: {%3} ist kein Wert des Typs %4.</translation>
+        <translation>Lastnost %1 elementa %2 vsebuje neveljavno vsebino: {%3} ni vrednost vrste %4.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element contains invalid content: {%3}.</source>
-        <translation>Das Attribut %1 des Elements %2 enthält ungültigen Inhalt: {%3}.</translation>
+        <translation>Lastnost %1 elementa %2 vsebuje neveljavno vsebino: {%3}.</translation>
     </message>
     <message>
         <source>Target namespace %1 of included schema is different from the target namespace %2 as defined by the including schema.</source>
-        <translation>Der Zielnamensraum %1 des eingebundenen Schemas unterscheidet sich vom dem von ihm definierten Zielnamensraum %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target namespace %1 of imported schema is different from the target namespace %2 as defined by the importing schema.</source>
-        <translation>Der Zielnamensraum %1 des importierten Schemas unterscheidet sich vom dem von ihm definierten Zielnamensraum %2.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element is not allowed to have the same %2 attribute value as the target namespace %3.</source>
-        <translation>Das Element %1 kann nicht den Zielnamensraum %3 als Wert des Attributs &apos;%2&apos; spezifizieren.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element without %2 attribute is not allowed inside schema without target namespace.</source>
-        <translation>In einem Schema ohne Namensraum muss das Element %1 ein Attribut %2 haben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 element is not allowed inside %2 element if %3 attribute is present.</source>
-        <translation>Wenn das Attribut %3 vorhanden ist, darf das Element %1 nicht im Element %2 vorkommen.</translation>
+        <translation>Element %1 znotraj elementa %2 ni dovoljen, če je prisotna lastnost %3.</translation>
     </message>
     <message>
         <source>%1 element has neither %2 attribute nor %3 child element.</source>
-        <translation>Das Element %1 hat weder das Attribut %2 noch ein Unterelement %3.</translation>
+        <translation>Element %1 nima niti lastnosti %2 niti podelementa %3.</translation>
     </message>
     <message>
         <source>%1 element with %2 child element must not have a %3 attribute.</source>
-        <translation>Das Element %1 darf kein Attribut %3 haben, wenn das Unterelement %2 vorhanden ist.</translation>
+        <translation>Element %1 s podelementom %2 ne sme imeti lastnosti %3.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must be %3 or %4.</source>
-        <translation>Das Attribut %1 des Elements %2 kann nur %3 oder %4 sein.</translation>
+        <translation>Lastnost %1 elementa %2 mora biti %3 ali %4.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must have a value of %3.</source>
-        <translation>Das Attribut %1 des Elements %2 muss den Wert %3 haben.</translation>
+        <translation>Lastnost %1 elementa %2 mora imeti vrednost %3.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must have a value of %3 or %4.</source>
-        <translation>Das Attribut %1 des Elements %2 kann nur einen der Werte %3 oder %4 haben.</translation>
+        <translation>Lastnost %1 elementa %2 mora imeti vrednost %3 ali %4.</translation>
     </message>
     <message>
         <source>%1 element must not have %2 and %3 attribute together.</source>
-        <translation>Die Attribute %2 und %3 können nicht zusammen im Element %1 erscheinen.</translation>
+        <translation>Element %1 hkrati ne sme imeti lastnosti %2 in %3.</translation>
     </message>
     <message>
         <source>Content of %1 attribute of %2 element must not be from namespace %3.</source>
-        <translation>Der Inhalt des Attributs %1 des Elements %2 kann nicht vom Namensraum %3 stammen.</translation>
+        <translation>Vsebina lastnosti %1 elementa %2 ne sme biti iz imenskega prostora %3.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must not be %3.</source>
-        <translation>Das Attribut %1 des Elements %2 kann nicht %3 sein.</translation>
+        <translation>Lastnost %1 elementa %2 ne sme biti %3.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must have the value %3 because the %4 attribute is set.</source>
-        <translation>Das Attribut %1 des Elements %2 muss den Wert %3 haben, da das Attribut %4 gesetzt ist.</translation>
+        <translation>Lastnost %1 elementa %2 mora imeti vrednost %3, ker je nastavljena lastnost %4.</translation>
     </message>
     <message>
         <source>Specifying use=&apos;prohibited&apos; inside an attribute group has no effect.</source>
-        <translation>Die Angabe von use=&apos;prohibited&apos; in einer Attributgruppe hat keinerlei Auswirkungen.</translation>
+        <translation>Določitev use=&apos;prohibited&apos; znotraj skupine lastnosti nima nobenega učinka.</translation>
     </message>
     <message>
         <source>%1 element must have either %2 or %3 attribute.</source>
-        <translation>Das Element %1 muss eines der Attribute %2 oder %3 spezifizieren.</translation>
+        <translation>Element %1 mora imeti lastnost %2 ali %3.</translation>
     </message>
     <message>
         <source>%1 element must have either %2 attribute or %3 or %4 as child element.</source>
-        <translation>Das Element %1 muss entweder das Attribut %2 spezifizieren oder über eines der Unterelemente %3 oder %4 verfügen.</translation>
+        <translation>Element %1 mora imeti bodisi lastnost %2 bodisi vsebovati %3 ali %4 kot podelement.</translation>
     </message>
     <message>
         <source>%1 element requires either %2 or %3 attribute.</source>
-        <translation>Das Element %1 erfordert eines der Attribute %2 oder %3.</translation>
+        <translation>Element %1 potrebuje vsaj lastnost %2 ali %3.</translation>
     </message>
     <message>
         <source>Text or entity references not allowed inside %1 element</source>
-        <translation>Text- oder Entitätsreferenzen sind innerhalb eines %1-Elements nicht zulässig.</translation>
+        <translation>Sklici na besedilo ali entiteto znotraj elementa %1 niso dovoljeni.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must contain %3, %4 or a list of URIs.</source>
-        <translation>Das Attribut %1 des Elements %2 muss %3, %4 oder eine Liste der URIs enthalten.</translation>
+        <translation>Lastnost %1 elementa %2 mora vsebovati %3, %4 ali pa seznam URI-jev.</translation>
     </message>
     <message>
         <source>%1 element is not allowed in this context.</source>
-        <translation>Das Element %1 ist in diesem Kontext nicht zulässig.</translation>
+        <translation>Element %1 v tem kontekstu ni dovoljen.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element has larger value than %3 attribute.</source>
-        <translation>Der Wert des Attributs %1 des Elements %2 ist größer als der des Attributs %3.</translation>
+        <translation>Lastnost %1 elementa %2 ima višjo vrednost kot lastnost %3.</translation>
     </message>
     <message>
         <source>Prefix of qualified name %1 is not defined.</source>
-        <translation>Der Präfix des qualifizierten Namens %1 ist nicht definiert.</translation>
+        <translation>Predpona kvalificiranega imena %1 ni določena.</translation>
     </message>
     <message>
         <source>%1 attribute of %2 element must either contain %3 or the other values.</source>
-        <translation>Der Wert des Attributs %1 des Elements %2 muss entweder %3 oder die anderen Werte enthalten.</translation>
+        <translation>Lastnost %1 elementa %2 mora vsebovati bodisi %3 bodisi druge vrednosti.</translation>
     </message>
     <message>
         <source>Component with ID %1 has been defined previously.</source>
-        <translation>Es wurde bereits eine Komponente mit der ID %1 definiert.</translation>
+        <translation>Komponenta z ID-jem %1 je že bila definirana.</translation>
     </message>
     <message>
         <source>Element %1 already defined.</source>
-        <translation>Das Element %1 ist bereits definiert.</translation>
+        <translation>Element %1 je že definiran.</translation>
     </message>
     <message>
         <source>Attribute %1 already defined.</source>
-        <translation>Das Attribut %1 ist bereits definiert.</translation>
+        <translation>Lastnost %1 je že definirana.</translation>
     </message>
     <message>
         <source>Type %1 already defined.</source>
-        <translation>Der Typ %1 ist bereits definiert.</translation>
+        <translation>Vrsta %1 je že definirana.</translation>
     </message>
     <message>
         <source>Attribute group %1 already defined.</source>
-        <translation>Die Attributgruppe %1 ist bereits definiert.</translation>
+        <translation>Skupina lastnosti %1 je že definirana.</translation>
     </message>
     <message>
         <source>Element group %1 already defined.</source>
-        <translation>Die Elementgruppe %1 ist bereits definiert.</translation>
+        <translation>Skupina elementov %1 je že definirana.</translation>
     </message>
     <message>
         <source>Notation %1 already defined.</source>
-        <translation>Die Notation %1 ist bereits definiert.</translation>
+        <translation>Zapis %1 je že definiran.</translation>
     </message>
     <message>
         <source>Identity constraint %1 already defined.</source>
-        <translation>Die Identitätseinschränkung %1 ist bereits definiert.</translation>
+        <translation>Omejitev identitete %1 je že določena.</translation>
     </message>
     <message>
         <source>Duplicated facets in simple type %1.</source>
-        <translation>Im einfachen Typ %1 kommen Facetten mehrfach vor.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 is not valid according to %2.</source>
-        <translation>%1 ist nach %2 ungültig.</translation>
+        <translation>%1 glede na %2 ni veljaven.</translation>
     </message>
     <message>
         <source>String content does not match the length facet.</source>
-        <translation>Der Zeichenketteninhalt entspricht nicht der Längenfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>String content does not match the minLength facet.</source>
-        <translation>Der Zeichenketteninhalt entspricht nicht der Längenfacette (Minimumangabe).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>String content does not match the maxLength facet.</source>
-        <translation>Der Zeichenketteninhalt entspricht nicht der Längenfacette (Maximumangabe).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>String content does not match pattern facet.</source>
-        <translation>Der Zeichenketteninhalt entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>String content is not listed in the enumeration facet.</source>
-        <translation>Der Zeichenketteninhalt ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match the maxInclusive facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Facette &apos;maxInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match the maxExclusive facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Facette &apos;maxExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match the minInclusive facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Facette &apos;minInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match the minExclusive facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Facette &apos;minExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content is not listed in the enumeration facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match pattern facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Signed integer content does not match in the totalDigits facet.</source>
-        <translation>Der vorzeichenbehaftete Ganzzahlwert entspricht nicht der Facette &apos;totalDigits&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match the maxInclusive facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Facette &apos;maxInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match the maxExclusive facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Facette &apos;maxExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match the minInclusive facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Facette &apos;minInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match the minExclusive facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Facette &apos;minExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content is not listed in the enumeration facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match pattern facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unsigned integer content does not match in the totalDigits facet.</source>
-        <translation>Der vorzeichenlose Ganzzahlwert entspricht nicht der Facette &apos;totalDigits&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content does not match the maxInclusive facet.</source>
-        <translation>Die Gleitkommazahl entspricht nicht der Facette &apos;maxInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content does not match the maxExclusive facet.</source>
-        <translation>Die Gleitkommazahl entspricht nicht der Facette &apos;maxExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content does not match the minInclusive facet.</source>
-        <translation>Die Gleitkommazahl entspricht nicht der Facette &apos;minInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content does not match the minExclusive facet.</source>
-        <translation>Die Gleitkommazahl entspricht nicht der Facette &apos;minExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content is not listed in the enumeration facet.</source>
-        <translation>Die Gleitkommazahl ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double content does not match pattern facet.</source>
-        <translation>Die Gleitkommazahl entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decimal content does not match in the fractionDigits facet.</source>
-        <translation>Die Dezimalzahl entspricht nicht der Facette &apos;fractionDigit&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decimal content does not match in the totalDigits facet.</source>
-        <translation>Die Dezimalzahl entspricht nicht der Facette &apos;totalDigits&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content does not match the maxInclusive facet.</source>
-        <translation>Die Datumsangabe entspricht nicht der Facette &apos;maxInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content does not match the maxExclusive facet.</source>
-        <translation>Die Datumsangabe entspricht nicht der Facette &apos;maxExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content does not match the minInclusive facet.</source>
-        <translation>Die Datumsangabe entspricht nicht der Facette &apos;minInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content does not match the minExclusive facet.</source>
-        <translation>Die Datumsangabe entspricht nicht der Facette &apos;minExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content is not listed in the enumeration facet.</source>
-        <translation>Die Datumsangabe ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date time content does not match pattern facet.</source>
-        <translation>Die Datumsangabe entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content does not match the maxInclusive facet.</source>
-        <translation>Die Angabe der Zeitdauer entspricht nicht der Facette &apos;maxInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content does not match the maxExclusive facet.</source>
-        <translation>Die Angabe der Zeitdauer entspricht nicht der Facette &apos;maxExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content does not match the minInclusive facet.</source>
-        <translation>Die Angabe der Zeitdauer entspricht nicht der Facette &apos;minInclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content does not match the minExclusive facet.</source>
-        <translation>Die Angabe der Zeitdauer entspricht nicht der Facette &apos;minExclusive&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content is not listed in the enumeration facet.</source>
-        <translation>Die Angabe der Zeitdauer ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration content does not match pattern facet.</source>
-        <translation>Die Angabe der Zeitdauer entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Boolean content does not match pattern facet.</source>
-        <translation>Der boolesche Wert entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Binary content does not match the length facet.</source>
-        <translation>Der binäre Inhalt entspricht nicht der Längenfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Binary content does not match the minLength facet.</source>
-        <translation>Der binäre Inhalt entspricht nicht der Facette &apos;minLength&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Binary content does not match the maxLength facet.</source>
-        <translation>Der binäre Inhalt entspricht nicht der Facette &apos;maxLength&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Binary content is not listed in the enumeration facet.</source>
-        <translation>Der binäre Inhalt ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid QName content: %1.</source>
-        <translation>Der Inhalt des qualifizierten Namens ist ungültig: %1.</translation>
+        <translation>Neveljavna vsebina QName: %1.</translation>
     </message>
     <message>
         <source>QName content is not listed in the enumeration facet.</source>
-        <translation>Der Inhalt des qualifizierten Namens ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>QName content does not match pattern facet.</source>
-        <translation>Der Inhalt des qualifizierten Namens entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Notation content is not listed in the enumeration facet.</source>
-        <translation>Der Inhalt der Notation ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>List content does not match length facet.</source>
-        <translation>Der Listeninhalt entspricht nicht der Längenfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>List content does not match minLength facet.</source>
-        <translation>Der Listeninhalt entspricht nicht der Facette &apos;minLength&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>List content does not match maxLength facet.</source>
-        <translation>Der Listeninhalt entspricht nicht der Facette &apos;maxLength&apos;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>List content is not listed in the enumeration facet.</source>
-        <translation>Der Listeninhalt ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>List content does not match pattern facet.</source>
-        <translation>Der Listeninhalt entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Union content is not listed in the enumeration facet.</source>
-        <translation>Der Inhalt der Vereinigung ist nicht in der Aufzählungsfacette enthalten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Union content does not match pattern facet.</source>
-        <translation>Der Inhalt der Vereinigung entspricht nicht der Suchmusterfacette.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Data of type %1 are not allowed to be empty.</source>
-        <translation>Daten vom Typ %1 können nicht leer sein.</translation>
+        <translation>Podatki vrste %1 ne smejo biti prazni.</translation>
     </message>
     <message>
         <source>Element %1 is missing child element.</source>
-        <translation>Beim Element %1 fehlt ein Unterelement.</translation>
+        <translation>Elementu %1 manjka podelement.</translation>
     </message>
     <message>
         <source>There is one IDREF value with no corresponding ID: %1.</source>
-        <translation>Es existiert ein IDREF-Wert, für den keine zugehörige ID vorhanden ist: %1.</translation>
+        <translation>Obstaja ena vrednost IDREF brez ustreznega ID-ja: %1</translation>
     </message>
     <message>
         <source>Loaded schema file is invalid.</source>
-        <translation>Das geladene Schema ist ungültig.</translation>
+        <translation>Naložena datoteka s shemo ni veljavna.</translation>
     </message>
     <message>
         <source>%1 contains invalid data.</source>
-        <translation>%1 enthält ungültige Daten.</translation>
+        <translation>%1 vsebuje neveljavne podatke.</translation>
     </message>
     <message>
         <source>xsi:schemaLocation namespace %1 has already appeared earlier in the instance document.</source>
-        <translation>xsi:schemaLocation namespace %1 wurde im Instanzdokument bereits spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>xsi:noNamespaceSchemaLocation cannot appear after the first no-namespace element or attribute.</source>
-        <translation>xsi:noNamespaceSchemaLocation kann nicht nach dem ersten Element oder Attribut ohne Namensraum erscheinen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No schema defined for validation.</source>
-        <translation>Es ist kein Schema für die Validierung definiert.</translation>
+        <translation>Določene ni nobene sheme za potrjevanje.</translation>
     </message>
     <message>
         <source>No definition for element %1 available.</source>
-        <translation>Für das Element %1 ist keine Definition verfügbar.</translation>
+        <translation>Definicija za element %1 ni na voljo.</translation>
     </message>
     <message>
         <source>Specified type %1 is not known to the schema.</source>
-        <translation>Der angegebene Typ %1 ist im Schema nicht spezifiziert.</translation>
+        <translation>Določena vrsta %1 shemi ni znana.</translation>
     </message>
     <message>
         <source>Element %1 is not defined in this scope.</source>
-        <translation>Das Element %1 ist in diesem Bereich nicht definiert.</translation>
+        <translation>Element %1 v tem obsegu ni definiran.</translation>
     </message>
     <message>
         <source>Declaration for element %1 does not exist.</source>
-        <translation>Für das Element %1 ist keine Deklaration verfügbar.</translation>
+        <translation>Deklaracija elementa %1 ne obstaja.</translation>
     </message>
     <message>
         <source>Element %1 contains invalid content.</source>
-        <translation>Das Element %1 enthält ungültigen Inhalt.</translation>
+        <translation>Element %1 vsebuje neveljavno vsebino.</translation>
     </message>
     <message>
         <source>Element %1 is declared as abstract.</source>
-        <translation>Das Element %1 ist als abstrakt deklariert.</translation>
+        <translation>Element %1 je deklariran kot abstrakten.</translation>
     </message>
     <message>
         <source>Element %1 is not nillable.</source>
-        <translation>Das Element %1 hat das Attribut &apos;nillable&apos; nicht spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attribute %1 contains invalid data: %2</source>
-        <translation>Das Attribut %1 enthält ungültige Daten: %2</translation>
+        <translation>Lastnost %1 vsebuje neveljavne podatke: %2</translation>
     </message>
     <message>
         <source>Element contains content although it is nillable.</source>
-        <translation>Das Element hat Inhalt, obwohl es &apos;nillable&apos; spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fixed value constraint not allowed if element is nillable.</source>
-        <translation>Eine Beschränkung auf einen festen Wert ist nicht zulässig, wenn das Element &apos;nillable&apos; spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Element %1 cannot contain other elements, as it has a fixed content.</source>
-        <translation>Das Element %1 kann keine anderen Element enthalten, da sein Inhalt festgelegt ist.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specified type %1 is not validly substitutable with element type %2.</source>
-        <translation>Der angebenene Typ %1 kann nicht durch den Elementtyp %2 substituiert werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Complex type %1 is not allowed to be abstract.</source>
-        <translation>Der komplexe Typ %1 kann nicht abstrakt sein.</translation>
+        <translation>Kompleksna vrsta %1 ne sme biti abstraktna.</translation>
     </message>
     <message>
         <source>Element %1 contains not allowed attributes.</source>
-        <translation>Das Element %1 enthält unzulässige Attribute.</translation>
+        <translation>Element %1 vsebuje nedovoljene lastnosti.</translation>
     </message>
     <message>
         <source>Element %1 contains not allowed child element.</source>
-        <translation>Das Element %1 enthält ein unzulässiges Unterelement.</translation>
+        <translation>Element %1 vsebuje nedovoljen podelement.</translation>
     </message>
     <message>
         <source>Content of element %1 does not match its type definition: %2.</source>
-        <translation>Der Inhalt des Elements %1 entspricht nicht seiner Typdefinition: %2.</translation>
+        <translation>Vsebina elementa %1 ne ustreza zanj določeni vrsti: %2.</translation>
     </message>
     <message>
         <source>Content of element %1 does not match defined value constraint.</source>
-        <translation>Der Inhalt des Elements %1 entspricht nicht der definierten Einschränkung des Werts.</translation>
+        <translation>Vsebina elementa %1 ne ustreza določeni omejitvi vrednosti.</translation>
     </message>
     <message>
         <source>Element %1 contains not allowed child content.</source>
-        <translation>Das Element %1 enthält unzulässigen Unterinhalt.</translation>
+        <translation>Element %1 vsebuje nedovoljeno vsebino v podelementih.</translation>
     </message>
     <message>
         <source>Element %1 contains not allowed text content.</source>
-        <translation>Das Element %1 enthält unzulässigen Textinhalt.</translation>
+        <translation>Element %1 vsebuje nedovoljeno besedilno vsebino.</translation>
     </message>
     <message>
         <source>Element %1 is missing required attribute %2.</source>
-        <translation>Bei dem Element %1 fehlt ein erforderliches Attribut %2.</translation>
+        <translation>Elementu %1 manjka obvezna lastnost %2.</translation>
     </message>
     <message>
         <source>Attribute %1 does not match the attribute wildcard.</source>
-        <translation>Das Attribut %1 entspricht nicht dem Attributssuchmuster.</translation>
+        <translation>Lastnost %1 ne ustreza vzorcu za lastnost.</translation>
     </message>
     <message>
         <source>Declaration for attribute %1 does not exist.</source>
-        <translation>Für das Attribut %1 ist keine Deklaration verfügbar.</translation>
+        <translation>Deklaracija lastnosti %1 ne obstaja.</translation>
     </message>
     <message>
         <source>Element %1 contains two attributes of type %2.</source>
-        <translation>Das Element %1 enthält zwei Attribute des Typs %2.</translation>
+        <translation>Element %1 vsebuje dve lastnosti vrste %2.</translation>
     </message>
     <message>
         <source>Attribute %1 contains invalid content.</source>
-        <translation>Das Attribut %1 enthält ungültigen Inhalt.</translation>
+        <translation>Lastnost %1 vsebuje neveljavno vsebino.</translation>
     </message>
     <message>
         <source>Element %1 contains unknown attribute %2.</source>
-        <translation>Das Element %1 enthält ein unbekanntes Attribut %2.</translation>
+        <translation>Element %1 vsebuje neznano lastnost %2.</translation>
     </message>
     <message>
         <source>Content of attribute %1 does not match its type definition: %2.</source>
-        <translation>Der Inhalt des Attributs %1 entspricht nicht seiner Typdefinition: %2.</translation>
+        <translation>Vsebina lastnosti %1 ne ustreza zanjo določeni vrsti: %2.</translation>
     </message>
     <message>
         <source>Content of attribute %1 does not match defined value constraint.</source>
-        <translation>Der Inhalt des Attributs %1 entspricht nicht der definierten Einschränkung des Werts.</translation>
+        <translation>Vsebina lastnosti %1 ne ustreza zanjo določeni omejitvi vrednosti.</translation>
     </message>
     <message>
         <source>Non-unique value found for constraint %1.</source>
-        <translation>Für die Einschränkung %1 wurde ein nicht eindeutiger Wert gefunden.</translation>
+        <translation>Za omejitev %1 je bila najdena ne-edinstvena vrednost.</translation>
     </message>
     <message>
         <source>Key constraint %1 contains absent fields.</source>
-        <translation>Die Einschränkung des Schlüssels %1 enthält nicht vorhandene Felder.</translation>
+        <translation>Omejitev ključa %1 vsebuje manjkajoča polja.</translation>
     </message>
     <message>
         <source>Key constraint %1 contains references nillable element %2.</source>
-        <translation>Die Einschränkung des Schlüssels %1 verweist auf das Element %2, was &apos;nillable&apos; spezifiziert.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No referenced value found for key reference %1.</source>
-        <translation>Der referenzierte Wert der Schlüsselreferenz %1 konnte nicht gefunden werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More than one value found for field %1.</source>
-        <translation>Für das Feld %1 wurden mehrere Werte gefunden.</translation>
+        <translation>Za polje %1 je bila najdena več kot ena vrednost.</translation>
     </message>
     <message>
         <source>Field %1 has no simple type.</source>
-        <translation>Das Feld %1 hat keinen einfachen Typ.</translation>
+        <translation>Polje %1 nima preproste vrste.</translation>
     </message>
     <message>
         <source>ID value &apos;%1&apos; is not unique.</source>
-        <translation>Der ID-Wert &apos;%1&apos; ist nicht eindeutig.</translation>
+        <translation>Vrednost ID »%1« ni edinstvena.</translation>
     </message>
     <message>
         <source>&apos;%1&apos; attribute contains invalid QName content: %2.</source>
-        <translation>Das Attribut &apos;%1&apos; enthält einen ungültigen qualifizierten Namen: %2.</translation>
+        <translation>Lastnost »%1« vsebuje neveljavno vsebino QName: %2.</translation>
     </message>
 </context>
 </TS>

@@ -6,6 +6,6 @@
 #################################################################
 
 ## -silent
-for i in ar cs da de es fr iw ja_JP pl pt ru sk sl sv uk zh_CN zh_TW untranslated ; do
-	/usr/bin/lupdate -noobsolete -recursive ./src/ ./build/src -ts i18n/qx11grab_${i}.ts
+for i in i18n/qx11grab_*.ts ; do
+	/usr/bin/lupdate -noobsolete -recursive ./src/ ./build/src -ts ${i}
 done

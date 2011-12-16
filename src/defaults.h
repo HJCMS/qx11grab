@@ -33,7 +33,7 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
-class AudioDevice;
+class AudioDeviceWidget;
 
 class Defaults : public QWidget
 {
@@ -44,7 +44,7 @@ class Defaults : public QWidget
     QLineEdit* ff_path;
     QLineEdit* outputName;
     QLineEdit* outputDirectory;
-    AudioDevice* m_audioDevice;
+    AudioDeviceWidget* m_audioDeviceWidget;
 
   private Q_SLOTS:
     void setFFmpegBinary();

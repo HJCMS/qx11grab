@@ -19,11 +19,33 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "alsaaudiodevice.h"
+#ifndef PULSEAUDIODIALOG_H
+#define PULSEAUDIODIALOG_H
 
 /* QtCore */
-#include <QtCore/QDebug>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
-AlsaAudioDevice::AlsaAudioDevice ( const QString &dev, const QString &title, const QString &info )
-    : hw ( dev ) , name ( title ) , description ( info )
-{}
+/* QtGui */
+#include <QtGui/QDialog>
+#include <QtGui/QWidget>
+
+/* QX11Grab */
+#include "abstractaudiodialog.h"
+
+class PulseAudioDialog : public AbstractAudioDialog
+{
+    Q_OBJECT
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+
+  private:
+    void insertItems();
+    void initInterface();
+
+  public:
+    PulseAudioDialog ( QWidget * parent = 0 );
+    ~PulseAudioDialog();
+};
+
+#endif

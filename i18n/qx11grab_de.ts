@@ -2,24 +2,47 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de_DE">
 <context>
-    <name>AlsaAudioDeviceDialog</name>
-    <message>
-        <source>ALSA PCM Selection</source>
-        <translation>ALSA PCM Auswählen</translation>
-    </message>
+    <name>AbstractAudioDialog</name>
     <message>
         <source>Available Cards:</source>
         <translation>Verfügbare Karten:</translation>
     </message>
+    <message>
+        <source>Fallback Interface</source>
+        <translation>Standard Schnittstelle</translation>
+    </message>
 </context>
 <context>
-    <name>AudioDevice</name>
+    <name>AlsaAudioDialog</name>
+    <message>
+        <source>ALSA PCM Selection</source>
+        <translation>ALSA PCM Auswählen</translation>
+    </message>
+</context>
+<context>
+    <name>AudioDeviceWidget</name>
     <message>
         <source>Audio Settings</source>
         <translation variants="yes">
             <lengthvariant>Audio Einstellungen</lengthvariant>
             <lengthvariant>Audio</lengthvariant>
         </translation>
+    </message>
+    <message>
+        <source>Audio System</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Advanced Linux Sound Architecture (Alsa)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Soundserver (Pulse)</source>
+        <translation></translation>
     </message>
     <message>
         <source>Audio Intensifier:</source>
@@ -49,27 +72,11 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
-        <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Open Sound System (OSS)</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Select ALSA Audio Capture Device</source>
         <translation variants="yes">
             <lengthvariant>Wähle die ALSA Audio Aufnahme Schnittstelle</lengthvariant>
             <lengthvariant>Schnittstelle für Audioaufnahme</lengthvariant>
         </translation>
-    </message>
-    <message>
-        <source>Audio System</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Soundserver (Pulse)</source>
-        <translation></translation>
     </message>
     <message>
         <source>Sample Format:</source>
@@ -88,6 +95,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>unbekannt</translation>
     </message>
     <message>
+        <source>signed  8 bits</source>
+        <translation>Vorzeichen  8 Bits</translation>
+    </message>
+    <message>
         <source>signed 16 bits</source>
         <translation>Vorzeichen 16 Bits</translation>
     </message>
@@ -104,6 +115,14 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>64-Bit-Gleitkommazahl</translation>
     </message>
     <message>
+        <source>unsigned  8 bits, planar</source>
+        <translation>Vorzeichenlose  8 Bits, flach</translation>
+    </message>
+    <message>
+        <source>signed 16 bits, planar</source>
+        <translation>Vorzeichen 16 Bits, flach</translation>
+    </message>
+    <message>
         <source>signed 32 bits, planar</source>
         <translation>Vorzeichen 32 Bits, flach</translation>
     </message>
@@ -118,18 +137,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Unknown</source>
         <translation>Unbekannt</translation>
-    </message>
-    <message>
-        <source>signed  8 bits</source>
-        <translation>Vorzeichen  8 Bits</translation>
-    </message>
-    <message>
-        <source>unsigned  8 bits, planar</source>
-        <translation>ohne Vorzeichen  8 Bits, flach</translation>
-    </message>
-    <message>
-        <source>signed 16 bits, planar</source>
-        <translation>Vorzeichen 16 Bits, flach</translation>
     </message>
 </context>
 <context>
@@ -478,6 +485,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Medium:</source>
         <translation>Medium:</translation>
+    </message>
+</context>
+<context>
+    <name>PulseAudioDialog</name>
+    <message>
+        <source>Pulse Device Selection</source>
+        <translation>Pulse Geräte Auswahl</translation>
     </message>
 </context>
 <context>

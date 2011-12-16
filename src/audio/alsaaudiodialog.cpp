@@ -19,8 +19,7 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "alsaaudiodevice.h"
-#include "alsaaudiodevicedialog.h"
+#include "alsaaudiodialog.h"
 
 /* QtCore */
 #include <QtCore/QByteArray>
@@ -30,45 +29,23 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QLabel>
 #include <QtGui/QListWidgetItem>
-#include <QtGui/QVBoxLayout>
 
 extern "C"
 {
 #include "asoundlib.h"
 }
 
-AlsaAudioDeviceDialog::AlsaAudioDeviceDialog ( QWidget * parent )
-    : QDialog ( parent )
+AlsaAudioDialog::AlsaAudioDialog ( QWidget * parent )
+    : AbstractAudioDialog ( parent )
 {
-  setObjectName ( QLatin1String ( "picrecordinterface" ) );
+  setObjectName ( QLatin1String ( "AlsaAudioDialog" ) );
   setWindowTitle ( trUtf8 ( "ALSA PCM Selection" ) );
-  setMinimumWidth ( 400 );
-  setSizeGripEnabled ( true );
-
-  QVBoxLayout* vLayout = new QVBoxLayout ( this );
-
-  vLayout->addWidget ( new QLabel ( trUtf8 ( "Available Cards:" ) ) );
-
-  deviceList = new QListWidget ( this );
-  vLayout->addWidget ( deviceList );
-
-  QDialogButtonBox* box = new QDialogButtonBox ( Qt::Horizontal , this );
-  box->setStandardButtons ( ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel ) );
-  box->setCenterButtons ( true );
-  vLayout->addWidget ( box );
-
-  setLayout ( vLayout );
-
-  initRecorderDevices();
-
-  connect ( box, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
-  connect ( box, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
+  m_deviceListWidget->clear();
+  initInterface();
 }
 
-void AlsaAudioDeviceDialog::initRecorderDevices()
+void AlsaAudioDialog::initInterface()
 {
   void **hints, **n;
   char *name;
@@ -101,12 +78,12 @@ void AlsaAudioDeviceDialog::initRecorderDevices()
         if ( index >= 0 )
           hwIndex = QString ( "hw=%1" ).arg ( QString::number ( index ) );
 
-        QListWidgetItem* item = new QListWidgetItem ( deviceList );
+        QListWidgetItem* item = new QListWidgetItem ( m_deviceListWidget );
         item->setText ( QString ( "%1 \"%2\" %3" ).arg ( cardHint, infoHint.remove ( cleaner ), hwIndex ) );
         item->setData ( Qt::UserRole, cardHint );
         item->setData ( Qt::ToolTipRole, hwIndex );
         item->setData ( Qt::StatusTipRole, infoHint.remove ( cleaner ) );
-        deviceList->addItem ( item );
+        m_deviceListWidget->addItem ( item );
         buffer << cardHint;
         hwIndex.clear();
       }
@@ -118,31 +95,5 @@ void AlsaAudioDeviceDialog::initRecorderDevices()
   buffer.clear();
 }
 
-const QString AlsaAudioDeviceDialog::getCard ()
-{
-  return deviceList->currentItem()->data ( Qt::UserRole ).toString();
-}
-
-void AlsaAudioDeviceDialog::setCard ( const QString &c )
-{
-  for ( int r = 0; r < deviceList->count(); r++ )
-  {
-    if ( deviceList->item ( r )->data ( Qt::UserRole ).toString() == c )
-    {
-      deviceList->setCurrentRow ( r );
-      break;
-    }
-  }
-}
-
-const AlsaAudioDevice AlsaAudioDeviceDialog::cardInfo ()
-{
-  QListWidgetItem* item = deviceList->currentItem();
-  AlsaAudioDevice d ( item->data ( Qt::ToolTipRole ).toString(),
-                      item->data ( Qt::UserRole ).toString(),
-                      item->data ( Qt::StatusTipRole ).toString() );
-  return d;
-}
-
-AlsaAudioDeviceDialog::~AlsaAudioDeviceDialog()
+AlsaAudioDialog::~AlsaAudioDialog()
 {}
