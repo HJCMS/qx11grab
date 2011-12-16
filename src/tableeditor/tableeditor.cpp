@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -29,7 +29,13 @@
 
 /* QtGui */
 #include <QtGui/QAbstractItemView>
+#include <QtGui/QDialogButtonBox>
+#include <QtGui/QGridLayout>
+#include <QtGui/QHeaderView>
+#include <QtGui/QIcon>
+#include <QtGui/QLabel>
 #include <QtGui/QPalette>
+#include <QtGui/QPushButton>
 
 /* FFmpeg */
 extern "C"
@@ -42,32 +48,82 @@ extern "C"
 
 TableEditor::TableEditor ( QWidget * parent )
     : QWidget ( parent )
+    , currentType ( QString::null )
     , sharedVideoCodec ( 0 )
     , sharedAudioCodec ( 0 )
 {
-  setupUi ( this );
+  setObjectName ( QLatin1String ( "TableEditor" ) );
   setBackgroundRole ( QPalette::Window );
-  currentType = QString::null;
 
-  codecSelection->setEditable ( true );
+  QGridLayout* layout =  new QGridLayout ( this );
+
+  int grow = 0; // grid Row
+  layout->addWidget ( new QLabel ( trUtf8 ( "Codec" ) ),
+                      grow, 0, 1, 1, Qt::AlignRight );
+
+  // ComboBox
+  m_codecComboBox = new QComboBox ( this );
+  m_codecComboBox->setObjectName ( QLatin1String ( "TableEditor/ComboBox" ) );
+  m_codecComboBox->setEditable ( true );
+  layout->addWidget ( m_codecComboBox, grow++, 1, 1, 1 );
+
+  // Table
+  m_tableWidget = new QTableWidget ( this );
+  m_tableWidget->setObjectName ( QLatin1String ( "TableEditor/TableWidget" ) );
+  m_tableWidget->setColumnCount ( 2 );
+
+  QIcon cIcon = QIcon::fromTheme ( "view-form-table" );
+  QTableWidgetItem* th0 = new QTableWidgetItem ( cIcon, trUtf8 ( "Parameter" ), QTableWidgetItem::UserType );
+  m_tableWidget->setHorizontalHeaderItem ( 0, th0 );
+  QTableWidgetItem* th1 = new QTableWidgetItem ( cIcon, trUtf8 ( "Value" ), QTableWidgetItem::UserType );
+  m_tableWidget->setHorizontalHeaderItem ( 1, th1 );
+  m_tableWidget->setDragEnabled ( true );
+  m_tableWidget->setDragDropOverwriteMode ( false );
+  m_tableWidget->setDragDropMode ( QAbstractItemView::DragDrop );
+  m_tableWidget->setDefaultDropAction ( Qt::MoveAction );
+  m_tableWidget->setAlternatingRowColors ( true );
+  m_tableWidget->setSelectionMode ( QAbstractItemView::ExtendedSelection );
+  m_tableWidget->setSelectionBehavior ( QAbstractItemView::SelectRows );
+  m_tableWidget->setGridStyle ( Qt::DashLine );
+  m_tableWidget->setWordWrap ( false );
+  m_tableWidget->setCornerButtonEnabled ( true );
+  m_tableWidget->horizontalHeader()->setCascadingSectionResizes ( true );
+  m_tableWidget->horizontalHeader()->setDefaultSectionSize ( 150 );
+  m_tableWidget->horizontalHeader()->setMinimumSectionSize ( 150 );
+  m_tableWidget->horizontalHeader()->setStretchLastSection ( true );
+  layout->addWidget ( m_tableWidget, grow++, 0, 1, 2 );
+
+  QDialogButtonBox* buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
+  QPushButton* m_add = buttonBox->addButton ( trUtf8 ( "Add" ), QDialogButtonBox::ActionRole );
+  m_add->setIcon ( QIcon::fromTheme ( "insert-table" ) );
+  QPushButton* m_del = buttonBox->addButton ( trUtf8 ( "Remove" ), QDialogButtonBox::ActionRole );
+  m_del->setIcon ( QIcon::fromTheme ( "edit-table-delete-row" ) );
+  layout->addWidget ( buttonBox, grow++, 0, 1, 2, Qt::AlignRight );
+
+  setLayout ( layout );
 
   // onUpdate
-  connect ( codecSelection, SIGNAL ( currentIndexChanged ( int ) ),
+  connect ( m_codecComboBox, SIGNAL ( currentIndexChanged ( int ) ),
             this, SIGNAL ( postUpdate() ) );
-  connect ( table, SIGNAL ( itemChanged ( QTableWidgetItem * ) ),
+
+  connect ( m_tableWidget, SIGNAL ( itemChanged ( QTableWidgetItem * ) ),
             this, SIGNAL ( postUpdate() ) );
+
   // Item Buttons
-  connect ( btnAdd, SIGNAL ( clicked() ), this, SLOT ( addTableRow() ) );
-  connect ( btnDel, SIGNAL ( clicked() ), this, SLOT ( delTableRow() ) );
+  connect ( m_add, SIGNAL ( clicked() ),
+            this, SLOT ( addTableRow() ) );
+
+  connect ( m_del, SIGNAL ( clicked() ),
+            this, SLOT ( delTableRow() ) );
 }
 
 /**
 * Such mit Hilfe von AVCodec alle verfügbaren
-* Video Kodierungen und schreibe diese nach @ref codecSelection.
+* Video Kodierungen und schreibe diese nach @ref m_codecComboBox.
 */
 void TableEditor::findVideoCodecs()
 {
-  codecSelection->clear();
+  m_codecComboBox->clear();
   av_register_all();
   AVCodec *codec;
   int index = 0;
@@ -75,31 +131,31 @@ void TableEditor::findVideoCodecs()
   {
     if ( ( codec->type == AVMEDIA_TYPE_VIDEO ) && ( codec->encode ) )
     {
-      codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
-      codecSelection->setItemData ( index, codec->name, Qt::EditRole );
-      codecSelection->setItemData ( index, codec->long_name, Qt::ToolTipRole );
+      m_codecComboBox->insertItem ( index, codec->name, QVariant ( codec->name ) );
+      m_codecComboBox->setItemData ( index, codec->name, Qt::EditRole );
+      m_codecComboBox->setItemData ( index, codec->long_name, Qt::ToolTipRole );
       index++;
     }
   }
   // Eigene Codec Definitionen einfügen
   foreach ( QString custom, sharedVideoCodec )
   {
-    if ( codecSelection->findData ( custom ) == -1 )
+    if ( m_codecComboBox->findData ( custom ) == -1 )
     {
-      codecSelection->insertItem ( index, custom, QVariant ( custom ) );
-      codecSelection->setItemData ( index, custom, Qt::EditRole );
-      codecSelection->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
+      m_codecComboBox->insertItem ( index, custom, QVariant ( custom ) );
+      m_codecComboBox->setItemData ( index, custom, Qt::EditRole );
+      m_codecComboBox->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
     }
   }
 }
 
 /**
 * Such mit Hilfe von AVCodec alle verfügbaren
-* Audio Kodierungen und schreibe diese nach @ref codecSelection.
+* Audio Kodierungen und schreibe diese nach @ref m_codecComboBox.
 */
 void TableEditor::findAudioCodecs()
 {
-  codecSelection->clear();
+  m_codecComboBox->clear();
   av_register_all();
   AVCodec *codec;
   int index = 0;
@@ -107,20 +163,20 @@ void TableEditor::findAudioCodecs()
   {
     if ( ( codec->type == AVMEDIA_TYPE_AUDIO ) && ( codec->encode ) )
     {
-      codecSelection->insertItem ( index, codec->name, QVariant ( codec->name ) );
-      codecSelection->setItemData ( index, codec->name, Qt::EditRole );
-      codecSelection->setItemData ( index, codec->long_name, Qt::ToolTipRole );
+      m_codecComboBox->insertItem ( index, codec->name, QVariant ( codec->name ) );
+      m_codecComboBox->setItemData ( index, codec->name, Qt::EditRole );
+      m_codecComboBox->setItemData ( index, codec->long_name, Qt::ToolTipRole );
       index++;
     }
   }
   // Eigene Codec Definitionen einfügen
   foreach ( QString custom, sharedAudioCodec )
   {
-    if ( codecSelection->findData ( custom ) == -1 )
+    if ( m_codecComboBox->findData ( custom ) == -1 )
     {
-      codecSelection->insertItem ( index, custom, QVariant ( custom ) );
-      codecSelection->setItemData ( index, custom, Qt::EditRole );
-      codecSelection->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
+      m_codecComboBox->insertItem ( index, custom, QVariant ( custom ) );
+      m_codecComboBox->setItemData ( index, custom, Qt::EditRole );
+      m_codecComboBox->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
     }
   }
 }
@@ -166,19 +222,19 @@ const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QS
 const QHash<QString,QString> TableEditor::tableItems()
 {
   QHash<QString,QString> hash;
-  for ( int r = 0; r < table->rowCount(); r++ )
+  for ( int r = 0; r < m_tableWidget->rowCount(); r++ )
   {
     // Argument
-    QTableWidgetItem* keyItem = table->item ( r, 0 );
+    QTableWidgetItem* keyItem = m_tableWidget->item ( r, 0 );
     /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
     * Diese aber nicht Bearbeitet, dann verhindern das
-    * an dieser Stelle das Programm wegen fehlenden
+    * an dieser Stelle dass Programm wegen fehlenden
     * QTableWidgetItem Pointer nicht abstürzt! */
     if ( ! keyItem || keyItem->text().isEmpty() )
       continue;
 
     // Wertzuweisung
-    QTableWidgetItem* valItem = table->item ( r, 1 );
+    QTableWidgetItem* valItem = m_tableWidget->item ( r, 1 );
 
     if ( valItem && ! valItem->text().isEmpty() )
       hash[keyItem->text() ] = valItem->text();
@@ -198,18 +254,18 @@ void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
   if ( map.size() < 1 )
     return;
 
-  table->clearContents();
-  table->setRowCount ( map.size() );
+  m_tableWidget->clearContents();
+  m_tableWidget->setRowCount ( map.size() );
 
   QHashIterator<QString,QVariant> it ( map );
   while ( it.hasNext() )
   {
     it.next();
-    table->setItem ( row, 0, createItem ( it.key() ) );
+    m_tableWidget->setItem ( row, 0, createItem ( it.key() ) );
     if ( it.value().toString().isEmpty() )
-      table->setItem ( row, 1, createItem ( QString::null ) );
+      m_tableWidget->setItem ( row, 1, createItem ( QString::null ) );
     else
-      table->setItem ( row, 1, createItem ( it.value().toString() ) );
+      m_tableWidget->setItem ( row, 1, createItem ( it.value().toString() ) );
 
     row++;
   }
@@ -241,26 +297,26 @@ void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
 }
 
 /**
-* Eine neue Zeile ind Tabelle @ref table einfügen.
+* Eine neue Zeile ind Tabelle @ref m_tableWidget einfügen.
 */
 void TableEditor::addTableRow()
 {
-  int cur = table->rowCount();
-  table->setRowCount ( ++cur );
+  int cur = m_tableWidget->rowCount();
+  m_tableWidget->setRowCount ( ++cur );
 }
 
 /**
-* Ausgewählte Zeile aus @ref table entfernen.
+* Ausgewählte Zeile aus @ref m_tableWidget entfernen.
 */
 void TableEditor::delTableRow()
 {
-  QList<QTableWidgetItem *> items = table->selectedItems ();
+  QList<QTableWidgetItem *> items = m_tableWidget->selectedItems ();
   if ( items.size() < 1 )
     return;
 
   int r = items.first()->row();
   if ( r >= 0 )
-    table->removeRow ( r );
+    m_tableWidget->removeRow ( r );
 
   emit postUpdate();
 }
@@ -276,15 +332,15 @@ void TableEditor::load ( const QString &type, QSettings *cfg )
   {
     sharedVideoCodec << cfg->value ( "video_codec" ).toString();
     findVideoCodecs();
-    codecIndex = codecSelection->findData ( cfg->value ( "video_codec" ) );
+    codecIndex = m_codecComboBox->findData ( cfg->value ( "video_codec" ) );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     sharedAudioCodec << cfg->value ( "audio_codec" ).toString();
     findAudioCodecs();
-    codecIndex = codecSelection->findData ( cfg->value ( "audio_codec" ) );
+    codecIndex = m_codecComboBox->findData ( cfg->value ( "audio_codec" ) );
   }
-  codecSelection->setCurrentIndex ( codecIndex );
+  m_codecComboBox->setCurrentIndex ( codecIndex );
   loadTableOptions ( type, cfg );
 }
 
@@ -298,12 +354,12 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     cfg->setValue ( QLatin1String ( "video_codec" ),
-                    codecSelection->itemText ( codecSelection->currentIndex() ) );
+                    m_codecComboBox->itemText ( m_codecComboBox->currentIndex() ) );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     cfg->setValue ( QLatin1String ( "audio_codec" ),
-                    codecSelection->itemText ( codecSelection->currentIndex() ) );
+                    m_codecComboBox->itemText ( m_codecComboBox->currentIndex() ) );
   }
 }
 
@@ -317,12 +373,12 @@ const QStringList TableEditor::getCmd ()
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     cmd << QLatin1String ( "-vcodec" );
-    cmd << codecSelection->itemText ( codecSelection->currentIndex() );
+    cmd << m_codecComboBox->itemText ( m_codecComboBox->currentIndex() );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     cmd << QLatin1String ( "-acodec" );
-    cmd << codecSelection->itemText ( codecSelection->currentIndex() );
+    cmd << m_codecComboBox->itemText ( m_codecComboBox->currentIndex() );
   }
 
   QHash<QString,QString> hash = tableItems();

@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2010
+* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -31,12 +31,12 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QWidget>
+#include <QtGui/QComboBox>
+#include <QtGui/QTableWidget>
 #include <QtGui/QTableWidgetItem>
+#include <QtGui/QWidget>
 
-#include "ui_tableeditorui.h"
-
-class TableEditor : public QWidget, protected Ui::TableEditorUi
+class TableEditor : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -45,6 +45,9 @@ class TableEditor : public QWidget, protected Ui::TableEditorUi
     QString currentType;
     QStringList sharedVideoCodec;
     QStringList sharedAudioCodec;
+    QComboBox* m_codecComboBox;
+    QTableWidget* m_tableWidget;
+
     void findVideoCodecs();
     void findAudioCodecs();
     const QHash<QString,QVariant> readSection ( const QString &, QSettings * );

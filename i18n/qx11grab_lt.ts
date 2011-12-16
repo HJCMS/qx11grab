@@ -597,37 +597,37 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="308"/>
+        <location filename="../src/qx11grab.cpp" line="309"/>
         <source>grabbed Dimension</source>
         <translation>dydis parinktas pagal langą</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="61"/>
+        <location filename="../src/qx11grab.cpp" line="62"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="359"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="359"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="372"/>
+        <location filename="../src/qx11grab.cpp" line="373"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="431"/>
+        <location filename="../src/qx11grab.cpp" line="432"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="431"/>
+        <location filename="../src/qx11grab.cpp" line="432"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
@@ -666,43 +666,35 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="91"/>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="123"/>
-        <source>Customized</source>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="61"/>
+        <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>TableEditorUi</name>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="38"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="162"/>
-        <source>Codec:</source>
-        <translation>Kodavimas:</translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="127"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="164"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="76"/>
         <source>Parameter</source>
-        <translation>Parametras</translation>
+        <translation type="unfinished">Parametras</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="136"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="166"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="78"/>
         <source>Value</source>
-        <translation>Reikšmė</translation>
+        <translation type="unfinished">Reikšmė</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="165"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="97"/>
         <source>Add</source>
-        <translation>Pridėti</translation>
+        <translation type="unfinished">Pridėti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="176"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="168"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="99"/>
         <source>Remove</source>
-        <translation>Pašalinti</translation>
+        <translation type="unfinished">Pašalinti</translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="147"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="179"/>
+        <source>Customized</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

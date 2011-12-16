@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #################################################################
-# Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2010
+# Author: Juergen Heinemann http://www.hjcms.de, (C) 2007-2012
 #
 # Copyright: See COPYING file that comes with this distribution
 #################################################################

@@ -42,7 +42,7 @@ ENDIF (NOT UNIX)
 
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 2)
-SET (QX11GRAB_VERSION_RELEASE 3)
+SET (QX11GRAB_VERSION_RELEASE 6)
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}")
 SET (QX11GRAB_DISTRIBUTION_TEXT "compiled sources" CACHE STRING "Indicate the distribution in bug reports")
 SET (QX11GRAB_RESOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/qx11grab.qrc")
@@ -93,19 +93,19 @@ SET (LIBRARY_OUTPUT_PATH
 ## FFmpeg 
 ##############################################################
 
-SET (FFMPEG_SUFFIX "" CACHE STRING
+SET (FFMPEG_SUFFIX "${FFMPEG_SUFFIX}" CACHE STRING
   "ffmpeg pkg-config or library file suffix (STRING)" FORCE
 )
 
-SET (FFMPEG_AVFORMAT_VERSION "53.24.0" CACHE STRING
+SET (FFMPEG_AVFORMAT_VERSION "53.5.0" CACHE STRING
   "overwrite required libavformat Version (STRING)" FORCE
 )
 
-SET (FFMPEG_AVCODEC_VERSION "53.42.0" CACHE STRING
+SET (FFMPEG_AVCODEC_VERSION "53.8.0" CACHE STRING
   "overwrite required libavcodec Version (STRING)" FORCE
 )
 
-SET (FFMPEG_AVUTIL_VERSION "51.32.0" CACHE STRING
+SET (FFMPEG_AVUTIL_VERSION "51.9.1" CACHE STRING
   "overwrite required libavutil Version (STRING)" FORCE
 )
 
@@ -115,11 +115,13 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
   libavutil${FFMPEG_SUFFIX}>=${FFMPEG_AVUTIL_VERSION}
 )
 
+SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
+
 ##############################################################
 ## PulseAudio 
 ##############################################################
 
-SET (PULSE_SUFFIX "" CACHE STRING
+SET (PULSE_SUFFIX "${PULSE_SUFFIX}" CACHE STRING
   "pulse pkg-config or library file suffix (STRING)" FORCE
 )
 
@@ -149,6 +151,7 @@ SET (QX11GRAB_INCLUDES
   ${CMAKE_CURRENT_SOURCE_DIR}/src
   ${FFMPEG_INCLUDEDIR}
   ${ALSA_INCLUDE_DIR}
+  ${FFMPEG_INCLUDEDIR}
   ${PULSE_INCLUDEDIR}
 )
 
@@ -228,6 +231,7 @@ Exec=${CMAKE_INSTALL_PREFIX}/bin/${CMAKE_PROJECT_NAME}
 INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/${QX11GRAB_DBUS_DOMAIN_NAME}.service
   DESTINATION share/dbus-1/services/
+  COMPONENT dbus
 )
 
 ##############################################################
@@ -255,11 +259,13 @@ INSTALL (FILES
   ChangeLog
   COPYING
   DESTINATION share/${CMAKE_PROJECT_NAME}
+  COMPONENT data
 )
 
 INSTALL (FILES
   src/images/qx11grab.png
   DESTINATION share/pixmaps
+  COMPONENT data
 )
 
 ## EOF

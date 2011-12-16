@@ -557,16 +557,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Customized</source>
         <translation>Angepasst</translation>
     </message>
-</context>
-<context>
-    <name>TableEditorUi</name>
     <message>
-        <source>Codec:</source>
-        <translation>Kodierer:</translation>
+        <source>Codec</source>
+        <translation>Kodierer-Dekodierer</translation>
     </message>
     <message>
         <source>Parameter</source>
-        <translation></translation>
+        <translation>Parameter</translation>
     </message>
     <message>
         <source>Value</source>

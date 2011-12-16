@@ -1,13 +1,13 @@
 # CMakeLists.txt
 
 SET (single_file_lng
-  cs
-	lt
+  lt
 )
 
 ## merge with qt_*.ts
 SET (multi_file_lng
   de
+  cs
 )
 
 EXEC_PROGRAM (${QT_QMAKE_EXECUTABLE} ARGS "-query QT_INSTALL_TRANSLATIONS" OUTPUT_VARIABLE INSTALL_TRANSLATIONS)
@@ -27,15 +27,16 @@ FOREACH (lng ${multi_file_lng})
   )
 ENDFOREACH (lng)
 
-INSTALL (FILES 
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab_de.qm
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab_cs.qm
+FILE(GLOB QM_FILES "${ARCHIVE_OUTPUT_PATH}/qx11grab_*.qm")
+INSTALL (FILES ${QM_FILES}
   DESTINATION ${QT_TRANSLATIONS_DIR}
+  COMPONENT translation
 )
 
 INSTALL (FILES
   qx11grab_untranslated.ts
   DESTINATION share/qx11grab
+  COMPONENT translation
 )
 
 ## EOF

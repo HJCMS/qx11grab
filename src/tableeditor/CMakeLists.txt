@@ -1,9 +1,5 @@
 # CMakeLists.txt
 
-SET (tableeditor_UI
-  tableeditorui.ui
-)
-
 SET (tableeditor_SOURCES
   tableeditor.cpp
 )
@@ -11,8 +7,6 @@ SET (tableeditor_SOURCES
 SET (tableeditor_HEADERS
   tableeditor.h
 )
-
-QT4_WRAP_UI (tableeditor_UIC ${tableeditor_UI})
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})
 
@@ -28,7 +22,6 @@ INCLUDE_DIRECTORIES (
 
 ADD_LIBRARY (TableEditor STATIC
   ${tableeditor_MOC}
-  ${tableeditor_UIC}
   ${tableeditor_RESRC}
   ${tableeditor_HEADERS}
   ${tableeditor_SOURCES}
@@ -38,6 +31,7 @@ TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTMAIN_LIBRARY}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
+  ${FFMPEG_LDFLAGS}
 )
 
 SET_TARGET_PROPERTIES (TableEditor PROPERTIES

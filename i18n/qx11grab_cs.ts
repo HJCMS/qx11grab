@@ -539,28 +539,25 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>TableEditorUi</name>
     <message>
-        <source>Codec:</source>
-        <translation>Kodek:</translation>
+        <source>Codec</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Parameter</source>
-        <translation>Parametr</translation>
+        <translation type="unfinished">Parametr</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation>Hodnota</translation>
+        <translation type="unfinished">Hodnota</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Přidat</translation>
+        <translation type="unfinished">Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Odstranit</translation>
+        <translation type="unfinished">Odstranit</translation>
     </message>
 </context>
 <context>

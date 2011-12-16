@@ -595,37 +595,37 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="308"/>
+        <location filename="../src/qx11grab.cpp" line="309"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="61"/>
+        <location filename="../src/qx11grab.cpp" line="62"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="359"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="359"/>
+        <location filename="../src/qx11grab.cpp" line="360"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="372"/>
+        <location filename="../src/qx11grab.cpp" line="373"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="431"/>
+        <location filename="../src/qx11grab.cpp" line="432"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="431"/>
+        <location filename="../src/qx11grab.cpp" line="432"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
@@ -664,42 +664,34 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="91"/>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="123"/>
-        <source>Customized</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TableEditorUi</name>
-    <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="38"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="162"/>
-        <source>Codec:</source>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="61"/>
+        <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="127"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="164"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="76"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="136"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="166"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="78"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="165"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="167"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="97"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditorui.ui" line="176"/>
-        <location filename="../build/src/tableeditor/ui_tableeditorui.h" line="168"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="99"/>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="147"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="179"/>
+        <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
