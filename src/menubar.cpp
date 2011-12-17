@@ -62,6 +62,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
   // Configurations
   m_menuSettings = addMenu ( trUtf8 ( "Configuration" ) );
 
+  m_actionExport = exportAction ( this, true );
+  m_menuSettings->addAction ( m_actionExport );
+
   m_actionSave = saveAction ( this, true );
   m_menuSettings->addAction ( m_actionSave );
 
@@ -100,6 +103,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
 
   connect ( m_actionQuit, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );
+
+  connect ( m_actionExport, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( exportCommand() ) );
 
   connect ( m_actionSave, SIGNAL ( triggered() ),
             mainWindow, SLOT ( saveSettings() ) );
@@ -221,6 +227,17 @@ QAction* MenuBar::showWindowAction ( QObject * parent, bool shortcut )
   ac->setIcon ( getThemeIcon ( "maximize" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_M );
+  return ac;
+}
+
+QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
+{
+  QAction* ac = new QAction ( trUtf8 ( "Export" ), parent );
+  ac->setObjectName ( QLatin1String ( "exportAction" ) );
+  ac->setStatusTip ( trUtf8 ( "Export current command set" ) );
+  ac->setIcon ( QIcon::fromTheme ( "document-export" ) );
+  if ( shortcut )
+    ac->setShortcut ( Qt::CTRL + Qt::Key_N );
   return ac;
 }
 

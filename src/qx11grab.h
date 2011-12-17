@@ -101,6 +101,7 @@ class QX11Grab : public QMainWindow
     void saveSettings();
     void openLogFileDialog();
     void perparePreview();
+    void exportCommand();
 
   Q_SIGNALS:
     void stopRecording();

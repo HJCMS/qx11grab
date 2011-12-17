@@ -271,6 +271,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 */
 void GrabberInfo::sliderUpdateChanged ( int )
 {
+  showRubberband->setChecked ( true );
   setXBox->setValue ( setXSlider->value() );
   setYBox->setValue ( setYSlider->value() );
   if ( ( setWidthSlider->value() % 2 ) == 0 )

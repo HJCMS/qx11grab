@@ -38,13 +38,19 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QFile>
 #include <QtCore/QFileInfo>
+#include <QtCore/QIODevice>
 #include <QtCore/QString>
+#include <QtCore/QTextStream>
 
 /* QtGui */
 #include <QtGui/QApplication>
 #include <QtGui/QAction>
 #include <QtGui/QDesktopWidget>
+#include <QtGui/QDesktopServices>
+#include <QtGui/QFileDialog>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 #include <QtGui/QKeySequence>
@@ -554,6 +560,45 @@ const QString QX11Grab::currentCommandLine()
 {
   QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
   return cmd.join ( " " );
+}
+
+/**
+* Aktuelle Kommando Zeile in Shell Script exportieren!
+*/
+void QX11Grab::exportCommand()
+{
+  QString dest = QDesktopServices::storageLocation ( QDesktopServices::DocumentsLocation );
+  QFileDialog* d = new QFileDialog ( this, trUtf8 ( "Export current Commandline" ),
+                                     QLatin1String ( "qx11grab.sh" ),
+                                     QLatin1String ( "*.sh" ) );
+  d->setAcceptMode ( QFileDialog::AcceptSave );
+  d->setOptions ( QFileDialog::ShowDirsOnly );
+  d->setFileMode ( QFileDialog::AnyFile );
+  d->setViewMode ( QFileDialog::Detail );
+  d->setDirectory ( dest );
+  d->setNameFilter ( trUtf8 ( "Shell Script (*.sh)" ) );
+  d->setDefaultSuffix ( QLatin1String ( "sh" ) );
+
+  if ( d->exec() == QFileDialog::Accepted )
+  {
+    QString out = d->selectedFiles().last();
+    QFileInfo info ( out );
+    if ( info.isDir() )
+      info.setFile ( "qx11grab.sh" );
+
+    QStringList cmd ( "#!/bin/bash" );
+    cmd << "" << currentCommandLine() << "";
+    QFile fp ( info.absoluteFilePath() );
+    if ( fp.open ( QIODevice::WriteOnly ) )
+    {
+      QTextStream stream ( &fp );
+      stream << cmd.join ( "\n" );
+      fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
+      fp.close();
+      statusBarMessage ( trUtf8 ( "commandline exported" ) );
+    }
+  }
+  delete d;
 }
 
 /**

@@ -38,6 +38,9 @@ ToolBar::ToolBar ( QX11Grab * parent )
   m_viewLogAction->setEnabled ( false );
   addAction ( m_viewLogAction );
 
+  QAction* exp = MenuBar::exportAction ( this );
+  addAction ( exp );
+
   QAction* save = MenuBar::saveAction ( this );
   addAction ( save );
 
@@ -46,6 +49,9 @@ ToolBar::ToolBar ( QX11Grab * parent )
 
   connect ( m_viewLogAction, SIGNAL ( triggered() ),
             mainWindow, SLOT ( openLogFileDialog() ) );
+
+  connect ( exp, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( exportCommand() ) );
 
   connect ( save, SIGNAL ( triggered() ),
             mainWindow, SLOT ( saveSettings() ) );
