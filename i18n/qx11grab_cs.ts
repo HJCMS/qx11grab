@@ -5,148 +5,148 @@
     <name>AbstractAudioDialog</name>
     <message>
         <source>Available Cards:</source>
-        <translation type="unfinished">Dostupné karty:</translation>
+        <translation>Dostupné karty:</translation>
     </message>
     <message>
         <source>Fallback Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložní rozhraní</translation>
     </message>
 </context>
 <context>
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
-        <translation type="unfinished">Výběr ALSA PCM</translation>
+        <translation>Výběr ALSA PCM</translation>
     </message>
 </context>
 <context>
     <name>AudioDeviceWidget</name>
     <message>
         <source>Audio Settings</source>
-        <translation type="unfinished">Nastavení zvuku</translation>
+        <translation>Nastavení zvuku</translation>
     </message>
     <message>
         <source>Audio System</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvukový systém</translation>
     </message>
     <message>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation type="unfinished">Advanced Linux Sound Architecture (ALSA)</translation>
+        <translation>Advanced Linux Sound Architecture (ALSA)</translation>
     </message>
     <message>
         <source>Open Sound System (OSS)</source>
-        <translation type="unfinished">Open Sound System (OSS)</translation>
+        <translation>Open Sound System (OSS)</translation>
     </message>
     <message>
         <source>Soundserver (Pulse)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvukový server (Pulse)</translation>
     </message>
     <message>
         <source>Audio Intensifier:</source>
-        <translation type="unfinished">Zesilovač zvuku:</translation>
+        <translation>Zesilovač zvuku:</translation>
     </message>
     <message>
         <source>Change Audio Volume (256=normal)</source>
-        <translation type="unfinished">Nastavit sílu hlasitosti zvuku (256=obvyklá)</translation>
+        <translation>Nastavit sílu hlasitosti zvuku (256=obvyklá)</translation>
     </message>
     <message>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
-        <translation type="unfinished">Nastavit zesílení zvuku.
+        <translation>Nastavit zesílení zvuku.
 Výchozí: 256=obvyklé</translation>
     </message>
     <message>
         <source>Audio Capture Device:</source>
-        <translation type="unfinished">Zařízení pro zachytávání zvuku:</translation>
+        <translation>Zařízení pro zachytávání zvuku:</translation>
     </message>
     <message>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
-        <translation type="unfinished">Vybrat nahrávací zařízení pro zachytávání zvuku
+        <translation>Vybrat nahrávací zařízení pro zachytávání zvuku
 Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Select ALSA Audio Capture Device</source>
-        <translation type="unfinished">Vybrat zařízení pro zachytávání zvuku ALSA</translation>
+        <translation>Vybrat zařízení pro zachytávání zvuku ALSA</translation>
     </message>
     <message>
         <source>Sample Format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzorkovací formát:</translation>
     </message>
     <message>
         <source>The sample format of the incoming audio buffers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vzorkovací formát příchozích vyrovnávacích pamětí zvuku.</translation>
     </message>
     <message>
         <source>To show available sample formats use ffmpeg -sample_fmts</source>
-        <translation type="unfinished"></translation>
+        <translation>Pro ukázání dostupných vzorkovacích formátů použijte ffmpeg -sample_fmts</translation>
     </message>
     <message>
         <source>unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznámý</translation>
     </message>
     <message>
         <source>signed  8 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>se znaménkem 8 bit</translation>
     </message>
     <message>
         <source>signed 16 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>se znaménkem 16 bitů</translation>
     </message>
     <message>
         <source>signed 32 bits</source>
-        <translation type="unfinished"></translation>
+        <translation>se znaménkem 32 bitů</translation>
     </message>
     <message>
         <source>float</source>
-        <translation type="unfinished"></translation>
+        <translation>pohyblivý</translation>
     </message>
     <message>
         <source>double</source>
-        <translation type="unfinished"></translation>
+        <translation>dvojitý</translation>
     </message>
     <message>
         <source>unsigned  8 bits, planar</source>
-        <translation type="unfinished"></translation>
+        <translation>bez znaménka 8 bit, rovinný</translation>
     </message>
     <message>
         <source>signed 16 bits, planar</source>
-        <translation type="unfinished"></translation>
+        <translation>bez znaménka 16 bitů, rovinný</translation>
     </message>
     <message>
         <source>signed 32 bits, planar</source>
-        <translation type="unfinished"></translation>
+        <translation>se znaménkem 32 bitů, rovinný</translation>
     </message>
     <message>
         <source>float, planar</source>
-        <translation type="unfinished"></translation>
+        <translation>pohyblivý, rovinný</translation>
     </message>
     <message>
         <source>double, planar</source>
-        <translation type="unfinished"></translation>
+        <translation>dvojitý, rovinný</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Neznámý</translation>
+        <translation>Neznámý</translation>
     </message>
 </context>
 <context>
     <name>CommandLineEdit</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Uložit</translation>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Save current command list</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit nynější seznam s příkazy</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat do schránky</translation>
     </message>
     <message>
         <source>Copy command list to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat seznam s příkazy do schránky</translation>
     </message>
 </context>
 <context>
@@ -327,115 +327,115 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>MenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <source>Kill</source>
-        <translation type="unfinished">Zrušit</translation>
+        <translation>Ukončit</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Uložit</translation>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">Nahrát</translation>
+        <translation>Nahrát</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Nápověda</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Ukončit</translation>
+        <translation>Ukončit</translation>
     </message>
     <message>
         <source>Close Application</source>
-        <translation type="unfinished">Zavřít program</translation>
+        <translation>Zavřít program</translation>
     </message>
     <message>
         <source>Grabbing</source>
-        <translation type="unfinished">Snímání</translation>
+        <translation>Snímání</translation>
     </message>
     <message>
         <source>get Size from Window</source>
-        <translation type="unfinished">Získat velikost z okna</translation>
+        <translation>Získat velikost z okna</translation>
     </message>
     <message>
         <source>Rubberband</source>
-        <translation type="unfinished">Gumový pás</translation>
+        <translation>Gumový pás</translation>
     </message>
     <message>
         <source>Recording</source>
-        <translation type="unfinished">Nahrává se</translation>
+        <translation>Nahrávání</translation>
     </message>
     <message>
         <source>Start Recording</source>
-        <translation type="unfinished">Spustit nahrávání</translation>
+        <translation>Spustit nahrávání</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Zastavit</translation>
+        <translation>Zastavit</translation>
     </message>
     <message>
         <source>Stop Recording</source>
-        <translation type="unfinished">Zastavit nahrávání</translation>
+        <translation>Zastavit nahrávání</translation>
     </message>
     <message>
         <source>Kill Recording</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukončit nahrávání</translation>
     </message>
     <message>
         <source>Hide</source>
-        <translation type="unfinished">Skrýt</translation>
+        <translation>Skrýt</translation>
     </message>
     <message>
         <source>Minimize to Systray</source>
-        <translation type="unfinished">Zmenšit do oznamovací části panelu</translation>
+        <translation>Zmenšit do oznamovací části panelu</translation>
     </message>
     <message>
         <source>Show</source>
-        <translation type="unfinished">Ukázat </translation>
+        <translation>Ukázat</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Obnovit</translation>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Refresh Commandline Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovit náhled na příkazový řádek</translation>
     </message>
     <message>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <source>FFmpeg Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Stránky FFmpeg</translation>
     </message>
     <message>
         <source>QX11Grab</source>
-        <translation type="unfinished"></translation>
+        <translation>QX11Grab</translation>
     </message>
     <message>
         <source>QX11Grab Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Stránky QX11Grab</translation>
     </message>
     <message>
         <source>Save current Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit nynější nastavení</translation>
     </message>
     <message>
         <source>Logfile</source>
-        <translation type="unfinished">Soubor se zápisem</translation>
+        <translation>Soubor se zápisem</translation>
     </message>
     <message>
         <source>Open FFmpeg Protocoll</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít protokol FFmpeg</translation>
     </message>
 </context>
 <context>
@@ -473,7 +473,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>PulseAudioDialog</name>
     <message>
         <source>Pulse Device Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Výběr zařízení Pulse</translation>
     </message>
 </context>
 <context>
@@ -504,7 +504,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>QX11Grab</source>
-        <translation type="unfinished"></translation>
+        <translation>QX11Grab</translation>
     </message>
 </context>
 <context>
@@ -530,34 +530,34 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>SystemTray</name>
     <message>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
-        <translation type="unfinished">qx11grab: Nahrávají se okna X11 s ffmpeg</translation>
+        <translation>QX11Grab: Nahrávají se okna X11 s ffmpeg</translation>
     </message>
 </context>
 <context>
     <name>TableEditor</name>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastní</translation>
     </message>
     <message>
         <source>Codec</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodek</translation>
     </message>
     <message>
         <source>Parameter</source>
-        <translation type="unfinished">Parametr</translation>
+        <translation>Parametr</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">Hodnota</translation>
+        <translation>Hodnota</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Přidat</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
 </context>
 <context>
@@ -568,11 +568,11 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Obnovit</translation>
+        <translation>Obnovit</translation>
     </message>
     <message>
         <source>Refresh Logfile</source>
-        <translation type="unfinished"></translation>
+        <translation>Obnovit soubor se zápisem</translation>
     </message>
 </context>
 </TS>
