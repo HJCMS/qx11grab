@@ -50,111 +50,129 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="66"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="67"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="75"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="77"/>
         <source>Change Audio Volume (256=normal)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="76"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="78"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="80"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="93"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="86"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="99"/>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="92"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="105"/>
         <source>Select ALSA Audio Capture Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="97"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="110"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="103"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
         <source>The sample format of the incoming audio buffers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="104"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="117"/>
         <source>To show available sample formats use ffmpeg -sample_fmts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="106"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="107"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
         <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="108"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="109"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="122"/>
         <source>signed 32 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="110"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
         <source>float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="111"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
         <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="112"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
         <source>unsigned  8 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="113"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
         <source>signed 16 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="115"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
         <source>float, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="271"/>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="287"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="290"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="306"/>
         <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodecTableModel</name>
+    <message>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="131"/>
+        <source>At first, we have to create a argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="168"/>
+        <source>Parameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="170"/>
+        <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -333,62 +351,62 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="48"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="57"/>
         <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="58"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="67"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="71"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="87"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="84"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="95"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="118"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="108"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="138"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="121"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="158"/>
         <source>Depth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="132"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
         <source>Framerate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="150"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="155"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="192"/>
         <source>Insert Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="160"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="197"/>
         <source>Enable Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -595,37 +613,37 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="309"/>
+        <location filename="../src/qx11grab.cpp" line="319"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="62"/>
+        <location filename="../src/qx11grab.cpp" line="67"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="360"/>
+        <location filename="../src/qx11grab.cpp" line="370"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="360"/>
+        <location filename="../src/qx11grab.cpp" line="370"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="373"/>
+        <location filename="../src/qx11grab.cpp" line="383"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="432"/>
+        <location filename="../src/qx11grab.cpp" line="442"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="432"/>
+        <location filename="../src/qx11grab.cpp" line="442"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
@@ -664,33 +682,28 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="61"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="54"/>
         <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="76"/>
-        <source>Parameter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="78"/>
-        <source>Value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="97"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="68"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="99"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="70"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="147"/>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="179"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="72"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="120"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="149"/>
         <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>

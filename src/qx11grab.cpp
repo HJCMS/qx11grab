@@ -55,13 +55,20 @@
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QX11Info>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+
 QX11Grab::QX11Grab ( Settings *settings )
-    : QMainWindow(), cfg ( settings )
+    : QMainWindow()
+    , cfg ( settings )
+    , m_FFProcess ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
   setWindowTitle ( trUtf8 ( "QX11Grab" ) );
   setMinimumWidth ( 500 );
   setMinimumHeight ( 450 );
+
+  QDBusConnection p_dbus = QDBusConnection::sessionBus();
 
   QIcon boxIcon = getThemeIcon ( "qx11grab" );
   setWindowIcon ( boxIcon );
@@ -179,6 +186,9 @@ void QX11Grab::record()
 
 void QX11Grab::stop()
 {
+  if ( ! m_FFProcess )
+    return;
+
   if ( m_FFProcess->isRunning() )
     m_FFProcess->stop ();
 }
@@ -267,7 +277,7 @@ void QX11Grab::loadStats()
 */
 void QX11Grab::saveStats()
 {
-  cfg->setValue ( "window/state", saveState(0) );
+  cfg->setValue ( "window/state", saveState ( 0 ) );
   cfg->setValue ( "window/position", pos() );
   cfg->setValue ( "window/size", size() );
 }
@@ -552,6 +562,26 @@ const QString QX11Grab::currentCommandLine()
 const QString QX11Grab::getSettingsValue ( const QString &key )
 {
   return cfg->value ( key, "" ).toString();
+}
+
+/**
+* Schreibe Nachricht in das Meldungs Label
+*/
+void QX11Grab::statusBarMessage ( const QString &msg, int timeout )
+{
+  statusBar()->showMessage ( msg, timeout );
+}
+
+/** Wird für DBUS und ItemDelegation benötigt! */
+const QString QX11Grab::audioCodec()
+{
+  return m_audioEditor->selectedCodec();
+}
+
+/** Wird für DBUS und ItemDelegation benötigt! */
+const QString QX11Grab::videoCodec()
+{
+  return m_videoEditor->selectedCodec();
 }
 
 QX11Grab::~QX11Grab()

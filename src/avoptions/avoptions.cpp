@@ -22,16 +22,68 @@
 #include "avoptions.h"
 
 /* QtCore */
-// #include <QtCore>
+#include <QtCore/QDebug>
 
 /* QtGui */
 // #include <QtGui>
 
-AVOptions::AVOptions ( QObject * parent )
-    : QObject ( parent )
+/* FFmpeg */
+extern "C"
 {
-  setObjectName ( "AVOptions" );
+#include <libavutil/common.h>
 }
 
-AVOptions::~AVOptions()
-{}
+namespace QX11Options
+{
+
+  AVOptions::AVOptions ( QObject * parent )
+      : QObject ( parent )
+  {
+    setObjectName ( "AVOptions" );
+  }
+
+  void AVOptions::optionRequest ( const QString &option, const QVariant &value )
+  {
+    qDebug() << "TODO" << Q_FUNC_INFO << option << value;
+  }
+
+  const QList<FFCodec> AVOptions::videoCodecs()
+  {
+    QList<FFCodec> list;
+    av_register_all();
+    AVCodec* codec;
+    for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+    {
+      if ( ( codec->type == AVMEDIA_TYPE_VIDEO ) && ( codec->encode ) )
+      {
+        FFCodec c;
+        c.name = QString ( codec->name );
+        c.fullname = QString ( codec->long_name );
+        list.append ( c );
+      }
+    }
+    return list;
+  }
+
+  const QList<FFCodec> AVOptions::audioCodecs()
+  {
+    QList<FFCodec> list;
+    av_register_all();
+    AVCodec* codec;
+    for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+    {
+      if ( ( codec->type == AVMEDIA_TYPE_AUDIO ) && ( codec->encode ) )
+      {
+        FFCodec c;
+        c.name = QString ( codec->name );
+        c.fullname = QString ( codec->long_name );
+        list.append ( c );
+      }
+    }
+    return list;
+  }
+
+  AVOptions::~AVOptions()
+  {}
+
+}  /* eof namespace QX11Options */

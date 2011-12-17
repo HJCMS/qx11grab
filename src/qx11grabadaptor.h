@@ -40,14 +40,15 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
     Q_CLASSINFO ( "D-Bus Introspection", ""
 "  <interface name=\"de.hjcms.qx11grab\" >\n"
 "    <method name=\"rubberband\" />\n"
-"    <method name=\"stop\" />\n"
 "    <method name=\"start\" />\n"
 "    <method name=\"show\" />\n"
 "    <method name=\"hide\" />\n"
-"    <signal name=\"message\">\n"
+"    <method name=\"message\">\n"
 "     <arg direction=\"in\" type=\"s\" name=\"mess\" />\n"
-"    </signal>\n"
-"    <method name=\"command\" />\n"
+"    </method>\n"
+"    <method name=\"getAudioCodec\" />\n"
+"    <method name=\"getVideoCodec\" />\n"
+"    <method name=\"getCommand\" />\n"
 "  </interface>\n"
 "" )
 
@@ -57,15 +58,13 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
 
   public Q_SLOTS:
     Q_NOREPLY void rubberband ();
-    Q_NOREPLY void stop ();
     Q_NOREPLY void start ();
     Q_NOREPLY void show ();
     Q_NOREPLY void hide ();
-    const QString command();
-
-  Q_SIGNALS:
-    void message ( const QString &mess );
-
+    Q_NOREPLY void message ( const QString &mess );
+    const QString getAudioCodec();
+    const QString getVideoCodec();
+    const QString getCommand();
 };
 
 #endif

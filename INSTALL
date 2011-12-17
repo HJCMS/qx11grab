@@ -24,9 +24,13 @@ and GCC 4.0.1 to develop applications.
       -DCMAKE_INSTALL_PREFIX:PATH=/usr \
       -DSYSCONF_INSTALL_DIR:PATH=/etc ../
       -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
-      -DFFMPEG_SUFFIX:STRING=_09x
+      ../
 
-  Valid options for -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
+  Options for:
+    -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
+
+  The FFMPEG_SUFFIX option allow you to set different pkg-config Version
+  Example: -DFFMPEG_SUFFIX:STRING=_09x will search ${prefix}/${lib}/pkgconfig/libavformat_09x.pc
 
 4) make
 5) make DESTDIR=/tmp/test install/fast

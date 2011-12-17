@@ -35,11 +35,6 @@ void QX11GrabAdaptor::rubberband()
   QMetaObject::invokeMethod ( parent(), "swapRubberBand" );
 }
 
-void QX11GrabAdaptor::stop()
-{
-  QMetaObject::invokeMethod ( parent(), "stop" );
-}
-
 void QX11GrabAdaptor::start()
 {
   QMetaObject::invokeMethod ( parent(), "record" );
@@ -55,11 +50,30 @@ void QX11GrabAdaptor::hide ()
   QMetaObject::invokeMethod ( parent(), "hide" );
 }
 
-const QString QX11GrabAdaptor::command()
+void QX11GrabAdaptor::message ( const QString &mess )
 {
-  QString cmd;
-  QMetaObject::invokeMethod ( parent(), "currentCommandLine", Q_RETURN_ARG ( QString, cmd ) );
-  return cmd;
+  QMetaObject::invokeMethod ( parent(), "statusBarMessage", Q_ARG ( QString, mess ), Q_ARG ( int, 10000 ) );
+}
+
+const QString QX11GrabAdaptor::getAudioCodec()
+{
+  QString str;
+  QMetaObject::invokeMethod ( parent(), "audioCodec", Q_RETURN_ARG ( QString, str ) );
+  return str;
+}
+
+const QString QX11GrabAdaptor::getVideoCodec()
+{
+  QString str;
+  QMetaObject::invokeMethod ( parent(), "videoCodec", Q_RETURN_ARG ( QString, str ) );
+  return str;
+}
+
+const QString QX11GrabAdaptor::getCommand()
+{
+  QString str;
+  QMetaObject::invokeMethod ( parent(), "currentCommandLine", Q_RETURN_ARG ( QString, str ) );
+  return str;
 }
 
 QX11GrabAdaptor::~QX11GrabAdaptor()

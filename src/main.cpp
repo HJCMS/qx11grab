@@ -94,7 +94,7 @@ int main ( int argc, char* argv[] )
   Settings* m_Settings = new Settings ( &app );
 
   QX11Grab* grab = new  QX11Grab( m_Settings );
-  bus->registerObject ( QString( "/" ), grab, QDBusConnection::ExportAdaptors );
+  bus->registerObject ( QString( "/" ), grab, ( QDBusConnection::ExportAdaptors ) );
   new QX11GrabAdaptor ( grab );
 
   if ( m_Settings->value ( "startMinimized", false ).toBool() )

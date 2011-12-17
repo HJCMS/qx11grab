@@ -107,7 +107,7 @@ bool FFProcess::start ( const QStringList &cmd )
 #ifdef QX11GRAB_DEBUG
   qDebug() << Q_FUNC_INFO << application() << arguments;
 #endif
-  
+
   m_QProcess->start ( application(), arguments );
   return true;
 }

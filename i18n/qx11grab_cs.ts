@@ -131,6 +131,21 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>CodecTableModel</name>
+    <message>
+        <source>At first, we have to create a argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parameter</source>
+        <translation type="unfinished">Parametr</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Hodnota</translation>
+    </message>
+</context>
+<context>
     <name>CommandLineEdit</name>
     <message>
         <source>Save</source>
@@ -544,20 +559,16 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>Kodek</translation>
     </message>
     <message>
-        <source>Parameter</source>
-        <translation>Parametr</translation>
-    </message>
-    <message>
-        <source>Value</source>
-        <translation>Hodnota</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation>Odstranit</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

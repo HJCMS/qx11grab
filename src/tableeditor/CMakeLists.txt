@@ -2,10 +2,14 @@
 
 SET (tableeditor_SOURCES
   tableeditor.cpp
+  codectable.cpp
+  codectablemodel.cpp
 )
 
 SET (tableeditor_HEADERS
   tableeditor.h
+  codectable.h
+  codectablemodel.h
 )
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})
@@ -18,6 +22,7 @@ INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${QX11GRAB_INCLUDES}
+  ${QX11GRAB_BINARY_PROJECT_INCULDE}
 )
 
 ADD_LIBRARY (TableEditor STATIC
@@ -27,11 +32,14 @@ ADD_LIBRARY (TableEditor STATIC
   ${tableeditor_SOURCES}
 )
 
+ADD_DEPENDENCIES (TableEditor AVOptions)
+
 TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTMAIN_LIBRARY}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
-  ${FFMPEG_LDFLAGS}
+  ${QT_QTDBUS_LIBRARY}
+  AVOptions
 )
 
 SET_TARGET_PROPERTIES (TableEditor PROPERTIES

@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,60 +19,58 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef TABLEEDITOR_H
-#define TABLEEDITOR_H
+#ifndef CODECTABLE_H
+#define CODECTABLE_H
 
 /* QtCore */
-#include <QtCore/QHash>
+#include <QtCore/QList>
+#include <QtCore/QModelIndex>
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
+#include <QtCore/QPair>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QComboBox>
-#include <QtGui/QLabel>
+#include <QtGui/QTableView>
 #include <QtGui/QTableWidget>
+#include <QtGui/QTableWidgetItem>
 #include <QtGui/QWidget>
 
-class CodecTable;
+class CodecTableModel;
 
-class TableEditor : public QWidget
+class CodecTable : public QTableView
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
-    QString currentType;
-    QStringList sharedVideoCodec;
-    QStringList sharedAudioCodec;
-    QComboBox* m_codecComboBox;
-    CodecTable* m_tableWidget;
-
-    void findVideoCodecs();
-    void findAudioCodecs();
-    const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
-    const QHash<QString,QString> tableItems();
-    void loadTableOptions ( const QString &, QSettings * );
-    void saveTableOptions ( const QString &, QSettings * );
-
-  private Q_SLOTS:
-    void addTableRow();
-    void delTableRow();
+    CodecTableModel* m_model;
 
   Q_SIGNALS:
-    void postUpdate();
+    void itemChanged();
 
   public Q_SLOTS:
-    void load ( const QString &, QSettings * );
-    void save ( const QString &, QSettings * );
+    void clearContents();
 
   public:
-    TableEditor ( QWidget * parent = 0 );
-    const QString selectedCodec();
-    const QStringList getCmd();
-    ~TableEditor ();
+    CodecTable ( QWidget * parent = 0 );
+
+    int rowCount();
+    int columnCount();
+
+    void insertItem ( int row, const QString &key, const QVariant &value );
+    const QPair<QString,QVariant> item ( int row );
+
+    const QVariant item ( int row, int column );
+
+    void removeRow ( int row );
+
+    void insertRow ( int row );
+
+    const QList<int> selectedRows();
+
+    virtual ~CodecTable();
 };
 
 #endif

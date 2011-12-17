@@ -140,6 +140,21 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>CodecTableModel</name>
+    <message>
+        <source>At first, we have to create a argument.</source>
+        <translation>Wir benötigen zuerst einen Parameter.</translation>
+    </message>
+    <message>
+        <source>Parameter</source>
+        <translation>Parameter</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Wert</translation>
+    </message>
+</context>
+<context>
     <name>CommandLineEdit</name>
     <message>
         <source>Save</source>
@@ -562,20 +577,16 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Kodierer-Dekodierer</translation>
     </message>
     <message>
-        <source>Parameter</source>
-        <translation>Parameter</translation>
-    </message>
-    <message>
-        <source>Value</source>
-        <translation>Wert</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Einfügen</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Leeren</translation>
     </message>
 </context>
 <context>

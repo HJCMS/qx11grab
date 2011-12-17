@@ -63,6 +63,7 @@ class QX11Grab : public QMainWindow
 
   private:
     Settings* cfg;
+    FFProcess* m_FFProcess;
     MenuBar* m_menuBar;
     ToolBar* m_toolBar;
     int TimeOutMessages;
@@ -74,7 +75,6 @@ class QX11Grab : public QMainWindow
     CommandPreview* m_commandPreview;
     DesktopInfo* m_DesktopInfo;
     RubberBand* m_RubberBand;
-    FFProcess* m_FFProcess;
     // SysTray
     SystemTray* m_systemTray;
     // triggred Actions
@@ -111,8 +111,11 @@ class QX11Grab : public QMainWindow
     void swapRubberBand ();
     void record();
     void stop();
-    const QString currentCommandLine();
+    void statusBarMessage ( const QString &msg, int timeout = 5000 );
     const QString getSettingsValue ( const QString &key );
+    const QString currentCommandLine();
+    const QString audioCodec();
+    const QString videoCodec();
 
   public:
     QX11Grab ( Settings *settings = 0 );
