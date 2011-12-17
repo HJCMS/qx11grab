@@ -470,6 +470,14 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Open FFmpeg Protocoll</source>
         <translation>Öffne FFmpeg Protokoll</translation>
     </message>
+    <message>
+        <source>Export</source>
+        <translation>Exportieren</translation>
+    </message>
+    <message>
+        <source>Export current command set</source>
+        <translation>Exportiere die aktuelle Kommando Zeile</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -538,6 +546,18 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>QX11Grab</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Export current Commandline</source>
+        <translation>Exportiere die aktuelle Kommando Zeile</translation>
+    </message>
+    <message>
+        <source>Shell Script (*.sh)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>commandline exported</source>
+        <translation>Kommandozeile Exportiert</translation>
     </message>
 </context>
 <context>

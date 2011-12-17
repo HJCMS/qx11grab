@@ -427,7 +427,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="195"/>
+        <location filename="../src/menubar.cpp" line="201"/>
         <source>Kill</source>
         <translation type="unfinished"></translation>
     </message>
@@ -437,129 +437,139 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="229"/>
+        <location filename="../src/menubar.cpp" line="246"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="68"/>
+        <location filename="../src/menubar.cpp" line="71"/>
         <source>Load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="76"/>
+        <location filename="../src/menubar.cpp" line="79"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="79"/>
+        <location filename="../src/menubar.cpp" line="82"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="80"/>
+        <location filename="../src/menubar.cpp" line="83"/>
         <source>FFmpeg Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="83"/>
+        <location filename="../src/menubar.cpp" line="86"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="84"/>
+        <location filename="../src/menubar.cpp" line="87"/>
         <source>QX11Grab Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="139"/>
+        <location filename="../src/menubar.cpp" line="145"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="141"/>
+        <location filename="../src/menubar.cpp" line="147"/>
         <source>Close Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="150"/>
+        <location filename="../src/menubar.cpp" line="156"/>
         <source>Grabbing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="152"/>
-        <location filename="../src/menubar.cpp" line="163"/>
+        <location filename="../src/menubar.cpp" line="158"/>
+        <location filename="../src/menubar.cpp" line="169"/>
         <source>get Size from Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="161"/>
+        <location filename="../src/menubar.cpp" line="167"/>
         <source>Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="172"/>
+        <location filename="../src/menubar.cpp" line="178"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="174"/>
+        <location filename="../src/menubar.cpp" line="180"/>
         <source>Start Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="183"/>
+        <location filename="../src/menubar.cpp" line="189"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="185"/>
+        <location filename="../src/menubar.cpp" line="191"/>
         <source>Stop Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="197"/>
+        <location filename="../src/menubar.cpp" line="203"/>
         <source>Kill Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="207"/>
+        <location filename="../src/menubar.cpp" line="213"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="209"/>
-        <location filename="../src/menubar.cpp" line="220"/>
+        <location filename="../src/menubar.cpp" line="215"/>
+        <location filename="../src/menubar.cpp" line="226"/>
         <source>Minimize to Systray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="218"/>
+        <location filename="../src/menubar.cpp" line="224"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="231"/>
+        <location filename="../src/menubar.cpp" line="235"/>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="237"/>
+        <source>Export current command set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="248"/>
         <source>Save current Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="240"/>
+        <location filename="../src/menubar.cpp" line="257"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="242"/>
+        <location filename="../src/menubar.cpp" line="259"/>
         <source>Refresh Commandline Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="251"/>
+        <location filename="../src/menubar.cpp" line="268"/>
         <source>Logfile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="253"/>
+        <location filename="../src/menubar.cpp" line="270"/>
         <source>Open FFmpeg Protocoll</source>
         <translation type="unfinished"></translation>
     </message>
@@ -613,38 +623,53 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="67"/>
+        <location filename="../src/qx11grab.cpp" line="73"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="319"/>
+        <location filename="../src/qx11grab.cpp" line="325"/>
         <source>grabbed Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="370"/>
+        <location filename="../src/qx11grab.cpp" line="376"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="370"/>
+        <location filename="../src/qx11grab.cpp" line="376"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="383"/>
+        <location filename="../src/qx11grab.cpp" line="389"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="442"/>
+        <location filename="../src/qx11grab.cpp" line="448"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="442"/>
+        <location filename="../src/qx11grab.cpp" line="448"/>
         <source>qx11grap not started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="571"/>
+        <source>Export current Commandline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="579"/>
+        <source>Shell Script (*.sh)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="598"/>
+        <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

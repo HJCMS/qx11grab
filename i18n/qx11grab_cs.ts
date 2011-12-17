@@ -452,6 +452,14 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Open FFmpeg Protocoll</source>
         <translation>Otevřít protokol FFmpeg</translation>
     </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export current command set</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -520,6 +528,18 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>QX11Grab</source>
         <translation>QX11Grab</translation>
+    </message>
+    <message>
+        <source>Export current Commandline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shell Script (*.sh)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>commandline exported</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
