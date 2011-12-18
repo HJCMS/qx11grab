@@ -60,6 +60,7 @@ class MenuBar : public QMenuBar
     // Settings Menu
     QMenu* m_menuSettings;
     QAction* m_actionExport;
+    QAction* m_actionBookmark;
     QAction* m_actionSave;
     QAction* m_actionLoad;
     QAction* m_actionRefresh;
@@ -85,6 +86,7 @@ class MenuBar : public QMenuBar
     static QAction* showWindowAction ( QObject * parent, bool shortcut = false );
 
     static QAction* exportAction ( QObject * parent, bool shortcut = false );
+    static QAction* bookmarkAction ( QObject * parent, bool shortcut = false );
     static QAction* saveAction ( QObject * parent, bool shortcut = false );
     static QAction* refreshAction ( QObject * parent, bool shortcut = false );
     static QAction* viewAction ( QObject * parent, bool shortcut = false );

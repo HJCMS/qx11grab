@@ -262,12 +262,13 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   // Updates
   connect ( setMetadata, SIGNAL ( stateChanged ( int ) ),
             this, SIGNAL ( postUpdate () ) );
+
   connect ( soundRecording, SIGNAL ( stateChanged ( int ) ),
             this, SIGNAL ( postUpdate () ) );
 }
 
 /**
-* Wenn einer der Slider bewegt wird
+* Wenn einer der Slider sich bewegt
 */
 void GrabberInfo::sliderUpdateChanged ( int )
 {

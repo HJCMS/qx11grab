@@ -70,7 +70,7 @@ TableEditor::TableEditor ( QWidget * parent )
   QPushButton* m_del = buttonBox->addButton ( trUtf8 ( "Remove" ), QDialogButtonBox::ActionRole );
   m_del->setIcon ( QIcon::fromTheme ( "edit-table-delete-row" ) );
   QPushButton* m_clear = buttonBox->addButton ( trUtf8 ( "Clear" ), QDialogButtonBox::ActionRole );
-  m_clear->setIcon ( QIcon::fromTheme ( "edit-delete" ) );
+  m_clear->setIcon ( QIcon::fromTheme ( "edit-clear" ) );
   layout->addWidget ( buttonBox, grow++, 0, 1, 2, Qt::AlignRight );
 
   setLayout ( layout );

@@ -38,6 +38,7 @@
 #include <QtGui/QWidget>
 
 class CodecTableModel;
+class CodecTableDelegate;
 
 class CodecTable : public QTableView
 {
@@ -46,6 +47,7 @@ class CodecTable : public QTableView
 
   private:
     CodecTableModel* m_model;
+    CodecTableDelegate* m_codecTableDelegate;
 
   Q_SIGNALS:
     void itemChanged();

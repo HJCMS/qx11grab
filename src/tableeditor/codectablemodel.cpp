@@ -100,7 +100,7 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
       return false;
 
 #ifdef MAINTAINER_REPOSITORY
-    qDebug() << Q_FUNC_INFO << index.row() << index.column() << value;
+    qDebug() << Q_FUNC_INFO << index.row() << index.column() << value << role;
 #endif
 
     switch ( index.column() )
@@ -279,6 +279,8 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
 
 bool CodecTableModel::removeRows ( int row,  int count, const QModelIndex &parent )
 {
+  Q_UNUSED ( count );
+
   bool status = false;
   if ( ( row < 0 ) || ( row > items.size() ) )
     return status;

@@ -140,6 +140,47 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>BookmarkDialog</name>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkInfo</name>
+    <message>
+        <source>Title</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <source>Required Bookmark Identifier</source>
+        <translation>Erwartete Lesezeichen Identifikation</translation>
+    </message>
+    <message>
+        <source>Metadata</source>
+        <translation>Metadaten</translation>
+    </message>
+    <message>
+        <source>%1 Options</source>
+        <translation>%1 Optionen</translation>
+    </message>
+    <message>
+        <source>Video Codec</source>
+        <translation>Video Kodierer</translation>
+    </message>
+    <message>
+        <source>Audio Codec</source>
+        <translation>Audio Kodierer</translation>
+    </message>
+</context>
+<context>
+    <name>CodecTableDelegate</name>
+    <message>
+        <source>Missing stated hyphens in given argument</source>
+        <translation>Vermisse im Argument den führenden Bindestrich</translation>
+    </message>
+</context>
+<context>
     <name>CodecTableModel</name>
     <message>
         <source>At first, we have to create a argument.</source>
@@ -229,6 +270,17 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Fullscreen</source>
         <translation>Volldarstellung</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <source>Export current Commandline</source>
+        <translation>Exportiere die aktuelle Kommando Zeile</translation>
+    </message>
+    <message>
+        <source>Shell Script (*.sh)</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -478,6 +530,14 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Export current command set</source>
         <translation>Exportiere die aktuelle Kommando Zeile</translation>
     </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation>Lesezeichen</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -545,14 +605,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>QX11Grab</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Export current Commandline</source>
-        <translation>Exportiere die aktuelle Kommando Zeile</translation>
-    </message>
-    <message>
-        <source>Shell Script (*.sh)</source>
         <translation></translation>
     </message>
     <message>

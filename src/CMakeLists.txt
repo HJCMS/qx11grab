@@ -18,6 +18,8 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${CMAKE_CURRENT_SOURCE_DIR}/logviewer
   ${CMAKE_CURRENT_BINARY_DIR}/cmd
   ${CMAKE_CURRENT_SOURCE_DIR}/cmd
+  ${CMAKE_CURRENT_BINARY_DIR}/bookmark
+  ${CMAKE_CURRENT_SOURCE_DIR}/bookmark
 )
 
 ADD_SUBDIRECTORY (avoptions)
@@ -27,6 +29,7 @@ ADD_SUBDIRECTORY (ffprocess)
 ADD_SUBDIRECTORY (tableeditor)
 ADD_SUBDIRECTORY (logviewer)
 ADD_SUBDIRECTORY (cmd)
+ADD_SUBDIRECTORY (bookmark)
 
 SET (qx11grab_SOURCES
   settings.cpp
@@ -37,6 +40,7 @@ SET (qx11grab_SOURCES
   qx11grab.cpp
   systemtray.cpp
   qx11grabadaptor.cpp
+  exportdialog.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -47,6 +51,7 @@ SET (qx11grab_HEADERS
   qx11grab.h
   systemtray.h
   qx11grabadaptor.h
+  exportdialog.h
 )
 
 SET (qx11grab_NOMOC
@@ -75,6 +80,7 @@ TARGET_LINK_LIBRARIES (qx11grab
   Audio
   Utils
   FFProcess
+  Bookmark
   ${QX11GRAB_LIBRARIES}
 )
 

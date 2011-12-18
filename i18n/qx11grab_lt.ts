@@ -161,6 +161,57 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     </message>
 </context>
 <context>
+    <name>BookmarkDialog</name>
+    <message>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="41"/>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkInfo</name>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="49"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="53"/>
+        <source>Required Bookmark Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="58"/>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="63"/>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="75"/>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="87"/>
+        <source>%1 Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="70"/>
+        <source>Video Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/bookmark/bookmarkinfo.cpp" line="82"/>
+        <source>Audio Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodecTableDelegate</name>
+    <message>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="79"/>
+        <source>Missing stated hyphens in given argument</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecTableModel</name>
     <message>
         <location filename="../src/tableeditor/codectablemodel.cpp" line="131"/>
@@ -260,6 +311,19 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <location filename="../src/utils/desktopinfo.cpp" line="148"/>
         <source>Unknown</source>
         <translation>Nežinoma</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="38"/>
+        <source>Export current Commandline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/exportdialog.cpp" line="46"/>
+        <source>Shell Script (*.sh)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -434,144 +498,154 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="71"/>
+        <location filename="../src/menubar.cpp" line="74"/>
         <source>Load</source>
         <translation type="unfinished">Įkelti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="79"/>
+        <location filename="../src/menubar.cpp" line="82"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="82"/>
+        <location filename="../src/menubar.cpp" line="85"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="83"/>
+        <location filename="../src/menubar.cpp" line="86"/>
         <source>FFmpeg Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="86"/>
+        <location filename="../src/menubar.cpp" line="89"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="87"/>
+        <location filename="../src/menubar.cpp" line="90"/>
         <source>QX11Grab Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="145"/>
+        <location filename="../src/menubar.cpp" line="151"/>
         <source>Quit</source>
         <translation type="unfinished">Baigti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="147"/>
+        <location filename="../src/menubar.cpp" line="153"/>
         <source>Close Application</source>
         <translation type="unfinished">Užverti programą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="156"/>
+        <location filename="../src/menubar.cpp" line="162"/>
         <source>Grabbing</source>
         <translation type="unfinished">Čiupti langą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="158"/>
-        <location filename="../src/menubar.cpp" line="169"/>
+        <location filename="../src/menubar.cpp" line="164"/>
+        <location filename="../src/menubar.cpp" line="175"/>
         <source>get Size from Window</source>
         <translation type="unfinished">gauti lango dydį</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="167"/>
+        <location filename="../src/menubar.cpp" line="173"/>
         <source>Rubberband</source>
         <translation type="unfinished">Rėmelis</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="178"/>
+        <location filename="../src/menubar.cpp" line="184"/>
         <source>Recording</source>
         <translation type="unfinished">Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="180"/>
+        <location filename="../src/menubar.cpp" line="186"/>
         <source>Start Recording</source>
         <translation type="unfinished">Pradėti įrašinėti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="189"/>
+        <location filename="../src/menubar.cpp" line="195"/>
         <source>Stop</source>
         <translation type="unfinished">Stabdyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="191"/>
+        <location filename="../src/menubar.cpp" line="197"/>
         <source>Stop Recording</source>
         <translation type="unfinished">Baigti įrašinėjimą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="201"/>
+        <location filename="../src/menubar.cpp" line="207"/>
         <source>Kill</source>
         <translation type="unfinished">Nutraukti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="203"/>
+        <location filename="../src/menubar.cpp" line="209"/>
         <source>Kill Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="213"/>
+        <location filename="../src/menubar.cpp" line="219"/>
         <source>Hide</source>
         <translation type="unfinished">Slėpti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="215"/>
-        <location filename="../src/menubar.cpp" line="226"/>
+        <location filename="../src/menubar.cpp" line="221"/>
+        <location filename="../src/menubar.cpp" line="232"/>
         <source>Minimize to Systray</source>
         <translation type="unfinished">Nuleisti į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="224"/>
+        <location filename="../src/menubar.cpp" line="230"/>
         <source>Show</source>
         <translation type="unfinished">Rodyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="235"/>
+        <location filename="../src/menubar.cpp" line="241"/>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="237"/>
+        <location filename="../src/menubar.cpp" line="243"/>
         <source>Export current command set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="246"/>
+        <location filename="../src/menubar.cpp" line="252"/>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="254"/>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="263"/>
         <source>Save</source>
         <translation type="unfinished">Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="248"/>
+        <location filename="../src/menubar.cpp" line="265"/>
         <source>Save current Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="257"/>
+        <location filename="../src/menubar.cpp" line="274"/>
         <source>Refresh</source>
         <translation type="unfinished">Atnaujinti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="259"/>
+        <location filename="../src/menubar.cpp" line="276"/>
         <source>Refresh Commandline Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="268"/>
+        <location filename="../src/menubar.cpp" line="285"/>
         <source>Logfile</source>
         <translation type="unfinished">Žurnalas</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="270"/>
+        <location filename="../src/menubar.cpp" line="287"/>
         <source>Open FFmpeg Protocoll</source>
         <translation type="unfinished"></translation>
     </message>
@@ -625,52 +699,42 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="325"/>
+        <location filename="../src/qx11grab.cpp" line="324"/>
         <source>grabbed Dimension</source>
         <translation>dydis parinktas pagal langą</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="73"/>
+        <location filename="../src/qx11grab.cpp" line="72"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="376"/>
+        <location filename="../src/qx11grab.cpp" line="375"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="376"/>
+        <location filename="../src/qx11grab.cpp" line="375"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="389"/>
+        <location filename="../src/qx11grab.cpp" line="388"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="448"/>
+        <location filename="../src/qx11grab.cpp" line="447"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="448"/>
+        <location filename="../src/qx11grab.cpp" line="447"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="571"/>
-        <source>Export current Commandline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="579"/>
-        <source>Shell Script (*.sh)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="598"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>

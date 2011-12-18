@@ -78,8 +78,8 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
   h2Layout->addWidget ( intensifier );
 
-  m_slider = new QSlider ( Qt::Horizontal, this );
-  m_slider->setObjectName ( QLatin1String ( "setXSlider" ) );
+  m_slider = new QSlider ( Qt::Horizontal, audioGroup );
+  m_slider->setObjectName ( QLatin1String ( "AudioSlider" ) );
   m_slider->setSingleStep ( 1 );
   m_slider->setMinimum ( 0 );
   m_slider->setMaximum ( 512 );

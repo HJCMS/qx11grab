@@ -56,7 +56,6 @@ class CodecTableModel : public QAbstractTableModel
     void housemaster ( const QString & );
 
   protected:
-    bool setData ( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole );
     Qt::ItemFlags flags ( const QModelIndex &index ) const;
     QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
     QVariant data ( const QModelIndex &index, int role = Qt::DisplayRole ) const;
@@ -68,6 +67,7 @@ class CodecTableModel : public QAbstractTableModel
     int columnCount ( const QModelIndex &parent = QModelIndex() ) const;
     int rowCount ( const QModelIndex &parent = QModelIndex() ) const;
     bool insertRows ( int row, int count, const QModelIndex &parent = QModelIndex() );
+    bool setData ( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole );
     // Project Options
     void clear();
     void addOption ( int row, const QString &key, const QVariant &value, const QModelIndex &parent = QModelIndex() );

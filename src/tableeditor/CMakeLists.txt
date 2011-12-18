@@ -4,12 +4,14 @@ SET (tableeditor_SOURCES
   tableeditor.cpp
   codectable.cpp
   codectablemodel.cpp
+  codectabledelegate.cpp
 )
 
 SET (tableeditor_HEADERS
   tableeditor.h
   codectable.h
   codectablemodel.h
+  codectabledelegate.h
 )
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})

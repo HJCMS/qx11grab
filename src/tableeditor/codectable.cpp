@@ -21,6 +21,7 @@
 
 #include "codectable.h"
 #include "codectablemodel.h"
+#include "codectabledelegate.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -34,6 +35,8 @@
 
 CodecTable::CodecTable ( QWidget * parent )
     : QTableView ( parent )
+    , m_model ( 0 )
+    , m_codecTableDelegate ( 0 )
 {
   setObjectName ( QLatin1String ( "CodecTable" ) );
   setEditTriggers ( QAbstractItemView::DoubleClicked );
@@ -51,6 +54,9 @@ CodecTable::CodecTable ( QWidget * parent )
 
   m_model = new CodecTableModel ( this );
   setModel ( m_model );
+
+  m_codecTableDelegate = new CodecTableDelegate ( this );
+  setItemDelegate ( m_codecTableDelegate );
 
   /* Zellen anpassen */
   QHeaderView* tHeader = horizontalHeader();

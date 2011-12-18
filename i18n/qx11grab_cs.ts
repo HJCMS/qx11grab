@@ -131,6 +131,47 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>BookmarkDialog</name>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkInfo</name>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Required Bookmark Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodecTableDelegate</name>
+    <message>
+        <source>Missing stated hyphens in given argument</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecTableModel</name>
     <message>
         <source>At first, we have to create a argument.</source>
@@ -211,6 +252,17 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Fullscreen</source>
         <translation>Celá obrazovka</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <source>Export current Commandline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shell Script (*.sh)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -460,6 +512,14 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Export current command set</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -528,14 +588,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>QX11Grab</source>
         <translation>QX11Grab</translation>
-    </message>
-    <message>
-        <source>Export current Commandline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shell Script (*.sh)</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>commandline exported</source>

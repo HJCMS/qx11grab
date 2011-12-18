@@ -65,6 +65,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
   m_actionExport = exportAction ( this, true );
   m_menuSettings->addAction ( m_actionExport );
 
+  m_actionBookmark = bookmarkAction ( this, true );
+  m_menuSettings->addAction ( m_actionBookmark );
+
   m_actionSave = saveAction ( this, true );
   m_menuSettings->addAction ( m_actionSave );
 
@@ -106,6 +109,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
 
   connect ( m_actionExport, SIGNAL ( triggered() ),
             mainWindow, SLOT ( exportCommand() ) );
+
+  connect ( m_actionBookmark, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( openBookmarkEditor() ) );
 
   connect ( m_actionSave, SIGNAL ( triggered() ),
             mainWindow, SLOT ( saveSettings() ) );
@@ -238,6 +244,17 @@ QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
   ac->setIcon ( QIcon::fromTheme ( "document-export" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_N );
+  return ac;
+}
+
+QAction* MenuBar::bookmarkAction ( QObject * parent, bool shortcut )
+{
+  QAction* ac = new QAction ( trUtf8 ( "Bookmark" ), parent );
+  ac->setObjectName ( QLatin1String ( "bookmarkAction" ) );
+  ac->setStatusTip ( trUtf8 ( "Bookmarks" ) );
+  ac->setIcon ( QIcon::fromTheme ( "folder-bookmark" ) );
+  if ( shortcut )
+    ac->setShortcut ( Qt::CTRL + Qt::Key_B );
   return ac;
 }
 
