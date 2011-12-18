@@ -578,18 +578,7 @@ void QX11Grab::exportCommand()
 */
 void QX11Grab::openBookmarkEditor()
 {
-  BookmarkDialog* d = new BookmarkDialog ( this );
-  // Meta Daten
-  if ( m_grabberInfo->metaEnabled() )
-    d->setMetadata ( m_metaData->getCmd () );
-
-  // Video Options
-  d->setVCodec ( m_videoEditor->getCmd () );
-
-  // Audio Aufnahme
-  if ( m_grabberInfo->soundEnabled() )
-    d->setACodec ( m_audioEditor->getCmd () );
-
+  BookmarkDialog* d = new BookmarkDialog ( cfg, this );
   d->exec();
   delete d;
 }

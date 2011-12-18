@@ -1,17 +1,23 @@
 # CMakeLists.txt
 
-SET(_subproject "FFProcess")
+SET(_subproject "Bookmark")
 
 SET (_subproject_SOURCES
-  ffprocess.cpp
+  bookmarkdialog.cpp
+  bookmarkinfo.cpp
+  bookmark.cpp
 )
 
 SET (_subproject_HEADERS
-  ffprocess.h
+  bookmarkdialog.h
+  bookmarkinfo.h
 )
 
 SET (_subproject_NOMOC_HEADERS
+  bookmark.h
 )
+
+QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})
 
 INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_BINARY_DIR}
@@ -19,8 +25,6 @@ INCLUDE_DIRECTORIES (
   ${QX11GRAB_INCLUDES}
   ${QX11GRAB_BINARY_PROJECT_INCULDE}
 )
-
-QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})
 
 ADD_LIBRARY (${_subproject} STATIC
   ${_subproject_MOC}

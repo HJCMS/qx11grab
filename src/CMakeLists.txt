@@ -4,6 +4,8 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${QX11GRAB_INCLUDES}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}/settings
+  ${CMAKE_CURRENT_SOURCE_DIR}/settings
   ${CMAKE_CURRENT_BINARY_DIR}/avoptions
   ${CMAKE_CURRENT_SOURCE_DIR}/avoptions
   ${CMAKE_CURRENT_BINARY_DIR}/audio
@@ -22,6 +24,7 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${CMAKE_CURRENT_SOURCE_DIR}/bookmark
 )
 
+ADD_SUBDIRECTORY (settings)
 ADD_SUBDIRECTORY (avoptions)
 ADD_SUBDIRECTORY (audio)
 ADD_SUBDIRECTORY (utils)
@@ -32,7 +35,6 @@ ADD_SUBDIRECTORY (cmd)
 ADD_SUBDIRECTORY (bookmark)
 
 SET (qx11grab_SOURCES
-  settings.cpp
   defaults.cpp
   main.cpp
   menubar.cpp
@@ -44,7 +46,6 @@ SET (qx11grab_SOURCES
 )
 
 SET (qx11grab_HEADERS
-  settings.h
   defaults.h
   menubar.h
   toolbar.h
@@ -52,9 +53,6 @@ SET (qx11grab_HEADERS
   systemtray.h
   qx11grabadaptor.h
   exportdialog.h
-)
-
-SET (qx11grab_NOMOC
 )
 
 QT4_WRAP_CPP (qx11grab_MOC ${qx11grab_HEADERS})
@@ -67,12 +65,12 @@ ADD_EXECUTABLE (qx11grab
   ${qrc_rcresource}
   ${qx11grab_RESRC}
   ${qx11grab_MOC}
-  ${qx11grab_NOMOC}
   ${qx11grab_HEADERS}
   ${qx11grab_SOURCES}
 )
 
 TARGET_LINK_LIBRARIES (qx11grab
+  Settings
   TableEditor
   LogViewer
   Cmd
