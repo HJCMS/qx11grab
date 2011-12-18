@@ -4,13 +4,11 @@ SET(_subproject "Bookmark")
 
 SET (_subproject_SOURCES
   bookmarkdialog.cpp
-  bookmarkinfo.cpp
   bookmark.cpp
 )
 
 SET (_subproject_HEADERS
   bookmarkdialog.h
-  bookmarkinfo.h
 )
 
 SET (_subproject_NOMOC_HEADERS
@@ -43,9 +41,8 @@ SET_TARGET_PROPERTIES (${_subproject} PROPERTIES
 )
 
 TARGET_LINK_LIBRARIES (${_subproject}
-  ${QT_QTCORE_LIBRARY}
-  ${QT_QTGUI_LIBRARY}
-  ${QT_QTDBUS_LIBRARY}
+  ${QX11GRAB_LIBRARIES}
+  ${QT_QTXML_LIBRARY}
   Settings
 )
 

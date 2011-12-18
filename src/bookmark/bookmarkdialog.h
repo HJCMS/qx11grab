@@ -30,11 +30,11 @@
 /* QtGui */
 #include <QtGui/QDialog>
 #include <QtGui/QDialogButtonBox>
-#include <QtGui/QStackedLayout>
+#include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
 class Settings;
-class BookmarkInfo;
+class Bookmark;
 
 class BookmarkDialog : public QDialog
 {
@@ -45,17 +45,16 @@ class BookmarkDialog : public QDialog
 
   private:
     Settings* settings;
+    Bookmark* xml;
     const QString dbusPath;
-    QStackedLayout* m_stackedLayout;
-    BookmarkInfo* m_infoWidget;
+    QLineEdit* m_titleEdit;
     QDialogButtonBox* m_buttonBox;
     const QString implode ( const QStringList &data ) const;
     const QStringList explode ( const QString &data ) const;
 
-  public Q_SLOTS:
-    Q_SCRIPTABLE void setMetadata ();
-    Q_SCRIPTABLE void setVCodec ();
-    Q_SCRIPTABLE void setACodec ();
+  private Q_SLOTS:
+    void titleChanged ( const QString & );
+    void saveAndExit();
 
   public:
     explicit BookmarkDialog ( Settings * cfg, QWidget * parent = 0 );

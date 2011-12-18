@@ -23,16 +23,53 @@
 #define BOOKMARK_H
 
 /* QtCore */
+#include <QtCore/QHash>
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
 
-class Bookmark
+/* QtXml */
+#include <QtXml/QDomDocument>
+#include <QtXml/QDomElement>
+
+class Bookmark;
+
+class BookmarkEntry : public QDomElement
 {
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+  private:
+    QDomElement vcodecNode;
+    QDomElement acodecNode;
 
   public:
-    Bookmark ( const QString &name );
+    explicit BookmarkEntry ( Bookmark * doc, const QString &id );
+    explicit BookmarkEntry ( const QDomElement &parent );
+    void addVCodecs ( const QString &id, const QHash<QString,QVariant> &hash );
+    void addACodecs ( const QString &id, const QHash<QString,QVariant> &hash );
+};
 
+class Bookmark : public QDomDocument
+{
+  private:
+    Q_DISABLE_COPY ( Bookmark )
+
+  public:
+    explicit Bookmark ();
+    bool open ();
+
+    /**
+    * List with all titled Bookmarks
+    */
+    const QStringList entries();
+
+    /**
+    * Open Bookmark Entry
+    * if not exists create a new empty Entry with id
+    */
+    const BookmarkEntry entry ( const QString &id );
+
+    bool save () const;
+    bool save ( QDomDocument * xml ) const;
     ~Bookmark();
 };
 

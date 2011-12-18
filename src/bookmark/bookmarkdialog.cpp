@@ -20,57 +20,64 @@
 **/
 
 #include "bookmarkdialog.h"
-#include "bookmarkinfo.h"
+#include "bookmark.h"
 #include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QHash>
+#include <QtCore/QHashIterator>
 #include <QtCore/QRegExp>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QVBoxLayout>
+#include <QtGui/QGridLayout>
+#include <QtGui/QLabel>
+#include <QtGui/QPushButton>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
 
 BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
     : QDialog ( parent )
     , settings ( cfg )
+    , xml ( new Bookmark() )
     , dbusPath ( "/Bookmark" )
 {
   setObjectName ( QLatin1String ( "BookmarkDialog" ) );
   setWindowTitle ( trUtf8 ( "Bookmark" ) );
+  setMinimumWidth ( 250 );
   setSizeGripEnabled ( true );
 
-  QVBoxLayout* layout = new QVBoxLayout ( this );
+  QGridLayout* layout = new QGridLayout ( this );
   layout->setObjectName ( "BookmarkDialog/Layout" );
 
-  // QStackedLayout {
-  m_stackedLayout = new QStackedLayout ( this );
-  m_stackedLayout->setObjectName ( "BookmarkDialog/StackedLayout" );
-  layout->addLayout ( m_stackedLayout );
+  // Title {
+  QLabel* lb_title = new QLabel ( trUtf8 ( "Title" ), this );
+  layout->addWidget ( lb_title, 0, 0, 1, 1 );
 
-  m_infoWidget = new BookmarkInfo ( this );
-  m_stackedLayout->addWidget ( m_infoWidget );
+  m_titleEdit = new QLineEdit ( this );
+  m_titleEdit->setWhatsThis ( trUtf8 ( "Required Bookmark Identifier" ) );
+  layout->addWidget ( m_titleEdit, 0, 1, 1, 1 );
+  // } Title
 
-  // } QStackedLayout
-
-  m_buttonBox = new QDialogButtonBox ( ( QDialogButtonBox::Apply | QDialogButtonBox::Close )
+  m_buttonBox = new QDialogButtonBox ( ( QDialogButtonBox::Save | QDialogButtonBox::Close )
                                        , Qt::Horizontal, this );
-
   m_buttonBox->setObjectName ( "BookmarkDialog/ButtonBox" );
-  layout->addWidget ( m_buttonBox );
+  layout->addWidget ( m_buttonBox, 1, 0, 1, 2 );
+  m_buttonBox->button ( QDialogButtonBox::Save )->setEnabled ( false );
+
   setLayout ( layout );
 
-  connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
+  connect ( m_titleEdit, SIGNAL ( textChanged ( const QString & ) ),
+            this, SLOT ( titleChanged ( const QString & ) ) );
+
+  connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( saveAndExit() ) );
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 
   QDBusConnection p_dbus = QDBusConnection::sessionBus();
   p_dbus.registerObject ( dbusPath, this, ( QDBusConnection::ExportScriptableContents ) );
-
-  // minimize it
-  resize ( 250, 350 );
 }
 
 const QString BookmarkDialog::implode ( const QStringList &data ) const
@@ -89,28 +96,36 @@ const QStringList BookmarkDialog::explode ( const QString &data ) const
 
 void BookmarkDialog::setBookmark ( const QString &str )
 {
-  m_infoWidget->m_titleEdit->setText ( str );
+  m_titleEdit->setText ( str );
 }
 
 const QString BookmarkDialog::getBookmark()
 {
-  return m_infoWidget->m_titleEdit->text();
+  return m_titleEdit->text();
 }
 
-void BookmarkDialog::setMetadata ()
+void BookmarkDialog::titleChanged ( const QString &txt )
 {
-  
-//   m_infoWidget->m_editMeta->setPlainText ( implode ( str ) );
+  if ( txt.length() >= 3 )
+    m_buttonBox->button ( QDialogButtonBox::Save )->setEnabled ( true );
 }
 
-void BookmarkDialog::setVCodec ()
+void BookmarkDialog::saveAndExit()
 {
-//   m_infoWidget->m_editVCodec->setPlainText ( implode ( str ) );
-}
+  QString id = m_titleEdit->text();
+  xml->open();
 
-void BookmarkDialog::setACodec ()
-{
-//   m_infoWidget->m_editACodec->setPlainText ( implode ( str ) );
+  BookmarkEntry entry = xml->entry ( id );
+  entry.addVCodecs ( settings->value ( "video_codec" ).toString(), settings->readGroup ( "VideoOptions" ) );
+  entry.addACodecs ( settings->value ( "audio_codec" ).toString(), settings->readGroup ( "AudioOptions" ) );
+#ifdef MAINTAINER_REPOSITORY
+  qDebug() << Q_FUNC_INFO << xml->toString ( 1 );
+#endif
+
+  if ( xml->save() )
+    accept();
+  else
+    reject();
 }
 
 BookmarkDialog::~BookmarkDialog()
