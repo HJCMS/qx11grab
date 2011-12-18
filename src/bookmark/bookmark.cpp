@@ -138,7 +138,8 @@ const QStringList Bookmark::entries()
   for ( int n = 0; n < nodes.size(); ++n )
   {
     QDomElement e = nodes.item ( n ).toElement();
-    list.append ( e.attribute ( "title", "" ) );
+    if ( e.hasAttribute ( "title" ) )
+      list.append ( e.attribute ( "title", "" ) );
   }
   return list;
 }

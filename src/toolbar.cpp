@@ -21,15 +21,21 @@
 
 #include "toolbar.h"
 #include "menubar.h"
+#include "bookmarkselecter.h"
 
 /* QtCore */
 #include <QtCore/QString>
+
+/* QtGui */
+#include <QtGui/QSizePolicy>
+#include <QtGui/QHBoxLayout>
 
 ToolBar::ToolBar ( QX11Grab * parent )
     : QToolBar ( parent )
     , mainWindow ( parent )
 {
   setObjectName ( QLatin1String ( "ToolBar" ) );
+  setAllowedAreas ( ( Qt::TopToolBarArea | Qt::BottomToolBarArea ) );
 
   QAction* refreh = MenuBar::refreshAction ( this );
   addAction ( refreh );
@@ -44,6 +50,17 @@ ToolBar::ToolBar ( QX11Grab * parent )
   QAction* save = MenuBar::saveAction ( this );
   addAction ( save );
 
+  // Spacer {
+  QWidget* m_spacer = new QWidget ( this );
+  QHBoxLayout* m_layout = new QHBoxLayout ( m_spacer );
+  m_layout->addStretch ( 1 );
+  m_spacer->setLayout ( m_layout );
+  addWidget ( m_spacer );
+  // } Spacer
+
+  m_bookmarkSelecter = new BookmarkSelecter ( this );
+  addWidget ( m_bookmarkSelecter );
+
   connect ( refreh, SIGNAL ( triggered() ),
             mainWindow, SLOT ( perparePreview() ) );
 
@@ -55,6 +72,9 @@ ToolBar::ToolBar ( QX11Grab * parent )
 
   connect ( save, SIGNAL ( triggered() ),
             mainWindow, SLOT ( saveSettings() ) );
+
+  connect ( m_bookmarkSelecter, SIGNAL ( openBookmark ( const QString & ) ),
+            mainWindow, SLOT ( openBookmark ( const QString & ) ) );
 }
 
 void ToolBar::setActionsEnabled ( bool b )

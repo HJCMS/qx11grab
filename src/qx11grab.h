@@ -103,6 +103,7 @@ class QX11Grab : public QMainWindow
     void perparePreview();
     void exportCommand();
     void openBookmarkEditor();
+    void openBookmark ( const QString &id );
 
   Q_SIGNALS:
     void stopRecording();

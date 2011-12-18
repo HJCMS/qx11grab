@@ -70,9 +70,9 @@ QX11Grab::QX11Grab ( Settings *settings )
     , m_FFProcess ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
-  setWindowTitle ( trUtf8 ( "QX11Grab" ) );
-  setMinimumWidth ( 500 );
-  setMinimumHeight ( 450 );
+  setWindowTitle ( trUtf8 ( "QX11Grab (%1)" ).arg ( QX11GRAB_VERSION ) );
+  setMinimumWidth ( 450 );
+  setMinimumHeight ( 400 );
 
   QDBusConnection p_dbus = QDBusConnection::sessionBus();
 
@@ -582,6 +582,14 @@ void QX11Grab::openBookmarkEditor()
   BookmarkDialog* d = new BookmarkDialog ( cfg, this );
   d->exec();
   delete d;
+}
+
+/**
+* Leszeichen Öffnen siehe Toolbar
+*/
+void QX11Grab::openBookmark ( const QString &id )
+{
+  qDebug() << Q_FUNC_INFO << id;
 }
 
 /**

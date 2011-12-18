@@ -146,6 +146,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>BookmarkSelecter</name>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecTableDelegate</name>
     <message>
         <source>Missing stated hyphens in given argument</source>
@@ -567,10 +574,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>qx11grab není spuštěn</translation>
     </message>
     <message>
-        <source>QX11Grab</source>
-        <translation>QX11Grab</translation>
-    </message>
-    <message>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -597,6 +600,10 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>FFmpeg</source>
         <translation type="unfinished">FFmpeg</translation>
+    </message>
+    <message>
+        <source>QX11Grab (%1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

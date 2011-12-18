@@ -33,6 +33,8 @@
 /* QX11Grab */
 #include "qx11grab.h"
 
+class BookmarkSelecter;
+
 class ToolBar : public QToolBar
 {
     Q_OBJECT
@@ -42,6 +44,7 @@ class ToolBar : public QToolBar
   private:
     QX11Grab* mainWindow;
     QAction* m_viewLogAction;
+    BookmarkSelecter* m_bookmarkSelecter;
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );

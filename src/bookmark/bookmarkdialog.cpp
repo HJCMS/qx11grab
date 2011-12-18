@@ -38,6 +38,7 @@
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusInterface>
 
 BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
     : QDialog ( parent )
@@ -123,7 +124,11 @@ void BookmarkDialog::saveAndExit()
 #endif
 
   if ( xml->save() )
+  {
+    QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );
+    iface.call ( "reload" );
     accept();
+  }
   else
     reject();
 }

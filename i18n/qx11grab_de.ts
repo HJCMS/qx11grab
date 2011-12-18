@@ -155,6 +155,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>BookmarkSelecter</name>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
+    </message>
+</context>
+<context>
     <name>CodecTableDelegate</name>
     <message>
         <source>Missing stated hyphens in given argument</source>
@@ -585,36 +592,36 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>qx11grab ist nicht gestartet</translation>
     </message>
     <message>
-        <source>QX11Grab</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>commandline exported</source>
         <translation>Kommandozeile Exportiert</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Programm</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Standards</translation>
     </message>
     <message>
         <source>Metadata</source>
-        <translation type="unfinished"></translation>
+        <translation>Metadaten</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <source>QX11Grab (%1)</source>
+        <translation></translation>
     </message>
 </context>
 <context>

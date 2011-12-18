@@ -5,10 +5,12 @@ SET(_subproject "Bookmark")
 SET (_subproject_SOURCES
   bookmarkdialog.cpp
   bookmark.cpp
+  bookmarkselecter.cpp
 )
 
 SET (_subproject_HEADERS
   bookmarkdialog.h
+  bookmarkselecter.h
 )
 
 SET (_subproject_NOMOC_HEADERS

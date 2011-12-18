@@ -161,18 +161,26 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>BookmarkDialog</name>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="49"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="50"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="57"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="58"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="61"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="62"/>
         <source>Required Bookmark Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BookmarkSelecter</name>
+    <message>
+        <location filename="../src/bookmark/bookmarkselecter.cpp" line="55"/>
+        <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -678,7 +686,7 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="73"/>
-        <source>QX11Grab</source>
+        <source>QX11Grab (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
