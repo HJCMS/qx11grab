@@ -40,7 +40,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
     : QWidget ( parent )
 {
   setObjectName ( QLatin1String ( "grabberinfo" ) );
-  setBackgroundRole ( QPalette::Window );
 
   QX11Info xinfo;
   QRect desktopRect = QApplication::desktop()->availableGeometry ( xinfo.screen() );

@@ -54,6 +54,7 @@
 #include <QtGui/QIcon>
 #include <QtGui/QKeySequence>
 #include <QtGui/QMessageBox>
+#include <QtGui/QPalette>
 #include <QtGui/QPixmap>
 #include <QtGui/QRubberBand>
 #include <QtGui/QToolBox>
@@ -94,28 +95,29 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   QToolBox* toolBox = new QToolBox ( layerWidget, Qt::Widget );
   toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
+  toolBox->setBackgroundRole ( QPalette::Window );
   verticalLayout->addWidget ( toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
-  toolBox->addItem ( m_grabberInfo, boxIcon, QString::fromUtf8 ( "QX11Grab" ) );
+  toolBox->addItem ( m_grabberInfo, boxIcon, trUtf8 ( "Application" ) );
 
   m_defaults = new Defaults ( toolBox );
-  toolBox->addItem ( m_defaults, boxIcon, QString::fromUtf8 ( "Default" ) );
+  toolBox->addItem ( m_defaults, boxIcon, trUtf8 ( "Defaults" ) );
 
   m_metaData = new MetaData ( toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  toolBox->addItem ( m_metaData, boxIcon, QString::fromUtf8 ( "Metadata" ) );
+  toolBox->addItem ( m_metaData, boxIcon, trUtf8 ( "Metadata" ) );
 
   m_videoEditor = new TableEditor ( toolBox );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
-  toolBox->addItem ( m_videoEditor, boxIcon, QString::fromUtf8 ( "Video" ) );
+  toolBox->addItem ( m_videoEditor, boxIcon, trUtf8 ( "Video" ) );
 
   m_audioEditor = new TableEditor ( toolBox );
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
-  toolBox->addItem ( m_audioEditor, boxIcon, QString::fromUtf8 ( "Audio" ) );
+  toolBox->addItem ( m_audioEditor, boxIcon, trUtf8 ( "Audio" ) );
 
   m_commandPreview = new CommandPreview ( toolBox );
-  toolBox->addItem ( m_commandPreview, boxIcon, QString::fromUtf8 ( "FFmpeg" ) );
+  toolBox->addItem ( m_commandPreview, boxIcon, trUtf8 ( "FFmpeg" ) );
 
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
@@ -163,7 +165,6 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
             this, SLOT ( updateCommandLine ( const QStringList & ) ) );
-
 }
 
 void QX11Grab::record()

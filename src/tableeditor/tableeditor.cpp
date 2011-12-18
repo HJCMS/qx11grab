@@ -46,7 +46,6 @@ TableEditor::TableEditor ( QWidget * parent )
     , sharedAudioCodec ( 0 )
 {
   setObjectName ( QLatin1String ( "TableEditor" ) );
-  setBackgroundRole ( QPalette::Window );
 
   QGridLayout* layout =  new QGridLayout ( this );
 

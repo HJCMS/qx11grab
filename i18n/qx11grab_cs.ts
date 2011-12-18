@@ -574,6 +574,30 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FFmpeg</source>
+        <translation type="unfinished">FFmpeg</translation>
+    </message>
 </context>
 <context>
     <name>RubberBand</name>

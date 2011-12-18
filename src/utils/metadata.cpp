@@ -34,7 +34,6 @@ MetaData::MetaData ( QWidget * parent )
     : QWidget ( parent )
 {
   setObjectName ( QLatin1String ( "metadata" ) );
-  setBackgroundRole ( QPalette::Window );
 
   QGridLayout* gridLayout = new QGridLayout ( this );
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );

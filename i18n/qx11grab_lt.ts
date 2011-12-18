@@ -392,62 +392,62 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="57"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="56"/>
         <source>Dimension:</source>
         <translation>Dydis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="67"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="66"/>
         <source>Width:</source>
         <translation>Plotis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="87"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="86"/>
         <source>Height:</source>
         <translation>Aukštis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="106"/>
         <source>Name:</source>
         <translation>Pavadinimas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="118"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
         <source>Position X:</source>
         <translation>X padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="138"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="137"/>
         <source>Position Y:</source>
         <translation>Y padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="158"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="157"/>
         <source>Depth:</source>
         <translation>Gylis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
         <source>Framerate:</source>
         <translation>Kadrų dažnis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
         <source>Display Rubberband</source>
         <translation>Rodyti rėmelį</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="186"/>
         <source>Start Minimized</source>
         <translation>Pradėti nuleidus į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="192"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="191"/>
         <source>Insert Metadata</source>
         <translation>Įterpti meta duomenis</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="197"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="196"/>
         <source>Enable Audio Recording</source>
         <translation>Įgalinti garso įrašymą</translation>
     </message>
@@ -628,37 +628,37 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>MetaData</name>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="46"/>
+        <location filename="../src/utils/metadata.cpp" line="45"/>
         <source>Title:</source>
         <translation>Pavadinimas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="55"/>
+        <location filename="../src/utils/metadata.cpp" line="54"/>
         <source>Artist:</source>
         <translation>Atlikėjas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="64"/>
+        <location filename="../src/utils/metadata.cpp" line="63"/>
         <source>Copyright:</source>
         <translation>Autorinės teisės:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="73"/>
+        <location filename="../src/utils/metadata.cpp" line="72"/>
         <source>Creation Date:</source>
         <translation>Sukūrimo data:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="82"/>
+        <location filename="../src/utils/metadata.cpp" line="81"/>
         <source>Subject:</source>
         <translation>Tema:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="91"/>
+        <location filename="../src/utils/metadata.cpp" line="90"/>
         <source>Description:</source>
         <translation>Aprašas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="100"/>
+        <location filename="../src/utils/metadata.cpp" line="99"/>
         <source>Medium:</source>
         <translation>Laikmena:</translation>
     </message>
@@ -674,42 +674,72 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="324"/>
+        <location filename="../src/qx11grab.cpp" line="325"/>
         <source>grabbed Dimension</source>
         <translation>dydis parinktas pagal langą</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="72"/>
+        <location filename="../src/qx11grab.cpp" line="73"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="375"/>
+        <location filename="../src/qx11grab.cpp" line="102"/>
+        <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="105"/>
+        <source>Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="109"/>
+        <source>Metadata</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="113"/>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="117"/>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="120"/>
+        <source>FFmpeg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="376"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="375"/>
+        <location filename="../src/qx11grab.cpp" line="376"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="388"/>
+        <location filename="../src/qx11grab.cpp" line="389"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="447"/>
+        <location filename="../src/qx11grab.cpp" line="448"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="447"/>
+        <location filename="../src/qx11grab.cpp" line="448"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="571"/>
+        <location filename="../src/qx11grab.cpp" line="572"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -748,28 +778,28 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="54"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="53"/>
         <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="68"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="67"/>
         <source>Add</source>
         <translation type="unfinished">Pridėti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="70"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="69"/>
         <source>Remove</source>
         <translation type="unfinished">Pašalinti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="72"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="71"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="120"/>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="149"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="119"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="148"/>
         <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
