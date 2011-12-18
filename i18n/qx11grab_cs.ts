@@ -136,31 +136,12 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>BookmarkInfo</name>
     <message>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required Bookmark Identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Video Codec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio Codec</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

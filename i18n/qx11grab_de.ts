@@ -145,9 +145,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Bookmark</source>
         <translation>Lesezeichen</translation>
     </message>
-</context>
-<context>
-    <name>BookmarkInfo</name>
     <message>
         <source>Title</source>
         <translation>Titel</translation>
@@ -155,22 +152,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Required Bookmark Identifier</source>
         <translation>Erwartete Lesezeichen Identifikation</translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation>Metadaten</translation>
-    </message>
-    <message>
-        <source>%1 Options</source>
-        <translation>%1 Optionen</translation>
-    </message>
-    <message>
-        <source>Video Codec</source>
-        <translation>Video Kodierer</translation>
-    </message>
-    <message>
-        <source>Audio Codec</source>
-        <translation>Audio Kodierer</translation>
     </message>
 </context>
 <context>

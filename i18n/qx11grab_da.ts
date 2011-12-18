@@ -161,43 +161,18 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>BookmarkDialog</name>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="41"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="49"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>BookmarkInfo</name>
     <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="49"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="57"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="53"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="61"/>
         <source>Required Bookmark Identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="58"/>
-        <source>Metadata</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="63"/>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="75"/>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="87"/>
-        <source>%1 Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="70"/>
-        <source>Video Codec</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/bookmark/bookmarkinfo.cpp" line="82"/>
-        <source>Audio Codec</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
