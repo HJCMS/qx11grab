@@ -117,7 +117,7 @@ static void pulseContextState ( pa_context *c, void *userdata )
     default:
     {
       fprintf ( stderr, "Context error: %s\n", pa_strerror ( pa_context_errno ( c ) ) );
-      abort();
+      abort(); // FIXME Keine gute Idee - bringt QX11Grab zum absturtz wenn kein pulse vorhanden ist!
       break;
     }
   }

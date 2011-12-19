@@ -22,7 +22,9 @@
 #include "audiodevicewidget.h"
 #include "audiodevice.h"
 #include "alsaaudiodialog.h"
-#include "pulseaudiodialog.h"
+#ifdef HAVE_PULSE
+# include "pulseaudiodialog.h"
+#endif
 
 #ifndef QX11GRAB_VERSION
 #include "version.h"
@@ -58,7 +60,9 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   m_swapAudio->insertItem ( NONE, trUtf8 ( "Audio System" ) );
   m_swapAudio->insertItem ( ALSA, trUtf8 ( "Advanced Linux Sound Architecture (Alsa)" ) );
   m_swapAudio->insertItem ( OSS, trUtf8 ( "Open Sound System (OSS)" ) );
+#ifdef HAVE_PULSE
   m_swapAudio->insertItem ( PULSE, trUtf8 ( "Soundserver (Pulse)" ) );
+#endif
   m_swapAudio->setCurrentIndex ( 0 );
   gridLayout->addWidget ( m_swapAudio, grow++, 0, 1, 3, Qt::AlignRight );
 
@@ -171,6 +175,7 @@ void AudioDeviceWidget::openAlsaDialog()
 */
 void AudioDeviceWidget::openPulseDialog()
 {
+#ifdef HAVE_PULSE
   PulseAudioDialog* dialog = new PulseAudioDialog ( this );
   dialog->setCard ( device->text() );
   if ( dialog->exec() == QDialog::Accepted )
@@ -181,6 +186,7 @@ void AudioDeviceWidget::openPulseDialog()
     device->setStatusTip ( d.description );
   }
   delete dialog;
+#endif
 }
 
 /**

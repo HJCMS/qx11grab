@@ -6,7 +6,6 @@ SET (_subproject_SOURCES
   audiodevicewidget.cpp
   abstractaudiodialog.cpp
   alsaaudiodialog.cpp
-  pulseaudiodialog.cpp
   audiodevice.cpp
 )
 
@@ -14,8 +13,21 @@ SET (_subproject_HEADERS
   audiodevicewidget.h
   abstractaudiodialog.h
   alsaaudiodialog.h
+)
+
+IF (PULSE_FOUND)
+
+SET (_subproject_SOURCES
+  ${_subproject_SOURCES}
+  pulseaudiodialog.cpp
+)
+
+SET (_subproject_HEADERS
+  ${_subproject_HEADERS}
   pulseaudiodialog.h
 )
+
+ENDIF (PULSE_FOUND)
 
 SET (_subproject_NOMOC_HEADERS
   audiodevice.h

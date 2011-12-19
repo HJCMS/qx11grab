@@ -90,8 +90,8 @@ SET (LIBRARY_OUTPUT_PATH
 ## FFmpeg 
 ##############################################################
 
-SET (FFMPEG_SUFFIX "${FFMPEG_SUFFIX}" CACHE STRING
-  "ffmpeg pkg-config or library file suffix (STRING)" FORCE
+SET (FFMPEG_SUFFIX "" CACHE STRING
+  "ffmpeg pkg-config or library file suffix (STRING)"
 )
 
 SET (FFMPEG_AVFORMAT_VERSION "52.78.3" CACHE STRING
@@ -118,16 +118,16 @@ SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
 ## PulseAudio 
 ##############################################################
 
-SET (PULSE_SUFFIX "${PULSE_SUFFIX}" CACHE STRING
-  "pulse pkg-config or library file suffix (STRING)" FORCE
+SET (PULSE_SUFFIX "" CACHE STRING
+  "pulse pkg-config or library file suffix (STRING)"
 )
 
-SET (PULSE_SIMPLE_VERSION "0.9" CACHE STRING
+SET (PULSE_VERSION "0.9" CACHE STRING
   "overwrite required libpulse Version (STRING)" FORCE
 )
 
-PKG_CHECK_MODULES (PULSE REQUIRED 
-  libpulse${PULSE_SUFFIX}>=${PULSE_SIMPLE_VERSION}
+PKG_CHECK_MODULES (PULSE 
+  libpulse${PULSE_SUFFIX}>=${PULSE_VERSION}
 )
 
 ##############################################################
