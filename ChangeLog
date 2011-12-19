@@ -1,3 +1,10 @@
+2011/12/*
+  Version: 0.3.0
+  REMOVED: KDE4 Support - is now optional
+  Add: Bookmark functions
+  Add: Add Table Editor Model
+  TODO: Table Editor Item Delegation
+
 2010/10/*
   Version: 0.2.3.rc1
   Modified: By Default using Theora and libvosbis for Codecs in qx11grab.conf
