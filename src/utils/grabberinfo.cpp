@@ -141,7 +141,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setYBox = new QSpinBox ( this );
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
   setYBox->setRange ( 0, 5000 );
-  setYBox->setValue ( 30 );
+  setYBox->setValue ( 0 );
   gridLayout->addWidget ( setYBox, grow, 1, 1, 1 );
 
   setYSlider = new QSlider ( Qt::Horizontal, this );
