@@ -130,6 +130,13 @@ PKG_CHECK_MODULES (PULSE REQUIRED
   libpulse${PULSE_SUFFIX}>=${PULSE_SIMPLE_VERSION}
 )
 
+##############################################################
+## Xorg 
+##############################################################
+
+PKG_CHECK_MODULES (X11 REQUIRED x11>=1.4.3 )
+
+
 ## NOTE Exeptions needed by QX11Grab::record()
 REMOVE_DEFINITIONS (-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT -DQT_NO_EXCEPTIONS)
 ## required by FFmpeg
