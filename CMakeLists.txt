@@ -7,7 +7,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.8.0 FATAL_ERROR)
 ##############################################################
 # CMP0017: we have multiple targets for CheckCXXSourceCompiles with kde4
 ##############################################################
-CMAKE_POLICY (SET CMP0017 OLD)
+# CMAKE_POLICY (SET CMP0017 OLD)
 ENABLE_LANGUAGE (CXX)
 
 ##############################################################
@@ -94,15 +94,15 @@ SET (FFMPEG_SUFFIX "${FFMPEG_SUFFIX}" CACHE STRING
   "ffmpeg pkg-config or library file suffix (STRING)" FORCE
 )
 
-SET (FFMPEG_AVFORMAT_VERSION "53.5.0" CACHE STRING
+SET (FFMPEG_AVFORMAT_VERSION "52.78.3" CACHE STRING
   "overwrite required libavformat Version (STRING)" FORCE
 )
 
-SET (FFMPEG_AVCODEC_VERSION "53.8.0" CACHE STRING
+SET (FFMPEG_AVCODEC_VERSION "52.86.1" CACHE STRING
   "overwrite required libavcodec Version (STRING)" FORCE
 )
 
-SET (FFMPEG_AVUTIL_VERSION "51.9.1" CACHE STRING
+SET (FFMPEG_AVUTIL_VERSION "50.24.0" CACHE STRING
   "overwrite required libavutil Version (STRING)" FORCE
 )
 
@@ -122,7 +122,7 @@ SET (PULSE_SUFFIX "${PULSE_SUFFIX}" CACHE STRING
   "pulse pkg-config or library file suffix (STRING)" FORCE
 )
 
-SET (PULSE_SIMPLE_VERSION "1.0" CACHE STRING
+SET (PULSE_SIMPLE_VERSION "0.9" CACHE STRING
   "overwrite required libpulse Version (STRING)" FORCE
 )
 
@@ -134,7 +134,7 @@ PKG_CHECK_MODULES (PULSE REQUIRED
 ## Xorg 
 ##############################################################
 
-PKG_CHECK_MODULES (X11 REQUIRED x11>=1.4.3 )
+PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4 )
 
 
 ## NOTE Exeptions needed by QX11Grab::record()
