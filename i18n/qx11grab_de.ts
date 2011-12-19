@@ -407,10 +407,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <source>Configuration</source>
-        <translation>Konfigurieren</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
@@ -523,8 +519,24 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Lesezeichen</translation>
     </message>
     <message>
-        <source>Bookmarks</source>
-        <translation>Lesezeichen</translation>
+        <source>Actions</source>
+        <translation>Aktionen</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation>Erstellen</translation>
+    </message>
+    <message>
+        <source>Open create Bookmark Dialog</source>
+        <translation>Öffne den Lesezeichen erstellen Dialog</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Open delete Bookmark Dialog</source>
+        <translation>Öffne den Lesezeichen entfernen Dialog</translation>
     </message>
 </context>
 <context>
@@ -622,6 +634,18 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>QX11Grab (%1)</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Entferne Lesezeichen</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1</source>
+        <translation>Öffne Lesezeichen %1</translation>
     </message>
 </context>
 <context>

@@ -100,7 +100,7 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
       return false;
 
 #ifdef MAINTAINER_REPOSITORY
-    qDebug() << Q_FUNC_INFO << index.row() << index.column() << value << role;
+    qDebug() << Q_FUNC_INFO << index.row() << index.column() << value;
 #endif
 
     switch ( index.column() )

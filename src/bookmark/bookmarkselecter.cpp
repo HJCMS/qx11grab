@@ -46,7 +46,12 @@ BookmarkSelecter::BookmarkSelecter ( QWidget * parent )
 void BookmarkSelecter::textChanged ( int index )
 {
   if ( itemData ( index, Qt::UserRole ).toBool() )
+  {
     emit openBookmark ( itemData ( index, Qt::DisplayRole ).toString() );
+    blockSignals ( true );
+    setCurrentIndex ( 0 );
+    blockSignals ( false );
+  }
 }
 
 void BookmarkSelecter::reload()
@@ -60,7 +65,7 @@ void BookmarkSelecter::reload()
   {
     foreach ( QString item, xml.entries() )
     {
-      addItem ( QIcon::fromTheme ( "bookmark-toolbar" ), item, true );
+      addItem ( QIcon::fromTheme ( "bookmarks" ), item, true );
     }
     setEnabled ( true );
   }

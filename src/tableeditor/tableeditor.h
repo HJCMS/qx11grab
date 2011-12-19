@@ -72,6 +72,8 @@ class TableEditor : public QWidget
     TableEditor ( QWidget * parent = 0 );
     const QString selectedCodec();
     const QStringList getCmd();
+    void setCodecByName ( const QString &txt );
+    void setCodecOptions ( const QHash<QString,QVariant> &options );
     ~TableEditor ();
 };
 

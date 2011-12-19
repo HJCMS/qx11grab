@@ -37,6 +37,7 @@
 #include "logviewer.h"
 #include "exportdialog.h"
 #include "bookmarkdialog.h"
+#include "bookmark.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -52,6 +53,7 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
+#include <QtGui/QInputDialog>
 #include <QtGui/QKeySequence>
 #include <QtGui/QMessageBox>
 #include <QtGui/QPalette>
@@ -63,6 +65,7 @@
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusInterface>
 
 QX11Grab::QX11Grab ( Settings *settings )
     : QMainWindow()
@@ -575,9 +578,9 @@ void QX11Grab::exportCommand()
 }
 
 /**
-* Leszeichen Editor
+* Leszeichen Editor erstellen
 */
-void QX11Grab::openBookmarkEditor()
+void QX11Grab::openCreateBookmark()
 {
   BookmarkDialog* d = new BookmarkDialog ( cfg, this );
   d->exec();
@@ -585,11 +588,43 @@ void QX11Grab::openBookmarkEditor()
 }
 
 /**
+* Leszeichen Editor entfernen
+*/
+void QX11Grab::openRemoveBookmark()
+{
+  Bookmark doc;
+  if ( doc.open() )
+  {
+    bool ok;
+    QStringList selection ( trUtf8 ( "" ) );
+    selection << doc.entries();
+    QString br = QInputDialog::getItem ( this, trUtf8 ( "Remove Bookmark" ), trUtf8 ( "Bookmark" ), selection, 0, false, &ok );
+    if ( ! br.isEmpty() &&  doc.removeEntryById ( br ) )
+    {
+      QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );
+      iface.call ( "reload" );
+    }
+  }
+}
+
+/**
 * Leszeichen Öffnen siehe Toolbar
 */
 void QX11Grab::openBookmark ( const QString &id )
 {
-  qDebug() << Q_FUNC_INFO << id;
+  Bookmark doc;
+  if ( doc.open() )
+  {
+    BookmarkEntry entry = doc.entry ( id );
+    // Video
+    m_videoEditor->setCodecByName ( entry.getCodecName ( BookmarkEntry::VCODEC ) );
+    m_videoEditor->setCodecOptions ( entry.getCodecOptions ( BookmarkEntry::VCODEC ) );
+    // Audio
+    m_audioEditor->setCodecByName ( entry.getCodecName ( BookmarkEntry::ACODEC ) );
+    m_audioEditor->setCodecOptions ( entry.getCodecOptions ( BookmarkEntry::ACODEC ) );
+
+    statusBarMessage ( trUtf8 ( "Open Bookmark %1" ).arg ( id ), 5000 );
+  }
 }
 
 /**

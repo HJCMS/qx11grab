@@ -57,13 +57,17 @@ class MenuBar : public QMenuBar
     QAction* m_actionKillRecord;
     QAction* m_actionMinimize;
     QAction* m_actionQuit;
-    // Settings Menu
-    QMenu* m_menuSettings;
+    // Actions Menu
+    QMenu* m_menuActions;
     QAction* m_actionExport;
-    QAction* m_actionBookmark;
+    QAction* m_actionAddBookmark;
+    QAction* m_actionDelBookmark;
     QAction* m_actionSave;
     QAction* m_actionLoad;
     QAction* m_actionRefresh;
+    // Bookmark Actions
+    QAction* bookmarkCreateAction ( QMenu * parent );
+    QAction* bookmarkRemoveAction ( QMenu * parent );
 
   protected Q_SLOTS:
     void openFFmpegHomepage();
@@ -86,7 +90,6 @@ class MenuBar : public QMenuBar
     static QAction* showWindowAction ( QObject * parent, bool shortcut = false );
 
     static QAction* exportAction ( QObject * parent, bool shortcut = false );
-    static QAction* bookmarkAction ( QObject * parent, bool shortcut = false );
     static QAction* saveAction ( QObject * parent, bool shortcut = false );
     static QAction* refreshAction ( QObject * parent, bool shortcut = false );
     static QAction* viewAction ( QObject * parent, bool shortcut = false );

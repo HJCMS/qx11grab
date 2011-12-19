@@ -102,7 +102,8 @@ class QX11Grab : public QMainWindow
     void openLogFileDialog();
     void perparePreview();
     void exportCommand();
-    void openBookmarkEditor();
+    void openCreateBookmark();
+    void openRemoveBookmark();
     void openBookmark ( const QString &id );
 
   Q_SIGNALS:

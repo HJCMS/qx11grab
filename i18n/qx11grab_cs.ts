@@ -389,10 +389,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>Ukončit</translation>
     </message>
     <message>
-        <source>Configuration</source>
-        <translation>Nastavení</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
@@ -505,7 +501,23 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bookmarks</source>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open create Bookmark Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Open delete Bookmark Dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -603,6 +615,18 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>QX11Grab (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -200,19 +200,8 @@ const QHash<QString,QString> TableEditor::tableItems()
 */
 void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
 {
-  int row = 0;
   QHash<QString,QVariant> map = readSection ( type, cfg );
-  if ( map.size() < 1 )
-    return;
-
-  m_tableWidget->clearContents();
-  QHashIterator<QString,QVariant> it ( map );
-  while ( it.hasNext() )
-  {
-    it.next();
-    m_tableWidget->insertItem ( row, it.key(), it.value() );
-    row++;
-  }
+  setCodecOptions ( map );
 }
 
 /**
@@ -340,6 +329,27 @@ const QStringList TableEditor::getCmd ()
     }
   }
   return cmd;
+}
+
+void TableEditor::setCodecByName ( const QString &txt )
+{
+  m_codecComboBox->setCurrentIndex ( m_codecComboBox->findData ( txt ) );
+}
+
+void TableEditor::setCodecOptions ( const QHash<QString,QVariant> &options )
+{
+  int row = 0;
+  if ( options.size() < 1 )
+    return;
+
+  m_tableWidget->clearContents();
+  QHashIterator<QString,QVariant> it ( options );
+  while ( it.hasNext() )
+  {
+    it.next();
+    m_tableWidget->insertItem ( row, it.key(), it.value() );
+    row++;
+  }
 }
 
 TableEditor::~TableEditor()

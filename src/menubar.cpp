@@ -59,24 +59,30 @@ MenuBar::MenuBar ( QX11Grab * parent )
   m_actionQuit = quitAction ( this, true );
   m_menuFile->addAction ( m_actionQuit );
 
-  // Configurations
-  m_menuSettings = addMenu ( trUtf8 ( "Configuration" ) );
+  // Actions
+  m_menuActions = addMenu ( trUtf8 ( "Actions" ) );
 
   m_actionExport = exportAction ( this, true );
-  m_menuSettings->addAction ( m_actionExport );
+  m_menuActions->addAction ( m_actionExport );
 
-  m_actionBookmark = bookmarkAction ( this, true );
-  m_menuSettings->addAction ( m_actionBookmark );
+  QMenu* m_menuBookmark = m_menuActions->addMenu ( QIcon::fromTheme ( "folder-bookmark" ),
+                          trUtf8 ( "Bookmark" ) );
+
+  m_actionAddBookmark = bookmarkCreateAction ( m_menuBookmark );
+  m_menuBookmark->addAction ( m_actionAddBookmark );
+
+  m_actionDelBookmark = bookmarkRemoveAction ( m_menuBookmark );
+  m_menuBookmark->addAction ( m_actionDelBookmark );
 
   m_actionSave = saveAction ( this, true );
-  m_menuSettings->addAction ( m_actionSave );
+  m_menuActions->addAction ( m_actionSave );
 
-  m_actionLoad = m_menuSettings->addAction ( trUtf8 ( "Load" ) );
+  m_actionLoad = m_menuActions->addAction ( trUtf8 ( "Load" ) );
   m_actionLoad->setIcon ( QIcon::fromTheme ( "edit-redo" ) );
   m_actionLoad->setShortcut ( QKeySequence::Undo );
 
   m_actionRefresh = refreshAction ( this, true );
-  m_menuSettings->addAction ( m_actionRefresh );
+  m_menuActions->addAction ( m_actionRefresh );
 
   // About and Help
   QMenu* m_menuHelp = addMenu ( trUtf8 ( "Help" ) );
@@ -110,8 +116,11 @@ MenuBar::MenuBar ( QX11Grab * parent )
   connect ( m_actionExport, SIGNAL ( triggered() ),
             mainWindow, SLOT ( exportCommand() ) );
 
-  connect ( m_actionBookmark, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( openBookmarkEditor() ) );
+  connect ( m_actionAddBookmark, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( openCreateBookmark() ) );
+
+  connect ( m_actionDelBookmark, SIGNAL ( triggered() ),
+            mainWindow, SLOT ( openRemoveBookmark() ) );
 
   connect ( m_actionSave, SIGNAL ( triggered() ),
             mainWindow, SLOT ( saveSettings() ) );
@@ -127,6 +136,25 @@ MenuBar::MenuBar ( QX11Grab * parent )
 
   connect ( m_actionHJCMS, SIGNAL ( triggered () ),
             this, SLOT ( openQX11GrabHomepage() ) );
+}
+
+QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
+{
+  QAction* ac = new QAction ( trUtf8 ( "Create" ), parent );
+  ac->setObjectName ( QLatin1String ( "bookmarkCreateAction" ) );
+  ac->setStatusTip ( trUtf8 ( "Open create Bookmark Dialog" ) );
+  ac->setIcon ( QIcon::fromTheme ( "bookmark-new" ) );
+  ac->setShortcut ( Qt::CTRL + Qt::Key_B );
+  return ac;
+}
+
+QAction* MenuBar::bookmarkRemoveAction ( QMenu * parent )
+{
+  QAction* ac = new QAction ( trUtf8 ( "Remove" ), parent );
+  ac->setObjectName ( QLatin1String ( "bookmarkRemoveAction" ) );
+  ac->setStatusTip ( trUtf8 ( "Open delete Bookmark Dialog" ) );
+  ac->setIcon ( QIcon::fromTheme ( "bookmarks-organize" ) );
+  return ac;
 }
 
 void MenuBar::openFFmpegHomepage()
@@ -244,17 +272,6 @@ QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
   ac->setIcon ( QIcon::fromTheme ( "document-export" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_N );
-  return ac;
-}
-
-QAction* MenuBar::bookmarkAction ( QObject * parent, bool shortcut )
-{
-  QAction* ac = new QAction ( trUtf8 ( "Bookmark" ), parent );
-  ac->setObjectName ( QLatin1String ( "bookmarkAction" ) );
-  ac->setStatusTip ( trUtf8 ( "Bookmarks" ) );
-  ac->setIcon ( QIcon::fromTheme ( "folder-bookmark" ) );
-  if ( shortcut )
-    ac->setShortcut ( Qt::CTRL + Qt::Key_B );
   return ac;
 }
 

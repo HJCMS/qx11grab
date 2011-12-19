@@ -27,6 +27,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QIODevice>
+#include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
 
 /* QtGui */
@@ -62,20 +63,66 @@ BookmarkEntry::BookmarkEntry ( Bookmark *doc, const QString &id )
   rootNode.appendChild ( acodecNode );
 }
 
-BookmarkEntry::BookmarkEntry ( const QDomElement &parent )
-    : QDomElement ( parent )
-{}
-
-void BookmarkEntry::addVCodecs ( const QString &id, const QHash<QString,QVariant> &hash )
+BookmarkEntry::BookmarkEntry ( QDomElement &rootNode )
+    : QDomElement ( rootNode )
 {
-  vcodecNode.setAttribute ( "id", id );
+  if ( firstChildElement ( "vcodec" ).nodeType() == QDomNode::ElementNode )
+    vcodecNode = firstChildElement ( "vcodec" );
+  else
+  {
+    vcodecNode = ownerDocument().createElement ( "vcodec" );
+    rootNode.appendChild ( vcodecNode );
+  }
+
+  if ( firstChildElement ( "acodec" ).nodeType() == QDomNode::ElementNode )
+    acodecNode = firstChildElement ( "acodec" );
+  else
+  {
+    acodecNode = ownerDocument().createElement ( "acodec" );
+    rootNode.appendChild ( acodecNode );
+  }
+}
+
+const QString BookmarkEntry::getCodecName ( TYPE type )
+{
+  QString name;
+  if ( type == VCODEC )
+  {
+    if ( vcodecNode.hasAttribute ( "id" ) )
+      return vcodecNode.attribute ( "id" );
+  }
+  else if ( type == ACODEC )
+  {
+    if ( acodecNode.hasAttribute ( "id" ) )
+      return acodecNode.attribute ( "id" );
+  }
+  return name;
+}
+
+void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
+{
+  QDomElement element;
+  if ( t == VCODEC )
+  {
+    element = vcodecNode;
+    vcodecNode.setAttribute ( "id", codecName );
+  }
+  else if ( t == ACODEC )
+  {
+    element = acodecNode;
+    acodecNode.setAttribute ( "id", codecName );
+  }
+  else
+    return;
+
   QDomDocument doc = ownerDocument();
   QHash<QString,QVariant> h = hash;
   QHash<QString,QVariant>::iterator it;
   for ( it = h.begin(); it != h.end(); ++it )
   {
     QDomElement e = doc.createElement ( "entry" );
-    vcodecNode.appendChild ( e );
+    element.appendChild ( e );
+
     QDomElement a = doc.createElement ( "argument" );
     a.appendChild ( doc.createCDATASection ( it.key() ) );
     e.appendChild ( a );
@@ -85,23 +132,31 @@ void BookmarkEntry::addVCodecs ( const QString &id, const QHash<QString,QVariant
   }
 }
 
-void BookmarkEntry::addACodecs ( const QString &id, const QHash<QString,QVariant> &hash )
+const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( TYPE t )
 {
-  acodecNode.setAttribute ( "id", id );
-  QDomDocument doc = ownerDocument();
-  QHash<QString,QVariant> h = hash;
-  QHash<QString,QVariant>::iterator it;
-  for ( it = h.begin(); it != h.end(); ++it )
+  QHash<QString,QVariant> hash;
+  QDomElement codecNode;
+  if ( t == VCODEC )
+    codecNode = vcodecNode;
+  else if ( t == ACODEC )
+    codecNode = acodecNode;
+  else
+    return hash;
+
+  if ( codecNode.hasChildNodes() )
   {
-    QDomElement e = doc.createElement ( "entry" );
-    acodecNode.appendChild ( e );
-    QDomElement a = doc.createElement ( "argument" );
-    a.appendChild ( doc.createCDATASection ( it.key() ) );
-    e.appendChild ( a );
-    QDomElement v = doc.createElement ( "value" );
-    v.appendChild ( doc.createCDATASection ( it.value().toString() ) );
-    e.appendChild ( v );
+    QDomNodeList nodes = codecNode.elementsByTagName ( "entry" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( e.hasChildNodes() )
+      {
+        hash.insert ( e.firstChildElement ( "argument" ).firstChild().nodeValue(),
+                      e.firstChildElement ( "value" ).firstChild().nodeValue() );
+      }
+    }
   }
+  return hash;
 }
 
 /** \class Bookmark */
@@ -134,12 +189,15 @@ bool Bookmark::open ()
 const QStringList Bookmark::entries()
 {
   QStringList list;
-  QDomNodeList nodes = elementsByTagName ( "entry" );
-  for ( int n = 0; n < nodes.size(); ++n )
+  if ( hasChildNodes() )
   {
-    QDomElement e = nodes.item ( n ).toElement();
-    if ( e.hasAttribute ( "title" ) )
-      list.append ( e.attribute ( "title", "" ) );
+    QDomNodeList nodes = elementsByTagName ( "entry" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( e.hasAttribute ( "title" ) )
+        list.append ( e.attribute ( "title", "" ) );
+    }
   }
   return list;
 }
@@ -147,15 +205,42 @@ const QStringList Bookmark::entries()
 const BookmarkEntry Bookmark::entry ( const QString &id )
 {
   Q_ASSERT ( ! ( id.isEmpty() ) );
-
-  QDomNodeList nodes = elementsByTagName ( "entry" );
-  for ( int n = 0; n < nodes.size(); ++n )
+  if ( hasChildNodes() )
   {
-    QDomElement e = nodes.item ( n ).toElement();
-    if ( e.attribute ( "title", "NULL" ) == id )
-      return static_cast<BookmarkEntry> ( e );
+    QDomNodeList nodes = elementsByTagName ( "entry" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( ! e.hasAttribute ( "title" ) )
+        continue;
+
+      if ( e.attribute ( "title" ).compare ( id ) == 0 )
+        return static_cast<BookmarkEntry> ( e );
+    }
   }
   return BookmarkEntry ( this, id );
+}
+
+bool Bookmark::removeEntryById ( const QString &id )
+{
+  if ( hasChildNodes() )
+  {
+    QDomNodeList nodes = elementsByTagName ( "entry" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( ! e.hasAttribute ( "title" ) )
+        continue;
+
+      if ( e.attribute ( "title" ).compare ( id ) == 0 )
+      {
+        documentElement().removeChild ( e );
+        break;
+      }
+    }
+    return save();
+  }
+  return false;
 }
 
 bool Bookmark::save () const
@@ -184,6 +269,20 @@ bool Bookmark::save ( QDomDocument * xml ) const
     return true;
   }
   return false;
+}
+
+const QString Bookmark::implode ( const QStringList &data ) const
+{
+  QString buffer ( data.join ( " " ) );
+  QRegExp pattern ( "[\\s\\t]+\\-" );
+  buffer.replace ( pattern, "\n-" );
+  return buffer;
+}
+
+const QStringList Bookmark::explode ( const QString &data ) const
+{
+  QString buffer ( data );
+  return buffer.split ( "\n" );
 }
 
 Bookmark::~Bookmark()

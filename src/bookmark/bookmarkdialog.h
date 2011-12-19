@@ -49,11 +49,9 @@ class BookmarkDialog : public QDialog
     const QString dbusPath;
     QLineEdit* m_titleEdit;
     QDialogButtonBox* m_buttonBox;
-    const QString implode ( const QStringList &data ) const;
-    const QStringList explode ( const QString &data ) const;
 
   private Q_SLOTS:
-    void titleChanged ( const QString & );
+    void titleTextChanged ( const QString & );
     void saveAndExit();
 
   public:

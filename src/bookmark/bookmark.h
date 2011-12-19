@@ -37,15 +37,36 @@ class Bookmark;
 
 class BookmarkEntry : public QDomElement
 {
+    Q_ENUMS ( TYPE )
+
   private:
     QDomElement vcodecNode;
     QDomElement acodecNode;
 
   public:
+    enum TYPE { VCODEC, ACODEC };
     explicit BookmarkEntry ( Bookmark * doc, const QString &id );
-    explicit BookmarkEntry ( const QDomElement &parent );
-    void addVCodecs ( const QString &id, const QHash<QString,QVariant> &hash );
-    void addACodecs ( const QString &id, const QHash<QString,QVariant> &hash );
+    explicit BookmarkEntry ( QDomElement &rootNode );
+
+    /**
+    * Read Codec Name e.g. -vcodec or -acodec
+    * @param  type  CodecNodeName (vcodec|acodec)
+    */
+    const QString getCodecName ( TYPE type );
+
+    /**
+    * Set Codec Options e.g. -vcodec or -acodec
+    * @param  type        Codec Type (vcodec|acodec)
+    * @param  codecName   Add Options for Codec Name
+    * @param  hash        Options
+    */
+    void setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash );
+
+    /**
+    * read Codec Options e.g. -vcodec or -acodec
+    * @param  type        Codec Type (vcodec|acodec)
+    */
+    const QHash<QString,QVariant> getCodecOptions ( TYPE t );
 };
 
 class Bookmark : public QDomDocument
@@ -67,6 +88,10 @@ class Bookmark : public QDomDocument
     * if not exists create a new empty Entry with id
     */
     const BookmarkEntry entry ( const QString &id );
+    bool removeEntryById ( const QString &id );
+
+    const QString implode ( const QStringList &data ) const;
+    const QStringList explode ( const QString &data ) const;
 
     bool save () const;
     bool save ( QDomDocument * xml ) const;

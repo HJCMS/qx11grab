@@ -27,7 +27,6 @@
 #include <QtCore/QDebug>
 #include <QtCore/QHash>
 #include <QtCore/QHashIterator>
-#include <QtCore/QRegExp>
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 
@@ -72,7 +71,7 @@ BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
   setLayout ( layout );
 
   connect ( m_titleEdit, SIGNAL ( textChanged ( const QString & ) ),
-            this, SLOT ( titleChanged ( const QString & ) ) );
+            this, SLOT ( titleTextChanged ( const QString & ) ) );
 
   connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( saveAndExit() ) );
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
@@ -81,31 +80,7 @@ BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
   p_dbus.registerObject ( dbusPath, this, ( QDBusConnection::ExportScriptableContents ) );
 }
 
-const QString BookmarkDialog::implode ( const QStringList &data ) const
-{
-  QString buffer ( data.join ( " " ) );
-  QRegExp pattern ( "[\\s\\t]+\\-" );
-  buffer.replace ( pattern, "\n-" );
-  return buffer;
-}
-
-const QStringList BookmarkDialog::explode ( const QString &data ) const
-{
-  QString buffer ( data );
-  return buffer.split ( "\n" );
-}
-
-void BookmarkDialog::setBookmark ( const QString &str )
-{
-  m_titleEdit->setText ( str );
-}
-
-const QString BookmarkDialog::getBookmark()
-{
-  return m_titleEdit->text();
-}
-
-void BookmarkDialog::titleChanged ( const QString &txt )
+void BookmarkDialog::titleTextChanged ( const QString &txt )
 {
   if ( txt.length() >= 3 )
     m_buttonBox->button ( QDialogButtonBox::Save )->setEnabled ( true );
@@ -117,8 +92,14 @@ void BookmarkDialog::saveAndExit()
   xml->open();
 
   BookmarkEntry entry = xml->entry ( id );
-  entry.addVCodecs ( settings->value ( "video_codec" ).toString(), settings->readGroup ( "VideoOptions" ) );
-  entry.addACodecs ( settings->value ( "audio_codec" ).toString(), settings->readGroup ( "AudioOptions" ) );
+  entry.setCodecOptions ( BookmarkEntry::VCODEC,
+                          settings->value ( "video_codec" ).toString(),
+                          settings->readGroup ( "VideoOptions" ) );
+
+  entry.setCodecOptions ( BookmarkEntry::ACODEC,
+                          settings->value ( "audio_codec" ).toString(),
+                          settings->readGroup ( "AudioOptions" ) );
+
 #ifdef MAINTAINER_REPOSITORY
   qDebug() << Q_FUNC_INFO << xml->toString ( 1 );
 #endif
@@ -131,6 +112,16 @@ void BookmarkDialog::saveAndExit()
   }
   else
     reject();
+}
+
+void BookmarkDialog::setBookmark ( const QString &str )
+{
+  m_titleEdit->setText ( str );
+}
+
+const QString BookmarkDialog::getBookmark()
+{
+  return m_titleEdit->text();
 }
 
 BookmarkDialog::~BookmarkDialog()
