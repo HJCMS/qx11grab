@@ -1,6 +1,7 @@
 2011/12/*
   Version: 0.3.0
-  REMOVED: KDE4 Support - is now optional
+  Bugfix: application crash when open pulsedialog and no pulseserver exists
+  REMOVED: kde4 support - is now optional
   Add: Bookmark functions
   Add: Add Table Editor Model
   TODO: Table Editor Item Delegation

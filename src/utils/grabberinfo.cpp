@@ -38,11 +38,9 @@
 
 GrabberInfo::GrabberInfo ( QWidget * parent )
     : QWidget ( parent )
+    , screenGeometry ( QApplication::desktop()->screenGeometry ( QX11Info().screen() ) )
 {
   setObjectName ( QLatin1String ( "grabberinfo" ) );
-
-  QX11Info xinfo;
-  QRect desktopRect = QApplication::desktop()->availableGeometry ( xinfo.screen() );
 
   int grow = 0;
   QGridLayout* gridLayout = new QGridLayout ( this );
@@ -69,15 +67,15 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   setWidthBox = new QSpinBox ( this );
   setWidthBox->setObjectName ( QLatin1String ( "setWidthBox" ) );
-  setWidthBox->setRange ( 10, 2800 );
+  setWidthBox->setRange ( 10, screenGeometry.width() );
   setWidthBox->setValue ( 100 );
   gridLayout->addWidget ( setWidthBox, grow, 1, 1, 1 );
 
   setWidthSlider = new QSlider ( Qt::Horizontal, this );
   setWidthSlider->setObjectName ( QLatin1String ( "setWidthSlider" ) );
   setWidthSlider->setSingleStep ( 2 );
-  setWidthSlider->setMinimum ( desktopRect.left() );
-  setWidthSlider->setMaximum ( desktopRect.right() );
+  setWidthSlider->setMinimum ( screenGeometry.left() );
+  setWidthSlider->setMaximum ( screenGeometry.right() );
   gridLayout->addWidget ( setWidthSlider, grow++, 2, 1, 1 );
   // end: Width
 
@@ -96,8 +94,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setHeightSlider = new QSlider ( Qt::Horizontal, this );
   setHeightSlider->setObjectName ( QLatin1String ( "setHeightSlider" ) );
   setHeightSlider->setSingleStep ( 2 );
-  setHeightSlider->setMinimum ( desktopRect.left() );
-  setHeightSlider->setMaximum ( desktopRect.right() );
+  setHeightSlider->setMinimum ( screenGeometry.left() );
+  setHeightSlider->setMaximum ( screenGeometry.right() );
   gridLayout->addWidget ( setHeightSlider, grow++, 2, 1, 1 );
   // end: Height
 
@@ -127,8 +125,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setXSlider = new QSlider ( Qt::Horizontal, this );
   setXSlider->setObjectName ( QLatin1String ( "setXSlider" ) );
   setXSlider->setSingleStep ( 1 );
-  setXSlider->setMinimum ( desktopRect.left() );
-  setXSlider->setMaximum ( desktopRect.right() );
+  setXSlider->setMinimum ( screenGeometry.left() );
+  setXSlider->setMaximum ( screenGeometry.right() );
   gridLayout->addWidget ( setXSlider, grow++, 2, 1, 1 );
   // end: X Position
 
@@ -147,8 +145,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setYSlider = new QSlider ( Qt::Horizontal, this );
   setYSlider->setObjectName ( QLatin1String ( "setYSlider" ) );
   setYSlider->setSingleStep ( 1 );
-  setYSlider->setMinimum ( desktopRect.top() );
-  setYSlider->setMaximum ( desktopRect.bottom() );
+  setYSlider->setMinimum ( screenGeometry.top() );
+  setYSlider->setMaximum ( screenGeometry.bottom() );
   gridLayout->addWidget ( setYSlider, grow++, 2, 1, 1 );
   // end: Y Position
 
@@ -216,41 +214,46 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
             depth, SLOT ( setValue ( int ) ) );
 
-  connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
-            this, SIGNAL ( screenDataChanged ( int ) ) );
-
+  // SIGNALS:Width {
   connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
             setWidthSlider, SLOT ( setValue ( int ) ) );
 
   connect ( setWidthSlider, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( sliderUpdateChanged ( int ) ) );
+            setWidthBox, SLOT ( setValue ( int ) ) );
 
-  connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
-            this, SIGNAL ( screenDataChanged ( int ) ) );
-
+  connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( setRubberbandUpdate ( int ) ) );
+  // } SIGNALS:Width
+  // SIGNALS:Height {
   connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
             setHeightSlider, SLOT ( setValue ( int ) ) );
 
   connect ( setHeightSlider, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( sliderUpdateChanged ( int ) ) );
+            setHeightBox, SLOT ( setValue ( int ) ) );
 
-  connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
-            this, SIGNAL ( screenDataChanged ( int ) ) );
-
+  connect ( setHeightBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( setRubberbandUpdate ( int ) ) );
+  // } SIGNALS:Height
+  // SIGNALS:X-Position {
   connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
             setXSlider, SLOT ( setValue ( int ) ) );
 
   connect ( setXSlider, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( sliderUpdateChanged ( int ) ) );
+            setXBox, SLOT ( setValue ( int ) ) );
 
-  connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
-            this, SIGNAL ( screenDataChanged ( int ) ) );
-
+  connect ( setXBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( setRubberbandUpdate ( int ) ) );
+  // } SIGNALS:X-Position
+  // SIGNALS:Y-Position {
   connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
             setYSlider, SLOT ( setValue ( int ) ) );
 
   connect ( setYSlider, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( sliderUpdateChanged ( int ) ) );
+            setYBox, SLOT ( setValue ( int ) ) );
+
+  connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( setRubberbandUpdate ( int ) ) );
+  // } SIGNALS:Y-Position
 
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SIGNAL ( screenDataChanged ( int ) ) );
@@ -267,17 +270,25 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 }
 
 /**
-* Wenn einer der Slider sich bewegt
+* Wenn einer der Slider/Spinboxen verändert!
+* @note Das Gummiband darf nicht aus dem Fenster 
 */
-void GrabberInfo::sliderUpdateChanged ( int )
+void GrabberInfo::setRubberbandUpdate ( int i )
 {
-  showRubberband->setChecked ( true );
-  setXBox->setValue ( setXSlider->value() );
-  setYBox->setValue ( setYSlider->value() );
-  if ( ( setWidthSlider->value() % 2 ) == 0 )
-    setWidthBox->setValue ( setWidthSlider->value() );
-  if ( ( setHeightSlider->value() % 2 ) == 0 )
-    setHeightBox->setValue ( setHeightSlider->value() );
+  if ( ! showRubberband->isChecked() )
+    showRubberband->setChecked ( true );
+
+  int maxWidth = screenGeometry.right();
+  int boxRight = qRound ( setXBox->value() + setWidthBox->value() );
+  if ( boxRight >= maxWidth )
+    setWidthBox->setValue ( qRound ( setWidthBox->value() - ( boxRight - maxWidth ) ) );
+
+  int maxHeight = screenGeometry.bottom();
+  int boxBottom = qRound ( setYBox->value() + setHeightBox->value() );
+  if ( boxBottom >= maxHeight )
+    setHeightBox->setValue ( qRound ( setHeightBox->value() - ( boxBottom - maxHeight ) ) );
+
+  emit screenDataChanged ( i );
 }
 
 /**

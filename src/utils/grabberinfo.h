@@ -44,6 +44,7 @@ class GrabberInfo : public QWidget
 
   private:
     ScreenComboBox* screenComboBox;
+    QRect screenGeometry;
     QLineEdit* setModeName;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;
@@ -60,7 +61,7 @@ class GrabberInfo : public QWidget
     QCheckBox* setMetadata;
 
   private Q_SLOTS:
-    void sliderUpdateChanged ( int );
+    void setRubberbandUpdate ( int );
 
   Q_SIGNALS:
     void showRubber ( bool );

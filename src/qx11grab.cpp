@@ -296,16 +296,16 @@ void QX11Grab::saveStats()
 */
 void QX11Grab::toRubber ( int i )
 {
-  if ( i < 1 )
-    return;
-
   if ( ! m_RubberBand )
     return;
 
-  QRect r = m_grabberInfo->getRect();
-  m_RubberBand->resize ( r.width(), r.height() );
-  m_RubberBand->move ( r.x(), r.y() );
-  perparePreview();
+  if ( i >= 0 )
+  {
+    QRect r = m_grabberInfo->getRect();
+    m_RubberBand->resize ( r.width(), r.height() );
+    m_RubberBand->move ( r.x(), r.y() );
+    perparePreview();
+  }
 }
 
 /**

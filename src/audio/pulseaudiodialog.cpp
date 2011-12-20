@@ -29,6 +29,10 @@
 #include <QtCore/QList>
 #include <QtCore/QVariant>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusInterface>
+
 /* QtGui */
 #include <QtGui/QListWidgetItem>
 
@@ -42,6 +46,18 @@ extern "C"
 
 static pa_mainloop_api* mainloop_api = NULL;
 static pa_context* context = NULL;
+
+/**
+* send errors to mainWindow
+*/
+static void sendPulseErrorToMainWindow ( const char* error )
+{
+  QString message ( "Pulse:" );
+  message.append ( QString::fromUtf8 ( error ) );
+
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+  iface.call ( "message", message );
+}
 
 /**
 * struct for simple list of Card Input Sources
@@ -117,7 +133,11 @@ static void pulseContextState ( pa_context *c, void *userdata )
     default:
     {
       fprintf ( stderr, "Context error: %s\n", pa_strerror ( pa_context_errno ( c ) ) );
-      abort(); // FIXME Keine gute Idee - bringt QX11Grab zum absturtz wenn kein pulse vorhanden ist!
+      sendPulseErrorToMainWindow ( pa_strerror ( pa_context_errno ( c ) ) );
+      /** FIXME pulse:abort(); Ist keine gute Idee weil:
+      * Wenn kein Server erreichbar ist bringt abort mit sigsev QX11Grab zum absturts!
+      */
+      mainloop_api->quit ( mainloop_api, 0 );
       break;
     }
   }
