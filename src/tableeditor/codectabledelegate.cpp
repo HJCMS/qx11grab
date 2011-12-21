@@ -64,10 +64,17 @@ const QString CodecTableDelegate::findOption ( const QModelIndex &index ) const
 * Gültige Preset Optionen für sind (vpre, apre und spre).
 * Bei -fpre wird ein Pfad zur *.ffpreset verlangt!
 */
-bool CodecTableDelegate::isPresetsOptions ( const QModelIndex &index ) const
+CodecTableDelegate::PRESET_TYPE CodecTableDelegate::isPresetsOption ( const QModelIndex &index ) const
 {
-  QRegExp pattern ( "^\\-[asv]pre[:\\w]?" );
-  return findOption ( index ).contains ( pattern );
+  QRegExp pattern0 ( "^\\-vpre[:\\w]?" );
+  if ( findOption ( index ).contains ( pattern0 ) )
+    return VCODEC;
+
+  QRegExp pattern1 ( "^\\-apre[:\\w]?" );
+  if ( findOption ( index ).contains ( pattern1 ) )
+    return ACODEC;
+
+  return NONE;
 }
 
 QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
@@ -75,9 +82,10 @@ QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
         const QModelIndex &index ) const
 {
   Q_UNUSED ( option );
-  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
   {
-    SelectPresets* w = new SelectPresets ( parent );
+    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
+    SelectPresets* w = new SelectPresets ( t, parent );
     w->setValue ( index.model()->data ( index ) );
     return w;
   }
@@ -89,9 +97,11 @@ QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
 
 void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &index ) const
 {
-  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
   {
+    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
     SelectPresets* w = static_cast<SelectPresets*> ( editor );
+    w->setCodec ( t );
     w->setValue ( index.model()->data ( index ) );
     return;
   }
@@ -103,9 +113,11 @@ void CodecTableDelegate::setModelData ( QWidget* editor,
                                         QAbstractItemModel* model,
                                         const QModelIndex &index ) const
 {
-  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
   {
+    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
     SelectPresets* w = static_cast<SelectPresets*> ( editor );
+    w->setCodec ( t );
     model->setData ( index, w->value(), Qt::EditRole );
     return;
   }

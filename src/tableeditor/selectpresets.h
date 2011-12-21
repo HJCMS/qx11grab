@@ -43,8 +43,7 @@ class SelectPresets : public AbstractSelection
 
   private:
     const QStringList nameFilters;
-    QString audioCodec;
-    QString videoCodec;
+    QString codecSuffix;
     const QStringList userPresets ( const QString &suffix );
     const QStringList systemPresets ( const QString &suffix );
 
@@ -52,7 +51,8 @@ class SelectPresets : public AbstractSelection
     void reload();
 
   public:
-    SelectPresets ( QWidget * parent = 0 );
+    SelectPresets ( const QString &codecName, QWidget * parent = 0 );
+    void setCodec ( const QString &type );
     ~SelectPresets();
 };
 

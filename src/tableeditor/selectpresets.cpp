@@ -31,24 +31,15 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 
-SelectPresets::SelectPresets ( QWidget * parent )
+SelectPresets::SelectPresets ( const QString &codecName, QWidget * parent )
     : AbstractSelection ( parent )
     , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
   setObjectName ( QLatin1String ( "SelectPresets" ) );
   setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
 
-  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
-
-  QDBusReply<QString> reply = iface.call ( QLatin1String ( "getVideoCodec" ) );
-  if ( reply.isValid() )
-    videoCodec = reply.value();
-
-  reply = iface.call ( QLatin1String ( "getAudioCodec" ) );
-  if ( reply.isValid() )
-    audioCodec = reply.value();
-
-  reload();
+  if ( ! codecName.isEmpty() )
+    setCodec ( codecName );
 }
 
 const QStringList SelectPresets::userPresets ( const QString &suffix )
@@ -86,18 +77,26 @@ const QStringList SelectPresets::systemPresets ( const QString &suffix )
 void SelectPresets::reload()
 {
   QStringList list;
-  if ( ! videoCodec.isEmpty() )
-    list << userPresets ( videoCodec ) << systemPresets ( videoCodec );
-
-  if ( ! audioCodec.isEmpty() )
-    list << userPresets ( audioCodec ) << systemPresets ( audioCodec );
+  if ( ! codecSuffix.isEmpty() )
+    list << userPresets ( codecSuffix ) << systemPresets ( codecSuffix );
 
   clear();
-  addItem ( trUtf8 ( "Presets for (%1/%2)" ).arg ( videoCodec, audioCodec ), false );
+  addItem ( trUtf8 ( "Presets for (%1)" ).arg ( codecSuffix ), false );
   foreach ( QString val,  list )
   {
     addItem ( val, true );
   }
+}
+
+void SelectPresets::setCodec ( const QString &type )
+{
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+  QString action = ( type.contains ( "vcodec" ) ? "getVideoCodec" : "getAudioCodec" );
+  QDBusReply<QString> reply = iface.call ( action );
+  if ( reply.isValid() )
+    codecSuffix = reply.value();
+
+  reload();
 }
 
 SelectPresets::~SelectPresets()

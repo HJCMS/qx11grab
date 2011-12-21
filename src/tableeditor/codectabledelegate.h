@@ -39,9 +39,10 @@ class CodecTableDelegate : public QItemDelegate
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
+    enum PRESET_TYPE { NONE, VCODEC, ACODEC };
     void housemaster ( const QString &message ) const;
     const QString findOption ( const QModelIndex &index ) const;
-    bool isPresetsOptions ( const QModelIndex &index ) const;
+    PRESET_TYPE isPresetsOption ( const QModelIndex &index ) const;
 
     QWidget* createEditor ( QWidget* parent, const QStyleOptionViewItem &option,
                             const QModelIndex &index ) const;
