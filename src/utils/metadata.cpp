@@ -48,6 +48,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_INAM = new QLineEdit ( this );
   metadata_INAM->setObjectName ( QLatin1String ( "metadata/INAM" ) );
+  metadata_INAM->setToolTip ( QLatin1String ( "INAM" ) );
   gridLayout->addWidget ( metadata_INAM, 0, 1, 1, 1 );
 
   QLabel* txt_artist = new QLabel ( this );
@@ -57,6 +58,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_IART = new QLineEdit ( this );
   metadata_IART->setObjectName ( QLatin1String ( "metadata/IART" ) );
+  metadata_IART->setToolTip ( QLatin1String ( "IART" ) );
   gridLayout->addWidget ( metadata_IART, 1, 1, 1, 1 );
 
   QLabel* txt_copyright = new QLabel ( this );
@@ -66,6 +68,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_ICOP = new QLineEdit ( this );
   metadata_ICOP->setObjectName ( QLatin1String ( "metadata/ICOP" ) );
+  metadata_ICOP->setToolTip ( QLatin1String ( "ICOP" ) );
   gridLayout->addWidget ( metadata_ICOP, 2, 1, 1, 1 );
 
   QLabel* txt_createdate = new QLabel ( this );
@@ -75,6 +78,9 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_ICRD = new QDateTimeEdit ( this );
   metadata_ICRD->setObjectName ( QLatin1String ( "metadata/ICRD" ) );
+  metadata_ICRD->setToolTip ( QLatin1String ( "ICRD" ) );
+  metadata_ICRD->setDateTime ( QDateTime::currentDateTime() );
+  metadata_ICRD->setCalendarPopup ( true );
   gridLayout->addWidget ( metadata_ICRD, 3, 1, 1, 1 );
 
   QLabel* txt_subject = new QLabel ( this );
@@ -84,6 +90,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_ISBJ = new QLineEdit ( this );
   metadata_ISBJ->setObjectName ( QLatin1String ( "metadata/ISBJ" ) );
+  metadata_ISBJ->setToolTip ( QLatin1String ( "ISBJ" ) );
   gridLayout->addWidget ( metadata_ISBJ, 4, 1, 1, 1 );
 
   QLabel* txt_description = new QLabel ( this );
@@ -93,6 +100,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_ICMT = new QLineEdit ( this );
   metadata_ICMT->setObjectName ( QLatin1String ( "metadata/ICMT" ) );
+  metadata_ICMT->setToolTip ( QLatin1String ( "ICMT" ) );
   gridLayout->addWidget ( metadata_ICMT, 5, 1, 1, 1 );
 
   QLabel* txt_medium = new QLabel ( this );
@@ -102,6 +110,7 @@ MetaData::MetaData ( QWidget * parent )
 
   metadata_IMED = new QLineEdit ( this );
   metadata_IMED->setObjectName ( QLatin1String ( "metadata/IMED" ) );
+  metadata_IMED->setToolTip ( QLatin1String ( "IMED" ) );
   gridLayout->addWidget ( metadata_IMED, 6, 1, 1, 1 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
@@ -153,7 +162,7 @@ const QStringList MetaData::getCmd()
       continue;
 
     QString param ( edit->objectName() );
-    cmd << "-metadata" << QString( "%1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
+    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
   }
   return cmd;
 }

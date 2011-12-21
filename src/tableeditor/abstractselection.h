@@ -19,45 +19,34 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef CodecTableDelegate_H
-#define CodecTableDelegate_H
+#ifndef ABSTRACTSELECTION_H
+#define ABSTRACTSELECTION_H
 
 /* QtCore */
-#include <QtCore/QModelIndex>
+#include <QtCore/QByteArray>
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QItemDelegate>
-#include <QtGui/QPainter>
-#include <QtGui/QStyleOptionViewItem>
+#include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-class CodecTableDelegate : public QItemDelegate
+class AbstractSelection : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_PROPERTY ( QVariant value READ value WRITE setValue USER true )
 
-  private:
-    void housemaster ( const QString &message ) const;
-    const QString findOption ( const QModelIndex &index ) const;
-    bool isPresetsOptions ( const QModelIndex &index ) const;
-
-    QWidget* createEditor ( QWidget* parent, const QStyleOptionViewItem &option,
-                            const QModelIndex &index ) const;
-
-    void setEditorData ( QWidget *editor,
-                         const QModelIndex &index ) const;
-
-    void setModelData ( QWidget* editor, QAbstractItemModel* model,
-                        const QModelIndex &index ) const;
-
-    void updateEditorGeometry ( QWidget* editor, const QStyleOptionViewItem &option,
-                                const QModelIndex &index ) const;
+  public Q_SLOTS:
+    void setValue ( const QVariant &value );
 
   public:
-    CodecTableDelegate ( QObject * parent = 0 );
-    virtual ~CodecTableDelegate();
+    explicit AbstractSelection ( QWidget * parent = 0 );
+    const QVariant value();
+    QByteArray valuePropertyName () const;
+    ~AbstractSelection();
 };
 
 #endif

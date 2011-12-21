@@ -19,45 +19,30 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef CodecTableDelegate_H
-#define CodecTableDelegate_H
+#ifndef DEFAULTEDIT_H
+#define DEFAULTEDIT_H
 
 /* QtCore */
-#include <QtCore/QModelIndex>
+#include <QtCore/QByteArray>
 #include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QItemDelegate>
-#include <QtGui/QPainter>
-#include <QtGui/QStyleOptionViewItem>
 #include <QtGui/QWidget>
 
-class CodecTableDelegate : public QItemDelegate
+/* QX11Grab */
+#include "abstractedit.h"
+
+class DefaultEdit : public AbstractEdit
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-
-  private:
-    void housemaster ( const QString &message ) const;
-    const QString findOption ( const QModelIndex &index ) const;
-    bool isPresetsOptions ( const QModelIndex &index ) const;
-
-    QWidget* createEditor ( QWidget* parent, const QStyleOptionViewItem &option,
-                            const QModelIndex &index ) const;
-
-    void setEditorData ( QWidget *editor,
-                         const QModelIndex &index ) const;
-
-    void setModelData ( QWidget* editor, QAbstractItemModel* model,
-                        const QModelIndex &index ) const;
-
-    void updateEditorGeometry ( QWidget* editor, const QStyleOptionViewItem &option,
-                                const QModelIndex &index ) const;
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   public:
-    CodecTableDelegate ( QObject * parent = 0 );
-    virtual ~CodecTableDelegate();
+    DefaultEdit ( QWidget * parent = 0 );
+    ~DefaultEdit();
 };
 
 #endif

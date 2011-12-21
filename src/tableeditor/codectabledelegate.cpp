@@ -22,6 +22,13 @@
 #include "codectabledelegate.h"
 #include "codectablemodel.h"
 
+/* QX11Options */
+#include "avoptions.h"
+
+/* QX11Grab */
+#include "selectpresets.h"
+#include "defaultedit.h"
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QRect>
@@ -30,6 +37,7 @@
 
 /* QtGui */
 #include <QtGui/QLineEdit>
+#include <QtGui/QItemEditorFactory>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
@@ -47,31 +55,60 @@ void CodecTableDelegate::housemaster ( const QString &message ) const
   iface.call ( "message", message );
 }
 
+const QString CodecTableDelegate::findOption ( const QModelIndex &index ) const
+{
+  return index.sibling ( index.row(), 0 ).data().toString();
+}
+
+bool CodecTableDelegate::isPresetsOptions ( const QModelIndex &index ) const
+{
+  QStringList opts;
+  opts << "-vpre" << "-apre" << "-spre" << "-fpre";
+  return opts.contains ( findOption ( index ) );
+}
+
 QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
         const QStyleOptionViewItem &option,
         const QModelIndex &index ) const
 {
   Q_UNUSED ( option );
-  QVariant data = index.model()->data ( index );
-  QLineEdit* w = new QLineEdit ( parent );
-  w->setText ( data.toString() );
-  // qDebug() << Q_FUNC_INFO << w->text();
+  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  {
+    SelectPresets* w = new SelectPresets ( parent );
+    w->setValue ( index.model()->data ( index ) );
+    return w;
+  }
+
+  DefaultEdit* w = new DefaultEdit ( parent );
+  w->setValue ( index.model()->data ( index ) );
   return w;
 }
 
 void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &index ) const
 {
-  QString data = index.model()->data ( index ).toString();
-  QLineEdit* w = static_cast<QLineEdit*> ( editor );
-  w->setText ( data );
+  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  {
+    SelectPresets* w = static_cast<SelectPresets*> ( editor );
+    w->setValue ( index.model()->data ( index ) );
+    return;
+  }
+  DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
+  w->setValue ( index.model()->data ( index ) );
 }
 
 void CodecTableDelegate::setModelData ( QWidget* editor,
                                         QAbstractItemModel* model,
                                         const QModelIndex &index ) const
 {
-  QLineEdit* w = static_cast<QLineEdit*> ( editor );
-  if ( ! w->text().isEmpty() && index.column() == 0 )
+  if ( ( index.column() == 1 ) && isPresetsOptions ( index ) )
+  {
+    SelectPresets* w = static_cast<SelectPresets*> ( editor );
+    model->setData ( index, w->value(), Qt::EditRole );
+    return;
+  }
+
+  DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
+  if ( ! w->value().toString().isEmpty() && index.column() == 0 )
   {
     QRegExp pattern ( "\\-{1,2}[\\w\\d]+" );
     if ( ! w->text().contains ( pattern ) )
@@ -81,7 +118,7 @@ void CodecTableDelegate::setModelData ( QWidget* editor,
       return;
     }
   }
-  model->setData ( index, w->text(), Qt::EditRole );
+  model->setData ( index, w->value(), Qt::EditRole );
 }
 
 void CodecTableDelegate::updateEditorGeometry ( QWidget* editor,

@@ -5,6 +5,10 @@ SET (tableeditor_SOURCES
   codectable.cpp
   codectablemodel.cpp
   codectabledelegate.cpp
+  abstractselection.cpp
+  abstractedit.cpp
+  selectpresets.cpp
+  defaultedit.cpp
 )
 
 SET (tableeditor_HEADERS
@@ -12,6 +16,10 @@ SET (tableeditor_HEADERS
   codectable.h
   codectablemodel.h
   codectabledelegate.h
+  abstractselection.h
+  abstractedit.h
+  selectpresets.h
+  defaultedit.h
 )
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})
