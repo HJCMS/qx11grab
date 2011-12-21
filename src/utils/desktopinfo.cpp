@@ -38,6 +38,9 @@ DesktopInfo::DesktopInfo ( QObject *parent )
   Depth = xInfo.depth();
   maxWidth = 640;
   maxHeight = 480;
+
+  connect ( desktopWidget, SIGNAL ( resized ( int ) ),
+            this, SIGNAL ( resized ( int ) ) );
 }
 
 const FrameMode DesktopInfo::fetchFrameMode ( const QString &n, int w, int h )
@@ -148,6 +151,11 @@ const FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
   return fetchFrameMode ( trUtf8 ( "Unknown" ), maxWidth, maxHeight );
 }
 
+int DesktopInfo::screen()
+{
+  return xInfo.screen();
+}
+
 int DesktopInfo::getMaxWidth()
 {
   return maxWidth;
@@ -173,6 +181,11 @@ const FrameMode DesktopInfo::grabScreenGeometry ( QWidget *parent )
     maxHeight = size.height();
   }
   return fetchFrameMode ( trUtf8 ( "Fullscreen" ), maxWidth, maxHeight );
+}
+
+const QRect DesktopInfo::screenGeometry ( int screen )
+{
+  return desktopWidget->screenGeometry ( screen );
 }
 
 DesktopInfo::~DesktopInfo()

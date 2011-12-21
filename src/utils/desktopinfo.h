@@ -23,13 +23,14 @@
 #define DESKTOPINFO_H
 
 /* QtCore */
-#include <QtCore/QObject>
 #include <QtCore/QList>
+#include <QtCore/QObject>
+#include <QtCore/QRect>
 
 /* QtGui */
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QWidget>
 #include <QtGui/QX11Info>
-#include <QtGui/QDesktopWidget>
 
 typedef struct
 {
@@ -54,8 +55,14 @@ class DesktopInfo : public QObject
     int maxHeight, maxWidth, Depth;
     const FrameMode fetchFrameMode ( const QString &n, int w, int h );
 
+  Q_SIGNALS:
+    void resized ( int screen );
+
   public:
     DesktopInfo ( QObject *parent = 0 );
+
+    /** current screen  */
+    int screen();
 
     /** width request at time */
     int getMaxWidth();
@@ -82,6 +89,11 @@ class DesktopInfo : public QObject
      * @param parent  grab Dimension from
      */
     const FrameMode grabScreenGeometry ( QWidget *parent );
+
+    /** get current Screen Dimension form Desktop
+     * @param screen Screen ID
+     */
+    const QRect screenGeometry ( int screen = 0 );
 
     ~DesktopInfo();
 

@@ -30,12 +30,12 @@
 
 /* QtGui */
 #include <QtGui/QCheckBox>
-#include <QtGui/QLineEdit>
 #include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
 class ScreenComboBox;
+class DesktopInfo;
 
 class GrabberInfo : public QWidget
 {
@@ -43,9 +43,9 @@ class GrabberInfo : public QWidget
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
-    ScreenComboBox* screenComboBox;
     QRect screenGeometry;
-    QLineEdit* setModeName;
+    DesktopInfo* m_desktopInfo;
+    ScreenComboBox* screenComboBox;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;
     QSpinBox* setHeightBox;
@@ -61,6 +61,7 @@ class GrabberInfo : public QWidget
     QCheckBox* setMetadata;
 
   private Q_SLOTS:
+    void setInputDefaults ( int screen );
     void setRubberbandUpdate ( int );
 
   Q_SIGNALS:
@@ -82,7 +83,6 @@ class GrabberInfo : public QWidget
     void setScreenHeight ( int h );
     void setScreenX ( int x );
     void setScreenY ( int y );
-    void setScreenMode ( const QString &mode );
     const QRect getRect();
     int frameRate();
     ~GrabberInfo();

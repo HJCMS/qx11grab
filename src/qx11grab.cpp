@@ -102,9 +102,11 @@ QX11Grab::QX11Grab ( Settings *settings )
   verticalLayout->addWidget ( toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
+  m_grabberInfo->setToolTip ( trUtf8 ( "main requirements" ) );
   toolBox->addItem ( m_grabberInfo, boxIcon, trUtf8 ( "Application" ) );
 
   m_defaults = new Defaults ( toolBox );
+  m_defaults->setToolTip ( trUtf8 ( "main features" ) );
   toolBox->addItem ( m_defaults, boxIcon, trUtf8 ( "Defaults" ) );
 
   m_metaData = new MetaData ( toolBox );
@@ -120,6 +122,7 @@ QX11Grab::QX11Grab ( Settings *settings )
   toolBox->addItem ( m_audioEditor, boxIcon, trUtf8 ( "Audio" ) );
 
   m_commandPreview = new CommandPreview ( toolBox );
+  m_commandPreview->setToolTip ( trUtf8 ( "command line preview" ) );
   toolBox->addItem ( m_commandPreview, boxIcon, trUtf8 ( "FFmpeg" ) );
 
   layerWidget->setLayout ( verticalLayout );
@@ -325,7 +328,6 @@ void QX11Grab::grabFromWindow()
     m_grabberInfo->setScreenHeight ( rect.height() );
     m_grabberInfo->setScreenX ( rect.x() );
     m_grabberInfo->setScreenY ( rect.y() );
-    m_grabberInfo->setScreenMode ( trUtf8 ( "grabbed Dimension" ) );
     toRubber ( 1 );
   }
 
