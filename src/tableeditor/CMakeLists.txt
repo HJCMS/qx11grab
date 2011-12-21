@@ -7,7 +7,8 @@ SET (tableeditor_SOURCES
   codectabledelegate.cpp
   abstractselection.cpp
   abstractedit.cpp
-  selectpresets.cpp
+  selectacodecpresets.cpp
+  selectvcodecpresets.cpp
   defaultedit.cpp
 )
 
@@ -18,7 +19,8 @@ SET (tableeditor_HEADERS
   codectabledelegate.h
   abstractselection.h
   abstractedit.h
-  selectpresets.h
+  selectacodecpresets.h
+  selectvcodecpresets.h
   defaultedit.h
 )
 

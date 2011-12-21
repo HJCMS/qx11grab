@@ -26,7 +26,8 @@
 #include "avoptions.h"
 
 /* QX11Grab */
-#include "selectpresets.h"
+#include "selectvcodecpresets.h"
+#include "selectacodecpresets.h"
 #include "defaultedit.h"
 
 /* QtCore */
@@ -82,10 +83,15 @@ QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
         const QModelIndex &index ) const
 {
   Q_UNUSED ( option );
-  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == VCODEC ) )
   {
-    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
-    SelectPresets* w = new SelectPresets ( t, parent );
+    SelectVcodecPresets* w = new SelectVcodecPresets ( parent );
+    w->setValue ( index.model()->data ( index ) );
+    return w;
+  }
+  else if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == ACODEC ) )
+  {
+    SelectAcodecPresets* w = new SelectAcodecPresets ( parent );
     w->setValue ( index.model()->data ( index ) );
     return w;
   }
@@ -97,14 +103,19 @@ QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
 
 void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &index ) const
 {
-  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == VCODEC ) )
   {
-    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
-    SelectPresets* w = static_cast<SelectPresets*> ( editor );
-    w->setCodec ( t );
+    SelectVcodecPresets* w = static_cast<SelectVcodecPresets*> ( editor );
     w->setValue ( index.model()->data ( index ) );
     return;
   }
+  else if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == ACODEC ) )
+  {
+    SelectAcodecPresets* w = static_cast<SelectAcodecPresets*> ( editor );
+    w->setValue ( index.model()->data ( index ) );
+    return;
+  }
+
   DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
   w->setValue ( index.model()->data ( index ) );
 }
@@ -113,11 +124,15 @@ void CodecTableDelegate::setModelData ( QWidget* editor,
                                         QAbstractItemModel* model,
                                         const QModelIndex &index ) const
 {
-  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) != NONE ) )
+  if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == VCODEC ) )
   {
-    QString t = ( isPresetsOption ( index ) == VCODEC ) ? "vcodec" : "acodec";
-    SelectPresets* w = static_cast<SelectPresets*> ( editor );
-    w->setCodec ( t );
+    SelectVcodecPresets* w = static_cast<SelectVcodecPresets*> ( editor );
+    model->setData ( index, w->value(), Qt::EditRole );
+    return;
+  }
+  else if ( ( index.column() == 1 ) && ( isPresetsOption ( index ) == ACODEC ) )
+  {
+    SelectAcodecPresets* w = static_cast<SelectAcodecPresets*> ( editor );
     model->setData ( index, w->value(), Qt::EditRole );
     return;
   }

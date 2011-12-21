@@ -19,7 +19,7 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "selectpresets.h"
+#include "selectvcodecpresets.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -31,18 +31,22 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 
-SelectPresets::SelectPresets ( const QString &codecName, QWidget * parent )
+SelectVcodecPresets::SelectVcodecPresets ( QWidget * parent )
     : AbstractSelection ( parent )
     , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
-  setObjectName ( QLatin1String ( "SelectPresets" ) );
+  setObjectName ( QLatin1String ( "SelectVcodecPresets" ) );
   setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
 
-  if ( ! codecName.isEmpty() )
-    setCodec ( codecName );
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+  QDBusReply<QString> reply = iface.call ( "getVideoCodec" );
+  if ( reply.isValid() )
+    codecSuffix = reply.value();
+
+  reload();
 }
 
-const QStringList SelectPresets::userPresets ( const QString &suffix )
+const QStringList SelectVcodecPresets::userPresets ( const QString &suffix )
 {
   QStringList list;
   QDir d ( QDir::home() );
@@ -58,7 +62,7 @@ const QStringList SelectPresets::userPresets ( const QString &suffix )
   return list;
 }
 
-const QStringList SelectPresets::systemPresets ( const QString &suffix )
+const QStringList SelectVcodecPresets::systemPresets ( const QString &suffix )
 {
   QStringList list;
   QDir d ( QDir::home() );
@@ -74,7 +78,7 @@ const QStringList SelectPresets::systemPresets ( const QString &suffix )
   return list;
 }
 
-void SelectPresets::reload()
+void SelectVcodecPresets::reload()
 {
   QStringList list;
   if ( ! codecSuffix.isEmpty() )
@@ -88,16 +92,5 @@ void SelectPresets::reload()
   }
 }
 
-void SelectPresets::setCodec ( const QString &type )
-{
-  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
-  QString action = ( type.contains ( "vcodec" ) ? "getVideoCodec" : "getAudioCodec" );
-  QDBusReply<QString> reply = iface.call ( action );
-  if ( reply.isValid() )
-    codecSuffix = reply.value();
-
-  reload();
-}
-
-SelectPresets::~SelectPresets()
+SelectVcodecPresets::~SelectVcodecPresets()
 {}

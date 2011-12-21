@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef SELECTPRESETS_H
-#define SELECTPRESETS_H
+#ifndef SELECTVCODECPRESETS_H
+#define SELECTVCODECPRESETS_H
 
 /* QtCore */
 #include <QtCore/QObject>
@@ -35,7 +35,7 @@
 /* QX11Grab */
 #include "abstractselection.h"
 
-class SelectPresets : public AbstractSelection
+class SelectVcodecPresets : public AbstractSelection
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -51,9 +51,8 @@ class SelectPresets : public AbstractSelection
     void reload();
 
   public:
-    SelectPresets ( const QString &codecName, QWidget * parent = 0 );
-    void setCodec ( const QString &type );
-    ~SelectPresets();
+    SelectVcodecPresets ( QWidget * parent = 0 );
+    ~SelectVcodecPresets();
 };
 
 #endif
