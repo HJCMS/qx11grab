@@ -189,7 +189,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="79"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="116"/>
         <source>Missing stated hyphens in given argument</source>
         <translation type="unfinished"></translation>
     </message>
@@ -656,32 +656,32 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>Pavadinimas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="54"/>
+        <location filename="../src/utils/metadata.cpp" line="55"/>
         <source>Artist:</source>
         <translation>Atlikėjas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="63"/>
+        <location filename="../src/utils/metadata.cpp" line="65"/>
         <source>Copyright:</source>
         <translation>Autorinės teisės:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="72"/>
+        <location filename="../src/utils/metadata.cpp" line="75"/>
         <source>Creation Date:</source>
         <translation>Sukūrimo data:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="81"/>
+        <location filename="../src/utils/metadata.cpp" line="87"/>
         <source>Subject:</source>
         <translation>Tema:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="90"/>
+        <location filename="../src/utils/metadata.cpp" line="97"/>
         <source>Description:</source>
         <translation>Aprašas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="99"/>
+        <location filename="../src/utils/metadata.cpp" line="107"/>
         <source>Medium:</source>
         <translation>Laikmena:</translation>
     </message>
@@ -813,6 +813,21 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <location filename="../src/utils/rubberband.cpp" line="78"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation>Kadro plotis turi dalintis iš 2</translation>
+    </message>
+</context>
+<context>
+    <name>SelectPresets</name>
+    <message>
+        <location filename="../src/tableeditor/selectpresets.cpp" line="34"/>
+        <source>Preset files are specified with the vpre, apre, spre, and fpre options.
+The fpre option takes the filename of the preset instead of a preset name as input and can be used for any kind of codec.
+For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/selectpresets.cpp" line="64"/>
+        <source>Presets</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
