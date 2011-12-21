@@ -49,7 +49,7 @@ class DesktopInfo : public QObject
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
 
   private:
-    const QX11Info xInfo;
+    QX11Info xInfo;
     QDesktopWidget *desktopWidget;
     int Screens;
     int maxHeight, maxWidth, Depth;

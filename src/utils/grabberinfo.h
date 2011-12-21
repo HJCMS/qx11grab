@@ -41,6 +41,7 @@ class GrabberInfo : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_PROPERTY ( QRect rect READ getRect WRITE setRect USER true )
 
   private:
     QRect screenGeometry;
@@ -66,7 +67,7 @@ class GrabberInfo : public QWidget
 
   Q_SIGNALS:
     void showRubber ( bool );
-    void screenDataChanged ( int );
+    void screenDataChanged ( bool );
     void postUpdate();
 
   public Q_SLOTS:
@@ -83,6 +84,7 @@ class GrabberInfo : public QWidget
     void setScreenHeight ( int h );
     void setScreenX ( int x );
     void setScreenY ( int y );
+    void setRect ( const QRect &rect );
     const QRect getRect();
     int frameRate();
     ~GrabberInfo();

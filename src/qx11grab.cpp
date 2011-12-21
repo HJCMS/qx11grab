@@ -145,8 +145,8 @@ QX11Grab::QX11Grab ( Settings *settings )
   connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
             this, SLOT ( pushToolTip ( const QString & ) ) );
 
-  connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( int ) ),
-            this, SLOT ( toRubber ( int ) ) );
+  connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( bool ) ),
+            this, SLOT ( toRubber ( bool ) ) );
 
   connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
@@ -215,7 +215,7 @@ void QX11Grab::createEnviroment()
   connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
-  toRubber ( 1 );
+  toRubber ( true );
   if ( m_grabberInfo->RubberbandIsVisible() )
     m_RubberBand->show();
   else
@@ -297,18 +297,15 @@ void QX11Grab::saveStats()
 /**
 * Sende verschieben Info an Klasse @class RubberBand
 */
-void QX11Grab::toRubber ( int i )
+void QX11Grab::toRubber ( bool b )
 {
-  if ( ! m_RubberBand )
+  if ( ! m_RubberBand || !b )
     return;
 
-  if ( i >= 0 )
-  {
-    QRect r = m_grabberInfo->getRect();
-    m_RubberBand->resize ( r.width(), r.height() );
-    m_RubberBand->move ( r.x(), r.y() );
-    perparePreview();
-  }
+  QRect r = m_grabberInfo->getRect();
+  m_RubberBand->resize ( r.width(), r.height() );
+  m_RubberBand->move ( r.x(), r.y() );
+  perparePreview();
 }
 
 /**
@@ -324,10 +321,7 @@ void QX11Grab::grabFromWindow()
 
   if ( rect.isValid() )
   {
-    m_grabberInfo->setScreenWidth ( rect.width() );
-    m_grabberInfo->setScreenHeight ( rect.height() );
-    m_grabberInfo->setScreenX ( rect.x() );
-    m_grabberInfo->setScreenY ( rect.y() );
+    m_grabberInfo->setRect ( rect );
     toRubber ( 1 );
   }
 

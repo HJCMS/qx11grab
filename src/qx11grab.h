@@ -85,7 +85,7 @@ class QX11Grab : public QMainWindow
 
   private Q_SLOTS:
     void showRubber ( bool );
-    void toRubber ( int );
+    void toRubber ( bool );
     void grabFromWindow();
     void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
     void showEvent ( QShowEvent * );

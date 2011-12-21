@@ -30,13 +30,10 @@
 #include <QtGui/QWidget>
 #include <QtGui/QX11Info>
 
-class WindowGrabber : public QObject
+class WindowGrabber : public QObject, private QX11Info
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
-
-  private:
-    const QX11Info xInfo;
 
   protected:
     /** Do not accept Incorrect aspect ratio specification. */

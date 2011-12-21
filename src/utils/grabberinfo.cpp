@@ -251,9 +251,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
             this, SLOT ( setRubberbandUpdate ( int ) ) );
   // } SIGNALS:Y-Position
 
-  connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
-            this, SIGNAL ( screenDataChanged ( int ) ) );
-
   connect ( showRubberband, SIGNAL ( toggled ( bool ) ),
             this, SIGNAL ( showRubber ( bool ) ) );
 
@@ -276,17 +273,17 @@ void GrabberInfo::setInputDefaults ( int screen )
 {
   screenGeometry = m_desktopInfo->screenGeometry ( screen );
   // Weidth
-  setWidthBox->setMaximum ( screenGeometry.right() );
-  setWidthSlider->setMaximum ( screenGeometry.right() );
+  setWidthBox->setMaximum ( ( screenGeometry.width() + 2 ) );
+  setWidthSlider->setMaximum ( ( screenGeometry.width() + 2 ) );
   // Height
-  setHeightBox->setMaximum ( screenGeometry.bottom() );
-  setHeightSlider->setMaximum ( screenGeometry.bottom() );
+  setHeightBox->setMaximum ( ( screenGeometry.height() + 2 ) );
+  setHeightSlider->setMaximum ( ( screenGeometry.height() + 2 ) );
   // X Postion
-  setXBox->setMaximum ( screenGeometry.right() );
-  setXSlider->setMaximum ( screenGeometry.right() );
+  setXBox->setMaximum ( screenGeometry.width() );
+  setXSlider->setMaximum ( screenGeometry.width() );
   // Y Position
-  setYBox->setMaximum ( screenGeometry.bottom() );
-  setYSlider->setMaximum ( screenGeometry.bottom() );
+  setYBox->setMaximum ( screenGeometry.height() );
+  setYSlider->setMaximum ( screenGeometry.height() );
 }
 
 /**
@@ -298,17 +295,23 @@ void GrabberInfo::setRubberbandUpdate ( int i )
   if ( ! showRubberband->isChecked() )
     showRubberband->setChecked ( true );
 
-  int maxWidth = screenGeometry.right();
+  int maxWidth = screenGeometry.width();
   int boxRight = qRound ( setXBox->value() + setWidthBox->value() );
   if ( boxRight >= maxWidth )
-    setWidthBox->setValue ( qRound ( setWidthBox->value() - ( boxRight - maxWidth ) ) );
+  {
+    int w = qRound ( setWidthBox->value() - ( boxRight - maxWidth ) );
+    setWidthBox->setValue ( ( ( ( w % 2 ) == 0 ) ? w : ( w - 1 ) ) );
+  }
 
-  int maxHeight = screenGeometry.bottom();
+  int maxHeight = screenGeometry.height();
   int boxBottom = qRound ( setYBox->value() + setHeightBox->value() );
   if ( boxBottom >= maxHeight )
-    setHeightBox->setValue ( qRound ( setHeightBox->value() - ( boxBottom - maxHeight ) ) );
+  {
+    int h = qRound ( setHeightBox->value() - ( boxBottom - maxHeight ) );
+    setHeightBox->setValue ( ( ( ( h % 2 ) == 0 ) ? h : ( h - 1 ) ) );
+  }
 
-  emit screenDataChanged ( i );
+  emit screenDataChanged ( ( ( i > 0 ) ? true : false ) );
 }
 
 /**
@@ -397,12 +400,23 @@ void GrabberInfo::setScreenY ( int y )
   setYBox->setValue ( y );
 }
 
+void GrabberInfo::setRect ( const QRect &rect )
+{
+  setXBox->setValue ( rect.x() );
+  setYBox->setValue ( rect.y() );
+  setWidthBox->setValue ( rect.width() );
+  setHeightBox->setValue ( rect.height() );
+}
+
 /**
 * Gibt die Aktuelle Dimension in form eines QRect zurück.
 */
 const QRect GrabberInfo::getRect()
 {
-  return QRect ( setXBox->value(), setYBox->value(), setWidthBox->value(), setHeightBox->value() );
+  QRect rect ( setXBox->value(), setYBox->value(), 1, 1 );
+  rect.setWidth ( ( setWidthBox->value() % 2 == 0 ) ? setWidthBox->value() : ( setWidthBox->value() - 1 ) );
+  rect.setHeight ( ( setHeightBox->value() % 2 == 0 ) ? setHeightBox->value() : ( setHeightBox->value() - 1 ) );
+  return rect;
 }
 
 /**

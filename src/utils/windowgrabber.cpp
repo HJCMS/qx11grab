@@ -39,16 +39,16 @@
 
 WindowGrabber::WindowGrabber ( QObject *parent )
     : QObject ( parent )
-    , xInfo()
+    , QX11Info()
 {}
 
 const QRect WindowGrabber::grabWindowRect()
 {
   const QRect empty;
-  Display *dpy =  xInfo.display();
-  int screen = xInfo.screen();
+  Display *dpy =  display();
+  int curScreen = screen();
   /* the current root */
-  Window root = RootWindow ( dpy, screen );
+  Window root = RootWindow ( dpy, curScreen );
   /* the window that got selected */
   Window retwin = 0;
   /* button used to select window */

@@ -31,7 +31,7 @@
 
 DesktopInfo::DesktopInfo ( QObject *parent )
     : QObject ( parent )
-    , xInfo()
+    , xInfo( QX11Info() )
 {
   desktopWidget = qApp->desktop();
   Screens = desktopWidget->numScreens();
@@ -173,7 +173,7 @@ int DesktopInfo::getDepth()
 
 const FrameMode DesktopInfo::grabScreenGeometry ( QWidget *parent )
 {
-  QRect rect = desktopWidget->screenGeometry ( parent );
+  QRect rect = desktopWidget->screenGeometry ( xInfo.screen() );
   if ( rect.isValid() )
   {
     QSize size = rect.size();
