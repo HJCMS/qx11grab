@@ -189,7 +189,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="116"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="119"/>
         <source>Missing stated hyphens in given argument</source>
         <translation type="unfinished"></translation>
     </message>
@@ -747,47 +747,47 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="381"/>
+        <location filename="../src/qx11grab.cpp" line="375"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="381"/>
+        <location filename="../src/qx11grab.cpp" line="375"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="394"/>
+        <location filename="../src/qx11grab.cpp" line="388"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="453"/>
+        <location filename="../src/qx11grab.cpp" line="447"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="453"/>
+        <location filename="../src/qx11grab.cpp" line="447"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="577"/>
+        <location filename="../src/qx11grab.cpp" line="571"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="603"/>
+        <location filename="../src/qx11grab.cpp" line="597"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="603"/>
+        <location filename="../src/qx11grab.cpp" line="597"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="628"/>
+        <location filename="../src/qx11grab.cpp" line="622"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -818,15 +818,13 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>SelectPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectpresets.cpp" line="34"/>
-        <source>Preset files are specified with the vpre, apre, spre, and fpre options.
-The fpre option takes the filename of the preset instead of a preset name as input and can be used for any kind of codec.
-For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <location filename="../src/tableeditor/selectpresets.cpp" line="39"/>
+        <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectpresets.cpp" line="64"/>
-        <source>Presets</source>
+        <location filename="../src/tableeditor/selectpresets.cpp" line="96"/>
+        <source>Presets for (%1/%2)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

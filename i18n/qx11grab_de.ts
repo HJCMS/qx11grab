@@ -678,14 +678,12 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
 <context>
     <name>SelectPresets</name>
     <message>
-        <source>Preset files are specified with the vpre, apre, spre, and fpre options.
-The fpre option takes the filename of the preset instead of a preset name as input and can be used for any kind of codec.
-For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
-        <translation type="unfinished"></translation>
+        <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <translation>Bei den Optionen  vpre, apre, und spre, verweist das Argument auf den aktuell verwendeten Kodierer inklusive der Wertzuweisung.</translation>
     </message>
     <message>
-        <source>Presets</source>
-        <translation type="unfinished"></translation>
+        <source>Presets for (%1/%2)</source>
+        <translation>Presets für (%1/%2)</translation>
     </message>
 </context>
 <context>
