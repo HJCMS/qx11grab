@@ -26,35 +26,59 @@
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 
+/* QtDBus */
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusReply>
+
 SelectPresets::SelectPresets ( QWidget * parent )
     : AbstractSelection ( parent )
     , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
   setObjectName ( QLatin1String ( "SelectPresets" ) );
   setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
+
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+
+  QDBusReply<QString> reply = iface.call ( QLatin1String ( "getVideoCodec" ) );
+  if ( reply.isValid() )
+    videoCodec = reply.value();
+
+  reply = iface.call ( QLatin1String ( "getAudioCodec" ) );
+  if ( reply.isValid() )
+    audioCodec = reply.value();
+
   reload();
 }
 
-const QStringList SelectPresets::userPresets()
+const QStringList SelectPresets::userPresets ( const QString &suffix )
 {
   QStringList list;
   QDir d ( QDir::home() );
   d.setPath ( QString::fromUtf8 ( "%1/.ffmpeg" ).arg ( d.homePath() ) );
   foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
   {
-    list.append ( info.completeBaseName() );
+    QString bn = info.completeBaseName();
+    if ( bn.contains ( suffix ) )
+    {
+      list.append ( bn.replace ( QRegExp ( "^"+suffix+"\\-" ), "" ) );
+    }
   }
   return list;
 }
 
-const QStringList SelectPresets::systemPresets()
+const QStringList SelectPresets::systemPresets ( const QString &suffix )
 {
   QStringList list;
   QDir d ( QDir::home() );
   d.setPath ( QString::fromUtf8 ( "/usr/share/ffmpeg" ) );
   foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
   {
-    list.append ( info.completeBaseName() );
+    QString bn = info.completeBaseName();
+    if ( bn.contains ( suffix ) )
+    {
+      list.append ( bn.replace ( QRegExp ( "^"+suffix+"\\-" ), "" ) );
+    }
   }
   return list;
 }
@@ -62,9 +86,14 @@ const QStringList SelectPresets::systemPresets()
 void SelectPresets::reload()
 {
   QStringList list;
-  list << userPresets() << systemPresets();
+  if ( ! videoCodec.isEmpty() )
+    list << userPresets ( videoCodec ) << systemPresets ( videoCodec );
+
+  if ( ! audioCodec.isEmpty() )
+    list << userPresets ( audioCodec ) << systemPresets ( audioCodec );
+
   clear();
-  addItem ( trUtf8 ( "Presets" ), false );
+  addItem ( trUtf8 ( "Presets for (%1/%2)" ).arg ( videoCodec, audioCodec ), false );
   foreach ( QString val,  list )
   {
     addItem ( val, true );

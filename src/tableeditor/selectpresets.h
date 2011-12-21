@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
@@ -42,8 +43,10 @@ class SelectPresets : public AbstractSelection
 
   private:
     const QStringList nameFilters;
-    const QStringList userPresets();
-    const QStringList systemPresets();
+    QString audioCodec;
+    QString videoCodec;
+    const QStringList userPresets ( const QString &suffix );
+    const QStringList systemPresets ( const QString &suffix );
 
   public Q_SLOTS:
     void reload();
