@@ -27,14 +27,12 @@
 AbstractSelection::AbstractSelection ( QWidget * parent )
     : QComboBox ( parent )
 {
-  setEditable ( true );
-  setInsertPolicy ( QComboBox::InsertAtTop );
-//   setSizeAdjustPolicy ( QComboBox::AdjustToContents );
+  setEditable ( false );
 }
 
 void AbstractSelection::setValue ( const QVariant &value )
 {
-  int index = findData ( value, Qt::UserRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
+  int index = findData ( value, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
   if ( index != -1 )
     setCurrentIndex ( index );
 }
@@ -42,7 +40,8 @@ void AbstractSelection::setValue ( const QVariant &value )
 const QVariant AbstractSelection::value()
 {
   QVariant val;
-  return itemData ( currentIndex(), Qt::UserRole );
+  if ( itemData ( currentIndex(), Qt::UserRole ).toBool() )
+    return itemData ( currentIndex(), Qt::DisplayRole );
 }
 
 QByteArray AbstractSelection::valuePropertyName () const

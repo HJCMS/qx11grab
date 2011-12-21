@@ -31,7 +31,7 @@ SelectPresets::SelectPresets ( QWidget * parent )
     , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
   setObjectName ( QLatin1String ( "SelectPresets" ) );
-  setToolTip ( trUtf8 ( "Preset files are specified with the vpre, apre, spre, and fpre options.\nThe fpre option takes the filename of the preset instead of a preset name as input and can be used for any kind of codec.\nFor the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
+  setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
   reload();
 }
 
@@ -61,12 +61,13 @@ const QStringList SelectPresets::systemPresets()
 
 void SelectPresets::reload()
 {
-  QStringList list ( trUtf8 ( "Presets" ) );
+  QStringList list;
   list << userPresets() << systemPresets();
   clear();
+  addItem ( trUtf8 ( "Presets" ), false );
   foreach ( QString val,  list )
   {
-    addItem ( val, val );
+    addItem ( val, true );
   }
 }
 

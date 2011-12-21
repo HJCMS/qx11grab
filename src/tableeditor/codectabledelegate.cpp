@@ -60,11 +60,14 @@ const QString CodecTableDelegate::findOption ( const QModelIndex &index ) const
   return index.sibling ( index.row(), 0 ).data().toString();
 }
 
+/**
+* Gültige Preset Optionen für sind (vpre, apre und spre).
+* Bei -fpre wird ein Pfad zur *.ffpreset verlangt!
+*/
 bool CodecTableDelegate::isPresetsOptions ( const QModelIndex &index ) const
 {
-  QStringList opts;
-  opts << "-vpre" << "-apre" << "-spre" << "-fpre";
-  return opts.contains ( findOption ( index ) );
+  QRegExp pattern ( "^\\-[asv]pre[:\\w]?" );
+  return findOption ( index ).contains ( pattern );
 }
 
 QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
