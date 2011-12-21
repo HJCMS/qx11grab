@@ -25,137 +25,137 @@
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="52"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="54"/>
         <source>Audio Settings</source>
         <translation type="unfinished">Garso nuostatos</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="58"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="59"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
         <translation type="unfinished">Pagerinta Linux garso sistema (ALSA)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="62"/>
         <source>Open Sound System (OSS)</source>
         <translation type="unfinished">Atvira garso sistema (OSS)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="64"/>
         <source>Soundserver (Pulse)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="67"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="71"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished">Garso stiprumas:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="77"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="81"/>
         <source>Change Audio Volume (256=normal)</source>
         <translation type="unfinished">Keisti garsumą (256=normalus)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="78"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="82"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <translation type="unfinished">Keisti garsumą.
 Numatytasis: 256</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="93"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="97"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished">Garso įrašymo įrenginys:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="99"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="103"/>
         <source>Change Audio Capture Device
 OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished">Keisti garso įrašymo įrenginį
 OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="105"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="109"/>
         <source>Select ALSA Audio Capture Device</source>
         <translation type="unfinished">Pasirinkite ALSA garso įrašymo įrenginį</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="110"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
         <source>The sample format of the incoming audio buffers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="117"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
         <source>To show available sample formats use ffmpeg -sample_fmts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
         <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="122"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
         <source>signed 32 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
         <source>float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
         <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
         <source>unsigned  8 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="130"/>
         <source>signed 16 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="131"/>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="132"/>
         <source>float, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="133"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="290"/>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="306"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="296"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="312"/>
         <source>Unknown</source>
         <translation type="unfinished">Nežinoma</translation>
     </message>
@@ -286,12 +286,12 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="175"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="183"/>
         <source>Fullscreen</source>
         <translation>Visame ekrane</translation>
     </message>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="148"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="151"/>
         <source>Unknown</source>
         <translation>Nežinoma</translation>
     </message>
@@ -400,62 +400,62 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="56"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="58"/>
         <source>Dimension:</source>
         <translation>Dydis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="66"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="68"/>
         <source>Width:</source>
         <translation>Plotis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="86"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="87"/>
         <source>Height:</source>
         <translation>Aukštis:</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="106"/>
-        <source>Name:</source>
-        <translation>Pavadinimas:</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
         <source>Position X:</source>
         <translation>X padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="137"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="125"/>
         <source>Position Y:</source>
         <translation>Y padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="157"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
         <source>Depth:</source>
         <translation>Gylis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="156"/>
         <source>Framerate:</source>
         <translation>Kadrų dažnis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
+        <source>Features</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="173"/>
         <source>Display Rubberband</source>
         <translation>Rodyti rėmelį</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="186"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="178"/>
         <source>Start Minimized</source>
         <translation>Pradėti nuleidus į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="191"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
         <source>Insert Metadata</source>
         <translation>Įterpti meta duomenis</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="196"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="188"/>
         <source>Enable Audio Recording</source>
         <translation>Įgalinti garso įrašymą</translation>
     </message>
@@ -689,7 +689,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>PulseAudioDialog</name>
     <message>
-        <location filename="../src/audio/pulseaudiodialog.cpp" line="131"/>
+        <location filename="../src/audio/pulseaudiodialog.cpp" line="151"/>
         <source>Pulse Device Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -697,87 +697,97 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="328"/>
-        <source>grabbed Dimension</source>
-        <translation>dydis parinktas pagal langą</translation>
-    </message>
-    <message>
         <location filename="../src/qx11grab.cpp" line="76"/>
         <source>QX11Grab (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="105"/>
+        <source>main requirements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="106"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="108"/>
+        <location filename="../src/qx11grab.cpp" line="109"/>
+        <source>main features</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="110"/>
         <source>Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="112"/>
+        <location filename="../src/qx11grab.cpp" line="114"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="116"/>
+        <location filename="../src/qx11grab.cpp" line="118"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="120"/>
+        <location filename="../src/qx11grab.cpp" line="122"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="123"/>
+        <location filename="../src/qx11grab.cpp" line="125"/>
+        <source>command line preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="126"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="379"/>
+        <location filename="../src/qx11grab.cpp" line="381"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="379"/>
+        <location filename="../src/qx11grab.cpp" line="381"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="392"/>
+        <location filename="../src/qx11grab.cpp" line="394"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="451"/>
+        <location filename="../src/qx11grab.cpp" line="453"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="451"/>
+        <location filename="../src/qx11grab.cpp" line="453"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="575"/>
+        <location filename="../src/qx11grab.cpp" line="577"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="601"/>
+        <location filename="../src/qx11grab.cpp" line="603"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="601"/>
+        <location filename="../src/qx11grab.cpp" line="603"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="626"/>
+        <location filename="../src/qx11grab.cpp" line="628"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

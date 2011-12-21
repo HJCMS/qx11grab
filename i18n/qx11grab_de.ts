@@ -349,10 +349,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Höhe:</translation>
     </message>
     <message>
-        <source>Name:</source>
-        <translation>Name:</translation>
-    </message>
-    <message>
         <source>Position X:</source>
         <translation>Position X:</translation>
     </message>
@@ -387,6 +383,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Insert Metadata</source>
         <translation>Kopfdaten einfügen</translation>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation>Fähigkeiten</translation>
     </message>
 </context>
 <context>
@@ -580,10 +580,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <source>grabbed Dimension</source>
-        <translation>Abgegriffene Dimension</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
@@ -646,6 +642,18 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>Open Bookmark %1</source>
         <translation>Öffne Lesezeichen %1</translation>
+    </message>
+    <message>
+        <source>main requirements</source>
+        <translation>Abhängigkeiten</translation>
+    </message>
+    <message>
+        <source>main features</source>
+        <translation>Hauptfähigkeiten</translation>
+    </message>
+    <message>
+        <source>command line preview</source>
+        <translation>Kommadozeilen Vorschau</translation>
     </message>
 </context>
 <context>

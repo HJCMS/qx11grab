@@ -331,10 +331,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>Výška:</translation>
     </message>
     <message>
-        <source>Name:</source>
-        <translation>Název:</translation>
-    </message>
-    <message>
         <source>Position X:</source>
         <translation>Poloha X:</translation>
     </message>
@@ -369,6 +365,10 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <message>
         <source>Insert Metadata</source>
         <translation>Vložit údaje (metadata)</translation>
+    </message>
+    <message>
+        <source>Features</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -562,10 +562,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
 <context>
     <name>QX11Grab</name>
     <message>
-        <source>grabbed Dimension</source>
-        <translation>Sejmut rozměr</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
@@ -627,6 +623,18 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Open Bookmark %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>main requirements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>main features</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>command line preview</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
