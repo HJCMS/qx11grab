@@ -42,6 +42,7 @@ class TableEditor : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_ENUMS ( CODEC )
 
   private:
     QString currentType;
@@ -53,7 +54,6 @@ class TableEditor : public QWidget
     void findVideoCodecs();
     void findAudioCodecs();
     const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
-    const QHash<QString,QString> tableItems();
     void loadTableOptions ( const QString &, QSettings * );
     void saveTableOptions ( const QString &, QSettings * );
 
@@ -70,6 +70,7 @@ class TableEditor : public QWidget
 
   public:
     TableEditor ( QWidget * parent = 0 );
+    const QHash<QString,QVariant> getTableItems();
     const QString selectedCodec();
     const QStringList getCmd();
     void setCodecByName ( const QString &txt );

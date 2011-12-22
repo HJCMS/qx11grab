@@ -23,6 +23,7 @@
 #define BOOKMARKDIALOG_H
 
 /* QtCore */
+#include <QtCore/QHash>
 #include <QtCore/QObject>
 #include <QtCore/QSettings>
 #include <QtCore/QStringList>
@@ -33,7 +34,6 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
-class Settings;
 class Bookmark;
 
 class BookmarkDialog : public QDialog
@@ -44,9 +44,12 @@ class BookmarkDialog : public QDialog
     Q_PROPERTY ( QString bookmark READ getBookmark WRITE setBookmark )
 
   private:
-    Settings* settings;
     Bookmark* xml;
     const QString dbusPath;
+    QString vCodecID;
+    QHash<QString,QVariant> vCodec;
+    QString aCodecID;
+    QHash<QString,QVariant> aCodec;
     QLineEdit* m_titleEdit;
     QDialogButtonBox* m_buttonBox;
 
@@ -55,7 +58,10 @@ class BookmarkDialog : public QDialog
     void saveAndExit();
 
   public:
-    explicit BookmarkDialog ( Settings * cfg, QWidget * parent = 0 );
+    explicit BookmarkDialog ( QWidget * parent = 0 );
+
+    void setVCodecOptions ( const QString &id, const QHash<QString,QVariant> &hash );
+    void setACodecOptions ( const QString &id, const QHash<QString,QVariant> &hash );
 
     Q_SCRIPTABLE void setBookmark ( const QString &str );
     Q_SCRIPTABLE const QString getBookmark();

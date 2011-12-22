@@ -33,8 +33,6 @@ ADD_LIBRARY (${_subproject} STATIC
   ${_subproject_SOURCES}
 )
 
-ADD_DEPENDENCIES (${_subproject} Settings)
-
 SET_TARGET_PROPERTIES (${_subproject} PROPERTIES
   LINKER_LANGUAGE CXX
   OUTPUT_NAME ${_subproject}
@@ -45,7 +43,6 @@ SET_TARGET_PROPERTIES (${_subproject} PROPERTIES
 TARGET_LINK_LIBRARIES (${_subproject}
   ${QX11GRAB_LIBRARIES}
   ${QT_QTXML_LIBRARY}
-  Settings
 )
 
 ## EOF

@@ -21,16 +21,15 @@
 
 #include "bookmarkdialog.h"
 #include "bookmark.h"
-#include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
-#include <QtCore/QHash>
 #include <QtCore/QHashIterator>
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QCompleter>
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
@@ -39,9 +38,8 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 
-BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
+BookmarkDialog::BookmarkDialog ( QWidget * parent )
     : QDialog ( parent )
-    , settings ( cfg )
     , xml ( new Bookmark() )
     , dbusPath ( "/Bookmark" )
 {
@@ -49,6 +47,7 @@ BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
   setWindowTitle ( trUtf8 ( "Bookmark" ) );
   setMinimumWidth ( 250 );
   setSizeGripEnabled ( true );
+  xml->open();
 
   QGridLayout* layout = new QGridLayout ( this );
   layout->setObjectName ( "BookmarkDialog/Layout" );
@@ -60,6 +59,9 @@ BookmarkDialog::BookmarkDialog ( Settings * cfg, QWidget * parent )
   m_titleEdit = new QLineEdit ( this );
   m_titleEdit->setWhatsThis ( trUtf8 ( "Required Bookmark Identifier" ) );
   layout->addWidget ( m_titleEdit, 0, 1, 1, 1 );
+
+  QCompleter* m_compliter = new QCompleter ( xml->entries(), m_titleEdit );
+  m_titleEdit->setCompleter ( m_compliter );
   // } Title
 
   m_buttonBox = new QDialogButtonBox ( ( QDialogButtonBox::Save | QDialogButtonBox::Close )
@@ -92,18 +94,13 @@ void BookmarkDialog::saveAndExit()
   xml->open();
 
   BookmarkEntry entry = xml->entry ( id );
-  entry.setCodecOptions ( BookmarkEntry::VCODEC,
-                          settings->value ( "video_codec" ).toString(),
-                          settings->readGroup ( "VideoOptions" ) );
+  entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
+  entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );
 
-  entry.setCodecOptions ( BookmarkEntry::ACODEC,
-                          settings->value ( "audio_codec" ).toString(),
-                          settings->readGroup ( "AudioOptions" ) );
-/*
 #ifdef MAINTAINER_REPOSITORY
   qDebug() << Q_FUNC_INFO << xml->toString ( 1 );
 #endif
-*/
+
   if ( xml->save() )
   {
     QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );
@@ -112,6 +109,20 @@ void BookmarkDialog::saveAndExit()
   }
   else
     reject();
+}
+
+void BookmarkDialog::setVCodecOptions ( const QString &id, const QHash<QString,QVariant> &hash )
+{
+  vCodecID = id;
+  vCodec.clear();
+  vCodec = hash;
+}
+
+void BookmarkDialog::setACodecOptions ( const QString &id, const QHash<QString,QVariant> &hash )
+{
+  aCodecID = id;
+  aCodec.clear();
+  aCodec = hash;
 }
 
 void BookmarkDialog::setBookmark ( const QString &str )

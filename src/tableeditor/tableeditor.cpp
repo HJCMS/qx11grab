@@ -174,28 +174,6 @@ const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QS
 }
 
 /**
-* Lese alle Inhalte aus der Tabelle und Schreibe sie in einen Hash
-*/
-const QHash<QString,QString> TableEditor::tableItems()
-{
-  QHash<QString,QString> hash;
-  for ( int r = 0; r < m_tableWidget->rowCount(); r++ )
-  {
-    // Argument
-    QPair<QString,QVariant> p = m_tableWidget->item ( r );
-    /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
-    * Diese aber nicht Bearbeitet, dann verhindern das
-    * an dieser Stelle dass Programm wegen fehlenden
-    * QTableWidgetItem Pointer nicht abstürzt! */
-    if ( p.first.isEmpty() )
-      continue;
-
-    hash[p.first] = p.second.toString();
-  }
-  return hash;
-}
-
-/**
 * Tabelle befüllen
 */
 void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
@@ -209,14 +187,14 @@ void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
 */
 void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
 {
-  QHash<QString,QString> hash = tableItems();
+  QHash<QString,QVariant> hash = getTableItems();
   if ( hash.size() < 1 )
     return;
 
   int row = 0;
   cfg->remove ( type );
   cfg->beginWriteArray ( type );
-  QHashIterator<QString,QString> it ( hash );
+  QHashIterator<QString,QVariant> it ( hash );
   while ( it.hasNext() )
   {
     it.next();
@@ -291,6 +269,28 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
 }
 
 /**
+* Lese alle Inhalte aus der Tabelle und Schreibe sie in einen Hash
+*/
+const QHash<QString,QVariant> TableEditor::getTableItems()
+{
+  QHash<QString,QVariant> hash;
+  for ( int r = 0; r < m_tableWidget->rowCount(); r++ )
+  {
+    // Argument
+    QPair<QString,QVariant> p = m_tableWidget->item ( r );
+    /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
+    * Diese aber nicht Bearbeitet, dann verhindern das
+    * an dieser Stelle dass Programm wegen fehlenden
+    * QTableWidgetItem Pointer nicht abstürzt! */
+    if ( p.first.isEmpty() )
+      continue;
+
+    hash[p.first] = p.second.toString();
+  }
+  return hash;
+}
+
+/**
 * Den Aktuell ausgewählten Codec
 */
 const QString TableEditor::selectedCodec()
@@ -316,16 +316,16 @@ const QStringList TableEditor::getCmd ()
     cmd << m_codecComboBox->itemText ( m_codecComboBox->currentIndex() );
   }
 
-  QHash<QString,QString> hash = tableItems();
+  QHash<QString,QVariant> hash = getTableItems();
   if ( hash.size() >= 1 )
   {
-    QHashIterator<QString,QString> it ( hash );
+    QHashIterator<QString,QVariant> it ( hash );
     while ( it.hasNext() )
     {
       it.next();
       cmd << it.key();
-      if ( ! it.value().isEmpty() )
-        cmd << it.value();
+      if ( ! it.value().toString().isEmpty() )
+        cmd << it.value().toString();
     }
   }
   return cmd;

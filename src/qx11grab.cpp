@@ -576,7 +576,9 @@ void QX11Grab::exportCommand()
 */
 void QX11Grab::openCreateBookmark()
 {
-  BookmarkDialog* d = new BookmarkDialog ( cfg, this );
+  BookmarkDialog* d = new BookmarkDialog ( this );
+  d->setVCodecOptions ( m_videoEditor->selectedCodec(), m_videoEditor->getTableItems () );
+  d->setACodecOptions ( m_audioEditor->selectedCodec(), m_audioEditor->getTableItems () );
   d->exec();
   delete d;
 }

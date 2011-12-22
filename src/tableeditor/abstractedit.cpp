@@ -25,12 +25,20 @@
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 
+/* QtGui */
+#include <QtGui/QCompleter>
+
 AbstractEdit::AbstractEdit ( QWidget * parent )
     : QLineEdit ( parent )
     , m_regExpValidator ( new QRegExpValidator ( this ) )
 {
   QRegExp pattern ( "[^ \n\t&\\]+" );
   m_regExpValidator->setRegExp ( pattern );
+
+  /** TODO Options Completer
+    QCompleter* m_compliter = new QCompleter ( QStringList(), this );
+    setCompleter ( m_compliter );
+  */
 }
 
 const QString AbstractEdit::implode ( const QStringList &data ) const
