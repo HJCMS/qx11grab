@@ -30,7 +30,13 @@
 /* FFmpeg */
 extern "C"
 {
-#include <libavutil/common.h>
+#include <libavutil/avutil.h>
+#include <libavformat/avformat.h>
+#include <libavcodec/avcodec.h>
+#include <libavutil/samplefmt.h>
+#include <libavutil/pixdesc.h>
+#include <libavutil/avstring.h>
+#include <libavutil/opt.h>
 }
 
 namespace QX11Options
@@ -42,9 +48,47 @@ namespace QX11Options
     setObjectName ( "AVOptions" );
   }
 
-  void AVOptions::optionRequest ( const QString &option, const QVariant &value )
+  const QList<FFOption> AVOptions::sampleFormats() const
   {
-    qDebug() << "TODO" << Q_FUNC_INFO << option << value;
+    QList<FFOption> list;
+    char fmt_str[128];
+    for ( int i = -1; i < AV_SAMPLE_FMT_NB; i++ )
+    {
+      av_get_sample_fmt_string ( fmt_str, sizeof ( fmt_str ), static_cast<AVSampleFormat> ( i ) );
+      if ( i != -1 )
+      {
+        QStringList name = QString::fromUtf8 ( fmt_str ).split ( " " );
+        FFOption opt;
+        opt.id = i;
+        opt.name = name.first();
+        opt.value = QVariant();
+        list.append ( opt );
+      }
+    }
+    return list;
+  }
+
+  const QList<FFOption> AVOptions::pixelFormats() const
+  {
+    QList<FFOption> list;
+    for ( int i = 0; i < PIX_FMT_NB; i++ )
+    {
+      const AVPixFmtDescriptor* pix_desc = &av_pix_fmt_descriptors[ static_cast<PixelFormat> ( i ) ];
+      if ( ! pix_desc->name )
+        continue;
+
+      FFOption opt;
+      opt.id = i;
+      opt.name = QString::fromUtf8 ( pix_desc->name );
+      opt.value = QVariant();
+      list.append ( opt );
+    }
+    return list;
+  }
+
+  void AVOptions::getVideoCodecOption ( const QString &option, const QVariant &value )
+  {
+      qDebug() << Q_FUNC_INFO << "TODO" << option << value;
   }
 
   const QList<FFCodec> AVOptions::videoCodecs()

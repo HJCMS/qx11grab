@@ -55,6 +55,7 @@ class GrabberInfo : public QWidget
     QSlider* setXSlider;
     QSpinBox* setYBox;
     QSlider* setYSlider;
+    QSpinBox* setDepth;
     QSpinBox* setFrameRate;
     QCheckBox* showRubberband;
     QCheckBox* startMinimized;

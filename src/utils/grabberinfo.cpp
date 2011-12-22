@@ -146,9 +146,9 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt7->setAlignment ( labelAlignment );
   horizontalLayout->addWidget ( txt7, Qt::AlignRight );
 
-  QSpinBox* depth = new QSpinBox ( this );
-  depth->setDisabled ( true );
-  horizontalLayout->addWidget ( depth, Qt::AlignLeft );
+  setDepth = new QSpinBox ( this );
+  setDepth->setDisabled ( true );
+  horizontalLayout->addWidget ( setDepth, Qt::AlignLeft );
   // end: Desktop Color Depth
 
   // begin: Frame Rate
@@ -208,7 +208,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
             setHeightBox, SLOT ( setValue ( int ) ) );
 
   connect ( screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
-            depth, SLOT ( setValue ( int ) ) );
+            setDepth, SLOT ( setValue ( int ) ) );
 
   // SIGNALS:Width {
   connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
@@ -319,6 +319,11 @@ void GrabberInfo::setRubberbandUpdate ( int i )
 */
 void GrabberInfo::load ( QSettings *cfg )
 {
+  // Grabber
+  setRect ( cfg->value ( QLatin1String ( "Grabber/Dimension" ) ).toRect() );
+  setDepth->setValue ( cfg->value ( QLatin1String ( "Grabber/Depth" ), 24 ).toUInt() );
+  setFrameRate->setValue ( cfg->value ( QLatin1String ( "Grabber/FrameRate" ), 25 ).toUInt() );
+  // Options
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
   soundRecording->setChecked ( cfg->value ( QLatin1String ( "SoundRecording" ) ).toBool() );
@@ -334,6 +339,10 @@ void GrabberInfo::save ( QSettings *cfg )
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
   cfg->setValue ( QLatin1String ( "SoundRecording" ), soundRecording->isChecked() );
   cfg->setValue ( QLatin1String ( "Metadata" ), setMetadata->isChecked() );
+  // Grabber
+  cfg->setValue ( QLatin1String ( "Grabber/Dimension" ), getRect() );
+  cfg->setValue ( QLatin1String ( "Grabber/Depth" ), setDepth->value() );
+  cfg->setValue ( QLatin1String ( "Grabber/FrameRate" ), setFrameRate->value() );
 }
 
 /**

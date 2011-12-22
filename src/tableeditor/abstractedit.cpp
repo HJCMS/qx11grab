@@ -34,11 +34,6 @@ AbstractEdit::AbstractEdit ( QWidget * parent )
 {
   QRegExp pattern ( "[^ \n\t&\\]+" );
   m_regExpValidator->setRegExp ( pattern );
-
-  /** TODO Options Completer
-    QCompleter* m_compliter = new QCompleter ( QStringList(), this );
-    setCompleter ( m_compliter );
-  */
 }
 
 const QString AbstractEdit::implode ( const QStringList &data ) const
@@ -56,6 +51,15 @@ const QStringList AbstractEdit::explode ( const QString &data ) const
 void AbstractEdit::setValue ( const QVariant &value )
 {
   setText ( value.toString() );
+}
+
+void AbstractEdit::setCompleters ( const QStringList &list )
+{
+  if ( list.size() > 0 )
+  {
+    QCompleter* m_compliter = new QCompleter ( list, this );
+    setCompleter ( m_compliter );
+  }
 }
 
 const QVariant AbstractEdit::value()

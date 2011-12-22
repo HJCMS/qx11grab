@@ -49,6 +49,7 @@ class AbstractEdit : public QLineEdit
 
   public:
     explicit AbstractEdit ( QWidget * parent = 0 );
+    void setCompleters ( const QStringList &list );
     const QVariant value();
     const QByteArray valuePropertyName () const;
     ~AbstractEdit();

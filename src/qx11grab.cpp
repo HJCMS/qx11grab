@@ -543,7 +543,12 @@ void QX11Grab::perparePreview()
     commandLine << m_audioEditor->getCmd ();
 
   // Output Options
-  commandLine << "-y" << m_defaults->output();
+  if ( videoCodec().contains ( "theora", Qt::CaseInsensitive ) )
+    commandLine << "-y" << QString ( "%1.ogv" ).arg ( m_defaults->output() );
+  else if ( videoCodec().contains ( "mpeg", Qt::CaseInsensitive ) )
+    commandLine << "-y" << QString ( "%1.mpg" ).arg ( m_defaults->output() );
+  else
+    commandLine << "-y" << QString ( "%1.avi" ).arg ( m_defaults->output() );
 
   m_commandPreview->setCommandLine ( commandLine );
 

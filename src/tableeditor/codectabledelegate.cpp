@@ -22,9 +22,6 @@
 #include "codectabledelegate.h"
 #include "codectablemodel.h"
 
-/* QX11Options */
-#include "avoptions.h"
-
 /* QX11Grab */
 #include "selectvcodecpresets.h"
 #include "selectacodecpresets.h"
@@ -46,8 +43,10 @@
 
 CodecTableDelegate::CodecTableDelegate ( QObject * parent )
     : QItemDelegate ( parent )
+    , m_aVOptions ( new QX11Options::AVOptions ( this ) )
 {
   setObjectName ( QLatin1String ( "CodecTableDelegate" ) );
+  m_aVOptions->getVideoCodecOption ( QLatin1String ( "mpeg4" ), QVariant() );
 }
 
 void CodecTableDelegate::housemaster ( const QString &message ) const
@@ -58,7 +57,8 @@ void CodecTableDelegate::housemaster ( const QString &message ) const
 
 const QString CodecTableDelegate::findOption ( const QModelIndex &index ) const
 {
-  return index.sibling ( index.row(), 0 ).data().toString();
+  QString option = index.sibling ( index.row(), 0 ).data().toString();
+  return option;
 }
 
 /**

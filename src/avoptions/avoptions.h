@@ -27,15 +27,8 @@
 #include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 #include <QtCore/QVariant>
-
-/* FFmpeg */
-extern "C"
-{
-#include <libavutil/avutil.h>
-#include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
-}
 
 namespace QX11Options
 {
@@ -45,6 +38,13 @@ namespace QX11Options
     QString name;
     QString fullname;
   } FFCodec;
+
+  typedef struct Q_DECL_EXPORT
+  {
+    int id;
+    QString name;
+    QVariant value;
+  } FFOption;
 
   /**
   * base class for fetching FFmpeg Codecs and Options
@@ -57,20 +57,21 @@ namespace QX11Options
     Q_SIGNALS:
       void optionInfo ( const QString &info );
 
-    public Q_SLOTS:
-      void optionRequest ( const QString &option, const QVariant &value = QVariant() );
-
     public:
       AVOptions ( QObject * parent = 0 );
 
-      /**
-      * a list of all supported AVMEDIA_TYPE_VIDEO encoder types
-      */
+      /** ffmpeg -sample_fmts */
+      const QList<FFOption> sampleFormats() const;
+
+      /** ffmpeg -spix_fmts */
+      const QList<FFOption> pixelFormats() const;
+
+      void getVideoCodecOption ( const QString &option, const QVariant &value = QVariant() );
+
+      /** all supported AVMEDIA_TYPE_VIDEO encoder types */
       static const QList<FFCodec> videoCodecs();
 
-      /**
-      * a list of all supported AVMEDIA_TYPE_AUDIO encoder types
-      */
+      /** all supported AVMEDIA_TYPE_AUDIO encoder types */
       static const QList<FFCodec> audioCodecs();
 
       virtual ~AVOptions();
@@ -79,5 +80,6 @@ namespace QX11Options
 }  /* eof namespace QX11Options */
 
 Q_DECLARE_METATYPE ( QX11Options::FFCodec )
+Q_DECLARE_METATYPE ( QX11Options::FFOption )
 
 #endif
