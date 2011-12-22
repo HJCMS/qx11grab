@@ -189,7 +189,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="119"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="146"/>
         <source>Missing stated hyphens in given argument</source>
         <translation type="unfinished"></translation>
     </message>
@@ -816,15 +816,28 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     </message>
 </context>
 <context>
-    <name>SelectPresets</name>
+    <name>SelectAcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectpresets.cpp" line="39"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="39"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectpresets.cpp" line="96"/>
-        <source>Presets for (%1/%2)</source>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="88"/>
+        <source>Presets for (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SelectVcodecPresets</name>
+    <message>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="39"/>
+        <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="88"/>
+        <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

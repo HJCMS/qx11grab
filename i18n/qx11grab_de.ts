@@ -676,14 +676,25 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
-    <name>SelectPresets</name>
+    <name>SelectAcodecPresets</name>
     <message>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation>Bei den Optionen  vpre, apre, und spre, verweist das Argument auf den aktuell verwendeten Kodierer inklusive der Wertzuweisung.</translation>
     </message>
     <message>
-        <source>Presets for (%1/%2)</source>
-        <translation>Presets für (%1/%2)</translation>
+        <source>Presets for (%1)</source>
+        <translation>Presets für (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>SelectVcodecPresets</name>
+    <message>
+        <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <translation>Bei den Optionen  vpre, apre, und spre, verweist das Argument auf den aktuell verwendeten Kodierer inklusive der Wertzuweisung.</translation>
+    </message>
+    <message>
+        <source>Presets for (%1)</source>
+        <translation>Presets für (%1)</translation>
     </message>
 </context>
 <context>

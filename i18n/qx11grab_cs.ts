@@ -134,44 +134,44 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>BookmarkDialog</name>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložka</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Název</translation>
     </message>
     <message>
         <source>Required Bookmark Identifier</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyžadován identifikátor záložky</translation>
     </message>
 </context>
 <context>
     <name>BookmarkSelecter</name>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložka</translation>
     </message>
 </context>
 <context>
     <name>CodecTableDelegate</name>
     <message>
         <source>Missing stated hyphens in given argument</source>
-        <translation type="unfinished"></translation>
+        <translation>V daném argumentu chybí stanovené spojovníky</translation>
     </message>
 </context>
 <context>
     <name>CodecTableModel</name>
     <message>
         <source>At first, we have to create a argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nejprve se musí vytvořit argument.</translation>
     </message>
     <message>
         <source>Parameter</source>
-        <translation type="unfinished">Parametr</translation>
+        <translation>Parametr</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">Hodnota</translation>
+        <translation>Hodnota</translation>
     </message>
 </context>
 <context>
@@ -246,11 +246,11 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     <name>ExportDialog</name>
     <message>
         <source>Export current Commandline</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyvést nynější příkazový řádek</translation>
     </message>
     <message>
         <source>Shell Script (*.sh)</source>
-        <translation type="unfinished"></translation>
+        <translation>Shellový skript (*.sh)</translation>
     </message>
 </context>
 <context>
@@ -490,35 +490,35 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyvést</translation>
     </message>
     <message>
         <source>Export current command set</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyvést nynější soubor příkazů</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložka</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Činnosti</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytvořit</translation>
     </message>
     <message>
         <source>Open create Bookmark Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít dialog na vytvoření záložky</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Open delete Bookmark Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít dialog na smazání záložky</translation>
     </message>
 </context>
 <context>
@@ -583,47 +583,47 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>commandline exported</source>
-        <translation type="unfinished"></translation>
+        <translation>příkazový řádek vyveden</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Program</translation>
     </message>
     <message>
         <source>Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>Metadata</source>
-        <translation type="unfinished"></translation>
+        <translation>Metadata</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>FFmpeg</source>
-        <translation type="unfinished">FFmpeg</translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <source>QX11Grab (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>QX11Grab (%1)</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit záložku</translation>
     </message>
     <message>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Záložka</translation>
     </message>
     <message>
         <source>Open Bookmark %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít záložku %1</translation>
     </message>
     <message>
         <source>main requirements</source>
@@ -658,13 +658,24 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
-    <name>SelectPresets</name>
+    <name>SelectAcodecPresets</name>
     <message>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Presets for (%1/%2)</source>
+        <source>Presets for (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SelectVcodecPresets</name>
+    <message>
+        <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -695,7 +706,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyprázdnit</translation>
     </message>
 </context>
 <context>

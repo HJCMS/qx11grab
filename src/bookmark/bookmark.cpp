@@ -34,7 +34,6 @@
 #include <QtGui/QDesktopServices>
 
 /* QtXml */
-#include <QtXml/QDomNode>
 #include <QtXml/QDomNodeList>
 #include <QtXml/QDomText>
 
@@ -48,7 +47,8 @@ static const QString bookmarkDataPath()
   return QString ( "%1/bookmark.xml" ).arg ( dest );
 }
 
-/** \class BookmarkEntry */
+/** \class BookmarkEntry
+*/
 BookmarkEntry::BookmarkEntry ( Bookmark *doc, const QString &id )
     : QDomElement ( doc->documentElement() )
 {
@@ -101,27 +101,19 @@ const QString BookmarkEntry::getCodecName ( TYPE type )
 
 void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
 {
-  QDomElement element;
-  if ( t == VCODEC )
-  {
-    element = vcodecNode;
-    vcodecNode.setAttribute ( "id", codecName );
-  }
-  else if ( t == ACODEC )
-  {
-    element = acodecNode;
-    acodecNode.setAttribute ( "id", codecName );
-  }
-  else
-    return;
-
   QDomDocument doc = ownerDocument();
+  QString id = codecName.trimmed();
+
+  QString nodeName = ( t == VCODEC ) ? "vcodec" : "acodec";
+  QDomElement sharedNode = doc.createElement ( nodeName );
+  sharedNode.setAttribute ( "id", id );
+
   QHash<QString,QVariant> h = hash;
   QHash<QString,QVariant>::iterator it;
   for ( it = h.begin(); it != h.end(); ++it )
   {
     QDomElement e = doc.createElement ( "entry" );
-    element.appendChild ( e );
+    sharedNode.appendChild ( e );
 
     QDomElement a = doc.createElement ( "argument" );
     a.appendChild ( doc.createCDATASection ( it.key() ) );
@@ -129,6 +121,31 @@ void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QH
     QDomElement v = doc.createElement ( "value" );
     v.appendChild ( doc.createCDATASection ( it.value().toString() ) );
     e.appendChild ( v );
+  }
+
+  /** Suche nach Existierenden Einträgen
+  * Wenn Element mit id vorhanden existieren dann ersetzen.
+  * Andernfalls füge den Neuen Elemente-Baum ein.
+  */
+  if ( t == VCODEC )
+  {
+    if ( vcodecNode.attribute ( "id" ).compare ( id ) == 0 )
+    {
+      if ( ! replaceChild ( sharedNode, vcodecNode ).isNull() )
+        vcodecNode = sharedNode;
+    }
+    else
+      vcodecNode.appendChild ( sharedNode );
+  }
+  else if ( t == ACODEC )
+  {
+    if ( acodecNode.attribute ( "id" ).compare ( id ) == 0 )
+    {
+      if ( ! replaceChild ( sharedNode, acodecNode ).isNull() )
+        acodecNode = sharedNode;
+    }
+    else
+      acodecNode.appendChild ( sharedNode );
   }
 }
 
@@ -205,6 +222,7 @@ const QStringList Bookmark::entries()
 const BookmarkEntry Bookmark::entry ( const QString &id )
 {
   Q_ASSERT ( ! ( id.isEmpty() ) );
+  QString ref = id.trimmed();
   if ( hasChildNodes() )
   {
     QDomNodeList nodes = elementsByTagName ( "entry" );
@@ -214,17 +232,18 @@ const BookmarkEntry Bookmark::entry ( const QString &id )
       if ( ! e.hasAttribute ( "title" ) )
         continue;
 
-      if ( e.attribute ( "title" ).compare ( id ) == 0 )
+      if ( e.attribute ( "title" ).compare ( ref ) == 0 )
         return static_cast<BookmarkEntry> ( e );
     }
   }
-  return BookmarkEntry ( this, id );
+  return BookmarkEntry ( this, ref );
 }
 
 bool Bookmark::removeEntryById ( const QString &id )
 {
   if ( hasChildNodes() )
   {
+    QString ref = id.trimmed();
     QDomNodeList nodes = elementsByTagName ( "entry" );
     for ( int n = 0; n < nodes.size(); ++n )
     {
@@ -232,7 +251,7 @@ bool Bookmark::removeEntryById ( const QString &id )
       if ( ! e.hasAttribute ( "title" ) )
         continue;
 
-      if ( e.attribute ( "title" ).compare ( id ) == 0 )
+      if ( e.attribute ( "title" ).compare ( ref ) == 0 )
       {
         documentElement().removeChild ( e );
         break;
@@ -269,20 +288,6 @@ bool Bookmark::save ( QDomDocument * xml ) const
     return true;
   }
   return false;
-}
-
-const QString Bookmark::implode ( const QStringList &data ) const
-{
-  QString buffer ( data.join ( " " ) );
-  QRegExp pattern ( "[\\s\\t]+\\-" );
-  buffer.replace ( pattern, "\n-" );
-  return buffer;
-}
-
-const QStringList Bookmark::explode ( const QString &data ) const
-{
-  QString buffer ( data );
-  return buffer.split ( "\n" );
 }
 
 Bookmark::~Bookmark()

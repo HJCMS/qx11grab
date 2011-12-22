@@ -25,6 +25,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
+#include <QtCore/QRegExp>
 
 /* QtDBus */
 #include <QtDBus/QDBusInterface>
@@ -54,9 +55,10 @@ const QStringList SelectAcodecPresets::userPresets ( const QString &suffix )
   foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
   {
     QString bn = info.completeBaseName();
-    if ( bn.contains ( suffix ) )
+    QRegExp pattern ( "^"+suffix+"\\-" );
+    if ( bn.contains ( pattern ) )
     {
-      list.append ( bn.replace ( QRegExp ( "^"+suffix+"\\-" ), "" ) );
+      list.append ( bn.replace ( pattern, "" ) );
     }
   }
   return list;
@@ -70,9 +72,10 @@ const QStringList SelectAcodecPresets::systemPresets ( const QString &suffix )
   foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
   {
     QString bn = info.completeBaseName();
-    if ( bn.contains ( suffix ) )
+    QRegExp pattern ( "^"+suffix+"\\-" );
+    if ( bn.contains ( pattern ) )
     {
-      list.append ( bn.replace ( QRegExp ( "^"+suffix+"\\-" ), "" ) );
+      list.append ( bn.replace ( pattern, "" ) );
     }
   }
   return list;

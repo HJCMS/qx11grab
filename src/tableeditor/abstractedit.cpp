@@ -23,10 +23,27 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QRegExp>
 
 AbstractEdit::AbstractEdit ( QWidget * parent )
     : QLineEdit ( parent )
-{}
+    , m_regExpValidator ( new QRegExpValidator ( this ) )
+{
+  QRegExp pattern ( "[^ \n\t&\\]+" );
+  m_regExpValidator->setRegExp ( pattern );
+}
+
+const QString AbstractEdit::implode ( const QStringList &data ) const
+{
+  QString buffer ( data.join ( "," ) );
+  return buffer.trimmed();
+}
+
+const QStringList AbstractEdit::explode ( const QString &data ) const
+{
+  QString buffer ( data );
+  return buffer.split ( "," );
+}
 
 void AbstractEdit::setValue ( const QVariant &value )
 {
@@ -38,7 +55,7 @@ const QVariant AbstractEdit::value()
   return QVariant ( text() );
 }
 
-QByteArray AbstractEdit::valuePropertyName () const
+const QByteArray AbstractEdit::valuePropertyName () const
 {
   return QByteArray ( "value" );
 }

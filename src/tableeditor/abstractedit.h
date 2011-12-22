@@ -30,6 +30,7 @@
 
 /* QtGui */
 #include <QtGui/QLineEdit>
+#include <QtGui/QRegExpValidator>
 #include <QtGui/QWidget>
 
 class AbstractEdit : public QLineEdit
@@ -38,13 +39,18 @@ class AbstractEdit : public QLineEdit
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_PROPERTY ( QVariant value READ value WRITE setValue USER true )
 
+  protected:
+    QRegExpValidator* m_regExpValidator;
+    const QString implode ( const QStringList &data ) const;
+    const QStringList explode ( const QString &data ) const;
+
   public Q_SLOTS:
     void setValue ( const QVariant &value );
 
   public:
     explicit AbstractEdit ( QWidget * parent = 0 );
     const QVariant value();
-    QByteArray valuePropertyName () const;
+    const QByteArray valuePropertyName () const;
     ~AbstractEdit();
 };
 

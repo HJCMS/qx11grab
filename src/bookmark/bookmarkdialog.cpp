@@ -99,11 +99,11 @@ void BookmarkDialog::saveAndExit()
   entry.setCodecOptions ( BookmarkEntry::ACODEC,
                           settings->value ( "audio_codec" ).toString(),
                           settings->readGroup ( "AudioOptions" ) );
-
+/*
 #ifdef MAINTAINER_REPOSITORY
   qDebug() << Q_FUNC_INFO << xml->toString ( 1 );
 #endif
-
+*/
   if ( xml->save() )
   {
     QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );

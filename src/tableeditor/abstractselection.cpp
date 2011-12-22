@@ -42,6 +42,8 @@ const QVariant AbstractSelection::value()
   QVariant val;
   if ( itemData ( currentIndex(), Qt::UserRole ).toBool() )
     return itemData ( currentIndex(), Qt::DisplayRole );
+
+  return val;
 }
 
 QByteArray AbstractSelection::valuePropertyName () const

@@ -515,11 +515,9 @@ void QX11Grab::perparePreview()
   commandLine << "-xerror" << "-f" << "x11grab";
 
   QRect r = m_grabberInfo->getRect();
+  QString geometry = QString ( "%1x%2" ).arg ( QString::number ( r.width() ), QString::number ( r.height() ) );
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
-  commandLine << "-video_size" << QString ( "%1x%2" ).arg (
-      QString::number ( r.width() ), QString::number ( r.height() )
-  );
-  commandLine << "-r" << QString::number ( m_grabberInfo->frameRate() );
+  commandLine << "-video_size" << geometry;
 
   QX11Info xInfo;
   commandLine << "-i" << QString ( ":%1.%2+%3,%4 " ) .arg (

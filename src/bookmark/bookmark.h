@@ -32,9 +32,30 @@
 /* QtXml */
 #include <QtXml/QDomDocument>
 #include <QtXml/QDomElement>
+#include <QtXml/QDomNode>
 
 class Bookmark;
 
+/**
+* @class BookmarkEntry
+* @short Primary Boomark Entries
+* @code
+* <entry title="QString">
+*   <vcodec id="QString">
+*     <entry>
+*       <argument><![CDATA[QString]]></argument>
+*       <value><![CDATA[QString]]></value>
+*     </entry>
+*   </vcodec>
+*   <acodec id="QString">
+*     <entry>
+*       <argument><![CDATA[QString]]></argument>
+*       <value><![CDATA[QString]]></value>
+*     </entry>
+*   </acodec>
+* </entry>
+* @endcode
+*/
 class BookmarkEntry : public QDomElement
 {
     Q_ENUMS ( TYPE )
@@ -56,11 +77,13 @@ class BookmarkEntry : public QDomElement
 
     /**
     * Set Codec Options e.g. -vcodec or -acodec
+    * @note If \ref codecName already exists it will overwriting!
     * @param  type        Codec Type (vcodec|acodec)
     * @param  codecName   Add Options for Codec Name
     * @param  hash        Options
     */
-    void setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash );
+    void setCodecOptions ( TYPE t, const QString &codecName,
+                           const QHash<QString,QVariant> &hash );
 
     /**
     * read Codec Options e.g. -vcodec or -acodec
@@ -69,6 +92,17 @@ class BookmarkEntry : public QDomElement
     const QHash<QString,QVariant> getCodecOptions ( TYPE t );
 };
 
+
+/**
+* @class Bookmark
+* @short Bookmark Document
+* @code
+* <?xml version='1.0' encoding='utf-8'?>
+* <bookmark>
+*   <!-- BookmarkEntries -->
+* </bookmark>
+* @endcode
+*/
 class Bookmark : public QDomDocument
 {
   private:
@@ -76,6 +110,10 @@ class Bookmark : public QDomDocument
 
   public:
     explicit Bookmark ();
+
+    /**
+    * Open Bookmark Document
+    */
     bool open ();
 
     /**
@@ -84,17 +122,28 @@ class Bookmark : public QDomDocument
     const QStringList entries();
 
     /**
-    * Open Bookmark Entry
+    * Open Bookmark Entry with given id
     * if not exists create a new empty Entry with id
+    * @param id  e.g. &lt;entry title="id"/&gt; Attributes
     */
     const BookmarkEntry entry ( const QString &id );
+
+    /**
+    * Remove Bookmark Entry with given id
+    * @param id  e.g. &lt;entry title="id"/&gt; Attributes
+    */
     bool removeEntryById ( const QString &id );
 
-    const QString implode ( const QStringList &data ) const;
-    const QStringList explode ( const QString &data ) const;
-
+    /**
+    * Save Current Document
+    */
     bool save () const;
+
+    /**
+    * Override with Document Copy
+    */
     bool save ( QDomDocument * xml ) const;
+
     ~Bookmark();
 };
 
