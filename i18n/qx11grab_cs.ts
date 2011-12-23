@@ -372,6 +372,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>Listener</name>
+    <message>
+        <source>Time: %1 Size: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogViewer</name>
     <message>
         <source>qx11grab logfile</source>

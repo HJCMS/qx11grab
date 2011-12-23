@@ -53,6 +53,7 @@ class TableEditor;
 class DesktopInfo;
 class RubberBand;
 class FFProcess;
+class Listener;
 class CommandPreview;
 class SystemTray;
 
@@ -64,9 +65,9 @@ class QX11Grab : public QMainWindow
   private:
     Settings* cfg;
     FFProcess* m_FFProcess;
+    Listener* m_listener;
     MenuBar* m_menuBar;
     ToolBar* m_toolBar;
-    int TimeOutMessages;
     GrabberInfo* m_grabberInfo;
     Defaults* m_defaults;
     MetaData* m_metaData;
@@ -77,6 +78,8 @@ class QX11Grab : public QMainWindow
     RubberBand* m_RubberBand;
     // SysTray
     SystemTray* m_systemTray;
+    // Options
+    int TimeOutMessages;
     // triggred Actions
     void createEnviroment();
     void createSystemTrayIcon();
@@ -122,8 +125,8 @@ class QX11Grab : public QMainWindow
     const QString videoCodec();
 
   public:
-    QX11Grab ( Settings *settings = 0 );
-    ~QX11Grab();
+    QX11Grab ( Settings * settings = 0 );
+    virtual ~QX11Grab();
 
 };
 

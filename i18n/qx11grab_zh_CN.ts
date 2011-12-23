@@ -161,17 +161,17 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>BookmarkDialog</name>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="49"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="47"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="57"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="56"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="61"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="60"/>
         <source>Required Bookmark Identifier</source>
         <translation type="unfinished"></translation>
     </message>
@@ -459,6 +459,14 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     </message>
 </context>
 <context>
+    <name>Listener</name>
+    <message>
+        <location filename="../src/ffprocess/listener.cpp" line="73"/>
+        <source>Time: %1 Size: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogViewer</name>
     <message>
         <location filename="../src/logviewer/logviewer.cpp" line="42"/>
@@ -695,97 +703,97 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="76"/>
+        <location filename="../src/qx11grab.cpp" line="79"/>
         <source>QX11Grab (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="105"/>
+        <location filename="../src/qx11grab.cpp" line="110"/>
         <source>main requirements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="106"/>
+        <location filename="../src/qx11grab.cpp" line="111"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="109"/>
+        <location filename="../src/qx11grab.cpp" line="114"/>
         <source>main features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="110"/>
+        <location filename="../src/qx11grab.cpp" line="115"/>
         <source>Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="114"/>
+        <location filename="../src/qx11grab.cpp" line="119"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="118"/>
+        <location filename="../src/qx11grab.cpp" line="123"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="122"/>
+        <location filename="../src/qx11grab.cpp" line="127"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="125"/>
+        <location filename="../src/qx11grab.cpp" line="130"/>
         <source>command line preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="126"/>
+        <location filename="../src/qx11grab.cpp" line="131"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="375"/>
+        <location filename="../src/qx11grab.cpp" line="384"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="375"/>
+        <location filename="../src/qx11grab.cpp" line="384"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="388"/>
+        <location filename="../src/qx11grab.cpp" line="397"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="447"/>
+        <location filename="../src/qx11grab.cpp" line="456"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="447"/>
+        <location filename="../src/qx11grab.cpp" line="456"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="571"/>
+        <location filename="../src/qx11grab.cpp" line="590"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="597"/>
+        <location filename="../src/qx11grab.cpp" line="618"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="597"/>
+        <location filename="../src/qx11grab.cpp" line="618"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="622"/>
+        <location filename="../src/qx11grab.cpp" line="643"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -816,12 +824,12 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>SelectAcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="39"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="40"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="88"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="91"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -829,12 +837,12 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>SelectVcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="39"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="40"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="88"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="91"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>

@@ -4,10 +4,12 @@ SET(_subproject "FFProcess")
 
 SET (_subproject_SOURCES
   ffprocess.cpp
+  listener.cpp
 )
 
 SET (_subproject_HEADERS
   ffprocess.h
+  listener.h
 )
 
 SET (_subproject_NOMOC_HEADERS

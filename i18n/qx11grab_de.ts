@@ -390,6 +390,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>Listener</name>
+    <message>
+        <source>Time: %1 Size: %2</source>
+        <translation>Zeit: %1 Größe: %2</translation>
+    </message>
+</context>
+<context>
     <name>LogViewer</name>
     <message>
         <source>qx11grab logfile</source>

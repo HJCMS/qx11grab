@@ -33,6 +33,7 @@
 #include "tableeditor.h"
 #include "metadata.h"
 #include "ffprocess.h"
+#include "listener.h"
 #include "commandpreview.h"
 #include "logviewer.h"
 #include "exportdialog.h"
@@ -44,6 +45,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
 #include <QtCore/QString>
+#include <QtCore/QTimer>
 #include <QtCore/QTextStream>
 
 /* QtGui */
@@ -67,10 +69,11 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 
-QX11Grab::QX11Grab ( Settings *settings )
+QX11Grab::QX11Grab ( Settings * settings )
     : QMainWindow()
     , cfg ( settings )
     , m_FFProcess ( 0 )
+    , m_listener ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
   setWindowTitle ( trUtf8 ( "QX11Grab (%1)" ).arg ( QX11GRAB_VERSION ) );
@@ -90,7 +93,9 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   statusBar()->show();
 
+  // Process Management
   m_FFProcess = new FFProcess ( this, cfg );
+  m_listener = new Listener ( this );
 
   QWidget* layerWidget = new QWidget ( this );
 
@@ -128,6 +133,7 @@ QX11Grab::QX11Grab ( Settings *settings )
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
 
+  // Options
   TimeOutMessages = 5000;
 
   /* init Actions */
@@ -144,6 +150,9 @@ QX11Grab::QX11Grab ( Settings *settings )
 
   connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
             this, SLOT ( pushToolTip ( const QString & ) ) );
+
+  connect ( m_listener, SIGNAL ( info ( const QString & ) ),
+            this, SLOT ( statusBarMessage ( const QString & ) ) );
 
   connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( bool ) ),
             this, SLOT ( toRubber ( bool ) ) );
@@ -447,6 +456,8 @@ void QX11Grab::startRecord()
     QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
 
   m_toolBar->setActionsEnabled ( true );
+
+  QTimer::singleShot ( 1000, m_listener, SLOT ( start() ) );
 }
 
 /**
@@ -543,12 +554,17 @@ void QX11Grab::perparePreview()
     commandLine << m_audioEditor->getCmd ();
 
   // Output Options
+  QString OutputFile;
   if ( videoCodec().contains ( "theora", Qt::CaseInsensitive ) )
-    commandLine << "-y" << QString ( "%1.ogv" ).arg ( m_defaults->output() );
+    OutputFile = QString ( "%1.ogv" ).arg ( m_defaults->output() );
   else if ( videoCodec().contains ( "mpeg", Qt::CaseInsensitive ) )
-    commandLine << "-y" << QString ( "%1.mpg" ).arg ( m_defaults->output() );
+    OutputFile = QString ( "%1.mpg" ).arg ( m_defaults->output() );
   else
-    commandLine << "-y" << QString ( "%1.avi" ).arg ( m_defaults->output() );
+    OutputFile = QString ( "%1.avi" ).arg ( m_defaults->output() );
+
+  commandLine << "-y" << OutputFile;
+
+  m_listener->setOutputFile ( OutputFile );
 
   m_commandPreview->setCommandLine ( commandLine );
 
@@ -657,4 +673,7 @@ const QString QX11Grab::videoCodec()
 }
 
 QX11Grab::~QX11Grab()
-{}
+{
+  if ( m_listener )
+    delete m_listener;
+}
