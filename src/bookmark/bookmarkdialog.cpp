@@ -82,6 +82,27 @@ BookmarkDialog::BookmarkDialog ( QWidget * parent )
   p_dbus.registerObject ( dbusPath, this, ( QDBusConnection::ExportScriptableContents ) );
 }
 
+bool BookmarkDialog::saveBookmark()
+{
+  QString id = m_titleEdit->text();
+  xml->open();
+
+  BookmarkEntry entry = xml->entry ( id );
+  if ( entry.hasAttribute ( "title" ) )
+  {
+    entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
+    entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );
+  }
+
+  if ( xml->save() )
+  {
+    QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );
+    iface.call ( "reload" );
+    return true;
+  }
+  return false;
+}
+
 void BookmarkDialog::titleTextChanged ( const QString &txt )
 {
   if ( txt.length() >= 3 )
@@ -90,23 +111,8 @@ void BookmarkDialog::titleTextChanged ( const QString &txt )
 
 void BookmarkDialog::saveAndExit()
 {
-  QString id = m_titleEdit->text();
-  xml->open();
-
-  BookmarkEntry entry = xml->entry ( id );
-  entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
-  entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );
-
-#ifdef MAINTAINER_REPOSITORY
-  qDebug() << Q_FUNC_INFO << xml->toString ( 1 );
-#endif
-
-  if ( xml->save() )
-  {
-    QDBusInterface iface ( "de.hjcms.qx11grab", "/BookmarkSelect", "de.hjcms.qx11grab.BookmarkSelecter" );
-    iface.call ( "reload" );
+  if ( saveBookmark() )
     accept();
-  }
   else
     reject();
 }

@@ -333,6 +333,7 @@ const QStringList TableEditor::getCmd ()
 
 void TableEditor::setCodecByName ( const QString &txt )
 {
+  // qDebug() << Q_FUNC_INFO << txt;
   m_codecComboBox->setCurrentIndex ( m_codecComboBox->findData ( txt ) );
 }
 

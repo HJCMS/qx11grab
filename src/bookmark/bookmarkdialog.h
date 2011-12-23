@@ -53,6 +53,8 @@ class BookmarkDialog : public QDialog
     QLineEdit* m_titleEdit;
     QDialogButtonBox* m_buttonBox;
 
+    bool saveBookmark();
+
   private Q_SLOTS:
     void titleTextChanged ( const QString & );
     void saveAndExit();

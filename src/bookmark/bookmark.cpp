@@ -47,135 +47,6 @@ static const QString bookmarkDataPath()
   return QString ( "%1/bookmark.xml" ).arg ( dest );
 }
 
-/** \class BookmarkEntry
-*/
-BookmarkEntry::BookmarkEntry ( Bookmark *doc, const QString &id )
-    : QDomElement ( doc->documentElement() )
-{
-  QDomElement rootNode = doc->createElement ( "entry" );
-  rootNode.setAttribute ( "title", id );
-  appendChild ( rootNode );
-
-  vcodecNode = doc->createElement ( "vcodec" );
-  rootNode.appendChild ( vcodecNode );
-
-  acodecNode = doc->createElement ( "acodec" );
-  rootNode.appendChild ( acodecNode );
-}
-
-BookmarkEntry::BookmarkEntry ( QDomElement &rootNode )
-    : QDomElement ( rootNode )
-{
-  if ( firstChildElement ( "vcodec" ).nodeType() == QDomNode::ElementNode )
-    vcodecNode = firstChildElement ( "vcodec" );
-  else
-  {
-    vcodecNode = ownerDocument().createElement ( "vcodec" );
-    rootNode.appendChild ( vcodecNode );
-  }
-
-  if ( firstChildElement ( "acodec" ).nodeType() == QDomNode::ElementNode )
-    acodecNode = firstChildElement ( "acodec" );
-  else
-  {
-    acodecNode = ownerDocument().createElement ( "acodec" );
-    rootNode.appendChild ( acodecNode );
-  }
-}
-
-const QString BookmarkEntry::getCodecName ( TYPE type )
-{
-  QString name;
-  if ( type == VCODEC )
-  {
-    if ( vcodecNode.hasAttribute ( "id" ) )
-      return vcodecNode.attribute ( "id" );
-  }
-  else if ( type == ACODEC )
-  {
-    if ( acodecNode.hasAttribute ( "id" ) )
-      return acodecNode.attribute ( "id" );
-  }
-  return name;
-}
-
-void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
-{
-  QDomDocument doc = ownerDocument();
-  QString id = codecName.trimmed();
-
-  QString nodeName = ( t == VCODEC ) ? "vcodec" : "acodec";
-  QDomElement sharedNode = doc.createElement ( nodeName );
-  sharedNode.setAttribute ( "id", id );
-
-  QHash<QString,QVariant> h = hash;
-  QHash<QString,QVariant>::iterator it;
-  for ( it = h.begin(); it != h.end(); ++it )
-  {
-    QDomElement e = doc.createElement ( "entry" );
-    sharedNode.appendChild ( e );
-
-    QDomElement a = doc.createElement ( "argument" );
-    a.appendChild ( doc.createCDATASection ( it.key() ) );
-    e.appendChild ( a );
-    QDomElement v = doc.createElement ( "value" );
-    v.appendChild ( doc.createCDATASection ( it.value().toString() ) );
-    e.appendChild ( v );
-  }
-
-  /** Suche nach Existierenden Einträgen
-  * Wenn Element mit id vorhanden existieren dann ersetzen.
-  * Andernfalls füge den Neuen Elemente-Baum ein.
-  */
-  if ( t == VCODEC )
-  {
-    if ( vcodecNode.attribute ( "id" ).compare ( id ) == 0 )
-    {
-      if ( ! replaceChild ( sharedNode, vcodecNode ).isNull() )
-        vcodecNode = sharedNode;
-    }
-    else
-      vcodecNode.appendChild ( sharedNode );
-  }
-  else if ( t == ACODEC )
-  {
-    if ( acodecNode.attribute ( "id" ).compare ( id ) == 0 )
-    {
-      if ( ! replaceChild ( sharedNode, acodecNode ).isNull() )
-        acodecNode = sharedNode;
-    }
-    else
-      acodecNode.appendChild ( sharedNode );
-  }
-}
-
-const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( TYPE t )
-{
-  QHash<QString,QVariant> hash;
-  QDomElement codecNode;
-  if ( t == VCODEC )
-    codecNode = vcodecNode;
-  else if ( t == ACODEC )
-    codecNode = acodecNode;
-  else
-    return hash;
-
-  if ( codecNode.hasChildNodes() )
-  {
-    QDomNodeList nodes = codecNode.elementsByTagName ( "entry" );
-    for ( int n = 0; n < nodes.size(); ++n )
-    {
-      QDomElement e = nodes.item ( n ).toElement();
-      if ( e.hasChildNodes() )
-      {
-        hash.insert ( e.firstChildElement ( "argument" ).firstChild().nodeValue(),
-                      e.firstChildElement ( "value" ).firstChild().nodeValue() );
-      }
-    }
-  }
-  return hash;
-}
-
 /** \class Bookmark */
 Bookmark::Bookmark ()
     : QDomDocument()
@@ -206,7 +77,7 @@ bool Bookmark::open ()
 const QStringList Bookmark::entries()
 {
   QStringList list;
-  if ( hasChildNodes() )
+  if ( documentElement().hasChildNodes() )
   {
     QDomNodeList nodes = elementsByTagName ( "entry" );
     for ( int n = 0; n < nodes.size(); ++n )
@@ -219,11 +90,11 @@ const QStringList Bookmark::entries()
   return list;
 }
 
-const BookmarkEntry Bookmark::entry ( const QString &id )
+BookmarkEntry Bookmark::entry ( const QString &id )
 {
   Q_ASSERT ( ! ( id.isEmpty() ) );
   QString ref = id.trimmed();
-  if ( hasChildNodes() )
+  if ( documentElement().hasChildNodes() )
   {
     QDomNodeList nodes = elementsByTagName ( "entry" );
     for ( int n = 0; n < nodes.size(); ++n )
@@ -233,10 +104,16 @@ const BookmarkEntry Bookmark::entry ( const QString &id )
         continue;
 
       if ( e.attribute ( "title" ).compare ( ref ) == 0 )
-        return static_cast<BookmarkEntry> ( e );
+        return BookmarkEntry ( e );
     }
   }
-  return BookmarkEntry ( this, ref );
+
+  QDomElement rootNode = createElement ( "entry" );
+  rootNode.setAttribute ( "title", ref );
+  documentElement().appendChild ( rootNode );
+  BookmarkEntry entry ( rootNode );
+  entry.initDefaults();
+  return entry;
 }
 
 bool Bookmark::removeEntryById ( const QString &id )

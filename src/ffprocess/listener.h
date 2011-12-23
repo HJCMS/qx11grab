@@ -51,7 +51,7 @@ class Listener : public QFileSystemWatcher
     
   public:
     Listener ( QObject * parent = 0 );
-    void setOutputFile ( const QString &outFile );
+    bool setOutputFile ( const QString &outFile );
     ~Listener();
 };
 

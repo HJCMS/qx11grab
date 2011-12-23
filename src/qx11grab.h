@@ -123,6 +123,7 @@ class QX11Grab : public QMainWindow
     const QString currentCommandLine();
     const QString audioCodec();
     const QString videoCodec();
+    const QString outputFile();
 
   public:
     QX11Grab ( Settings * settings = 0 );

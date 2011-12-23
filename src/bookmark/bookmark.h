@@ -34,64 +34,8 @@
 #include <QtXml/QDomElement>
 #include <QtXml/QDomNode>
 
-class Bookmark;
-
-/**
-* @class BookmarkEntry
-* @short Primary Boomark Entries
-* @code
-* <entry title="QString">
-*   <vcodec id="QString">
-*     <entry>
-*       <argument><![CDATA[QString]]></argument>
-*       <value><![CDATA[QString]]></value>
-*     </entry>
-*   </vcodec>
-*   <acodec id="QString">
-*     <entry>
-*       <argument><![CDATA[QString]]></argument>
-*       <value><![CDATA[QString]]></value>
-*     </entry>
-*   </acodec>
-* </entry>
-* @endcode
-*/
-class BookmarkEntry : public QDomElement
-{
-    Q_ENUMS ( TYPE )
-
-  private:
-    QDomElement vcodecNode;
-    QDomElement acodecNode;
-
-  public:
-    enum TYPE { VCODEC, ACODEC };
-    explicit BookmarkEntry ( Bookmark * doc, const QString &id );
-    explicit BookmarkEntry ( QDomElement &rootNode );
-
-    /**
-    * Read Codec Name e.g. -vcodec or -acodec
-    * @param  type  CodecNodeName (vcodec|acodec)
-    */
-    const QString getCodecName ( TYPE type );
-
-    /**
-    * Set Codec Options e.g. -vcodec or -acodec
-    * @note If \ref codecName already exists it will overwriting!
-    * @param  type        Codec Type (vcodec|acodec)
-    * @param  codecName   Add Options for Codec Name
-    * @param  hash        Options
-    */
-    void setCodecOptions ( TYPE t, const QString &codecName,
-                           const QHash<QString,QVariant> &hash );
-
-    /**
-    * read Codec Options e.g. -vcodec or -acodec
-    * @param  type        Codec Type (vcodec|acodec)
-    */
-    const QHash<QString,QVariant> getCodecOptions ( TYPE t );
-};
-
+/* QX11Grab */
+#include "bookmarkentry.h"
 
 /**
 * @class Bookmark
@@ -126,7 +70,7 @@ class Bookmark : public QDomDocument
     * if not exists create a new empty Entry with id
     * @param id  e.g. &lt;entry title="id"/&gt; Attributes
     */
-    const BookmarkEntry entry ( const QString &id );
+    BookmarkEntry entry ( const QString &id );
 
     /**
     * Remove Bookmark Entry with given id

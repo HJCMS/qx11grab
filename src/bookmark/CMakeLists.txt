@@ -5,6 +5,7 @@ SET(_subproject "Bookmark")
 SET (_subproject_SOURCES
   bookmarkdialog.cpp
   bookmark.cpp
+  bookmarkentry.cpp
   bookmarkselecter.cpp
 )
 
@@ -15,6 +16,7 @@ SET (_subproject_HEADERS
 
 SET (_subproject_NOMOC_HEADERS
   bookmark.h
+  bookmarkentry.h
 )
 
 QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})

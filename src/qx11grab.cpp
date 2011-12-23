@@ -438,7 +438,7 @@ void QX11Grab::updateCommandLine ( const QStringList &cmd )
 */
 void QX11Grab::startRecord()
 {
-  if ( ! m_RubberBand->isScalability() )
+  if ( ! m_RubberBand->isScalability() || ! m_listener->setOutputFile ( outputFile() ) )
     return;
 
   if ( m_FFProcess->create ( m_grabberInfo->getRect() ) )
@@ -554,17 +554,7 @@ void QX11Grab::perparePreview()
     commandLine << m_audioEditor->getCmd ();
 
   // Output Options
-  QString OutputFile;
-  if ( videoCodec().contains ( "theora", Qt::CaseInsensitive ) )
-    OutputFile = QString ( "%1.ogv" ).arg ( m_defaults->output() );
-  else if ( videoCodec().contains ( "mpeg", Qt::CaseInsensitive ) )
-    OutputFile = QString ( "%1.mpg" ).arg ( m_defaults->output() );
-  else
-    OutputFile = QString ( "%1.avi" ).arg ( m_defaults->output() );
-
-  commandLine << "-y" << OutputFile;
-
-  m_listener->setOutputFile ( OutputFile );
+  commandLine << "-y" << outputFile();
 
   m_commandPreview->setCommandLine ( commandLine );
 
@@ -670,6 +660,18 @@ const QString QX11Grab::audioCodec()
 const QString QX11Grab::videoCodec()
 {
   return m_videoEditor->selectedCodec();
+}
+
+const QString QX11Grab::outputFile()
+{
+  if ( videoCodec().contains ( "theora", Qt::CaseInsensitive ) )
+    return QString ( "%1.ogg" ).arg ( m_defaults->output() );
+  else if ( videoCodec().contains ( "libx264", Qt::CaseInsensitive ) )
+    return QString ( "%1.mp4" ).arg ( m_defaults->output() );
+  else if ( videoCodec().contains ( "mpeg", Qt::CaseInsensitive ) )
+    return QString ( "%1.mpg" ).arg ( m_defaults->output() );
+  else
+    return QString ( "%1.avi" ).arg ( m_defaults->output() );
 }
 
 QX11Grab::~QX11Grab()

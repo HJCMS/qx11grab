@@ -92,10 +92,10 @@ void Listener::clear()
     removePaths ( files() );
 }
 
-void Listener::setOutputFile ( const QString &path )
+bool Listener::setOutputFile ( const QString &path )
 {
-  if ( directories().contains ( path ) )
-    return;
+  if ( m_fileInfo->absoluteFilePath().compare ( path ) == 0 )
+    return true;
 
   QFile fp ( path );
   if ( fp.open ( QIODevice::WriteOnly ) )
@@ -107,7 +107,9 @@ void Listener::setOutputFile ( const QString &path )
     m_fileInfo->setFile ( path );
     m_timeSpec->setTime ( m_fileInfo->created().time() );
     fp.close();
+    return true;
   }
+  return false;
 }
 
 Listener::~Listener()
