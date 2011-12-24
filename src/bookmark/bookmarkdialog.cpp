@@ -88,7 +88,7 @@ bool BookmarkDialog::saveBookmark()
   xml->open();
 
   BookmarkEntry entry = xml->entry ( id );
-  if ( entry.hasAttribute ( "title" ) )
+  if ( entry.isValid() )
   {
     entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
     entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );

@@ -25,10 +25,12 @@
 /* QtCore */
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QHash>
+#include <QtCore/QMetaType>
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 
 /* QtXml */
+#include <QtXml/QDomDocument>
 #include <QtXml/QDomElement>
 
 /**
@@ -51,26 +53,40 @@
 * </entry>
 * @endcode
 */
-class BookmarkEntry : public QDomElement
+class BookmarkEntry : private QDomElement
 {
-    Q_ENUMS ( TYPE )
-
   private:
-    QDomElement vcodecNode;
-    QDomElement acodecNode;
+    QDomDocument doc;
+
+    bool elementExists ( const QString &nodeName );
+
+    QDomElement vcodecNode();
+    void setVCodecChildNodes ( const QDomElement &node );
+
+    QDomElement acodecNode();
+    void setACodecChildNodes ( const QDomElement &node );
+
+  protected:
+    BookmarkEntry& operator= ( const BookmarkEntry &p );
 
   public:
-    enum TYPE { VCODEC, ACODEC };
-    /** construct */
-    explicit BookmarkEntry ( QDomElement &rootNode );
+    /** which codec node type */
+    enum BTYPE { VCODEC, ACODEC };
 
-    void initDefaults();
+    /**
+    * Initial Bookmark Entry
+    * @param entry  document childNode (nodeName=entry with attribute title)
+    */
+    explicit BookmarkEntry ( const QDomElement &entry );
+
+    /** bookmark has title and codec definitions ? */
+    bool isValid();
 
     /**
     * Read Codec Name e.g. -vcodec or -acodec
     * @param  type  CodecNodeName (vcodec|acodec)
     */
-    const QString getCodecName ( TYPE type );
+    const QString getCodecName ( BTYPE type );
 
     /**
     * Set Codec Options e.g. -vcodec or -acodec
@@ -79,14 +95,16 @@ class BookmarkEntry : public QDomElement
     * @param  codecName   Add Options for Codec Name
     * @param  hash        Options
     */
-    void setCodecOptions ( TYPE t, const QString &codecName,
+    void setCodecOptions ( BTYPE t, const QString &codecName,
                            const QHash<QString,QVariant> &hash );
 
     /**
     * read Codec Options e.g. -vcodec or -acodec
     * @param  type        Codec Type (vcodec|acodec)
     */
-    const QHash<QString,QVariant> getCodecOptions ( TYPE t );
+    const QHash<QString,QVariant> getCodecOptions ( BTYPE t );
 };
+
+Q_DECLARE_METATYPE ( BookmarkEntry::BTYPE )
 
 #endif

@@ -48,7 +48,12 @@ namespace QX11Options
     setObjectName ( "AVOptions" );
   }
 
-  const QList<FFOption> AVOptions::sampleFormats() const
+  void AVOptions::getVideoCodecOption ( const QString &option, const QVariant &value )
+  {
+      qDebug() << Q_FUNC_INFO << "TODO" << option << value;
+  }
+
+  const QList<FFOption> AVOptions::sampleFormats()
   {
     QList<FFOption> list;
     char fmt_str[128];
@@ -68,7 +73,7 @@ namespace QX11Options
     return list;
   }
 
-  const QList<FFOption> AVOptions::pixelFormats() const
+  const QList<FFOption> AVOptions::pixelFormats()
   {
     QList<FFOption> list;
     for ( int i = 0; i < PIX_FMT_NB; i++ )
@@ -84,11 +89,6 @@ namespace QX11Options
       list.append ( opt );
     }
     return list;
-  }
-
-  void AVOptions::getVideoCodecOption ( const QString &option, const QVariant &value )
-  {
-      qDebug() << Q_FUNC_INFO << "TODO" << option << value;
   }
 
   const QList<FFCodec> AVOptions::videoCodecs()

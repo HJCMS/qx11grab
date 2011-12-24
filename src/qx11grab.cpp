@@ -623,6 +623,12 @@ void QX11Grab::openBookmark ( const QString &id )
   if ( doc.open() )
   {
     BookmarkEntry entry = doc.entry ( id );
+    if ( ! entry.isValid() )
+    {
+      statusBarMessage ( trUtf8 ( "Open Bookmark %1 failed" ).arg ( id ), 5000 );
+      return;
+    }
+
     // Video
     m_videoEditor->setCodecByName ( entry.getCodecName ( BookmarkEntry::VCODEC ) );
     m_videoEditor->setCodecOptions ( entry.getCodecOptions ( BookmarkEntry::VCODEC ) );

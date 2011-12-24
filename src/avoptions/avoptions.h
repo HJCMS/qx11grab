@@ -60,13 +60,13 @@ namespace QX11Options
     public:
       AVOptions ( QObject * parent = 0 );
 
+      void getVideoCodecOption ( const QString &option, const QVariant &value = QVariant() );
+
       /** ffmpeg -sample_fmts */
-      const QList<FFOption> sampleFormats() const;
+      static const QList<FFOption> sampleFormats();
 
       /** ffmpeg -spix_fmts */
-      const QList<FFOption> pixelFormats() const;
-
-      void getVideoCodecOption ( const QString &option, const QVariant &value = QVariant() );
+      static const QList<FFOption> pixelFormats();
 
       /** all supported AVMEDIA_TYPE_VIDEO encoder types */
       static const QList<FFCodec> videoCodecs();

@@ -29,47 +29,117 @@
 #include <QtXml/QDomDocument>
 #include <QtXml/QDomNode>
 
-BookmarkEntry::BookmarkEntry ( QDomElement &rootNode )
-    : QDomElement ( rootNode )
+BookmarkEntry::BookmarkEntry ( const QDomElement &entry )
+    : QDomElement ( entry )
+    , doc ( entry.ownerDocument() )
 {}
 
-void BookmarkEntry::initDefaults()
+BookmarkEntry& BookmarkEntry::operator= ( const BookmarkEntry &p )
 {
-  QDomDocument doc = ownerDocument();
-  vcodecNode = doc.createElement ( "vcodec" );
-  appendChild ( vcodecNode );
-
-  acodecNode = doc.createElement ( "acodec" );
-  appendChild ( acodecNode );
+  return static_cast<BookmarkEntry&> ( QDomElement::operator= ( p ) );
 }
 
-const QString BookmarkEntry::getCodecName ( TYPE type )
+/** prüft ob das element vorhanden ist! */
+bool BookmarkEntry::elementExists ( const QString &nodeName )
 {
+  QDomElement e = firstChildElement ( nodeName );
+  if ( e.isNull() )
+    return false;
+  else if ( e.nodeType() != QDomNode::ElementNode )
+    return false;
+
+  return true;
+}
+
+/** Suche nach Element vcodec */
+QDomElement BookmarkEntry::vcodecNode()
+{
+  if ( ! elementExists ( "vcodec" ) )
+  {
+    QDomElement element = doc.createElement ( "vcodec" );
+    appendChild ( element );
+  }
+  return firstChildElement ( "vcodec" );
+}
+
+/** Suche nach Element acodec */
+QDomElement BookmarkEntry::acodecNode()
+{
+  if ( ! elementExists ( "acodec" ) )
+  {
+    QDomElement element = doc.createElement ( "acodec" );
+    appendChild ( element );
+  }
+  return firstChildElement ( "acodec" );
+}
+
+/**
+* Schreibe oder ersetze Einträge in "vcodec"
+*/
+void BookmarkEntry::setVCodecChildNodes ( const QDomElement &node )
+{
+  QDomNode oldNode = vcodecNode();
+  if ( replaceChild ( node, oldNode ).isNull() )
+  {
+
+    qWarning ( "<%s title=\"%s\" /> can not replace vcodec node failed",
+               qPrintable ( nodeName() ),
+               qPrintable ( attribute ( "title" ) ) );
+  }
+}
+
+/**
+* Schreibe oder ersetze Einträge in "acodec"
+*/
+void BookmarkEntry::setACodecChildNodes ( const QDomElement &node )
+{
+  QDomNode oldNode = acodecNode();
+  if ( replaceChild ( node, oldNode ).isNull() )
+  {
+    qWarning ( "<%s title=\"%s\" /> can not replace acodec node failed",
+               qPrintable ( nodeName() ),
+               qPrintable ( attribute ( "title" ) ) );
+  }
+}
+
+/**
+* Wenn Prädikat \b title vorhanden ist
+* und Unter Elemente existieren.
+* Wird true zurück gegeben!
+*/
+bool BookmarkEntry::isValid()
+{
+  if ( hasAttribute ( "title" ) && hasChildNodes() )
+    return true;
+
+  return false;
+}
+
+/**
+* Aktueller Codec Titel für Element Type
+*/
+const QString BookmarkEntry::getCodecName ( BTYPE type )
+{
+  QString name;
   if ( type == VCODEC )
-    return vcodecNode.attribute ( "id" );
+    name = vcodecNode().attribute ( "id" );
   else if ( type == ACODEC )
-    return acodecNode.attribute ( "id" );
+    name = acodecNode().attribute ( "id" );
 
-  return QString();
+  return name;
 }
 
-void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
+/**
+* Schreibe oder ersetze Parameterliste in Codec Type
+*/
+void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
 {
-  QDomDocument doc = ownerDocument();
-  QString id = codecName.trimmed();
-
   if ( ! hasAttribute ( "title" ) )
     qFatal ( "empty title attributes" );
 
+  QString id = codecName.trimmed();
   if ( id.isEmpty() )
-  {
-    if ( t == VCODEC )
-      removeChild ( vcodecNode );
-    else
-      removeChild ( acodecNode );
-
     return;
-  }
 
   QString nodeName = ( t == VCODEC ) ? "vcodec" : "acodec";
   QDomElement sharedNode = doc.createElement ( nodeName );
@@ -79,51 +149,34 @@ void BookmarkEntry::setCodecOptions ( TYPE t, const QString &codecName, const QH
   QHash<QString,QVariant>::iterator it;
   for ( it = h.begin(); it != h.end(); ++it )
   {
-    QDomElement e = doc.createElement ( "param" );
-    sharedNode.appendChild ( e );
+    QDomElement param = doc.createElement ( "param" );
+    sharedNode.appendChild ( param );
 
     QDomElement a = doc.createElement ( "argument" );
     a.appendChild ( doc.createCDATASection ( it.key() ) );
-    e.appendChild ( a );
+    param.appendChild ( a );
     QDomElement v = doc.createElement ( "value" );
     v.appendChild ( doc.createCDATASection ( it.value().toString() ) );
-    e.appendChild ( v );
+    param.appendChild ( v );
   }
 
-  /** Suche nach Existierenden Einträgen
-  * Wenn Element mit id vorhanden existieren dann ersetzen.
-  * Andernfalls füge den Neuen Elemente-Baum ein.
-  */
   if ( t == VCODEC )
-  {
-    if ( vcodecNode.attribute ( "id" ).compare ( id ) == 0 )
-    {
-      if ( ! replaceChild ( sharedNode, vcodecNode ).isNull() )
-        vcodecNode = sharedNode;
-    }
-    else
-      vcodecNode.appendChild ( sharedNode );
-  }
+    setVCodecChildNodes ( sharedNode );
   else if ( t == ACODEC )
-  {
-    if ( acodecNode.attribute ( "id" ).compare ( id ) == 0 )
-    {
-      if ( ! replaceChild ( sharedNode, acodecNode ).isNull() )
-        acodecNode = sharedNode;
-    }
-    else
-      acodecNode.appendChild ( sharedNode );
-  }
+    setACodecChildNodes ( sharedNode );
 }
 
-const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( TYPE t )
+/**
+* Aktuelle Codec Parameter von Type auslesen
+*/
+const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( BTYPE t )
 {
   QHash<QString,QVariant> hash;
   QDomElement codecNode;
-  if ( t == VCODEC )
-    codecNode = vcodecNode;
-  else if ( t == ACODEC )
-    codecNode = acodecNode;
+  if ( ( t == VCODEC ) && elementExists ( "vcodec" ) )
+    codecNode = vcodecNode();
+  else if ( ( t == ACODEC ) && elementExists ( "acodec" ) )
+    codecNode = acodecNode();
   else
     return hash;
 

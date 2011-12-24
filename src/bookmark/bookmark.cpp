@@ -112,7 +112,6 @@ BookmarkEntry Bookmark::entry ( const QString &id )
   rootNode.setAttribute ( "title", ref );
   documentElement().appendChild ( rootNode );
   BookmarkEntry entry ( rootNode );
-  entry.initDefaults();
   return entry;
 }
 
