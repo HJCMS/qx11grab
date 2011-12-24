@@ -30,6 +30,8 @@ IF (ENABLE_KDE_SUPPORT)
   FIND_PACKAGE (KDE4 4.5.0)
 ENDIF (ENABLE_KDE_SUPPORT)
 
+OPTION (INSTALL_FFPRESETS "Install extra FFmpeg ffpresets (ON/OFF)" ON)
+
 SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.${CMAKE_PROJECT_NAME}")
 
 IF (NOT UNIX)
@@ -69,6 +71,11 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
   ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
+
+REMOVE_DEFINITIONS (
+  -DQT3_SUPPORT_WARNINGS
+  -DQT3_SUPPORT
+)
 
 ##############################################################
 ## SET Working output Directory
@@ -114,6 +121,28 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
 
 SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
 
+FIND_PATH (_ffmpeg_sharedir
+  NAMES ffmpeg
+  PATH_SUFFIXES ${FFMPEG_SUFFIX}
+  PATHS
+    /usr/share
+    /usr/local/share
+  DOC "Find FFmpeg data directory for ffpreset files"
+  NO_DEFAULT_PATH
+  NO_SYSTEM_ENVIRONMENT_PATH
+  NO_CMAKE_PATH
+)
+
+IF (_ffmpeg_sharedir)
+  SET (FFMPEG_SHAREDIR "${_ffmpeg_sharedir}/ffmpeg" CACHE PATH
+    "FFmpeg data directory for ffpreset files (PATH)")
+ENDIF (_ffmpeg_sharedir)
+
+## required by FFmpeg
+IF (FFMPEG_FOUND)
+  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+ENDIF (FFMPEG_FOUND)
+
 ##############################################################
 ## PulseAudio 
 ##############################################################
@@ -130,23 +159,15 @@ PKG_CHECK_MODULES (PULSE
   libpulse${PULSE_SUFFIX}>=${PULSE_VERSION}
 )
 
+IF (PULSE_FOUND)
+  ADD_DEFINITIONS (-DHAVE_PULSE)
+ENDIF (PULSE_FOUND)
+
 ##############################################################
 ## Xorg 
 ##############################################################
 
 PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4 )
-
-
-## NOTE Exeptions needed by QX11Grab::record()
-REMOVE_DEFINITIONS (-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT -DQT_NO_EXCEPTIONS)
-## required by FFmpeg
-IF (FFMPEG_FOUND)
-  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
-ENDIF (FFMPEG_FOUND)
-
-IF (PULSE_FOUND)
-  ADD_DEFINITIONS (-DHAVE_PULSE)
-ENDIF (PULSE_FOUND)
 
 ##############################################################
 ## INCLUDES
@@ -257,6 +278,7 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 ##############################################################
 ADD_SUBDIRECTORY (src)
 ADD_SUBDIRECTORY (i18n)
+ADD_SUBDIRECTORY (ffpresets)
 
 ##############################################################
 ## LGPL/GPL3 Exceptions

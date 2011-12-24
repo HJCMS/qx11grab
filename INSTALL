@@ -1,7 +1,7 @@
 
 *** WARNING - This Application is NOT testet on Mac OS X and incompatible with Windows ***
 
-General "qx11grab" Requirements:
+REQUIREMENTS:
   -  Qt 4 >= 4.7.2 (required)  http://qt.nokia.com/products/
   -  Oxygen Icon Theme >= 4.6.0 (required) ftp://ftp.kde.org/pub/kde/stable/
   -  FFmpeg >= 0.8 (required) 0.9(recommended) http://www.ffmpeg.org
@@ -12,57 +12,54 @@ General "qx11grab" Requirements:
   -  alsa >= 1.0.14 (required) 1.0.24 (recommended) http://alsa-project.org
   -  cmake >= 2.8.0 (required for build) http://www.cmake.org
 
-For Mac OS X Cocoa, the binary package requires Mac OS X 10.5 (Leopard) or later
-and GCC 4.0.1 to develop applications.
+INSTALLATION:
+  1) create a subdirectory build in source home directory
+  2) open a terminal and change this directory
+  3) run cmake
+    Unix
+      cmake -Wno-dev \
+        -DCMAKE_BUILD_TYPE:STRING=Release \
+        -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+        -DSYSCONF_INSTALL_DIR:PATH=/etc ../
+        -DINSTALL_FFPRESETS:BOOL=ON \
+        -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
+        ../
 
-1) create a subdirectory build in source home directory
-2) open a terminal and change this directory
-3) run cmake
-  Unix
-    cmake -Wno-dev \
-      -DCMAKE_BUILD_TYPE:STRING=Release \
-      -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-      -DSYSCONF_INSTALL_DIR:PATH=/etc ../
-      -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
-      ../
+    Options for:
+      -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
 
-  Options for:
-    -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
+    The FFMPEG_SUFFIX option allow you to set different pkg-config Version
+    Example: -DFFMPEG_SUFFIX:STRING=_09x will search ${prefix}/${lib}/pkgconfig/libavformat_09x.pc
 
-  The FFMPEG_SUFFIX option allow you to set different pkg-config Version
-  Example: -DFFMPEG_SUFFIX:STRING=_09x will search ${prefix}/${lib}/pkgconfig/libavformat_09x.pc
-
-4) make
-5) make DESTDIR=/tmp/test install/fast
+  4) make
+  5) make DESTDIR=/tmp/test install/fast
 
 INSTALL_TREE:
-/
-|-- etc
-|   `-- xdg
-|       `-- hjcms.de
-|           `-- qx11grab.conf
-`-- usr
-    |-- bin
-    |   `-- qx11grab
-    `-- share
-        |-- applications
-        |   `-- qx11grab.desktop
-        |-- dbus-1
-        |   `-- services
-        |       `-- de.hjcms.qx11grab.service
-        |-- pixmaps
-        |   `-- qx11grab.png
-        |-- qt
-        |   `-- translations
-        |       |-- qx11grab_cs.qm
-        |       |-- qx11grab_de.qm
-        |       `-- qx11grab_lt.qm
-        `-- qx11grab
-            |-- AUTHORS
-            |-- COPYING
-            |-- ChangeLog
-            |-- NEWS
-            |-- README
-            `-- qx11grab_untranslated.ts
-
-13 directories, 14 files
+  /
+  |-- etc
+  |   `-- xdg
+  |       `-- hjcms.de
+  |           `-- qx11grab.conf
+  `-- usr
+      |-- bin
+      |   `-- qx11grab
+      `-- share
+          |-- applications
+          |   `-- qx11grab.desktop
+          |-- dbus-1
+          |   `-- services
+          |       `-- de.hjcms.qx11grab.service
+          |-- ffmpeg
+          |   |-- libx264-*.ffpreset
+          |-- pixmaps
+          |   `-- qx11grab.png
+          |-- qt
+          |   `-- translations
+          |       |-- qx11grab_*.qm
+          `-- qx11grab
+              |-- AUTHORS
+              |-- COPYING
+              |-- ChangeLog
+              |-- NEWS
+              |-- README
+              `-- qx11grab_untranslated.ts
