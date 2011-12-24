@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,48 +19,33 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef DEFAULTS_H
-#define DEFAULTS_H
+#ifndef LOGLEVELCOMBOBOX_H
+#define LOGLEVELCOMBOBOX_H
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
 #include <QtCore/QString>
-#include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QCheckBox>
-#include <QtGui/QLineEdit>
+#include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-class AudioDeviceWidget;
-
-class Defaults : public QWidget
+/**
+* Set the logging level used by the library.
+*/
+class LogLevelComboBox : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-
-  private:
-    QLineEdit* ff_path;
-    QLineEdit* outputName;
-    QLineEdit* outputDirectory;
-    AudioDeviceWidget* m_audioDeviceWidget;
-
-  private Q_SLOTS:
-    void setFFmpegBinary();
-    void setOutpuDirectory();
-    void restoreFileName();
+    Q_PROPERTY ( QString value READ value WRITE setValue USER true )
 
   public Q_SLOTS:
-    void load ( QSettings * cfg );
-    void save ( QSettings * cfg );
+    void setValue ( const QString & );
 
   public:
-    Defaults ( QWidget * parent = 0 );
-    const QString binary();
-    const QStringList audioDeviceData();
-    const QString output();
-    ~Defaults ();
+    LogLevelComboBox ( QWidget * parent = 0 );
+    const QString value();
+    ~LogLevelComboBox();
 };
 
 #endif

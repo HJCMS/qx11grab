@@ -22,6 +22,7 @@
 #include "toolbar.h"
 #include "menubar.h"
 #include "bookmarkselecter.h"
+#include "playeraction.h"
 
 /* QtCore */
 #include <QtCore/QString>
@@ -49,6 +50,12 @@ ToolBar::ToolBar ( QX11Grab * parent )
 
   QAction* save = MenuBar::saveAction ( this );
   addAction ( save );
+
+  // MediaPlayer {
+  m_player = new PlayerAction ( this );
+  m_player->setEnabled ( false );
+  addWidget ( m_player );
+  // } MediaPlayer
 
   // Spacer {
   QWidget* m_spacer = new QWidget ( this );
@@ -80,6 +87,12 @@ ToolBar::ToolBar ( QX11Grab * parent )
 void ToolBar::setActionsEnabled ( bool b )
 {
   m_viewLogAction->setEnabled ( b );
+  m_player->setEnabled ( b );
+}
+
+void ToolBar::setPlayerEnabled ( bool b )
+{
+  m_player->setEnabled ( b );
 }
 
 ToolBar::~ToolBar()

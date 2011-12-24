@@ -35,6 +35,7 @@
 #include <QtGui/QWidget>
 
 class ScreenComboBox;
+class LogLevelComboBox;
 class DesktopInfo;
 
 class GrabberInfo : public QWidget
@@ -47,6 +48,7 @@ class GrabberInfo : public QWidget
     QRect screenGeometry;
     DesktopInfo* m_desktopInfo;
     ScreenComboBox* screenComboBox;
+    LogLevelComboBox* m_logLevelComboBox;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;
     QSpinBox* setHeightBox;

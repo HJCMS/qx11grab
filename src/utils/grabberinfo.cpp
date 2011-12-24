@@ -22,6 +22,7 @@
 #include "grabberinfo.h"
 #include "desktopinfo.h"
 #include "screencombobox.h"
+#include "loglevelcombobox.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -162,6 +163,16 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setFrameRate->setValue ( 25 );
   horizontalLayout->addWidget ( setFrameRate, Qt::AlignLeft );
   // end: Frame Rate
+
+  // begin: LogLevel
+  QLabel* txt9 = new QLabel ( this );
+  txt9->setText ( trUtf8 ( "Logging:" ) );
+  txt9->setAlignment ( labelAlignment );
+  horizontalLayout->addWidget ( txt9, Qt::AlignRight );
+
+  m_logLevelComboBox = new LogLevelComboBox ( this );
+  horizontalLayout->addWidget ( m_logLevelComboBox, Qt::AlignLeft );
+  // end: LogLevel
   gridLayout->addLayout ( horizontalLayout, grow++, 0, 1, 3 );
 
   // start: Features
@@ -323,6 +334,7 @@ void GrabberInfo::load ( QSettings *cfg )
   setRect ( cfg->value ( QLatin1String ( "Grabber/Dimension" ) ).toRect() );
   setDepth->setValue ( cfg->value ( QLatin1String ( "Grabber/Depth" ), 24 ).toUInt() );
   setFrameRate->setValue ( cfg->value ( QLatin1String ( "Grabber/FrameRate" ), 25 ).toUInt() );
+  m_logLevelComboBox->setValue ( cfg->value ( QLatin1String ( "Grabber/LogLevel" ), "warning" ).toString() );
   // Options
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
@@ -343,6 +355,7 @@ void GrabberInfo::save ( QSettings *cfg )
   cfg->setValue ( QLatin1String ( "Grabber/Dimension" ), getRect() );
   cfg->setValue ( QLatin1String ( "Grabber/Depth" ), setDepth->value() );
   cfg->setValue ( QLatin1String ( "Grabber/FrameRate" ), setFrameRate->value() );
+  cfg->setValue ( QLatin1String ( "Grabber/LogLevel" ), m_logLevelComboBox->value() );
 }
 
 /**

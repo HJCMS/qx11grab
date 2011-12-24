@@ -76,5 +76,12 @@ const QString QX11GrabAdaptor::getCommand()
   return str;
 }
 
+const QString QX11GrabAdaptor::getOutputFile()
+{
+  QString str;
+  QMetaObject::invokeMethod ( parent(), "outputFile", Q_RETURN_ARG ( QString, str ) );
+  return str;
+}
+
 QX11GrabAdaptor::~QX11GrabAdaptor()
 {}

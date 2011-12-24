@@ -7,4 +7,6 @@
     <file>images/qx11grab-64.png</file>
     <file>images/qx11grab.png</file>
   </qresource>
+  <qresource prefix="/">
+  </qresource>
 </RCC>

@@ -49,6 +49,7 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
 "    <method name=\"getAudioCodec\" />\n"
 "    <method name=\"getVideoCodec\" />\n"
 "    <method name=\"getCommand\" />\n"
+"    <method name=\"getOutputFile\" />\n"
 "  </interface>\n"
 "" )
 
@@ -65,6 +66,7 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
     const QString getAudioCodec();
     const QString getVideoCodec();
     const QString getCommand();
+    const QString getOutputFile();
 };
 
 #endif

@@ -450,14 +450,14 @@ void QX11Grab::startRecord()
     if ( m_FFProcess->start ( cmd ) )
     {
       m_systemTray->setIcon ( getThemeIcon ( "media-record" ) );
+      m_toolBar->setPlayerEnabled ( false );
     }
   }
   else
     QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
 
   m_toolBar->setActionsEnabled ( true );
-
-  QTimer::singleShot ( 5000, m_listener, SLOT ( start() ) );
+  QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );
 }
 
 /**
@@ -468,6 +468,7 @@ void QX11Grab::setActionsBack()
   m_systemTray->setActionsEnabled ( false );
   m_menuBar->setActionsEnabled ( false );
   m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+  m_toolBar->setPlayerEnabled ( true );
 }
 
 /**
@@ -543,6 +544,7 @@ void QX11Grab::perparePreview()
     commandLine << m_defaults->audioDeviceData();
 
   commandLine << "-dcodec" << "copy";
+  commandLine << "-loglevel" << cfg->value ( "Grabber/LogLevel", "info" ).toString();
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
