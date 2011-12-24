@@ -457,7 +457,7 @@ void QX11Grab::startRecord()
 
   m_toolBar->setActionsEnabled ( true );
 
-  QTimer::singleShot ( 1000, m_listener, SLOT ( start() ) );
+  QTimer::singleShot ( 5000, m_listener, SLOT ( start() ) );
 }
 
 /**
@@ -542,12 +542,14 @@ void QX11Grab::perparePreview()
   if ( m_grabberInfo->soundEnabled() )
     commandLine << m_defaults->audioDeviceData();
 
+  commandLine << "-dcodec" << "copy";
+
   // Video Options
   commandLine << m_videoEditor->getCmd ();
 
   // Meta Daten
   if ( m_grabberInfo->metaEnabled() )
-    commandLine << m_metaData->getCmd ();
+    commandLine << m_metaData->getCmd ( videoCodec() );
 
   // Audio Aufnahme
   if ( m_grabberInfo->soundEnabled() )

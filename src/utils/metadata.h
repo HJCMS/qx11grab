@@ -43,8 +43,10 @@ class MetaData : public QWidget
     QLineEdit* metadata_ICOP;
     QLineEdit* metadata_ISBJ;
     QLineEdit* metadata_ICMT;
-    QLineEdit* metadata_IMED;
+    QLineEdit* metadata_LANG;
     QDateTimeEdit* metadata_ICRD;
+
+    const QList<QLineEdit*> metadataObjects();
 
   public Q_SLOTS:
     void load ( QSettings * cfg );
@@ -52,7 +54,7 @@ class MetaData : public QWidget
 
   public:
     MetaData ( QWidget * parent = 0 );
-    const QStringList getCmd();
+    const QStringList getCmd ( const QString &codec = QString() );
     ~MetaData ();
 };
 

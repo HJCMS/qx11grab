@@ -22,6 +22,8 @@
 #include "metadata.h"
 
 /* QtCore */
+#include <QtCore/QLocale>
+#include <QtCore/QRegExp>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -35,88 +37,107 @@ MetaData::MetaData ( QWidget * parent )
 {
   setObjectName ( QLatin1String ( "metadata" ) );
 
+  int grow = 0;
   QGridLayout* gridLayout = new QGridLayout ( this );
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );
   gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
 
   Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
 
+  QLabel* txt_info = new QLabel ( this );
+  txt_info->setText ( trUtf8 ( "Note many formats only support a handful of metadata keys." ) );
+  gridLayout->addWidget ( txt_info, grow++, 0, 1, 2 );
+
   QLabel* txt_title = new QLabel ( this );
   txt_title->setText ( trUtf8 ( "Title:" ) );
   txt_title->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_title, 0, 0, 1, 1 );
+  gridLayout->addWidget ( txt_title, grow, 0, 1, 1 );
 
   metadata_INAM = new QLineEdit ( this );
-  metadata_INAM->setObjectName ( QLatin1String ( "metadata/INAM" ) );
+  metadata_INAM->setObjectName ( QLatin1String ( "metadata/title" ) );
   metadata_INAM->setToolTip ( QLatin1String ( "INAM" ) );
-  gridLayout->addWidget ( metadata_INAM, 0, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_INAM, grow++, 1, 1, 1 );
 
   QLabel* txt_artist = new QLabel ( this );
   txt_artist->setText ( trUtf8 ( "Artist:" ) );
   txt_artist->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_artist, 1, 0, 1, 1 );
+  gridLayout->addWidget ( txt_artist, grow, 0, 1, 1 );
 
   metadata_IART = new QLineEdit ( this );
-  metadata_IART->setObjectName ( QLatin1String ( "metadata/IART" ) );
+  metadata_IART->setObjectName ( QLatin1String ( "metadata/author" ) );
   metadata_IART->setToolTip ( QLatin1String ( "IART" ) );
-  gridLayout->addWidget ( metadata_IART, 1, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_IART, grow++, 1, 1, 1 );
 
   QLabel* txt_copyright = new QLabel ( this );
   txt_copyright->setText ( trUtf8 ( "Copyright:" ) );
   txt_copyright->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_copyright, 2, 0, 1, 1 );
+  gridLayout->addWidget ( txt_copyright, grow, 0, 1, 1 );
 
   metadata_ICOP = new QLineEdit ( this );
-  metadata_ICOP->setObjectName ( QLatin1String ( "metadata/ICOP" ) );
+  metadata_ICOP->setObjectName ( QLatin1String ( "metadata/copyright" ) );
   metadata_ICOP->setToolTip ( QLatin1String ( "ICOP" ) );
-  gridLayout->addWidget ( metadata_ICOP, 2, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_ICOP, grow++, 1, 1, 1 );
 
   QLabel* txt_createdate = new QLabel ( this );
   txt_createdate->setText ( trUtf8 ( "Creation Date:" ) );
   txt_createdate->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_createdate, 3, 0, 1, 1 );
+  gridLayout->addWidget ( txt_createdate, grow, 0, 1, 1 );
 
   metadata_ICRD = new QDateTimeEdit ( this );
-  metadata_ICRD->setObjectName ( QLatin1String ( "metadata/ICRD" ) );
+  metadata_ICRD->setObjectName ( QLatin1String ( "metadata/year" ) );
   metadata_ICRD->setToolTip ( QLatin1String ( "ICRD" ) );
   metadata_ICRD->setDateTime ( QDateTime::currentDateTime() );
   metadata_ICRD->setCalendarPopup ( true );
-  gridLayout->addWidget ( metadata_ICRD, 3, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_ICRD, grow++, 1, 1, 1, Qt::AlignLeft );
 
   QLabel* txt_subject = new QLabel ( this );
   txt_subject->setText ( trUtf8 ( "Subject:" ) );
   txt_subject->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_subject, 4, 0, 1, 1 );
+  gridLayout->addWidget ( txt_subject, grow, 0, 1, 1 );
 
   metadata_ISBJ = new QLineEdit ( this );
-  metadata_ISBJ->setObjectName ( QLatin1String ( "metadata/ISBJ" ) );
+  metadata_ISBJ->setObjectName ( QLatin1String ( "metadata/subject" ) );
   metadata_ISBJ->setToolTip ( QLatin1String ( "ISBJ" ) );
-  gridLayout->addWidget ( metadata_ISBJ, 4, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_ISBJ, grow++, 1, 1, 1 );
 
   QLabel* txt_description = new QLabel ( this );
   txt_description->setText ( trUtf8 ( "Description:" ) );
   txt_description->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_description, 5, 0, 1, 1 );
+  gridLayout->addWidget ( txt_description, grow, 0, 1, 1 );
 
   metadata_ICMT = new QLineEdit ( this );
-  metadata_ICMT->setObjectName ( QLatin1String ( "metadata/ICMT" ) );
+  metadata_ICMT->setObjectName ( QLatin1String ( "metadata/description" ) );
   metadata_ICMT->setToolTip ( QLatin1String ( "ICMT" ) );
-  gridLayout->addWidget ( metadata_ICMT, 5, 1, 1, 1 );
+  gridLayout->addWidget ( metadata_ICMT, grow++, 1, 1, 1 );
 
-  QLabel* txt_medium = new QLabel ( this );
-  txt_medium->setText ( trUtf8 ( "Medium:" ) );
-  txt_medium->setAlignment ( labelAlignment );
-  gridLayout->addWidget ( txt_medium, 6, 0, 1, 1 );
+  QLabel* txt_language = new QLabel ( this );
+  txt_language->setText ( trUtf8 ( "Language:" ) );
+  txt_language->setAlignment ( labelAlignment );
+  gridLayout->addWidget ( txt_language, grow, 0, 1, 1 );
 
-  metadata_IMED = new QLineEdit ( this );
-  metadata_IMED->setObjectName ( QLatin1String ( "metadata/IMED" ) );
-  metadata_IMED->setToolTip ( QLatin1String ( "IMED" ) );
-  gridLayout->addWidget ( metadata_IMED, 6, 1, 1, 1 );
+  /* main language in which the work is performed, preferably in ISO 639-2 format.
+  * Multiple languages can be specified by separating them with commas. */
+  metadata_LANG = new QLineEdit ( this );
+  metadata_LANG->setObjectName ( QLatin1String ( "metadata/language" ) );
+  metadata_LANG->setToolTip ( QLatin1String ( "Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas." ) );
+  gridLayout->addWidget ( metadata_LANG, grow++, 1, 1, 1 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, 7, 0, 1, 2 );
+  gridLayout->addItem ( spacer, grow++, 0, 1, 2 );
 
   setLayout ( gridLayout );
+}
+
+/**
+* Einstellungen Laden
+* http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
+*/
+const QList<QLineEdit*> MetaData::metadataObjects()
+{
+  QList<QLineEdit*> items;
+  items << metadata_INAM << metadata_IART << metadata_ICOP;
+  items << metadata_ISBJ << metadata_ICMT << metadata_LANG;
+  return items;
 }
 
 /**
@@ -124,10 +145,7 @@ MetaData::MetaData ( QWidget * parent )
 */
 void MetaData::load ( QSettings * cfg )
 {
-  QList<QLineEdit*> items;
-  items << metadata_INAM << metadata_IART << metadata_ICOP << metadata_ISBJ << metadata_ICMT << metadata_IMED;
-
-  foreach ( QLineEdit* edit, items )
+  foreach ( QLineEdit* edit, metadataObjects() )
   {
     edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
   }
@@ -138,10 +156,7 @@ void MetaData::load ( QSettings * cfg )
 */
 void MetaData::save ( QSettings * cfg )
 {
-  QList<QLineEdit*> items;
-  items << metadata_INAM << metadata_IART << metadata_ICOP << metadata_ISBJ << metadata_ICMT << metadata_IMED;
-
-  foreach ( QLineEdit* edit, items )
+  foreach ( QLineEdit* edit, metadataObjects() )
   {
     if ( edit->text().isEmpty() )
       cfg->remove ( edit->objectName() );
@@ -150,13 +165,17 @@ void MetaData::save ( QSettings * cfg )
   }
 }
 
-const QStringList MetaData::getCmd()
+/**
+* Einlesen der aktuellen Metadaten
+* \todo Je nach Codec den Schlüssel ändern!
+*/
+const QStringList MetaData::getCmd ( const QString &codec )
 {
-  QStringList cmd;
-  QList<QLineEdit*> items;
-  items << metadata_INAM << metadata_IART << metadata_ICOP << metadata_ISBJ << metadata_ICMT << metadata_IMED;
+  Q_UNUSED ( codec );
 
-  foreach ( QLineEdit* edit, items )
+  QStringList cmd;
+
+  foreach ( QLineEdit* edit, metadataObjects() )
   {
     if ( edit->text().isEmpty() )
       continue;
@@ -164,6 +183,11 @@ const QStringList MetaData::getCmd()
     QString param ( edit->objectName() );
     cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
   }
+
+  cmd << "-metadata" << QString ( "year=\"%1\"" ).arg ( metadata_ICRD->date().year() );
+  // DEPRECATED creation_time Key ISO 8601
+  cmd << "-metadata" << QString ( "creation_time=\"%1\"" ).arg ( metadata_ICRD->dateTime().toString ( Qt::ISODate ) );
+
   return cmd;
 }
 
