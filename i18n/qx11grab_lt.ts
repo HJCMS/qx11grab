@@ -659,39 +659,49 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>MetaData</name>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="45"/>
+        <location filename="../src/utils/metadata.cpp" line="48"/>
+        <source>Note many formats only support a handful of metadata keys.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="52"/>
         <source>Title:</source>
         <translation>Pavadinimas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="55"/>
+        <location filename="../src/utils/metadata.cpp" line="62"/>
         <source>Artist:</source>
         <translation>Atlikėjas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="65"/>
+        <location filename="../src/utils/metadata.cpp" line="72"/>
         <source>Copyright:</source>
         <translation>Autorinės teisės:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="75"/>
+        <location filename="../src/utils/metadata.cpp" line="82"/>
         <source>Creation Date:</source>
         <translation>Sukūrimo data:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="87"/>
+        <location filename="../src/utils/metadata.cpp" line="94"/>
         <source>Subject:</source>
         <translation>Tema:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="97"/>
+        <location filename="../src/utils/metadata.cpp" line="104"/>
         <source>Description:</source>
         <translation>Aprašas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="107"/>
-        <source>Medium:</source>
-        <translation>Laikmena:</translation>
+        <location filename="../src/utils/metadata.cpp" line="114"/>
+        <source>Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="122"/>
+        <source>Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -780,22 +790,27 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="590"/>
+        <location filename="../src/qx11grab.cpp" line="582"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="618"/>
+        <location filename="../src/qx11grab.cpp" line="610"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="618"/>
+        <location filename="../src/qx11grab.cpp" line="610"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="643"/>
+        <location filename="../src/qx11grab.cpp" line="630"/>
+        <source>Open Bookmark %1 failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qx11grab.cpp" line="641"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

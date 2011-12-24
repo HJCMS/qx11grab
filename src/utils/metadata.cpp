@@ -119,7 +119,7 @@ MetaData::MetaData ( QWidget * parent )
   * Multiple languages can be specified by separating them with commas. */
   metadata_LANG = new QLineEdit ( this );
   metadata_LANG->setObjectName ( QLatin1String ( "metadata/language" ) );
-  metadata_LANG->setToolTip ( QLatin1String ( "Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas." ) );
+  metadata_LANG->setToolTip ( trUtf8 ( "Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas." ) );
   gridLayout->addWidget ( metadata_LANG, grow++, 1, 1, 1 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );

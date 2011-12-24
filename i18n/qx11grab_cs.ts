@@ -555,8 +555,16 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation>Popis:</translation>
     </message>
     <message>
-        <source>Medium:</source>
-        <translation>Nosič:</translation>
+        <source>Note many formats only support a handful of metadata keys.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -642,6 +650,10 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
     <message>
         <source>command line preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

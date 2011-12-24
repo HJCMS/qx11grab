@@ -573,8 +573,16 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Beschreibung:</translation>
     </message>
     <message>
-        <source>Medium:</source>
-        <translation>Medium:</translation>
+        <source>Note many formats only support a handful of metadata keys.</source>
+        <translation>Achtung: Viele Formate Unterstützen nicht jeden Schlüssel.</translation>
+    </message>
+    <message>
+        <source>Language:</source>
+        <translation>Sprache:</translation>
+    </message>
+    <message>
+        <source>Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas.</source>
+        <translation>Sprachkennung im ISO 636-2 Format. Mehrere Sprachkennungen können mit Komma getrennt eingefügt werden.</translation>
     </message>
 </context>
 <context>
@@ -661,6 +669,10 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     <message>
         <source>command line preview</source>
         <translation>Kommadozeilen Vorschau</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1 failed</source>
+        <translation>Lesezeichen öffnen von %1 fehlgeschlagen!</translation>
     </message>
 </context>
 <context>
