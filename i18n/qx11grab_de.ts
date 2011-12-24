@@ -388,12 +388,47 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <source>Features</source>
         <translation>Fähigkeiten</translation>
     </message>
+    <message>
+        <source>Logging:</source>
+        <translation>Meldungn:</translation>
+    </message>
 </context>
 <context>
     <name>Listener</name>
     <message>
         <source>Time: %1 Size: %2</source>
         <translation>Zeit: %1 Größe: %2</translation>
+    </message>
+</context>
+<context>
+    <name>LogLevelComboBox</name>
+    <message>
+        <source>Warning</source>
+        <translation>Warnung</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>Info</translation>
+    </message>
+    <message>
+        <source>Verbose</source>
+        <translation>Gesprächig</translation>
+    </message>
+    <message>
+        <source>Debug</source>
+        <translation>Debuggen</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fehler</translation>
+    </message>
+    <message>
+        <source>Panic</source>
+        <translation>Panisch</translation>
+    </message>
+    <message>
+        <source>Fatal</source>
+        <translation>Kritisch</translation>
     </message>
 </context>
 <context>

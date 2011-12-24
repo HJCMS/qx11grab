@@ -256,27 +256,27 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="90"/>
+        <location filename="../src/defaults.cpp" line="94"/>
         <source>Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="125"/>
+        <location filename="../src/defaults.cpp" line="130"/>
         <source>FFmpeg %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="126"/>
+        <location filename="../src/defaults.cpp" line="131"/>
         <source>Other %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="128"/>
+        <location filename="../src/defaults.cpp" line="133"/>
         <source>FFmpeg Binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="141"/>
+        <location filename="../src/defaults.cpp" line="146"/>
         <source>Output Directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -398,62 +398,67 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="58"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="59"/>
         <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="68"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="69"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="87"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="88"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="106"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="125"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="126"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="146"/>
         <source>Depth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="156"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="157"/>
         <source>Framerate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
+        <source>Logging:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="179"/>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="173"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="184"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="178"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="194"/>
         <source>Insert Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="188"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="199"/>
         <source>Enable Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -463,6 +468,44 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
     <message>
         <location filename="../src/ffprocess/listener.cpp" line="73"/>
         <source>Time: %1 Size: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LogLevelComboBox</name>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="37"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="38"/>
+        <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="39"/>
+        <source>Verbose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="40"/>
+        <source>Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="41"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="42"/>
+        <source>Panic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="43"/>
+        <source>Fatal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -778,37 +821,37 @@ OSS Default: /dev/dsp or Alsa Default: default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="456"/>
+        <location filename="../src/qx11grab.cpp" line="457"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="456"/>
+        <location filename="../src/qx11grab.cpp" line="457"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="582"/>
+        <location filename="../src/qx11grab.cpp" line="584"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="610"/>
+        <location filename="../src/qx11grab.cpp" line="612"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="610"/>
+        <location filename="../src/qx11grab.cpp" line="612"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="630"/>
+        <location filename="../src/qx11grab.cpp" line="632"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="641"/>
+        <location filename="../src/qx11grab.cpp" line="643"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

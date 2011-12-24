@@ -370,11 +370,46 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Logging:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Listener</name>
     <message>
         <source>Time: %1 Size: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LogLevelComboBox</name>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Varování</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Informace</translation>
+    </message>
+    <message>
+        <source>Verbose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Chyba</translation>
+    </message>
+    <message>
+        <source>Panic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fatal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
