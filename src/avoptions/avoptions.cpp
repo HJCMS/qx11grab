@@ -50,7 +50,42 @@ namespace QX11Options
 
   void AVOptions::getVideoCodecOption ( const QString &option, const QVariant &value )
   {
-      qDebug() << Q_FUNC_INFO << "TODO" << option << value;
+    qDebug() << Q_FUNC_INFO << "TODO" << option << value;
+  }
+
+  const QList<FFOption> AVOptions::aspect()
+  {
+    QList<FFOption> list;
+    FFOption opt;
+
+    opt.id = 0;
+    opt.name = "4:3";
+    opt.value = QVariant ( "1.3333" );
+    list.append ( opt );
+
+    opt.id = 1;
+    opt.name = "16:9";
+    opt.value = QVariant ( "1.7777" );
+    list.append ( opt );
+    return list;
+  }
+
+  const QList<FFOption> AVOptions::meMethod()
+  {
+    QStringList items ( "epzs" );
+    items << "full" << "zero" << "esa" << "tesa" << "dia";
+    items << "log" << "phods" << "x1" << "hex" << "umh" << "iter";
+
+    QList<FFOption> list;
+    for ( int i = 0; i < items.size(); ++i )
+    {
+      FFOption opt;
+      opt.id = i;
+      opt.name = items.at ( i );
+      opt.value = QVariant ();
+      list.append ( opt );
+    }
+    return list;
   }
 
   const QList<FFOption> AVOptions::sampleFormats()

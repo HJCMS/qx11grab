@@ -33,6 +33,9 @@
 #include <QtGui/QRegExpValidator>
 #include <QtGui/QWidget>
 
+/* QX11Grab */
+#include "avoptions.h"
+
 class AbstractEdit : public QLineEdit
 {
     Q_OBJECT
@@ -49,7 +52,7 @@ class AbstractEdit : public QLineEdit
 
   public:
     explicit AbstractEdit ( QWidget * parent = 0 );
-    void setCompleters ( const QStringList &list );
+    void setCompleters ( const QList<QX11Options::FFOption> &list );
     const QVariant value();
     const QByteArray valuePropertyName () const;
     ~AbstractEdit();

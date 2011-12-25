@@ -19,6 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#include <cstdlib>
+
 #include "ffprocess.h"
 #include "settings.h"
 
@@ -88,6 +90,8 @@ bool FFProcess::start ( const QStringList &cmd )
 
   if ( arguments.contains ( application() ) )
     arguments.removeOne ( application() );
+
+  setenv ( "FFMPEG_FORCE_NOCOLOR", "1", 1 );
 
   m_QProcess = new QProcess ( this );
   m_QProcess->setWorkingDirectory ( workdir() );

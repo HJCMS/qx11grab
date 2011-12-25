@@ -25,22 +25,17 @@
 // #include ""
 
 /* QtCore */
-#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QProcess>
+#include <QtCore/QSettings>
 #include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QAction>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QVBoxLayout>
-
-/* QtDBus */
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
 
 PlayerAction::PlayerAction ( QWidget * parent )
     : QToolButton ( parent )
@@ -98,14 +93,10 @@ void PlayerAction::searchPlayers()
 
 void PlayerAction::playOuputFile ( const QString &player )
 {
-  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
-  QDBusReply<QString> reply = iface.call ( "getOutputFile" );
-  if ( reply.isValid() )
-  {
-    QFileInfo file ( reply.value() );
-    if ( file.exists() )
-      QProcess::startDetached ( player, QStringList ( file.absoluteFilePath() ) );
-  }
+  QSettings settings;
+  QFileInfo file ( settings.value ( QLatin1String ( "CurrentOutputFile" )  ).toString() );
+  if ( file.exists() )
+    QProcess::startDetached ( player, QStringList ( file.absoluteFilePath() ) );
 }
 
 PlayerAction::~PlayerAction()

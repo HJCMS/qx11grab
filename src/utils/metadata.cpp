@@ -130,7 +130,6 @@ MetaData::MetaData ( QWidget * parent )
 
 /**
 * Einstellungen Laden
-* http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
 */
 const QList<QLineEdit*> MetaData::metadataObjects()
 {
@@ -185,7 +184,7 @@ const QStringList MetaData::getCmd ( const QString &codec )
   }
 
   cmd << "-metadata" << QString ( "year=\"%1\"" ).arg ( metadata_ICRD->date().year() );
-  // DEPRECATED creation_time Key ISO 8601
+  // DEPRECATED timestamp use "creation_time Key ISO 8601"
   cmd << "-metadata" << QString ( "creation_time=\"%1\"" ).arg ( metadata_ICRD->dateTime().toString ( Qt::ISODate ) );
 
   return cmd;

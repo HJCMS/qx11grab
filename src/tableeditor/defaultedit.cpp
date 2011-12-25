@@ -30,5 +30,18 @@ DefaultEdit::DefaultEdit ( QWidget * parent )
   setObjectName ( QLatin1String ( "DefaultEdit" ) );
 }
 
+void DefaultEdit::setCompleterId ( const QString &id )
+{
+  // Siehe "avoptions.h"
+  if ( id.compare ( "-pix_fmt" ) == 0 )
+    setCompleters ( QX11Options::AVOptions::pixelFormats() );
+  else if ( id.compare ( "-sample_fmt" ) == 0 )
+    setCompleters ( QX11Options::AVOptions::sampleFormats() );
+  else if ( id.compare ( "-aspect" ) == 0 )
+    setCompleters ( QX11Options::AVOptions::aspect() );
+  else if ( id.compare ( "-me_method" ) == 0 )
+    setCompleters ( QX11Options::AVOptions::meMethod() );
+}
+
 DefaultEdit::~DefaultEdit()
 {}

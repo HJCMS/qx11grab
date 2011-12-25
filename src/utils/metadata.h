@@ -32,6 +32,10 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
+/**
+* Metadata Descriptions
+* \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
+*/
 class MetaData : public QWidget
 {
     Q_OBJECT

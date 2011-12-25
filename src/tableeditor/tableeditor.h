@@ -37,6 +37,7 @@
 #include <QtGui/QWidget>
 
 class CodecTable;
+class CodecSelecter;
 
 class TableEditor : public QWidget
 {
@@ -48,7 +49,7 @@ class TableEditor : public QWidget
     QString currentType;
     QStringList sharedVideoCodec;
     QStringList sharedAudioCodec;
-    QComboBox* m_codecComboBox;
+    CodecSelecter* m_codecSelecter;
     CodecTable* m_tableWidget;
 
     void findVideoCodecs();

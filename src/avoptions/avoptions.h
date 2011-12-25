@@ -62,10 +62,16 @@ namespace QX11Options
 
       void getVideoCodecOption ( const QString &option, const QVariant &value = QVariant() );
 
+      /** ffmpeg -aspect */
+      static const QList<FFOption> aspect();
+
+      /** ffmpeg -me_method */
+      static const QList<FFOption> meMethod();
+
       /** ffmpeg -sample_fmts */
       static const QList<FFOption> sampleFormats();
 
-      /** ffmpeg -spix_fmts */
+      /** ffmpeg -pix_fmts */
       static const QList<FFOption> pixelFormats();
 
       /** all supported AVMEDIA_TYPE_VIDEO encoder types */

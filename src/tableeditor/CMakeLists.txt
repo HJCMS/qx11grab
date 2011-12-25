@@ -2,6 +2,7 @@
 
 SET (tableeditor_SOURCES
   tableeditor.cpp
+  codecselecter.cpp
   codectable.cpp
   codectablemodel.cpp
   codectabledelegate.cpp
@@ -14,6 +15,7 @@ SET (tableeditor_SOURCES
 
 SET (tableeditor_HEADERS
   tableeditor.h
+  codecselecter.h
   codectable.h
   codectablemodel.h
   codectabledelegate.h

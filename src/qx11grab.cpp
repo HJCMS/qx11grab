@@ -304,6 +304,29 @@ void QX11Grab::saveStats()
 }
 
 /**
+* Ausgabepfad erstellen und zwischenspeichern!
+* \note Der Dateiname ändert sich bei jedem aufruf!
+*/
+const QString QX11Grab::generateOutputFile()
+{
+  QString outFile;
+  QString codec = videoCodec();
+  if ( codec.contains ( "theora", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.ogg" ).arg ( m_defaults->output() );
+  else if ( codec.contains ( "libvpx", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.webm" ).arg ( m_defaults->output() );
+  else if ( codec.contains ( "libx264", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.mp4" ).arg ( m_defaults->output() );
+  else if ( codec.contains ( "mpeg", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.mpg" ).arg ( m_defaults->output() );
+  else
+    outFile = QString ( "%1.avi" ).arg ( m_defaults->output() );
+
+  cfg->setValue ( QLatin1String ( "CurrentOutputFile" ), outFile );
+  return outFile;
+}
+
+/**
 * Sende verschieben Info an Klasse @class RubberBand
 */
 void QX11Grab::toRubber ( bool b )
@@ -511,27 +534,23 @@ void QX11Grab::openLogFileDialog()
 
 /**
 * Kommando Zeile für Textausgabe Aufbereiten.
-*  X11grab indev AVOptions:
-*  -video_size    string A string describing frame size, such as 640x480 or hd720.
-*  -framerate     string
-*  -draw_mouse    int    Draw the mouse pointer.
-*  -follow_mouse  int    Move the grabbing region when the mouse pointer reaches within specified amount of pixels to the edge of region.
-*     centered           Keep the mouse pointer at the center of grabbing region when following.
-*  -show_region   int    Show the grabbing region.
 */
 void QX11Grab::perparePreview()
 {
   QStringList commandLine;
 
-  commandLine << m_defaults->binary ();
-  commandLine << "-xerror" << "-f" << "x11grab";
+  commandLine << m_defaults->binary () << "-xerror";
+  commandLine << "-loglevel" << cfg->value ( "Grabber/LogLevel", "info" ).toString();
+  commandLine << "-f" << "x11grab";
+  commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
 
+  // Dimension
+  QX11Info xInfo;
   QRect r = m_grabberInfo->getRect();
   QString geometry = QString ( "%1x%2" ).arg ( QString::number ( r.width() ), QString::number ( r.height() ) );
-  commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
+  /* WARNING ordered SIZE before POINT is implicit required
+  * or else FFmpeg didnt correct scale the stream */
   commandLine << "-video_size" << geometry;
-
-  QX11Info xInfo;
   commandLine << "-i" << QString ( ":%1.%2+%3,%4 " ) .arg (
       QString::number ( xInfo.screen() ),
       QString::number ( xInfo.appScreen() ),
@@ -539,12 +558,12 @@ void QX11Grab::perparePreview()
       QString::number ( r.y() )
   );
 
+  // Decoder
+  commandLine << "-dcodec" << "copy";
+
   // Audio System
   if ( m_grabberInfo->soundEnabled() )
     commandLine << m_defaults->audioDeviceData();
-
-  commandLine << "-dcodec" << "copy";
-  commandLine << "-loglevel" << cfg->value ( "Grabber/LogLevel", "info" ).toString();
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
@@ -558,7 +577,8 @@ void QX11Grab::perparePreview()
     commandLine << m_audioEditor->getCmd ();
 
   // Output Options
-  commandLine << "-y" << outputFile();
+  QString outFile = generateOutputFile();
+  commandLine << "-y" << outFile;
 
   m_commandPreview->setCommandLine ( commandLine );
 
@@ -674,14 +694,7 @@ const QString QX11Grab::videoCodec()
 
 const QString QX11Grab::outputFile()
 {
-  if ( videoCodec().contains ( "theora", Qt::CaseInsensitive ) )
-    return QString ( "%1.ogg" ).arg ( m_defaults->output() );
-  else if ( videoCodec().contains ( "libx264", Qt::CaseInsensitive ) )
-    return QString ( "%1.mp4" ).arg ( m_defaults->output() );
-  else if ( videoCodec().contains ( "mpeg", Qt::CaseInsensitive ) )
-    return QString ( "%1.mpg" ).arg ( m_defaults->output() );
-  else
-    return QString ( "%1.avi" ).arg ( m_defaults->output() );
+  return cfg->value ( QLatin1String ( "CurrentOutputFile" ), m_defaults->output() ).toString();
 }
 
 QX11Grab::~QX11Grab()

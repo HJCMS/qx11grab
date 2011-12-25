@@ -164,15 +164,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   horizontalLayout->addWidget ( setFrameRate, Qt::AlignLeft );
   // end: Frame Rate
 
-  // begin: LogLevel
-  QLabel* txt9 = new QLabel ( this );
-  txt9->setText ( trUtf8 ( "Logging:" ) );
-  txt9->setAlignment ( labelAlignment );
-  horizontalLayout->addWidget ( txt9, Qt::AlignRight );
-
-  m_logLevelComboBox = new LogLevelComboBox ( this );
-  horizontalLayout->addWidget ( m_logLevelComboBox, Qt::AlignLeft );
-  // end: LogLevel
   gridLayout->addLayout ( horizontalLayout, grow++, 0, 1, 3 );
 
   // start: Features
@@ -199,6 +190,12 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   soundRecording->setText ( trUtf8 ( "Enable Audio Recording" ) );
   soundRecording->setChecked ( true );
   checkBoxLayout->addWidget ( soundRecording, 1, 1, 1, 1 );
+
+  checkBoxLayout->addWidget ( ( new QLabel ( trUtf8 ( "Report Level" ), featureBox ) ),
+                              2, 0, 1, 1, Qt::AlignRight );
+
+  m_logLevelComboBox = new LogLevelComboBox ( featureBox );
+  checkBoxLayout->addWidget ( m_logLevelComboBox, 2, 1, 1, 1 );
 
   gridLayout->addWidget ( featureBox, grow++, 0, 1, 3 );
   // end: Features

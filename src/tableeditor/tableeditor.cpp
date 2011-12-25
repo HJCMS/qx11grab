@@ -22,6 +22,7 @@
 #include "tableeditor.h"
 #include "avoptions.h"
 #include "codectable.h"
+#include "codecselecter.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -54,10 +55,8 @@ TableEditor::TableEditor ( QWidget * parent )
                       grow, 0, 1, 1, Qt::AlignRight );
 
   // ComboBox
-  m_codecComboBox = new QComboBox ( this );
-  m_codecComboBox->setObjectName ( QLatin1String ( "TableEditor/ComboBox" ) );
-  m_codecComboBox->setEditable ( true );
-  layout->addWidget ( m_codecComboBox, grow++, 1, 1, 1 );
+  m_codecSelecter = new CodecSelecter ( this );
+  layout->addWidget ( m_codecSelecter, grow++, 1, 1, 1 );
 
   // Table
   m_tableWidget = new CodecTable ( this );
@@ -75,7 +74,7 @@ TableEditor::TableEditor ( QWidget * parent )
   setLayout ( layout );
 
   // onUpdate
-  connect ( m_codecComboBox, SIGNAL ( currentIndexChanged ( int ) ),
+  connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( int ) ),
             this, SIGNAL ( postUpdate() ) );
 
   connect ( m_tableWidget, SIGNAL ( itemChanged () ),
@@ -94,59 +93,37 @@ TableEditor::TableEditor ( QWidget * parent )
 
 /**
 * Such mit Hilfe von AVCodec alle verfügbaren
-* Video Kodierungen und schreibe diese nach @ref m_codecComboBox.
+* Video Kodierungen und schreibe diese nach @ref m_codecSelecter.
 */
 void TableEditor::findVideoCodecs()
 {
-  m_codecComboBox->clear();
-  int index = 0;
   QList<QX11Options::FFCodec> list = QX11Options::AVOptions::videoCodecs();
-  for ( int i = 0; i < list.size(); ++i )
-  {
-    QX11Options::FFCodec codec = list.at ( i );
-    m_codecComboBox->insertItem ( index, codec.name, QVariant ( codec.name ) );
-    m_codecComboBox->setItemData ( index, codec.name, Qt::EditRole );
-    m_codecComboBox->setItemData ( index, codec.fullname, Qt::ToolTipRole );
-    index = i;
-  }
+  if ( list.size() > 0 )
+    m_codecSelecter->setCodecItems ( list );
+
   // Eigene Codec Definitionen einfügen
   foreach ( QString custom, sharedVideoCodec )
   {
-    if ( m_codecComboBox->findData ( custom ) == -1 )
-    {
-      m_codecComboBox->insertItem ( index, custom, QVariant ( custom ) );
-      m_codecComboBox->setItemData ( index, custom, Qt::EditRole );
-      m_codecComboBox->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
-    }
+    if ( m_codecSelecter->findData ( custom ) == -1 )
+      m_codecSelecter->setCustomItem ( custom, QVariant ( custom ) );
   }
 }
 
 /**
 * Such mit Hilfe von AVCodec alle verfügbaren
-* Audio Kodierungen und schreibe diese nach @ref m_codecComboBox.
+* Audio Kodierungen und schreibe diese nach @ref m_codecSelecter.
 */
 void TableEditor::findAudioCodecs()
 {
-  m_codecComboBox->clear();
-  int index = 0;
   QList<QX11Options::FFCodec> list = QX11Options::AVOptions::audioCodecs();
-  for ( int i = 0; i < list.size(); ++i )
-  {
-    QX11Options::FFCodec codec = list.at ( i );
-    m_codecComboBox->insertItem ( index, codec.name, QVariant ( codec.name ) );
-    m_codecComboBox->setItemData ( index, codec.name, Qt::EditRole );
-    m_codecComboBox->setItemData ( index, codec.fullname, Qt::ToolTipRole );
-    index = i;
-  }
+  if ( list.size() > 0 )
+    m_codecSelecter->setCodecItems ( list );
+
   // Eigene Codec Definitionen einfügen
   foreach ( QString custom, sharedAudioCodec )
   {
-    if ( m_codecComboBox->findData ( custom ) == -1 )
-    {
-      m_codecComboBox->insertItem ( index, custom, QVariant ( custom ) );
-      m_codecComboBox->setItemData ( index, custom, Qt::EditRole );
-      m_codecComboBox->setItemData ( index, trUtf8 ( "Customized" ), Qt::ToolTipRole );
-    }
+    if ( m_codecSelecter->findData ( custom ) == -1 )
+      m_codecSelecter->setCustomItem ( custom, QVariant ( custom ) );
   }
 }
 
@@ -231,21 +208,19 @@ void TableEditor::delTableRow()
 */
 void TableEditor::load ( const QString &type, QSettings *cfg )
 {
-  int codecIndex = 0;
   currentType = type;
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     sharedVideoCodec << cfg->value ( "video_codec" ).toString();
     findVideoCodecs();
-    codecIndex = m_codecComboBox->findData ( cfg->value ( "video_codec" ) );
+    m_codecSelecter->setCodec ( cfg->value ( "video_codec" ).toString() );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
     sharedAudioCodec << cfg->value ( "audio_codec" ).toString();
     findAudioCodecs();
-    codecIndex = m_codecComboBox->findData ( cfg->value ( "audio_codec" ) );
+    m_codecSelecter->setCodec ( cfg->value ( "audio_codec" ).toString() );
   }
-  m_codecComboBox->setCurrentIndex ( codecIndex );
   loadTableOptions ( type, cfg );
 }
 
@@ -257,15 +232,9 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
 {
   saveTableOptions ( type, cfg );
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
-  {
-    cfg->setValue ( QLatin1String ( "video_codec" ),
-                    m_codecComboBox->itemText ( m_codecComboBox->currentIndex() ) );
-  }
+    cfg->setValue ( QLatin1String ( "video_codec" ), selectedCodec() );
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
-  {
-    cfg->setValue ( QLatin1String ( "audio_codec" ),
-                    m_codecComboBox->itemText ( m_codecComboBox->currentIndex() ) );
-  }
+    cfg->setValue ( QLatin1String ( "audio_codec" ), selectedCodec() );
 }
 
 /**
@@ -295,7 +264,7 @@ const QHash<QString,QVariant> TableEditor::getTableItems()
 */
 const QString TableEditor::selectedCodec()
 {
-  return m_codecComboBox->itemText ( m_codecComboBox->currentIndex() );
+  return m_codecSelecter->getCodec();
 }
 
 /**
@@ -307,13 +276,11 @@ const QStringList TableEditor::getCmd ()
 
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
-    cmd << QLatin1String ( "-vcodec" );
-    cmd << selectedCodec();
+    cmd << QLatin1String ( "-vcodec" ) << selectedCodec();
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
-    cmd << QLatin1String ( "-acodec" );
-    cmd << m_codecComboBox->itemText ( m_codecComboBox->currentIndex() );
+    cmd << QLatin1String ( "-acodec" ) << selectedCodec();
   }
 
   QHash<QString,QVariant> hash = getTableItems();
@@ -333,7 +300,7 @@ const QStringList TableEditor::getCmd ()
 
 void TableEditor::setCodecByName ( const QString &txt )
 {
-  m_codecComboBox->setCurrentIndex ( m_codecComboBox->findData ( txt ) );
+  m_codecSelecter->setCodec ( txt );
 }
 
 void TableEditor::setCodecOptions ( const QHash<QString,QVariant> &options )

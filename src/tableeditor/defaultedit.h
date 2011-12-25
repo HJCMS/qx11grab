@@ -42,6 +42,7 @@ class DefaultEdit : public AbstractEdit
 
   public:
     DefaultEdit ( QWidget * parent = 0 );
+    void setCompleterId ( const QString &id );
     ~DefaultEdit();
 };
 

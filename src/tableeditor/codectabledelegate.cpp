@@ -117,6 +117,9 @@ void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &ind
   }
 
   DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
+  if ( index.column() == 1 )
+    w->setCompleterId ( findOption ( index ) );
+
   w->setValue ( index.model()->data ( index ) );
 }
 

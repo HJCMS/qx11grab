@@ -53,11 +53,22 @@ void AbstractEdit::setValue ( const QVariant &value )
   setText ( value.toString() );
 }
 
-void AbstractEdit::setCompleters ( const QStringList &list )
+void AbstractEdit::setCompleters ( const QList<QX11Options::FFOption> &list )
 {
   if ( list.size() > 0 )
   {
-    QCompleter* m_compliter = new QCompleter ( list, this );
+    QStringList items;
+    foreach ( QX11Options::FFOption opt, list )
+    {
+      items.append ( opt.name );
+      if ( ! opt.value.toString().isEmpty() )
+        items.append ( opt.value.toString() );
+    }
+
+    if ( items.size() < 1 )
+      return;
+
+    QCompleter* m_compliter = new QCompleter ( items, this );
     setCompleter ( m_compliter );
   }
 }

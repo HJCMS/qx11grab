@@ -47,6 +47,9 @@ class SelectVcodecPresets : public AbstractSelection
     const QStringList userPresets ( const QString &suffix );
     const QStringList systemPresets ( const QString &suffix );
 
+  protected:
+    void initItemDataset();
+
   public Q_SLOTS:
     void reload();
 

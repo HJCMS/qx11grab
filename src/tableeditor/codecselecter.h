@@ -19,37 +19,45 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef ABSTRACTSELECTION_H
-#define ABSTRACTSELECTION_H
+#ifndef CODECSELECTER_H
+#define CODECSELECTER_H
 
 /* QtCore */
-#include <QtCore/QByteArray>
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-class AbstractSelection : public QComboBox
+/* QX11Grab */
+#include "avoptions.h"
+#include "abstractselection.h"
+
+class CodecSelecter : public AbstractSelection
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_PROPERTY ( QVariant value READ value WRITE setValue USER true )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+    Q_PROPERTY ( QString codec READ getCodec WRITE setCodec USER true )
 
   protected:
-    virtual void initItemDataset() = 0;
+    void initItemDataset();
 
   public Q_SLOTS:
-    void setValue ( const QVariant &value );
+    void setCodec ( const QString &name );
 
   public:
-    explicit AbstractSelection ( QWidget * parent = 0 );
-    const QVariant value();
-    QByteArray valuePropertyName () const;
-    ~AbstractSelection();
+    CodecSelecter ( QWidget * parent = 0 );
+
+    void setCodecItems ( const QList<QX11Options::FFCodec> & );
+
+    void setCustomItem ( const QString &key, const QVariant &value );
+
+    const QString getCodec ();
+
+    ~CodecSelecter();
 };
 
 #endif

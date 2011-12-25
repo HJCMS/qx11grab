@@ -47,6 +47,9 @@ SelectVcodecPresets::SelectVcodecPresets ( QWidget * parent )
   reload();
 }
 
+void SelectVcodecPresets::initItemDataset()
+{}
+
 const QStringList SelectVcodecPresets::userPresets ( const QString &suffix )
 {
   QStringList list;

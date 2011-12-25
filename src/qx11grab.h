@@ -85,6 +85,7 @@ class QX11Grab : public QMainWindow
     void createSystemTrayIcon();
     void loadStats();
     void saveStats();
+    const QString generateOutputFile();
 
   private Q_SLOTS:
     void showRubber ( bool );
