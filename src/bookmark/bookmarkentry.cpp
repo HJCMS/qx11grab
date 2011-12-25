@@ -43,7 +43,7 @@ BookmarkEntry& BookmarkEntry::operator= ( const BookmarkEntry &p )
 bool BookmarkEntry::elementExists ( const QString &nodeName )
 {
   QDomElement e = firstChildElement ( nodeName );
-  qDebug() << Q_FUNC_INFO << "SEARCH:" << nodeName << " FROM:" << attribute ( "title" );
+  // qDebug() << Q_FUNC_INFO << "SEARCH:" << nodeName << " FROM:" << attribute ( "title" );
   if ( e.isNull() )
     return false;
   else if ( e.nodeType() != QDomNode::ElementNode )
@@ -134,14 +134,14 @@ const QString BookmarkEntry::getCodecName ( BTYPE type )
 */
 void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
 {
-  qDebug() << Q_FUNC_INFO << codecName;
+  // qDebug() << Q_FUNC_INFO << codecName;
   if ( ! hasAttribute ( "title" ) )
     qFatal ( "empty title attributes" );
 
   QString id = codecName.trimmed();
   if ( id.isEmpty() )
   {
-    qWarning ( "no id found aboard" );
+    qWarning ( "no codec param id found - dropout" );
     return;
   }
 

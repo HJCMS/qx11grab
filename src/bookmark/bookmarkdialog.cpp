@@ -94,8 +94,7 @@ bool BookmarkDialog::saveBookmark()
     entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
     entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );
   }
-  else
-    qDebug() << Q_FUNC_INFO << xml->toString();
+  // qDebug() << Q_FUNC_INFO << xml->toString();
 
   if ( xml->save() )
   {
