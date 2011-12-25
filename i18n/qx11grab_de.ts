@@ -162,6 +162,13 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
 </context>
 <context>
+    <name>CodecSelecter</name>
+    <message>
+        <source>Customized</source>
+        <translation>Angepasst</translation>
+    </message>
+</context>
+<context>
     <name>CodecTableDelegate</name>
     <message>
         <source>Missing stated hyphens in given argument</source>
@@ -389,8 +396,8 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
         <translation>Fähigkeiten</translation>
     </message>
     <message>
-        <source>Logging:</source>
-        <translation>Meldungn:</translation>
+        <source>Report Level</source>
+        <translation>Berichtstärke</translation>
     </message>
 </context>
 <context>
@@ -408,7 +415,7 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Info</translation>
+        <translation>Informativ</translation>
     </message>
     <message>
         <source>Verbose</source>
@@ -760,10 +767,6 @@ OSS Standard: /dev/dsp oder Alsa Standard: default</translation>
 </context>
 <context>
     <name>TableEditor</name>
-    <message>
-        <source>Customized</source>
-        <translation>Angepasst</translation>
-    </message>
     <message>
         <source>Codec</source>
         <translation>Kodierer-Dekodierer</translation>

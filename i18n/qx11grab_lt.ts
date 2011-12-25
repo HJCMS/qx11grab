@@ -187,9 +187,17 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
     </message>
 </context>
 <context>
+    <name>CodecSelecter</name>
+    <message>
+        <location filename="../src/tableeditor/codecselecter.cpp" line="71"/>
+        <source>Customized</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="146"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="149"/>
         <source>Missing stated hyphens in given argument</source>
         <translation type="unfinished"></translation>
     </message>
@@ -312,87 +320,87 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="62"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="64"/>
         <source>Permission Denied: %1.</source>
         <translation>Neleidžiama: %1.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="75"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="77"/>
         <source>Invalid Window geometry</source>
         <translation>Netinkama lango geometrija</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="194"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="198"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="202"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="210"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="214"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="218"/>
         <source>Recording</source>
         <translation>Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="194"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="198"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Nepavyko paleisti (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="198"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="202"/>
         <source>Crashed (%1) ...</source>
         <translation>Užstrigo (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="202"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
         <source>Timedout (%1) ...</source>
         <translation>Baigėsi laikas (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="210"/>
         <source>WriteError (%1) ...</source>
         <translation>Rašymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="210"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="214"/>
         <source>ReadError (%1) ...</source>
         <translation>Skaitymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="214"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="218"/>
         <source>UnknownError (%1) ...</source>
         <translation>Nežinoma klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="229"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="233"/>
         <source>Recording finished.</source>
         <translation>Įrašinėjimas baigtas.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
         <source>Recording started writing to: %1</source>
         <translation>Pradėti įrašinėti į %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="233"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="237"/>
         <source>Process crashed see logfile %1</source>
         <translation>Procesas užstrigo, žiūrėkite %1 žurnale</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="123"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="127"/>
         <source>shutdown please wait ...</source>
         <translation>baigiama, palaukite...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="143"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="147"/>
         <source>force shutdown</source>
         <translation>priverstinis išjungimas</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="62"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="64"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="75"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="77"/>
         <source>Dimension</source>
         <translation>Dydis</translation>
     </message>
@@ -435,32 +443,32 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>Kadrų dažnis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
-        <source>Logging:</source>
+        <location filename="../src/utils/grabberinfo.cpp" line="194"/>
+        <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="179"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="170"/>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="184"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="175"/>
         <source>Display Rubberband</source>
         <translation>Rodyti rėmelį</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="180"/>
         <source>Start Minimized</source>
         <translation>Pradėti nuleidus į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="194"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="185"/>
         <source>Insert Metadata</source>
         <translation>Įterpti meta duomenis</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="199"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="190"/>
         <source>Enable Audio Recording</source>
         <translation>Įgalinti garso įrašymą</translation>
     </message>
@@ -808,52 +816,52 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="384"/>
+        <location filename="../src/qx11grab.cpp" line="407"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="384"/>
+        <location filename="../src/qx11grab.cpp" line="407"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="397"/>
+        <location filename="../src/qx11grab.cpp" line="420"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="457"/>
+        <location filename="../src/qx11grab.cpp" line="480"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="457"/>
+        <location filename="../src/qx11grab.cpp" line="480"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="584"/>
+        <location filename="../src/qx11grab.cpp" line="604"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="612"/>
+        <location filename="../src/qx11grab.cpp" line="632"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="612"/>
+        <location filename="../src/qx11grab.cpp" line="632"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="632"/>
+        <location filename="../src/qx11grab.cpp" line="652"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="643"/>
+        <location filename="../src/qx11grab.cpp" line="663"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -889,7 +897,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="91"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="94"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -902,7 +910,7 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="91"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="94"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -918,29 +926,23 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="53"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="54"/>
         <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="67"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="66"/>
         <source>Add</source>
         <translation type="unfinished">Pridėti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="69"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="68"/>
         <source>Remove</source>
         <translation type="unfinished">Pašalinti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="71"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="70"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="119"/>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="148"/>
-        <source>Customized</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -153,6 +153,13 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
     </message>
 </context>
 <context>
+    <name>CodecSelecter</name>
+    <message>
+        <source>Customized</source>
+        <translation type="unfinished">Vlastní</translation>
+    </message>
+</context>
+<context>
     <name>CodecTableDelegate</name>
     <message>
         <source>Missing stated hyphens in given argument</source>
@@ -371,7 +378,7 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Logging:</source>
+        <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -742,10 +749,6 @@ Výchozí OSS: /dev/dsp nebo výchozí Alsa: default</translation>
 </context>
 <context>
     <name>TableEditor</name>
-    <message>
-        <source>Customized</source>
-        <translation>Vlastní</translation>
-    </message>
     <message>
         <source>Codec</source>
         <translation>Kodek</translation>
