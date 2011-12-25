@@ -87,13 +87,20 @@ MenuBar::MenuBar ( QX11Grab * parent )
   // About and Help
   QMenu* m_menuHelp = addMenu ( trUtf8 ( "Help" ) );
 
-  QAction* m_actionFFmpeg = m_menuHelp->addAction ( QIcon::fromTheme ( "help-contents" ),
-                            trUtf8 ( "FFmpeg" ) );
-  m_actionFFmpeg->setToolTip ( trUtf8 ( "FFmpeg Homepage" ) );
+  QIcon helpIcon = QIcon::fromTheme ( "help-contents" );
 
   QAction* m_actionHJCMS = m_menuHelp->addAction ( getThemeIcon ( "qx11grab" ),
                            trUtf8 ( "QX11Grab" ) );
   m_actionHJCMS->setToolTip ( trUtf8 ( "QX11Grab Homepage" ) );
+
+  QAction* m_actionFFmpeg = m_menuHelp->addAction ( helpIcon, trUtf8 ( "FFmpeg" ) );
+  m_actionFFmpeg->setToolTip ( trUtf8 ( "FFmpeg Homepage" ) );
+
+  QAction* m_actionx264 = m_menuHelp->addAction ( helpIcon, trUtf8 ( "x264" ) );
+  m_actionx264->setToolTip ( trUtf8 ( "x264 Homepage" ) );
+
+  QAction* m_actionWebM = m_menuHelp->addAction ( helpIcon, trUtf8 ( "WebM Guideline" ) );
+  m_actionWebM->setToolTip ( trUtf8 ( "WebM Container Guidelines" ) );
 
   connect ( m_actionGrabbing, SIGNAL ( triggered () ),
             mainWindow, SLOT ( grabFromWindow () ) );
@@ -131,11 +138,18 @@ MenuBar::MenuBar ( QX11Grab * parent )
   connect ( m_actionRefresh, SIGNAL ( triggered() ),
             mainWindow, SLOT ( perparePreview() ) );
 
+  // Homepages
   connect ( m_actionFFmpeg, SIGNAL ( triggered () ),
             this, SLOT ( openFFmpegHomepage() ) );
 
   connect ( m_actionHJCMS, SIGNAL ( triggered () ),
             this, SLOT ( openQX11GrabHomepage() ) );
+
+  connect ( m_actionWebM, SIGNAL ( triggered () ),
+            this, SLOT ( openWebMProjectHomepage() ) );
+
+  connect ( m_actionx264, SIGNAL ( triggered () ),
+            this, SLOT ( openVideoLanHomepage() ) );
 }
 
 QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
@@ -165,6 +179,16 @@ void MenuBar::openFFmpegHomepage()
 void MenuBar::openQX11GrabHomepage()
 {
   QDesktopServices::openUrl ( QUrl ( "http://qx11grab.hjcms.de" ) );
+}
+
+void MenuBar::openWebMProjectHomepage()
+{
+  QDesktopServices::openUrl ( QUrl ( "http://www.webmproject.org/code/specs/container/" ) );
+}
+
+void MenuBar::openVideoLanHomepage()
+{
+  QDesktopServices::openUrl ( QUrl ( "http://www.videolan.org/developers/x264.html" ) );
 }
 
 void MenuBar::setActionsEnabled ( bool b )

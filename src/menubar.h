@@ -72,6 +72,8 @@ class MenuBar : public QMenuBar
   protected Q_SLOTS:
     void openFFmpegHomepage();
     void openQX11GrabHomepage();
+    void openWebMProjectHomepage();
+    void openVideoLanHomepage();
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );

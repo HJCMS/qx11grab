@@ -85,7 +85,8 @@ BookmarkDialog::BookmarkDialog ( QWidget * parent )
 bool BookmarkDialog::saveBookmark()
 {
   QString id = m_titleEdit->text();
-  xml->open();
+  if ( ! xml->open() )
+    qFatal ( "Permission Denied" );
 
   BookmarkEntry entry = xml->entry ( id );
   if ( entry.isValid() )
@@ -93,6 +94,8 @@ bool BookmarkDialog::saveBookmark()
     entry.setCodecOptions ( BookmarkEntry::VCODEC, vCodecID, vCodec );
     entry.setCodecOptions ( BookmarkEntry::ACODEC, aCodecID, aCodec );
   }
+  else
+    qDebug() << Q_FUNC_INFO << xml->toString();
 
   if ( xml->save() )
   {

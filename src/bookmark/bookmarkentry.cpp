@@ -43,6 +43,7 @@ BookmarkEntry& BookmarkEntry::operator= ( const BookmarkEntry &p )
 bool BookmarkEntry::elementExists ( const QString &nodeName )
 {
   QDomElement e = firstChildElement ( nodeName );
+  qDebug() << Q_FUNC_INFO << "SEARCH:" << nodeName << " FROM:" << attribute ( "title" );
   if ( e.isNull() )
     return false;
   else if ( e.nodeType() != QDomNode::ElementNode )
@@ -81,7 +82,6 @@ void BookmarkEntry::setVCodecChildNodes ( const QDomElement &node )
   QDomNode oldNode = vcodecNode();
   if ( replaceChild ( node, oldNode ).isNull() )
   {
-
     qWarning ( "<%s title=\"%s\" /> can not replace vcodec node failed",
                qPrintable ( nodeName() ),
                qPrintable ( attribute ( "title" ) ) );
@@ -109,7 +109,7 @@ void BookmarkEntry::setACodecChildNodes ( const QDomElement &node )
 */
 bool BookmarkEntry::isValid()
 {
-  if ( hasAttribute ( "title" ) && hasChildNodes() )
+  if ( ( nodeType() == QDomNode::ElementNode ) && hasAttribute ( "title" ) )
     return true;
 
   return false;
@@ -134,12 +134,16 @@ const QString BookmarkEntry::getCodecName ( BTYPE type )
 */
 void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
 {
+  qDebug() << Q_FUNC_INFO << codecName;
   if ( ! hasAttribute ( "title" ) )
     qFatal ( "empty title attributes" );
 
   QString id = codecName.trimmed();
   if ( id.isEmpty() )
+  {
+    qWarning ( "no id found aboard" );
     return;
+  }
 
   QString nodeName = ( t == VCODEC ) ? "vcodec" : "acodec";
   QDomElement sharedNode = doc.createElement ( nodeName );
