@@ -146,6 +146,7 @@ void CodecTableDelegate::setModelData ( QWidget* editor,
     QRegExp pattern ( "\\-{1,2}[\\w\\d]+" );
     if ( ! w->text().contains ( pattern ) )
     {
+      /*: StatusBar Message */
       housemaster ( trUtf8 ( "Missing stated hyphens in given argument" ) );
       model->setData ( index, QString(), Qt::EditRole );
       return;

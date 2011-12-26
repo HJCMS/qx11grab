@@ -40,6 +40,7 @@ AlsaAudioDialog::AlsaAudioDialog ( QWidget * parent )
     : AbstractAudioDialog ( parent )
 {
   setObjectName ( QLatin1String ( "AlsaAudioDialog" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "ALSA PCM Selection" ) );
   m_deviceListWidget->clear();
   initInterface();

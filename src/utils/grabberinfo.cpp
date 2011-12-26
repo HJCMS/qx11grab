@@ -61,6 +61,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   gridLayout->addWidget ( txt1, grow, 0, 1, 1 );
 
   screenComboBox = new ScreenComboBox ( this );
+  /*: WhatsThis */
+  screenComboBox->setWhatsThis ( trUtf8 ( "predefined frame sizes" ) );
   gridLayout->addWidget ( screenComboBox, grow++, 1, 1, 2 );
   // end: Size
 
@@ -159,6 +161,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   horizontalLayout->addWidget ( txt8, Qt::AlignRight );
 
   setFrameRate = new QSpinBox ( this );
+  /*: WhatsThis */
+  setFrameRate->setWhatsThis ( trUtf8 ( "Set the framerate in the captured video." ) );
   setFrameRate->setRange ( 0, 150 );
   setFrameRate->setValue ( 25 );
   horizontalLayout->addWidget ( setFrameRate, Qt::AlignLeft );
@@ -172,21 +176,29 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   featureBox->setLayout ( checkBoxLayout );
 
   showRubberband = new QCheckBox ( featureBox );
+  /*: WhatsThis */
+  showRubberband->setWhatsThis ( trUtf8 ( "always show the rubberband on application start" ) );
   showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
   showRubberband->setChecked ( true );
   checkBoxLayout->addWidget ( showRubberband, 0, 0, 1, 1 );
 
   startMinimized = new QCheckBox ( featureBox );
+  /*: WhatsThis */
+  startMinimized->setWhatsThis ( trUtf8 ( "start QX11Grab minimized" ) );
   startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
   startMinimized->setChecked ( true );
   checkBoxLayout->addWidget ( startMinimized, 0, 1, 1, 1 );
 
   setMetadata = new QCheckBox ( featureBox );
+  /*: WhatsThis */
+  setMetadata->setWhatsThis ( trUtf8 ( "enable/disable auto insert metadata in the captured video" ) );
   setMetadata->setText ( trUtf8 ( "Insert Metadata" ) );
   setMetadata->setChecked ( true );
   checkBoxLayout->addWidget ( setMetadata, 1, 0, 1, 1 );
 
   soundRecording = new QCheckBox ( featureBox );
+  /*: WhatsThis */
+  soundRecording->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
   soundRecording->setText ( trUtf8 ( "Enable Audio Recording" ) );
   soundRecording->setChecked ( true );
   checkBoxLayout->addWidget ( soundRecording, 1, 1, 1, 1 );

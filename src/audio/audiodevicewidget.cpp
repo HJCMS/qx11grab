@@ -57,6 +57,8 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   int grow = 0; // GridLayout RowCount
   QGridLayout* gridLayout = new QGridLayout ( audioGroup );
   m_swapAudio = new QComboBox ( audioGroup );
+  /*: WhatsThis */
+  m_swapAudio->setWhatsThis ( trUtf8 ( "choose the audio interface to use" ) );
   m_swapAudio->insertItem ( NONE, trUtf8 ( "Audio System" ) );
   m_swapAudio->insertItem ( ALSA, trUtf8 ( "Advanced Linux Sound Architecture (Alsa)" ) );
   m_swapAudio->insertItem ( OSS, trUtf8 ( "Open Sound System (OSS)" ) );
@@ -78,7 +80,9 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   intensifier->setRange ( 0, 512 );
   intensifier->setValue ( 256 );
   intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
+  /*: ToolTip */
   intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
+  /*: WhatsThis */
   intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
   h2Layout->addWidget ( intensifier );
 
@@ -100,16 +104,17 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
 
   device = new QLineEdit ( audioGroup );
   device->setObjectName ( QLatin1String ( "device" ) );
-  device->setWhatsThis ( trUtf8 ( "Change Audio Capture Device\nOSS Default: /dev/dsp or Alsa Default: default" ) );
+  /*: WhatsThis */
+  device->setWhatsThis ( trUtf8 ( "Audio Capture Device\nExample for OSS: /dev/dsp" ) );
   gridLayout->addWidget ( device, grow, 1, 1, 1 );
 
-  findAlsaPCMButton = new QToolButton ( audioGroup );
-  findAlsaPCMButton->setObjectName ( QLatin1String ( "findalsapcmbutton" ) );
-  findAlsaPCMButton->setIcon ( getThemeIcon ( "audio-headset" ) );
-  findAlsaPCMButton->setWhatsThis ( trUtf8 ( "Select ALSA Audio Capture Device" ) );
-  findAlsaPCMButton->setDisabled ( true ); // Standard ist Deaktiviert
-  gridLayout->addWidget ( findAlsaPCMButton, grow++, 2, 1, 1 );
+  m_audiodevButton = new QToolButton ( audioGroup );
+  m_audiodevButton->setIcon ( QIcon::fromTheme ( "audio-headset" ) );
+  m_audiodevButton->setWhatsThis ( trUtf8 ( "Open dialog to select audio capture device" ) );
+  m_audiodevButton->setDisabled ( true ); // Standard ist Deaktiviert
+  gridLayout->addWidget ( m_audiodevButton, grow++, 2, 1, 1 );
 
+  // sample_fmt {
   QLabel* txt2 = new QLabel ( audioGroup );
   txt2->setText ( trUtf8 ( "Sample Format:" ) );
   txt2->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
@@ -117,22 +122,57 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
 
   m_audioSampleFormat = new QComboBox ( audioGroup );
   m_audioSampleFormat->setObjectName ( QLatin1String ( "sample_fmt" ) );
-  m_audioSampleFormat->setToolTip ( trUtf8 ( "The sample format of the incoming audio buffers." ) );
-  m_audioSampleFormat->setWhatsThis ( trUtf8 ( "To show available sample formats use ffmpeg -sample_fmts" ) );
-  int sfIndex = 0;
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "unknown" ), QVariant ( "NONE" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "signed  8 bits" ), QVariant ( "u8" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "signed 16 bits" ), QVariant ( "s16" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "signed 32 bits" ), QVariant ( "s32" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "float" ), QVariant ( "flt" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "double" ), QVariant ( "dbl" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "unsigned  8 bits, planar" ), QVariant ( "u8p" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "signed 16 bits, planar" ), QVariant ( "s16p" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "signed 32 bits, planar" ), QVariant ( "s32p" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "float, planar" ), QVariant ( "fltp" ) );
-  m_audioSampleFormat->insertItem ( sfIndex++, trUtf8 ( "double, planar" ), QVariant ( "dblp" ) );
+  /*: ToolTip */
+  m_audioSampleFormat->setToolTip ( trUtf8 ( "Audio sample format" ) );
+  /*: WhatsThis */
+  m_audioSampleFormat->setWhatsThis ( trUtf8 ( "The sample format of the incoming audio buffers." ) );
+
+  int it_index = 0;
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "Automatically" ), QVariant ( "NONE" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "signed  8 bits" ), QVariant ( "u8" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "signed 16 bits" ), QVariant ( "s16" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "signed 32 bits" ), QVariant ( "s32" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "float" ), QVariant ( "flt" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "double" ), QVariant ( "dbl" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "unsigned  8 bits, planar" ), QVariant ( "u8p" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "signed 16 bits, planar" ), QVariant ( "s16p" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "signed 32 bits, planar" ), QVariant ( "s32p" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "float, planar" ), QVariant ( "fltp" ) );
+  m_audioSampleFormat->insertItem ( it_index++, trUtf8 ( "double, planar" ), QVariant ( "dblp" ) );
   m_audioSampleFormat->setCurrentIndex ( 0 );
   gridLayout->addWidget ( m_audioSampleFormat, grow++, 1, 1, 2, Qt::AlignLeft );
+  // } sample_fmt
+
+  // audio_service_type {
+  QLabel* txt3 = new QLabel ( audioGroup );
+  /*: Note: short */
+  txt3->setText ( trUtf8 ( "Audio Service Type:" ) );
+  txt3->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
+  gridLayout->addWidget ( txt3, grow, 0, 1, 1 );
+
+  m_audioServiceType = new QComboBox ( audioGroup );
+  m_audioServiceType->setObjectName ( QLatin1String ( "audio_service_type" ) );
+  /*: ToolTip */
+  m_audioServiceType->setToolTip ( trUtf8 ( "Audio service type" ) );
+  /*: WhatsThis */
+  m_audioServiceType->setWhatsThis ( trUtf8 ( "The type of service that the audio stream contains." ) );
+
+  it_index = 0;
+  /*: Alternative: Default Audio */
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Main Audio Service" ), QVariant ( "ma" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Effects" ), QVariant ( "ef" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Visually Impaired" ), QVariant ( "vi" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Hearing Impaired" ), QVariant ( "hi" ) );
+  /*: Alternative: dialogue level */
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Dialogue" ), QVariant ( "di" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Commentary" ), QVariant ( "co" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Emergency" ), QVariant ( "em" ) );
+  /*: Alternative: telephony */
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Voice Over" ), QVariant ( "vo" ) );
+  m_audioServiceType->insertItem ( it_index++, trUtf8 ( "Karaoke" ), QVariant ( "ka" ) );
+
+  gridLayout->addWidget ( m_audioServiceType, grow++, 1, 1, 2, Qt::AlignLeft );
+  // } audio_service_type
 
   vLayout->addWidget ( audioGroup );
   vLayout->addStretch ( 1 );
@@ -148,7 +188,7 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   connect ( m_swapAudio, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( audioEngineChanged ( int ) ) );
 
-  connect ( findAlsaPCMButton, SIGNAL ( clicked () ),
+  connect ( m_audiodevButton, SIGNAL ( clicked () ),
             this, SLOT ( getpcmClicked() ) );
 }
 
@@ -240,23 +280,23 @@ void AudioDeviceWidget::audioEngineChanged ( int index )
   switch ( index )
   {
     case NONE:
-      findAlsaPCMButton->setDisabled ( true );
+      m_audiodevButton->setDisabled ( true );
       break;
 
     case ALSA:
-      findAlsaPCMButton->setDisabled ( false );
+      m_audiodevButton->setDisabled ( false );
       break;
 
     case OSS:
-      findAlsaPCMButton->setDisabled ( true );
+      m_audiodevButton->setDisabled ( true );
       break;
 
     case PULSE:
-      findAlsaPCMButton->setDisabled ( false );
+      m_audiodevButton->setDisabled ( false );
       break;
 
     default:
-      findAlsaPCMButton->setDisabled ( true );
+      m_audiodevButton->setDisabled ( true );
       break;
   };
 }
@@ -269,17 +309,17 @@ void AudioDeviceWidget::setAudioEngine ( const QString &t )
   if ( t.contains ( QString::fromUtf8 ( "alsa" ) ) )
   {
     m_swapAudio->setCurrentIndex ( ALSA );
-    findAlsaPCMButton->setDisabled ( false );
+    m_audiodevButton->setDisabled ( false );
   }
   else if ( t.contains ( QString::fromUtf8 ( "oss" ) ) )
   {
     m_swapAudio->setCurrentIndex ( OSS );
-    findAlsaPCMButton->setDisabled ( true );
+    m_audiodevButton->setDisabled ( true );
   }
   else if ( t.contains ( QString::fromUtf8 ( "pulse" ) ) )
   {
     m_swapAudio->setCurrentIndex ( PULSE );
-    findAlsaPCMButton->setDisabled ( false );
+    m_audiodevButton->setDisabled ( false );
   }
 }
 
@@ -340,6 +380,7 @@ const QString AudioDeviceWidget::getAudioDevice()
 
 /**
 * Setz das Aktuelle Sample Format
+* \category AdvancedAudioOption
 */
 void AudioDeviceWidget::setSampleFormat ( const QString &sfmt )
 {
@@ -355,12 +396,40 @@ void AudioDeviceWidget::setSampleFormat ( const QString &sfmt )
 
 /**
 * Hole das Sample Format
+* \category AdvancedAudioOption
 */
 const QString AudioDeviceWidget::getSampleFormat()
 {
   QString sample_fmt;
   sample_fmt = m_audioSampleFormat->itemData ( m_audioSampleFormat->currentIndex(), Qt::UserRole ).toString();
   return sample_fmt;
+}
+
+/**
+* Setz den Aktuellen Audio Schnittstellen Type
+* \category AdvancedAudioOption
+*/
+void AudioDeviceWidget::setAudioServiceType ( const QString &ast )
+{
+  for ( int i = 0; i < m_audioServiceType->count(); ++i )
+  {
+    if ( m_audioServiceType->itemData ( i, Qt::UserRole ).toString().compare ( ast ) == 0 )
+    {
+      m_audioServiceType->setCurrentIndex ( i );
+      break;
+    }
+  }
+}
+
+/**
+* Audio Schnittstellen Type
+* \category AdvancedAudioOption
+*/
+const QString AudioDeviceWidget::getAudioServiceType()
+{
+  QString audio_service_type;
+  audio_service_type = m_audioServiceType->itemData ( m_audioServiceType->currentIndex(), Qt::UserRole ).toString();
+  return audio_service_type;
 }
 
 /**
@@ -376,11 +445,11 @@ const QStringList AudioDeviceWidget::data()
   switch ( m_swapAudio->currentIndex() )
   {
     case ALSA:
-      cmd << "-f" << "alsa" << "-i" << device->text();
+      cmd << "-f" << "alsa" << "-i" << ( device->text().isEmpty() ? "default" : device->text() );
       break;
 
     case OSS:
-      cmd << "-f" << "oss" << "-i" << device->text();
+      cmd << "-f" << "oss" << "-i" << ( device->text().isEmpty() ? "/dev/dsp" : device->text() );
       break;
 
     case PULSE:
@@ -393,6 +462,9 @@ const QStringList AudioDeviceWidget::data()
 
   if ( ! getSampleFormat().contains ( "NONE" ) )
     cmd<< "-sample_fmt" << getSampleFormat();
+
+  if ( ! getAudioServiceType().isEmpty () )
+    cmd<< "-audio_service_type" << getAudioServiceType();
 
   if ( intensifier->value() != 256 )
     cmd << "-vol" << QString::number ( intensifier->value() );

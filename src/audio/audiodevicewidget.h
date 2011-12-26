@@ -46,8 +46,9 @@ class AudioDeviceWidget : public QWidget
     QSpinBox* intensifier;
     QSlider* m_slider;
     QLineEdit* device;
-    QToolButton* findAlsaPCMButton;
+    QToolButton* m_audiodevButton;
     QComboBox* m_audioSampleFormat;
+    QComboBox* m_audioServiceType;
 
     void openAlsaDialog();
     void openPulseDialog();
@@ -80,8 +81,22 @@ class AudioDeviceWidget : public QWidget
 
     /**
     * Get the audio sample format.
+    * \see ffmpeg -sample_fmt
     */
     const QString getSampleFormat();
+
+    /**
+    * Set the audio service type
+    * \see ffmpeg -audio_service_type
+    * \param ast type default:ma
+    */
+    void setAudioServiceType ( const QString &ast );
+
+    /**
+    * Get the audio service type
+    * \see ffmpeg -audio_service_type
+    */
+    const QString getAudioServiceType();
 
     /**
     * Configured commandline String

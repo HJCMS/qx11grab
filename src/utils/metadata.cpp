@@ -111,7 +111,8 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( metadata_ICMT, grow++, 1, 1, 1 );
 
   QLabel* txt_language = new QLabel ( this );
-  txt_language->setText ( trUtf8 ( "Language:" ) );
+  /*: Alternative: language */
+  txt_language->setText ( trUtf8 ( "Voice Recognition:" ) );
   txt_language->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt_language, grow, 0, 1, 1 );
 
@@ -119,7 +120,10 @@ MetaData::MetaData ( QWidget * parent )
   * Multiple languages can be specified by separating them with commas. */
   metadata_LANG = new QLineEdit ( this );
   metadata_LANG->setObjectName ( QLatin1String ( "metadata/language" ) );
-  metadata_LANG->setToolTip ( trUtf8 ( "Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas." ) );
+  /*: ToolTip */
+  metadata_LANG->setToolTip ( trUtf8 ( "recognition of speech must set with three letter ISO 639-2 format" ) );
+  /*: WhatsThis */
+  metadata_LANG->setWhatsThis ( trUtf8 ( "Language in ISO 639-2 format in three letters.\nExample: Germany=ger\nMultiple languages can be specified by separating them with commas." ) );
   gridLayout->addWidget ( metadata_LANG, grow++, 1, 1, 1 );
 
   QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );

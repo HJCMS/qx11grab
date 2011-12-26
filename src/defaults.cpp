@@ -65,7 +65,9 @@ Defaults::Defaults ( QWidget * parent )
 
   ff_path = new QLineEdit ( this );
   ff_path->setObjectName ( QLatin1String ( "ff_path" ) );
-  ff_path->setText ( QString::fromUtf8 ( "/usr/bin/ffmpeg" ) );
+  ff_path->setText ( QLatin1String ( "/usr/bin/ffmpeg" ) );
+  /*: WhatsThis */
+  ff_path->setWhatsThis ( trUtf8 ( "absolute path to FFmpeg's recording application" ) );
   gridLayout->addWidget ( ff_path, gridRow, 1, 1, 1 );
 
   QToolButton* setFFmpegBtn = new QToolButton ( this );
@@ -82,6 +84,8 @@ Defaults::Defaults ( QWidget * parent )
   outputName = new QLineEdit ( this );
   outputName->setObjectName ( QLatin1String ( "outputName" ) );
   outputName->setText ( QString::fromUtf8 ( "qx11grab-XXXXXX" ) );
+  /*: WhatsThis */
+  outputName->setWhatsThis ( trUtf8 ( "Specified output filenames can contain the following template XXXXXX (six upper case \"X\" characters), which will be replaced by the auto-generated portion of the filename." ) );
   gridLayout->addWidget ( outputName, gridRow, 1, 1, 1 );
 
   QToolButton* restoreButton = new QToolButton ( this );
@@ -98,6 +102,8 @@ Defaults::Defaults ( QWidget * parent )
   outputDirectory = new QLineEdit ( this );
   outputDirectory->setObjectName ( QLatin1String ( "tempdir" ) );
   outputDirectory->setText ( QString::fromUtf8 ( "/tmp" ) );
+  /*: WhatsThis */
+  outputDirectory->setWhatsThis ( trUtf8 ( "directory where to store output files" ) );
   gridLayout->addWidget ( outputDirectory, gridRow, 1, 1, 1 );
 
   QToolButton* setOutputBtn = new QToolButton ( this );
@@ -163,16 +169,23 @@ void Defaults::restoreFileName()
 */
 void Defaults::load ( QSettings * cfg )
 {
-  // DEPRECATED Config Option enable_pulse_pasuspender
-  cfg->remove ( QLatin1String ( "enable_pulse_pasuspender" ) );
-
   QList<QLineEdit*> items;
   items << outputDirectory << outputName << ff_path;
   m_audioDeviceWidget->setVolume ( cfg->value ( QLatin1String ( "audio_intensifier" ), 256 ).toUInt() );
-  m_audioDeviceWidget->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" ) ).toString() );
-  m_audioDeviceWidget->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" ) ).toString() );
-  m_audioDeviceWidget->setSampleFormat ( cfg->value ( QLatin1String ( "audio_sample_fmt" ) ).toString() );
 
+  m_audioDeviceWidget->setAudioDevice ( cfg->value ( QLatin1String ( "audio_device" )
+                                        , QLatin1String ( "default" ) ).toString() );
+
+  m_audioDeviceWidget->setAudioEngine ( cfg->value ( QLatin1String ( "audio_engine" )
+                                        , QLatin1String ( "alsa" ) ).toString() );
+
+  m_audioDeviceWidget->setSampleFormat ( cfg->value ( QLatin1String ( "audio_sample_fmt" )
+                                         , QLatin1String ( "NONE" ) ).toString() );
+
+  m_audioDeviceWidget->setAudioServiceType ( cfg->value ( QLatin1String ( "audio_service_type" )
+          , QLatin1String ( "ma" ) ).toString() );
+
+  // insert leinedits
   foreach ( QLineEdit* edit, items )
   {
     edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
@@ -203,6 +216,11 @@ void Defaults::save ( QSettings * cfg )
     cfg->remove ( QLatin1String ( "audio_sample_fmt" ) );
   else
     cfg->setValue ( QLatin1String ( "audio_sample_fmt" ), m_audioDeviceWidget->getSampleFormat() );
+
+  if ( m_audioDeviceWidget->getAudioServiceType().isEmpty() )
+    cfg->remove ( QLatin1String ( "audio_service_type" ) );
+  else
+    cfg->setValue ( QLatin1String ( "audio_service_type" ), m_audioDeviceWidget->getAudioServiceType() );
 
   foreach ( QLineEdit* edit, items )
   {

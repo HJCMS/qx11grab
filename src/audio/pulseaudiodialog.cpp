@@ -148,6 +148,7 @@ PulseAudioDialog::PulseAudioDialog ( QWidget * parent )
     : AbstractAudioDialog ( parent )
 {
   setObjectName ( QLatin1String ( "PulseAudioDialog" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "Pulse Device Selection" ) );
   m_deviceListWidget->clear();
   pulseInfo.clear();

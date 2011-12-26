@@ -44,6 +44,7 @@ BookmarkDialog::BookmarkDialog ( QWidget * parent )
     , dbusPath ( "/Bookmark" )
 {
   setObjectName ( QLatin1String ( "BookmarkDialog" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "Bookmark" ) );
   setMinimumWidth ( 250 );
   setSizeGripEnabled ( true );
@@ -57,6 +58,7 @@ BookmarkDialog::BookmarkDialog ( QWidget * parent )
   layout->addWidget ( lb_title, 0, 0, 1, 1 );
 
   m_titleEdit = new QLineEdit ( this );
+  /*: WhatsThis */
   m_titleEdit->setWhatsThis ( trUtf8 ( "Required Bookmark Identifier" ) );
   layout->addWidget ( m_titleEdit, 0, 1, 1, 1 );
 

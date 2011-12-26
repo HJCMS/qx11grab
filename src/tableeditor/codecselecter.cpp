@@ -68,6 +68,7 @@ void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
   int i = count();
   insertItem ( i, key, value );
   setItemData ( i, key, Qt::EditRole );
+  /*: ToolTip */
   setItemData ( i, trUtf8 ( "Customized" ), Qt::ToolTipRole );
 }
 

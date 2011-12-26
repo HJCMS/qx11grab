@@ -35,6 +35,7 @@ ExportDialog::ExportDialog ( const QString &command, QWidget * parent )
     , line ( command )
 {
   setObjectName ( QLatin1String ( "ExportDialog" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "Export current Commandline" ) );
 
   QString dest = QDesktopServices::storageLocation ( QDesktopServices::DocumentsLocation );

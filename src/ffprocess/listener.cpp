@@ -70,6 +70,7 @@ void Listener::setInfoUpdate ()
     else
       size = buffer.sprintf ( "%lld Byte", bytes );
 
+    /*: StatusBar */
     QString out = trUtf8 ( "Time: %1 Size: %2" ).arg ( t, size );
     emit info ( out );
   }

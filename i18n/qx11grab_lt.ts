@@ -17,8 +17,9 @@
 <context>
     <name>AlsaAudioDialog</name>
     <message>
-        <location filename="../src/audio/alsaaudiodialog.cpp" line="43"/>
+        <location filename="../src/audio/alsaaudiodialog.cpp" line="44"/>
         <source>ALSA PCM Selection</source>
+        <extracomment>WindowTitle</extracomment>
         <translation type="unfinished">ALSA plokštės pasirinkimas</translation>
     </message>
 </context>
@@ -30,132 +31,208 @@
         <translation type="unfinished">Garso nuostatos</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
+        <source>choose the audio interface to use</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="62"/>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="63"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
         <translation type="unfinished">Pagerinta Linux garso sistema (ALSA)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="62"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="64"/>
         <source>Open Sound System (OSS)</source>
         <translation type="unfinished">Atvira garso sistema (OSS)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="64"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="66"/>
         <source>Soundserver (Pulse)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="71"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="73"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished">Garso stiprumas:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="81"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="84"/>
         <source>Change Audio Volume (256=normal)</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Keisti garsumą (256=normalus)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="82"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="86"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished">Keisti garsumą.
 Numatytasis: 256</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="97"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="101"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished">Garso įrašymo įrenginys:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="103"/>
-        <source>Change Audio Capture Device
-OSS Default: /dev/dsp or Alsa Default: default</source>
-        <translation type="unfinished">Keisti garso įrašymo įrenginį
-OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="109"/>
-        <source>Select ALSA Audio Capture Device</source>
-        <translation type="unfinished">Pasirinkite ALSA garso įrašymo įrenginį</translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
         <source>The sample format of the incoming audio buffers.</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
-        <source>To show available sample formats use ffmpeg -sample_fmts</source>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="108"/>
+        <source>Audio Capture Device
+Example for OSS: /dev/dsp</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
-        <source>unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
-        <source>signed  8 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
-        <source>signed 16 bits</source>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="113"/>
+        <source>Open dialog to select audio capture device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
-        <source>signed 32 bits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
-        <source>float</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
-        <source>double</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
-        <source>unsigned  8 bits, planar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="130"/>
-        <source>signed 16 bits, planar</source>
+        <source>Audio sample format</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="131"/>
-        <source>signed 32 bits, planar</source>
+        <source>Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="132"/>
-        <source>float, planar</source>
+        <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="133"/>
+        <source>signed 16 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="134"/>
+        <source>signed 32 bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="135"/>
+        <source>float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="136"/>
+        <source>double</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="137"/>
+        <source>unsigned  8 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="138"/>
+        <source>signed 16 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="139"/>
+        <source>signed 32 bits, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="140"/>
+        <source>float, planar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="141"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="296"/>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="312"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="149"/>
+        <source>Audio Service Type:</source>
+        <extracomment>Note: short</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="156"/>
+        <source>Audio service type</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="158"/>
+        <source>The type of service that the audio stream contains.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="162"/>
+        <source>Main Audio Service</source>
+        <extracomment>Alternative: Default Audio</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="163"/>
+        <source>Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="164"/>
+        <source>Visually Impaired</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="165"/>
+        <source>Hearing Impaired</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="167"/>
+        <source>Dialogue</source>
+        <extracomment>Alternative: dialogue level</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="168"/>
+        <source>Commentary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="169"/>
+        <source>Emergency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="171"/>
+        <source>Voice Over</source>
+        <extracomment>Alternative: telephony</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="172"/>
+        <source>Karaoke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="336"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="352"/>
         <source>Unknown</source>
         <translation type="unfinished">Nežinoma</translation>
     </message>
@@ -163,18 +240,20 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>BookmarkDialog</name>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="47"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="48"/>
         <source>Bookmark</source>
+        <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="56"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="57"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/bookmark/bookmarkdialog.cpp" line="60"/>
+        <location filename="../src/bookmark/bookmarkdialog.cpp" line="62"/>
         <source>Required Bookmark Identifier</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -189,33 +268,36 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>CodecSelecter</name>
     <message>
-        <location filename="../src/tableeditor/codecselecter.cpp" line="71"/>
+        <location filename="../src/tableeditor/codecselecter.cpp" line="72"/>
         <source>Customized</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="149"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="150"/>
         <source>Missing stated hyphens in given argument</source>
+        <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CodecTableModel</name>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="131"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="132"/>
         <source>At first, we have to create a argument.</source>
+        <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="168"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="169"/>
         <source>Parameter</source>
         <translation type="unfinished">Parametras</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="170"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="171"/>
         <source>Value</source>
         <translation type="unfinished">Reikšmė</translation>
     </message>
@@ -228,20 +310,26 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished">Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="74"/>
         <location filename="../src/cmd/commandlineedit.cpp" line="75"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="77"/>
         <source>Save current command list</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="78"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="80"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="79"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="80"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="82"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="84"/>
         <source>Copy command list to Clipboard</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -261,32 +349,50 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>FFmpeg programa:</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="78"/>
+        <location filename="../src/defaults.cpp" line="70"/>
+        <source>absolute path to FFmpeg&apos;s recording application</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/defaults.cpp" line="80"/>
         <source>Output Filename:</source>
         <translation>Išvedimo rinkmena:</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="94"/>
+        <location filename="../src/defaults.cpp" line="88"/>
+        <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/defaults.cpp" line="98"/>
         <source>Output Directory:</source>
         <translation>Išvedimo katalogas:</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="130"/>
+        <location filename="../src/defaults.cpp" line="106"/>
+        <source>directory where to store output files</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/defaults.cpp" line="136"/>
         <source>FFmpeg %1</source>
         <translation>FFmpeg %1</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="131"/>
+        <location filename="../src/defaults.cpp" line="137"/>
         <source>Other %1</source>
         <translation>Kita %1</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="133"/>
+        <location filename="../src/defaults.cpp" line="139"/>
         <source>FFmpeg Binary</source>
         <translation>FFmpeg vykdomoji rinkmena</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="146"/>
+        <location filename="../src/defaults.cpp" line="152"/>
         <source>Output Directory</source>
         <translation>Išvedimo katalogas</translation>
     </message>
@@ -307,12 +413,13 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="../src/exportdialog.cpp" line="38"/>
+        <location filename="../src/exportdialog.cpp" line="39"/>
         <source>Export current Commandline</source>
+        <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/exportdialog.cpp" line="46"/>
+        <location filename="../src/exportdialog.cpp" line="47"/>
         <source>Shell Script (*.sh)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -413,62 +520,98 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>Dydis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="69"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="65"/>
+        <source>predefined frame sizes</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="71"/>
         <source>Width:</source>
         <translation>Plotis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="88"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="90"/>
         <source>Height:</source>
         <translation>Aukštis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="109"/>
         <source>Position X:</source>
         <translation>X padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="126"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="128"/>
         <source>Position Y:</source>
         <translation>Y padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="146"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="148"/>
         <source>Depth:</source>
         <translation>Gylis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="157"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="159"/>
         <source>Framerate:</source>
         <translation>Kadrų dažnis:</translation>
     </message>
     <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="165"/>
+        <source>Set the framerate in the captured video.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="180"/>
+        <source>always show the rubberband on application start</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
+        <source>start QX11Grab minimized</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/utils/grabberinfo.cpp" line="194"/>
+        <source>enable/disable auto insert metadata in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="201"/>
+        <source>enable/disable audio recording in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="206"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="170"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="174"/>
         <source>Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="175"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
         <source>Display Rubberband</source>
         <translation>Rodyti rėmelį</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="180"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="188"/>
         <source>Start Minimized</source>
         <translation>Pradėti nuleidus į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="185"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="195"/>
         <source>Insert Metadata</source>
         <translation>Įterpti meta duomenis</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="190"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="202"/>
         <source>Enable Audio Recording</source>
         <translation>Įgalinti garso įrašymą</translation>
     </message>
@@ -476,45 +619,47 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>Listener</name>
     <message>
-        <location filename="../src/ffprocess/listener.cpp" line="73"/>
+        <location filename="../src/ffprocess/listener.cpp" line="74"/>
         <source>Time: %1 Size: %2</source>
+        <extracomment>StatusBar</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LogLevelComboBox</name>
     <message>
-        <location filename="../src/utils/loglevelcombobox.cpp" line="37"/>
-        <source>Warning</source>
-        <translation type="unfinished">Įspėjimas</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/loglevelcombobox.cpp" line="38"/>
-        <source>Info</source>
-        <translation type="unfinished">Informacija</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/loglevelcombobox.cpp" line="39"/>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="42"/>
         <source>Verbose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="36"/>
+        <source>Set the logging level used by the FFmpeg application</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/utils/loglevelcombobox.cpp" line="40"/>
-        <source>Debug</source>
+        <source>Warnings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/utils/loglevelcombobox.cpp" line="41"/>
-        <source>Error</source>
-        <translation type="unfinished">Klaida</translation>
-    </message>
-    <message>
-        <location filename="../src/utils/loglevelcombobox.cpp" line="42"/>
-        <source>Panic</source>
+        <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/utils/loglevelcombobox.cpp" line="43"/>
+        <source>Errors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="44"/>
+        <source>Panic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="45"/>
         <source>Fatal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -522,8 +667,9 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>LogViewer</name>
     <message>
-        <location filename="../src/logviewer/logviewer.cpp" line="42"/>
+        <location filename="../src/logviewer/logviewer.cpp" line="43"/>
         <source>qx11grab logfile</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>qx11grab žurnalas</translation>
     </message>
 </context>
@@ -550,125 +696,162 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="91"/>
+        <location filename="../src/menubar.cpp" line="97"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="92"/>
+        <location filename="../src/menubar.cpp" line="99"/>
         <source>FFmpeg Homepage</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="95"/>
+        <location filename="../src/menubar.cpp" line="93"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="96"/>
+        <location filename="../src/menubar.cpp" line="95"/>
         <source>QX11Grab Homepage</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="143"/>
+        <location filename="../src/menubar.cpp" line="101"/>
+        <source>x264</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="103"/>
+        <source>x264 Homepage</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="105"/>
+        <source>WebM Guideline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="107"/>
+        <source>WebM Container Guidelines</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="161"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="145"/>
+        <location filename="../src/menubar.cpp" line="164"/>
         <source>Open create Bookmark Dialog</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="153"/>
+        <location filename="../src/menubar.cpp" line="172"/>
         <source>Remove</source>
         <translation type="unfinished">Pašalinti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="155"/>
+        <location filename="../src/menubar.cpp" line="175"/>
         <source>Open delete Bookmark Dialog</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="179"/>
+        <location filename="../src/menubar.cpp" line="209"/>
         <source>Quit</source>
         <translation type="unfinished">Baigti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="181"/>
+        <location filename="../src/menubar.cpp" line="212"/>
         <source>Close Application</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Užverti programą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="190"/>
+        <location filename="../src/menubar.cpp" line="221"/>
         <source>Grabbing</source>
         <translation type="unfinished">Čiupti langą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="192"/>
-        <location filename="../src/menubar.cpp" line="203"/>
+        <location filename="../src/menubar.cpp" line="224"/>
+        <location filename="../src/menubar.cpp" line="236"/>
         <source>get Size from Window</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
         <translation type="unfinished">gauti lango dydį</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="201"/>
+        <location filename="../src/menubar.cpp" line="233"/>
         <source>Rubberband</source>
         <translation type="unfinished">Rėmelis</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="212"/>
+        <location filename="../src/menubar.cpp" line="245"/>
         <source>Recording</source>
         <translation type="unfinished">Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="214"/>
+        <location filename="../src/menubar.cpp" line="248"/>
         <source>Start Recording</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Pradėti įrašinėti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="223"/>
+        <location filename="../src/menubar.cpp" line="257"/>
         <source>Stop</source>
         <translation type="unfinished">Stabdyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="225"/>
+        <location filename="../src/menubar.cpp" line="260"/>
         <source>Stop Recording</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Baigti įrašinėjimą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="235"/>
+        <location filename="../src/menubar.cpp" line="270"/>
         <source>Kill</source>
         <translation type="unfinished">Nutraukti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="237"/>
+        <location filename="../src/menubar.cpp" line="273"/>
         <source>Kill Recording</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="247"/>
+        <location filename="../src/menubar.cpp" line="283"/>
         <source>Hide</source>
         <translation type="unfinished">Slėpti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="249"/>
-        <location filename="../src/menubar.cpp" line="260"/>
+        <location filename="../src/menubar.cpp" line="286"/>
+        <location filename="../src/menubar.cpp" line="298"/>
         <source>Minimize to Systray</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
         <translation type="unfinished">Nuleisti į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="258"/>
+        <location filename="../src/menubar.cpp" line="295"/>
         <source>Show</source>
         <translation type="unfinished">Rodyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="269"/>
+        <location filename="../src/menubar.cpp" line="307"/>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="271"/>
+        <location filename="../src/menubar.cpp" line="310"/>
         <source>Export current command set</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -677,33 +860,36 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="280"/>
+        <location filename="../src/menubar.cpp" line="319"/>
         <source>Save</source>
         <translation type="unfinished">Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="282"/>
+        <location filename="../src/menubar.cpp" line="322"/>
         <source>Save current Settings</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="291"/>
+        <location filename="../src/menubar.cpp" line="331"/>
         <source>Refresh</source>
         <translation type="unfinished">Atnaujinti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="293"/>
+        <location filename="../src/menubar.cpp" line="334"/>
         <source>Refresh Commandline Preview</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="302"/>
+        <location filename="../src/menubar.cpp" line="343"/>
         <source>Logfile</source>
         <translation type="unfinished">Žurnalas</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="304"/>
+        <location filename="../src/menubar.cpp" line="346"/>
         <source>Open FFmpeg Protocoll</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -745,21 +931,32 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation>Aprašas:</translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="114"/>
-        <source>Language:</source>
+        <location filename="../src/utils/metadata.cpp" line="115"/>
+        <source>Voice Recognition:</source>
+        <extracomment>Alternative: language</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="122"/>
-        <source>Language in ISO 639-2 format. Multiple languages can be specified by separating them with commas.</source>
+        <location filename="../src/utils/metadata.cpp" line="124"/>
+        <source>recognition of speech must set with three letter ISO 639-2 format</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="126"/>
+        <source>Language in ISO 639-2 format in three letters.
+Example: Germany=ger
+Multiple languages can be specified by separating them with commas.</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PulseAudioDialog</name>
     <message>
-        <location filename="../src/audio/pulseaudiodialog.cpp" line="151"/>
+        <location filename="../src/audio/pulseaudiodialog.cpp" line="152"/>
         <source>Pulse Device Selection</source>
+        <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -771,43 +968,34 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="110"/>
-        <source>main requirements</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qx11grab.cpp" line="111"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="114"/>
-        <source>main features</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="115"/>
         <source>Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="119"/>
+        <location filename="../src/qx11grab.cpp" line="118"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="123"/>
+        <location filename="../src/qx11grab.cpp" line="122"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="127"/>
+        <location filename="../src/qx11grab.cpp" line="126"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qx11grab.cpp" line="130"/>
         <source>command line preview</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -892,12 +1080,13 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>SelectAcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="40"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="41"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="94"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="95"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -905,12 +1094,13 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>SelectVcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="40"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="41"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="94"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="95"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -918,8 +1108,9 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
 <context>
     <name>SystemTray</name>
     <message>
-        <location filename="../src/systemtray.cpp" line="42"/>
+        <location filename="../src/systemtray.cpp" line="43"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">qx11grab: filmuojami X11 langai su ffmpeg</translation>
     </message>
 </context>
@@ -959,9 +1150,12 @@ OSS numatytasis: /dev/dsp; Alsa numatytasis: default</translation>
         <translation type="unfinished">Atnaujinti</translation>
     </message>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="69"/>
         <location filename="../src/logviewer/textview.cpp" line="70"/>
+        <location filename="../src/logviewer/textview.cpp" line="72"/>
         <source>Refresh Logfile</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

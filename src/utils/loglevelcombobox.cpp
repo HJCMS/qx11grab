@@ -32,13 +32,15 @@ LogLevelComboBox::LogLevelComboBox ( QWidget * parent )
     : QComboBox ( parent )
 {
   setObjectName ( QLatin1String ( "LogLevelComboBox" ) );
+  /*: WhatsThis */
+  setWhatsThis ( trUtf8 ( "Set the logging level used by the FFmpeg application" ) );
+
   int index = 0;
   QIcon icon = QIcon::fromTheme ( "menu-debugger" );
-  insertItem ( index++, icon, trUtf8 ( "Warning" ), QString::fromUtf8 ( "warning" ) );
-  insertItem ( index++, icon, trUtf8 ( "Info" ), QString::fromUtf8 ( "info" ) );
+  insertItem ( index++, icon, trUtf8 ( "Warnings" ), QString::fromUtf8 ( "warning" ) );
+  insertItem ( index++, icon, trUtf8 ( "Information" ), QString::fromUtf8 ( "info" ) );
   insertItem ( index++, icon, trUtf8 ( "Verbose" ), QString::fromUtf8 ( "verbose" ) );
-  insertItem ( index++, icon, trUtf8 ( "Debug" ), QString::fromUtf8 ( "debug" ) );
-  insertItem ( index++, icon, trUtf8 ( "Error" ), QString::fromUtf8 ( "error" ) );
+  insertItem ( index++, icon, trUtf8 ( "Errors" ), QString::fromUtf8 ( "error" ) );
   insertItem ( index++, icon, trUtf8 ( "Panic" ), QString::fromUtf8 ( "panic" ) );
   insertItem ( index++, icon, trUtf8 ( "Fatal" ), QString::fromUtf8 ( "fatal" ) );
   setCurrentIndex ( 0 );

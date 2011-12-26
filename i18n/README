@@ -1,0 +1,17 @@
+qx11grab source code implying "Translator Comments"
+some predefined comments can be found in ts files
+
+/*: Note: short */
+  developer grace note to insert a short translation
+
+/*: Alternative: ... */
+  developer information or helptext for different translations
+
+/*: ToolTip */
+  A "ToolTip" entry implying a free large text
+
+/*: WhatsThis */
+  A "WhatsThis" entry implying a free large text
+
+/*: WindowTitle */
+  This Entry is a Window or Dialog Title

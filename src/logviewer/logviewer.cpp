@@ -39,6 +39,7 @@ LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
     , logFile ( log )
 {
   setObjectName ( QLatin1String ( "logviewer" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "qx11grab logfile" ) );
   setWindowModality ( Qt::NonModal );
   setContentsMargins ( 5, 5, 5, 15 );

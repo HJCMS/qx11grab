@@ -66,7 +66,9 @@ void TextView::contextMenuEvent ( QContextMenuEvent * e )
   QMenu* m = new QMenu ( this );
 
   QAction* ac_reload = m->addAction ( getThemeIcon ( "view-refresh" ), trUtf8 ( "Refresh" ) );
+  /*: ToolTip */
   ac_reload->setToolTip ( trUtf8 ( "Refresh Logfile" ) );
+  /*: ToolTip */
   ac_reload->setStatusTip ( trUtf8 ( "Refresh Logfile" ) );
   connect ( ac_reload, SIGNAL ( triggered() ), this, SIGNAL ( refresh() ) );
 

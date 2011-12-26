@@ -128,6 +128,7 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
         */
         if ( item.argument.isEmpty() )
         {
+          /*: StatusBar Message */
           housemaster ( trUtf8 ( "At first, we have to create a argument." ) );
           return false;
         }

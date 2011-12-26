@@ -71,12 +71,16 @@ void CommandLineEdit::contextMenuEvent ( QContextMenuEvent * e )
   QMenu* m = new QMenu ( this );
 
   QAction* ac_save = m->addAction ( getThemeIcon ( "document-save" ), trUtf8 ( "Save" ) );
+  /*: ToolTip */
   ac_save->setToolTip ( trUtf8 ( "Save current command list" ) );
+  /*: ToolTip */
   ac_save->setStatusTip ( trUtf8 ( "Save current command list" ) );
   connect ( ac_save, SIGNAL ( triggered() ), this, SLOT ( save() ) );
 
   QAction* ac_cpb = m->addAction ( getThemeIcon ( "edit-copy" ), trUtf8 ( "Copy to clipboard" ) );
+  /*: ToolTip */
   ac_cpb->setToolTip ( trUtf8 ( "Copy command list to Clipboard" ) );
+  /*: ToolTip */
   ac_cpb->setStatusTip ( trUtf8 ( "Copy command list to Clipboard" ) );
   connect ( ac_cpb, SIGNAL ( triggered() ), this, SLOT ( clipper() ) );
 

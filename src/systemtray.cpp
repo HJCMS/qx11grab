@@ -39,6 +39,7 @@ SystemTray::SystemTray ( QX11Grab * parent )
 {
   setObjectName ( QLatin1String ( "SystemTray" ) );
   setIcon ( getThemeIcon ( "qx11grab" ) );
+  /*: ToolTip */
   setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
 
   QMenu* m_menu = new QMenu ( parent );

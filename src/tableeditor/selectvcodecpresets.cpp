@@ -37,6 +37,7 @@ SelectVcodecPresets::SelectVcodecPresets ( QWidget * parent )
     , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
   setObjectName ( QLatin1String ( "SelectVcodecPresets" ) );
+  /*: ToolTip */
   setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
 
   QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );

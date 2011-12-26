@@ -79,6 +79,7 @@ QX11Grab::QX11Grab ( Settings * settings )
   setWindowTitle ( trUtf8 ( "QX11Grab (%1)" ).arg ( QX11GRAB_VERSION ) );
   setMinimumWidth ( 450 );
   setMinimumHeight ( 400 );
+  setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
 
   QDBusConnection p_dbus = QDBusConnection::sessionBus();
 
@@ -107,11 +108,9 @@ QX11Grab::QX11Grab ( Settings * settings )
   verticalLayout->addWidget ( toolBox );
 
   m_grabberInfo = new GrabberInfo ( toolBox );
-  m_grabberInfo->setToolTip ( trUtf8 ( "main requirements" ) );
   toolBox->addItem ( m_grabberInfo, boxIcon, trUtf8 ( "Application" ) );
 
   m_defaults = new Defaults ( toolBox );
-  m_defaults->setToolTip ( trUtf8 ( "main features" ) );
   toolBox->addItem ( m_defaults, boxIcon, trUtf8 ( "Defaults" ) );
 
   m_metaData = new MetaData ( toolBox );
@@ -127,6 +126,7 @@ QX11Grab::QX11Grab ( Settings * settings )
   toolBox->addItem ( m_audioEditor, boxIcon, trUtf8 ( "Audio" ) );
 
   m_commandPreview = new CommandPreview ( toolBox );
+  /*: ToolTip */
   m_commandPreview->setToolTip ( trUtf8 ( "command line preview" ) );
   toolBox->addItem ( m_commandPreview, boxIcon, trUtf8 ( "FFmpeg" ) );
 
