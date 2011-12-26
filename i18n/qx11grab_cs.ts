@@ -269,10 +269,19 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Copy command list to Clipboard</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Kopírovat seznam s příkazy do schránky</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Remove this Command</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation>Kopírovat seznam s příkazy do schránky</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -297,19 +306,17 @@ ToolTip</extracomment>
         <translation>Výstupní adresář:</translation>
     </message>
     <message>
-        <source>FFmpeg %1</source>
-        <translation>FFmpeg %1</translation>
-    </message>
-    <message>
         <source>Other %1</source>
         <translation>Jiné %1</translation>
     </message>
     <message>
         <source>FFmpeg Binary</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>Program ffmpeg</translation>
     </message>
     <message>
         <source>Output Directory</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>Výstupní adresář</translation>
     </message>
     <message>
@@ -325,6 +332,10 @@ ToolTip</extracomment>
     <message>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>without pulse</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -540,6 +551,10 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Errors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -835,10 +850,6 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>FFmpeg</source>
         <translation>FFmpeg</translation>
-    </message>
-    <message>
-        <source>QX11Grab (%1)</source>
-        <translation>QX11Grab (%1)</translation>
     </message>
     <message>
         <source>Remove Bookmark</source>

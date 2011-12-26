@@ -343,7 +343,7 @@ void GrabberInfo::load ( QSettings *cfg )
   setRect ( cfg->value ( QLatin1String ( "Grabber/Dimension" ) ).toRect() );
   setDepth->setValue ( cfg->value ( QLatin1String ( "Grabber/Depth" ), 24 ).toUInt() );
   setFrameRate->setValue ( cfg->value ( QLatin1String ( "Grabber/FrameRate" ), 25 ).toUInt() );
-  m_logLevelComboBox->setValue ( cfg->value ( QLatin1String ( "Grabber/LogLevel" ), "warning" ).toString() );
+  m_logLevelComboBox->setValue ( cfg->value ( QLatin1String ( "Grabber/LogLevel" ), "NONE" ).toString() );
   // Options
   showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
@@ -457,6 +457,11 @@ int GrabberInfo::frameRate()
 {
   int rate = setFrameRate->value();
   return ( rate > 0 ) ? rate : 25;
+}
+
+const QString GrabberInfo::logLevel()
+{
+    return m_logLevelComboBox->value();
 }
 
 GrabberInfo::~GrabberInfo()

@@ -76,7 +76,7 @@ QX11Grab::QX11Grab ( Settings * settings )
     , m_listener ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
-  setWindowTitle ( trUtf8 ( "QX11Grab (%1)" ).arg ( QX11GRAB_VERSION ) );
+  setWindowTitle ( QString::fromUtf8 ( "QX11Grab (%1)[*]" ).arg ( QX11GRAB_VERSION ) );
   setMinimumWidth ( 450 );
   setMinimumHeight ( 400 );
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
@@ -180,6 +180,8 @@ QX11Grab::QX11Grab ( Settings * settings )
 
   connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
             this, SLOT ( updateCommandLine ( const QStringList & ) ) );
+
+  setWindowModified ( false );
 }
 
 void QX11Grab::record()
@@ -481,6 +483,7 @@ void QX11Grab::startRecord()
 
   m_toolBar->setActionsEnabled ( true );
   QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );
+  setWindowModified ( true );
 }
 
 /**
@@ -540,7 +543,9 @@ void QX11Grab::perparePreview()
   QStringList commandLine;
 
   commandLine << m_defaults->binary () << "-xerror";
-  commandLine << "-loglevel" << cfg->value ( "Grabber/LogLevel", "info" ).toString();
+  if ( ! m_grabberInfo->logLevel().isEmpty() )
+    commandLine << "-loglevel" << m_grabberInfo->logLevel();
+
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
 

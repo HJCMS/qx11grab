@@ -276,10 +276,19 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Copy command list to Clipboard</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Kopiere die aktuelle Kommandozeile in das Clipboard</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Remove this Command</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation>Kopiere die aktuelle Kommandozeile in das Clipboard</translation>
+        <translation>Entferne Kommandozeile</translation>
     </message>
 </context>
 <context>
@@ -310,19 +319,17 @@ ToolTip</extracomment>
         </translation>
     </message>
     <message>
-        <source>FFmpeg %1</source>
-        <translation>FFmpeg %1</translation>
-    </message>
-    <message>
         <source>Other %1</source>
         <translation>Andere %1</translation>
     </message>
     <message>
         <source>FFmpeg Binary</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>FFmpeg Programm</translation>
     </message>
     <message>
         <source>Output Directory</source>
+        <extracomment>WindowTitle</extracomment>
         <translation variants="yes">
             <lengthvariant>Ausgabe Verzeichnis</lengthvariant>
             <lengthvariant>Zielverzeichnis</lengthvariant>
@@ -342,6 +349,10 @@ ToolTip</extracomment>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Verzeichnis in dem die Ausgabedatei abgelegt wird</translation>
+    </message>
+    <message>
+        <source>without pulse</source>
+        <translation>ohne pulse</translation>
     </message>
 </context>
 <context>
@@ -557,6 +568,10 @@ ToolTip</extracomment>
     <message>
         <source>Errors</source>
         <translation>Fehler</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation>Manuell</translation>
     </message>
 </context>
 <context>
@@ -852,10 +867,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
     <message>
         <source>FFmpeg</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>QX11Grab (%1)</source>
         <translation></translation>
     </message>
     <message>

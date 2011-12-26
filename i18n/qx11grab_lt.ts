@@ -305,13 +305,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CommandLineEdit</name>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="73"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="86"/>
         <source>Save</source>
         <translation type="unfinished">Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="75"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="77"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="88"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="90"/>
         <source>Save current command list</source>
         <extracomment>ToolTip
 ----------
@@ -319,17 +319,29 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="80"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="93"/>
+        <source>Remove</source>
+        <translation type="unfinished">Pašalinti</translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="95"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="97"/>
+        <source>Remove this Command</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="100"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="82"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="84"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="102"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="103"/>
         <source>Copy command list to Clipboard</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -377,23 +389,25 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="136"/>
-        <source>FFmpeg %1</source>
-        <translation>FFmpeg %1</translation>
+        <location filename="../src/defaults.cpp" line="138"/>
+        <source>without pulse</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="137"/>
+        <location filename="../src/defaults.cpp" line="139"/>
         <source>Other %1</source>
         <translation>Kita %1</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="139"/>
+        <location filename="../src/defaults.cpp" line="142"/>
         <source>FFmpeg Binary</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>FFmpeg vykdomoji rinkmena</translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="152"/>
+        <location filename="../src/defaults.cpp" line="156"/>
         <source>Output Directory</source>
+        <extracomment>WindowTitle</extracomment>
         <translation>Išvedimo katalogas</translation>
     </message>
 </context>
@@ -661,6 +675,11 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/utils/loglevelcombobox.cpp" line="45"/>
         <source>Fatal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/loglevelcombobox.cpp" line="46"/>
+        <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -963,11 +982,6 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="79"/>
-        <source>QX11Grab (%1)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/qx11grab.cpp" line="111"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
@@ -1004,52 +1018,52 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="407"/>
+        <location filename="../src/qx11grab.cpp" line="409"/>
         <source>Warning</source>
         <translation>Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="407"/>
+        <location filename="../src/qx11grab.cpp" line="409"/>
         <source>Recorder is running.</source>
         <translation>Įrašinėjama.</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="420"/>
+        <location filename="../src/qx11grab.cpp" line="422"/>
         <source>Info</source>
         <translation>Informacija</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="480"/>
+        <location filename="../src/qx11grab.cpp" line="482"/>
         <source>Error</source>
         <translation>Klaida</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="480"/>
+        <location filename="../src/qx11grab.cpp" line="482"/>
         <source>qx11grap not started</source>
         <translation>qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="604"/>
+        <location filename="../src/qx11grab.cpp" line="609"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="632"/>
+        <location filename="../src/qx11grab.cpp" line="637"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="632"/>
+        <location filename="../src/qx11grab.cpp" line="637"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="652"/>
+        <location filename="../src/qx11grab.cpp" line="657"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="663"/>
+        <location filename="../src/qx11grab.cpp" line="668"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

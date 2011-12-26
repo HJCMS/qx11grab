@@ -133,9 +133,12 @@ void Defaults::setFFmpegBinary()
 {
   QString path ( "/usr/bin" );
   QStringList filt;
-  filt << trUtf8 ( "FFmpeg %1" ).arg ( "ffmpeg* *ffmpeg" );
+  filt << QString::fromUtf8 ( "FFmpeg %1" ).arg ( "(ffmpeg* *ffmpeg)" );
+  // NOTE avconv from http://libav.org didnt support pulseaudio
+  filt << QString::fromUtf8 ( "avconv %1 %2" ).arg ( trUtf8 ( "without pulse" ), "(avconv* *avconv)" );
   filt << trUtf8 ( "Other %1" ).arg ( "*" );
 
+  /*: WindowTitle */
   path = QFileDialog::getOpenFileName ( this, trUtf8 ( "FFmpeg Binary" ), path, filt.join ( ";;" ) );
 
   QFileInfo db ( path );
@@ -149,6 +152,7 @@ void Defaults::setFFmpegBinary()
 void Defaults::setOutpuDirectory()
 {
   QString path ( "/tmp" );
+  /*: WindowTitle */
   path = QFileDialog::getExistingDirectory ( this, trUtf8 ( "Output Directory" ), path );
 
   QFileInfo db ( path );

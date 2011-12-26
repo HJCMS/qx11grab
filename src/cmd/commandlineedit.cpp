@@ -56,6 +56,19 @@ void CommandLineEdit::clipper()
 }
 
 /**
+* Eine Zeile entfernen
+*/
+void CommandLineEdit::remove()
+{
+  QListWidgetItem* item = currentItem();
+  if ( item )
+  {
+    removeItemWidget ( item );
+    delete item;
+  }
+}
+
+/**
 * Sende das Signal @ref dataSaved
 */
 void CommandLineEdit::save()
@@ -77,10 +90,16 @@ void CommandLineEdit::contextMenuEvent ( QContextMenuEvent * e )
   ac_save->setStatusTip ( trUtf8 ( "Save current command list" ) );
   connect ( ac_save, SIGNAL ( triggered() ), this, SLOT ( save() ) );
 
+  QAction* ac_remove = m->addAction ( getThemeIcon ( "list-remove" ), trUtf8 ( "Remove" ) );
+  /*: ToolTip */
+  ac_remove->setToolTip ( trUtf8 ( "Remove this Command" ) );
+  /*: ToolTip */
+  ac_remove->setStatusTip ( trUtf8 ( "Remove this Command" ) );
+  connect ( ac_remove, SIGNAL ( triggered() ), this, SLOT ( remove() ) );
+
   QAction* ac_cpb = m->addAction ( getThemeIcon ( "edit-copy" ), trUtf8 ( "Copy to clipboard" ) );
   /*: ToolTip */
   ac_cpb->setToolTip ( trUtf8 ( "Copy command list to Clipboard" ) );
-  /*: ToolTip */
   ac_cpb->setStatusTip ( trUtf8 ( "Copy command list to Clipboard" ) );
   connect ( ac_cpb, SIGNAL ( triggered() ), this, SLOT ( clipper() ) );
 

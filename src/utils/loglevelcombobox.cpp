@@ -43,6 +43,7 @@ LogLevelComboBox::LogLevelComboBox ( QWidget * parent )
   insertItem ( index++, icon, trUtf8 ( "Errors" ), QString::fromUtf8 ( "error" ) );
   insertItem ( index++, icon, trUtf8 ( "Panic" ), QString::fromUtf8 ( "panic" ) );
   insertItem ( index++, icon, trUtf8 ( "Fatal" ), QString::fromUtf8 ( "fatal" ) );
+  insertItem ( index++, icon, trUtf8 ( "Manual" ), QString::fromUtf8 ( "NONE" ) );
   setCurrentIndex ( 0 );
 }
 
@@ -57,7 +58,8 @@ void LogLevelComboBox::setValue ( const QString &value )
 
 const QString LogLevelComboBox::value()
 {
-  return itemData ( currentIndex (), Qt::UserRole ).toString();
+  QString item = itemData ( currentIndex(), Qt::UserRole ).toString();
+  return ( item.compare ( "NONE" ) == 0 ) ? QString() : item;
 }
 
 LogLevelComboBox::~LogLevelComboBox()

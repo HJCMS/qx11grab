@@ -90,6 +90,7 @@ class GrabberInfo : public QWidget
     void setRect ( const QRect &rect );
     const QRect getRect();
     int frameRate();
+    const QString logLevel();
     ~GrabberInfo();
 };
 

@@ -42,6 +42,7 @@ class CommandLineEdit : public QListWidget
 
   private Q_SLOTS:
     void clipper();
+    void remove();
     void save();
 
   protected:

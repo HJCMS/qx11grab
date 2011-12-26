@@ -51,7 +51,7 @@ CommandPreview::CommandPreview ( QWidget * parent )
 }
 
 /**
-*
+* Kommandozeile aufsplitten
 */
 void CommandPreview::setCommandLine ( QStringList &list )
 {
