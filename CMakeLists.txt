@@ -78,7 +78,11 @@ REMOVE_DEFINITIONS (
 )
 
 IF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-  ADD_DEFINITIONS (-Wno-deprecated-declarations -Wno-unused-result)
+  ADD_DEFINITIONS (-Wno-deprecated-declarations
+    -Wno-unused-result
+    -Wno-unused-parameter
+    -Wno-unused-but-set-variable
+  )
 ENDIF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ##############################################################
