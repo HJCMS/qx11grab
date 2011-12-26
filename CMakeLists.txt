@@ -77,9 +77,9 @@ REMOVE_DEFINITIONS (
   -DQT3_SUPPORT
 )
 
-IF (CMAKE_BUILD_TYPE NOT EQUAL Debug)
+IF (CMAKE_BUILD_TYPE STREQUAL "Release")
   ADD_DEFINITIONS (-Wno-deprecated-declarations -Wno-unused-result)
-ENDIF (CMAKE_BUILD_TYPE NOT EQUAL Debug)
+ENDIF (CMAKE_BUILD_TYPE STREQUAL "Release")
 
 ##############################################################
 ## SET Working output Directory
