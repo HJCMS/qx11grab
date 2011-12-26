@@ -60,7 +60,7 @@ namespace QX11Options
     avcodec_register_all();
     av_register_all();
 
-    // Initial Options
+    // initial options buffer
     for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
     {
       avcodec_opts[i] = avcodec_alloc_context2 ( static_cast<AVMediaType> ( i ) );
@@ -73,7 +73,7 @@ namespace QX11Options
       if ( o2 )
       {
         FFOption opt;
-        qDebug() << "VIDEO:" << o2->name << ":" << o2->help << ":" << o2->default_val.str;
+        qDebug ( "Found video option for Name:%s Help:%s", o2->name, o2->help );
         opt.name = QString ( o2->name );
         opt.value = QString ( o2->default_val.str );
         opt.help = QString ( o2->help );
@@ -83,7 +83,7 @@ namespace QX11Options
       else if ( ( o2 = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
       {
         FFOption opt;
-        qDebug() << "AUDIO:" << o2->name << ":" << o2->help << ":" << o2->default_val.str;
+        qDebug ( "Found audio option for Name:%s Help:%s", o2->name, o2->help );
         opt.name = QString ( o2->name );
         opt.value = QString ( o2->default_val.str );
         opt.help = QString ( o2->help );
@@ -92,7 +92,7 @@ namespace QX11Options
       }
     }
 
-    // UnRegister Options
+    // destroy options buffer
     for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
     {
       av_freep ( &avcodec_opts[i] );

@@ -77,6 +77,10 @@ REMOVE_DEFINITIONS (
   -DQT3_SUPPORT
 )
 
+IF (CMAKE_BUILD_TYPE NOT EQUAL Debug)
+  ADD_DEFINITIONS (-Wno-deprecated-declarations -Wno-unused-result)
+ENDIF (CMAKE_BUILD_TYPE NOT EQUAL Debug)
+
 ##############################################################
 ## SET Working output Directory
 ##############################################################
