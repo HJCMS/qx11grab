@@ -22,12 +22,31 @@
 #include "defaultedit.h"
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
+#include <QtCore/QRegExp>
+
+/* QX11Options */
+#include "avoptions.h"
 
 DefaultEdit::DefaultEdit ( QWidget * parent )
     : AbstractEdit ( parent )
 {
   setObjectName ( QLatin1String ( "DefaultEdit" ) );
+}
+
+void DefaultEdit::setCodecOptions ( const QString &param )
+{
+  QString buffer ( param );
+  QRegExp pattern ( "((^\\-{1,2})|(:\\w{1}$))" );
+  QByteArray query = buffer.remove ( pattern ).toAscii();
+
+  QList<QX11Options::FFOption> opts = QX11Options::AVOptions::optionQuery ( query );
+  if ( opts.size() > 0 )
+  {
+    setToolTip ( opts.first().help );
+    setCompleters ( opts );
+  }
 }
 
 void DefaultEdit::setCompleterId ( const QString &id )
@@ -41,6 +60,8 @@ void DefaultEdit::setCompleterId ( const QString &id )
     setCompleters ( QX11Options::AVOptions::aspect() );
   else if ( id.compare ( "-me_method" ) == 0 )
     setCompleters ( QX11Options::AVOptions::meMethod() );
+  else if ( id.contains ( QRegExp ( "^\\-{1,2}\\b" ) ) )
+    setCodecOptions ( id );
 }
 
 DefaultEdit::~DefaultEdit()

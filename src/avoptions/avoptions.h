@@ -23,6 +23,7 @@
 #define QX11OPTIONS_AVOPTIONS_H
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QList>
 #include <QtCore/QObject>
@@ -44,6 +45,7 @@ namespace QX11Options
     int id;
     QString name;
     QVariant value;
+    QString help;
   } FFOption;
 
   /**
@@ -54,13 +56,13 @@ namespace QX11Options
       Q_OBJECT
       Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
-    Q_SIGNALS:
-      void optionInfo ( const QString &info );
-
     public:
       AVOptions ( QObject * parent = 0 );
 
-      void getVideoCodecOption ( const QString &option, const QVariant &value = QVariant() );
+      /** send a avcodec option request only VIDEO/AUDIO supported
+      * \param option  query option \b without leading hyphens
+      */
+      static const QList<FFOption> optionQuery ( const QByteArray &option );
 
       /** ffmpeg -aspect */
       static const QList<FFOption> aspect();

@@ -33,16 +33,12 @@
 #include <QtGui/QStyleOptionViewItem>
 #include <QtGui/QWidget>
 
-/* QX11Options */
-#include "avoptions.h"
-
 class CodecTableDelegate : public QItemDelegate
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
-    QX11Options::AVOptions* m_aVOptions;
     enum PRESET_TYPE { NONE, VCODEC, ACODEC };
     void housemaster ( const QString &message ) const;
     const QString findOption ( const QModelIndex &index ) const;

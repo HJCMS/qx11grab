@@ -19,6 +19,9 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+#include <cstdlib>
+#include <cstdio>
+
 #include "avoptions.h"
 
 /* QtCore */
@@ -48,14 +51,60 @@ namespace QX11Options
     setObjectName ( "AVOptions" );
   }
 
-  void AVOptions::getVideoCodecOption ( const QString &option, const QVariant &value )
+  const QList<FFOption> AVOptions::optionQuery ( const QByteArray &option )
   {
-    qDebug() << Q_FUNC_INFO << "TODO" << option << value;
+    QList<FFOption> output;
+    AVCodecContext* avcodec_opts[AVMEDIA_TYPE_NB];
+    const char *opt = option.constData();
+
+    avcodec_register_all();
+    av_register_all();
+
+    // Initial Options
+    for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
+    {
+      avcodec_opts[i] = avcodec_alloc_context2 ( static_cast<AVMediaType> ( i ) );
+    }
+
+    qDebug ( "Option query:%s", opt );
+    for ( int type = 0; ( *avcodec_opts && ( type < AVMEDIA_TYPE_NB ) ); type++ )
+    {
+      const AVOption *o2 = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
+      if ( o2 )
+      {
+        FFOption opt;
+        qDebug() << "VIDEO:" << o2->name << ":" << o2->help << ":" << o2->default_val.str;
+        opt.name = QString ( o2->name );
+        opt.value = QString ( o2->default_val.str );
+        opt.help = QString ( o2->help );
+        output.append ( opt );
+        break;
+      }
+      else if ( ( o2 = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
+      {
+        FFOption opt;
+        qDebug() << "AUDIO:" << o2->name << ":" << o2->help << ":" << o2->default_val.str;
+        opt.name = QString ( o2->name );
+        opt.value = QString ( o2->default_val.str );
+        opt.help = QString ( o2->help );
+        output.append ( opt );
+        break;
+      }
+    }
+
+    // UnRegister Options
+    for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
+    {
+      av_freep ( &avcodec_opts[i] );
+    }
+
+    return output;
   }
 
   const QList<FFOption> AVOptions::aspect()
   {
     QList<FFOption> list;
+    av_register_all();
     FFOption opt;
 
     opt.id = 0;
@@ -77,6 +126,7 @@ namespace QX11Options
     items << "log" << "phods" << "x1" << "hex" << "umh" << "iter";
 
     QList<FFOption> list;
+    av_register_all();
     for ( int i = 0; i < items.size(); ++i )
     {
       FFOption opt;
@@ -91,6 +141,7 @@ namespace QX11Options
   const QList<FFOption> AVOptions::sampleFormats()
   {
     QList<FFOption> list;
+    av_register_all();
     char fmt_str[128];
     for ( int i = -1; i < AV_SAMPLE_FMT_NB; i++ )
     {
@@ -111,6 +162,7 @@ namespace QX11Options
   const QList<FFOption> AVOptions::pixelFormats()
   {
     QList<FFOption> list;
+    av_register_all();
     for ( int i = 0; i < PIX_FMT_NB; i++ )
     {
       const AVPixFmtDescriptor* pix_desc = &av_pix_fmt_descriptors[ static_cast<PixelFormat> ( i ) ];

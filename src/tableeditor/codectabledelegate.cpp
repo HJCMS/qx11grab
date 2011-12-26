@@ -43,10 +43,8 @@
 
 CodecTableDelegate::CodecTableDelegate ( QObject * parent )
     : QItemDelegate ( parent )
-    , m_aVOptions ( new QX11Options::AVOptions ( this ) )
 {
   setObjectName ( QLatin1String ( "CodecTableDelegate" ) );
-  m_aVOptions->getVideoCodecOption ( QLatin1String ( "mpeg4" ), QVariant() );
 }
 
 void CodecTableDelegate::housemaster ( const QString &message ) const

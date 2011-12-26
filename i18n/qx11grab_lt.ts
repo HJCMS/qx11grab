@@ -277,7 +277,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="150"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="148"/>
         <source>Missing stated hyphens in given argument</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>

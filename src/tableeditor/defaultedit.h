@@ -40,6 +40,9 @@ class DefaultEdit : public AbstractEdit
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    void setCodecOptions ( const QString &param );
+
   public:
     DefaultEdit ( QWidget * parent = 0 );
     void setCompleterId ( const QString &id );
