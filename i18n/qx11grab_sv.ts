@@ -79,176 +79,176 @@ MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="84"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="80"/>
         <source>Change Audio Volume (256=normal)</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="86"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="82"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="101"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="91"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="109"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="118"/>
         <source>The sample format of the incoming audio buffers.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="108"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="98"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="113"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="103"/>
         <source>Open dialog to select audio capture device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
         <source>Audio sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="131"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
         <source>Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="132"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="122"/>
         <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="133"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="134"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
         <source>signed 32 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="135"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
         <source>float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="136"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
         <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="137"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
         <source>unsigned  8 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="138"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
         <source>signed 16 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="139"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="140"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="130"/>
         <source>float, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="141"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="131"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="149"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="139"/>
         <source>Audio Service Type:</source>
         <extracomment>Note: short</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="156"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="146"/>
         <source>Audio service type</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="158"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="148"/>
         <source>The type of service that the audio stream contains.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="162"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="152"/>
         <source>Main Audio Service</source>
         <extracomment>Alternative: Default Audio</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="163"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="153"/>
         <source>Effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="164"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="154"/>
         <source>Visually Impaired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="165"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="155"/>
         <source>Hearing Impaired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="167"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="157"/>
         <source>Dialogue</source>
         <extracomment>Alternative: dialogue level</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="168"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="158"/>
         <source>Commentary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="169"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="159"/>
         <source>Emergency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="171"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="161"/>
         <source>Voice Over</source>
         <extracomment>Alternative: telephony</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="172"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="162"/>
         <source>Karaoke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="336"/>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="352"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="338"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="354"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -308,12 +308,12 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="169"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="172"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="171"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="174"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -405,23 +405,23 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="138"/>
+        <location filename="../src/defaults.cpp" line="145"/>
         <source>without pulse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="139"/>
+        <location filename="../src/defaults.cpp" line="146"/>
         <source>Other %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="142"/>
+        <location filename="../src/defaults.cpp" line="149"/>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/defaults.cpp" line="156"/>
+        <location filename="../src/defaults.cpp" line="163"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -1085,52 +1085,52 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="409"/>
+        <location filename="../src/qx11grab.cpp" line="410"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="409"/>
+        <location filename="../src/qx11grab.cpp" line="410"/>
         <source>Recorder is running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="422"/>
+        <location filename="../src/qx11grab.cpp" line="423"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="482"/>
+        <location filename="../src/qx11grab.cpp" line="483"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="482"/>
+        <location filename="../src/qx11grab.cpp" line="483"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="609"/>
+        <location filename="../src/qx11grab.cpp" line="614"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="637"/>
+        <location filename="../src/qx11grab.cpp" line="642"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="637"/>
+        <location filename="../src/qx11grab.cpp" line="642"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="657"/>
+        <location filename="../src/qx11grab.cpp" line="662"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="668"/>
+        <location filename="../src/qx11grab.cpp" line="673"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

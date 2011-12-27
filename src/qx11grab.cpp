@@ -163,6 +163,9 @@ QX11Grab::QX11Grab ( Settings * settings )
   connect ( m_grabberInfo, SIGNAL ( postUpdate () ),
             this, SLOT ( perparePreview () ) );
 
+  connect ( m_defaults, SIGNAL ( postUpdate () ),
+            this, SLOT ( perparePreview () ) );
+
   connect ( m_videoEditor, SIGNAL ( postUpdate () ),
             this, SLOT ( perparePreview () ) );
 
@@ -184,7 +187,7 @@ QX11Grab::QX11Grab ( Settings * settings )
 
 void QX11Grab::record()
 {
-  if ( ! m_FFProcess )
+  if ( ! m_FFProcess || m_FFProcess->isRunning() )
     return;
 
 #ifdef QT_NO_EXCEPTIONS

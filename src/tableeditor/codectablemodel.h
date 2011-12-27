@@ -62,6 +62,9 @@ class CodecTableModel : public QAbstractTableModel
     QModelIndex index ( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
     QModelIndex parent ( const QModelIndex &index ) const;
 
+  Q_SIGNALS:
+    void postUpdate();
+
   public:
     explicit CodecTableModel ( QWidget * parent );
     int columnCount ( const QModelIndex &parent = QModelIndex() ) const;

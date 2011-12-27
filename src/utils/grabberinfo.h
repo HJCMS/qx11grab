@@ -65,6 +65,7 @@ class GrabberInfo : public QWidget
     QCheckBox* setMetadata;
 
   private Q_SLOTS:
+    void integerUpdate ( int );
     void setInputDefaults ( int screen );
     void setRubberbandUpdate ( int );
 

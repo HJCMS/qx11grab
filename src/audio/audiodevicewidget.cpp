@@ -74,27 +74,17 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   txt0->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt0, grow, 0, 1, 1 );
 
-  QHBoxLayout* h2Layout = new QHBoxLayout;
-  intensifier = new QSpinBox ( audioGroup );
-  intensifier->setSingleStep ( 2 );
-  intensifier->setRange ( 0, 512 );
-  intensifier->setValue ( 256 );
-  intensifier->setObjectName ( QLatin1String ( "audio_intensifier" ) );
-  /*: ToolTip */
-  intensifier->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
-  /*: WhatsThis */
-  intensifier->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
-  h2Layout->addWidget ( intensifier );
-
   m_slider = new QSlider ( Qt::Horizontal, audioGroup );
   m_slider->setObjectName ( QLatin1String ( "AudioSlider" ) );
+  /*: ToolTip */
+  m_slider->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
+  /*: WhatsThis */
+  m_slider->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
   m_slider->setSingleStep ( 1 );
-  m_slider->setMinimum ( 0 );
-  m_slider->setMaximum ( 512 );
+  m_slider->setRange ( 256, 512 );
+  m_slider->setTickPosition ( QSlider::TicksAbove );
   m_slider->setValue ( 256 );
-  h2Layout->addWidget ( m_slider );
-
-  gridLayout->addLayout ( h2Layout, grow++, 1, 1, 2 );
+  gridLayout->addWidget ( m_slider, grow++, 1, 1, 2 );
   // } Volume
 
   QLabel* txt1 = new QLabel ( audioGroup );
@@ -179,17 +169,21 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
 
   setLayout ( vLayout );
 
-  connect ( m_slider, SIGNAL ( valueChanged ( int ) ),
-            intensifier, SLOT ( setValue ( int ) ) );
-
-  connect ( intensifier, SIGNAL ( valueChanged ( int ) ),
-            m_slider, SLOT ( setValue ( int ) ) );
-
   connect ( m_swapAudio, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( audioEngineChanged ( int ) ) );
 
   connect ( m_audiodevButton, SIGNAL ( clicked () ),
             this, SLOT ( getpcmClicked() ) );
+
+  // Updates
+  connect ( m_slider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+
+  connect ( m_audioSampleFormat, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+
+  connect ( m_audioServiceType, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
 }
 
 /**
@@ -206,6 +200,7 @@ void AudioDeviceWidget::openAlsaDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
+    emit postUpdate();
   }
   delete dialog;
 }
@@ -224,9 +219,15 @@ void AudioDeviceWidget::openPulseDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
+    emit postUpdate();
   }
   delete dialog;
 #endif
+}
+
+void AudioDeviceWidget::integerUpdate ( int )
+{
+  emit postUpdate();
 }
 
 /**
@@ -261,7 +262,7 @@ void AudioDeviceWidget::getpcmClicked()
 */
 void AudioDeviceWidget::setVolume ( int i )
 {
-  intensifier->setValue ( i );
+  m_slider->setValue ( i );
 }
 
 /**
@@ -269,7 +270,7 @@ void AudioDeviceWidget::setVolume ( int i )
 */
 int AudioDeviceWidget::getVolume ()
 {
-  return intensifier->value();
+  return m_slider->value();
 }
 
 /**
@@ -299,6 +300,7 @@ void AudioDeviceWidget::audioEngineChanged ( int index )
       m_audiodevButton->setDisabled ( true );
       break;
   };
+  emit postUpdate();
 }
 
 /**
@@ -466,8 +468,8 @@ const QStringList AudioDeviceWidget::data()
   if ( ! getAudioServiceType().isEmpty () )
     cmd<< "-audio_service_type" << getAudioServiceType();
 
-  if ( intensifier->value() != 256 )
-    cmd << "-vol" << QString::number ( intensifier->value() );
+  if ( m_slider->value() != 256 )
+    cmd << "-vol" << QString::number ( m_slider->value() );
 
   return cmd;
 }

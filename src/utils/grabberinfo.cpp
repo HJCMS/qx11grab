@@ -275,14 +275,28 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
             this, SIGNAL ( showRubber ( bool ) ) );
 
   // Updates
+  connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+
   connect ( setMetadata, SIGNAL ( stateChanged ( int ) ),
-            this, SIGNAL ( postUpdate () ) );
+            this, SLOT ( integerUpdate ( int ) ) );
 
   connect ( soundRecording, SIGNAL ( stateChanged ( int ) ),
-            this, SIGNAL ( postUpdate () ) );
+            this, SLOT ( integerUpdate ( int ) ) );
 
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
             this, SLOT ( setInputDefaults ( int ) ) );
+
+  connect ( m_logLevelComboBox, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+}
+
+/**
+* Umleitung Signal int nach void Update Datensatz
+*/
+void GrabberInfo::integerUpdate ( int )
+{
+  emit postUpdate();
 }
 
 /**
@@ -461,7 +475,7 @@ int GrabberInfo::frameRate()
 
 const QString GrabberInfo::logLevel()
 {
-    return m_logLevelComboBox->value();
+  return m_logLevelComboBox->value();
 }
 
 GrabberInfo::~GrabberInfo()

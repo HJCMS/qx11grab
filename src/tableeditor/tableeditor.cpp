@@ -77,7 +77,7 @@ TableEditor::TableEditor ( QWidget * parent )
   connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( int ) ),
             this, SIGNAL ( postUpdate() ) );
 
-  connect ( m_tableWidget, SIGNAL ( itemChanged () ),
+  connect ( m_tableWidget, SIGNAL ( postUpdate () ),
             this, SIGNAL ( postUpdate() ) );
 
   // Item Buttons

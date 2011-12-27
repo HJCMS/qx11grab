@@ -51,6 +51,9 @@ class Defaults : public QWidget
     void setOutpuDirectory();
     void restoreFileName();
 
+  Q_SIGNALS:
+    void postUpdate();
+
   public Q_SLOTS:
     void load ( QSettings * cfg );
     void save ( QSettings * cfg );

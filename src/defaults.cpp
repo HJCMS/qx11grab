@@ -124,6 +124,13 @@ Defaults::Defaults ( QWidget * parent )
   connect ( restoreButton, SIGNAL ( clicked() ), this, SLOT ( restoreFileName() ) );
   connect ( setFFmpegBtn, SIGNAL ( clicked() ), this, SLOT ( setFFmpegBinary() ) );
   connect ( setOutputBtn, SIGNAL ( clicked() ), this, SLOT ( setOutpuDirectory() ) );
+
+  // Updates
+  connect ( restoreButton, SIGNAL ( clicked() ),
+           this, SIGNAL ( postUpdate() ) );
+
+  connect ( m_audioDeviceWidget, SIGNAL ( postUpdate() ),
+            this, SIGNAL ( postUpdate() ) );
 }
 
 /**

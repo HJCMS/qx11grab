@@ -143,6 +143,9 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
     };
   }
 
+  if ( status )
+    emit postUpdate();
+
   return status;
 }
 

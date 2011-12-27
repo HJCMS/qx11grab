@@ -50,7 +50,7 @@ class CodecTable : public QTableView
     CodecTableDelegate* m_codecTableDelegate;
 
   Q_SIGNALS:
-    void itemChanged();
+    void postUpdate();
 
   public Q_SLOTS:
     void clearContents();

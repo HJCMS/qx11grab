@@ -66,6 +66,9 @@ CodecTable::CodecTable ( QWidget * parent )
   tHeader->setDefaultSectionSize ( 150 );
   tHeader->setStretchLastSection ( true );
   tHeader->setMovable ( false );
+
+  connect ( m_model, SIGNAL ( postUpdate() ),
+            this, SIGNAL ( postUpdate() ) );
 }
 
 void CodecTable::clearContents()

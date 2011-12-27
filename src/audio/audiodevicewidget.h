@@ -43,7 +43,6 @@ class AudioDeviceWidget : public QWidget
 
   private:
     QComboBox* m_swapAudio;
-    QSpinBox* intensifier;
     QSlider* m_slider;
     QLineEdit* device;
     QToolButton* m_audiodevButton;
@@ -54,8 +53,12 @@ class AudioDeviceWidget : public QWidget
     void openPulseDialog();
 
   private Q_SLOTS:
+    void integerUpdate ( int );
     void getpcmClicked();
     void audioEngineChanged ( int index );
+
+  Q_SIGNALS:
+    void postUpdate();
 
   public:
     enum AUDIODEV { NONE = 0, ALSA = 1, OSS = 2, PULSE = 3 };
