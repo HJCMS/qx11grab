@@ -180,8 +180,6 @@ QX11Grab::QX11Grab ( Settings * settings )
 
   connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
             this, SLOT ( updateCommandLine ( const QStringList & ) ) );
-
-  setWindowModified ( false );
 }
 
 void QX11Grab::record()
@@ -508,6 +506,7 @@ void QX11Grab::loadSettings()
   m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
   perparePreview();
+  setWindowModified ( false );
 }
 
 /**
@@ -520,6 +519,7 @@ void QX11Grab::saveSettings()
   m_metaData->save ( cfg );
   m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+  setWindowModified ( false );
 }
 
 /**
@@ -588,6 +588,8 @@ void QX11Grab::perparePreview()
   m_commandPreview->setCommandLine ( commandLine );
 
   cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
+
+  setWindowModified ( true );
 }
 
 /**
