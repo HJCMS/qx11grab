@@ -43,7 +43,7 @@ class PlayerAction : public QToolButton
     const QIcon icon;
     QMenu* m_menu;
     QSignalMapper* m_signalMapper;
-    const QString ucFirst ( const QString & ) const;
+    const QString predefinedApps ( const QString & ) const;
     void searchPlayers();
 
   private Q_SLOTS:

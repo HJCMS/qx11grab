@@ -55,12 +55,26 @@ PlayerAction::PlayerAction ( QWidget * parent )
   searchPlayers();
 }
 
-const QString PlayerAction::ucFirst ( const QString &txt ) const
+const QString PlayerAction::predefinedApps ( const QString &txt ) const
 {
-  QString buffer ( txt );
-  QString up = buffer.toUpper().left ( 1 );
-  QString no = buffer.right ( ( txt.length() - 1 ) );
-  return QString ( "%1%2" ).arg ( up, no );
+  QHash<QString,QString> hash;
+  //: MenuEntry for "mplayer" http://www.mplayerhq.hu
+  hash["mplayer"] = trUtf8 ( "MPlayer" );
+  //: MenuEntry for "gmplayer" http://www.mplayerhq.hu
+  hash["gmplayer"] = trUtf8 ( "MPlayer GUI" );
+  //: MenuEntry for "kmplayer" http://kmplayer.kde.org
+  hash["kmplayer"] = trUtf8 ( "KMPlayer" );
+  //: MenuEntry for "xine" http://www.xine-project.org
+  hash["xine"] = trUtf8 ( "Xine" );
+  //: MenuEntry for "vlc" http://www.videolan.org/vlc/
+  hash["vlc"] = trUtf8 ( "VLC" );
+  //: MenuEntry for "ffplay" http://www.ffmpeg.org
+  hash["ffplay"] = trUtf8 ( "FFPlay" );
+  //: MenuEntry for "dragon" http://kde.org/applications/multimedia/dragonplayer/
+  hash["dragon"] = trUtf8 ( "Dragon Player" );
+  //: MenuEntry for "totem" http://projects.gnome.org/totem/
+  hash["totem"] = trUtf8 ( "Totem Player" );
+  return ( hash[txt].isEmpty() ) ? txt : hash[txt];
 }
 
 void PlayerAction::searchPlayers()
@@ -76,13 +90,13 @@ void PlayerAction::searchPlayers()
     for ( int d = 0; d < paths.size(); ++d )
     {
       dir.setPath ( paths.at ( d ) );
-      foreach ( QString f, dir.entryList ( nameFilters, QDir::Files, QDir::Name ) )
+      foreach ( QString f, dir.entryList ( nameFilters, QDir::Files, QDir::Size ) )
       {
         QFileInfo info ( dir.path(), f );
         if ( info.exists() )
         {
           QString name = info.baseName();
-          QAction* ac = m_menu->addAction ( QIcon::fromTheme ( name, icon ), ucFirst ( name ) );
+          QAction* ac = m_menu->addAction ( QIcon::fromTheme ( name, icon ), predefinedApps ( name ) );
           connect ( ac, SIGNAL ( triggered() ), m_signalMapper, SLOT ( map() ) );
           m_signalMapper->setMapping ( ac, info.absoluteFilePath() );
         }
@@ -94,7 +108,7 @@ void PlayerAction::searchPlayers()
 void PlayerAction::playOuputFile ( const QString &player )
 {
   QSettings settings;
-  QFileInfo file ( settings.value ( QLatin1String ( "CurrentOutputFile" )  ).toString() );
+  QFileInfo file ( settings.value ( QLatin1String ( "CurrentOutputFile" ) ).toString() );
   if ( file.exists() )
     QProcess::startDetached ( player, QStringList ( file.absoluteFilePath() ) );
 }

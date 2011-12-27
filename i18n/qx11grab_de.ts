@@ -826,6 +826,49 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>PlayerAction</name>
+    <message>
+        <source>MPlayer</source>
+        <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>KMPlayer</source>
+        <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Xine</source>
+        <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>VLC</source>
+        <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>FFPlay</source>
+        <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Dragon Player</source>
+        <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>MPlayer GUI</source>
+        <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Totem Player</source>
+        <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>PulseAudioDialog</name>
     <message>
         <source>Pulse Device Selection</source>

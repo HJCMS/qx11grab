@@ -987,6 +987,57 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>PlayerAction</name>
+    <message>
+        <location filename="../src/playeraction.cpp" line="62"/>
+        <source>MPlayer</source>
+        <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="64"/>
+        <source>MPlayer GUI</source>
+        <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="66"/>
+        <source>KMPlayer</source>
+        <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="68"/>
+        <source>Xine</source>
+        <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="70"/>
+        <source>VLC</source>
+        <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="72"/>
+        <source>FFPlay</source>
+        <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="74"/>
+        <source>Dragon Player</source>
+        <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="76"/>
+        <source>Totem Player</source>
+        <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PulseAudioDialog</name>
     <message>
         <location filename="../src/audio/pulseaudiodialog.cpp" line="152"/>
