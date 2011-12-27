@@ -33,9 +33,8 @@
 /* FFmpeg */
 extern "C"
 {
-#include <libavutil/avutil.h>
 #include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
+#include <libavutil/avutil.h>
 #include <libavutil/samplefmt.h>
 #include <libavutil/pixdesc.h>
 #include <libavutil/avstring.h>
@@ -53,9 +52,37 @@ namespace QX11Options
     setObjectName ( "AVOptions" );
   }
 
+  /**
+  * Liest Standard Kodierer Einträge in AVCodecContext
+  * und sendet das Signal codecDefaults
+  */
+  void AVOptions::initCodecDefaults ( CodecID codecId )
+  {
+    if ( codecId == CODEC_ID_NONE )
+      return;
+
+    AVCodec* buffer = NULL;
+    AVCodec* codec = avcodec_find_encoder ( codecId );
+    if ( ! codec )
+      return;
+
+    AVCodecContext* avc = avcodec_alloc_context3 ( buffer );
+    /* Do not call this function if a non-NULL codec has been passed to
+    * avcodec_alloc_context3() that allocated this AVCodecContext. */
+    int ret = avcodec_get_context_defaults3 ( avc, codec );
+    if ( ret == 0 )
+      emit codecDefaults ( avc );
+  }
+
+  /**
+  * Suche für die Typen (AV_OPT_FLAG_VIDEO_PARAM|AV_OPT_FLAG_AUDIO_PARAM)
+  * nach Optionen und ihrer Hilfe Texte.
+  * \todo Standard Werte Vorschläge!
+  */
   const QList<FFOption> AVOptions::optionQuery ( const QByteArray &option )
   {
     QList<FFOption> output;
+    FFOption ffOption;
     AVCodecContext* avcodec_opts[AVMEDIA_TYPE_NB];
     const char *opt = option.constData();
 
@@ -67,32 +94,25 @@ namespace QX11Options
       avcodec_opts[i] = avcodec_alloc_context2 ( static_cast<AVMediaType> ( i ) );
     }
 
-    qDebug ( "Option query:%s", opt );
-    for ( int type = 0; ( *avcodec_opts && ( type < AVMEDIA_TYPE_NB ) ); type++ )
+    qDebug ( "Searching for: %s", opt );
+    const AVOption *obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
+    if ( obj )
     {
-      const AVOption *obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
-      if ( obj )
-      {
-        FFOption opt;
-        qDebug ( "Found video option for Name:%s Help:%s", obj->name, obj->help );
-        opt.name = QString ( obj->name );
-        // if ( obj->type == FF_OPT_TYPE_STRING ) {}
-        opt.value = QVariant();
-        opt.help = QString ( obj->help );
-        output.append ( opt );
-        break;
-      }
-      else if ( ( obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
-      {
-        FFOption opt;
-        qDebug ( "Found audio option for Name:%s Help:%s", obj->name, obj->help );
-        opt.name = QString ( obj->name );
-        // opt.value = QString ( obj->default_val.str );
-        opt.value = QVariant();
-        opt.help = QString ( obj->help );
-        output.append ( opt );
-        break;
-      }
+      qDebug ( "Found video option for Name:%s Help:%s", obj->name, obj->help );
+      ffOption.name = QString ( obj->name );
+      // if ( obj->type == FF_OPT_TYPE_STRING ) {}
+      ffOption.value = QVariant();
+      ffOption.help = QString ( obj->help );
+      output.append ( ffOption );
+    }
+    else if ( ( obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
+    {
+      qDebug ( "Found audio option for Name:%s Help:%s", obj->name, obj->help );
+      ffOption.name = QString ( obj->name );
+      // opt.value = QString ( obj->default_val.str );
+      ffOption.value = QVariant();
+      ffOption.help = QString ( obj->help );
+      output.append ( ffOption );
     }
 
     // destroy options buffer
@@ -104,41 +124,9 @@ namespace QX11Options
     return output;
   }
 
-  const QList<FFOption> AVOptions::aspect()
-  {
-    QList<FFOption> list;
-    FFOption opt;
-
-    opt.id = 0;
-    opt.name = "4:3";
-    opt.value = QVariant ( "1.3333" );
-    list.append ( opt );
-
-    opt.id = 1;
-    opt.name = "16:9";
-    opt.value = QVariant ( "1.7777" );
-    list.append ( opt );
-    return list;
-  }
-
-  const QList<FFOption> AVOptions::meMethod()
-  {
-    QStringList items ( "epzs" );
-    items << "full" << "zero" << "esa" << "tesa" << "dia";
-    items << "log" << "phods" << "x1" << "hex" << "umh" << "iter";
-
-    QList<FFOption> list;
-    for ( int i = 0; i < items.size(); ++i )
-    {
-      FFOption opt;
-      opt.id = i;
-      opt.name = items.at ( i );
-      opt.value = QVariant ();
-      list.append ( opt );
-    }
-    return list;
-  }
-
+  /**
+  * Suche nach allen Audio Abfrage Formaten
+  */
   const QList<FFOption> AVOptions::sampleFormats()
   {
     QList<FFOption> list;
@@ -153,13 +141,18 @@ namespace QX11Options
         FFOption opt;
         opt.id = i;
         opt.name = name.first();
-        opt.value = QVariant();
+        opt.value = name.first();
+        /*: ToolTip */
+        opt.help = trUtf8 ( "sample format" );
         list.append ( opt );
       }
     }
     return list;
   }
 
+  /**
+  * Suche nach allen Video Pixel Formaten
+  */
   const QList<FFOption> AVOptions::pixelFormats()
   {
     QList<FFOption> list;
@@ -173,24 +166,31 @@ namespace QX11Options
       FFOption opt;
       opt.id = i;
       opt.name = QString::fromUtf8 ( pix_desc->name );
-      opt.value = QVariant();
+      opt.value = QVariant ( pix_desc->name );
+      /*: ToolTip */
+      opt.help = trUtf8 ( "Bits per Pixel %1" )
+                 .arg ( QString::number ( av_get_bits_per_pixel ( pix_desc ) ) );
       list.append ( opt );
     }
     return list;
   }
 
+  /**
+  * Eine Liste der verfügbaren Video Kodierer ausgeben
+  */
   const QList<FFCodec> AVOptions::videoCodecs()
   {
     QList<FFCodec> list;
     avcodec_register_all();
-    AVCodec* codec;
+    AVCodec* codec = NULL;
     for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
     {
       if ( ( codec->type == AVMEDIA_TYPE_VIDEO ) && ( codec->encode )
               && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
       {
-        // qDebug ( "AVCodec: %s Capability: 0x%02x", codec->name, codec->capabilities );
+        // qDebug ( "VCodec: %s Capability: 0x%02x", codec->name, codec->capabilities );
         FFCodec c;
+        c.id = codec->id;
         c.name = QString ( codec->name );
         c.fullname = QString ( codec->long_name );
         list.append ( c );
@@ -199,17 +199,22 @@ namespace QX11Options
     return list;
   }
 
+  /**
+  * Eine Liste der verfügbaren Audio Kodierer ausgeben
+  */
   const QList<FFCodec> AVOptions::audioCodecs()
   {
     QList<FFCodec> list;
     avcodec_register_all();
-    AVCodec* codec;
+    AVCodec* codec = NULL;
     for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
     {
       if ( ( codec->type == AVMEDIA_TYPE_AUDIO ) && ( codec->encode )
               && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
       {
+        // qDebug ( "ACodec: %s ID: %d", codec->name, codec->id );
         FFCodec c;
+        c.id = codec->id;
         c.name = QString ( codec->name );
         c.fullname = QString ( codec->long_name );
         list.append ( c );

@@ -13,6 +13,20 @@
     </message>
 </context>
 <context>
+    <name>AbstractEdit</name>
+    <message>
+        <source>Proposing</source>
+        <extracomment>WindowTitle
+----------
+MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>submitted items</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -874,6 +888,19 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>QX11Options::AVOptions</name>
+    <message>
+        <source>sample format</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bits per Pixel %1</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RubberBand</name>
     <message>
         <source>Scalability Failure Width</source>
@@ -927,10 +954,6 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TableEditor</name>
     <message>
-        <source>Codec</source>
-        <translation>Kodek</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
@@ -941,6 +964,10 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>Clear</source>
         <translation>Vyprázdnit</translation>
+    </message>
+    <message>
+        <source>Encoder</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

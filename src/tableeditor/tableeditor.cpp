@@ -51,7 +51,7 @@ TableEditor::TableEditor ( QWidget * parent )
   QGridLayout* layout =  new QGridLayout ( this );
 
   int grow = 0; // grid Row
-  layout->addWidget ( new QLabel ( trUtf8 ( "Codec" ) ),
+  layout->addWidget ( new QLabel ( trUtf8 ( "Encoder" ) ),
                       grow, 0, 1, 1, Qt::AlignRight );
 
   // ComboBox

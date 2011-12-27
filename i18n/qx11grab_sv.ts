@@ -15,6 +15,23 @@
     </message>
 </context>
 <context>
+    <name>AbstractEdit</name>
+    <message>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="48"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="64"/>
+        <source>Proposing</source>
+        <extracomment>WindowTitle
+----------
+MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="49"/>
+        <source>submitted items</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <location filename="../src/audio/alsaaudiodialog.cpp" line="44"/>
@@ -267,7 +284,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecSelecter</name>
     <message>
-        <location filename="../src/tableeditor/codecselecter.cpp" line="72"/>
+        <location filename="../src/tableeditor/codecselecter.cpp" line="109"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1068,6 +1085,21 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>QX11Options::AVOptions</name>
+    <message>
+        <location filename="../src/avoptions/avoptions.cpp" line="146"/>
+        <source>sample format</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/avoptions.cpp" line="171"/>
+        <source>Bits per Pixel %1</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RubberBand</name>
     <message>
         <location filename="../src/utils/rubberband.cpp" line="69"/>
@@ -1131,7 +1163,7 @@ Multiple languages can be specified by separating them with commas.</source>
     <name>TableEditor</name>
     <message>
         <location filename="../src/tableeditor/tableeditor.cpp" line="54"/>
-        <source>Codec</source>
+        <source>Encoder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

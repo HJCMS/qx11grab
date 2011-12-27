@@ -31,21 +31,54 @@
 /* QtGui */
 #include <QtGui/QIcon>
 
+// WARNING Wegen Qt::UserRole nicht von AbstractSelection ableiten!
 CodecSelecter::CodecSelecter ( QWidget * parent )
-    : AbstractSelection ( parent )
+    : QComboBox ( parent )
 {
   setObjectName ( QLatin1String ( "CodecSelecter" ) );
-  initItemDataset();
+  setEditable ( true );
+  connect ( this, SIGNAL ( activated ( int ) ),
+            this, SLOT ( itemSelected ( int ) ) );
 }
 
-void CodecSelecter::initItemDataset()
+/**
+* CodecID Abfragen
+* Siehe avcodec.h enum CodecID
+*/
+void CodecSelecter::findCodecContext()
 {
-  setEditable ( true );
+  return; // FIXME currently get AVCodecContext disabled
+  bool ok;
+  QX11Options::AVOptions* av = new QX11Options::AVOptions ( this );
+  connect ( av, SIGNAL ( codecDefaults ( const AVCodecContext* ) ),
+            this, SLOT ( readCodecDefaults ( const AVCodecContext* ) ) );
+
+  QVariant data = itemData ( currentIndex(), Qt::UserRole );
+  CodecID id = static_cast<CodecID> ( data.toUInt ( &ok ) );
+  if ( ok )
+    av->initCodecDefaults ( id );
+}
+
+void CodecSelecter::readCodecDefaults ( const AVCodecContext* avc )
+{
+  if ( avc->codec_type == AVMEDIA_TYPE_VIDEO )
+  {}
+  else if( avc->codec_type == AVMEDIA_TYPE_AUDIO )
+  {}
+}
+
+void CodecSelecter::itemSelected ( int index )
+{
+  int cid = itemData ( index, Qt::UserRole ).toUInt();
+  if ( cid >= 0 )
+    findCodecContext();
 }
 
 void CodecSelecter::setCodec ( const QString &name )
 {
-  setValue ( name );
+  int index = findData ( name, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
+  if ( index != -1 )
+    setCurrentIndex ( index );
 }
 
 void CodecSelecter::setCodecItems ( const QList<QX11Options::FFCodec> &list )
@@ -57,7 +90,9 @@ void CodecSelecter::setCodecItems ( const QList<QX11Options::FFCodec> &list )
   {
     QX11Options::FFCodec codec = list.at ( i );
     insertItem ( index, codec.name, QVariant ( codec.name ) );
+    setItemData ( index, codec.name, Qt::DisplayRole );
     setItemData ( index, codec.name, Qt::EditRole );
+    setItemData ( index, codec.id, Qt::UserRole );
     setItemData ( index, codec.fullname, Qt::ToolTipRole );
     index = i;
   }
@@ -67,14 +102,19 @@ void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
 {
   int i = count();
   insertItem ( i, key, value );
+  setItemData ( i, key, Qt::DisplayRole );
   setItemData ( i, key, Qt::EditRole );
+  setItemData ( i, CODEC_ID_NONE, Qt::UserRole );
   /*: ToolTip */
   setItemData ( i, trUtf8 ( "Customized" ), Qt::ToolTipRole );
 }
 
+/**
+* Aktuellen Codec Text ausgeben
+*/
 const QString CodecSelecter::getCodec ()
 {
-  return value().toString();
+  return itemData ( currentIndex(), Qt::DisplayRole ).toString();
 }
 
 CodecSelecter::~CodecSelecter()

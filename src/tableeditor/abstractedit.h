@@ -10,11 +10,11 @@
 *
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Library General Public License for more details.
 *
 * You should have received a copy of the GNU Library General Public License
-* along with this library; see the file COPYING.LIB.  If not, write to
+* along with this library; see the file COPYING.LIB. If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
 **/
@@ -29,6 +29,7 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QContextMenuEvent>
 #include <QtGui/QLineEdit>
 #include <QtGui/QRegExpValidator>
 #include <QtGui/QWidget>
@@ -42,8 +43,15 @@ class AbstractEdit : public QLineEdit
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_PROPERTY ( QVariant value READ value WRITE setValue USER true )
 
+  private:
+    QStringList proposeList;
+
+  private Q_SLOTS:
+    void openProposedDialog();
+
   protected:
     QRegExpValidator* m_regExpValidator;
+    void contextMenuEvent ( QContextMenuEvent * );
     const QString implode ( const QStringList &data ) const;
     const QStringList explode ( const QString &data ) const;
 

@@ -33,17 +33,20 @@
 
 /* QX11Grab */
 #include "avoptions.h"
-#include "abstractselection.h"
 
-class CodecSelecter : public AbstractSelection
+class CodecSelecter : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
     Q_PROPERTY ( QString codec READ getCodec WRITE setCodec USER true )
 
-  protected:
-    void initItemDataset();
+  private:
+    void findCodecContext();
+
+  private Q_SLOTS:
+    void readCodecDefaults ( const AVCodecContext* );
+    void itemSelected ( int );
 
   public Q_SLOTS:
     void setCodec ( const QString &name );

@@ -56,10 +56,6 @@ void DefaultEdit::setCompleterId ( const QString &id )
     setCompleters ( QX11Options::AVOptions::pixelFormats() );
   else if ( id.compare ( "-sample_fmt" ) == 0 )
     setCompleters ( QX11Options::AVOptions::sampleFormats() );
-  else if ( id.compare ( "-aspect" ) == 0 )
-    setCompleters ( QX11Options::AVOptions::aspect() );
-  else if ( id.compare ( "-me_method" ) == 0 )
-    setCompleters ( QX11Options::AVOptions::meMethod() );
   else if ( id.contains ( QRegExp ( "^\\-{1,2}\\b" ) ) )
     setCodecOptions ( id );
 }

@@ -27,6 +27,9 @@
 
 /* QtGui */
 #include <QtGui/QCompleter>
+#include <QtGui/QIcon>
+#include <QtGui/QInputDialog>
+#include <QtGui/QMenu>
 
 AbstractEdit::AbstractEdit ( QWidget * parent )
     : QLineEdit ( parent )
@@ -34,50 +37,114 @@ AbstractEdit::AbstractEdit ( QWidget * parent )
 {
   QRegExp pattern ( "[^ \n\t&\\]+" );
   m_regExpValidator->setRegExp ( pattern );
+  proposeList.clear();
 }
 
+void AbstractEdit::openProposedDialog()
+{
+  bool ok;
+  int index = ( text().isEmpty() ) ? 0 : proposeList.indexOf ( text() );
+  /*: WindowTitle */
+  QString item = QInputDialog::getItem ( this, trUtf8 ( "Proposing" ),
+                                         trUtf8 ( "submitted items" ),
+                                         proposeList, index, false, &ok );
+  if ( ok && !item.isEmpty() )
+    setText ( item );
+}
+
+/**
+* Kontext Menü abfangen und einen Eingabe Dialog anbieten
+*/
+void AbstractEdit::contextMenuEvent ( QContextMenuEvent * e )
+{
+  QMenu* m = createStandardContextMenu();
+  if ( proposeList.size() > 2 )
+  {
+    /*: MenuEntry */
+    QAction* ac = m->addAction ( QIcon::fromTheme ( "menu-editors" ), trUtf8 ( "Proposing" ) );
+    connect ( ac, SIGNAL ( triggered() ),
+              this, SLOT ( openProposedDialog() ) );
+  }
+  m->exec ( e->globalPos() );
+  delete m;
+}
+
+/**
+* Liste in Zeichnenkette wandeln
+*/
 const QString AbstractEdit::implode ( const QStringList &data ) const
 {
-  QString buffer ( data.join ( "," ) );
+  QString buffer ( data.join ( QX11Options::delimiter ) );
   return buffer.trimmed();
 }
 
+/**
+* Zeichnenkette in eine Liste wandeln.
+*/
 const QStringList AbstractEdit::explode ( const QString &data ) const
 {
+  QStringList list;
   QString buffer ( data );
-  return buffer.split ( "," );
+  foreach ( QString s, buffer.split ( QX11Options::delimiter ) )
+  {
+    list.append ( s.trimmed() );
+  }
+  return list;
 }
 
+/**
+* Vordefinierte Standard Methode für QItemDelegate
+*/
 void AbstractEdit::setValue ( const QVariant &value )
 {
   setText ( value.toString() );
 }
 
+/**
+* Wir könnnen erst jetzt festellen ob FFmpeg eine Parameterliste
+* zu Verfügung stellt. Ist dies der fall, dann \ref proposeList
+* mit den Daten füttern und den Completer setzen!
+*/
 void AbstractEdit::setCompleters ( const QList<QX11Options::FFOption> &list )
 {
   if ( list.size() > 0 )
   {
-    QStringList items;
+    proposeList.clear();
     foreach ( QX11Options::FFOption opt, list )
     {
-      items.append ( opt.name );
+      proposeList.append ( opt.name );
+      /* Kommt immer nur dann vor wenn eine einzelne
+      * Option mehrere Werte Vorschläge besitzt! */
       if ( ! opt.value.toString().isEmpty() )
-        items.append ( opt.value.toString() );
+      {
+        QString data = opt.value.toString();
+        if ( data.contains ( QX11Options::delimiter ) )
+          proposeList.append ( explode ( data ) );
+      }
     }
 
-    if ( items.size() < 1 )
+    if ( proposeList.size() < 1 )
       return;
 
-    QCompleter* m_compliter = new QCompleter ( items, this );
+    proposeList.sort();
+
+    QCompleter* m_compliter = new QCompleter ( proposeList, this );
     setCompleter ( m_compliter );
   }
 }
 
+/**
+* Vordefinierte Standard Methode für QItemDelegate
+*/
 const QVariant AbstractEdit::value()
 {
   return QVariant ( text() );
 }
 
+/**
+* Vordefinierte Methode für geplante
+* QStandardItemEditorCreator Einbindung.
+*/
 const QByteArray AbstractEdit::valuePropertyName () const
 {
   return QByteArray ( "value" );

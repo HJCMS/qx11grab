@@ -13,6 +13,20 @@
     </message>
 </context>
 <context>
+    <name>AbstractEdit</name>
+    <message>
+        <source>Proposing</source>
+        <extracomment>WindowTitle
+----------
+MenuEntry</extracomment>
+        <translation>Vorschlagen</translation>
+    </message>
+    <message>
+        <source>submitted items</source>
+        <translation>Vorgeschlagene Einträge</translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -888,26 +902,39 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
     <message>
         <source>Open Bookmark %1 failed</source>
-        <translation>Lesezeichen öffnen von %1 fehlgeschlagen!</translation>
+        <translation>Öffnen von %1 Lesezeichen fehlgeschlagen</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Options::AVOptions</name>
+    <message>
+        <source>sample format</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Abfrageformat</translation>
+    </message>
+    <message>
+        <source>Bits per Pixel %1</source>
+        <extracomment>ToolTip</extracomment>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>RubberBand</name>
     <message>
         <source>Scalability Failure Width</source>
-        <translation>Skalierungsfehler bei der Breite</translation>
+        <translation>Skalierungsfehler der Breite</translation>
     </message>
     <message>
         <source>Frame Width must be a multiple of 2</source>
-        <translation>Rahmenbreite muss durch 2 Teilbar sein</translation>
+        <translation>Die Rahmenbreite muß durch 2 Teilbar sein!</translation>
     </message>
     <message>
         <source>Scalability Failure Height</source>
-        <translation>Skalierungsfehler bei der Höhe</translation>
+        <translation>Skalierungsfehler der Höhe</translation>
     </message>
     <message>
         <source>Frame Height must be a multiple of 2</source>
-        <translation>Rahmenhöhe muss durch 2 Teilbar sein</translation>
+        <translation>Die Rahmenhöhe muß durch 2 Teilbar sein!</translation>
     </message>
 </context>
 <context>
@@ -945,10 +972,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>TableEditor</name>
     <message>
-        <source>Codec</source>
-        <translation>Kodierer-Dekodierer</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Einfügen</translation>
     </message>
@@ -959,6 +982,10 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <message>
         <source>Clear</source>
         <translation>Leeren</translation>
+    </message>
+    <message>
+        <source>Encoder</source>
+        <translation>Kodierer</translation>
     </message>
 </context>
 <context>

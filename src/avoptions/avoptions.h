@@ -31,13 +31,20 @@
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
+/* FFmpeg */
+extern "C"
+{
+#include <libavcodec/avcodec.h>
+}
+
 namespace QX11Options
 {
-
   typedef struct Q_DECL_EXPORT
   {
+    CodecID id;
     QString name;
     QString fullname;
+    QString info;
   } FFCodec;
 
   typedef struct Q_DECL_EXPORT
@@ -48,6 +55,9 @@ namespace QX11Options
     QString help;
   } FFOption;
 
+  /** required for QStringList::join() and QString::split() in Table ItemViews  */
+  static const QString delimiter = QLatin1String ( "%" );
+
   /**
   * base class for fetching FFmpeg Codecs and Options
   */
@@ -56,19 +66,18 @@ namespace QX11Options
       Q_OBJECT
       Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
+    Q_SIGNALS:
+      void codecDefaults ( const AVCodecContext* );
+
     public:
       AVOptions ( QObject * parent = 0 );
+
+      void initCodecDefaults ( CodecID codecId );
 
       /** send a avcodec option request only VIDEO/AUDIO supported
       * \param option  query option \b without leading hyphens
       */
       static const QList<FFOption> optionQuery ( const QByteArray &option );
-
-      /** ffmpeg -aspect */
-      static const QList<FFOption> aspect();
-
-      /** ffmpeg -me_method */
-      static const QList<FFOption> meMethod();
 
       /** ffmpeg -sample_fmts */
       static const QList<FFOption> sampleFormats();

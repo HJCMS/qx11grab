@@ -37,9 +37,8 @@ Settings::Settings ( QObject *parent )
     remove ( "windowState" );
     remove ( "enable_pulse_pasuspender" );
     remove ( "metadata" ); // new style
-  }
-  else
     setValue ( QLatin1String ( "Version" ), QX11GRAB_VERSION );
+  }
 }
 
 const QHash<QString,QVariant> Settings::readGroup ( const QString &group )
