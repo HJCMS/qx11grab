@@ -60,7 +60,7 @@ int main ( int argc, char* argv[] )
   {
     qWarning ( "QX11Grab Already Running" );
     QDBusConnection dbus = bus->connectToBus ( QDBusConnection::SessionBus, reg );
-    QDBusMessage meth = QDBusMessage::createMethodCall ( reg, "/qx11grab", reg, "show" );
+    QDBusMessage meth = QDBusMessage::createMethodCall ( reg, "/", reg, "show" );
     if ( dbus.send ( meth ) )
       dbus.disconnectFromBus ( reg );
 

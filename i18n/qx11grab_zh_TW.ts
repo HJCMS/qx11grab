@@ -430,13 +430,13 @@ ToolTip</extracomment>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="122"/>
-        <location filename="../src/utils/desktopinfo.cpp" line="152"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="157"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="165"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="155"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="168"/>
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
@@ -478,67 +478,67 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="127"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="130"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="147"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="150"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="198"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="202"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="210"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="214"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="218"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="200"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="204"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="208"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="212"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="216"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="220"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="198"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="200"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="202"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="204"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="208"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="210"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="212"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="214"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="216"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="218"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="220"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="233"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="237"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="253"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -594,30 +594,36 @@ ToolTip</extracomment>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="180"/>
+        <source>enable view rubberband on application start</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
         <source>start QX11Grab minimized</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="194"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="196"/>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="201"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="203"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="206"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="208"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
@@ -627,22 +633,22 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="188"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="190"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="195"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="197"/>
         <source>Insert Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="202"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="204"/>
         <source>Enable Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -703,7 +709,7 @@ ToolTip</extracomment>
 <context>
     <name>LogViewer</name>
     <message>
-        <location filename="../src/logviewer/logviewer.cpp" line="43"/>
+        <location filename="../src/logviewer/logviewer.cpp" line="46"/>
         <source>qx11grab logfile</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -1050,88 +1056,78 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab</name>
     <message>
-        <location filename="../src/qx11grab.cpp" line="111"/>
+        <location filename="../src/qx11grab.cpp" line="112"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="114"/>
+        <location filename="../src/qx11grab.cpp" line="115"/>
         <source>Defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="118"/>
+        <location filename="../src/qx11grab.cpp" line="119"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="122"/>
+        <location filename="../src/qx11grab.cpp" line="123"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="126"/>
+        <location filename="../src/qx11grab.cpp" line="127"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="130"/>
+        <location filename="../src/qx11grab.cpp" line="131"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="131"/>
+        <location filename="../src/qx11grab.cpp" line="132"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="410"/>
-        <source>Warning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="410"/>
-        <source>Recorder is running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/qx11grab.cpp" line="423"/>
+        <location filename="../src/qx11grab.cpp" line="388"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="483"/>
+        <location filename="../src/qx11grab.cpp" line="450"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="483"/>
+        <location filename="../src/qx11grab.cpp" line="450"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="614"/>
+        <location filename="../src/qx11grab.cpp" line="581"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="642"/>
+        <location filename="../src/qx11grab.cpp" line="609"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="642"/>
+        <location filename="../src/qx11grab.cpp" line="609"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="662"/>
+        <location filename="../src/qx11grab.cpp" line="629"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qx11grab.cpp" line="673"/>
+        <location filename="../src/qx11grab.cpp" line="640"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

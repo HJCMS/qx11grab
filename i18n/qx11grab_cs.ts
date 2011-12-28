@@ -527,6 +527,11 @@ ToolTip</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>enable view rubberband on application start</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Listener</name>
@@ -860,14 +865,6 @@ Multiple languages can be specified by separating them with commas.</source>
 </context>
 <context>
     <name>QX11Grab</name>
-    <message>
-        <source>Warning</source>
-        <translation>Varování</translation>
-    </message>
-    <message>
-        <source>Recorder is running.</source>
-        <translation>Nahrávání běží.</translation>
-    </message>
     <message>
         <source>Info</source>
         <translation>Informace</translation>

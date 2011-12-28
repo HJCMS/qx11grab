@@ -68,6 +68,7 @@
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusMessage>
 
 QX11Grab::QX11Grab ( Settings * settings )
     : QMainWindow()
@@ -397,10 +398,12 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
 void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( m_systemTray )
+  {
     m_systemTray->showMessage ( title, txt, QSystemTrayIcon::Critical, TimeOutMessages );
 
-  if ( ! m_FFProcess->isRunning() )
-    m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+    if ( ! m_FFProcess->isRunning() )
+      m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+  }
 }
 
 /**

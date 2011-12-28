@@ -37,7 +37,7 @@ BookmarkSelecter::BookmarkSelecter ( QWidget * parent )
 {
   setObjectName ( QLatin1String ( "BookmarkSelecter" ) );
   QDBusConnection p_dbus = QDBusConnection::sessionBus();
-  p_dbus.registerObject ( dbusPath, this, ( QDBusConnection::ExportScriptableContents ) );
+  p_dbus.registerObject ( dbusPath, this, ( QDBusConnection::ExportScriptableSlots ) );
   reload();
   connect ( this, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( textChanged ( int ) ) );

@@ -34,6 +34,9 @@
 /* QtGui */
 #include <QtGui/QVBoxLayout>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+
 LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
     : QDialog ( parent )
     , logFile ( log )
@@ -57,6 +60,8 @@ LogViewer::LogViewer ( const QFileInfo &log, QWidget * parent )
   connect ( m_textView, SIGNAL ( refresh() ),
             this, SLOT ( readLog() ) );
 
+  QDBusConnection p_dbus = QDBusConnection::sessionBus();
+  p_dbus.registerObject ( QLatin1String( "/LogViewer" ), this, ( QDBusConnection::ExportScriptableSlots ) );
   readLog();
 }
 

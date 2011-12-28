@@ -521,7 +521,7 @@ ToolTip</extracomment>
     <message>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Setze die Datenübertragungs Blockgröße in dem Aufnahme Video.</translation>
+        <translation>Setzt die Datenübertragungs Blockgröße in dem Aufnahme Video.</translation>
     </message>
     <message>
         <source>always show the rubberband on application start</source>
@@ -542,6 +542,11 @@ ToolTip</extracomment>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktiviere/Deaktiviere Im Aufnahme Video die Audiospur</translation>
+    </message>
+    <message>
+        <source>enable view rubberband on application start</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Zeige Gummiband beim Programm Start</translation>
     </message>
 </context>
 <context>
@@ -878,14 +883,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 </context>
 <context>
     <name>QX11Grab</name>
-    <message>
-        <source>Warning</source>
-        <translation>Warnung</translation>
-    </message>
-    <message>
-        <source>Recorder is running.</source>
-        <translation>Aufnahme läuft.</translation>
-    </message>
     <message>
         <source>Info</source>
         <translation>Info</translation>
