@@ -82,8 +82,6 @@ QX11Grab::QX11Grab ( Settings * settings )
   setMinimumHeight ( 400 );
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
 
-  QDBusConnection p_dbus = QDBusConnection::sessionBus();
-
   QIcon boxIcon = getThemeIcon ( "qx11grab" );
   setWindowIcon ( boxIcon );
 
