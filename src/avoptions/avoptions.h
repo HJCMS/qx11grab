@@ -39,6 +39,10 @@ extern "C"
 
 namespace QX11Options
 {
+  /**
+  * FFCodec
+  * @ingroup Declarations
+  */
   typedef struct Q_DECL_EXPORT
   {
     CodecID id;
@@ -47,6 +51,10 @@ namespace QX11Options
     QString info;
   } FFCodec;
 
+  /**
+  * FFOption
+  * @ingroup Declarations
+  */
   typedef struct Q_DECL_EXPORT
   {
     int id;
@@ -55,11 +63,15 @@ namespace QX11Options
     QString help;
   } FFOption;
 
-  /** required for QStringList::join() and QString::split() in Table ItemViews  */
+  /** 
+  * required for QStringList::join() and QString::split() in Table ItemViews
+  * @ingroup Declarations
+  */
   static const QString delimiter = QLatin1String ( "%" );
 
   /**
   * base class for fetching FFmpeg Codecs and Options
+  * @ingroup FFmpeg
   */
   class Q_DECL_EXPORT AVOptions : public QObject
   {

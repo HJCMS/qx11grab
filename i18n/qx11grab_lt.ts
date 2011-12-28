@@ -431,12 +431,13 @@ ToolTip</extracomment>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="183"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="155"/>
         <source>Fullscreen</source>
         <translation>Visame ekrane</translation>
     </message>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="151"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="122"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="152"/>
         <source>Unknown</source>
         <translation>Nežinoma</translation>
     </message>

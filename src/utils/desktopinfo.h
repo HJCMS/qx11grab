@@ -24,79 +24,116 @@
 
 /* QtCore */
 #include <QtCore/QList>
+#include <QtCore/QMetaType>
 #include <QtCore/QObject>
 #include <QtCore/QRect>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QWidget>
 #include <QtGui/QX11Info>
 
-typedef struct
-{
-  QString name; /* framse size name */
-  int width; /* frame with */
-  int height; /* frame height */
-  int depth; /* screen depth */
-  QString summary; /* summary "name (width x height)" */
-} FrameMode;
-
-typedef const QList<FrameMode> ModeList;
-
-class DesktopInfo : public QObject
+/**
+* Create Desktop Information from Current Screen
+*/
+class DesktopInfo : public QObject, private QX11Info
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
 
   private:
-    QX11Info xInfo;
-    QDesktopWidget *desktopWidget;
-    int Screens;
-    int maxHeight, maxWidth, Depth;
-    const FrameMode fetchFrameMode ( const QString &n, int w, int h );
+    QDesktopWidget* m_desktopWidget;
 
   Q_SIGNALS:
+    /**
+     * This signal is emitted when the size of screen changes.
+     */
     void resized ( int screen );
 
   public:
-    DesktopInfo ( QObject *parent = 0 );
+    /**
+     * It is recommend to get parent object for screen identification
+     */
+    explicit DesktopInfo ( QObject * parent );
 
-    /** current screen  */
-    int screen();
+    /**
+     * FameMode
+     * @ingroup Declarations
+     */
+    typedef struct
+    {
+      QString name; /**< identifier name or title */
+      int width; /**< mode with */
+      int height; /**< mode height */
+      int depth; /**< current screen depth */
+      QString summary; /**< Mode Description e.g.: name (width x height) */
+    } FrameMode;
 
-    /** width request at time */
+    /**
+     * Generate a Frame Modes with given arguments
+     * @param n  Identifier Name
+     * @param w  Mode Width
+     * @param h  Mode Height
+     */
+    const FrameMode generateFrameMode ( const QString &n, int w, int h );
+
+    /**
+     * Returns the number of the screen currently in use.
+     */
+    int getScreen();
+
+    /**
+     * width request at time
+     */
     int getMaxWidth();
 
-    /** height request at time */
+    /**
+     * height request at time
+     */
     int getMaxHeight();
 
-    /** depth request at time */
+    /**
+     * depth request at time
+     */
     int getDepth();
 
-    /** returns a list from all fixed frame size modes by ffmpeg.
-     * for more Information @see man:ffmpeg
+    /**
+     * widget that represents this screen
+     */
+    QWidget* screenWidget();
+
+    /**
+     * returns a list from all fixed frame size modes by ffmpeg.
+     * for more Infromation @see man:ffmpeg
      * @param parent grab Dimension from
      */
-    ModeList modes ( QWidget *parent = 0 );
+    const QList<FrameMode> modes ( QWidget * parent = 0 );
 
-    /** find frame mode by selected itemdata
-     * @param name  ident FrameMode name
-     * @param parent grab Dimension from
-     */
-    const FrameMode getFrameMode ( const QString &n, QWidget *parent = 0 );
-
-    /** get current Screen Dimension form parent Widget
-     * @param parent  grab Dimension from
-     */
-    const FrameMode grabScreenGeometry ( QWidget *parent );
-
-    /** get current Screen Dimension form Desktop
+    /**
+     * get current Screen Dimension from Desktop
      * @param screen Screen ID
      */
     const QRect screenGeometry ( int screen = 0 );
 
-    ~DesktopInfo();
+    /**
+     * find frame mode by selected itemdata
+     * @param name  ident FrameMode name
+     * @param parent grab Dimension from
+     */
+    const FrameMode getFrameMode ( const QString &n, QWidget * parent = 0 );
+
+    /**
+     * get current Screen Dimension from parent Widget
+     * @param parent  grab Dimension from
+     */
+    const FrameMode grabScreenGeometry ( QWidget * parent = 0 );
+
+    virtual ~DesktopInfo();
 
 };
+
+Q_DECLARE_METATYPE ( DesktopInfo::FrameMode )
 
 #endif

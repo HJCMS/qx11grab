@@ -190,22 +190,7 @@ void QX11Grab::record()
   if ( ! m_FFProcess || m_FFProcess->isRunning() )
     return;
 
-#ifdef QT_NO_EXCEPTIONS
-
   startRecord ();
-
-#else
-
-  try
-  {
-    startRecord ();
-  }
-  catch ( const char* mess )
-  {
-    qWarning ( "No XServer where found: (%s)", mess );
-  }
-
-#endif
 }
 
 void QX11Grab::stop()
@@ -217,21 +202,22 @@ void QX11Grab::stop()
     m_FFProcess->stop ();
 }
 
+/**
+* Initialisiert die Desktop Umgebung
+*/
 void QX11Grab::createEnviroment()
 {
+  // init desktop info
   m_DesktopInfo = new DesktopInfo ( this );
-  FrameMode desktop = m_DesktopInfo->grabScreenGeometry ( centralWidget() );
-//  setDepthBox->setValue ( desktop.depth );
+  m_DesktopInfo->grabScreenGeometry ( centralWidget() );
 
-  m_RubberBand = new RubberBand ( qApp->desktop()->screen() );
+  m_RubberBand = new RubberBand ( m_DesktopInfo->screenWidget() );
   connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
+  showRubber ( m_grabberInfo->showRubberOnStart() );
+
   toRubber ( true );
-  if ( m_grabberInfo->RubberbandIsVisible() )
-    m_RubberBand->show();
-  else
-    m_RubberBand->hide();
 }
 
 void QX11Grab::createSystemTrayIcon()
@@ -243,35 +229,20 @@ void QX11Grab::createSystemTrayIcon()
   m_systemTray->show();
 }
 
-void QX11Grab::swapRubberBand ()
-{
-  if ( m_grabberInfo->RubberbandIsVisible() )
-  {
-    m_grabberInfo->setRubberbandCheckBox ( false );
-    m_RubberBand->hide();
-  }
-  else
-  {
-    m_grabberInfo->setRubberbandCheckBox ( true );
-    m_RubberBand->show();
-  }
-}
-
 /**
 * Ein/Ausblenden funktion für die Gummibandanzeige.
 */
 void QX11Grab::showRubber ( bool b )
 {
   if ( b )
-  {
-    m_grabberInfo->setRubberbandCheckBox ( true );
     m_RubberBand->show();
-  }
   else
-  {
-    m_grabberInfo->setRubberbandCheckBox ( false );
     m_RubberBand->hide();
-  }
+}
+
+void QX11Grab::swapRubberBand ()
+{
+  showRubber ( ( ( m_RubberBand->isVisible() ) ? false : true ) );
 }
 
 /**
@@ -332,9 +303,9 @@ const QString QX11Grab::generateOutputFile()
 /**
 * Sende verschieben Info an Klasse @class RubberBand
 */
-void QX11Grab::toRubber ( bool b )
+void QX11Grab::toRubber ( bool )
 {
-  if ( ! m_RubberBand || !b )
+  if ( ! m_RubberBand )
     return;
 
   QRect r = m_grabberInfo->getRect();
@@ -351,15 +322,14 @@ void QX11Grab::grabFromWindow()
   if ( ! m_RubberBand )
     return;
 
-  WindowGrabber* grabber = new WindowGrabber ( this );
+  WindowGrabber* grabber = new WindowGrabber ( m_DesktopInfo->screenWidget() );
   QRect rect = grabber->grabWindowRect();
 
   if ( rect.isValid() )
   {
+    m_RubberBand->show();
     m_grabberInfo->setRect ( rect );
-    toRubber ( 1 );
   }
-
   delete grabber;
 }
 
@@ -385,33 +355,27 @@ void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 }
 
 /**
-* Beim Maximieren die Fenster Geometrie laden
-*/
-void QX11Grab::showEvent ( QShowEvent * )
-{
-  loadStats();
-}
-
-/**
 * Beim Minimieren die Fenster Geometrie speichern
 */
-void QX11Grab::hideEvent ( QHideEvent * )
+void QX11Grab::hideEvent ( QHideEvent * ev )
 {
   saveStats();
+  QMainWindow::hideEvent ( ev );
 }
 
 /**
-* Vor dem beenden einige prüfungen durchführen
+* Das beenden über den WindowManager CloseButton
+* verhindern! Statt dessen die Einstellungen mit
+* \ref hideEvent Speichern und Hauptfenster in das
+* Systray minimieren!
 */
-void QX11Grab::closeEvent ( QCloseEvent *ev )
+void QX11Grab::closeEvent ( QCloseEvent * ev )
 {
-  if ( m_FFProcess->isRunning() )
+  if ( ev->type() == QEvent::Close )
   {
-    QMessageBox::warning ( this, trUtf8 ( "Warning" ), trUtf8 ( "Recorder is running." ) );
     ev->ignore();
-    m_FFProcess->deleteLater ();
+    hide();
   }
-  saveStats();
 }
 
 /**

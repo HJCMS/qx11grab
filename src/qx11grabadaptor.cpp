@@ -40,6 +40,11 @@ void QX11GrabAdaptor::start()
   QMetaObject::invokeMethod ( parent(), "record" );
 }
 
+void QX11GrabAdaptor::stop()
+{
+  QMetaObject::invokeMethod ( parent(), "stop" );
+}
+
 void QX11GrabAdaptor::show ()
 {
   QMetaObject::invokeMethod ( parent(), "showNormal" );

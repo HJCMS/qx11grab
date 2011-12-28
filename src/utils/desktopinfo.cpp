@@ -29,164 +29,147 @@
 /* QtGui */
 #include <QtGui/QApplication>
 
-DesktopInfo::DesktopInfo ( QObject *parent )
+DesktopInfo::DesktopInfo ( QObject * parent )
     : QObject ( parent )
-    , xInfo( QX11Info() )
+    , QX11Info()
+    , m_desktopWidget ( qApp->desktop() )
 {
-  desktopWidget = qApp->desktop();
-  Screens = desktopWidget->numScreens();
-  Depth = xInfo.depth();
-  maxWidth = 640;
-  maxHeight = 480;
+  connect ( m_desktopWidget, SIGNAL ( resized ( int ) ),
+            this, SIGNAL ( resized ( int ) ) );
 
-  connect ( desktopWidget, SIGNAL ( resized ( int ) ),
+  connect ( m_desktopWidget, SIGNAL ( workAreaResized ( int ) ),
             this, SIGNAL ( resized ( int ) ) );
 }
 
-const FrameMode DesktopInfo::fetchFrameMode ( const QString &n, int w, int h )
+/**
+* Generiert einen FrameMode Eintrag.
+*/
+const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, int w, int h )
 {
   FrameMode mode;
-  QString sum ( n );
-  sum.append ( " (" );
-  sum.append ( QString::number ( w ) );
-  sum.append ( "x" );
-  sum.append ( QString::number ( h ) );
-  sum.append ( ")" );
+  QString info ( n );
+  info.append ( " (" );
+  info.append ( QString::number ( w ) );
+  info.append ( "x" );
+  info.append ( QString::number ( h ) );
+  info.append ( ")" );
 
   mode.name = n;
   mode.width = w;
   mode.height = h;
-  mode.depth = Depth;
-  mode.summary = sum;
+  mode.depth = depth();
+  mode.summary = info;
 
   return mode;
 }
 
-ModeList DesktopInfo::modes ( QWidget *parent )
+const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
 {
-  if ( parent )
-  {
-    Depth = xInfo.appDepth ( desktopWidget->screenNumber ( parent ) );
-    grabScreenGeometry ( parent );
-  }
-
-  QList<FrameMode> modes;
-  modes.append ( fetchFrameMode ( "sqcif", 128, 96 ) );
-  modes.append ( fetchFrameMode ( "qcif", 176, 144 ) );
-  modes.append ( fetchFrameMode ( "cif", 352, 288 ) );
-  modes.append ( fetchFrameMode ( "4cif", 704, 576 ) );
-  modes.append ( fetchFrameMode ( "qqvga", 160, 120 ) );
-  modes.append ( fetchFrameMode ( "qvga", 320, 240 ) );
-  modes.append ( fetchFrameMode ( "vga", 640, 480 ) );
-  modes.append ( fetchFrameMode ( "svga", 800, 600 ) );
-
-  if ( maxWidth >= 1024 )
-    modes.append ( fetchFrameMode ( "xga", 1024, 768 ) );
-
-  if ( maxWidth >= 1600 )
-    modes.append ( fetchFrameMode ( "uxga", 1600, 1200 ) );
-
-  if ( maxWidth >= 2048 )
-    modes.append ( fetchFrameMode ( "qxga", 2048, 1536 ) );
-
-  if ( maxWidth >= 1280 )
-    modes.append ( fetchFrameMode ( "sxga", 1280, 1024 ) );
-
-  if ( maxWidth >= 2560 )
-    modes.append ( fetchFrameMode ( "qsxga", 2560, 2048 ) );
-
-  if ( maxWidth >= 5120 )
-    modes.append ( fetchFrameMode ( "hsxga", 5120, 4096 ) );
-
-  if ( maxWidth >= 852 )
-    modes.append ( fetchFrameMode ( "wvga", 852, 480 ) );
-
-  if ( maxWidth >= 1366 )
-    modes.append ( fetchFrameMode ( "wxga", 1366, 768 ) );
-
-  if ( maxWidth >= 1600 )
-    modes.append ( fetchFrameMode ( "wsxga", 1600, 1024 ) );
-
-  if ( maxWidth >= 1920 )
-    modes.append ( fetchFrameMode ( "wuxga", 1920, 1200 ) );
-
-  if ( maxWidth >= 2560 )
-    modes.append ( fetchFrameMode ( "woxga", 2560, 1600 ) );
-
-  if ( maxWidth >= 3200 )
-    modes.append ( fetchFrameMode ( "wqsxga", 3200, 2048 ) );
-
-  if ( maxWidth >= 3840 )
-    modes.append ( fetchFrameMode ( "wquxga", 3840, 2400 ) );
-
-  if ( maxWidth >= 6400 )
-    modes.append ( fetchFrameMode ( "whsxga", 6400, 4096 ) );
-
-  if ( maxWidth >= 7680 )
-    modes.append ( fetchFrameMode ( "whuxga", 7680, 4800 ) );
-
-  modes.append ( fetchFrameMode ( "cga", 320, 200 ) );
-  modes.append ( fetchFrameMode ( "ega", 640, 350 ) );
-  modes.append ( fetchFrameMode ( "hd480", 852, 480 ) );
-
-  if ( maxHeight > 1280 )
-    modes.append ( fetchFrameMode ( "hd720", 1280, 720 ) );
-
-  if ( maxHeight > 1920 )
-    modes.append ( fetchFrameMode ( "hd1080", 1920, 1080 ) );
+  QList<FrameMode> buf;
+  buf.append ( generateFrameMode ( "sqcif", 128, 96 ) );
+  buf.append ( generateFrameMode ( "qcif", 176, 144 ) );
+  buf.append ( generateFrameMode ( "cif", 352, 288 ) );
+  buf.append ( generateFrameMode ( "4cif", 704, 576 ) );
+  buf.append ( generateFrameMode ( "qqvga", 160, 120 ) );
+  buf.append ( generateFrameMode ( "qvga", 320, 240 ) );
+  buf.append ( generateFrameMode ( "vga", 640, 480 ) );
+  buf.append ( generateFrameMode ( "svga", 800, 600 ) );
+  buf.append ( generateFrameMode ( "xga", 1024, 768 ) );
+  buf.append ( generateFrameMode ( "uxga", 1600, 1200 ) );
+  buf.append ( generateFrameMode ( "qxga", 2048, 1536 ) );
+  buf.append ( generateFrameMode ( "sxga", 1280, 1024 ) );
+  buf.append ( generateFrameMode ( "qsxga", 2560, 2048 ) );
+  buf.append ( generateFrameMode ( "hsxga", 5120, 4096 ) );
+  buf.append ( generateFrameMode ( "wvga", 852, 480 ) );
+  buf.append ( generateFrameMode ( "wxga", 1366, 768 ) );
+  buf.append ( generateFrameMode ( "wsxga", 1600, 1024 ) );
+  buf.append ( generateFrameMode ( "wuxga", 1920, 1200 ) );
+  buf.append ( generateFrameMode ( "woxga", 2560, 1600 ) );
+  buf.append ( generateFrameMode ( "wqsxga", 3200, 2048 ) );
+  buf.append ( generateFrameMode ( "wquxga", 3840, 2400 ) );
+  buf.append ( generateFrameMode ( "whsxga", 6400, 4096 ) );
+  buf.append ( generateFrameMode ( "whuxga", 7680, 4800 ) );
+  buf.append ( generateFrameMode ( "cga", 320, 200 ) );
+  buf.append ( generateFrameMode ( "ega", 640, 350 ) );
+  buf.append ( generateFrameMode ( "hd480", 852, 480 ) );
+  buf.append ( generateFrameMode ( "hd720", 1280, 720 ) );
+  buf.append ( generateFrameMode ( "hd1080", 1920, 1080 ) );
 
   if ( parent )
-    modes.append ( grabScreenGeometry ( parent ) );
+    buf.append ( grabScreenGeometry ( parent ) );
 
-  return modes;
-}
-
-const FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
-{
-  foreach ( FrameMode mode, modes ( parent ) )
+  QList<FrameMode> out;
+  int mw = getMaxWidth();
+  int mh = getMaxHeight();
+  for ( int i = 0;  i  < buf.size(); ++i )
   {
-    if ( mode.name == n )
-      return mode;
+    FrameMode m = buf.at ( i );
+    if ( ( m.width > mw ) || ( m.height > mh ) )
+      continue;
+
+    out.append ( m );
   }
-  return fetchFrameMode ( trUtf8 ( "Unknown" ), maxWidth, maxHeight );
+  buf.clear();
+
+  return out;
 }
 
-int DesktopInfo::screen()
+int DesktopInfo::getScreen()
 {
-  return xInfo.screen();
+  return screen();
 }
 
 int DesktopInfo::getMaxWidth()
 {
-  return maxWidth;
+  return screenGeometry ( screen() ).width();
 }
 
 int DesktopInfo::getMaxHeight()
 {
-  return maxHeight;
+  return screenGeometry ( screen() ).height();
 }
 
 int DesktopInfo::getDepth()
 {
-  return Depth;
+  return depth();
 }
 
-const FrameMode DesktopInfo::grabScreenGeometry ( QWidget *parent )
+QWidget* DesktopInfo::screenWidget()
 {
-  QRect rect = desktopWidget->screenGeometry ( xInfo.screen() );
-  if ( rect.isValid() )
-  {
-    QSize size = rect.size();
-    maxWidth = size.width();
-    maxHeight = size.height();
-  }
-  return fetchFrameMode ( trUtf8 ( "Fullscreen" ), maxWidth, maxHeight );
+   m_desktopWidget->screen ( screen() );
 }
 
 const QRect DesktopInfo::screenGeometry ( int screen )
 {
-  return desktopWidget->screenGeometry ( screen );
+  return m_desktopWidget->screenGeometry ( screen );
+}
+
+const DesktopInfo::FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
+{
+  if ( parent )
+  {
+    foreach ( FrameMode mode, modes ( parent ) )
+    {
+      if ( mode.name == n )
+        return mode;
+    }
+  }
+  return generateFrameMode ( trUtf8 ( "Unknown" ), 640, 480 );
+}
+
+const DesktopInfo::FrameMode DesktopInfo::grabScreenGeometry ( QWidget * parent )
+{
+  int sc = ( parent ) ? m_desktopWidget->screenNumber ( parent ) : screen();
+  QRect rect = screenGeometry ( sc );
+  if ( ! rect.isValid() )
+    return generateFrameMode ( trUtf8 ( "Unknown" ), 640, 480 );
+
+  QSize size = rect.size();
+  return generateFrameMode ( trUtf8 ( "Fullscreen" ), size.width(), size.height() );
 }
 
 DesktopInfo::~DesktopInfo()
-{}
+{
+  if ( m_desktopWidget )
+    delete m_desktopWidget;
+}

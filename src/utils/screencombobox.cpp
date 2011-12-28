@@ -40,7 +40,7 @@ void ScreenComboBox::setItems()
   int index = 0;
   clear();
 
-  foreach ( FrameMode mode, m_DesktopInfo->modes( this ) )
+  foreach ( DesktopInfo::FrameMode mode, m_DesktopInfo->modes( this ) )
   {
     insertItem ( index, mode.summary );
     setItemData ( index, mode.name, Qt::UserRole );
@@ -54,7 +54,7 @@ void ScreenComboBox::setDataChanged ( int index )
   if ( data.isEmpty() )
     return;
 
-  FrameMode mode = m_DesktopInfo->getFrameMode ( data, this );
+  DesktopInfo::FrameMode mode = m_DesktopInfo->getFrameMode ( data, this );
   if ( mode.width < 100 )
     return;
 

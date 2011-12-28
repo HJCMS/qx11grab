@@ -119,7 +119,4 @@ int WindowGrabber::normalize ( int z ) const
 }
 
 WindowGrabber::~WindowGrabber()
-{
-}
-
-
+{}

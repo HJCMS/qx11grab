@@ -176,6 +176,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   featureBox->setLayout ( checkBoxLayout );
 
   showRubberband = new QCheckBox ( featureBox );
+  /*: ToolTip */
+  showRubberband->setToolTip ( trUtf8 ( "enable view rubberband on application start" ) );
   /*: WhatsThis */
   showRubberband->setWhatsThis ( trUtf8 ( "always show the rubberband on application start" ) );
   showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
@@ -219,7 +221,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // Default Dimensions
   m_desktopInfo =  new DesktopInfo ( this );
-  setInputDefaults ( m_desktopInfo->screen() );
+  setInputDefaults ( m_desktopInfo->getScreen() );
 
   connect ( screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
             setWidthBox, SLOT ( setValue ( int ) ) );
@@ -270,9 +272,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setYBox, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( setRubberbandUpdate ( int ) ) );
   // } SIGNALS:Y-Position
-
-  connect ( showRubberband, SIGNAL ( toggled ( bool ) ),
-            this, SIGNAL ( showRubber ( bool ) ) );
 
   // Updates
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
@@ -326,9 +325,7 @@ void GrabberInfo::setInputDefaults ( int screen )
 */
 void GrabberInfo::setRubberbandUpdate ( int i )
 {
-  if ( ! showRubberband->isChecked() )
-    showRubberband->setChecked ( true );
-
+  emit showRubber ( true );
   int maxWidth = screenGeometry.width();
   int boxRight = qRound ( setXBox->value() + setWidthBox->value() );
   if ( boxRight >= maxWidth )
@@ -384,7 +381,7 @@ void GrabberInfo::save ( QSettings *cfg )
 /**
 * Soll das Gummiband angezeigt werden?
 */
-bool GrabberInfo::RubberbandIsVisible()
+bool GrabberInfo::showRubberOnStart()
 {
   return showRubberband->isChecked();
 }

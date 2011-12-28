@@ -99,6 +99,9 @@ bool FFProcess::start ( const QStringList &cmd )
   m_QProcess->setReadChannel ( QProcess::StandardOutput );
   m_QProcess->setStandardErrorFile ( qx11grabLogfile() );
 
+  connect ( m_QProcess, SIGNAL ( stateChanged ( QProcess::ProcessState ) ),
+            this, SLOT ( status ( QProcess::ProcessState ) ) );
+
   connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
             this, SLOT ( errors ( QProcess::ProcessError ) ) );
 
@@ -158,31 +161,30 @@ bool FFProcess::isRunning()
   if ( ! m_QProcess )
     return false;
 
-  switch ( m_QProcess->state() )
+  // If no process is currently running, 0 is returned.
+  if ( m_QProcess->pid() == 0 )
+    return false;
+
+  return true;
+}
+
+void FFProcess::status ( QProcess::ProcessState status )
+{
+  switch ( status )
   {
     case QProcess::NotRunning:
-    {
       emit down ();
-      return false;
-    }
+      break;
 
     case QProcess::Starting:
-    {
-      emit running ();
-      return true;
-    }
+      break;
 
     case QProcess::Running:
-    {
       emit running ();
-      return true;
-    }
+      break;
 
     default:
-    {
-      emit down ();
-      return false;
-    }
+      break;
   }
 }
 

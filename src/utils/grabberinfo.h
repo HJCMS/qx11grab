@@ -80,7 +80,7 @@ class GrabberInfo : public QWidget
 
   public:
     GrabberInfo ( QWidget * parent = 0 );
-    bool RubberbandIsVisible();
+    bool showRubberOnStart();
     bool soundEnabled();
     bool metaEnabled();
     void setRubberbandCheckBox ( bool b );

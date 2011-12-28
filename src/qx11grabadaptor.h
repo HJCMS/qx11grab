@@ -41,6 +41,7 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
 "  <interface name=\"de.hjcms.qx11grab\" >\n"
 "    <method name=\"rubberband\" />\n"
 "    <method name=\"start\" />\n"
+"    <method name=\"stop\" />\n"
 "    <method name=\"show\" />\n"
 "    <method name=\"hide\" />\n"
 "    <method name=\"message\">\n"
@@ -60,6 +61,7 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
   public Q_SLOTS:
     Q_NOREPLY void rubberband ();
     Q_NOREPLY void start ();
+    Q_NOREPLY void stop ();
     Q_NOREPLY void show ();
     Q_NOREPLY void hide ();
     Q_NOREPLY void message ( const QString &mess );

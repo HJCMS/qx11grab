@@ -53,6 +53,7 @@ class FFProcess : public QObject
 
   private Q_SLOTS:
     void startCheck ();
+    void status ( QProcess::ProcessState );
     void errors ( QProcess::ProcessError );
     void exited ( int, QProcess::ExitStatus );
 
