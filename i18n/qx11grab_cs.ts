@@ -19,11 +19,11 @@
         <extracomment>WindowTitle
 ----------
 MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Navrhnout</translation>
     </message>
     <message>
         <source>submitted items</source>
-        <translation type="unfinished"></translation>
+        <translation>Navrhnuté položky</translation>
     </message>
 </context>
 <context>
@@ -132,80 +132,81 @@ Výchozí: 256=obvyklé</translation>
     <message>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Výběr rozhraní pro zvuk</translation>
     </message>
     <message>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zařízení pro zachytávání zvuku
+Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Open dialog to select audio capture device</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít dialog pro výběr zařízení pro zachytávání zvuku</translation>
     </message>
     <message>
         <source>Audio sample format</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vzorkovací formát zvuku</translation>
     </message>
     <message>
         <source>Automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky</translation>
     </message>
     <message>
         <source>Audio Service Type:</source>
         <extracomment>Note: short</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ rozhraní pro zvuk:</translation>
     </message>
     <message>
         <source>Audio service type</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ rozhraní pro zvuk</translation>
     </message>
     <message>
         <source>The type of service that the audio stream contains.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Typ služby, kterou zvukový proud obsahuje.</translation>
     </message>
     <message>
         <source>Main Audio Service</source>
         <extracomment>Alternative: Default Audio</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Standardní zvuk</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Efekty</translation>
     </message>
     <message>
         <source>Visually Impaired</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrakově postižený/postižená</translation>
     </message>
     <message>
         <source>Hearing Impaired</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluchově postižený/postižená</translation>
     </message>
     <message>
         <source>Dialogue</source>
         <extracomment>Alternative: dialogue level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Úroveň rozhovoru</translation>
     </message>
     <message>
         <source>Commentary</source>
-        <translation type="unfinished"></translation>
+        <translation>Výklad</translation>
     </message>
     <message>
         <source>Emergency</source>
-        <translation type="unfinished"></translation>
+        <translation>Naléhavý případ</translation>
     </message>
     <message>
         <source>Voice Over</source>
         <extracomment>Alternative: telephony</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Telefonování</translation>
     </message>
     <message>
         <source>Karaoke</source>
-        <translation type="unfinished"></translation>
+        <translation>Karaoke</translation>
     </message>
 </context>
 <context>
@@ -237,7 +238,7 @@ Example for OSS: /dev/dsp</source>
     <message>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Vlastní</translation>
+        <translation>Vlastní</translation>
     </message>
 </context>
 <context>
@@ -288,14 +289,14 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Remove this Command</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit tento příkaz</translation>
     </message>
 </context>
 <context>
@@ -336,21 +337,21 @@ ToolTip</extracomment>
     <message>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Absolutní cesta k nahrávacímu programu FFmpeg</translation>
     </message>
     <message>
         <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Stanovené názvy výstupních souborů mohou obsahovat předlohu v zadaném doplňkovém formátu (šest znaků X psaných velkými písmeny), která bude v názvu výstupního souboru na výstupu automaticky nahrazena klíčem.</translation>
     </message>
     <message>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Adresář, v němž se budou ukládat výstupní soubory</translation>
     </message>
     <message>
         <source>without pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>Bez pulsu</translation>
     </message>
 </context>
 <context>
@@ -491,46 +492,46 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Features</source>
-        <translation type="unfinished"></translation>
+        <translation>Schopnosti</translation>
     </message>
     <message>
         <source>Report Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Úroveň zprávy</translation>
     </message>
     <message>
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Předem stanovené velikosti rámečků</translation>
     </message>
     <message>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nastavuje velikost bloku přenosu dat v zachytávaném videu.</translation>
     </message>
     <message>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vždy ukazovat při spuštění programu gumičku</translation>
     </message>
     <message>
         <source>start QX11Grab minimized</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Spouštět QX11Grab zmenšený</translation>
     </message>
     <message>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
     </message>
     <message>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Zapnout/Vypnout zvukovou stopu v zachytávaném videu</translation>
     </message>
     <message>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ukazovat při spuštění programu gumičku</translation>
     </message>
 </context>
 <context>
@@ -538,43 +539,43 @@ ToolTip</extracomment>
     <message>
         <source>Time: %1 Size: %2</source>
         <extracomment>StatusBar</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Čas: %1 Velikost: %2</translation>
     </message>
 </context>
 <context>
     <name>LogLevelComboBox</name>
     <message>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Podrobný</translation>
     </message>
     <message>
         <source>Panic</source>
-        <translation type="unfinished"></translation>
+        <translation>Panický</translation>
     </message>
     <message>
         <source>Fatal</source>
-        <translation type="unfinished"></translation>
+        <translation>Kritický</translation>
     </message>
     <message>
         <source>Set the logging level used by the FFmpeg application</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit úroveň protokolování chyb v programu FFmpeg</translation>
     </message>
     <message>
         <source>Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Varování</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informace</translation>
     </message>
     <message>
         <source>Errors</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyby</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruční</translation>
     </message>
 </context>
 <context>
@@ -757,26 +758,26 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>x264</source>
-        <translation type="unfinished"></translation>
+        <translation>x264</translation>
     </message>
     <message>
         <source>x264 Homepage</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Domovské stránky x264</translation>
     </message>
     <message>
         <source>WebM Guideline</source>
-        <translation type="unfinished"></translation>
+        <translation>Směrnice pro WebM</translation>
     </message>
     <message>
         <source>WebM Container Guidelines</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Směrnice pro kontejner pro WebM</translation>
     </message>
     <message>
         <source>swap rubberband view</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Přepnout pohled gumičky</translation>
     </message>
 </context>
 <context>
@@ -807,24 +808,26 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Note many formats only support a handful of metadata keys.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Mnoho formátů podporuje jen hrstku klíčů pro hlavičková data.</translation>
     </message>
     <message>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rozpoznání hlasu:</translation>
     </message>
     <message>
         <source>recognition of speech must set with three letter ISO 639-2 format</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rozpoznání výstupní řeči musí být nastaveno třemi písmeny ve formátu ISO 639-2</translation>
     </message>
     <message>
         <source>Language in ISO 639-2 format in three letters.
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Jazyk ve formátu ISO 639-2 se třemi písmeny.
+Příklad: Germany=ger
+Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
@@ -832,42 +835,42 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -935,11 +938,11 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Náhled na příkazový řádek</translation>
     </message>
     <message>
         <source>Open Bookmark %1 failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevření záložky %1 se nezdařilo</translation>
     </message>
 </context>
 <context>
@@ -947,12 +950,12 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vzorkovací formát</translation>
     </message>
     <message>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Bitů na pixel %1</translation>
     </message>
 </context>
 <context>
@@ -979,11 +982,11 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pro volby vpre, apre, a spre, jsou volby zadané v souboru s přednastavením použity na současně vybraný kodek téhož typu, jako je volba přednastavení.</translation>
     </message>
     <message>
         <source>Presets for (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přednastavení pro (%1)</translation>
     </message>
 </context>
 <context>
@@ -991,11 +994,11 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pro volby vpre, apre, a spre, jsou volby zadané v souboru s přednastavením použity na současně vybraný kodek téhož typu, jako je volba přednastavení.</translation>
     </message>
     <message>
         <source>Presets for (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Přednastavení pro (%1)</translation>
     </message>
 </context>
 <context>
@@ -1022,7 +1025,7 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
     <message>
         <source>Encoder</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodér</translation>
     </message>
 </context>
 <context>
