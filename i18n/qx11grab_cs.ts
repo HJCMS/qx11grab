@@ -528,7 +528,7 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>enable view rubberband on application start</source>
+        <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -593,10 +593,12 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Kill</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Ukončit</translation>
     </message>
     <message>
         <source>Save</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Uložit</translation>
     </message>
     <message>
@@ -609,6 +611,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Quit</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Ukončit</translation>
     </message>
     <message>
@@ -618,21 +621,22 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Grabbing</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Snímání</translation>
     </message>
     <message>
         <source>get Size from Window</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Získat velikost z okna</translation>
     </message>
     <message>
         <source>Rubberband</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Gumový pás</translation>
     </message>
     <message>
         <source>Recording</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Nahrávání</translation>
     </message>
     <message>
@@ -642,6 +646,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Stop</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Zastavit</translation>
     </message>
     <message>
@@ -656,6 +661,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Hide</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Skrýt</translation>
     </message>
     <message>
@@ -667,10 +673,12 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Show</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Ukázat</translation>
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Obnovit</translation>
     </message>
     <message>
@@ -703,6 +711,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Logfile</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Soubor se zápisem</translation>
     </message>
     <message>
@@ -712,6 +721,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Export</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Vyvést</translation>
     </message>
     <message>
@@ -760,6 +770,11 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>WebM Container Guidelines</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>swap rubberband view</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>

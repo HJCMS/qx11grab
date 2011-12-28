@@ -177,7 +177,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   showRubberband = new QCheckBox ( featureBox );
   /*: ToolTip */
-  showRubberband->setToolTip ( trUtf8 ( "enable view rubberband on application start" ) );
+  showRubberband->setToolTip ( trUtf8 ( "enable rubberband at application start" ) );
   /*: WhatsThis */
   showRubberband->setWhatsThis ( trUtf8 ( "always show the rubberband on application start" ) );
   showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );

@@ -52,6 +52,7 @@ class MenuBar : public QMenuBar
     // File Menu
     QMenu* m_menuFile;
     QAction* m_actionGrabbing;
+    QAction* m_actionRubber;
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
     QAction* m_actionKillRecord;

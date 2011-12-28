@@ -42,6 +42,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
   m_actionGrabbing = grabbingAction ( this, true );
   m_menuFile->addAction ( m_actionGrabbing );
 
+  m_actionRubber = rubberbandAction ( this, true );
+  m_menuFile->addAction ( m_actionRubber );
+
   m_actionStartRecord = startRecordAction ( this, true );
   m_menuFile->addAction ( m_actionStartRecord );
 
@@ -108,6 +111,9 @@ MenuBar::MenuBar ( QX11Grab * parent )
 
   connect ( m_actionGrabbing, SIGNAL ( triggered () ),
             mainWindow, SLOT ( grabFromWindow () ) );
+
+  connect ( m_actionRubber, SIGNAL ( triggered () ),
+            mainWindow, SLOT ( swapRubberBand () ) );
 
   connect ( m_actionStartRecord, SIGNAL ( triggered () ),
             mainWindow, SLOT ( startRecord () ) );
@@ -206,6 +212,7 @@ void MenuBar::setActionsEnabled ( bool b )
 
 QAction* MenuBar::quitAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Quit" ), parent );
   ac->setObjectName ( QLatin1String ( "actionQuit" ) );
   /*: ToolTip */
@@ -218,6 +225,7 @@ QAction* MenuBar::quitAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::grabbingAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Grabbing" ), parent );
   ac->setObjectName ( QLatin1String ( "actionGrabbing" ) );
   /*: ToolTip */
@@ -230,18 +238,20 @@ QAction* MenuBar::grabbingAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::rubberbandAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Rubberband" ), parent );
   ac->setObjectName ( QLatin1String ( "actionRubberband" ) );
   /*: ToolTip */
-  ac->setStatusTip ( trUtf8 ( "get Size from Window" ) );
+  ac->setStatusTip ( trUtf8 ( "swap rubberband view" ) );
   ac->setIcon ( QIcon::fromTheme ( "view-grid" ) );
   if ( shortcut )
-    ac->setShortcut ( QKeySequence::Find );
+    ac->setShortcut ( Qt::CTRL + Qt::SHIFT + Qt::Key_R );
   return ac;
 }
 
 QAction* MenuBar::startRecordAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Recording" ), parent );
   ac->setObjectName ( QLatin1String ( "actionStartRecord" ) );
   /*: ToolTip */
@@ -254,6 +264,7 @@ QAction* MenuBar::startRecordAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::stopRecordAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Stop" ), parent );
   ac->setObjectName ( QLatin1String ( "actionStopRecord" ) );
   /*: ToolTip */
@@ -267,6 +278,7 @@ QAction* MenuBar::stopRecordAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::killRecordAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Kill" ), parent );
   ac->setObjectName ( QLatin1String ( "actionKillRecord" ) );
   /*: ToolTip */
@@ -280,6 +292,7 @@ QAction* MenuBar::killRecordAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::hideWindowAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Hide" ), parent );
   ac->setObjectName ( QLatin1String ( "actionMinimize" ) );
   /*: ToolTip */
@@ -292,6 +305,7 @@ QAction* MenuBar::hideWindowAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::showWindowAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Show" ), parent );
   ac->setObjectName ( QLatin1String ( "actionMinimize" ) );
   /*: ToolTip */
@@ -304,6 +318,7 @@ QAction* MenuBar::showWindowAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Export" ), parent );
   ac->setObjectName ( QLatin1String ( "exportAction" ) );
   /*: ToolTip */
@@ -316,6 +331,7 @@ QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::saveAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Save" ), parent );
   ac->setObjectName ( QLatin1String ( "actionSave" ) );
   /*: ToolTip */
@@ -328,6 +344,7 @@ QAction* MenuBar::saveAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::refreshAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Refresh" ), parent );
   ac->setObjectName ( QLatin1String ( "actionRefresh" ) );
   /*: ToolTip */
@@ -340,6 +357,7 @@ QAction* MenuBar::refreshAction ( QObject * parent, bool shortcut )
 
 QAction* MenuBar::viewAction ( QObject * parent, bool shortcut )
 {
+  /*: MenuEntry */
   QAction* ac = new QAction ( trUtf8 ( "Logfile" ), parent );
   ac->setObjectName ( QLatin1String ( "actionLogfile" ) );
   /*: ToolTip */

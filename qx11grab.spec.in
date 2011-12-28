@@ -54,6 +54,20 @@ Autor: -------------
   Juergen Heinemann (Undefined)
   http://www.hjcms.de
 
+%package ffpresets
+Summary:        QX11Grab ffpreset Files for FFmpeg
+Group:          Productivity/Editors/Other
+BuildArch:      noarch
+Supplements:    packageand(ffpresets:ffmpeg)
+
+%description ffpresets
+ffpreset Files for FFmpeg
+
+Author:
+-------------
+  Juergen Heinemann (Undefined)
+  http://www.hjcms.de
+
 %prep
 %setup -q
 
@@ -64,14 +78,10 @@ Autor: -------------
 cd build
 cmake -Wno-dev \
   -DCMAKE_CXX_FLAGS:STRING="$RPM_OPT_FLAGS" \
-  -DCMAKE_C_FLAGS:STRING="$RPM_OPT_FLAGS" \
   -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-  -DCMAKE_BUILD_TYPE:STRING=Debug \
-  -DQTIDY_ENABLE_FPIE:BOOL=ON \
-  -DCMAKE_SKIP_RPATH:BOOL=ON \
+  -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
   -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-  -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4) \
-  -DAutomoc4_DIR:PATH=$(dirname /usr/*/cmake/automoc4/Automoc4Config.cmake) \
+  -DINSTALL_FFPRESETS:BOOL=ON \
   ../
 
 %__make
@@ -108,6 +118,17 @@ popd
 %{_datadir}/applications/qx11grab.desktop
 %{_datadir}/pixmaps/qx11grab.png
 %{_datadir}/dbus-1/services/*.qx11grab.service
+
+%post ffpresets
+##
+
+%postun ffpresets
+##
+
+%files ffpresets
+%defattr(-,root,root,-)
+%dir %{_datadir}/ffmpeg
+%{_datadir}/ffmpeg/*.ffpreset
 
 %clean
 rm -rf %{buildroot}

@@ -44,7 +44,7 @@ ENDIF (NOT UNIX)
 
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 3)
-SET (QX11GRAB_VERSION_RELEASE 0)
+SET (QX11GRAB_VERSION_RELEASE 1)
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}")
 SET (QX11GRAB_DISTRIBUTION_TEXT "compiled sources" CACHE STRING "Indicate the distribution in bug reports")
 SET (QX11GRAB_RESOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/qx11grab.qrc")
@@ -70,20 +70,21 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
     SET (QX11GRAB_LDFLAGS "${QX11GRAB_LDFLAGS} -Wl,--build-id")
   ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
+  OPTION (BUILD_WERROR "Build with -Werror" OFF)
+  IF(BUILD_WERROR)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+  ENDIF(BUILD_WERROR)
+
+  IF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable")
+  ENDIF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 
 REMOVE_DEFINITIONS (
   -DQT3_SUPPORT_WARNINGS
   -DQT3_SUPPORT
 )
-
-IF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-  ADD_DEFINITIONS (-Wno-deprecated-declarations
-    -Wno-unused-result
-    -Wno-unused-parameter
-    -Wno-unused-but-set-variable
-  )
-ENDIF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ##############################################################
 ## SET Working output Directory
@@ -110,15 +111,15 @@ SET (FFMPEG_SUFFIX "" CACHE STRING
 )
 
 SET (FFMPEG_AVFORMAT_VERSION "52.78.3" CACHE STRING
-  "overwrite required libavformat Version (STRING)" FORCE
+  "Required libavformat${FFMPEG_SUFFIX} Version" FORCE
 )
 
 SET (FFMPEG_AVCODEC_VERSION "52.86.1" CACHE STRING
-  "overwrite required libavcodec Version (STRING)" FORCE
+  "Required libavcodec${FFMPEG_SUFFIX} Version" FORCE
 )
 
 SET (FFMPEG_AVUTIL_VERSION "50.24.0" CACHE STRING
-  "overwrite required libavutil Version (STRING)" FORCE
+  "Required libavutil${FFMPEG_SUFFIX} Version" FORCE
 )
 
 PKG_CHECK_MODULES (FFMPEG REQUIRED 
@@ -135,6 +136,8 @@ FIND_PATH (_ffmpeg_sharedir
   PATHS
     /usr/share
     /usr/local/share
+    $ENV{FFMPEG_DATADIR}
+    $ENV{AVCONV_DATADIR}
   DOC "Find FFmpeg data directory for ffpreset files"
   NO_DEFAULT_PATH
   NO_SYSTEM_ENVIRONMENT_PATH
@@ -160,7 +163,7 @@ SET (PULSE_SUFFIX "" CACHE STRING
 )
 
 SET (PULSE_VERSION "0.9" CACHE STRING
-  "overwrite required libpulse Version (STRING)" FORCE
+  "Required libpulse${PULSE_SUFFIX} Version" FORCE
 )
 
 PKG_CHECK_MODULES (PULSE 
@@ -307,5 +310,39 @@ INSTALL (FILES
   DESTINATION share/pixmaps
   COMPONENT data
 )
+
+##############################################################
+## Summary
+##############################################################
+
+MACRO (summary status info optional)
+  IF (${status})
+    MESSAGE(STATUS " ${info} found")
+  ELSEIF (${optional})
+    MESSAGE(STATUS " ${info} disabled")
+  ELSE (${status})
+    MESSAGE(STATUS " ${info} failed")
+  ENDIF (${status})
+ENDMACRO (summary)
+
+MESSAGE ("")
+MESSAGE ("Configuration summary:")
+MESSAGE (STATUS "Install Directory ${CMAKE_INSTALL_PREFIX}")
+IF (INSTALL_FFPRESETS)
+  MESSAGE (STATUS " Install extra FFmpeg ffpresets to ${FFMPEG_SHAREDIR}")
+ELSE (INSTALL_FFPRESETS)
+  MESSAGE (STATUS " Install extra FFmpeg ffpresets disabled")
+ENDIF (INSTALL_FFPRESETS)
+MESSAGE ("")
+MESSAGE ("Required Development Packages:")
+summary (FFMPEG_FOUND "FFmpeg" FALSE )
+summary (X11_FOUND "X11" FALSE )
+summary (QT4_FOUND "Qt4" FALSE )
+summary (ALSA_FOUND "Alsa" FALSE )
+MESSAGE ("")
+MESSAGE ("Optional Development Packages:")
+summary (PULSE_FOUND "pulseaudio" TRUE )
+summary (KDE_FOUND "kde4" TRUE )
+MESSAGE ("")
 
 ## EOF

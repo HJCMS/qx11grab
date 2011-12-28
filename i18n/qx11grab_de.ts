@@ -544,7 +544,7 @@ ToolTip</extracomment>
         <translation>Aktiviere/Deaktiviere Im Aufnahme Video die Audiospur</translation>
     </message>
     <message>
-        <source>enable view rubberband on application start</source>
+        <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation>Zeige Gummiband beim Programm Start</translation>
     </message>
@@ -609,10 +609,12 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Kill</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Speichern</translation>
     </message>
     <message>
@@ -625,6 +627,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Quit</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Beenden</translation>
     </message>
     <message>
@@ -634,21 +637,22 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Grabbing</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Abgreifen</translation>
     </message>
     <message>
         <source>get Size from Window</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Nehme die Fenstergröße</translation>
     </message>
     <message>
         <source>Rubberband</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Gummiband</translation>
     </message>
     <message>
         <source>Recording</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Aufnahme</translation>
     </message>
     <message>
@@ -658,6 +662,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Stop</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Beenden</translation>
     </message>
     <message>
@@ -672,6 +677,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Hide</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Ausblenden</translation>
     </message>
     <message>
@@ -683,10 +689,12 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Show</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Anzeigen</translation>
     </message>
     <message>
         <source>Refresh</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Auffrischen</translation>
     </message>
     <message>
@@ -719,6 +727,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Logfile</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Protokolldatei</translation>
     </message>
     <message>
@@ -728,6 +737,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Export</source>
+        <extracomment>MenuEntry</extracomment>
         <translation>Exportieren</translation>
     </message>
     <message>
@@ -778,6 +788,11 @@ ToolTip</extracomment>
         <source>WebM Container Guidelines</source>
         <extracomment>ToolTip</extracomment>
         <translation>WebM Behälterrichtlinien</translation>
+    </message>
+    <message>
+        <source>swap rubberband view</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Gummiband Ansicht umschalten</translation>
     </message>
 </context>
 <context>

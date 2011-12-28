@@ -594,12 +594,6 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="180"/>
-        <source>enable view rubberband on application start</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/utils/grabberinfo.cpp" line="182"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
@@ -631,6 +625,12 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="174"/>
         <source>Features</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="180"/>
+        <source>enable rubberband at application start</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -724,157 +724,167 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="63"/>
+        <location filename="../src/menubar.cpp" line="66"/>
         <source>Actions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="80"/>
+        <location filename="../src/menubar.cpp" line="83"/>
         <source>Load</source>
         <translation type="unfinished">Įkelti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="88"/>
+        <location filename="../src/menubar.cpp" line="91"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="97"/>
+        <location filename="../src/menubar.cpp" line="100"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="99"/>
+        <location filename="../src/menubar.cpp" line="102"/>
         <source>FFmpeg Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="93"/>
+        <location filename="../src/menubar.cpp" line="96"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="95"/>
+        <location filename="../src/menubar.cpp" line="98"/>
         <source>QX11Grab Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="101"/>
+        <location filename="../src/menubar.cpp" line="104"/>
         <source>x264</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="103"/>
+        <location filename="../src/menubar.cpp" line="106"/>
         <source>x264 Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="105"/>
+        <location filename="../src/menubar.cpp" line="108"/>
         <source>WebM Guideline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="107"/>
+        <location filename="../src/menubar.cpp" line="110"/>
         <source>WebM Container Guidelines</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="161"/>
+        <location filename="../src/menubar.cpp" line="167"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="164"/>
+        <location filename="../src/menubar.cpp" line="170"/>
         <source>Open create Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="172"/>
+        <location filename="../src/menubar.cpp" line="178"/>
         <source>Remove</source>
         <translation type="unfinished">Pašalinti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="175"/>
+        <location filename="../src/menubar.cpp" line="181"/>
         <source>Open delete Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="209"/>
+        <location filename="../src/menubar.cpp" line="216"/>
         <source>Quit</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Baigti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="212"/>
+        <location filename="../src/menubar.cpp" line="219"/>
         <source>Close Application</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Užverti programą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="221"/>
+        <location filename="../src/menubar.cpp" line="229"/>
         <source>Grabbing</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Čiupti langą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="224"/>
-        <location filename="../src/menubar.cpp" line="236"/>
+        <location filename="../src/menubar.cpp" line="232"/>
         <source>get Size from Window</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">gauti lango dydį</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="233"/>
+        <location filename="../src/menubar.cpp" line="242"/>
         <source>Rubberband</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Rėmelis</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="245"/>
+        <source>swap rubberband view</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="255"/>
         <source>Recording</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="248"/>
+        <location filename="../src/menubar.cpp" line="258"/>
         <source>Start Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Pradėti įrašinėti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="257"/>
+        <location filename="../src/menubar.cpp" line="268"/>
         <source>Stop</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Stabdyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="260"/>
+        <location filename="../src/menubar.cpp" line="271"/>
         <source>Stop Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Baigti įrašinėjimą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="270"/>
+        <location filename="../src/menubar.cpp" line="282"/>
         <source>Kill</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Nutraukti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="273"/>
+        <location filename="../src/menubar.cpp" line="285"/>
         <source>Kill Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="283"/>
+        <location filename="../src/menubar.cpp" line="296"/>
         <source>Hide</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Slėpti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="286"/>
-        <location filename="../src/menubar.cpp" line="298"/>
+        <location filename="../src/menubar.cpp" line="299"/>
+        <location filename="../src/menubar.cpp" line="312"/>
         <source>Minimize to Systray</source>
         <extracomment>ToolTip
 ----------
@@ -882,55 +892,60 @@ ToolTip</extracomment>
         <translation type="unfinished">Nuleisti į sistemos dėklą</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="295"/>
+        <location filename="../src/menubar.cpp" line="309"/>
         <source>Show</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Rodyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="307"/>
+        <location filename="../src/menubar.cpp" line="322"/>
         <source>Export</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="310"/>
+        <location filename="../src/menubar.cpp" line="325"/>
         <source>Export current command set</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="69"/>
+        <location filename="../src/menubar.cpp" line="72"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="319"/>
+        <location filename="../src/menubar.cpp" line="335"/>
         <source>Save</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="322"/>
+        <location filename="../src/menubar.cpp" line="338"/>
         <source>Save current Settings</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="331"/>
+        <location filename="../src/menubar.cpp" line="348"/>
         <source>Refresh</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Atnaujinti</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="334"/>
+        <location filename="../src/menubar.cpp" line="351"/>
         <source>Refresh Commandline Preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="343"/>
+        <location filename="../src/menubar.cpp" line="361"/>
         <source>Logfile</source>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished">Žurnalas</translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="346"/>
+        <location filename="../src/menubar.cpp" line="364"/>
         <source>Open FFmpeg Protocoll</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
