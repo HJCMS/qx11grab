@@ -136,7 +136,7 @@ int DesktopInfo::getDepth()
 
 QWidget* DesktopInfo::screenWidget()
 {
-   m_desktopWidget->screen ( screen() );
+  return m_desktopWidget->screen ( screen() );
 }
 
 const QRect DesktopInfo::screenGeometry ( int screen )
