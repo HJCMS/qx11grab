@@ -45,10 +45,10 @@ namespace QX11Options
   */
   typedef struct Q_DECL_EXPORT
   {
-    CodecID id;
-    QString name;
-    QString fullname;
-    QString info;
+    CodecID id;             /**< Codec ID from avcodec.h */
+    QString name;       /**< Codec Name */
+    QString fullname; /**< Full Codec Description */
+    QString info;         /**< Extra Codec Information fpr Tool Tips */
   } FFCodec;
 
   /**
@@ -57,10 +57,10 @@ namespace QX11Options
   */
   typedef struct Q_DECL_EXPORT
   {
-    int id;
-    QString name;
-    QVariant value;
-    QString help;
+    int id;                      /**< Incremental Identifier for ComboBoxes */
+    QString name;     /**< Parameter Name */
+    QVariant value;  /**<  Optional Default Value */
+    QString help;      /**< Optional Helptext */
   } FFOption;
 
   /** 
@@ -84,6 +84,11 @@ namespace QX11Options
     public:
       AVOptions ( QObject * parent = 0 );
 
+/**
+* Read all default Values from CodecID
+* If Codec Options found \ref codecDefaults will emitted
+* \param codecId  Codec ID from avcodec.h
+*/
       void initCodecDefaults ( CodecID codecId );
 
       /** send a avcodec option request only VIDEO/AUDIO supported
