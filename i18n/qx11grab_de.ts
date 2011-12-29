@@ -37,13 +37,6 @@ MenuEntry</extracomment>
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <source>Audio Settings</source>
-        <translation variants="yes">
-            <lengthvariant>Audio Einstellungen</lengthvariant>
-            <lengthvariant>Audio</lengthvariant>
-        </translation>
-    </message>
-    <message>
         <source>Audio System</source>
         <translation></translation>
     </message>
@@ -214,6 +207,10 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Karaoke</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Audio Device</source>
+        <translation>Audio Schnittstelle</translation>
+    </message>
 </context>
 <context>
     <name>BookmarkDialog</name>
@@ -313,60 +310,27 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
-    <name>Defaults</name>
+    <name>ConfigDialog</name>
     <message>
-        <source>FFmpeg Application:</source>
-        <translation>FFmpeg Anwendung:</translation>
-    </message>
-    <message>
-        <source>Output Filename:</source>
-        <translation variants="yes">
-            <lengthvariant>Ausgabe Dateiname:</lengthvariant>
-            <lengthvariant>Ausgabedatei:</lengthvariant>
-        </translation>
-    </message>
-    <message>
-        <source>Output Directory:</source>
-        <translation variants="yes">
-            <lengthvariant>Ausgabe Verzeichnis:</lengthvariant>
-            <lengthvariant>Zielverzeichnis:</lengthvariant>
-        </translation>
-    </message>
-    <message>
-        <source>Other %1</source>
-        <translation>Andere %1</translation>
-    </message>
-    <message>
-        <source>FFmpeg Binary</source>
+        <source>Configure[*]</source>
         <extracomment>WindowTitle</extracomment>
-        <translation>FFmpeg Programm</translation>
+        <translation>Konfigurieren[*]</translation>
     </message>
     <message>
-        <source>Output Directory</source>
-        <extracomment>WindowTitle</extracomment>
-        <translation variants="yes">
-            <lengthvariant>Ausgabe Verzeichnis</lengthvariant>
-            <lengthvariant>Zielverzeichnis</lengthvariant>
-        </translation>
+        <source>Application</source>
+        <translation>Programm</translation>
     </message>
     <message>
-        <source>absolute path to FFmpeg&apos;s recording application</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Absoluter Pfad zu FFmpegs Aufnahme Programm</translation>
+        <source>Targets</source>
+        <translation>Ziele</translation>
     </message>
     <message>
-        <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Spezifiziert den Ausgabe Dateinamen in einem Vorgegebenen Ergänzungs- Format. (Sechs X Zeichen in Großschreibung), werden Automatisch bei der Ausgabe mit einem Schlüssel im Ausgabe Dateinamen ersetzt.</translation>
+        <source>Audio</source>
+        <translation></translation>
     </message>
     <message>
-        <source>directory where to store output files</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Verzeichnis in dem die Ausgabedatei abgelegt wird</translation>
-    </message>
-    <message>
-        <source>without pulse</source>
-        <translation>ohne pulse</translation>
+        <source>Experts</source>
+        <translation>Experten</translation>
     </message>
 </context>
 <context>
@@ -390,6 +354,25 @@ ToolTip</extracomment>
     <message>
         <source>Shell Script (*.sh)</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>ExtraOptions</name>
+    <message>
+        <source>Expert Options</source>
+        <translation>Experten Optionen</translation>
+    </message>
+    <message>
+        <source>Here you can configure extra commands.</source>
+        <translation>Hier kannst dur deine Extra Optionen einfügen.</translation>
+    </message>
+    <message>
+        <source>Parameter</source>
+        <translation>Parameter</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation>Wert</translation>
     </message>
 </context>
 <context>
@@ -486,32 +469,8 @@ ToolTip</extracomment>
         <translation></translation>
     </message>
     <message>
-        <source>Display Rubberband</source>
-        <translation>Zeige Gummiband</translation>
-    </message>
-    <message>
-        <source>Start Minimized</source>
-        <translation>Starte Minimiert</translation>
-    </message>
-    <message>
-        <source>Enable Audio Recording</source>
-        <translation>Aktiviere die Audio Aufnahme</translation>
-    </message>
-    <message>
         <source>Dimension:</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Insert Metadata</source>
-        <translation>Kopfdaten einfügen</translation>
-    </message>
-    <message>
-        <source>Features</source>
-        <translation>Fähigkeiten</translation>
-    </message>
-    <message>
-        <source>Report Level</source>
-        <translation>Berichtstärke</translation>
     </message>
     <message>
         <source>predefined frame sizes</source>
@@ -522,31 +481,6 @@ ToolTip</extracomment>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Setzt die Datenübertragungs Blockgröße in dem Aufnahme Video.</translation>
-    </message>
-    <message>
-        <source>always show the rubberband on application start</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Zeige beim Start immer das Gummiband an</translation>
-    </message>
-    <message>
-        <source>start QX11Grab minimized</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Starte QX11Grab minimiert</translation>
-    </message>
-    <message>
-        <source>enable/disable auto insert metadata in the captured video</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Aktiviere/Deaktiviere das automatische einfügen von Kopfdaten</translation>
-    </message>
-    <message>
-        <source>enable/disable audio recording in the captured video</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Aktiviere/Deaktiviere Im Aufnahme Video die Audiospur</translation>
-    </message>
-    <message>
-        <source>enable rubberband at application start</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Zeige Gummiband beim Programm Start</translation>
     </message>
 </context>
 <context>
@@ -599,6 +533,109 @@ ToolTip</extracomment>
         <source>qx11grab logfile</source>
         <extracomment>WindowTitle</extracomment>
         <translation>qx11grab Protokolldatei</translation>
+    </message>
+</context>
+<context>
+    <name>MainFunctions</name>
+    <message>
+        <source>Features</source>
+        <translation>Fähigkeiten</translation>
+    </message>
+    <message>
+        <source>enable rubberband at application start</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Zeige Gummiband beim Programm Start</translation>
+    </message>
+    <message>
+        <source>always show the rubberband on application start</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Zeige beim Start immer das Gummiband an</translation>
+    </message>
+    <message>
+        <source>Display Rubberband</source>
+        <translation>Zeige Gummiband</translation>
+    </message>
+    <message>
+        <source>start QX11Grab minimized</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Starte QX11Grab minimiert</translation>
+    </message>
+    <message>
+        <source>Start Minimized</source>
+        <translation>Starte Minimiert</translation>
+    </message>
+    <message>
+        <source>Report Level</source>
+        <translation>Berichtstärke</translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <source>Dimension</source>
+        <translation>Dimension</translation>
+    </message>
+    <message>
+        <source>Metadata</source>
+        <translation>Metadaten</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Audio Recording</source>
+        <translation>Audio Aufnahme</translation>
+    </message>
+    <message>
+        <source>enable/disable audio recording in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Aktiviere/Deaktiviere Im Aufnahme Video die Audiospur</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>command line preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Kommadozeilen Vorschau</translation>
+    </message>
+    <message>
+        <source>FFmpeg</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>Info</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Fehler</translation>
+    </message>
+    <message>
+        <source>qx11grap not started</source>
+        <translation>qx11grab ist nicht gestartet</translation>
+    </message>
+    <message>
+        <source>commandline exported</source>
+        <translation>Kommandozeile Exportiert</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation>Entferne Lesezeichen</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation>Lesezeichen</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1 failed</source>
+        <translation>Öffnen von %1 Lesezeichen fehlgeschlagen</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1</source>
+        <translation>Öffne Lesezeichen %1</translation>
     </message>
 </context>
 <context>
@@ -794,6 +831,10 @@ ToolTip</extracomment>
         <extracomment>ToolTip</extracomment>
         <translation>Gummiband Ansicht umschalten</translation>
     </message>
+    <message>
+        <source>Configure</source>
+        <translation>Konfigurieren</translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -843,6 +884,16 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation>Sprache im ISO 639-2 Format mit drei Buschtaben.
 Beispiel: Germany=ger
 Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
+    </message>
+    <message>
+        <source>Insert Metadata</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation>Kopfdaten einfügen</translation>
+    </message>
+    <message>
+        <source>enable/disable auto insert metadata in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Aktiviere/Deaktiviere das automatische einfügen von Kopfdaten</translation>
     </message>
 </context>
 <context>
@@ -894,70 +945,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>Pulse Device Selection</source>
         <extracomment>WindowTitle</extracomment>
         <translation>Pulse Geräte Auswahl</translation>
-    </message>
-</context>
-<context>
-    <name>QX11Grab</name>
-    <message>
-        <source>Info</source>
-        <translation>Info</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Fehler</translation>
-    </message>
-    <message>
-        <source>qx11grap not started</source>
-        <translation>qx11grab ist nicht gestartet</translation>
-    </message>
-    <message>
-        <source>commandline exported</source>
-        <translation>Kommandozeile Exportiert</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation>Programm</translation>
-    </message>
-    <message>
-        <source>Defaults</source>
-        <translation>Standards</translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation>Metadaten</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>FFmpeg</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Entferne Lesezeichen</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Lesezeichen</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1</source>
-        <translation>Öffne Lesezeichen %1</translation>
-    </message>
-    <message>
-        <source>command line preview</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Kommadozeilen Vorschau</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1 failed</source>
-        <translation>Öffnen von %1 Lesezeichen fehlgeschlagen</translation>
     </message>
 </context>
 <context>
@@ -1041,6 +1028,73 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <message>
         <source>Encoder</source>
         <translation>Kodierer</translation>
+    </message>
+    <message>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Kodierer Auswahl</translation>
+    </message>
+    <message>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Kodierer Editor Tabelle</translation>
+    </message>
+</context>
+<context>
+    <name>TargetsWidget</name>
+    <message>
+        <source>FFmpeg Application:</source>
+        <translation>FFmpeg Anwendung:</translation>
+    </message>
+    <message>
+        <source>absolute path to FFmpeg&apos;s recording application</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Absoluter Pfad zu FFmpegs Aufnahme Programm</translation>
+    </message>
+    <message>
+        <source>Output Filename:</source>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Dateiname:</lengthvariant>
+            <lengthvariant>Ausgabedatei:</lengthvariant>
+        </translation>
+    </message>
+    <message>
+        <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Spezifiziert den Ausgabe Dateinamen in einem Vorgegebenen Ergänzungs- Format. (Sechs X Zeichen in Großschreibung), werden Automatisch bei der Ausgabe mit einem Schlüssel im Ausgabe Dateinamen ersetzt.</translation>
+    </message>
+    <message>
+        <source>Output Directory:</source>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Verzeichnis:</lengthvariant>
+            <lengthvariant>Zielverzeichnis:</lengthvariant>
+        </translation>
+    </message>
+    <message>
+        <source>directory where to store output files</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Verzeichnis in dem die Ausgabedatei abgelegt wird</translation>
+    </message>
+    <message>
+        <source>without pulse</source>
+        <translation>ohne pulse</translation>
+    </message>
+    <message>
+        <source>Other %1</source>
+        <translation>Andere %1</translation>
+    </message>
+    <message>
+        <source>FFmpeg Binary</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation>FFmpeg Programm</translation>
+    </message>
+    <message>
+        <source>Output Directory</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation variants="yes">
+            <lengthvariant>Ausgabe Verzeichnis</lengthvariant>
+            <lengthvariant>Zielverzeichnis</lengthvariant>
+        </translation>
     </message>
 </context>
 <context>

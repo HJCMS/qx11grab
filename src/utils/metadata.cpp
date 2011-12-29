@@ -33,13 +33,20 @@
 #include <QtGui/QPalette>
 
 MetaData::MetaData ( QWidget * parent )
-    : QWidget ( parent )
+    : QGroupBox ( parent )
 {
   setObjectName ( QLatin1String ( "metadata" ) );
+  /*: GroupBoxTitle */
+  setTitle ( trUtf8 ( "Insert Metadata" ) );
+  /*: WhatsThis */
+  setWhatsThis ( trUtf8 ( "enable/disable auto insert metadata in the captured video" ) );
+  setFlat ( true );
+  setCheckable ( true );
+  setChecked ( false );
 
   int grow = 0;
   QGridLayout* gridLayout = new QGridLayout ( this );
-  gridLayout->setContentsMargins ( 2, 2, 2, 2 );
+  gridLayout->setContentsMargins ( 5, 5, 5, 5 );
   gridLayout->setObjectName ( QLatin1String ( "gridLayout" ) );
 
   Qt::Alignment labelAlignment = ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter );
@@ -54,7 +61,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_title, grow, 0, 1, 1 );
 
   metadata_INAM = new QLineEdit ( this );
-  metadata_INAM->setObjectName ( QLatin1String ( "metadata/title" ) );
+  metadata_INAM->setObjectName ( QLatin1String ( "Metadata/title" ) );
   metadata_INAM->setToolTip ( QLatin1String ( "INAM" ) );
   gridLayout->addWidget ( metadata_INAM, grow++, 1, 1, 1 );
 
@@ -64,7 +71,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_artist, grow, 0, 1, 1 );
 
   metadata_IART = new QLineEdit ( this );
-  metadata_IART->setObjectName ( QLatin1String ( "metadata/author" ) );
+  metadata_IART->setObjectName ( QLatin1String ( "Metadata/author" ) );
   metadata_IART->setToolTip ( QLatin1String ( "IART" ) );
   gridLayout->addWidget ( metadata_IART, grow++, 1, 1, 1 );
 
@@ -74,7 +81,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_copyright, grow, 0, 1, 1 );
 
   metadata_ICOP = new QLineEdit ( this );
-  metadata_ICOP->setObjectName ( QLatin1String ( "metadata/copyright" ) );
+  metadata_ICOP->setObjectName ( QLatin1String ( "Metadata/copyright" ) );
   metadata_ICOP->setToolTip ( QLatin1String ( "ICOP" ) );
   gridLayout->addWidget ( metadata_ICOP, grow++, 1, 1, 1 );
 
@@ -84,7 +91,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_createdate, grow, 0, 1, 1 );
 
   metadata_ICRD = new QDateTimeEdit ( this );
-  metadata_ICRD->setObjectName ( QLatin1String ( "metadata/year" ) );
+  metadata_ICRD->setObjectName ( QLatin1String ( "Metadata/year" ) );
   metadata_ICRD->setToolTip ( QLatin1String ( "ICRD" ) );
   metadata_ICRD->setDateTime ( QDateTime::currentDateTime() );
   metadata_ICRD->setCalendarPopup ( true );
@@ -96,7 +103,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_subject, grow, 0, 1, 1 );
 
   metadata_ISBJ = new QLineEdit ( this );
-  metadata_ISBJ->setObjectName ( QLatin1String ( "metadata/subject" ) );
+  metadata_ISBJ->setObjectName ( QLatin1String ( "Metadata/subject" ) );
   metadata_ISBJ->setToolTip ( QLatin1String ( "ISBJ" ) );
   gridLayout->addWidget ( metadata_ISBJ, grow++, 1, 1, 1 );
 
@@ -106,7 +113,7 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addWidget ( txt_description, grow, 0, 1, 1 );
 
   metadata_ICMT = new QLineEdit ( this );
-  metadata_ICMT->setObjectName ( QLatin1String ( "metadata/description" ) );
+  metadata_ICMT->setObjectName ( QLatin1String ( "Metadata/description" ) );
   metadata_ICMT->setToolTip ( QLatin1String ( "ICMT" ) );
   gridLayout->addWidget ( metadata_ICMT, grow++, 1, 1, 1 );
 
@@ -119,7 +126,7 @@ MetaData::MetaData ( QWidget * parent )
   /* main language in which the work is performed, preferably in ISO 639-2 format.
   * Multiple languages can be specified by separating them with commas. */
   metadata_LANG = new QLineEdit ( this );
-  metadata_LANG->setObjectName ( QLatin1String ( "metadata/language" ) );
+  metadata_LANG->setObjectName ( QLatin1String ( "Metadata/language" ) );
   /*: ToolTip */
   metadata_LANG->setToolTip ( trUtf8 ( "recognition of speech must set with three letter ISO 639-2 format" ) );
   /*: WhatsThis */
@@ -130,6 +137,10 @@ MetaData::MetaData ( QWidget * parent )
   gridLayout->addItem ( spacer, grow++, 0, 1, 2 );
 
   setLayout ( gridLayout );
+
+  // Updates
+  connect ( this, SIGNAL ( toggled ( bool ) ),
+            this, SLOT ( statusUpdate ( bool ) ) );
 }
 
 /**
@@ -143,11 +154,17 @@ const QList<QLineEdit*> MetaData::metadataObjects()
   return items;
 }
 
+void MetaData::statusUpdate ( bool )
+{
+  emit postUpdate();
+}
+
 /**
 * Einstellungen Laden
 */
 void MetaData::load ( QSettings * cfg )
 {
+  setChecked ( cfg->value ( QLatin1String ( "Metadata" ) ).toBool() );
   foreach ( QLineEdit* edit, metadataObjects() )
   {
     edit->setText ( cfg->value ( edit->objectName(), edit->text() ).toString() );
@@ -159,6 +176,7 @@ void MetaData::load ( QSettings * cfg )
 */
 void MetaData::save ( QSettings * cfg )
 {
+  cfg->setValue ( QLatin1String ( "Metadata" ), isChecked() );
   foreach ( QLineEdit* edit, metadataObjects() )
   {
     if ( edit->text().isEmpty() )
@@ -184,7 +202,7 @@ const QStringList MetaData::getCmd ( const QString &codec )
       continue;
 
     QString param ( edit->objectName() );
-    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "metadata/" ), edit->text() );
+    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "Metadata/" ), edit->text() );
   }
 
   cmd << "-metadata" << QString ( "year=\"%1\"" ).arg ( metadata_ICRD->date().year() );

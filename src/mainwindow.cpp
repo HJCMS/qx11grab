@@ -19,7 +19,7 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "qx11grab.h"
+#include "mainwindow.h"
 #include "settings.h"
 #include "menubar.h"
 #include "toolbar.h"
@@ -29,7 +29,6 @@
 #include "rubberband.h"
 #include "windowgrabber.h"
 #include "grabberinfo.h"
-#include "defaults.h"
 #include "tableeditor.h"
 #include "metadata.h"
 #include "ffprocess.h"
@@ -39,9 +38,12 @@
 #include "exportdialog.h"
 #include "bookmarkdialog.h"
 #include "bookmark.h"
+#include "configdialog.h"
 
 /* QtCore */
+#include <QtCore/QDateTime>
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
 #include <QtCore/QString>
@@ -70,7 +72,7 @@
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusMessage>
 
-QX11Grab::QX11Grab ( Settings * settings )
+MainWindow::MainWindow ( Settings * settings )
     : QMainWindow()
     , cfg ( settings )
     , m_FFProcess ( 0 )
@@ -81,6 +83,7 @@ QX11Grab::QX11Grab ( Settings * settings )
   setMinimumWidth ( 450 );
   setMinimumHeight ( 400 );
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
+  setContentsMargins ( 0, 5, 0, 5 );
 
   QIcon boxIcon = getThemeIcon ( "qx11grab" );
   setWindowIcon ( boxIcon );
@@ -98,36 +101,57 @@ QX11Grab::QX11Grab ( Settings * settings )
   m_listener = new Listener ( this );
 
   QWidget* layerWidget = new QWidget ( this );
+  layerWidget->setContentsMargins ( 0, 0, 0, 0 );
 
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
+  verticalLayout->setContentsMargins ( 0, 0, 0, 0 );
 
   QToolBox* toolBox = new QToolBox ( layerWidget, Qt::Widget );
   toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
   toolBox->setBackgroundRole ( QPalette::Window );
+  toolBox->setContentsMargins ( 0, 5, 0, 10 );
   verticalLayout->addWidget ( toolBox );
 
+  // Dimension {
   m_grabberInfo = new GrabberInfo ( toolBox );
-  toolBox->addItem ( m_grabberInfo, boxIcon, trUtf8 ( "Application" ) );
+  toolBox->addItem ( m_grabberInfo, boxIcon, trUtf8 ( "Dimension" ) );
+  // } Dimension
 
-  m_defaults = new Defaults ( toolBox );
-  toolBox->addItem ( m_defaults, boxIcon, trUtf8 ( "Defaults" ) );
-
+  // MetaData {
   m_metaData = new MetaData ( toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
   toolBox->addItem ( m_metaData, boxIcon, trUtf8 ( "Metadata" ) );
+  // } MetaData
 
+  // vCodec {
   m_videoEditor = new TableEditor ( toolBox );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
   toolBox->addItem ( m_videoEditor, boxIcon, trUtf8 ( "Video" ) );
+  // } vCodec
 
-  m_audioEditor = new TableEditor ( toolBox );
+  // aCodec {
+  m_audioGroupBox = new QGroupBox ( toolBox );
+  m_audioGroupBox->setFlat ( true );
+  m_audioGroupBox->setCheckable ( true );
+  m_audioGroupBox->setTitle ( trUtf8 ( "Audio Recording" ) );
+  /*: WhatsThis */
+  m_audioGroupBox->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
+  toolBox->addItem ( m_audioGroupBox, boxIcon, trUtf8 ( "Audio" ) );
+
+  QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
+  m_audioEditor = new TableEditor ( m_audioGroupBox );
+  /*: ToolTip */
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
-  toolBox->addItem ( m_audioEditor, boxIcon, trUtf8 ( "Audio" ) );
+  audioBoxlayout->addWidget ( m_audioEditor );
+  m_audioGroupBox->setLayout ( audioBoxlayout );
+  // } aCodec
 
+  // Preview {
   m_commandPreview = new CommandPreview ( toolBox );
   /*: ToolTip */
   m_commandPreview->setToolTip ( trUtf8 ( "command line preview" ) );
   toolBox->addItem ( m_commandPreview, boxIcon, trUtf8 ( "FFmpeg" ) );
+  // } Preview
 
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
@@ -159,18 +183,6 @@ QX11Grab::QX11Grab ( Settings * settings )
   connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
-  connect ( m_grabberInfo, SIGNAL ( postUpdate () ),
-            this, SLOT ( perparePreview () ) );
-
-  connect ( m_defaults, SIGNAL ( postUpdate () ),
-            this, SLOT ( perparePreview () ) );
-
-  connect ( m_videoEditor, SIGNAL ( postUpdate () ),
-            this, SLOT ( perparePreview () ) );
-
-  connect ( m_audioEditor, SIGNAL ( postUpdate () ),
-            this, SLOT ( perparePreview () ) );
-
   connect ( this, SIGNAL ( stopRecording () ),
             m_FFProcess, SLOT ( stop () ) );
 
@@ -182,9 +194,26 @@ QX11Grab::QX11Grab ( Settings * settings )
 
   connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
             this, SLOT ( updateCommandLine ( const QStringList & ) ) );
+
+  // Widget Updates
+  connect ( m_grabberInfo, SIGNAL ( postUpdate () ),
+            this, SLOT ( preparePreview () ) );
+
+  connect ( m_metaData, SIGNAL ( postUpdate () ),
+            this, SLOT ( preparePreview () ) );
+
+  connect ( m_videoEditor, SIGNAL ( postUpdate () ),
+            this, SLOT ( preparePreview () ) );
+
+  connect ( m_audioGroupBox, SIGNAL ( toggled ( bool ) ),
+            this, SLOT ( preparePreview ( bool ) ) );
+
+  connect ( m_audioEditor, SIGNAL ( postUpdate () ),
+            this, SLOT ( preparePreview () ) );
+
 }
 
-void QX11Grab::record()
+void MainWindow::record()
 {
   if ( ! m_FFProcess || m_FFProcess->isRunning() )
     return;
@@ -192,7 +221,7 @@ void QX11Grab::record()
   startRecord ();
 }
 
-void QX11Grab::stop()
+void MainWindow::stop()
 {
   if ( ! m_FFProcess )
     return;
@@ -204,7 +233,7 @@ void QX11Grab::stop()
 /**
 * Initialisiert die Desktop Umgebung
 */
-void QX11Grab::createEnviroment()
+void MainWindow::createEnviroment()
 {
   // init desktop info
   m_DesktopInfo = new DesktopInfo ( this );
@@ -214,12 +243,12 @@ void QX11Grab::createEnviroment()
   connect ( m_RubberBand, SIGNAL ( error ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
-  showRubber ( m_grabberInfo->showRubberOnStart() );
+  showRubber ( cfg->showRubberOnStart() );
 
   toRubber ( true );
 }
 
-void QX11Grab::createSystemTrayIcon()
+void MainWindow::createSystemTrayIcon()
 {
   m_systemTray = new SystemTray ( this );
   connect ( m_systemTray, SIGNAL ( activated ( QSystemTrayIcon::ActivationReason ) ),
@@ -231,7 +260,7 @@ void QX11Grab::createSystemTrayIcon()
 /**
 * Ein/Ausblenden funktion für die Gummibandanzeige.
 */
-void QX11Grab::showRubber ( bool b )
+void MainWindow::showRubber ( bool b )
 {
   if ( b )
     m_RubberBand->show();
@@ -239,7 +268,7 @@ void QX11Grab::showRubber ( bool b )
     m_RubberBand->hide();
 }
 
-void QX11Grab::swapRubberBand ()
+void MainWindow::swapRubberBand ()
 {
   showRubber ( ( ( m_RubberBand->isVisible() ) ? false : true ) );
 }
@@ -248,7 +277,7 @@ void QX11Grab::swapRubberBand ()
 * Lese die Fenster Geometrien neu ein.
 * @note Wird immer nur beim Start und show() und hide() aufgerufen!
 */
-void QX11Grab::loadStats()
+void MainWindow::loadStats()
 {
   if ( cfg->contains ( "window/position" ) )
     move ( cfg->value ( "window/position", pos() ).toPoint() );
@@ -269,7 +298,7 @@ void QX11Grab::loadStats()
 * Fenster Verhältnisse Speichern
 * @note Wird immer nur bei show() und hide() aufgerufen!
 */
-void QX11Grab::saveStats()
+void MainWindow::saveStats()
 {
   cfg->setValue ( "window/state", saveState ( 0 ) );
   cfg->setValue ( "window/position", pos() );
@@ -280,29 +309,39 @@ void QX11Grab::saveStats()
 * Ausgabepfad erstellen und zwischenspeichern!
 * \note Der Dateiname ändert sich bei jedem aufruf!
 */
-const QString QX11Grab::generateOutputFile()
+const QString MainWindow::generateOutputFile()
 {
+  QString dest = cfg->outputDirectory();
+  dest.append ( "/" );
+
+  QString f = cfg->outputTemplateName();
+  QDateTime dt = QDateTime::currentDateTime();
+  QString timeStamp = QString::number ( dt.date().dayOfYear() );
+  timeStamp.append ( dt.toString ( "hhmm" ) );
+  f.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+  dest.append ( f );
+
   QString outFile;
   QString codec = videoCodec();
   if ( codec.contains ( "theora", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.ogg" ).arg ( m_defaults->output() );
+    outFile = QString ( "%1.ogg" ).arg ( dest );
   else if ( codec.contains ( "libvpx", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.webm" ).arg ( m_defaults->output() );
+    outFile = QString ( "%1.webm" ).arg ( dest );
   else if ( codec.contains ( "libx264", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.mp4" ).arg ( m_defaults->output() );
+    outFile = QString ( "%1.mp4" ).arg ( dest );
   else if ( codec.contains ( "mpeg", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.mpg" ).arg ( m_defaults->output() );
+    outFile = QString ( "%1.mpg" ).arg ( dest );
   else
-    outFile = QString ( "%1.avi" ).arg ( m_defaults->output() );
+    outFile = QString ( "%1.avi" ).arg ( dest );
 
-  cfg->setValue ( QLatin1String ( "CurrentOutputFile" ), outFile );
+  cfg->setOutputPath ( outFile );
   return outFile;
 }
 
 /**
 * Sende verschieben Info an Klasse @class RubberBand
 */
-void QX11Grab::toRubber ( bool )
+void MainWindow::toRubber ( bool )
 {
   if ( ! m_RubberBand )
     return;
@@ -310,13 +349,13 @@ void QX11Grab::toRubber ( bool )
   QRect r = m_grabberInfo->getRect();
   m_RubberBand->resize ( r.width(), r.height() );
   m_RubberBand->move ( r.x(), r.y() );
-  perparePreview();
+  preparePreview();
 }
 
 /**
 * Fenster Dimensionen abgreifen
 */
-void QX11Grab::grabFromWindow()
+void MainWindow::grabFromWindow()
 {
   if ( ! m_RubberBand )
     return;
@@ -335,7 +374,7 @@ void QX11Grab::grabFromWindow()
 /**
 * Statusleisten Aktionen verarbeiten
 */
-void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
+void MainWindow::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 {
   switch ( type )
   {
@@ -356,7 +395,7 @@ void QX11Grab::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 /**
 * Beim Minimieren die Fenster Geometrie speichern
 */
-void QX11Grab::hideEvent ( QHideEvent * ev )
+void MainWindow::hideEvent ( QHideEvent * ev )
 {
   saveStats();
   QMainWindow::hideEvent ( ev );
@@ -368,7 +407,7 @@ void QX11Grab::hideEvent ( QHideEvent * ev )
 * \ref hideEvent Speichern und Hauptfenster in das
 * Systray minimieren!
 */
-void QX11Grab::closeEvent ( QCloseEvent * ev )
+void MainWindow::closeEvent ( QCloseEvent * ev )
 {
   if ( ev->type() == QEvent::Close )
   {
@@ -380,7 +419,7 @@ void QX11Grab::closeEvent ( QCloseEvent * ev )
 /**
 * Informationen an die Statusleiste senden.
 */
-void QX11Grab::pushInfoMessage ( const QString &txt )
+void MainWindow::pushInfoMessage ( const QString &txt )
 {
   if ( m_systemTray )
     m_systemTray->showMessage ( trUtf8 ( "Info" ), txt,
@@ -393,7 +432,7 @@ void QX11Grab::pushInfoMessage ( const QString &txt )
 /**
 * Fehler Meldungen an die Statusleiste senden.
 */
-void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
+void MainWindow::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( m_systemTray )
   {
@@ -407,7 +446,7 @@ void QX11Grab::pushErrorMessage ( const QString &title, const QString &txt )
 /**
 * Tips an die Statusleiste senden.
 */
-void QX11Grab::pushToolTip ( const QString &txt )
+void MainWindow::pushToolTip ( const QString &txt )
 {
   if ( m_systemTray )
     m_systemTray->setToolTip ( txt );
@@ -416,18 +455,23 @@ void QX11Grab::pushToolTip ( const QString &txt )
 /**
 * Die Daten wurden von @class CommandLineEdit modifiziert
 * und müssen neu geschrieben werden.
+* Das hat nur einen Einfluss auf die gespeicherte Kommandozeile
+* und wird bei einem @b preparePreview wieder Überschrieben!
 **/
-void QX11Grab::updateCommandLine ( const QStringList &cmd )
+void MainWindow::updateCommandLine ( const QStringList &cmd )
 {
-  if ( cmd.contains ( m_defaults->binary() ) )
-    cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), cmd );
+  if ( cmd.contains ( cfg->binaryPath() ) )
+  {
+    cfg->setCommandLine ( cmd );
+    setWindowModified ( false );
+  }
 }
 
 /**
 * Starte die Aufnahme und Sperre gleichzeitig
 * einige Aktionen um doppel Klicks zu vermeiden.
 */
-void QX11Grab::startRecord()
+void MainWindow::startRecord()
 {
   if ( ! m_RubberBand->isScalability() || ! m_listener->setOutputFile ( outputFile() ) )
     return;
@@ -437,7 +481,7 @@ void QX11Grab::startRecord()
     m_systemTray->setActionsEnabled ( true );
     m_menuBar->setActionsEnabled ( true );
     showRubber ( false );
-    QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
+    QStringList cmd = cfg->getCommandline();
     if ( m_FFProcess->start ( cmd ) )
     {
       m_systemTray->setIcon ( getThemeIcon ( "media-record" ) );
@@ -455,7 +499,7 @@ void QX11Grab::startRecord()
 /**
 * Beim beenden einer Aufnahme alles in die Neutrale Stellung bringen.
 */
-void QX11Grab::setActionsBack()
+void MainWindow::setActionsBack()
 {
   m_systemTray->setActionsEnabled ( false );
   m_menuBar->setActionsEnabled ( false );
@@ -466,24 +510,24 @@ void QX11Grab::setActionsBack()
 /**
 * Lade beim Start des Dialoges alle Einstellungen.
 */
-void QX11Grab::loadSettings()
+void MainWindow::loadSettings()
 {
   m_grabberInfo->load ( cfg );
-  m_defaults->load ( cfg );
   m_metaData->load ( cfg );
+  m_audioGroupBox->setChecked ( cfg->value ( "SoundRecording", false ).toBool() );
   m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
-  perparePreview();
+  preparePreview();
   setWindowModified ( false );
 }
 
 /**
 * Speichere alle Einstellungen.
 */
-void QX11Grab::saveSettings()
+void MainWindow::saveSettings()
 {
+  cfg->setValue ( "SoundRecording", m_audioGroupBox->isChecked() );
   m_grabberInfo->save ( cfg );
-  m_defaults->save ( cfg );
   m_metaData->save ( cfg );
   m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
   m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
@@ -493,7 +537,7 @@ void QX11Grab::saveSettings()
 /**
 * Log Dialog öffnen
 */
-void QX11Grab::openLogFileDialog()
+void MainWindow::openLogFileDialog()
 {
   QFileInfo log ( qx11grabLogfile() );
   if ( log.isReadable() )
@@ -506,16 +550,21 @@ void QX11Grab::openLogFileDialog()
 /**
 * Kommando Zeile für Textausgabe Aufbereiten.
 */
-void QX11Grab::perparePreview()
+void MainWindow::preparePreview ( bool b )
 {
+  Q_UNUSED ( b );
+
   QStringList commandLine;
-
-  commandLine << m_defaults->binary () << "-xerror";
-  if ( ! m_grabberInfo->logLevel().isEmpty() )
-    commandLine << "-loglevel" << m_grabberInfo->logLevel();
-
+  commandLine << cfg->binaryPath();
+  commandLine << "-xerror";
+  commandLine << "-loglevel" << cfg->logLevel();
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
+
+  // Experts
+  QStringList expert = cfg->getExpertCommand();
+  if ( expert.size() > 0 )
+    commandLine << expert;
 
   // Dimension
   QX11Info xInfo;
@@ -535,18 +584,18 @@ void QX11Grab::perparePreview()
   commandLine << "-dcodec" << "copy";
 
   // Audio System
-  if ( m_grabberInfo->soundEnabled() )
-    commandLine << m_defaults->audioDeviceData();
+  if ( m_audioGroupBox->isChecked() )
+    commandLine << cfg->getAudioDeviceCommand();
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
 
   // Meta Daten
-  if ( m_grabberInfo->metaEnabled() )
+  if ( m_metaData->isChecked() )
     commandLine << m_metaData->getCmd ( videoCodec() );
 
   // Audio Aufnahme
-  if ( m_grabberInfo->soundEnabled() )
+  if ( m_audioGroupBox->isChecked() )
     commandLine << m_audioEditor->getCmd ();
 
   // Output Options
@@ -555,7 +604,8 @@ void QX11Grab::perparePreview()
 
   m_commandPreview->setCommandLine ( commandLine );
 
-  cfg->setValue ( QLatin1String ( "CurrentCommandLine" ), commandLine );
+  cfg->setValue ( QLatin1String ( "SoundRecording" ), m_audioGroupBox->isChecked() );
+  cfg->setCommandLine ( commandLine );
 
   setWindowModified ( true );
 }
@@ -563,16 +613,16 @@ void QX11Grab::perparePreview()
 /**
 * Liest die aktuelle Kommandozeile aus der Konfiguration
 */
-const QString QX11Grab::currentCommandLine()
+const QString MainWindow::currentCommandLine()
 {
-  QStringList cmd = cfg->value ( QLatin1String ( "CurrentCommandLine" ) ).toStringList();
+  QStringList cmd = cfg->getCommandline();
   return cmd.join ( " " );
 }
 
 /**
 * Aktuelle Kommando Zeile in Shell Script exportieren!
 */
-void QX11Grab::exportCommand()
+void MainWindow::exportCommand()
 {
   ExportDialog* d = new ExportDialog ( currentCommandLine(), this );
   if ( d->exec() == QFileDialog::Accepted )
@@ -584,7 +634,7 @@ void QX11Grab::exportCommand()
 /**
 * Leszeichen Editor erstellen
 */
-void QX11Grab::openCreateBookmark()
+void MainWindow::openCreateBookmark()
 {
   BookmarkDialog* d = new BookmarkDialog ( this );
   d->setVCodecOptions ( m_videoEditor->selectedCodec(), m_videoEditor->getTableItems () );
@@ -596,7 +646,7 @@ void QX11Grab::openCreateBookmark()
 /**
 * Leszeichen Editor entfernen
 */
-void QX11Grab::openRemoveBookmark()
+void MainWindow::openRemoveBookmark()
 {
   Bookmark doc;
   if ( doc.open() )
@@ -616,7 +666,7 @@ void QX11Grab::openRemoveBookmark()
 /**
 * Leszeichen Öffnen siehe Toolbar
 */
-void QX11Grab::openBookmark ( const QString &id )
+void MainWindow::openBookmark ( const QString &id )
 {
   Bookmark doc;
   if ( doc.open() )
@@ -640,39 +690,43 @@ void QX11Grab::openBookmark ( const QString &id )
 }
 
 /**
-* Zeichenketten aus der Konfiguration lesen
+* Configurations Dialog Öffnen
 */
-const QString QX11Grab::getSettingsValue ( const QString &key )
+void MainWindow::openConfiguration()
 {
-  return cfg->value ( key, "" ).toString();
+  ConfigDialog* d = new ConfigDialog ( cfg, this );
+  if ( d->exec() )
+    preparePreview();
+
+  delete d;
 }
 
 /**
 * Schreibe Nachricht in das Meldungs Label
 */
-void QX11Grab::statusBarMessage ( const QString &msg, int timeout )
+void MainWindow::statusBarMessage ( const QString &msg, int timeout )
 {
   statusBar()->showMessage ( msg, timeout );
 }
 
 /** Wird für DBUS und ItemDelegation benötigt! */
-const QString QX11Grab::audioCodec()
+const QString MainWindow::audioCodec()
 {
   return m_audioEditor->selectedCodec();
 }
 
 /** Wird für DBUS und ItemDelegation benötigt! */
-const QString QX11Grab::videoCodec()
+const QString MainWindow::videoCodec()
 {
   return m_videoEditor->selectedCodec();
 }
 
-const QString QX11Grab::outputFile()
+const QString MainWindow::outputFile()
 {
-  return cfg->value ( QLatin1String ( "CurrentOutputFile" ), m_defaults->output() ).toString();
+  return cfg->absoluteOutputPath();
 }
 
-QX11Grab::~QX11Grab()
+MainWindow::~MainWindow()
 {
   if ( m_listener )
     delete m_listener;

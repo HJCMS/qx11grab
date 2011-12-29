@@ -37,7 +37,7 @@
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "qx11grab.h"
+#include "mainwindow.h"
 
 class MenuBar : public QMenuBar
 {
@@ -46,7 +46,7 @@ class MenuBar : public QMenuBar
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QX11Grab* mainWindow;
+    MainWindow* m_mainWindow;
 
   protected:
     // File Menu
@@ -80,7 +80,7 @@ class MenuBar : public QMenuBar
     void setActionsEnabled ( bool b = true );
 
   public:
-    MenuBar ( QX11Grab * parent );
+    MenuBar ( MainWindow * parent );
 
     // this Actions used by some other Classes
     static QAction* quitAction ( QObject * parent, bool shortcut = false );

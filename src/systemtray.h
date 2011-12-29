@@ -35,7 +35,7 @@
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "qx11grab.h"
+#include "mainwindow.h"
 
 class SystemTray : public QSystemTrayIcon
 {
@@ -44,7 +44,7 @@ class SystemTray : public QSystemTrayIcon
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QX11Grab* mainWindow;
+    MainWindow* m_mainWindow;
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
 
@@ -52,7 +52,7 @@ class SystemTray : public QSystemTrayIcon
     void setActionsEnabled ( bool b = true );
 
   public:
-    SystemTray ( QX11Grab * parent );
+    SystemTray ( MainWindow * parent );
     ~SystemTray();
 };
 

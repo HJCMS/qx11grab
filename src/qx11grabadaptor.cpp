@@ -20,6 +20,7 @@
 **/
 
 #include "qx11grabadaptor.h"
+#include "mainwindow.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QGenericReturnArgument>
@@ -34,18 +35,6 @@ void QX11GrabAdaptor::rubberband()
 {
   QMetaObject::invokeMethod ( parent(), "swapRubberBand" );
 }
-
-/* BUG QtDBus::crash when query QProcess::pid 
-void QX11GrabAdaptor::start()
-{
-  QMetaObject::invokeMethod ( parent(), "record" );
-}
-
-void QX11GrabAdaptor::stop()
-{
-  QMetaObject::invokeMethod ( parent(), "stop" );
-}
-*/
 
 void QX11GrabAdaptor::show ()
 {

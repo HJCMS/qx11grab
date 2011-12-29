@@ -50,7 +50,11 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
 */
 const QString FFProcess::application()
 {
-  return  cfg->value ( QLatin1String ( "ff_path" ), QLatin1String ( "ffmpeg" ) ).toString();
+  QFileInfo bin ( cfg->binaryPath() );
+  if ( bin.isExecutable() )
+    return bin.absoluteFilePath();
+  else
+    return QString();
 }
 
 /**
@@ -58,7 +62,7 @@ const QString FFProcess::application()
 */
 const QString FFProcess::workdir()
 {
-  QString p = cfg->value ( QLatin1String ( "tempdir" ), QLatin1String ( "/tmp" ) ).toString();
+  QString p = cfg->outputDirectory();
   QDir d ( p );
   if ( ! d.isReadable() )
     QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
@@ -87,7 +91,6 @@ bool FFProcess::start ( const QStringList &cmd )
     return false;
 
   QStringList arguments ( cmd );
-
   if ( arguments.contains ( application() ) )
     arguments.removeOne ( application() );
 

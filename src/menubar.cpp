@@ -32,9 +32,9 @@
 #include <QtGui/QIcon>
 #include <QtGui/QKeySequence>
 
-MenuBar::MenuBar ( QX11Grab * parent )
+MenuBar::MenuBar ( MainWindow * parent )
     : QMenuBar ( parent )
-    , mainWindow ( parent )
+    , m_mainWindow ( parent )
 {
   setObjectName ( QLatin1String ( "MenuBar" ) );
   m_menuFile = addMenu ( trUtf8 ( "File" ) );
@@ -87,6 +87,11 @@ MenuBar::MenuBar ( QX11Grab * parent )
   m_actionRefresh = refreshAction ( this, true );
   m_menuActions->addAction ( m_actionRefresh );
 
+  m_menuActions->addSeparator();
+
+  QAction* m_actionConfigure = m_menuActions->addAction ( trUtf8 ( "Configure" ) );
+  m_actionConfigure->setIcon ( QIcon::fromTheme ( "configure" ) );
+
   // About and Help
   QMenu* m_menuHelp = addMenu ( trUtf8 ( "Help" ) );
 
@@ -110,43 +115,46 @@ MenuBar::MenuBar ( QX11Grab * parent )
   m_actionWebM->setToolTip ( trUtf8 ( "WebM Container Guidelines" ) );
 
   connect ( m_actionGrabbing, SIGNAL ( triggered () ),
-            mainWindow, SLOT ( grabFromWindow () ) );
+            m_mainWindow, SLOT ( grabFromWindow () ) );
 
   connect ( m_actionRubber, SIGNAL ( triggered () ),
-            mainWindow, SLOT ( swapRubberBand () ) );
+            m_mainWindow, SLOT ( swapRubberBand () ) );
 
   connect ( m_actionStartRecord, SIGNAL ( triggered () ),
-            mainWindow, SLOT ( startRecord () ) );
+            m_mainWindow, SLOT ( startRecord () ) );
 
   connect ( m_actionStopRecord, SIGNAL ( triggered () ),
-            mainWindow, SIGNAL ( stopRecording () ) );
+            m_mainWindow, SIGNAL ( stopRecording () ) );
 
   connect ( m_actionKillRecord, SIGNAL ( triggered () ),
-            mainWindow, SIGNAL ( killProcess () ) );
+            m_mainWindow, SIGNAL ( killProcess () ) );
 
   connect ( m_actionMinimize, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( hide() ) );
+            m_mainWindow, SLOT ( hide() ) );
 
   connect ( m_actionQuit, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );
 
   connect ( m_actionExport, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( exportCommand() ) );
+            m_mainWindow, SLOT ( exportCommand() ) );
 
   connect ( m_actionAddBookmark, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( openCreateBookmark() ) );
+            m_mainWindow, SLOT ( openCreateBookmark() ) );
 
   connect ( m_actionDelBookmark, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( openRemoveBookmark() ) );
+            m_mainWindow, SLOT ( openRemoveBookmark() ) );
 
   connect ( m_actionSave, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( saveSettings() ) );
+            m_mainWindow, SLOT ( saveSettings() ) );
 
   connect ( m_actionLoad, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( loadSettings() ) );
+            m_mainWindow, SLOT ( loadSettings() ) );
 
   connect ( m_actionRefresh, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( perparePreview() ) );
+            m_mainWindow, SLOT ( preparePreview() ) );
+
+  connect ( m_actionConfigure, SIGNAL ( triggered() ),
+            m_mainWindow, SLOT ( openConfiguration() ) );
 
   // Homepages
   connect ( m_actionFFmpeg, SIGNAL ( triggered () ),

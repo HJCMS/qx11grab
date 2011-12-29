@@ -23,9 +23,10 @@
 #define SETTINGS_H
 
 /* QtCore */
+#include <QtCore/QHash>
 #include <QtCore/QSettings>
 #include <QtCore/QString>
-#include <QtCore/QHash>
+#include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 class Settings : public QSettings
@@ -35,7 +36,132 @@ class Settings : public QSettings
 
   public:
     Settings ( QObject * parent = 0 );
+
+    /**
+     * Display Rubberband on Application start
+     */
+    bool showRubberOnStart();
+
+    /**
+     * Write Group Options
+     */
+    void saveGroup ( const QString &group, const QHash<QString,QVariant> &data );
+
+    /**
+     * Group Options
+     */
     const QHash<QString,QVariant> readGroup ( const QString &group = QLatin1String ( "VideoOptions" ) );
+
+    /**
+     * FFmpeg Binary path
+     **/
+    const QString binaryPath();
+
+    /**
+     * Output Directory
+     **/
+    const QString outputDirectory();
+
+    /**
+     * Template Name
+     **/
+    const QString outputTemplateName();
+
+    /**
+     * temporary output file configuration
+     **/
+    void setOutputPath ( const QString &fullpath );
+
+    /**
+     * temporary output file configuration
+     **/
+    const QString absoluteOutputPath();
+
+    /**
+     * FFmpeg -loglevel
+     **/
+    void setLogLevel ( const QString &level );
+
+    /**
+     * FFmpeg -loglevel
+     **/
+    const QString logLevel();
+
+    /**
+     * Save Audio Engine
+     **/
+    void setAudioEngine ( const QString &engine );
+
+    /**
+     * Audio Engine
+     **/
+    const QString audioEngine();
+
+    /**
+     * Save Audio Device
+     **/
+    void setAudioDevice ( const QString &path );
+
+    /**
+     * Audio Device
+     **/
+    const QString audioDevice();
+
+    /**
+     * save Audio Volume
+     **/
+    void setAudioVolume ( qint16 i );
+
+    /**
+     * Audio Volume
+     **/
+    qint16 audioVolume();
+
+    /**
+     * Save Sample Format
+     **/
+    void setSampleFormat ( const QString &format );
+
+    /**
+     * Sample Format
+     **/
+    const QString sampleFormat();
+
+    /**
+     * Save Audio Media Type
+     **/
+    void setAudioType ( const QString &type );
+
+    /**
+     * Audio Media Type
+     **/
+    const QString audioType();
+
+    /**
+     * save Audio Device Description Commandline
+     **/
+    void setAudioDeviceCommand ( const QStringList &cmd );
+
+    /**
+     * Audio Device Description Commandline
+     **/
+    const QStringList getAudioDeviceCommand ();
+
+    /**
+     * save Commandline
+     **/
+    void setCommandLine ( const QStringList &cmd );
+
+    /**
+     * get Current Commandline
+     **/
+    const QStringList getCommandline();
+
+    /**
+     * read Extra Commandline Options
+     **/
+    const QStringList getExpertCommand();
+
     ~Settings();
 
 };

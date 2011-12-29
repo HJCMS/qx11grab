@@ -37,10 +37,6 @@ MenuEntry</extracomment>
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <source>Audio Settings</source>
-        <translation>Nastavení zvuku</translation>
-    </message>
-    <message>
         <source>Audio System</source>
         <translation>Zvukový systém</translation>
     </message>
@@ -208,6 +204,10 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Karaoke</source>
         <translation>Karaoke</translation>
     </message>
+    <message>
+        <source>Audio Device</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BookmarkDialog</name>
@@ -307,51 +307,27 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
-    <name>Defaults</name>
+    <name>ConfigDialog</name>
     <message>
-        <source>FFmpeg Application:</source>
-        <translation>Program ffmpeg:</translation>
-    </message>
-    <message>
-        <source>Output Filename:</source>
-        <translation>Název výstupního souboru:</translation>
-    </message>
-    <message>
-        <source>Output Directory:</source>
-        <translation>Výstupní adresář:</translation>
-    </message>
-    <message>
-        <source>Other %1</source>
-        <translation>Jiné %1</translation>
-    </message>
-    <message>
-        <source>FFmpeg Binary</source>
+        <source>Configure[*]</source>
         <extracomment>WindowTitle</extracomment>
-        <translation>Program ffmpeg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Output Directory</source>
-        <extracomment>WindowTitle</extracomment>
-        <translation>Výstupní adresář</translation>
+        <source>Application</source>
+        <translation type="unfinished">Program</translation>
     </message>
     <message>
-        <source>absolute path to FFmpeg&apos;s recording application</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Absolutní cesta k nahrávacímu programu FFmpeg</translation>
+        <source>Targets</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Stanovené názvy výstupních souborů mohou obsahovat předlohu v zadaném doplňkovém formátu (šest znaků X psaných velkými písmeny), která bude v názvu výstupního souboru na výstupu automaticky nahrazena klíčem.</translation>
+        <source>Audio</source>
+        <translation type="unfinished">Audio</translation>
     </message>
     <message>
-        <source>directory where to store output files</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Adresář, v němž se budou ukládat výstupní soubory</translation>
-    </message>
-    <message>
-        <source>without pulse</source>
-        <translation>Bez pulsu</translation>
+        <source>Experts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -375,6 +351,25 @@ ToolTip</extracomment>
     <message>
         <source>Shell Script (*.sh)</source>
         <translation>Shellový skript (*.sh)</translation>
+    </message>
+</context>
+<context>
+    <name>ExtraOptions</name>
+    <message>
+        <source>Expert Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Here you can configure extra commands.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parameter</source>
+        <translation type="unfinished">Parametr</translation>
+    </message>
+    <message>
+        <source>Value</source>
+        <translation type="unfinished">Hodnota</translation>
     </message>
 </context>
 <context>
@@ -471,32 +466,8 @@ ToolTip</extracomment>
         <translation>Počet snímků:</translation>
     </message>
     <message>
-        <source>Display Rubberband</source>
-        <translation>Zobrazit gumový pás</translation>
-    </message>
-    <message>
-        <source>Start Minimized</source>
-        <translation>Spustit zmenšeně</translation>
-    </message>
-    <message>
-        <source>Enable Audio Recording</source>
-        <translation>Povolit nahrávání zvuku</translation>
-    </message>
-    <message>
         <source>Dimension:</source>
         <translation>Rozměr:</translation>
-    </message>
-    <message>
-        <source>Insert Metadata</source>
-        <translation>Vložit údaje (metadata)</translation>
-    </message>
-    <message>
-        <source>Features</source>
-        <translation>Schopnosti</translation>
-    </message>
-    <message>
-        <source>Report Level</source>
-        <translation>Úroveň zprávy</translation>
     </message>
     <message>
         <source>predefined frame sizes</source>
@@ -507,31 +478,6 @@ ToolTip</extracomment>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Nastavuje velikost bloku přenosu dat v zachytávaném videu.</translation>
-    </message>
-    <message>
-        <source>always show the rubberband on application start</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Vždy ukazovat při spuštění programu gumičku</translation>
-    </message>
-    <message>
-        <source>start QX11Grab minimized</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Spouštět QX11Grab zmenšený</translation>
-    </message>
-    <message>
-        <source>enable/disable auto insert metadata in the captured video</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
-    </message>
-    <message>
-        <source>enable/disable audio recording in the captured video</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Zapnout/Vypnout zvukovou stopu v zachytávaném videu</translation>
-    </message>
-    <message>
-        <source>enable rubberband at application start</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Ukazovat při spuštění programu gumičku</translation>
     </message>
 </context>
 <context>
@@ -584,6 +530,109 @@ ToolTip</extracomment>
         <source>qx11grab logfile</source>
         <extracomment>WindowTitle</extracomment>
         <translation>Soubor se zápisem qx11grab</translation>
+    </message>
+</context>
+<context>
+    <name>MainFunctions</name>
+    <message>
+        <source>Features</source>
+        <translation type="unfinished">Schopnosti</translation>
+    </message>
+    <message>
+        <source>enable rubberband at application start</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Ukazovat při spuštění programu gumičku</translation>
+    </message>
+    <message>
+        <source>always show the rubberband on application start</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Vždy ukazovat při spuštění programu gumičku</translation>
+    </message>
+    <message>
+        <source>Display Rubberband</source>
+        <translation type="unfinished">Zobrazit gumový pás</translation>
+    </message>
+    <message>
+        <source>start QX11Grab minimized</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Spouštět QX11Grab zmenšený</translation>
+    </message>
+    <message>
+        <source>Start Minimized</source>
+        <translation type="unfinished">Spustit zmenšeně</translation>
+    </message>
+    <message>
+        <source>Report Level</source>
+        <translation type="unfinished">Úroveň zprávy</translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Rozměr</translation>
+    </message>
+    <message>
+        <source>Metadata</source>
+        <translation type="unfinished">Metadata</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">Video</translation>
+    </message>
+    <message>
+        <source>Audio Recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>enable/disable audio recording in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Zapnout/Vypnout zvukovou stopu v zachytávaném videu</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">Audio</translation>
+    </message>
+    <message>
+        <source>command line preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Náhled na příkazový řádek</translation>
+    </message>
+    <message>
+        <source>FFmpeg</source>
+        <translation type="unfinished">FFmpeg</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Informace</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Chyba</translation>
+    </message>
+    <message>
+        <source>qx11grap not started</source>
+        <translation type="unfinished">qx11grab není spuštěn</translation>
+    </message>
+    <message>
+        <source>commandline exported</source>
+        <translation type="unfinished">příkazový řádek vyveden</translation>
+    </message>
+    <message>
+        <source>Remove Bookmark</source>
+        <translation type="unfinished">Odstranit záložku</translation>
+    </message>
+    <message>
+        <source>Bookmark</source>
+        <translation type="unfinished">Záložka</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1 failed</source>
+        <translation type="unfinished">Otevření záložky %1 se nezdařilo</translation>
+    </message>
+    <message>
+        <source>Open Bookmark %1</source>
+        <translation type="unfinished">Otevřít záložku %1</translation>
     </message>
 </context>
 <context>
@@ -779,6 +828,10 @@ ToolTip</extracomment>
         <extracomment>ToolTip</extracomment>
         <translation>Přepnout pohled gumičky</translation>
     </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MetaData</name>
@@ -828,6 +881,16 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation>Jazyk ve formátu ISO 639-2 se třemi písmeny.
 Příklad: Germany=ger
 Více jazyků lze zadat jejich oddělením čárkami.</translation>
+    </message>
+    <message>
+        <source>Insert Metadata</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished">Vložit údaje (metadata)</translation>
+    </message>
+    <message>
+        <source>enable/disable auto insert metadata in the captured video</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
     </message>
 </context>
 <context>
@@ -879,70 +942,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>Pulse Device Selection</source>
         <extracomment>WindowTitle</extracomment>
         <translation>Výběr zařízení Pulse</translation>
-    </message>
-</context>
-<context>
-    <name>QX11Grab</name>
-    <message>
-        <source>Info</source>
-        <translation>Informace</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Chyba</translation>
-    </message>
-    <message>
-        <source>qx11grap not started</source>
-        <translation>qx11grab není spuštěn</translation>
-    </message>
-    <message>
-        <source>commandline exported</source>
-        <translation>příkazový řádek vyveden</translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation>Program</translation>
-    </message>
-    <message>
-        <source>Defaults</source>
-        <translation>Výchozí</translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation>Metadata</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation>Audio</translation>
-    </message>
-    <message>
-        <source>FFmpeg</source>
-        <translation>FFmpeg</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation>Odstranit záložku</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation>Záložka</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1</source>
-        <translation>Otevřít záložku %1</translation>
-    </message>
-    <message>
-        <source>command line preview</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Náhled na příkazový řádek</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1 failed</source>
-        <translation>Otevření záložky %1 se nezdařilo</translation>
     </message>
 </context>
 <context>
@@ -1026,6 +1025,64 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Encoder</source>
         <translation>Kodér</translation>
+    </message>
+    <message>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TargetsWidget</name>
+    <message>
+        <source>FFmpeg Application:</source>
+        <translation type="unfinished">Program ffmpeg:</translation>
+    </message>
+    <message>
+        <source>absolute path to FFmpeg&apos;s recording application</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Absolutní cesta k nahrávacímu programu FFmpeg</translation>
+    </message>
+    <message>
+        <source>Output Filename:</source>
+        <translation type="unfinished">Název výstupního souboru:</translation>
+    </message>
+    <message>
+        <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Stanovené názvy výstupních souborů mohou obsahovat předlohu v zadaném doplňkovém formátu (šest znaků X psaných velkými písmeny), která bude v názvu výstupního souboru na výstupu automaticky nahrazena klíčem.</translation>
+    </message>
+    <message>
+        <source>Output Directory:</source>
+        <translation type="unfinished">Výstupní adresář:</translation>
+    </message>
+    <message>
+        <source>directory where to store output files</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Adresář, v němž se budou ukládat výstupní soubory</translation>
+    </message>
+    <message>
+        <source>without pulse</source>
+        <translation type="unfinished">Bez pulsu</translation>
+    </message>
+    <message>
+        <source>Other %1</source>
+        <translation type="unfinished">Jiné %1</translation>
+    </message>
+    <message>
+        <source>FFmpeg Binary</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished">Program ffmpeg</translation>
+    </message>
+    <message>
+        <source>Output Directory</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished">Výstupní adresář</translation>
     </message>
 </context>
 <context>

@@ -35,7 +35,6 @@
 #include <QtGui/QWidget>
 
 class ScreenComboBox;
-class LogLevelComboBox;
 class DesktopInfo;
 
 class GrabberInfo : public QWidget
@@ -48,7 +47,6 @@ class GrabberInfo : public QWidget
     QRect screenGeometry;
     DesktopInfo* m_desktopInfo;
     ScreenComboBox* screenComboBox;
-    LogLevelComboBox* m_logLevelComboBox;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;
     QSpinBox* setHeightBox;
@@ -59,10 +57,6 @@ class GrabberInfo : public QWidget
     QSlider* setYSlider;
     QSpinBox* setDepth;
     QSpinBox* setFrameRate;
-    QCheckBox* showRubberband;
-    QCheckBox* startMinimized;
-    QCheckBox* soundRecording;
-    QCheckBox* setMetadata;
 
   private Q_SLOTS:
     void integerUpdate ( int );
@@ -80,10 +74,6 @@ class GrabberInfo : public QWidget
 
   public:
     GrabberInfo ( QWidget * parent = 0 );
-    bool showRubberOnStart();
-    bool soundEnabled();
-    bool metaEnabled();
-    void setRubberbandCheckBox ( bool b );
     void setScreenWidth ( int w );
     void setScreenHeight ( int h );
     void setScreenX ( int x );
@@ -91,7 +81,6 @@ class GrabberInfo : public QWidget
     void setRect ( const QRect &rect );
     const QRect getRect();
     int frameRate();
-    const QString logLevel();
     ~GrabberInfo();
 };
 

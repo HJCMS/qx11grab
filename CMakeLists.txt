@@ -43,11 +43,10 @@ ENDIF (NOT UNIX)
 ##############################################################
 
 SET (QX11GRAB_VERSION_MAJOR 0)
-SET (QX11GRAB_VERSION_MINOR 3)
-SET (QX11GRAB_VERSION_RELEASE 1)
-SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}")
-SET (QX11GRAB_DISTRIBUTION_TEXT "compiled sources" CACHE STRING "Indicate the distribution in bug reports")
-SET (QX11GRAB_RESOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/qx11grab.qrc")
+SET (QX11GRAB_VERSION_MINOR 4)
+SET (QX11GRAB_VERSION_RELEASE 0)
+SET (QX11GRAB_VERSION_DEVELOPMENT ".rc0")
+SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}${QX11GRAB_VERSION_DEVELOPMENT}")
 
 ##############################################################
 ## Set Header Definitions
@@ -68,6 +67,7 @@ IF (CMAKE_COMPILER_IS_GNUCXX)
 
   IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
     SET (QX11GRAB_LDFLAGS "${QX11GRAB_LDFLAGS} -Wl,--build-id")
+    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQX11GRAB_DEBUG")
   ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
   OPTION (BUILD_WERROR "Build with -Werror" OFF)
@@ -275,14 +275,6 @@ INSTALL (FILES
   DESTINATION share/dbus-1/services/
   COMPONENT dbus
 )
-
-##############################################################
-## Debugger CXXFLAGS
-##############################################################
-
-IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQX11GRAB_DEBUG")
-ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 ##############################################################
 ## SUBDIRECTORIES

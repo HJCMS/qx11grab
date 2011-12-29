@@ -28,6 +28,7 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
+#include <QtGui/QGroupBox>
 #include <QtGui/QDateTimeEdit>
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
@@ -36,7 +37,7 @@
 * Metadata Descriptions
 * \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
 */
-class MetaData : public QWidget
+class MetaData : public QGroupBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -51,6 +52,12 @@ class MetaData : public QWidget
     QDateTimeEdit* metadata_ICRD;
 
     const QList<QLineEdit*> metadataObjects();
+
+  private Q_SLOTS:
+    void statusUpdate ( bool );
+
+  Q_SIGNALS:
+    void postUpdate();
 
   public Q_SLOTS:
     void load ( QSettings * cfg );

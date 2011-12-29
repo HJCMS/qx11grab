@@ -31,9 +31,9 @@
 #include <QtGui/QSizePolicy>
 #include <QtGui/QHBoxLayout>
 
-ToolBar::ToolBar ( QX11Grab * parent )
+ToolBar::ToolBar ( MainWindow * parent )
     : QToolBar ( parent )
-    , mainWindow ( parent )
+    , m_mainWindow ( parent )
 {
   setObjectName ( QLatin1String ( "ToolBar" ) );
   setAllowedAreas ( ( Qt::TopToolBarArea | Qt::BottomToolBarArea ) );
@@ -69,19 +69,19 @@ ToolBar::ToolBar ( QX11Grab * parent )
   addWidget ( m_bookmarkSelecter );
 
   connect ( refreh, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( perparePreview() ) );
+            m_mainWindow, SLOT ( preparePreview() ) );
 
   connect ( m_viewLogAction, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( openLogFileDialog() ) );
+            m_mainWindow, SLOT ( openLogFileDialog() ) );
 
   connect ( exp, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( exportCommand() ) );
+            m_mainWindow, SLOT ( exportCommand() ) );
 
   connect ( save, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( saveSettings() ) );
+            m_mainWindow, SLOT ( saveSettings() ) );
 
   connect ( m_bookmarkSelecter, SIGNAL ( openBookmark ( const QString & ) ),
-            mainWindow, SLOT ( openBookmark ( const QString & ) ) );
+            m_mainWindow, SLOT ( openBookmark ( const QString & ) ) );
 }
 
 void ToolBar::setActionsEnabled ( bool b )

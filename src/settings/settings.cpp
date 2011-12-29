@@ -25,11 +25,14 @@
 #include "version.h"
 #endif
 
+/* QtCore */
+#include <QtCore/QHashIterator>
+
 Settings::Settings ( QObject *parent )
     : QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
 {
   /** Veraltete Einstellungen bei einem neuen Versions Start in die Tonne drücken. */
-  if ( ! value ( QLatin1String ( "Version" ) ).toString().contains ( QX11GRAB_VERSION ) )
+  if ( ! value ( "Version" ).toString().contains ( QX11GRAB_VERSION ) )
   {
     // DEPRECATED Config Options
     remove ( "windowPos" );
@@ -37,8 +40,33 @@ Settings::Settings ( QObject *parent )
     remove ( "windowState" );
     remove ( "enable_pulse_pasuspender" );
     remove ( "metadata" ); // new style
-    setValue ( QLatin1String ( "Version" ), QX11GRAB_VERSION );
+    setValue ( "Version", QX11GRAB_VERSION );
   }
+}
+
+bool Settings::showRubberOnStart()
+{
+  return value ( "showRubberband", true ).toBool();
+}
+
+void Settings::saveGroup ( const QString &group, const QHash<QString,QVariant> &data )
+{
+  if ( group.isEmpty() )
+    return;
+
+  int row = 0;
+  remove ( group );
+  beginWriteArray ( group );
+  QHashIterator<QString,QVariant> it ( data );
+  while ( it.hasNext() )
+  {
+    it.next();
+    setArrayIndex ( row );
+    setValue ( "argument", it.key() );
+    setValue ( "value", it.value() );
+    row++;
+  }
+  endArray();
 }
 
 const QHash<QString,QVariant> Settings::readGroup ( const QString &group )
@@ -59,6 +87,137 @@ const QHash<QString,QVariant> Settings::readGroup ( const QString &group )
   endArray();
 
   return map;
+}
+
+const QString Settings::binaryPath()
+{
+  return value ( "Targets/Binary", "ffmpeg" ).toString();
+}
+
+const QString Settings::outputDirectory()
+{
+  return value ( "Targets/Directory", "/tmp" ).toString();
+}
+
+const QString Settings::outputTemplateName()
+{
+  return value ( "Targets/TemplateName", "qx11grab-XXXXXX" ).toString();
+}
+
+void Settings::setOutputPath ( const QString &fullpath )
+{
+  setValue ( "Targets/OutputFile", fullpath );
+}
+
+const QString Settings::absoluteOutputPath()
+{
+  return value ( "Targets/OutputFile", "/tmp/qx11grab-dummy.avi" ).toString();
+}
+
+void Settings::setLogLevel ( const QString &level )
+{
+  setValue ( "LogLevel", level );
+}
+
+const QString Settings::logLevel()
+{
+  return value ( "LogLevel", "info" ).toString();
+}
+
+void Settings::setAudioEngine ( const QString &engine )
+{
+  setValue ( "Audio/Engine", engine );
+}
+
+const QString Settings::audioEngine()
+{
+  return value ( "Audio/Engine", "alsa" ).toString();
+}
+
+void Settings::setAudioDevice ( const QString &path )
+{
+  setValue ( "Audio/Device", path );
+}
+
+const QString Settings::audioDevice()
+{
+  return value ( "Audio/Device", "default" ).toString();
+}
+
+
+void Settings::setAudioVolume ( qint16 i )
+{
+  setValue ( "Audio/Intensifier", i );
+}
+
+qint16 Settings::audioVolume()
+{
+  return value ( "Audio/Intensifier", 256 ).toUInt();
+}
+
+void Settings::setSampleFormat ( const QString &format )
+{
+  setValue ( "Audio/SampleFormat", format );
+}
+
+const QString Settings::sampleFormat()
+{
+  return value ( "Audio/SampleFormat", "s16" ).toString();
+}
+
+void Settings::setAudioType ( const QString &type )
+{
+  setValue ( "Audio/ServiceType", type );
+}
+
+const QString Settings::audioType()
+{
+  return value ( "Audio/ServiceType", "ma" ).toString();
+}
+
+void Settings::setAudioDeviceCommand ( const QStringList &cmd )
+{
+  setValue ( "Command/AudioDevice", cmd );
+}
+
+const QStringList Settings::getAudioDeviceCommand()
+{
+  QStringList min;
+  min << "-f" << "alsa" << "-i" << "default";
+  return value ( "Command/AudioDevice", min ).toStringList();
+}
+
+void Settings::setCommandLine ( const QStringList &cmd )
+{
+  setValue ( "Command/Current", cmd );
+}
+
+const QStringList Settings::getCommandline()
+{
+  QStringList min;
+  min << binaryPath() << "-xerror";
+  return value ( "Command/Current", min ).toStringList();
+}
+
+const QStringList Settings::getExpertCommand()
+{
+  QStringList out;
+
+  int size = beginReadArray ( "ExpertOptions" );
+  if ( size < 1 )
+  {
+    endArray(); // Nicht vergessen ;)
+    return out;
+  }
+
+  for ( int i = 0; i < size; i++ )
+  {
+    setArrayIndex ( i );
+    out << value ( "argument" ).toString() << value ( "value" ).toString();
+  }
+  endArray();
+
+  return out;
 }
 
 Settings::~Settings()

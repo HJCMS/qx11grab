@@ -34,7 +34,7 @@ CommandPreview::CommandPreview ( QWidget * parent )
     : QWidget ( parent )
 {
   setObjectName ( QLatin1String ( "commandpreview" ) );
-  setContentsMargins ( 0, 2, 0, 2 );
+  setContentsMargins ( 5, 5, 5, 5 );
 
   QVBoxLayout* layout = new QVBoxLayout ( this );
   layout->setContentsMargins ( 0, 0, 0, 0 );

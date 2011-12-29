@@ -49,7 +49,7 @@
 #endif
 
 #include "settings.h"
-#include "qx11grab.h"
+#include "mainwindow.h"
 #include "qx11grabadaptor.h"
 
 int main ( int argc, char* argv[] )
@@ -93,14 +93,14 @@ int main ( int argc, char* argv[] )
 
   Settings* m_Settings = new Settings ( &app );
 
-  QX11Grab* grab = new  QX11Grab( m_Settings );
-  bus->registerObject ( QString( "/" ), grab, ( QDBusConnection::ExportAdaptors ) );
-  new QX11GrabAdaptor ( grab );
+  MainWindow* window = new  MainWindow( m_Settings );
+  new QX11GrabAdaptor ( window );
+  bus->registerObject ( QString( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
 
   if ( m_Settings->value ( "startMinimized", false ).toBool() )
-    grab->hide();
+    window->hide();
   else
-    grab->show();
+    window->show();
 
   return app.exec();
 }

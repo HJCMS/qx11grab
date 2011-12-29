@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_H
-#define QX11GRAB_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #ifndef QX11GRAB_VERSION
 # include "version.h"
@@ -34,6 +34,7 @@
 /* QtGui */
 #include <QtGui/QAction>
 #include <QtGui/QCloseEvent>
+#include <QtGui/QGroupBox>
 #include <QtGui/QHideEvent>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
@@ -47,7 +48,6 @@ class Settings;
 class MenuBar;
 class ToolBar;
 class GrabberInfo;
-class Defaults;
 class MetaData;
 class TableEditor;
 class DesktopInfo;
@@ -57,7 +57,7 @@ class Listener;
 class CommandPreview;
 class SystemTray;
 
-class QX11Grab : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
@@ -69,9 +69,9 @@ class QX11Grab : public QMainWindow
     MenuBar* m_menuBar;
     ToolBar* m_toolBar;
     GrabberInfo* m_grabberInfo;
-    Defaults* m_defaults;
     MetaData* m_metaData;
     TableEditor* m_videoEditor;
+    QGroupBox* m_audioGroupBox;
     TableEditor* m_audioEditor;
     CommandPreview* m_commandPreview;
     DesktopInfo* m_DesktopInfo;
@@ -85,6 +85,7 @@ class QX11Grab : public QMainWindow
     void createSystemTrayIcon();
     void loadStats();
     void saveStats();
+
     const QString generateOutputFile();
 
   private Q_SLOTS:
@@ -103,11 +104,12 @@ class QX11Grab : public QMainWindow
     void loadSettings();
     void saveSettings();
     void openLogFileDialog();
-    void perparePreview();
+    void preparePreview ( bool b = false );
     void exportCommand();
     void openCreateBookmark();
     void openRemoveBookmark();
     void openBookmark ( const QString &id );
+    void openConfiguration();
 
   Q_SIGNALS:
     void stopRecording();
@@ -119,15 +121,14 @@ class QX11Grab : public QMainWindow
     void record();
     void stop();
     void statusBarMessage ( const QString &msg, int timeout = 5000 );
-    const QString getSettingsValue ( const QString &key );
     const QString currentCommandLine();
     const QString audioCodec();
     const QString videoCodec();
     const QString outputFile();
 
   public:
-    QX11Grab ( Settings * settings = 0 );
-    virtual ~QX11Grab();
+    MainWindow ( Settings * settings = 0 );
+    virtual ~MainWindow();
 
 };
 

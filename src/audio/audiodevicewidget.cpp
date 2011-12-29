@@ -37,26 +37,23 @@
 
 /* QtGui */
 #include <QtGui/QGridLayout>
-#include <QtGui/QGroupBox>
 #include <QtGui/QIcon>
 #include <QtGui/QLabel>
 #include <QtGui/QVBoxLayout>
 
 AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
-    : QWidget ( parent )
+    : QGroupBox ( parent )
 {
   setObjectName ( QLatin1String ( "audiodevice" ) );
-  setContentsMargins ( 0, 2, 0, 2 );
-
-  QVBoxLayout* vLayout = new QVBoxLayout ( this );
-  vLayout->setContentsMargins ( 0, 2, 0, 2 );
-
-  QGroupBox* audioGroup = new QGroupBox ( trUtf8 ( "Audio Settings" ), this );
-  audioGroup->setFlat ( true );
+  setTitle ( trUtf8 ( "Audio Device" ) );
+  setFlat ( true );
+  setCheckable ( false );
 
   int grow = 0; // GridLayout RowCount
-  QGridLayout* gridLayout = new QGridLayout ( audioGroup );
-  m_swapAudio = new QComboBox ( audioGroup );
+  QGridLayout* gridLayout = new QGridLayout ( this );
+  gridLayout->setContentsMargins ( 0, 2, 0, 2 );
+
+  m_swapAudio = new QComboBox ( this );
   /*: WhatsThis */
   m_swapAudio->setWhatsThis ( trUtf8 ( "choose the audio interface to use" ) );
   m_swapAudio->insertItem ( NONE, trUtf8 ( "Audio System" ) );
@@ -69,12 +66,12 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   gridLayout->addWidget ( m_swapAudio, grow++, 0, 1, 3, Qt::AlignRight );
 
   // Volume {
-  QLabel* txt0 = new QLabel ( audioGroup );
+  QLabel* txt0 = new QLabel ( this );
   txt0->setText ( trUtf8 ( "Audio Intensifier:" ) );
   txt0->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt0, grow, 0, 1, 1 );
 
-  m_slider = new QSlider ( Qt::Horizontal, audioGroup );
+  m_slider = new QSlider ( Qt::Horizontal, this );
   m_slider->setObjectName ( QLatin1String ( "AudioSlider" ) );
   /*: ToolTip */
   m_slider->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
@@ -87,30 +84,30 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   gridLayout->addWidget ( m_slider, grow++, 1, 1, 2 );
   // } Volume
 
-  QLabel* txt1 = new QLabel ( audioGroup );
+  QLabel* txt1 = new QLabel ( this );
   txt1->setText ( trUtf8 ( "Audio Capture Device:" ) );
   txt1->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt1, grow, 0, 1, 1 );
 
-  device = new QLineEdit ( audioGroup );
+  device = new QLineEdit ( this );
   device->setObjectName ( QLatin1String ( "device" ) );
   /*: WhatsThis */
   device->setWhatsThis ( trUtf8 ( "Audio Capture Device\nExample for OSS: /dev/dsp" ) );
   gridLayout->addWidget ( device, grow, 1, 1, 1 );
 
-  m_audiodevButton = new QToolButton ( audioGroup );
+  m_audiodevButton = new QToolButton ( this );
   m_audiodevButton->setIcon ( QIcon::fromTheme ( "audio-headset" ) );
   m_audiodevButton->setWhatsThis ( trUtf8 ( "Open dialog to select audio capture device" ) );
   m_audiodevButton->setDisabled ( true ); // Standard ist Deaktiviert
   gridLayout->addWidget ( m_audiodevButton, grow++, 2, 1, 1 );
 
   // sample_fmt {
-  QLabel* txt2 = new QLabel ( audioGroup );
+  QLabel* txt2 = new QLabel ( this );
   txt2->setText ( trUtf8 ( "Sample Format:" ) );
   txt2->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt2, grow, 0, 1, 1 );
 
-  m_audioSampleFormat = new QComboBox ( audioGroup );
+  m_audioSampleFormat = new QComboBox ( this );
   m_audioSampleFormat->setObjectName ( QLatin1String ( "sample_fmt" ) );
   /*: ToolTip */
   m_audioSampleFormat->setToolTip ( trUtf8 ( "Audio sample format" ) );
@@ -134,13 +131,13 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   // } sample_fmt
 
   // audio_service_type {
-  QLabel* txt3 = new QLabel ( audioGroup );
+  QLabel* txt3 = new QLabel ( this );
   /*: Note: short */
   txt3->setText ( trUtf8 ( "Audio Service Type:" ) );
   txt3->setAlignment ( ( Qt::AlignRight | Qt::AlignTrailing | Qt::AlignVCenter ) );
   gridLayout->addWidget ( txt3, grow, 0, 1, 1 );
 
-  m_audioServiceType = new QComboBox ( audioGroup );
+  m_audioServiceType = new QComboBox ( this );
   m_audioServiceType->setObjectName ( QLatin1String ( "audio_service_type" ) );
   /*: ToolTip */
   m_audioServiceType->setToolTip ( trUtf8 ( "Audio service type" ) );
@@ -164,10 +161,9 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   gridLayout->addWidget ( m_audioServiceType, grow++, 1, 1, 2, Qt::AlignLeft );
   // } audio_service_type
 
-  vLayout->addWidget ( audioGroup );
-  vLayout->addStretch ( 1 );
+  gridLayout->setRowStretch ( grow++, 1 );
 
-  setLayout ( vLayout );
+  setLayout ( gridLayout );
 
   connect ( m_swapAudio, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( audioEngineChanged ( int ) ) );
@@ -200,7 +196,7 @@ void AudioDeviceWidget::openAlsaDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
-    emit postUpdate();
+    emit postUpdate( true );
   }
   delete dialog;
 }
@@ -219,15 +215,22 @@ void AudioDeviceWidget::openPulseDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
-    emit postUpdate();
+    emit postUpdate( true );
   }
   delete dialog;
 #endif
 }
 
+/** Ein Eingabe Status wurde geändert */
+void AudioDeviceWidget::statusUpdate ( bool )
+{
+  emit postUpdate( true );
+}
+
+/** Ein Eingabe Status wurde geändert */
 void AudioDeviceWidget::integerUpdate ( int )
 {
-  emit postUpdate();
+  emit postUpdate( true );
 }
 
 /**
@@ -300,7 +303,7 @@ void AudioDeviceWidget::audioEngineChanged ( int index )
       m_audiodevButton->setDisabled ( true );
       break;
   };
-  emit postUpdate();
+  emit postUpdate( true );
 }
 
 /**

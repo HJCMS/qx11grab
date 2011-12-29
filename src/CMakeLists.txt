@@ -4,12 +4,12 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${QX11GRAB_INCLUDES}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}/settings
-  ${CMAKE_CURRENT_SOURCE_DIR}/settings
   ${CMAKE_CURRENT_BINARY_DIR}/avoptions
   ${CMAKE_CURRENT_SOURCE_DIR}/avoptions
   ${CMAKE_CURRENT_BINARY_DIR}/audio
   ${CMAKE_CURRENT_SOURCE_DIR}/audio
+  ${CMAKE_CURRENT_BINARY_DIR}/settings
+  ${CMAKE_CURRENT_SOURCE_DIR}/settings
   ${CMAKE_CURRENT_BINARY_DIR}/utils
   ${CMAKE_CURRENT_SOURCE_DIR}/utils
   ${CMAKE_CURRENT_BINARY_DIR}/ffprocess
@@ -24,9 +24,9 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${CMAKE_CURRENT_SOURCE_DIR}/bookmark
 )
 
-ADD_SUBDIRECTORY (settings)
 ADD_SUBDIRECTORY (avoptions)
 ADD_SUBDIRECTORY (audio)
+ADD_SUBDIRECTORY (settings)
 ADD_SUBDIRECTORY (utils)
 ADD_SUBDIRECTORY (ffprocess)
 ADD_SUBDIRECTORY (tableeditor)
@@ -35,11 +35,10 @@ ADD_SUBDIRECTORY (cmd)
 ADD_SUBDIRECTORY (bookmark)
 
 SET (qx11grab_SOURCES
-  defaults.cpp
   main.cpp
   menubar.cpp
   toolbar.cpp
-  qx11grab.cpp
+  mainwindow.cpp
   systemtray.cpp
   qx11grabadaptor.cpp
   exportdialog.cpp
@@ -47,10 +46,9 @@ SET (qx11grab_SOURCES
 )
 
 SET (qx11grab_HEADERS
-  defaults.h
   menubar.h
   toolbar.h
-  qx11grab.h
+  mainwindow.h
   systemtray.h
   qx11grabadaptor.h
   exportdialog.h

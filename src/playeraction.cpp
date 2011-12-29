@@ -20,6 +20,7 @@
 **/
 
 #include "playeraction.h"
+#include "settings.h"
 
 /* QX11Grab */
 // #include ""
@@ -107,8 +108,8 @@ void PlayerAction::searchPlayers()
 
 void PlayerAction::playOuputFile ( const QString &player )
 {
-  QSettings settings;
-  QFileInfo file ( settings.value ( QLatin1String ( "CurrentOutputFile" ) ).toString() );
+  Settings settings;
+  QFileInfo file ( settings.absoluteOutputPath() );
   if ( file.exists() )
     QProcess::startDetached ( player, QStringList ( file.absoluteFilePath() ) );
 }

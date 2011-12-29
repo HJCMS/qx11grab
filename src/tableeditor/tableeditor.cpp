@@ -47,6 +47,7 @@ TableEditor::TableEditor ( QWidget * parent )
     , sharedAudioCodec ( 0 )
 {
   setObjectName ( QLatin1String ( "TableEditor" ) );
+  setContentsMargins ( 5, 5, 5, 5 );
 
   QGridLayout* layout =  new QGridLayout ( this );
 
@@ -56,10 +57,14 @@ TableEditor::TableEditor ( QWidget * parent )
 
   // ComboBox
   m_codecSelecter = new CodecSelecter ( this );
+  /*: WhatsThis */
+  m_codecSelecter->setWhatsThis ( trUtf8 ( "codec selecter" ) );
   layout->addWidget ( m_codecSelecter, grow++, 1, 1, 1 );
 
   // Table
   m_tableWidget = new CodecTable ( this );
+  /*: WhatsThis */
+  m_tableWidget->setWhatsThis ( trUtf8 ( "codec editor table" ) );
   layout->addWidget ( m_tableWidget, grow++, 0, 1, 2 );
 
   QDialogButtonBox* buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );

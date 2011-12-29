@@ -22,7 +22,6 @@
 #include "grabberinfo.h"
 #include "desktopinfo.h"
 #include "screencombobox.h"
-#include "loglevelcombobox.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -44,6 +43,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
     , screenGeometry ( QRect ( 0, 0, 100, 100 ) )
 {
   setObjectName ( QLatin1String ( "grabberinfo" ) );
+  setContentsMargins ( 5, 5, 5, 5 );
 
   int minBox = 80;
 
@@ -170,52 +170,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   gridLayout->addLayout ( horizontalLayout, grow++, 0, 1, 3 );
 
-  // start: Features
-  QGroupBox* featureBox = new QGroupBox ( trUtf8 ( "Features" ), this );
-  QGridLayout* checkBoxLayout = new QGridLayout ( featureBox );
-  featureBox->setLayout ( checkBoxLayout );
-
-  showRubberband = new QCheckBox ( featureBox );
-  /*: ToolTip */
-  showRubberband->setToolTip ( trUtf8 ( "enable rubberband at application start" ) );
-  /*: WhatsThis */
-  showRubberband->setWhatsThis ( trUtf8 ( "always show the rubberband on application start" ) );
-  showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
-  showRubberband->setChecked ( true );
-  checkBoxLayout->addWidget ( showRubberband, 0, 0, 1, 1 );
-
-  startMinimized = new QCheckBox ( featureBox );
-  /*: WhatsThis */
-  startMinimized->setWhatsThis ( trUtf8 ( "start QX11Grab minimized" ) );
-  startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
-  startMinimized->setChecked ( true );
-  checkBoxLayout->addWidget ( startMinimized, 0, 1, 1, 1 );
-
-  setMetadata = new QCheckBox ( featureBox );
-  /*: WhatsThis */
-  setMetadata->setWhatsThis ( trUtf8 ( "enable/disable auto insert metadata in the captured video" ) );
-  setMetadata->setText ( trUtf8 ( "Insert Metadata" ) );
-  setMetadata->setChecked ( true );
-  checkBoxLayout->addWidget ( setMetadata, 1, 0, 1, 1 );
-
-  soundRecording = new QCheckBox ( featureBox );
-  /*: WhatsThis */
-  soundRecording->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
-  soundRecording->setText ( trUtf8 ( "Enable Audio Recording" ) );
-  soundRecording->setChecked ( true );
-  checkBoxLayout->addWidget ( soundRecording, 1, 1, 1, 1 );
-
-  checkBoxLayout->addWidget ( ( new QLabel ( trUtf8 ( "Report Level" ), featureBox ) ),
-                              2, 0, 1, 1, Qt::AlignRight );
-
-  m_logLevelComboBox = new LogLevelComboBox ( featureBox );
-  checkBoxLayout->addWidget ( m_logLevelComboBox, 2, 1, 1, 1 );
-
-  gridLayout->addWidget ( featureBox, grow++, 0, 1, 3 );
-  // end: Features
-
-  QSpacerItem* spacer  = new QSpacerItem ( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-  gridLayout->addItem ( spacer, grow++, 0, 1, 2 );
+  gridLayout->setRowStretch ( grow++, 1 );
 
   setLayout ( gridLayout );
 
@@ -277,17 +232,8 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
 
-  connect ( setMetadata, SIGNAL ( stateChanged ( int ) ),
-            this, SLOT ( integerUpdate ( int ) ) );
-
-  connect ( soundRecording, SIGNAL ( stateChanged ( int ) ),
-            this, SLOT ( integerUpdate ( int ) ) );
-
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
             this, SLOT ( setInputDefaults ( int ) ) );
-
-  connect ( m_logLevelComboBox, SIGNAL ( currentIndexChanged ( int ) ),
-            this, SLOT ( integerUpdate ( int ) ) );
 }
 
 /**
@@ -354,12 +300,6 @@ void GrabberInfo::load ( QSettings *cfg )
   setRect ( cfg->value ( QLatin1String ( "Grabber/Dimension" ) ).toRect() );
   setDepth->setValue ( cfg->value ( QLatin1String ( "Grabber/Depth" ), 24 ).toUInt() );
   setFrameRate->setValue ( cfg->value ( QLatin1String ( "Grabber/FrameRate" ), 25 ).toUInt() );
-  m_logLevelComboBox->setValue ( cfg->value ( QLatin1String ( "Grabber/LogLevel" ), "NONE" ).toString() );
-  // Options
-  showRubberband->setChecked ( cfg->value ( QLatin1String ( "showRubberband" ) ).toBool() );
-  startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
-  soundRecording->setChecked ( cfg->value ( QLatin1String ( "SoundRecording" ) ).toBool() );
-  setMetadata->setChecked ( cfg->value ( QLatin1String ( "Metadata" ) ).toBool() );
 }
 
 /**
@@ -367,47 +307,10 @@ void GrabberInfo::load ( QSettings *cfg )
 */
 void GrabberInfo::save ( QSettings *cfg )
 {
-  cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
-  cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
-  cfg->setValue ( QLatin1String ( "SoundRecording" ), soundRecording->isChecked() );
-  cfg->setValue ( QLatin1String ( "Metadata" ), setMetadata->isChecked() );
   // Grabber
   cfg->setValue ( QLatin1String ( "Grabber/Dimension" ), getRect() );
   cfg->setValue ( QLatin1String ( "Grabber/Depth" ), setDepth->value() );
   cfg->setValue ( QLatin1String ( "Grabber/FrameRate" ), setFrameRate->value() );
-  cfg->setValue ( QLatin1String ( "Grabber/LogLevel" ), m_logLevelComboBox->value() );
-}
-
-/**
-* Soll das Gummiband angezeigt werden?
-*/
-bool GrabberInfo::showRubberOnStart()
-{
-  return showRubberband->isChecked();
-}
-
-/**
-* Ist die Audio Aufnahme aktiviert?
-*/
-bool GrabberInfo::soundEnabled()
-{
-  return soundRecording->isChecked ();
-}
-
-/**
-* Sollen die Kopfdaten eingefügt werden?
-*/
-bool GrabberInfo::metaEnabled()
-{
-  return setMetadata->isChecked ();
-}
-
-/**
-* SLOT für die Anzeige des Gummibandes
-*/
-void GrabberInfo::setRubberbandCheckBox ( bool b )
-{
-  showRubberband->setChecked ( b );
 }
 
 /**
@@ -468,11 +371,6 @@ int GrabberInfo::frameRate()
 {
   int rate = setFrameRate->value();
   return ( rate > 0 ) ? rate : 25;
-}
-
-const QString GrabberInfo::logLevel()
-{
-  return m_logLevelComboBox->value();
 }
 
 GrabberInfo::~GrabberInfo()

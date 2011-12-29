@@ -28,14 +28,15 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QLineEdit>
 #include <QtGui/QComboBox>
+#include <QtGui/QGroupBox>
+#include <QtGui/QLineEdit>
 #include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
-class AudioDeviceWidget : public QWidget
+class AudioDeviceWidget : public QGroupBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -53,60 +54,103 @@ class AudioDeviceWidget : public QWidget
     void openPulseDialog();
 
   private Q_SLOTS:
+    void statusUpdate ( bool );
     void integerUpdate ( int );
     void getpcmClicked();
     void audioEngineChanged ( int index );
 
   Q_SIGNALS:
-    void postUpdate();
+    /**
+    * this signal is emitted when items updated
+    */
+    void postUpdate( bool );
 
   public:
-    enum AUDIODEV { NONE = 0, ALSA = 1, OSS = 2, PULSE = 3 };
+    explicit AudioDeviceWidget ( QWidget * parent = 0 );
 
-    AudioDeviceWidget ( QWidget * parent = 0 );
+    /**
+    * indexes for audio engine ComboBox
+    */
+    enum AUDIODEV
+    {
+      NONE = 0, /**< Dummy for Experts only */
+      ALSA = 1, /**< Advanced Linux Sound Architecture (alsa) */
+      OSS = 2,  /**< Open Sound System (oss) */
+      PULSE = 3 /**< Soundserver (pulse) */
+    };
 
-    void setVolume ( int );
+    /**
+     * set audio itensifier
+     * \param i Itensifier level
+     */
+    void setVolume ( int i );
+
+    /**
+     * get current audio itensifier
+     */
     int getVolume ();
 
-    void setAudioEngine ( const QString & );
+    /**
+     * find ComboBox item with name for select index
+     * \param t Audio Engine Type \see AUDIODEV
+     */
+    void setAudioEngine ( const QString &t );
+
+    /**
+     * read selected audio engine from ComboBox
+     */
     const QString getAudioEngine ();
 
+    /**
+     * set current audio engine index in ComboBox to LineEdit
+     * \param dev Audio Engine Type
+     */
     void setAudioDevice ( AudioDeviceWidget::AUDIODEV dev );
-    void setAudioDevice ( const QString & );
+
+    /**
+     * force audio device and ignore selected ComboBox item
+     * \param d Device Definition.
+     * \note The Default for OSS is \e "/dev/dsp", Alsa and Pulse \e "default".
+     */
+    void setAudioDevice ( const QString &d );
+
+    /**
+     * read selected audio device from LineEdit
+     */
     const QString getAudioDevice ();
 
     /**
-    * Set the audio sample format.
-    * \see ffmpeg -sample_fmts
-    * \param sfmt sample format
-    */
+     * Set the audio sample format.
+     * \see ffmpeg -sample_fmts
+     * \param sfmt sample format
+     */
     void setSampleFormat ( const QString &sfmt );
 
     /**
-    * Get the audio sample format.
-    * \see ffmpeg -sample_fmt
-    */
+     * Get the audio sample format.
+     * \see ffmpeg -sample_fmt
+     */
     const QString getSampleFormat();
 
     /**
-    * Set the audio service type
-    * \see ffmpeg -audio_service_type
-    * \param ast type default:ma
-    */
+     * Set the audio service type
+     * \see ffmpeg -audio_service_type
+     * \param ast type default:ma
+     */
     void setAudioServiceType ( const QString &ast );
 
     /**
-    * Get the audio service type
-    * \see ffmpeg -audio_service_type
-    */
+     * Get the audio service type
+     * \see ffmpeg -audio_service_type
+     */
     const QString getAudioServiceType();
 
     /**
-    * Configured commandline String
-    */
+     * Configured commandline String
+     */
     const QStringList data();
 
-    virtual ~AudioDeviceWidget();
+    ~AudioDeviceWidget();
 };
 
 #endif

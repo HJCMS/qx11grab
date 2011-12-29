@@ -31,7 +31,7 @@
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "qx11grab.h"
+#include "mainwindow.h"
 
 class BookmarkSelecter;
 class PlayerAction;
@@ -43,7 +43,7 @@ class ToolBar : public QToolBar
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QX11Grab* mainWindow;
+    MainWindow* m_mainWindow;
     QAction* m_viewLogAction;
     PlayerAction* m_player;
     BookmarkSelecter* m_bookmarkSelecter;
@@ -53,7 +53,7 @@ class ToolBar : public QToolBar
     void setPlayerEnabled ( bool b = false );
 
   public:
-    ToolBar ( QX11Grab * parent );
+    ToolBar ( MainWindow * parent );
     ~ToolBar();
 };
 

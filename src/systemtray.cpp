@@ -33,9 +33,9 @@
 /* QtGui */
 #include <QtGui/QMenu>
 
-SystemTray::SystemTray ( QX11Grab * parent )
+SystemTray::SystemTray ( MainWindow * parent )
     : QSystemTrayIcon ( parent )
-    , mainWindow ( parent )
+    , m_mainWindow ( parent )
 {
   setObjectName ( QLatin1String ( "SystemTray" ) );
   setIcon ( getThemeIcon ( "qx11grab" ) );
@@ -70,22 +70,22 @@ SystemTray::SystemTray ( QX11Grab * parent )
   setContextMenu ( m_menu );
 
   connect ( grabActionFromWindow, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( grabFromWindow() ) );
+            m_mainWindow, SLOT ( grabFromWindow() ) );
 
   connect ( showRubberbandWindow, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( swapRubberBand() ) );
+            m_mainWindow, SLOT ( swapRubberBand() ) );
 
   connect ( m_actionStartRecord, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( startRecord() ) );
+            m_mainWindow, SLOT ( startRecord() ) );
 
   connect ( m_actionStopRecord, SIGNAL ( triggered() ),
-            mainWindow, SIGNAL ( stopRecording () ) );
+            m_mainWindow, SIGNAL ( stopRecording () ) );
 
   connect ( minimizeWindowAction, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( hide() ) );
+            m_mainWindow, SLOT ( hide() ) );
 
   connect ( displayWindowAction, SIGNAL ( triggered() ),
-            mainWindow, SLOT ( showNormal() ) );
+            m_mainWindow, SLOT ( showNormal() ) );
 
   connect ( quitWindowAction, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );

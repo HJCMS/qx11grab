@@ -9,7 +9,6 @@ SET (_subproject_SOURCES
   grabberinfo.cpp
   windowgrabber.cpp
   rubberband.cpp
-  loglevelcombobox.cpp
 )
 
 SET (_subproject_HEADERS
@@ -19,7 +18,6 @@ SET (_subproject_HEADERS
   grabberinfo.h
   windowgrabber.h
   rubberband.h
-  loglevelcombobox.h
 )
 
 SET (_subproject_NOMOC_HEADERS

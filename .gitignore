@@ -18,3 +18,4 @@ tags
 *.kdev4
 core
 CMakeLists.txt.user
+.ctags
