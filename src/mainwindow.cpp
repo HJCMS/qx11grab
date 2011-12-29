@@ -561,11 +561,6 @@ void MainWindow::preparePreview ( bool b )
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
 
-  // Experts
-  QStringList expert = cfg->getExpertCommand();
-  if ( expert.size() > 0 )
-    commandLine << expert;
-
   // Dimension
   QX11Info xInfo;
   QRect r = m_grabberInfo->getRect();
@@ -582,6 +577,14 @@ void MainWindow::preparePreview ( bool b )
 
   // Decoder
   commandLine << "-dcodec" << "copy";
+
+  // Experts
+  if ( cfg->expertMode() )
+  {
+    QStringList expert = cfg->getExpertCommand();
+    if ( expert.size() > 0 )
+      commandLine << expert;
+  }
 
   // Audio System
   if ( m_audioGroupBox->isChecked() )

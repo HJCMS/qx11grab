@@ -31,6 +31,7 @@
 /* QtGui */
 #include <QtGui/QGridLayout>
 #include <QtGui/QLayout>
+#include <QtGui/QListWidgetItem>
 #include <QtGui/QIcon>
 #include <QtGui/QSizePolicy>
 
@@ -39,7 +40,7 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
     , cfg ( settings )
 {
   setObjectName ( QLatin1String ( "ConfigDialog" ) );
-  /*: WindowTitle */
+  /*: WindowTitle NOTE Do not strip "[*]" This is needed for Modifications View an will Automatical hidden */
   setWindowTitle ( trUtf8 ( "Configure[*]" ) );
   setWindowIcon ( QIcon::fromTheme ( "configure" ) );
   setSizeGripEnabled ( true );
@@ -49,30 +50,32 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
 
   m_stackedWidget = new QStackedWidget ( this );
   m_stackedWidget->setObjectName ( QLatin1String ( "ConfigDialog/StackedWidget" ) );
-  m_stackedWidget->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
   layout->addWidget ( m_stackedWidget, 0, 0, 1, 1 );
 
   m_listWidget = new QListWidget ( this );
   m_listWidget->setObjectName ( QLatin1String ( "ConfigDialog/ListWidget" ) );
+  m_listWidget->setMaximumWidth ( 180 );
+  m_listWidget->setViewMode ( QListView::ListMode );
+  m_listWidget->setResizeMode ( QListView::Adjust );
   layout->addWidget ( m_listWidget, 0, 1, 1, 1, Qt::AlignRight );
 
   // Begin: insertItems {
   int index = 0;
   m_mainFunctions = new MainFunctions ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_mainFunctions );
-  m_listWidget->insertItem ( index++, trUtf8 ( "Application" ) );
+  insertMenuItem ( index++, trUtf8 ( "Application" ), "menu-applications" );
 
   m_targets = new TargetsWidget ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_targets );
-  m_listWidget->insertItem ( index++, trUtf8 ( "Targets" ) );
+  insertMenuItem ( index++, trUtf8 ( "Targets" ), "text-directory" );
 
   m_audioDeviceWidget = new AudioDeviceWidget ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_audioDeviceWidget );
-  m_listWidget->insertItem ( index++, trUtf8 ( "Audio" ) );
+  insertMenuItem ( index++, trUtf8 ( "Audio" ), "menu-audio-edit" );
 
   m_extraOptions = new ExtraOptions ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_extraOptions );
-  m_listWidget->insertItem ( index++, trUtf8 ( "Experts" ) );
+  insertMenuItem ( index++, trUtf8 ( "Experts" ), "menu-video-edit" );
   // } End: insertItems
 
   m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
@@ -98,6 +101,15 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 
   loadSettings();
+}
+
+void ConfigDialog::insertMenuItem ( int index, const QString &title, const QString &icon )
+{
+  QListWidgetItem* item = new QListWidgetItem ( m_listWidget, QListWidgetItem::UserType );
+  item->setData ( Qt::DisplayRole, title );
+  item->setData ( Qt::UserRole, index );
+  item->setData ( Qt::DecorationRole, QIcon::fromTheme ( icon ) );
+  m_listWidget->insertItem ( index, item );
 }
 
 void ConfigDialog::checkDistinctions ( bool b )

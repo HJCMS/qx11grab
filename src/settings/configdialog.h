@@ -57,6 +57,8 @@ class ConfigDialog : public QDialog
     QListWidget* m_listWidget;
     QDialogButtonBox* m_buttonBox;
 
+    void insertMenuItem ( int index, const QString &title, const QString &icon );
+
   private Q_SLOTS:
     void checkDistinctions ( bool );
     void loadSettings();

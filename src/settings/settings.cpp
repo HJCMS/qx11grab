@@ -49,6 +49,11 @@ bool Settings::showRubberOnStart()
   return value ( "showRubberband", true ).toBool();
 }
 
+bool Settings::expertMode()
+{
+  return value ( "ExpertMode", false ).toBool();
+}
+
 void Settings::saveGroup ( const QString &group, const QHash<QString,QVariant> &data )
 {
   if ( group.isEmpty() )

@@ -40,9 +40,12 @@
 // #include <QtGui/>
 
 TargetsWidget::TargetsWidget ( QWidget * parent )
-    : QWidget ( parent )
+    : QGroupBox ( parent )
 {
   setObjectName ( QLatin1String ( "TargetsWidget" ) );
+  /*: GroupBoxTitle */
+  setTitle ( trUtf8 ( "Directories && Files" ) );
+  setFlat ( true );
 
   QGridLayout* gridLayout = new QGridLayout ( this );
   gridLayout->setContentsMargins ( 2, 2, 2, 2 );
@@ -149,6 +152,7 @@ void TargetsWidget::setFFmpegBinary()
 
 void TargetsWidget::valiadateInput ( const QString &name )
 {
+  Q_UNUSED ( name );
   emit postUpdate ( true );
 }
 

@@ -35,7 +35,9 @@ MainFunctions::MainFunctions ( QWidget * parent )
     : QGroupBox ( parent )
 {
   setObjectName ( QLatin1String ( "MainFunctions" ) );
+  /*: GroupBoxTitle */
   setTitle ( trUtf8 ( "Features" ) );
+  setFlat ( true );
 
   QFormLayout* layout = new QFormLayout ( this );
   layout->setLabelAlignment ( Qt::AlignRight );
@@ -50,11 +52,22 @@ MainFunctions::MainFunctions ( QWidget * parent )
   layout->addRow ( showRubberband );
 
   startMinimized = new QCheckBox ( this );
+  /*: ToolTip */
+  startMinimized->setToolTip ( trUtf8 ( "start qx11grab minimized" ) );
   /*: WhatsThis */
-  startMinimized->setWhatsThis ( trUtf8 ( "start QX11Grab minimized" ) );
+  startMinimized->setWhatsThis ( trUtf8 ( "only show qx11grab on start in systray" ) );
   startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
   startMinimized->setChecked ( true );
   layout->addRow ( startMinimized );
+
+  expertMode = new QCheckBox ( this );
+  /*: ToolTip */
+  expertMode->setToolTip ( trUtf8 ( "Enable/Disable expert editor mode" ) );
+  /*: WhatsThis */
+  expertMode->setWhatsThis ( trUtf8 ( "Enable auto insert my expert settings" ) );
+  expertMode->setText ( trUtf8 ( "Expert Mode" ) );
+  expertMode->setChecked ( false );
+  layout->addRow ( expertMode );
 
   m_logLevelComboBox = new LogLevelComboBox ( this );
   layout->addRow ( trUtf8 ( "Report Level" ), m_logLevelComboBox );
@@ -73,7 +86,8 @@ MainFunctions::MainFunctions ( QWidget * parent )
 void MainFunctions::load ( Settings * cfg )
 {
   showRubberband->setChecked ( cfg->showRubberOnStart() );
-  startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ) ).toBool() );
+  startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ), false ).toBool() );
+  expertMode->setChecked ( cfg->expertMode() );
   m_logLevelComboBox->setValue ( cfg->logLevel() );
 }
 
@@ -81,6 +95,7 @@ void MainFunctions::save ( Settings * cfg )
 {
   cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
+  cfg->setValue ( QLatin1String ( "ExpertMode" ), expertMode->isChecked() );
   cfg->setLogLevel ( m_logLevelComboBox->value() );
 }
 

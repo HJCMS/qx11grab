@@ -43,6 +43,11 @@ class Settings : public QSettings
     bool showRubberOnStart();
 
     /**
+     * Muster of the Univers ;)
+     */
+    bool expertMode();
+
+    /**
      * Write Group Options
      */
     void saveGroup ( const QString &group, const QHash<QString,QVariant> &data );

@@ -29,6 +29,7 @@
 #include <QtCore/QStringList>
 
 /* QtGui */
+#include <QtGui/QGroupBox>
 #include <QtGui/QCheckBox>
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
@@ -36,7 +37,7 @@
 /* QX11Grab */
 #include "settings.h"
 
-class TargetsWidget : public QWidget
+class TargetsWidget : public QGroupBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )

@@ -32,6 +32,8 @@ LogLevelComboBox::LogLevelComboBox ( QWidget * parent )
     : QComboBox ( parent )
 {
   setObjectName ( QLatin1String ( "LogLevelComboBox" ) );
+  /*: ToolTip */
+  setToolTip ( trUtf8 ( "FFmpeg logging level" ) );
   /*: WhatsThis */
   setWhatsThis ( trUtf8 ( "Set the logging level used by the FFmpeg application" ) );
 
