@@ -49,6 +49,7 @@ class CommandLineEdit : public QListWidget
     void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
+    void restoreRequest();
     void dataSaved ( const QStringList & );
 
   public:

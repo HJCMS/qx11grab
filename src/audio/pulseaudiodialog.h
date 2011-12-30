@@ -33,6 +33,13 @@
 /* QX11Grab */
 #include "abstractaudiodialog.h"
 
+/**
+* this dialog will find all pulse sources for user selcetion
+* normaly FFmpeg use the "default" record descriptor
+* \code
+*   xprop -root | grep ^PULSE_S
+* \endcode
+*/
 class PulseAudioDialog : public AbstractAudioDialog
 {
     Q_OBJECT

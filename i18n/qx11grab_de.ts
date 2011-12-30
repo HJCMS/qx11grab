@@ -301,6 +301,15 @@ ToolTip</extracomment>
 ToolTip</extracomment>
         <translation>Entferne Kommandozeile</translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation>Zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Restore Preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Vorschau neu Laden</translation>
+    </message>
 </context>
 <context>
     <name>CommandPreview</name>
@@ -308,12 +317,17 @@ ToolTip</extracomment>
         <source>Display the current FFmpeg command.</source>
         <translation>Zeigt die aktuellen FFmpeg Argumente an.</translation>
     </message>
+    <message>
+        <source>Restore to current Configuration</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Lese die Aktuelle Konfiguration Neu ein</translation>
+    </message>
 </context>
 <context>
     <name>ConfigDialog</name>
     <message>
         <source>Configure[*]</source>
-        <extracomment>WindowTitle</extracomment>
+        <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation>Konfigurieren[*]</translation>
     </message>
     <message>
@@ -461,10 +475,6 @@ ToolTip</extracomment>
         <translation>Position Y:</translation>
     </message>
     <message>
-        <source>Depth:</source>
-        <translation>Farbtiefe:</translation>
-    </message>
-    <message>
         <source>Framerate:</source>
         <translation></translation>
     </message>
@@ -480,7 +490,44 @@ ToolTip</extracomment>
     <message>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Setzt die Datenübertragungs Blockgröße in dem Aufnahme Video.</translation>
+        <translation>Setzt die Datenübertragungs Blockgröße im Aufnahme Video.</translation>
+    </message>
+    <message>
+        <source>made rubberband witdh smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation>Vergrößert/Verkleinert die Gummibandbreite.</translation>
+    </message>
+    <message>
+        <source>made rubberband height smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation>Vergrößert/Verkleinert die Gummibandhöhe.</translation>
+    </message>
+    <message>
+        <source>Displaces x-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation>Verschiebt das Gummiband auf der X-Achse</translation>
+    </message>
+    <message>
+        <source>Displaces y-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation>Verschiebt das Gummiband auf der Y-Achse</translation>
+    </message>
+    <message>
+        <source>Color depth:</source>
+        <translation>Farbtiefe</translation>
+    </message>
+    <message>
+        <source>current color depth</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Aktuelle Farbtiefe</translation>
     </message>
 </context>
 <context>
@@ -526,6 +573,11 @@ ToolTip</extracomment>
         <source>Manual</source>
         <translation>Manuell</translation>
     </message>
+    <message>
+        <source>FFmpeg logging level</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>FFmpeg Berichtsstärke</translation>
+    </message>
 </context>
 <context>
     <name>LogViewer</name>
@@ -539,6 +591,7 @@ ToolTip</extracomment>
     <name>MainFunctions</name>
     <message>
         <source>Features</source>
+        <extracomment>GroupBoxTitle</extracomment>
         <translation>Fähigkeiten</translation>
     </message>
     <message>
@@ -556,17 +609,36 @@ ToolTip</extracomment>
         <translation>Zeige Gummiband</translation>
     </message>
     <message>
-        <source>start QX11Grab minimized</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Starte QX11Grab minimiert</translation>
-    </message>
-    <message>
         <source>Start Minimized</source>
         <translation>Starte Minimiert</translation>
     </message>
     <message>
         <source>Report Level</source>
         <translation>Berichtstärke</translation>
+    </message>
+    <message>
+        <source>start qx11grab minimized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Starte qx11grab Minimiert</translation>
+    </message>
+    <message>
+        <source>only show qx11grab on start in systray</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Beim Start qx11grab nur in der Systemleiste anzeigen</translation>
+    </message>
+    <message>
+        <source>Enable/Disable expert editor mode</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Aktiviere/Deaktiviere den Experten Modus</translation>
+    </message>
+    <message>
+        <source>Enable auto insert my expert settings</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Aktiviere das Automatische einfügen der Experten Einstellungen</translation>
+    </message>
+    <message>
+        <source>Expert Mode</source>
+        <translation>Experten Modus</translation>
     </message>
 </context>
 <context>
@@ -636,6 +708,10 @@ ToolTip</extracomment>
     <message>
         <source>Open Bookmark %1</source>
         <translation>Öffne Lesezeichen %1</translation>
+    </message>
+    <message>
+        <source>Missing Input</source>
+        <translation>Keine Eingabe erhalten</translation>
     </message>
 </context>
 <context>
@@ -859,10 +935,6 @@ ToolTip</extracomment>
         <translation>Betreff:</translation>
     </message>
     <message>
-        <source>Description:</source>
-        <translation>Beschreibung:</translation>
-    </message>
-    <message>
         <source>Note many formats only support a handful of metadata keys.</source>
         <translation>Achtung: Viele Formate Unterstützen nicht jeden Schlüssel.</translation>
     </message>
@@ -894,6 +966,40 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktiviere/Deaktiviere das automatische einfügen von Kopfdaten</translation>
+    </message>
+    <message>
+        <source>Name or Movie Name</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Name oder Videotitel</translation>
+    </message>
+    <message>
+        <source>Author, Director or Artist</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Ersteller, Regisseur oder Künstler</translation>
+    </message>
+    <message>
+        <source>Copyright</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Urheberrecht</translation>
+    </message>
+    <message>
+        <source>Creation Date</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Erstellungs Datum</translation>
+    </message>
+    <message>
+        <source>Subject</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Betreff</translation>
+    </message>
+    <message>
+        <source>Comments:</source>
+        <translation>Kommentar:</translation>
+    </message>
+    <message>
+        <source>Comments</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Kommentar</translation>
     </message>
 </context>
 <context>
@@ -1039,6 +1145,21 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <extracomment>WhatsThis</extracomment>
         <translation>Kodierer Editor Tabelle</translation>
     </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Dieser Knopf fügt eine Neue Zeile in die Tabelle ein.</translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Dieser Knopf entfernt alle Ausgewählten Zeilen aus der Tabelle.</translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Dieser Knopf leert den Tabellen Inhalt.</translation>
+    </message>
 </context>
 <context>
     <name>TargetsWidget</name>
@@ -1096,6 +1217,11 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
             <lengthvariant>Zielverzeichnis</lengthvariant>
         </translation>
     </message>
+    <message>
+        <source>Directories &amp;&amp; Files</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation>Verzeichnisse &amp;&amp; Dateien</translation>
+    </message>
 </context>
 <context>
     <name>TextView</name>
@@ -1112,7 +1238,26 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation>Logansicht auffrischen</translation>
+        <translation>Protokollansicht auffrischen</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation>Exportieren</translation>
+    </message>
+    <message>
+        <source>Export Logfile</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
+        <translation>Exportiere Protokolldatei</translation>
+    </message>
+    <message>
+        <source>Export logfile</source>
+        <translation>Exportiere Protokolldatei</translation>
+    </message>
+    <message>
+        <source>Logfile (%1)</source>
+        <translation>Protokolldatei (%1)</translation>
     </message>
 </context>
 </TS>

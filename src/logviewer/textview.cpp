@@ -28,10 +28,15 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QFile>
+#include <QtCore/QIODevice>
 #include <QtCore/QStringList>
+#include <QtCore/QTextStream>
 
 /* QtGui */
 #include <QtGui/QAction>
+#include <QtGui/QFileDialog>
+#include <QtGui/QIcon>
 #include <QtGui/QTextBlock>
 #include <QtGui/QTextCursor>
 #include <QtGui/QTextOption>
@@ -63,9 +68,16 @@ TextView::TextView ( QWidget * parent )
 */
 void TextView::contextMenuEvent ( QContextMenuEvent * e )
 {
-  QMenu* m = new QMenu ( this );
+  QMenu* m = createStandardContextMenu();
 
-  QAction* ac_reload = m->addAction ( getThemeIcon ( "view-refresh" ), trUtf8 ( "Refresh" ) );
+  QAction* ac_save = m->addAction ( QIcon::fromTheme ( "document-save-as" ), trUtf8 ( "Export" ) );
+  /*: ToolTip */
+  ac_save->setToolTip ( trUtf8 ( "Export Logfile" ) );
+  /*: ToolTip */
+  ac_save->setStatusTip ( trUtf8 ( "Export Logfile" ) );
+  connect ( ac_save, SIGNAL ( triggered() ), this, SLOT ( save() ) );
+
+  QAction* ac_reload = m->addAction ( QIcon::fromTheme ( "view-refresh" ), trUtf8 ( "Refresh" ) );
   /*: ToolTip */
   ac_reload->setToolTip ( trUtf8 ( "Refresh Logfile" ) );
   /*: ToolTip */
@@ -73,6 +85,23 @@ void TextView::contextMenuEvent ( QContextMenuEvent * e )
   connect ( ac_reload, SIGNAL ( triggered() ), this, SIGNAL ( refresh() ) );
 
   m->exec ( e->globalPos() );
+}
+
+void TextView::save()
+{
+  QString file = QFileDialog::getSaveFileName ( this, trUtf8 ( "Export logfile" ),
+                 QString(), trUtf8 ( "Logfile (%1)" ).arg ( "*.log *.txt" ) );
+
+  if ( file.isEmpty() )
+    return;
+
+  QFile fp ( file );
+  if ( fp.open ( QIODevice::WriteOnly ) )
+  {
+    QTextStream stream ( &fp );
+    stream << toPlainText();
+    fp.close();
+  }
 }
 
 void TextView::gotoLine ( int r )

@@ -22,6 +22,7 @@
 #include "audiodevicewidget.h"
 #include "audiodevice.h"
 #include "alsaaudiodialog.h"
+#include "opensounddialog.h"
 #ifdef HAVE_PULSE
 # include "pulseaudiodialog.h"
 #endif
@@ -202,6 +203,24 @@ void AudioDeviceWidget::openAlsaDialog()
 }
 
 /**
+* Öffnet den Dialog für das setzen der OSS Schnittstellen.
+*/
+void AudioDeviceWidget::openOSSDialog()
+{
+  OpenSoundDialog* dialog = new OpenSoundDialog ( this );
+  dialog->setCard ( device->text() );
+  if ( dialog->exec() == QDialog::Accepted )
+  {
+    AudioDevice d = dialog->cardInfo();
+    device->setText ( d.name );
+    device->setToolTip ( d.hw );
+    device->setStatusTip ( d.description );
+    emit postUpdate( true );
+  }
+  delete dialog;
+}
+
+/**
 * Öffnet den Dialog für das setzen der Pulse source Schnittstellen.
 */
 void AudioDeviceWidget::openPulseDialog()
@@ -249,6 +268,7 @@ void AudioDeviceWidget::getpcmClicked()
       break;
 
     case OSS:
+      openOSSDialog();
       break;
 
     case PULSE:
@@ -292,7 +312,7 @@ void AudioDeviceWidget::audioEngineChanged ( int index )
       break;
 
     case OSS:
-      m_audiodevButton->setDisabled ( true );
+      m_audiodevButton->setDisabled ( false );
       break;
 
     case PULSE:

@@ -45,10 +45,17 @@ class CommandPreview : public QWidget
     void setCommandLine ( QStringList & );
 
   Q_SIGNALS:
-     void dataSaved ( const QStringList & );
+    void restoreRequest();
+    void dataSaved ( const QStringList & );
 
   public:
     CommandPreview ( QWidget * parent = 0 );
+
+    /**
+    * get Users Modified Commandline
+    **/
+    const QStringList currentCommandLine();
+
     ~CommandPreview();
 };
 

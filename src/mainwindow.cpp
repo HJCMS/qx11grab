@@ -39,6 +39,7 @@
 #include "bookmarkdialog.h"
 #include "bookmark.h"
 #include "configdialog.h"
+#include "messanger.h"
 
 /* QtCore */
 #include <QtCore/QDateTime>
@@ -140,7 +141,6 @@ MainWindow::MainWindow ( Settings * settings )
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
   m_audioEditor = new TableEditor ( m_audioGroupBox );
-  /*: ToolTip */
   m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
   audioBoxlayout->addWidget ( m_audioEditor );
   m_audioGroupBox->setLayout ( audioBoxlayout );
@@ -211,6 +211,8 @@ MainWindow::MainWindow ( Settings * settings )
   connect ( m_audioEditor, SIGNAL ( postUpdate () ),
             this, SLOT ( preparePreview () ) );
 
+  connect ( m_commandPreview, SIGNAL ( restoreRequest () ),
+            this, SLOT ( preparePreview () ) );
 }
 
 void MainWindow::record()
@@ -478,12 +480,19 @@ void MainWindow::startRecord()
 
   if ( m_FFProcess->create ( m_grabberInfo->getRect() ) )
   {
-    m_systemTray->setActionsEnabled ( true );
-    m_menuBar->setActionsEnabled ( true );
+    // Nehme die Editierte Zeile des Benutzers
+    QStringList cmd = m_commandPreview->currentCommandLine();
+    if ( cmd.size() < 1 )
+    {
+      statusBarMessage ( trUtf8 ( "Missing Input" ) );
+      return;
+    }
+
     showRubber ( false );
-    QStringList cmd = cfg->getCommandline();
     if ( m_FFProcess->start ( cmd ) )
     {
+      m_systemTray->setActionsEnabled ( true );
+      m_menuBar->setActionsEnabled ( true );
       m_systemTray->setIcon ( getThemeIcon ( "media-record" ) );
       m_toolBar->setPlayerEnabled ( false );
     }
@@ -727,6 +736,24 @@ const QString MainWindow::videoCodec()
 const QString MainWindow::outputFile()
 {
   return cfg->absoluteOutputPath();
+}
+
+void MainWindow::registerBusInterface ( QDBusConnection * bus )
+{
+  if ( ! bus )
+    return;
+
+  de::hjcms::qx11grab* iface = new de::hjcms::qx11grab ( *bus, this );
+  connect ( iface, SIGNAL ( message ( const QString & ) ),
+            this, SLOT ( statusBarMessage ( const QString & ) ) );
+
+  if ( ! iface->isValid() )
+  {
+    qWarning() << "Notification Daemon note available!";
+    return;
+  }
+
+  iface->sendMessage ( QString( "InfoIn foInfoInfoInfo nfoInfo" ) );
 }
 
 MainWindow::~MainWindow()

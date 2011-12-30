@@ -19,65 +19,65 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#include "qx11grabadaptor.h"
+#include "adaptor.h"
 #include "mainwindow.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QGenericReturnArgument>
 
-QX11GrabAdaptor::QX11GrabAdaptor ( QObject *parent )
+Adaptor::Adaptor ( QObject *parent )
     : QDBusAbstractAdaptor ( parent )
 {
   setAutoRelaySignals ( false );
 }
 
-void QX11GrabAdaptor::rubberband()
+void Adaptor::rubberband()
 {
   QMetaObject::invokeMethod ( parent(), "swapRubberBand" );
 }
 
-void QX11GrabAdaptor::show ()
+void Adaptor::show ()
 {
   QMetaObject::invokeMethod ( parent(), "showNormal" );
 }
 
-void QX11GrabAdaptor::hide ()
+void Adaptor::hide ()
 {
   QMetaObject::invokeMethod ( parent(), "hide" );
 }
 
-void QX11GrabAdaptor::message ( const QString &mess )
+void Adaptor::message ( const QString &mess )
 {
   QMetaObject::invokeMethod ( parent(), "statusBarMessage", Q_ARG ( QString, mess ), Q_ARG ( int, 10000 ) );
 }
 
-const QString QX11GrabAdaptor::getAudioCodec()
+const QString Adaptor::getAudioCodec()
 {
   QString str;
   QMetaObject::invokeMethod ( parent(), "audioCodec", Q_RETURN_ARG ( QString, str ) );
   return str;
 }
 
-const QString QX11GrabAdaptor::getVideoCodec()
+const QString Adaptor::getVideoCodec()
 {
   QString str;
   QMetaObject::invokeMethod ( parent(), "videoCodec", Q_RETURN_ARG ( QString, str ) );
   return str;
 }
 
-const QString QX11GrabAdaptor::getCommand()
+const QString Adaptor::getCommand()
 {
   QString str;
   QMetaObject::invokeMethod ( parent(), "currentCommandLine", Q_RETURN_ARG ( QString, str ) );
   return str;
 }
 
-const QString QX11GrabAdaptor::getOutputFile()
+const QString Adaptor::getOutputFile()
 {
   QString str;
   QMetaObject::invokeMethod ( parent(), "outputFile", Q_RETURN_ARG ( QString, str ) );
   return str;
 }
 
-QX11GrabAdaptor::~QX11GrabAdaptor()
+Adaptor::~Adaptor()
 {}

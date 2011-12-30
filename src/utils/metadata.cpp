@@ -60,9 +60,15 @@ MetaData::MetaData ( QWidget * parent )
   txt_title->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt_title, grow, 0, 1, 1 );
 
+  /**
+  * Metadaten Beschreibung
+  * \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
+  */
   metadata_INAM = new QLineEdit ( this );
   metadata_INAM->setObjectName ( QLatin1String ( "Metadata/title" ) );
   metadata_INAM->setToolTip ( QLatin1String ( "INAM" ) );
+  /*: WhatsThis */
+  metadata_INAM->setWhatsThis ( trUtf8 ( "Name or Movie Name" ) );
   gridLayout->addWidget ( metadata_INAM, grow++, 1, 1, 1 );
 
   QLabel* txt_artist = new QLabel ( this );
@@ -73,6 +79,8 @@ MetaData::MetaData ( QWidget * parent )
   metadata_IART = new QLineEdit ( this );
   metadata_IART->setObjectName ( QLatin1String ( "Metadata/author" ) );
   metadata_IART->setToolTip ( QLatin1String ( "IART" ) );
+  /*: WhatsThis */
+  metadata_IART->setWhatsThis ( trUtf8 ( "Author, Director or Artist" ) );
   gridLayout->addWidget ( metadata_IART, grow++, 1, 1, 1 );
 
   QLabel* txt_copyright = new QLabel ( this );
@@ -83,6 +91,8 @@ MetaData::MetaData ( QWidget * parent )
   metadata_ICOP = new QLineEdit ( this );
   metadata_ICOP->setObjectName ( QLatin1String ( "Metadata/copyright" ) );
   metadata_ICOP->setToolTip ( QLatin1String ( "ICOP" ) );
+  /*: WhatsThis */
+  metadata_ICOP->setWhatsThis ( trUtf8 ( "Copyright" ) );
   gridLayout->addWidget ( metadata_ICOP, grow++, 1, 1, 1 );
 
   QLabel* txt_createdate = new QLabel ( this );
@@ -93,6 +103,8 @@ MetaData::MetaData ( QWidget * parent )
   metadata_ICRD = new QDateTimeEdit ( this );
   metadata_ICRD->setObjectName ( QLatin1String ( "Metadata/year" ) );
   metadata_ICRD->setToolTip ( QLatin1String ( "ICRD" ) );
+  /*: WhatsThis */
+  metadata_ICRD->setWhatsThis ( trUtf8 ( "Creation Date" ) );
   metadata_ICRD->setDateTime ( QDateTime::currentDateTime() );
   metadata_ICRD->setCalendarPopup ( true );
   gridLayout->addWidget ( metadata_ICRD, grow++, 1, 1, 1, Qt::AlignLeft );
@@ -105,16 +117,20 @@ MetaData::MetaData ( QWidget * parent )
   metadata_ISBJ = new QLineEdit ( this );
   metadata_ISBJ->setObjectName ( QLatin1String ( "Metadata/subject" ) );
   metadata_ISBJ->setToolTip ( QLatin1String ( "ISBJ" ) );
+  /*: WhatsThis */
+  metadata_ISBJ->setWhatsThis ( trUtf8 ( "Subject" ) );
   gridLayout->addWidget ( metadata_ISBJ, grow++, 1, 1, 1 );
 
   QLabel* txt_description = new QLabel ( this );
-  txt_description->setText ( trUtf8 ( "Description:" ) );
+  txt_description->setText ( trUtf8 ( "Comments:" ) );
   txt_description->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt_description, grow, 0, 1, 1 );
 
   metadata_ICMT = new QLineEdit ( this );
   metadata_ICMT->setObjectName ( QLatin1String ( "Metadata/description" ) );
   metadata_ICMT->setToolTip ( QLatin1String ( "ICMT" ) );
+  /*: WhatsThis */
+  metadata_ICMT->setWhatsThis ( trUtf8 ( "Comments" ) );
   gridLayout->addWidget ( metadata_ICMT, grow++, 1, 1, 1 );
 
   QLabel* txt_language = new QLabel ( this );

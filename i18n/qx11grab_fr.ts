@@ -350,12 +350,23 @@ ToolTip</extracomment>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="100"/>
-        <source>Copy to clipboard</source>
+        <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="102"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="103"/>
+        <source>Restore Preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="105"/>
+        <source>Copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="107"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="108"/>
         <source>Copy command list to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -364,36 +375,42 @@ ToolTip</extracomment>
 <context>
     <name>CommandPreview</name>
     <message>
-        <location filename="../src/cmd/commandpreview.cpp" line="42"/>
+        <location filename="../src/cmd/commandpreview.cpp" line="44"/>
         <source>Display the current FFmpeg command.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandpreview.cpp" line="49"/>
+        <source>Restore to current Configuration</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="43"/>
+        <location filename="../src/settings/configdialog.cpp" line="44"/>
         <source>Configure[*]</source>
-        <extracomment>WindowTitle</extracomment>
+        <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="63"/>
+        <location filename="../src/settings/configdialog.cpp" line="66"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="67"/>
+        <location filename="../src/settings/configdialog.cpp" line="70"/>
         <source>Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="71"/>
+        <location filename="../src/settings/configdialog.cpp" line="74"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="75"/>
+        <location filename="../src/settings/configdialog.cpp" line="78"/>
         <source>Experts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -556,32 +573,74 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="90"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="80"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="88"/>
+        <source>made rubberband witdh smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="94"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="109"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="103"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="111"/>
+        <source>made rubberband height smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="128"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="126"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="134"/>
+        <source>Displaces x-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="140"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="148"/>
-        <source>Depth:</source>
+        <location filename="../src/utils/grabberinfo.cpp" line="149"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="157"/>
+        <source>Displaces y-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="159"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="164"/>
+        <source>Color depth:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="171"/>
+        <source>current color depth</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="177"/>
         <source>Framerate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="165"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -599,43 +658,49 @@ ToolTip</extracomment>
 <context>
     <name>LogLevelComboBox</name>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="42"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="44"/>
         <source>Verbose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="36"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="38"/>
         <source>Set the logging level used by the FFmpeg application</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="40"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="36"/>
+        <source>FFmpeg logging level</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="42"/>
         <source>Warnings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="41"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="43"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="43"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="45"/>
         <source>Errors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="44"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="46"/>
         <source>Panic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="45"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="47"/>
         <source>Fatal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/loglevelcombobox.cpp" line="46"/>
+        <location filename="../src/settings/loglevelcombobox.cpp" line="48"/>
         <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
@@ -652,40 +717,64 @@ ToolTip</extracomment>
 <context>
     <name>MainFunctions</name>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="38"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="39"/>
         <source>Features</source>
+        <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="45"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="49"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="48"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="54"/>
-        <source>start QX11Grab minimized</source>
+        <location filename="../src/settings/mainfcuntions.cpp" line="56"/>
+        <source>start qx11grab minimized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
+        <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="55"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="65"/>
+        <source>Enable/Disable expert editor mode</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+        <source>Enable auto insert my expert settings</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
+        <source>Expert Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="73"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
@@ -724,53 +813,58 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="152"/>
+        <location filename="../src/mainwindow.cpp" line="151"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="153"/>
+        <location filename="../src/mainwindow.cpp" line="152"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="425"/>
+        <location filename="../src/mainwindow.cpp" line="426"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="492"/>
+        <location filename="../src/mainwindow.cpp" line="486"/>
+        <source>Missing Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="500"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="492"/>
+        <location filename="../src/mainwindow.cpp" line="500"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="629"/>
+        <location filename="../src/mainwindow.cpp" line="640"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="657"/>
+        <location filename="../src/mainwindow.cpp" line="668"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="657"/>
+        <location filename="../src/mainwindow.cpp" line="668"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="677"/>
+        <location filename="../src/mainwindow.cpp" line="688"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="688"/>
+        <location filename="../src/mainwindow.cpp" line="699"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1040,44 +1134,80 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="69"/>
+        <location filename="../src/utils/metadata.cpp" line="71"/>
+        <source>Name or Movie Name</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="75"/>
         <source>Artist:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="79"/>
+        <location filename="../src/utils/metadata.cpp" line="83"/>
+        <source>Author, Director or Artist</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="87"/>
         <source>Copyright:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="89"/>
+        <location filename="../src/utils/metadata.cpp" line="95"/>
+        <source>Copyright</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="99"/>
         <source>Creation Date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="101"/>
+        <location filename="../src/utils/metadata.cpp" line="107"/>
+        <source>Creation Date</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="113"/>
         <source>Subject:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="111"/>
-        <source>Description:</source>
+        <location filename="../src/utils/metadata.cpp" line="121"/>
+        <source>Subject</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="122"/>
+        <location filename="../src/utils/metadata.cpp" line="125"/>
+        <source>Comments:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="133"/>
+        <source>Comments</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/metadata.cpp" line="138"/>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="131"/>
+        <location filename="../src/utils/metadata.cpp" line="147"/>
         <source>recognition of speech must set with three letter ISO 639-2 format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="133"/>
+        <location filename="../src/utils/metadata.cpp" line="149"/>
         <source>Language in ISO 639-2 format in three letters.
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
@@ -1245,69 +1375,93 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="73"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="74"/>
+        <source>This button insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="76"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="75"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="79"/>
+        <source>This button remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="81"/>
         <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="84"/>
+        <source>This button clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TargetsWidget</name>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="58"/>
+        <location filename="../src/settings/targetswidget.cpp" line="47"/>
+        <source>Directories &amp;&amp; Files</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/targetswidget.cpp" line="61"/>
         <source>FFmpeg Application:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="66"/>
+        <location filename="../src/settings/targetswidget.cpp" line="69"/>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="76"/>
+        <location filename="../src/settings/targetswidget.cpp" line="79"/>
         <source>Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="84"/>
+        <location filename="../src/settings/targetswidget.cpp" line="87"/>
         <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="94"/>
+        <location filename="../src/settings/targetswidget.cpp" line="97"/>
         <source>Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="102"/>
+        <location filename="../src/settings/targetswidget.cpp" line="105"/>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="136"/>
+        <location filename="../src/settings/targetswidget.cpp" line="139"/>
         <source>without pulse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="137"/>
+        <location filename="../src/settings/targetswidget.cpp" line="140"/>
         <source>Other %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="140"/>
+        <location filename="../src/settings/targetswidget.cpp" line="143"/>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="162"/>
+        <location filename="../src/settings/targetswidget.cpp" line="166"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -1316,22 +1470,46 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="44"/>
+        <location filename="../src/logviewer/textview.cpp" line="49"/>
         <source>wait for input ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="68"/>
+        <location filename="../src/logviewer/textview.cpp" line="73"/>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="75"/>
+        <location filename="../src/logviewer/textview.cpp" line="77"/>
+        <source>Export Logfile</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="80"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/logviewer/textview.cpp" line="70"/>
-        <location filename="../src/logviewer/textview.cpp" line="72"/>
+        <location filename="../src/logviewer/textview.cpp" line="82"/>
+        <location filename="../src/logviewer/textview.cpp" line="84"/>
         <source>Refresh Logfile</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="92"/>
+        <source>Export logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/logviewer/textview.cpp" line="93"/>
+        <source>Logfile (%1)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

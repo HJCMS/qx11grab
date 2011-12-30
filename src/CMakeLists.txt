@@ -40,9 +40,10 @@ SET (qx11grab_SOURCES
   toolbar.cpp
   mainwindow.cpp
   systemtray.cpp
-  qx11grabadaptor.cpp
+  adaptor.cpp
   exportdialog.cpp
   playeraction.cpp
+  messanger.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -50,9 +51,10 @@ SET (qx11grab_HEADERS
   toolbar.h
   mainwindow.h
   systemtray.h
-  qx11grabadaptor.h
+  adaptor.h
   exportdialog.h
   playeraction.h
+  messanger.h
 )
 
 QT4_WRAP_CPP (qx11grab_MOC ${qx11grab_HEADERS})

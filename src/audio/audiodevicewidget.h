@@ -51,6 +51,7 @@ class AudioDeviceWidget : public QGroupBox
     QComboBox* m_audioServiceType;
 
     void openAlsaDialog();
+    void openOSSDialog();
     void openPulseDialog();
 
   private Q_SLOTS:

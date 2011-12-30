@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRABADAPTOR_H
-#define QX11GRABADAPTOR_H
+#ifndef ADAPTOR_H
+#define ADAPTOR_H
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -31,7 +31,7 @@
 # include "version.h"
 #endif
 
-class QX11GrabAdaptor : public QDBusAbstractAdaptor
+class Adaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -53,8 +53,8 @@ class QX11GrabAdaptor : public QDBusAbstractAdaptor
 "" )
 
   public:
-    QX11GrabAdaptor ( QObject *parent = 0 );
-    ~QX11GrabAdaptor();
+    Adaptor ( QObject *parent = 0 );
+    ~Adaptor();
 
   public Q_SLOTS:
     Q_NOREPLY void rubberband ();

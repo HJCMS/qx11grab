@@ -298,6 +298,15 @@ ToolTip</extracomment>
 ToolTip</extracomment>
         <translation>Odstranit tento příkaz</translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CommandPreview</name>
@@ -305,12 +314,17 @@ ToolTip</extracomment>
         <source>Display the current FFmpeg command.</source>
         <translation>Ukazuje současné argumenty FFmpeg.</translation>
     </message>
+    <message>
+        <source>Restore to current Configuration</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfigDialog</name>
     <message>
         <source>Configure[*]</source>
-        <extracomment>WindowTitle</extracomment>
+        <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -458,10 +472,6 @@ ToolTip</extracomment>
         <translation>Poloha Y:</translation>
     </message>
     <message>
-        <source>Depth:</source>
-        <translation>Barevná hloubka:</translation>
-    </message>
-    <message>
         <source>Framerate:</source>
         <translation>Počet snímků:</translation>
     </message>
@@ -478,6 +488,43 @@ ToolTip</extracomment>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Nastavuje velikost bloku přenosu dat v zachytávaném videu.</translation>
+    </message>
+    <message>
+        <source>made rubberband witdh smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>made rubberband height smaller/greater</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Displaces x-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Displaces y-axis coordinates from Rubberband</source>
+        <extracomment>WhatsThis
+----------
+WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color depth:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>current color depth</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -523,6 +570,11 @@ ToolTip</extracomment>
         <source>Manual</source>
         <translation>Ruční</translation>
     </message>
+    <message>
+        <source>FFmpeg logging level</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogViewer</name>
@@ -536,6 +588,7 @@ ToolTip</extracomment>
     <name>MainFunctions</name>
     <message>
         <source>Features</source>
+        <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished">Schopnosti</translation>
     </message>
     <message>
@@ -553,17 +606,36 @@ ToolTip</extracomment>
         <translation type="unfinished">Zobrazit gumový pás</translation>
     </message>
     <message>
-        <source>start QX11Grab minimized</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Spouštět QX11Grab zmenšený</translation>
-    </message>
-    <message>
         <source>Start Minimized</source>
         <translation type="unfinished">Spustit zmenšeně</translation>
     </message>
     <message>
         <source>Report Level</source>
         <translation type="unfinished">Úroveň zprávy</translation>
+    </message>
+    <message>
+        <source>start qx11grab minimized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>only show qx11grab on start in systray</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable/Disable expert editor mode</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable auto insert my expert settings</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expert Mode</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -633,6 +705,10 @@ ToolTip</extracomment>
     <message>
         <source>Open Bookmark %1</source>
         <translation type="unfinished">Otevřít záložku %1</translation>
+    </message>
+    <message>
+        <source>Missing Input</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -856,10 +932,6 @@ ToolTip</extracomment>
         <translation>Předmět:</translation>
     </message>
     <message>
-        <source>Description:</source>
-        <translation>Popis:</translation>
-    </message>
-    <message>
         <source>Note many formats only support a handful of metadata keys.</source>
         <translation>Poznámka: Mnoho formátů podporuje jen hrstku klíčů pro hlavičková data.</translation>
     </message>
@@ -891,6 +963,40 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished">Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
+    </message>
+    <message>
+        <source>Name or Movie Name</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author, Director or Artist</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copyright</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creation Date</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subject</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comments:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comments</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1036,6 +1142,21 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TargetsWidget</name>
@@ -1084,6 +1205,11 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished">Výstupní adresář</translation>
     </message>
+    <message>
+        <source>Directories &amp;&amp; Files</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextView</name>
@@ -1101,6 +1227,25 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
 ----------
 ToolTip</extracomment>
         <translation>Obnovit soubor se zápisem</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished">Vyvést</translation>
+    </message>
+    <message>
+        <source>Export Logfile</source>
+        <extracomment>ToolTip
+----------
+ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export logfile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logfile (%1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

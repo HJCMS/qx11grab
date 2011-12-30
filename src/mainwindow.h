@@ -44,6 +44,9 @@
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QWidget>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+
 class Settings;
 class MenuBar;
 class ToolBar;
@@ -128,6 +131,7 @@ class MainWindow : public QMainWindow
 
   public:
     MainWindow ( Settings * settings = 0 );
+    void registerBusInterface ( QDBusConnection * );
     virtual ~MainWindow();
 
 };

@@ -76,12 +76,16 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setWidthBox->setObjectName ( QLatin1String ( "setWidthBox" ) );
   setWidthBox->setMinimum ( minBox );
   setWidthBox->setValue ( minBox );
+  /*: WhatsThis */
+  setWidthBox->setWhatsThis ( trUtf8 ( "made rubberband witdh smaller/greater" ) );
   gridLayout->addWidget ( setWidthBox, grow, 1, 1, 1 );
 
   setWidthSlider = new QSlider ( Qt::Horizontal, this );
   setWidthSlider->setObjectName ( QLatin1String ( "setWidthSlider" ) );
   setWidthSlider->setSingleStep ( 2 );
   setWidthSlider->setMinimum ( minBox );
+  /*: WhatsThis */
+  setWidthSlider->setWhatsThis ( trUtf8 ( "made rubberband witdh smaller/greater" ) );
   gridLayout->addWidget ( setWidthSlider, grow++, 2, 1, 1 );
   // end: Width
 
@@ -95,12 +99,16 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setHeightBox->setObjectName ( QLatin1String ( "setHeightBox" ) );
   setHeightBox->setMinimum ( minBox );
   setHeightBox->setValue ( minBox );
+  /*: WhatsThis */
+  setHeightBox->setWhatsThis ( trUtf8 ( "made rubberband height smaller/greater" ) );
   gridLayout->addWidget ( setHeightBox, grow, 1, 1, 1 );
 
   setHeightSlider = new QSlider ( Qt::Horizontal, this );
   setHeightSlider->setObjectName ( QLatin1String ( "setHeightSlider" ) );
   setHeightSlider->setSingleStep ( 2 );
   setHeightSlider->setMinimum ( minBox );
+  /*: WhatsThis */
+  setHeightSlider->setWhatsThis ( trUtf8 ( "made rubberband height smaller/greater" ) );
   gridLayout->addWidget ( setHeightSlider, grow++, 2, 1, 1 );
   // end: Height
 
@@ -114,12 +122,16 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setXBox->setObjectName ( QLatin1String ( "setXBox" ) );
   setXBox->setMinimum ( 0 );
   setXBox->setValue ( 0 );
+  /*: WhatsThis */
+  setXBox->setWhatsThis ( trUtf8 ( "Displaces x-axis coordinates from Rubberband" ) );
   gridLayout->addWidget ( setXBox, grow, 1, 1, 1 );
 
   setXSlider = new QSlider ( Qt::Horizontal, this );
   setXSlider->setObjectName ( QLatin1String ( "setXSlider" ) );
   setXSlider->setSingleStep ( 1 );
   setXSlider->setMinimum ( 0 );
+  /*: WhatsThis */
+  setXSlider->setWhatsThis ( trUtf8 ( "Displaces x-axis coordinates from Rubberband" ) );
   gridLayout->addWidget ( setXSlider, grow++, 2, 1, 1 );
   // end: X Position
 
@@ -133,24 +145,30 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
   setYBox->setMinimum ( 0 );
   setYBox->setValue ( 0 );
+  /*: WhatsThis */
+  setYBox->setWhatsThis ( trUtf8 ( "Displaces y-axis coordinates from Rubberband" ) );
   gridLayout->addWidget ( setYBox, grow, 1, 1, 1 );
 
   setYSlider = new QSlider ( Qt::Horizontal, this );
   setYSlider->setObjectName ( QLatin1String ( "setYSlider" ) );
   setYSlider->setSingleStep ( 1 );
   setYSlider->setMinimum ( 0 );
+  /*: WhatsThis */
+  setYSlider->setWhatsThis ( trUtf8 ( "Displaces y-axis coordinates from Rubberband" ) );
   gridLayout->addWidget ( setYSlider, grow++, 2, 1, 1 );
   // end: Y Position
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout;
   // begin: Desktop Color Depth
   QLabel* txt7 = new QLabel ( this );
-  txt7->setText ( trUtf8 ( "Depth:" ) );
+  txt7->setText ( trUtf8 ( "Color depth:" ) );
   txt7->setAlignment ( labelAlignment );
   horizontalLayout->addWidget ( txt7, Qt::AlignRight );
 
   setDepth = new QSpinBox ( this );
   setDepth->setDisabled ( true );
+  /*: WhatsThis */
+  setDepth->setToolTip ( trUtf8 ( "current color depth" ) );
   horizontalLayout->addWidget ( setDepth, Qt::AlignLeft );
   // end: Desktop Color Depth
 

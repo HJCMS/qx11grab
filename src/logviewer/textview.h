@@ -43,6 +43,7 @@ class TextView : public QTextEdit
     QString source;
 
   private Q_SLOTS:
+    void save ();
     void gotoLine ( int );
 
   protected:

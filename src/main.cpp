@@ -50,7 +50,7 @@
 
 #include "settings.h"
 #include "mainwindow.h"
-#include "qx11grabadaptor.h"
+#include "adaptor.h"
 
 int main ( int argc, char* argv[] )
 {
@@ -93,9 +93,12 @@ int main ( int argc, char* argv[] )
 
   Settings* m_Settings = new Settings ( &app );
 
-  MainWindow* window = new  MainWindow( m_Settings );
-  new QX11GrabAdaptor ( window );
-  bus->registerObject ( QString( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
+  MainWindow* window = new  MainWindow ( m_Settings );
+  new Adaptor ( window );
+  bus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
+
+  if ( bus->isConnected() )
+    window->registerBusInterface ( bus );
 
   if ( m_Settings->value ( "startMinimized", false ).toBool() )
     window->hide();

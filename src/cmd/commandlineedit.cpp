@@ -83,21 +83,26 @@ void CommandLineEdit::contextMenuEvent ( QContextMenuEvent * e )
 {
   QMenu* m = new QMenu ( this );
 
-  QAction* ac_save = m->addAction ( getThemeIcon ( "document-save" ), trUtf8 ( "Save" ) );
+  QAction* ac_save = m->addAction ( QIcon::fromTheme ( "document-save" ), trUtf8 ( "Save" ) );
   /*: ToolTip */
   ac_save->setToolTip ( trUtf8 ( "Save current command list" ) );
   /*: ToolTip */
   ac_save->setStatusTip ( trUtf8 ( "Save current command list" ) );
   connect ( ac_save, SIGNAL ( triggered() ), this, SLOT ( save() ) );
 
-  QAction* ac_remove = m->addAction ( getThemeIcon ( "list-remove" ), trUtf8 ( "Remove" ) );
+  QAction* ac_remove = m->addAction ( QIcon::fromTheme ( "list-remove" ), trUtf8 ( "Remove" ) );
   /*: ToolTip */
   ac_remove->setToolTip ( trUtf8 ( "Remove this Command" ) );
   /*: ToolTip */
   ac_remove->setStatusTip ( trUtf8 ( "Remove this Command" ) );
   connect ( ac_remove, SIGNAL ( triggered() ), this, SLOT ( remove() ) );
 
-  QAction* ac_cpb = m->addAction ( getThemeIcon ( "edit-copy" ), trUtf8 ( "Copy to clipboard" ) );
+  QAction* ac_refresh = m->addAction ( QIcon::fromTheme ( "edit-undo" ), trUtf8 ( "Reset" ) );
+  /*: ToolTip */
+  ac_refresh->setToolTip ( trUtf8 ( "Restore Preview" ) );
+  connect ( ac_refresh, SIGNAL ( triggered() ), this, SIGNAL ( restoreRequest() ) );
+
+  QAction* ac_cpb = m->addAction ( QIcon::fromTheme ( "edit-copy" ), trUtf8 ( "Copy to clipboard" ) );
   /*: ToolTip */
   ac_cpb->setToolTip ( trUtf8 ( "Copy command list to Clipboard" ) );
   ac_cpb->setStatusTip ( trUtf8 ( "Copy command list to Clipboard" ) );
