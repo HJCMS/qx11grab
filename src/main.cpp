@@ -94,11 +94,11 @@ int main ( int argc, char* argv[] )
   Settings* m_Settings = new Settings ( &app );
 
   MainWindow* window = new  MainWindow ( m_Settings );
-  new Adaptor ( window );
+  Adaptor* adaptor = new Adaptor ( window );
   bus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
 
-  if ( bus->isConnected() )
-    window->registerBusInterface ( bus );
+  if ( adaptor && bus->isConnected() )
+    window->registerMessanger ( bus );
 
   if ( m_Settings->value ( "startMinimized", false ).toBool() )
     window->hide();

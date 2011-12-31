@@ -910,6 +910,13 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Messanger</name>
+    <message>
+        <source>Notification not send!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>
@@ -996,6 +1003,23 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OpenSoundDialog</name>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished">Open Sound System (OSS)</translation>
+    </message>
+    <message>
+        <source>%1 OSS Device: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS) Device</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4,6 +4,8 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${QX11GRAB_INCLUDES}
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}/messanger
+  ${CMAKE_CURRENT_SOURCE_DIR}/messanger
   ${CMAKE_CURRENT_BINARY_DIR}/avoptions
   ${CMAKE_CURRENT_SOURCE_DIR}/avoptions
   ${CMAKE_CURRENT_BINARY_DIR}/audio
@@ -24,6 +26,7 @@ SET (QX11GRAB_BINARY_PROJECT_INCULDE
   ${CMAKE_CURRENT_SOURCE_DIR}/bookmark
 )
 
+ADD_SUBDIRECTORY (messanger)
 ADD_SUBDIRECTORY (avoptions)
 ADD_SUBDIRECTORY (audio)
 ADD_SUBDIRECTORY (settings)
@@ -43,7 +46,6 @@ SET (qx11grab_SOURCES
   adaptor.cpp
   exportdialog.cpp
   playeraction.cpp
-  messanger.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -54,7 +56,6 @@ SET (qx11grab_HEADERS
   adaptor.h
   exportdialog.h
   playeraction.h
-  messanger.h
 )
 
 QT4_WRAP_CPP (qx11grab_MOC ${qx11grab_HEADERS})
@@ -72,6 +73,7 @@ ADD_EXECUTABLE (qx11grab
 )
 
 TARGET_LINK_LIBRARIES (qx11grab
+  Messanger
   Settings
   TableEditor
   LogViewer

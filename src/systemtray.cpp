@@ -21,9 +21,7 @@
 
 #include "systemtray.h"
 #include "menubar.h"
-
-/* QX11Grab */
-// #include ""
+#include "messanger.h"
 
 /* QtCore */
 #include <QtCore/QCoreApplication>
@@ -36,6 +34,7 @@
 SystemTray::SystemTray ( MainWindow * parent )
     : QSystemTrayIcon ( parent )
     , m_mainWindow ( parent )
+    , m_messanger ( 0 )
 {
   setObjectName ( QLatin1String ( "SystemTray" ) );
   setIcon ( getThemeIcon ( "qx11grab" ) );
@@ -95,6 +94,57 @@ void SystemTray::setActionsEnabled ( bool b )
 {
   m_actionStopRecord->setEnabled ( b );
   m_actionStartRecord->setEnabled ( ( ( b ) ? false : true ) );
+}
+
+void SystemTray::setMessanger ( QDBusConnection* bus )
+{
+  m_messanger = new Messanger ( *bus, this );
+  connect ( m_messanger, SIGNAL ( errors ( const QString &, int ) ),
+            m_mainWindow, SLOT ( statusBarMessage ( const QString &, int ) ) );
+
+  if ( ! m_messanger->isValid() )
+  {
+    qWarning() << "Messanger not available!";
+    return;
+  }
+
+#ifdef MAINTAINER_REPOSITORY
+  m_messanger->sendInfoMessage ( "Information", "QX11Grab connected to DBus Notifications." );
+#endif
+}
+
+/**
+* Wenn eine Verbindung zum Messanger besteht diesen verwenden.
+* Wenn nicht verwende \ref QSystemTrayIcon::showMessage
+*/
+void SystemTray::sendMessage ( const QString &title, const QString &message, 
+                               QSystemTrayIcon::MessageIcon icon )
+{
+  int timeout = 5000;
+
+  if ( m_messanger )
+  {
+    switch ( icon )
+    {
+      case QSystemTrayIcon::Information:
+        m_messanger->sendInfoMessage ( title, message );
+        return;
+
+      case QSystemTrayIcon::Warning:
+        m_messanger->sendWarnMessage ( title, message );
+        return;
+
+      case QSystemTrayIcon::Critical:
+        m_messanger->sendErrorMessage ( title, message );
+        return;
+
+      default:
+        m_messanger->sendInfoMessage ( title, message );
+        return;
+    }
+  }
+
+  showMessage ( title, message, QSystemTrayIcon::Critical, timeout );
 }
 
 SystemTray::~SystemTray()

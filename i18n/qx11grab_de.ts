@@ -913,6 +913,13 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Messanger</name>
+    <message>
+        <source>Notification not send!</source>
+        <translation>Benachrichtigung nicht gesendet!</translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <source>Title:</source>
@@ -1000,6 +1007,23 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Kommentar</translation>
+    </message>
+</context>
+<context>
+    <name>OpenSoundDialog</name>
+    <message>
+        <source>Open Sound System (OSS)</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>%1 OSS Device: %2</source>
+        <translation>1% OSS Schnittstelle: %2</translation>
+    </message>
+    <message>
+        <source>Open Sound System (OSS) Device</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Open Sound System (OSS) Schnittstelle</translation>
     </message>
 </context>
 <context>

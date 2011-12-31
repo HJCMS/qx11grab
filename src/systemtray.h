@@ -34,8 +34,13 @@
 #include <QtGui/QSystemTrayIcon>
 #include <QtGui/QWidget>
 
+/* QtDBus */
+#include <QtDBus/QDBusConnection>
+
 /* QX11Grab */
 #include "mainwindow.h"
+
+class Messanger;
 
 class SystemTray : public QSystemTrayIcon
 {
@@ -45,6 +50,7 @@ class SystemTray : public QSystemTrayIcon
 
   private:
     MainWindow* m_mainWindow;
+    Messanger* m_messanger;
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
 
@@ -53,6 +59,8 @@ class SystemTray : public QSystemTrayIcon
 
   public:
     SystemTray ( MainWindow * parent );
+    void setMessanger ( QDBusConnection* bus );
+    void sendMessage ( const QString &title, const QString &message, QSystemTrayIcon::MessageIcon icon );
     ~SystemTray();
 };
 

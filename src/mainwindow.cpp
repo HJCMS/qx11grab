@@ -39,7 +39,6 @@
 #include "bookmarkdialog.h"
 #include "bookmark.h"
 #include "configdialog.h"
-#include "messanger.h"
 
 /* QtCore */
 #include <QtCore/QDateTime>
@@ -155,9 +154,6 @@ MainWindow::MainWindow ( Settings * settings )
 
   layerWidget->setLayout ( verticalLayout );
   setCentralWidget ( layerWidget );
-
-  // Options
-  TimeOutMessages = 5000;
 
   /* init Actions */
   loadStats();
@@ -424,8 +420,7 @@ void MainWindow::closeEvent ( QCloseEvent * ev )
 void MainWindow::pushInfoMessage ( const QString &txt )
 {
   if ( m_systemTray )
-    m_systemTray->showMessage ( trUtf8 ( "Info" ), txt,
-                                QSystemTrayIcon::Information, TimeOutMessages );
+    m_systemTray->sendMessage ( trUtf8 ( "Info" ), txt, QSystemTrayIcon::Information );
 
   if ( ! m_FFProcess->isRunning() )
     m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
@@ -438,7 +433,7 @@ void MainWindow::pushErrorMessage ( const QString &title, const QString &txt )
 {
   if ( m_systemTray )
   {
-    m_systemTray->showMessage ( title, txt, QSystemTrayIcon::Critical, TimeOutMessages );
+    m_systemTray->sendMessage ( title, txt, QSystemTrayIcon::Critical );
 
     if ( ! m_FFProcess->isRunning() )
       m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
@@ -587,6 +582,10 @@ void MainWindow::preparePreview ( bool b )
   // Decoder
   commandLine << "-dcodec" << "copy";
 
+  // Audio System
+  if ( m_audioGroupBox->isChecked() )
+    commandLine << cfg->getAudioDeviceCommand();
+
   // Experts
   if ( cfg->expertMode() )
   {
@@ -594,10 +593,6 @@ void MainWindow::preparePreview ( bool b )
     if ( expert.size() > 0 )
       commandLine << expert;
   }
-
-  // Audio System
-  if ( m_audioGroupBox->isChecked() )
-    commandLine << cfg->getAudioDeviceCommand();
 
   // Video Options
   commandLine << m_videoEditor->getCmd ();
@@ -733,27 +728,22 @@ const QString MainWindow::videoCodec()
   return m_videoEditor->selectedCodec();
 }
 
+/** Wird für DBUS benötigt! */
 const QString MainWindow::outputFile()
 {
   return cfg->absoluteOutputPath();
 }
 
-void MainWindow::registerBusInterface ( QDBusConnection * bus )
+/**
+* Teile der System Statusleiste mit das sie
+* DBus Notification verwenden soll!
+*/
+void MainWindow::registerMessanger ( QDBusConnection* bus )
 {
-  if ( ! bus )
+  if ( ! bus || ! m_systemTray )
     return;
 
-  de::hjcms::qx11grab* iface = new de::hjcms::qx11grab ( *bus, this );
-  connect ( iface, SIGNAL ( message ( const QString & ) ),
-            this, SLOT ( statusBarMessage ( const QString & ) ) );
-
-  if ( ! iface->isValid() )
-  {
-    qWarning() << "Notification Daemon note available!";
-    return;
-  }
-
-  iface->sendMessage ( QString( "InfoIn foInfoInfoInfo nfoInfo" ) );
+  m_systemTray->setMessanger ( bus );
 }
 
 MainWindow::~MainWindow()

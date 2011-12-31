@@ -43,44 +43,44 @@ MenuEntry</extracomment>
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="58"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="59"/>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="59"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
         <translation type="unfinished">Pagerinta Linux garso sistema (ALSA)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="62"/>
         <source>Open Sound System (OSS)</source>
         <translation type="unfinished">Atvira garso sistema (OSS)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="63"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="64"/>
         <source>Soundserver (Pulse)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="70"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="71"/>
         <source>Audio Intensifier:</source>
         <translation type="unfinished">Garso stiprumas:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="77"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="78"/>
         <source>Change Audio Volume (256=normal)</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Keisti garsumą (256=normalus)</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="79"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="80"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <extracomment>WhatsThis</extracomment>
@@ -88,168 +88,168 @@ Default: 256=normal</source>
 Numatytasis: 256</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="88"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="89"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished">Garso įrašymo įrenginys:</translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="106"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="107"/>
         <source>Sample Format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="115"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
         <source>The sample format of the incoming audio buffers.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="95"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="96"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="48"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="49"/>
         <source>Audio Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="100"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="101"/>
         <source>Open dialog to select audio capture device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="113"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
         <source>Audio sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="118"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
         <source>Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
         <source>signed  8 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
         <source>signed 16 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="121"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="122"/>
         <source>signed 32 bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="122"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
         <source>float</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="123"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
         <source>double</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="124"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
         <source>unsigned  8 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="125"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
         <source>signed 16 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="126"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
         <source>signed 32 bits, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="127"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
         <source>float, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="128"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="129"/>
         <source>double, planar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="136"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="137"/>
         <source>Audio Service Type:</source>
         <extracomment>Note: short</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="143"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="144"/>
         <source>Audio service type</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="145"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="146"/>
         <source>The type of service that the audio stream contains.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="149"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="150"/>
         <source>Main Audio Service</source>
         <extracomment>Alternative: Default Audio</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="150"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="151"/>
         <source>Effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="151"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="152"/>
         <source>Visually Impaired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="152"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="153"/>
         <source>Hearing Impaired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="154"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="155"/>
         <source>Dialogue</source>
         <extracomment>Alternative: dialogue level</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="155"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="156"/>
         <source>Commentary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="156"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="157"/>
         <source>Emergency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="158"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="159"/>
         <source>Voice Over</source>
         <extracomment>Alternative: telephony</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="159"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="160"/>
         <source>Karaoke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="341"/>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="357"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="361"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="377"/>
         <source>Unknown</source>
         <translation type="unfinished">Nežinoma</translation>
     </message>
@@ -825,47 +825,47 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="426"/>
+        <location filename="../src/mainwindow.cpp" line="423"/>
         <source>Info</source>
         <translation type="unfinished">Informacija</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="486"/>
+        <location filename="../src/mainwindow.cpp" line="482"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="500"/>
+        <location filename="../src/mainwindow.cpp" line="496"/>
         <source>Error</source>
         <translation type="unfinished">Klaida</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="500"/>
+        <location filename="../src/mainwindow.cpp" line="496"/>
         <source>qx11grap not started</source>
         <translation type="unfinished">qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="640"/>
+        <location filename="../src/mainwindow.cpp" line="636"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="668"/>
+        <location filename="../src/mainwindow.cpp" line="664"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="668"/>
+        <location filename="../src/mainwindow.cpp" line="664"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="688"/>
+        <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1111,6 +1111,14 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Messanger</name>
+    <message>
+        <location filename="../src/messanger/messanger.cpp" line="173"/>
+        <source>Notification not send!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MetaData</name>
     <message>
         <location filename="../src/utils/metadata.cpp" line="40"/>
@@ -1213,6 +1221,27 @@ ToolTip</extracomment>
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
         <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OpenSoundDialog</name>
+    <message>
+        <location filename="../src/audio/opensounddialog.cpp" line="34"/>
+        <source>Open Sound System (OSS)</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished">Atvira garso sistema (OSS)</translation>
+    </message>
+    <message>
+        <location filename="../src/audio/opensounddialog.cpp" line="50"/>
+        <source>%1 OSS Device: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/audio/opensounddialog.cpp" line="53"/>
+        <location filename="../src/audio/opensounddialog.cpp" line="54"/>
+        <source>Open Sound System (OSS) Device</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1345,7 +1374,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>SystemTray</name>
     <message>
-        <location filename="../src/systemtray.cpp" line="43"/>
+        <location filename="../src/systemtray.cpp" line="42"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">qx11grab: filmuojami X11 langai su ffmpeg</translation>

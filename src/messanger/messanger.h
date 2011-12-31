@@ -27,15 +27,15 @@
 #endif
 
 /* QtCore */
-#include <QtCore/QByteArray>
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusPendingCallWatcher>
+
+class MessangerPrivate;
 
 class Messanger : public QDBusInterface
 {
@@ -43,33 +43,53 @@ class Messanger : public QDBusInterface
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    Q_DECLARE_PRIVATE ( Messanger )
+    Q_DISABLE_COPY ( Messanger )
+    QDBusConnection p_dbus;
+    QScopedPointer<MessangerPrivate> d_ptr;
+
+  private Q_SLOTS:
+    void finished ( QDBusPendingCallWatcher * );
+    void notify ( const QString &type, const QString &title, const QString &body );
+
+  protected:
+    /**
+    * Connect to Notification Daemon
+    */
+    bool createConnection();
+
   Q_SIGNALS:
-    void message ( const QString &mess );
+    /**
+    * this will emitted if no Notification Daemon reply errors
+    */
+    void errors ( const QString &mess, int timeout = 5000 );
+
+  public Q_SLOTS:
+    /**
+    * Send Info Message to Notification Daemon
+    * @param title  Message Title
+    * @param body Body Message
+    */
+    void sendInfoMessage ( const QString &title, const QString &body );
+
+    /**
+    * Send Warning Message to Notification Daemon
+    * @param title  Message Title
+    * @param body Body Message
+    */
+    void sendWarnMessage ( const QString &title, const QString &body );
+
+    /**
+    * Send Failure Message to Notification Daemon
+    * @param title  Message Title
+    * @param body Body Message
+    */
+    void sendErrorMessage ( const QString &title, const QString &body );
 
   public:
-    typedef struct
-    {
-      QString fromApp;
-      QVariantList contexts;
-      QString title;
-      QString text;
-      QByteArray pixmap;
-      QStringList actions;
-      qint16 timeout;
-      Qt::HANDLE wId; // Window ID
-    } Body;
-
-    Messanger ( const QDBusConnection &connection, QObject * parent = 0 );
-    void sendMessage ( const QString &txt );
+    explicit Messanger ( const QDBusConnection &connection, QObject * parent = 0 );
     ~Messanger();
 };
-
-namespace de
-{
-  namespace hjcms
-  {
-    typedef::Messanger qx11grab;
-  }
-}
 
 #endif

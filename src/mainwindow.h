@@ -48,6 +48,8 @@
 #include <QtDBus/QDBusConnection>
 
 class Settings;
+class FFProcess;
+class Listener;
 class MenuBar;
 class ToolBar;
 class GrabberInfo;
@@ -55,8 +57,6 @@ class MetaData;
 class TableEditor;
 class DesktopInfo;
 class RubberBand;
-class FFProcess;
-class Listener;
 class CommandPreview;
 class SystemTray;
 
@@ -81,8 +81,6 @@ class MainWindow : public QMainWindow
     RubberBand* m_RubberBand;
     // SysTray
     SystemTray* m_systemTray;
-    // Options
-    int TimeOutMessages;
     // triggred Actions
     void createEnviroment();
     void createSystemTrayIcon();
@@ -131,7 +129,7 @@ class MainWindow : public QMainWindow
 
   public:
     MainWindow ( Settings * settings = 0 );
-    void registerBusInterface ( QDBusConnection * );
+    void registerMessanger ( QDBusConnection* connection );
     virtual ~MainWindow();
 
 };
