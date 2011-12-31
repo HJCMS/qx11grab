@@ -90,6 +90,15 @@ SystemTray::SystemTray ( MainWindow * parent )
             qApp, SLOT ( quit() ) );
 }
 
+bool SystemTray::event ( QEvent * e )
+{
+  if ( e->type() == QEvent::ToolTip )
+  {
+    qDebug() << Q_FUNC_INFO << "TODO: ToolTip Record Status";
+  }
+  return QSystemTrayIcon::event ( e );
+}
+
 void SystemTray::setActionsEnabled ( bool b )
 {
   m_actionStopRecord->setEnabled ( b );
@@ -117,7 +126,7 @@ void SystemTray::setMessanger ( QDBusConnection* bus )
 * Wenn eine Verbindung zum Messanger besteht diesen verwenden.
 * Wenn nicht verwende \ref QSystemTrayIcon::showMessage
 */
-void SystemTray::sendMessage ( const QString &title, const QString &message, 
+void SystemTray::sendMessage ( const QString &title, const QString &message,
                                QSystemTrayIcon::MessageIcon icon )
 {
   int timeout = 5000;

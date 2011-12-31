@@ -65,6 +65,8 @@ const QString PlayerAction::predefinedApps ( const QString &txt ) const
   hash["gmplayer"] = trUtf8 ( "MPlayer GUI" );
   //: MenuEntry for "kmplayer" http://kmplayer.kde.org
   hash["kmplayer"] = trUtf8 ( "KMPlayer" );
+  //: MenuEntry for "smplayer" http://smplayer.sourceforge.net
+  hash["smplayer"] = trUtf8 ( "SMPlayer" );
   //: MenuEntry for "xine" http://www.xine-project.org
   hash["xine"] = trUtf8 ( "Xine" );
   //: MenuEntry for "vlc" http://www.videolan.org/vlc/

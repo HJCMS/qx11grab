@@ -27,7 +27,9 @@
 #endif
 
 /* QtCore */
+#include <QtCore/QEvent>
 #include <QtCore/QObject>
+#include <QtCore/QString>
 
 /* QtGui */
 #include <QtGui/QAction>
@@ -53,6 +55,9 @@ class SystemTray : public QSystemTrayIcon
     Messanger* m_messanger;
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
+
+  protected:
+    bool event ( QEvent * e );
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );
