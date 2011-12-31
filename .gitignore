@@ -4,7 +4,7 @@ tests
 apis
 .kdev4
 Makefile*
-*.kdev*
+qx11grab.kdev*
 Doxyfile
 *.log
 qx11grab.spec

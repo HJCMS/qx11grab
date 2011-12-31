@@ -246,6 +246,14 @@ INSTALL (FILES
   DESTINATION /etc/xdg/hjcms.de/
 )
 
+CONFIGURE_FILE (qx11grab.de.1.cmake
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.de.1
+)
+
+CONFIGURE_FILE (qx11grab.1.cmake
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.1
+)
+
 ##############################################################
 ## Desktop File
 ##############################################################
@@ -281,6 +289,7 @@ INSTALL (FILES
 ##############################################################
 ADD_SUBDIRECTORY (src)
 ADD_SUBDIRECTORY (i18n)
+ADD_SUBDIRECTORY (icons)
 ADD_SUBDIRECTORY (ffpresets)
 
 ##############################################################
@@ -294,12 +303,6 @@ INSTALL (FILES
   ChangeLog
   COPYING
   DESTINATION share/${CMAKE_PROJECT_NAME}
-  COMPONENT data
-)
-
-INSTALL (FILES
-  src/images/qx11grab.png
-  DESTINATION share/pixmaps
   COMPONENT data
 )
 
