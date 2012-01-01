@@ -90,19 +90,24 @@ SystemTray::SystemTray ( MainWindow * parent )
             qApp, SLOT ( quit() ) );
 }
 
-bool SystemTray::event ( QEvent * e )
-{
-  if ( e->type() == QEvent::ToolTip )
-  {
-    qDebug() << Q_FUNC_INFO << "TODO: ToolTip Record Status";
-  }
-  return QSystemTrayIcon::event ( e );
-}
+// bool SystemTray::event ( QEvent * e )
+// {
+//   if ( e->type() == QEvent::ToolTip )
+//   {
+//     qDebug() << Q_FUNC_INFO << "TODO: ToolTip Record Status";
+//   }
+//   return QSystemTrayIcon::event ( e );
+// }
 
 void SystemTray::setActionsEnabled ( bool b )
 {
   m_actionStopRecord->setEnabled ( b );
   m_actionStartRecord->setEnabled ( ( ( b ) ? false : true ) );
+}
+
+void SystemTray::setCustomToolTip ( const QString &txt )
+{
+  setToolTip ( txt );
 }
 
 void SystemTray::setMessanger ( QDBusConnection* bus )

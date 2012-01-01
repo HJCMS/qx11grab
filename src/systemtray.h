@@ -56,11 +56,12 @@ class SystemTray : public QSystemTrayIcon
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
 
-  protected:
-    bool event ( QEvent * e );
+//   protected:
+//     bool event ( QEvent * e );
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );
+    void setCustomToolTip ( const QString &txt );
 
   public:
     SystemTray ( MainWindow * parent );

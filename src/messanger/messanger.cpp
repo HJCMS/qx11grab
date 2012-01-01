@@ -20,6 +20,7 @@
 **/
 
 #include "messanger.h"
+#include "icon_p.h"
 #include "messanger_p.h"
 
 /* QX11Grab */
@@ -88,13 +89,9 @@ MessangerPrivate::MessangerPrivate ( Messanger * p )
 
 QVariantMap MessangerPrivate::hints ( const QString &iconName ) const
 {
+  Q_UNUSED ( iconName );
   QVariantMap hints;
-  QIcon icon = QIcon::fromTheme ( qApp->applicationName() );
-  if ( icon.isNull() )
-    icon = QIcon::fromTheme ( iconName );
-
-  QPixmap pixmap = icon.pixmap ( 32, QIcon::Normal, QIcon::On );
-  QImage image = pixmap.toImage();
+  QImage image ( icon_size192, 192, 192, 24, QImage::Format_ARGB8565_Premultiplied );
   if ( ! image.isNull() )
   {
     QVariant imageData;
@@ -125,6 +122,10 @@ void Messanger::finished ( QDBusPendingCallWatcher * watcher )
     qWarning() << "Error sending notification" << reply.error().name();
     return;
   }
+
+#ifdef MAINTAINER_REPOSITORY
+  qDebug() << Q_FUNC_INFO << "Reply:" << reply.value();
+#endif
 
   quint32 id = reply.value();
   if ( id != 0 )

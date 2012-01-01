@@ -173,6 +173,9 @@ MainWindow::MainWindow ( Settings * settings )
   connect ( m_listener, SIGNAL ( info ( const QString & ) ),
             this, SLOT ( statusBarMessage ( const QString & ) ) );
 
+  connect ( m_listener, SIGNAL ( info ( const QString & ) ),
+            m_systemTray, SLOT ( setCustomToolTip ( const QString & ) ) );
+
   connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( bool ) ),
             this, SLOT ( toRubber ( bool ) ) );
 
