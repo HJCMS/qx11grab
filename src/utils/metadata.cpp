@@ -22,9 +22,11 @@
 #include "metadata.h"
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QLocale>
 #include <QtCore/QRegExp>
 #include <QtCore/QString>
+#include <QtCore/QUrl>
 
 /* QtGui */
 #include <QtGui/QGridLayout>
@@ -218,12 +220,13 @@ const QStringList MetaData::getCmd ( const QString &codec )
       continue;
 
     QString param ( edit->objectName() );
-    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "Metadata/" ), edit->text() );
+    QByteArray data = QUrl::toPercentEncoding ( edit->text() );
+    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "Metadata/" ), QString ( data ) );
   }
 
-  cmd << "-metadata" << QString ( "year=\"%1\"" ).arg ( metadata_ICRD->date().year() );
+  cmd << "-metadata" << QString ( "year=%1" ).arg ( metadata_ICRD->date().year() );
   // DEPRECATED timestamp use "creation_time Key ISO 8601"
-  cmd << "-metadata" << QString ( "creation_time=\"%1\"" ).arg ( metadata_ICRD->dateTime().toString ( Qt::ISODate ) );
+  cmd << "-metadata" << QString ( "creation_time=%1" ).arg ( metadata_ICRD->dateTime().toString ( Qt::ISODate ) );
 
   return cmd;
 }
