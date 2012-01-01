@@ -5,14 +5,13 @@ SET(_subproject "Cmd")
 SET (_subproject_SOURCES
   commandlineedit.cpp
   commandpreview.cpp
+  createcustomitem.cpp
 )
 
 SET (_subproject_HEADERS
   commandlineedit.h
   commandpreview.h
-)
-
-SET (_subproject_NOMOC_HEADERS
+  createcustomitem.h
 )
 
 QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})

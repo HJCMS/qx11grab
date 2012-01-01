@@ -276,9 +276,7 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Save current command list</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Aktuelle Kommandozeilen speichern</translation>
     </message>
     <message>
@@ -296,9 +294,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Remove this Command</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Entferne Kommandozeile</translation>
     </message>
     <message>
@@ -309,6 +305,15 @@ ToolTip</extracomment>
         <source>Restore Preview</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vorschau neu Laden</translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>Create custom entry</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Erstelle eine Eintrag</translation>
     </message>
 </context>
 <context>
@@ -345,6 +350,13 @@ ToolTip</extracomment>
     <message>
         <source>Experts</source>
         <translation>Experten</translation>
+    </message>
+</context>
+<context>
+    <name>CreateCustomItem</name>
+    <message>
+        <source>Create a custom entry</source>
+        <translation>Erstelle einen Eintrag</translation>
     </message>
 </context>
 <context>
@@ -1066,6 +1078,11 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <message>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>SMPlayer</source>
+        <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation></translation>
     </message>
 </context>

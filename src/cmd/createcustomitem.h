@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,45 +19,30 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef COMMANDLINEEDIT_H
-#define COMMANDLINEEDIT_H
-
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
+#ifndef CREATECUSTOMITEM_H
+#define CREATECUSTOMITEM_H
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QListWidget>
+#include <QtGui/QDialog>
+#include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
-class CommandLineEdit : public QListWidget
+class CreateCustomItem : public QDialog
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_PROPERTY ( QStringList data READ data WRITE setData )
-
-  private Q_SLOTS:
-    void createCustomItem();
-    void clipper();
-    void remove();
-    void save();
-
-  protected:
-    void contextMenuEvent ( QContextMenuEvent * );
-
-  Q_SIGNALS:
-    void restoreRequest();
-    void dataSaved ( const QStringList & );
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   public:
-    CommandLineEdit ( QWidget * parent = 0 );
-    const QStringList data ();
-    void setData ( const QStringList & );
-    virtual ~CommandLineEdit();
+    QLineEdit* lineEdit;
+
+  public:
+    CreateCustomItem ( QWidget * parent = 0 );
+    ~CreateCustomItem();
 };
 
 #endif

@@ -20,6 +20,7 @@
 **/
 
 #include "commandlineedit.h"
+#include "createcustomitem.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -30,6 +31,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QAbstractItemView>
 #include <QtGui/QClipboard>
+#include <QtGui/QItemSelectionModel>
 #include <QtGui/QListWidgetItem>
 #include <QtGui/QMenu>
 #include <QtGui/QPalette>
@@ -45,6 +47,24 @@ CommandLineEdit::CommandLineEdit ( QWidget * parent )
   setEditTriggers ( QAbstractItemView::DoubleClicked );
   setDragDropOverwriteMode ( false );
   setAlternatingRowColors ( true );
+}
+
+void CommandLineEdit::createCustomItem()
+{
+  CreateCustomItem* d = new CreateCustomItem ( this );
+  if ( d->exec() == QDialog::Accepted )
+  {
+    if ( ! d->lineEdit->text().isEmpty() )
+    {
+      int r = ( count() - 1 );
+      if ( r < 1 )
+        return;
+
+      insertItem ( r, d->lineEdit->text() );
+      setCurrentRow ( r, QItemSelectionModel::Select );
+    }
+  }
+  delete d;
 }
 
 /**
@@ -86,16 +106,20 @@ void CommandLineEdit::contextMenuEvent ( QContextMenuEvent * e )
   QAction* ac_save = m->addAction ( QIcon::fromTheme ( "document-save" ), trUtf8 ( "Save" ) );
   /*: ToolTip */
   ac_save->setToolTip ( trUtf8 ( "Save current command list" ) );
-  /*: ToolTip */
   ac_save->setStatusTip ( trUtf8 ( "Save current command list" ) );
   connect ( ac_save, SIGNAL ( triggered() ), this, SLOT ( save() ) );
 
   QAction* ac_remove = m->addAction ( QIcon::fromTheme ( "list-remove" ), trUtf8 ( "Remove" ) );
   /*: ToolTip */
   ac_remove->setToolTip ( trUtf8 ( "Remove this Command" ) );
-  /*: ToolTip */
   ac_remove->setStatusTip ( trUtf8 ( "Remove this Command" ) );
   connect ( ac_remove, SIGNAL ( triggered() ), this, SLOT ( remove() ) );
+
+  QAction* ac_custom = m->addAction ( QIcon::fromTheme ( "list-add" ), trUtf8 ( "Insert" ) );
+  /*: ToolTip */
+  ac_custom->setToolTip ( trUtf8 ( "Create custom entry" ) );
+  ac_custom->setStatusTip ( trUtf8 ( "Create custom entry" ) );
+  connect ( ac_custom, SIGNAL ( triggered() ), this, SLOT ( createCustomItem() ) );
 
   QAction* ac_refresh = m->addAction ( QIcon::fromTheme ( "edit-undo" ), trUtf8 ( "Reset" ) );
   /*: ToolTip */

@@ -212,6 +212,8 @@ MainWindow::MainWindow ( Settings * settings )
 
   connect ( m_commandPreview, SIGNAL ( restoreRequest () ),
             this, SLOT ( preparePreview () ) );
+
+  setWindowModified ( false );
 }
 
 void MainWindow::record()
@@ -500,7 +502,6 @@ void MainWindow::startRecord()
 
   m_toolBar->setActionsEnabled ( true );
   QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );
-  setWindowModified ( true );
 }
 
 /**

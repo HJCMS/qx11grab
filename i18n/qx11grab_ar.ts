@@ -321,52 +321,60 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CommandLineEdit</name>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="86"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="106"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="88"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="90"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="108"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="109"/>
         <source>Save current command list</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="93"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="112"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="95"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="97"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="114"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="115"/>
         <source>Remove this Command</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="100"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="118"/>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="120"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="121"/>
+        <source>Create custom entry</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/cmd/commandlineedit.cpp" line="124"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="102"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="126"/>
         <source>Restore Preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="105"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="129"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="107"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="108"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="131"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="132"/>
         <source>Copy command list to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -412,6 +420,14 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="78"/>
         <source>Experts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateCustomItem</name>
+    <message>
+        <location filename="../src/cmd/createcustomitem.cpp" line="45"/>
+        <source>Create a custom entry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -824,47 +840,47 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="423"/>
+        <location filename="../src/mainwindow.cpp" line="428"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="482"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="496"/>
+        <location filename="../src/mainwindow.cpp" line="501"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="496"/>
+        <location filename="../src/mainwindow.cpp" line="501"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="636"/>
+        <location filename="../src/mainwindow.cpp" line="640"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="668"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="668"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="684"/>
+        <location filename="../src/mainwindow.cpp" line="688"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="699"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1112,7 +1128,7 @@ ToolTip</extracomment>
 <context>
     <name>Messanger</name>
     <message>
-        <location filename="../src/messanger/messanger.cpp" line="173"/>
+        <location filename="../src/messanger/messanger.cpp" line="174"/>
         <source>Notification not send!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1266,30 +1282,36 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="69"/>
+        <source>SMPlayer</source>
+        <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/playeraction.cpp" line="71"/>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="71"/>
+        <location filename="../src/playeraction.cpp" line="73"/>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="73"/>
+        <location filename="../src/playeraction.cpp" line="75"/>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="75"/>
+        <location filename="../src/playeraction.cpp" line="77"/>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="77"/>
+        <location filename="../src/playeraction.cpp" line="79"/>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation type="unfinished"></translation>

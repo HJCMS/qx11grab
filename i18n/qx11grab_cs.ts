@@ -273,9 +273,7 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Save current command list</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Uložit nynější seznam s příkazy</translation>
     </message>
     <message>
@@ -293,9 +291,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Remove this Command</source>
-        <extracomment>ToolTip
-----------
-ToolTip</extracomment>
+        <extracomment>ToolTip</extracomment>
         <translation>Odstranit tento příkaz</translation>
     </message>
     <message>
@@ -304,6 +300,15 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Restore Preview</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create custom entry</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -341,6 +346,13 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Experts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateCustomItem</name>
+    <message>
+        <source>Create a custom entry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1064,6 +1076,11 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation></translation>
+    </message>
+    <message>
+        <source>SMPlayer</source>
+        <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
