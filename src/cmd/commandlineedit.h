@@ -40,6 +40,9 @@ class CommandLineEdit : public QListWidget
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_PROPERTY ( QStringList data READ data WRITE setData )
 
+  private:
+    void setOptions();
+
   private Q_SLOTS:
     void createCustomItem();
     void clipper();

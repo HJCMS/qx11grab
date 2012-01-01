@@ -40,6 +40,14 @@ CommandLineEdit::CommandLineEdit ( QWidget * parent )
     : QListWidget ( parent )
 {
   setObjectName ( "commandlineedit" );
+  setOptions();
+}
+
+/**
+* FIXME Qt lost Options behind remove/insert actions!
+*/
+void CommandLineEdit::setOptions()
+{
   setSortingEnabled ( false );
   setSelectionMode ( QAbstractItemView::SingleSelection );
   setBackgroundRole ( QPalette::AlternateBase );
@@ -49,6 +57,9 @@ CommandLineEdit::CommandLineEdit ( QWidget * parent )
   setAlternatingRowColors ( true );
 }
 
+/**
+* Einen neuen Eintrag erstellen!
+*/
 void CommandLineEdit::createCustomItem()
 {
   CreateCustomItem* d = new CreateCustomItem ( this );
@@ -86,6 +97,7 @@ void CommandLineEdit::remove()
     removeItemWidget ( item );
     delete item;
   }
+  setOptions();
 }
 
 /**
