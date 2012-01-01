@@ -44,38 +44,79 @@ CommandLineEdit::CommandLineEdit ( QWidget * parent )
 }
 
 /**
-* FIXME Qt lost Options behind remove/insert actions!
+* Qt verliert nach Entfernen/Hinzufügen von Einträgen
+* die Optionen des Listenfeldes!
 */
 void CommandLineEdit::setOptions()
 {
   setSortingEnabled ( false );
+  setDragDropOverwriteMode ( false );
+  setAlternatingRowColors ( true );
   setSelectionMode ( QAbstractItemView::SingleSelection );
   setBackgroundRole ( QPalette::AlternateBase );
   setDragDropMode ( QAbstractItemView::InternalMove );
   setEditTriggers ( QAbstractItemView::DoubleClicked );
-  setDragDropOverwriteMode ( false );
-  setAlternatingRowColors ( true );
+}
+
+/**
+* Wenn Einträge erstellt wurden müssen die Flags neu gesetzt werden!
+* \li Dabei wird die Zeile mit dem Programm geschützt!
+* \li Die Zeile mit der Ausgabedatei wird vor verschieben geschützt!
+* \li Alle anderen Zeilen bekommen ein Editieren erlaubt verpasst!
+*/
+void CommandLineEdit::setItemsFlags()
+{
+  QRegExp patternFirst ( "\\b(ffmpeg|avconv)\\b" );
+  QRegExp patternLast ( "^\\-y[\\s\\t]+" );
+
+  for ( int r = 0; r < count(); r++ )
+  {
+    if ( item ( r )->data ( Qt::DisplayRole ).toString().contains ( patternFirst ) )
+      item ( r )->setFlags ( Qt::NoItemFlags );
+    else if ( item ( r )->data ( Qt::DisplayRole ).toString().contains ( patternLast ) )
+      item ( r )->setFlags ( ( Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable ) );
+    else
+      item ( r )->setFlags ( ( item ( r )->flags() | Qt::ItemIsEditable ) );
+  }
 }
 
 /**
 * Einen neuen Eintrag erstellen!
+* Es muss ein Puffer angelegt werden weil qt4 wegen
+* den Schreibgeschützten Flags eine vererbung generiert
+* die hier nicht erwünscht ist!
+*/
+void CommandLineEdit::insertCustomItem ( const QString &data )
+{
+  int index = currentRow();  // NOTE !!! Zeile 0 ist blokiert !!!
+  QStringList buffer;
+  for ( int r = 0; r < count(); r++ )
+  {
+    if ( r == index )
+      buffer.append ( data );
+
+    buffer.append ( item ( r )->data ( Qt::DisplayRole ).toString() );
+  }
+
+  clear();
+  insertItems ( 0, buffer );
+  buffer.clear();
+  setCurrentRow ( index, QItemSelectionModel::ClearAndSelect );
+  setItemsFlags();
+  setOptions();
+}
+
+/**
+* Öffnet den Dialog für das Hinzufügen eines neuen Eintrages!
 */
 void CommandLineEdit::createCustomItem()
 {
   CreateCustomItem* d = new CreateCustomItem ( this );
   if ( d->exec() == QDialog::Accepted )
   {
-    if ( ! d->lineEdit->text().isEmpty() )
-    {
-      int r = ( count() - 1 );
-      if ( r < 1 )
-        return;
-
-      clearSelection();
-      insertItem ( r, d->lineEdit->text() );
-      setCurrentRow ( r, QItemSelectionModel::Select );
-      setOptions();
-    }
+    QString entry = d->lineEdit->text();
+    if ( ! entry.isEmpty() && entry.contains ( QRegExp ( "^\\-" ) ) )
+      insertCustomItem ( d->lineEdit->text() );
   }
   delete d;
 }
@@ -150,6 +191,9 @@ void CommandLineEdit::contextMenuEvent ( QContextMenuEvent * e )
   m->exec ( e->globalPos() );
 }
 
+/**
+* Den Kompletten Inhalt ausgeben!
+*/
 const QStringList CommandLineEdit::data ()
 {
   QStringList data;
@@ -164,25 +208,23 @@ const QStringList CommandLineEdit::data ()
   return data;
 }
 
+/**
+* Liste erstellen!
+*/
 void CommandLineEdit::setData ( const QStringList &cmdList )
 {
   clear();
   if ( cmdList.size() > 1 )
   {
+    int r = 0;
     foreach ( QString cmd, cmdList )
     {
       if ( cmd.isEmpty() )
         continue;
 
-      QListWidgetItem* item = new QListWidgetItem ( cmd, this, QListWidgetItem::UserType );
-      // Verhindere das verschieben der Binärdatei
-      if ( cmd.contains ( QRegExp ( "\\bffmpeg\\b" ) ) )
-        item->setFlags ( ( item->flags() & ~Qt::ItemIsDragEnabled ) );
-      else
-        item->setFlags ( ( item->flags() | Qt::ItemIsEditable ) );
-
-      addItem ( item );
+      insertItem ( r++, cmd );
     }
+    setItemsFlags();
   }
 }
 

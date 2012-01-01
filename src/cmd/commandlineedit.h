@@ -42,6 +42,8 @@ class CommandLineEdit : public QListWidget
 
   private:
     void setOptions();
+    void setItemsFlags ();
+    void insertCustomItem ( const QString &data );
 
   private Q_SLOTS:
     void createCustomItem();
