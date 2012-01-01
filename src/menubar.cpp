@@ -100,19 +100,19 @@ MenuBar::MenuBar ( MainWindow * parent )
   QAction* m_actionHJCMS = m_menuHelp->addAction ( getThemeIcon ( "qx11grab" ),
                            trUtf8 ( "QX11Grab" ) );
   /*: ToolTip */
-  m_actionHJCMS->setToolTip ( trUtf8 ( "QX11Grab Homepage" ) );
+  m_actionHJCMS->setStatusTip ( trUtf8 ( "QX11Grab Homepage" ) );
 
   QAction* m_actionFFmpeg = m_menuHelp->addAction ( helpIcon, trUtf8 ( "FFmpeg" ) );
   /*: ToolTip */
-  m_actionFFmpeg->setToolTip ( trUtf8 ( "FFmpeg Homepage" ) );
+  m_actionFFmpeg->setStatusTip ( trUtf8 ( "FFmpeg Homepage" ) );
 
   QAction* m_actionx264 = m_menuHelp->addAction ( helpIcon, trUtf8 ( "x264" ) );
   /*: ToolTip */
-  m_actionx264->setToolTip ( trUtf8 ( "x264 Homepage" ) );
+  m_actionx264->setStatusTip ( trUtf8 ( "x264 Homepage" ) );
 
   QAction* m_actionWebM = m_menuHelp->addAction ( helpIcon, trUtf8 ( "WebM Guideline" ) );
   /*: ToolTip */
-  m_actionWebM->setToolTip ( trUtf8 ( "WebM Container Guidelines" ) );
+  m_actionWebM->setStatusTip ( trUtf8 ( "WebM Container Guidelines" ) );
 
   connect ( m_actionGrabbing, SIGNAL ( triggered () ),
             m_mainWindow, SLOT ( grabFromWindow () ) );

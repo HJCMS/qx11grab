@@ -66,6 +66,7 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   map["maximize"] = "maximize";
   map["minimize"] = "minimize";
   map["qx11grab"] = "qx11grab";
+  map["ffmpeg"] = "ffmpeg";
 
   // qDebug() << key << map[key];
   QIcon fallbackIcon;
