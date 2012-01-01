@@ -71,8 +71,10 @@ void CommandLineEdit::createCustomItem()
       if ( r < 1 )
         return;
 
+      clearSelection();
       insertItem ( r, d->lineEdit->text() );
       setCurrentRow ( r, QItemSelectionModel::Select );
+      setOptions();
     }
   }
   delete d;
@@ -94,6 +96,7 @@ void CommandLineEdit::remove()
   QListWidgetItem* item = currentItem();
   if ( item )
   {
+    clearSelection();
     removeItemWidget ( item );
     delete item;
   }
