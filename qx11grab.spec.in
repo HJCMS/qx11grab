@@ -116,6 +116,7 @@ popd
 %doc %{_datadir}/qx11grab/README
 %{_datadir}/qx11grab/qx11grab_untranslated.ts
 %{_datadir}/applications/qx11grab.desktop
+%{_datadir}/dbus-1/interfaces/*.qx11grab.xml
 %{_datadir}/dbus-1/services/*.qx11grab.service
 ## Images
 %{_datadir}/pixmaps/qx11grab.png

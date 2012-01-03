@@ -24,8 +24,8 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
+
 #include <QtDBus/QDBusAbstractAdaptor>
-#include <QtDBus/QDBusConnection>
 
 #ifndef QX11GRAB_VERSION
 # include "version.h"
@@ -37,20 +37,6 @@ class Adaptor : public QDBusAbstractAdaptor
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
     Q_CLASSINFO ( "D-Bus Interface", "de.hjcms.qx11grab" )
-    Q_CLASSINFO ( "D-Bus Introspection", ""
-"  <interface name=\"de.hjcms.qx11grab\" >\n"
-"    <method name=\"rubberband\" />\n"
-"    <method name=\"show\" />\n"
-"    <method name=\"hide\" />\n"
-"    <method name=\"message\">\n"
-"     <arg direction=\"in\" type=\"s\" name=\"mess\" />\n"
-"    </method>\n"
-"    <method name=\"getAudioCodec\" />\n"
-"    <method name=\"getVideoCodec\" />\n"
-"    <method name=\"getCommand\" />\n"
-"    <method name=\"getOutputFile\" />\n"
-"  </interface>\n"
-"" )
 
   public:
     Adaptor ( QObject *parent = 0 );
@@ -61,10 +47,10 @@ class Adaptor : public QDBusAbstractAdaptor
     Q_NOREPLY void show ();
     Q_NOREPLY void hide ();
     Q_NOREPLY void message ( const QString &mess );
-    const QString getAudioCodec();
-    const QString getVideoCodec();
-    const QString getCommand();
-    const QString getOutputFile();
+    const QString audiocodec();
+    const QString videocodec();
+    const QString commandline();
+    const QString output();
 };
 
 #endif

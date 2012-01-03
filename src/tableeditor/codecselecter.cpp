@@ -49,7 +49,7 @@ void CodecSelecter::findCodecContext()
 {
   return; // FIXME currently get AVCodecContext disabled
   bool ok;
-  QX11Options::AVOptions* av = new QX11Options::AVOptions ( this );
+  QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
   connect ( av, SIGNAL ( codecDefaults ( const AVCodecContext* ) ),
             this, SLOT ( readCodecDefaults ( const AVCodecContext* ) ) );
 
@@ -81,14 +81,14 @@ void CodecSelecter::setCodec ( const QString &name )
     setCurrentIndex ( index );
 }
 
-void CodecSelecter::setCodecItems ( const QList<QX11Options::FFCodec> &list )
+void CodecSelecter::setCodecItems ( const QList<QX11Grab::FFCodec> &list )
 {
   int index = 0;
   clear();
 
   for ( int i = 0; i < list.size(); ++i )
   {
-    QX11Options::FFCodec codec = list.at ( i );
+    QX11Grab::FFCodec codec = list.at ( i );
     insertItem ( index, codec.name, QVariant ( codec.name ) );
     setItemData ( index, codec.name, Qt::DisplayRole );
     setItemData ( index, codec.name, Qt::EditRole );

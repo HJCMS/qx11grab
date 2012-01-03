@@ -37,7 +37,7 @@ extern "C"
 #include <libavcodec/avcodec.h>
 }
 
-namespace QX11Options
+namespace QX11Grab
 {
   /**
   * FFCodec
@@ -111,9 +111,9 @@ namespace QX11Options
       virtual ~AVOptions();
   };
 
-}  /* eof namespace QX11Options */
+}  /* eof namespace QX11Grab */
 
-Q_DECLARE_METATYPE ( QX11Options::FFCodec )
-Q_DECLARE_METATYPE ( QX11Options::FFOption )
+Q_DECLARE_METATYPE ( QX11Grab::FFCodec )
+Q_DECLARE_METATYPE ( QX11Grab::FFOption )
 
 #endif

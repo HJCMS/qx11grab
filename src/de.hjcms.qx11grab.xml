@@ -1,0 +1,32 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" 
+          "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<!-- QX11Grab Desktop Recording Sotftware http://qx11grab.hjcms.de -->
+<node>
+  <interface name="de.hjcms.qx11grab">
+    <method name="rubberband">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="show">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="hide">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="message">
+      <arg name="mess" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="audiocodec">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="videocodec">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="commandline">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="output">
+      <arg type="s" direction="out"/>
+    </method>
+  </interface>
+</node>

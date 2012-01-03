@@ -41,7 +41,7 @@ extern "C"
 #include <libavutil/opt.h>
 }
 
-namespace QX11Options
+namespace QX11Grab
 {
   /** generate basic ffmpeg options
   * @ref http://ffmpeg.org/doxygen/
@@ -226,4 +226,4 @@ namespace QX11Options
   AVOptions::~AVOptions()
   {}
 
-}  /* eof namespace QX11Options */
+}  /* eof namespace QX11Grab */

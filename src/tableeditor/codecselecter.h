@@ -54,7 +54,7 @@ class CodecSelecter : public QComboBox
   public:
     CodecSelecter ( QWidget * parent = 0 );
 
-    void setCodecItems ( const QList<QX11Options::FFCodec> & );
+    void setCodecItems ( const QList<QX11Grab::FFCodec> & );
 
     void setCustomItem ( const QString &key, const QVariant &value );
 

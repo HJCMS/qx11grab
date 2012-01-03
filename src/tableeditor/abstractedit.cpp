@@ -74,7 +74,7 @@ void AbstractEdit::contextMenuEvent ( QContextMenuEvent * e )
 */
 const QString AbstractEdit::implode ( const QStringList &data ) const
 {
-  QString buffer ( data.join ( QX11Options::delimiter ) );
+  QString buffer ( data.join ( QX11Grab::delimiter ) );
   return buffer.trimmed();
 }
 
@@ -85,7 +85,7 @@ const QStringList AbstractEdit::explode ( const QString &data ) const
 {
   QStringList list;
   QString buffer ( data );
-  foreach ( QString s, buffer.split ( QX11Options::delimiter ) )
+  foreach ( QString s, buffer.split ( QX11Grab::delimiter ) )
   {
     list.append ( s.trimmed() );
   }
@@ -105,12 +105,12 @@ void AbstractEdit::setValue ( const QVariant &value )
 * zu Verfügung stellt. Ist dies der fall, dann \ref proposeList
 * mit den Daten füttern und den Completer setzen!
 */
-void AbstractEdit::setCompleters ( const QList<QX11Options::FFOption> &list )
+void AbstractEdit::setCompleters ( const QList<QX11Grab::FFOption> &list )
 {
   if ( list.size() > 0 )
   {
     proposeList.clear();
-    foreach ( QX11Options::FFOption opt, list )
+    foreach ( QX11Grab::FFOption opt, list )
     {
       proposeList.append ( opt.name );
       /* Kommt immer nur dann vor wenn eine einzelne
@@ -118,7 +118,7 @@ void AbstractEdit::setCompleters ( const QList<QX11Options::FFOption> &list )
       if ( ! opt.value.toString().isEmpty() )
       {
         QString data = opt.value.toString();
-        if ( data.contains ( QX11Options::delimiter ) )
+        if ( data.contains ( QX11Grab::delimiter ) )
           proposeList.append ( explode ( data ) );
       }
     }

@@ -111,7 +111,7 @@ TableEditor::TableEditor ( QWidget * parent )
 */
 void TableEditor::findVideoCodecs()
 {
-  QList<QX11Options::FFCodec> list = QX11Options::AVOptions::videoCodecs();
+  QList<QX11Grab::FFCodec> list = QX11Grab::AVOptions::videoCodecs();
   if ( list.size() > 0 )
     m_codecSelecter->setCodecItems ( list );
 
@@ -129,7 +129,7 @@ void TableEditor::findVideoCodecs()
 */
 void TableEditor::findAudioCodecs()
 {
-  QList<QX11Options::FFCodec> list = QX11Options::AVOptions::audioCodecs();
+  QList<QX11Grab::FFCodec> list = QX11Grab::AVOptions::audioCodecs();
   if ( list.size() > 0 )
     m_codecSelecter->setCodecItems ( list );
 

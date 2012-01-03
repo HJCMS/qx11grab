@@ -1,3 +1,27 @@
+/**
+* This file is part of the qx11grab project
+*
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Library General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Library General Public License for more details.
+*
+* You should have received a copy of the GNU Library General Public License
+* along with this library; see the file COPYING.LIB.  If not, write to
+* the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301, USA.
+**/
+
+#ifndef ICON_PRIVATE_H
+#define ICON_PRIVATE_H
+
 const unsigned char icon_size192[]={
   0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a,0x00,0x00,0x00,0x0d,0x49,0x48,0x44,0x52,
   0x00,0x00,0x00,0xc0,0x00,0x00,0x00,0xc0,0x08,0x06,0x00,0x00,0x00,0x52,0xdc,0x6c,
@@ -1338,4 +1362,6 @@ const unsigned char icon_size192[]={
   0xa3,0xe9,0xff,0x03,0xf2,0x78,0xae,0xbf,0x19,0x13,0xd7,0x99,0x00,0x00,0x00,0x00,
   0x49,0x45,0x4e,0x44,0xae,0x42,0x60,0x82
   };
+
+#endif
 

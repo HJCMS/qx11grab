@@ -26,7 +26,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 
-/* QX11Options */
+/* QX11Grab */
 #include "avoptions.h"
 
 DefaultEdit::DefaultEdit ( QWidget * parent )
@@ -41,7 +41,7 @@ void DefaultEdit::setCodecOptions ( const QString &param )
   QRegExp pattern ( "((^\\-{1,2})|(:\\w{1}$))" );
   QByteArray query = buffer.remove ( pattern ).toAscii();
 
-  QList<QX11Options::FFOption> opts = QX11Options::AVOptions::optionQuery ( query );
+  QList<QX11Grab::FFOption> opts = QX11Grab::AVOptions::optionQuery ( query );
   if ( opts.size() > 0 )
   {
     setToolTip ( opts.first().help );
@@ -53,9 +53,9 @@ void DefaultEdit::setCompleterId ( const QString &id )
 {
   // Siehe "avoptions.h"
   if ( id.compare ( "-pix_fmt" ) == 0 )
-    setCompleters ( QX11Options::AVOptions::pixelFormats() );
+    setCompleters ( QX11Grab::AVOptions::pixelFormats() );
   else if ( id.compare ( "-sample_fmt" ) == 0 )
-    setCompleters ( QX11Options::AVOptions::sampleFormats() );
+    setCompleters ( QX11Grab::AVOptions::sampleFormats() );
   else if ( id.contains ( QRegExp ( "^\\-{1,2}\\b" ) ) )
     setCodecOptions ( id );
 }

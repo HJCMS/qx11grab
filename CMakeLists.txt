@@ -181,6 +181,33 @@ ENDIF (PULSE_FOUND)
 PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4 )
 
 ##############################################################
+## DBus 
+##############################################################
+
+PKG_CHECK_MODULES (DBUS REQUIRED dbus-1>=1.5.0 )
+IF (DBUS_FOUND)
+  SET (_dbus_interfaces_dir "")
+  EXECUTE_PROCESS (COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=interfaces_dir dbus-1
+    OUTPUT_VARIABLE _dbus_interfaces_dir
+    RESULT_VARIABLE _dbus_interfaces_dir_result
+    ERROR_VARIABLE _dbus_interfaces_dir_error
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  SET (DBUS_INTERFACES_DIR "${_dbus_interfaces_dir}" CACHE PATH "DBus Interfaces Directory")
+
+  SET (_dbus_services_dir "")
+  EXECUTE_PROCESS (COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=session_bus_services_dir dbus-1
+    OUTPUT_VARIABLE _dbus_services_dir
+    RESULT_VARIABLE _dbus_services_dir_result
+    ERROR_VARIABLE _dbus_services_dir_error
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  SET (DBUS_SERVICES_DIR "${_dbus_services_dir}" CACHE PATH "DBus Services Directory")
+ELSE (DBUS_FOUND)
+  MESSAGE (FATAL_ERROR "DBus not found")
+ENDIF (DBUS_FOUND)
+
+##############################################################
 ## INCLUDES
 ##############################################################
 
@@ -268,23 +295,6 @@ INSTALL (FILES
 )
 
 ##############################################################
-## DBUS Service
-##############################################################
-
-FILE (WRITE ${ARCHIVE_OUTPUT_PATH}/${QX11GRAB_DBUS_DOMAIN_NAME}.service
-"[D-BUS Service]
-Name=${QX11GRAB_DBUS_DOMAIN_NAME}
-Exec=${CMAKE_INSTALL_PREFIX}/bin/${CMAKE_PROJECT_NAME}
-"
-)
-
-INSTALL (FILES
-  ${ARCHIVE_OUTPUT_PATH}/${QX11GRAB_DBUS_DOMAIN_NAME}.service
-  DESTINATION share/dbus-1/services/
-  COMPONENT dbus
-)
-
-##############################################################
 ## SUBDIRECTORIES
 ##############################################################
 ADD_SUBDIRECTORY (src)
@@ -322,20 +332,22 @@ ENDMACRO (summary)
 
 MESSAGE ("")
 MESSAGE ("Configuration summary:")
-MESSAGE (STATUS "Install Directory ${CMAKE_INSTALL_PREFIX}")
+MESSAGE (STATUS "${CMAKE_PROJECT_NAME} Install Directory ${CMAKE_INSTALL_PREFIX}")
+MESSAGE (STATUS "Install DBus Interface spec to ${DBUS_INTERFACES_DIR}")
+MESSAGE (STATUS "Install DBus Service spec to ${DBUS_SERVICES_DIR}")
 IF (INSTALL_FFPRESETS)
-  MESSAGE (STATUS " Install extra FFmpeg ffpresets to ${FFMPEG_SHAREDIR}")
+  MESSAGE (STATUS "Install extra FFmpeg ffpresets to ${FFMPEG_SHAREDIR}")
 ELSE (INSTALL_FFPRESETS)
-  MESSAGE (STATUS " Install extra FFmpeg ffpresets disabled")
+  MESSAGE (STATUS "Install extra FFmpeg ffpresets disabled")
 ENDIF (INSTALL_FFPRESETS)
 MESSAGE ("")
-MESSAGE ("Required Development Packages:")
+MESSAGE ("Required Packages:")
 summary (FFMPEG_FOUND "FFmpeg" FALSE )
 summary (X11_FOUND "X11" FALSE )
 summary (QT4_FOUND "Qt4" FALSE )
 summary (ALSA_FOUND "Alsa" FALSE )
 MESSAGE ("")
-MESSAGE ("Optional Development Packages:")
+MESSAGE ("Optional Packages:")
 summary (PULSE_FOUND "pulseaudio" TRUE )
 summary (KDE_FOUND "kde4" TRUE )
 MESSAGE ("")
