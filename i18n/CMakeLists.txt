@@ -10,21 +10,22 @@ SET (multi_file_lng
   cs
 )
 
-EXEC_PROGRAM (${QT_QMAKE_EXECUTABLE} ARGS "-query QT_INSTALL_TRANSLATIONS" OUTPUT_VARIABLE INSTALL_TRANSLATIONS)
+EXECUTE_PROCESS (COMMAND ${QT_QMAKE_EXECUTABLE} -query QT_INSTALL_TRANSLATIONS
+OUTPUT_VARIABLE INSTALL_TRANSLATIONS
+)
+
+MESSAGE ("")
+MESSAGE ("Install Translations to: ${QT_TRANSLATIONS_DIR}")
 
 FILE (MAKE_DIRECTORY ${ARCHIVE_OUTPUT_PATH})
 FOREACH (lng ${single_file_lng})
-  EXEC_PROGRAM (${QT_LRELEASE_EXECUTABLE}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ARGS -compress -silent -nounfinished qx11grab_${lng}.ts -qm ${ARCHIVE_OUTPUT_PATH}/qx11grab_${lng}.qm
-  )
+  EXECUTE_PROCESS (COMMAND ${QT_LRELEASE_EXECUTABLE} -compress -silent -nounfinished ${CMAKE_CURRENT_SOURCE_DIR}/qx11grab_${lng}.ts -qm ${ARCHIVE_OUTPUT_PATH}/qx11grab_${lng}.qm)
+  MESSAGE (STATUS "qx11grab_${lng}.qm")
 ENDFOREACH (lng)
 
 FOREACH (lng ${multi_file_lng})
-  EXEC_PROGRAM (${QT_LRELEASE_EXECUTABLE}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ARGS -compress -silent -nounfinished qt_${lng}.ts qx11grab_${lng}.ts -qm ${ARCHIVE_OUTPUT_PATH}/qx11grab_${lng}.qm
-  )
+  EXECUTE_PROCESS (COMMAND ${QT_LRELEASE_EXECUTABLE} -compress -silent -nounfinished ${CMAKE_CURRENT_SOURCE_DIR}/qt_${lng}.ts ${CMAKE_CURRENT_SOURCE_DIR}/qx11grab_${lng}.ts -qm ${ARCHIVE_OUTPUT_PATH}/qx11grab_${lng}.qm)
+  MESSAGE (STATUS "qx11grab_${lng}.qm")
 ENDFOREACH (lng)
 
 FILE(GLOB QM_FILES "${ARCHIVE_OUTPUT_PATH}/qx11grab_*.qm")

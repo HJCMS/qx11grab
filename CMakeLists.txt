@@ -2,23 +2,18 @@
 ##############################################################
 PROJECT (qx11grab)
 
-CMAKE_MINIMUM_REQUIRED (VERSION 2.8.0 FATAL_ERROR)
-
-##############################################################
-# CMP0017: we have multiple targets for CheckCXXSourceCompiles with kde4
-##############################################################
-# CMAKE_POLICY (SET CMP0017 OLD)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.8.1 FATAL_ERROR)
 ENABLE_LANGUAGE (CXX)
 
-##############################################################
-# where to look first for cmake modules, before ${CMAKE_ROOT}/cmake/Modules/ is checked
-##############################################################
+IF (CMAKE_VERSION STREQUAL 2.8.4)
+  CMAKE_POLICY (SET CMP0017 OLD)
+ENDIF (CMAKE_VERSION STREQUAL 2.8.4)
 SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 
 ##############################################################
 ## Requiered "QtCore QtGui QtXml QtNetwork"
 ##############################################################
-SET (QT_MIN_VERSION 4.6.0)
+SET (QT_MIN_VERSION 4.7.1)
 FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML)
 FIND_PACKAGE (PkgConfig REQUIRED)
@@ -178,13 +173,13 @@ ENDIF (PULSE_FOUND)
 ## Xorg 
 ##############################################################
 
-PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4 )
+PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4)
 
 ##############################################################
 ## DBus 
 ##############################################################
 
-PKG_CHECK_MODULES (DBUS REQUIRED dbus-1>=1.5.0 )
+PKG_CHECK_MODULES (DBUS REQUIRED dbus-1>=1.5.0)
 IF (DBUS_FOUND)
   SET (_dbus_interfaces_dir "")
   EXECUTE_PROCESS (COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=interfaces_dir dbus-1
@@ -248,7 +243,6 @@ IF (KDE4_FOUND)
     ${KDE4_KDECORE_LIBRARY}
     ${KDE4_KDEUI_LIBRARY}
   )
-  STRING (REGEX REPLACE "\\-fno\\-exceptions" "-fexceptions" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
 ENDIF (KDE4_FOUND)
 
@@ -298,7 +292,9 @@ INSTALL (FILES
 ## SUBDIRECTORIES
 ##############################################################
 ADD_SUBDIRECTORY (src)
-ADD_SUBDIRECTORY (i18n)
+IF (QT_LRELEASE_EXECUTABLE)
+  ADD_SUBDIRECTORY (i18n)
+ENDIF (QT_LRELEASE_EXECUTABLE)
 ADD_SUBDIRECTORY (icons)
 ADD_SUBDIRECTORY (ffpresets)
 
@@ -342,14 +338,14 @@ ELSE (INSTALL_FFPRESETS)
 ENDIF (INSTALL_FFPRESETS)
 MESSAGE ("")
 MESSAGE ("Required Packages:")
-summary (FFMPEG_FOUND "FFmpeg" FALSE )
-summary (X11_FOUND "X11" FALSE )
-summary (QT4_FOUND "Qt4" FALSE )
-summary (ALSA_FOUND "Alsa" FALSE )
+summary (FFMPEG_FOUND "FFmpeg" FALSE)
+summary (X11_FOUND "X11" FALSE)
+summary (QT4_FOUND "Qt4" FALSE)
+summary (ALSA_FOUND "Alsa" FALSE)
 MESSAGE ("")
 MESSAGE ("Optional Packages:")
-summary (PULSE_FOUND "pulseaudio" TRUE )
-summary (KDE_FOUND "kde4" TRUE )
+summary (PULSE_FOUND "pulseaudio" TRUE)
+summary (KDE_FOUND "kde4" TRUE)
 MESSAGE ("")
 
 ## EOF
