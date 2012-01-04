@@ -19,6 +19,9 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+/* QX11Grab */
+#include "version.h"
+
 #include "mainwindow.h"
 #include "settings.h"
 #include "menubar.h"
@@ -114,19 +117,19 @@ MainWindow::MainWindow ( Settings * settings )
 
   // Dimension {
   m_grabberInfo = new GrabberInfo ( toolBox );
-  toolBox->addItem ( m_grabberInfo, QIcon::fromTheme ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
+  toolBox->addItem ( m_grabberInfo, getThemeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
   // } Dimension
 
   // MetaData {
   m_metaData = new MetaData ( toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  toolBox->addItem ( m_metaData, QIcon::fromTheme ( "menu-editors" ), trUtf8 ( "Metadata" ) );
+  toolBox->addItem ( m_metaData, getThemeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
   // } MetaData
 
   // vCodec {
   m_videoEditor = new TableEditor ( toolBox );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
-  toolBox->addItem ( m_videoEditor, QIcon::fromTheme ( "menu-video-edit" ), trUtf8 ( "Video" ) );
+  toolBox->addItem ( m_videoEditor, getThemeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
   // } vCodec
 
   // aCodec {
@@ -136,7 +139,7 @@ MainWindow::MainWindow ( Settings * settings )
   m_audioGroupBox->setTitle ( trUtf8 ( "Audio Recording" ) );
   /*: WhatsThis */
   m_audioGroupBox->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
-  toolBox->addItem ( m_audioGroupBox, QIcon::fromTheme ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
+  toolBox->addItem ( m_audioGroupBox, getThemeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
   m_audioEditor = new TableEditor ( m_audioGroupBox );

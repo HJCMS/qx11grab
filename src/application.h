@@ -19,51 +19,65 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef SYSTEMTRAY_H
-#define SYSTEMTRAY_H
+#ifndef QX11GRAB_MAIN_H
+#define QX11GRAB_MAIN_H
+
+/* QX11Grab */
+#ifndef QX11GRAB_VERSION
+# include "version.h"
+#endif
 
 /* QtCore */
-#include <QtCore/QEvent>
+#include <QtCore/QCoreApplication>
 #include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QIcon>
+#include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
-#include <QtGui/QWidget>
+#include <QtGui/QX11Info>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
+
+/* QtNetwork */
+#include <QtNetwork/QLocalServer>
+#include <QtNetwork/QLocalSocket>
 
 /* QX11Grab */
-#include "mainwindow.h"
+#include "settings.h"
 
-class Messanger;
-
-class SystemTray : public QSystemTrayIcon
+class Application : public QApplication
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    MainWindow* m_mainWindow;
-    Messanger* m_messanger;
-    QAction* m_actionStartRecord;
-    QAction* m_actionStopRecord;
+    QLocalServer* m_server;
+    QDBusConnection* m_dbus;
+    Settings* m_settings;
+    const QString localSocketName() const;
+    const QString socketPath();
+    bool createEnviroment();
 
-//   protected:
-//     bool event ( QEvent * e );
+  private Q_SLOTS:
+    void newConnection();
 
-  public Q_SLOTS:
-    void setActionsEnabled ( bool b = true );
-    void setCustomToolTip ( const QString &txt );
+  protected:
+    bool startUniqueServer();
+
+  Q_SIGNALS:
+    void messageReceived ( QLocalSocket *socket );
 
   public:
-    SystemTray ( MainWindow * parent );
-    void setMessanger ( QDBusConnection* bus );
-    void sendMessage ( const QString &title, const QString &message, QSystemTrayIcon::MessageIcon icon );
-    ~SystemTray();
+    Application ( int &argc, char **argv );
+    Settings* setting();
+    QDBusConnection* bus();
+    ~Application();
 };
 
 #endif

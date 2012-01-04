@@ -19,11 +19,11 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+/* QX11Grab */
+#include "version.h"
+
 #include "playeraction.h"
 #include "settings.h"
-
-/* QX11Grab */
-// #include ""
 
 /* QtCore */
 #include <QtCore/QDebug>

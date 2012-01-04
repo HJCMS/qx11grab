@@ -19,88 +19,28 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_VERSION
-#include "version.h"
-#endif
 
 #include <cstdlib>
 
 /* QtCore */
-#include <QtCore/QCoreApplication>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QLocale>
-#include <QtCore/QObject>
-#include <QtCore/QStringList>
-#include <QtCore/QTranslator>
-#include <QtCore/QTextCodec>
+#include <QtCore/QString>
 
-/* QtGui */
-#include <QtGui/QApplication>
-#include <QtGui/QMessageBox>
-#include <QtGui/QSystemTrayIcon>
-#include <QtGui/QX11Info>
-
-/* QtDBus */
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
-
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
-
-#include "settings.h"
+/* QX11Grab */
+#include "application.h"
 #include "mainwindow.h"
 #include "adaptor.h"
 
 int main ( int argc, char* argv[] )
 {
-  QString reg ( QX11GRAB_DBUS_DOMAIN_NAME );
-  QDBusConnection* bus = new QDBusConnection ( QDBusConnection::sessionBus() );
-  if ( ! bus->registerService ( reg ) )
-  {
-    qWarning ( "QX11Grab Already Running" );
-    QDBusConnection dbus = bus->connectToBus ( QDBusConnection::SessionBus, reg );
-    QDBusMessage meth = QDBusMessage::createMethodCall ( reg, "/", reg, "show" );
-    if ( dbus.send ( meth ) )
-      dbus.disconnectFromBus ( reg );
-
-    return EXIT_SUCCESS;
-  }
-
-  QApplication app ( argc, argv, true );
-  app.setApplicationName ( "qx11grab" );
-  app.setApplicationVersion ( QX11GRAB_VERSION );
-  app.setOrganizationDomain ( "hjcms.de" );
-  app.setQuitOnLastWindowClosed ( false );
-
-  if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
-  {
-    QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
-    return EXIT_FAILURE;
-  }
-  QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
-
-  QStringList transpaths ( QCoreApplication::applicationDirPath () );
-  transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
-
-  QTranslator translator;
-  foreach ( QString d, transpaths )
-  {
-    if ( translator.load ( QString ( "%1/qx11grab_%2" ).arg ( d, QLocale().name() ) ) )
-      break;
-  }
-  app.installTranslator ( &translator );
-
-  Settings* m_Settings = new Settings ( &app );
-
-  MainWindow* window = new  MainWindow ( m_Settings );
+  Application app ( argc, argv );
+  MainWindow* window = new  MainWindow ( app.setting() );
   Adaptor* adaptor = new Adaptor ( window );
-  bus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
+  app.bus()->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
 
-  if ( adaptor && bus->isConnected() )
-    window->registerMessanger ( bus );
+  if ( adaptor && app.bus()->isConnected() )
+    window->registerMessanger ( app.bus() );
 
-  if ( m_Settings->value ( "startMinimized", false ).toBool() )
+  if ( app.setting()->value ( "startMinimized", false ).toBool() )
     window->hide();
   else
     window->show();

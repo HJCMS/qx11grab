@@ -67,8 +67,12 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   map["minimize"] = "minimize";
   map["qx11grab"] = "qx11grab";
   map["ffmpeg"] = "ffmpeg";
+  map["view-grid"] = "grid";
 
-  // qDebug() << key << map[key];
+#ifdef MAINTAINER_REPOSITORY
+  qDebug() << Q_FUNC_INFO << icon << map[icon];
+#endif
+
   QIcon fallbackIcon;
   QPixmap pixmap = QPixmap ( QString::fromUtf8 ( "://images/%1.png" ).arg ( map[icon] ) );
   fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );

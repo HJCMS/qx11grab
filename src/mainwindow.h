@@ -22,10 +22,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
-
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>

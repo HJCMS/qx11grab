@@ -43,6 +43,7 @@ SET (qx11grab_INTERFACE
 
 SET (qx11grab_SOURCES
   main.cpp
+  application.cpp
   menubar.cpp
   toolbar.cpp
   mainwindow.cpp
@@ -53,6 +54,7 @@ SET (qx11grab_SOURCES
 )
 
 SET (qx11grab_HEADERS
+  application.h
   menubar.h
   toolbar.h
   mainwindow.h

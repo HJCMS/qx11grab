@@ -19,6 +19,9 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+/* QX11Grab */
+#include "version.h"
+
 #include "systemtray.h"
 #include "menubar.h"
 #include "messanger.h"
@@ -89,15 +92,6 @@ SystemTray::SystemTray ( MainWindow * parent )
   connect ( quitWindowAction, SIGNAL ( triggered() ),
             qApp, SLOT ( quit() ) );
 }
-
-// bool SystemTray::event ( QEvent * e )
-// {
-//   if ( e->type() == QEvent::ToolTip )
-//   {
-//     qDebug() << Q_FUNC_INFO << "TODO: ToolTip Record Status";
-//   }
-//   return QSystemTrayIcon::event ( e );
-// }
 
 void SystemTray::setActionsEnabled ( bool b )
 {

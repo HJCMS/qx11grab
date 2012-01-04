@@ -15,7 +15,7 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 ##############################################################
 SET (QT_MIN_VERSION 4.7.1)
 FIND_PACKAGE (Qt4 REQUIRED)
-FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML)
+FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML QTNETWORK)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
 
@@ -188,7 +188,7 @@ IF (DBUS_FOUND)
     ERROR_VARIABLE _dbus_interfaces_dir_error
     OUTPUT_STRIP_TRAILING_WHITESPACE
   )
-  SET (DBUS_INTERFACES_DIR "${_dbus_interfaces_dir}" CACHE PATH "DBus Interfaces Directory")
+  SET (DBUS_INTERFACES_DIR "${_dbus_interfaces_dir}" CACHE PATH "DBus Interfaces Directory" FORCE)
 
   SET (_dbus_services_dir "")
   EXECUTE_PROCESS (COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=session_bus_services_dir dbus-1
@@ -197,7 +197,7 @@ IF (DBUS_FOUND)
     ERROR_VARIABLE _dbus_services_dir_error
     OUTPUT_STRIP_TRAILING_WHITESPACE
   )
-  SET (DBUS_SERVICES_DIR "${_dbus_services_dir}" CACHE PATH "DBus Services Directory")
+  SET (DBUS_SERVICES_DIR "${_dbus_services_dir}" CACHE PATH "DBus Services Directory" FORCE)
 ELSE (DBUS_FOUND)
   MESSAGE (FATAL_ERROR "DBus not found")
 ENDIF (DBUS_FOUND)
@@ -227,6 +227,7 @@ SET (QX11GRAB_LIBRARIES
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
+  ${QT_QTNETWORK_LIBRARY}
 )
 
 ##############################################################

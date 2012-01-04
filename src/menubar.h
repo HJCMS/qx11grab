@@ -22,10 +22,6 @@
 #ifndef MENUBAR_H
 #define MENUBAR_H
 
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
-
 /* QtCore */
 #include <QtCore/QObject>
 

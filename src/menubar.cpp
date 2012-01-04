@@ -19,6 +19,9 @@
 * Boston, MA 02110-1301, USA.
 **/
 
+/* QX11Grab */
+#include "version.h"
+
 #include "menubar.h"
 
 /* QtCore */
@@ -68,7 +71,7 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_actionExport = exportAction ( this, true );
   m_menuActions->addAction ( m_actionExport );
 
-  QMenu* m_menuBookmark = m_menuActions->addMenu ( QIcon::fromTheme ( "folder-bookmark" ),
+  QMenu* m_menuBookmark = m_menuActions->addMenu ( getThemeIcon ( "folder-bookmark" ),
                           trUtf8 ( "Bookmark" ) );
 
   m_actionAddBookmark = bookmarkCreateAction ( m_menuBookmark );
@@ -81,7 +84,7 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_menuActions->addAction ( m_actionSave );
 
   m_actionLoad = m_menuActions->addAction ( trUtf8 ( "Load" ) );
-  m_actionLoad->setIcon ( QIcon::fromTheme ( "edit-redo" ) );
+  m_actionLoad->setIcon ( getThemeIcon ( "edit-redo" ) );
   m_actionLoad->setShortcut ( QKeySequence::Undo );
 
   m_actionRefresh = refreshAction ( this, true );
@@ -90,12 +93,12 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_menuActions->addSeparator();
 
   QAction* m_actionConfigure = m_menuActions->addAction ( trUtf8 ( "Configure" ) );
-  m_actionConfigure->setIcon ( QIcon::fromTheme ( "configure" ) );
+  m_actionConfigure->setIcon ( getThemeIcon ( "configure" ) );
 
   // About and Help
   QMenu* m_menuHelp = addMenu ( trUtf8 ( "Help" ) );
 
-  QIcon helpIcon = QIcon::fromTheme ( "help-contents" );
+  QIcon helpIcon = getThemeIcon ( "help-contents" );
 
   QAction* m_actionHJCMS = m_menuHelp->addAction ( getThemeIcon ( "qx11grab" ),
                            trUtf8 ( "QX11Grab" ) );
@@ -176,7 +179,7 @@ QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
   ac->setObjectName ( QLatin1String ( "bookmarkCreateAction" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open create Bookmark Dialog" ) );
-  ac->setIcon ( QIcon::fromTheme ( "bookmark-new" ) );
+  ac->setIcon ( getThemeIcon ( "bookmark-new" ) );
   ac->setShortcut ( Qt::CTRL + Qt::Key_B );
   return ac;
 }
@@ -187,7 +190,7 @@ QAction* MenuBar::bookmarkRemoveAction ( QMenu * parent )
   ac->setObjectName ( QLatin1String ( "bookmarkRemoveAction" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open delete Bookmark Dialog" ) );
-  ac->setIcon ( QIcon::fromTheme ( "bookmarks-organize" ) );
+  ac->setIcon ( getThemeIcon ( "bookmarks-organize" ) );
   return ac;
 }
 
@@ -225,7 +228,7 @@ QAction* MenuBar::quitAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionQuit" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Close Application" ) );
-  ac->setIcon ( QIcon::fromTheme ( "application-exit" ) );
+  ac->setIcon ( getThemeIcon ( "application-exit" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Quit );
   return ac;
@@ -238,7 +241,7 @@ QAction* MenuBar::grabbingAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionGrabbing" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "get Size from Window" ) );
-  ac->setIcon ( QIcon::fromTheme ( "window" ) );
+  ac->setIcon ( getThemeIcon ( "window-duplicate" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_G );
   return ac;
@@ -251,7 +254,7 @@ QAction* MenuBar::rubberbandAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionRubberband" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "swap rubberband view" ) );
-  ac->setIcon ( QIcon::fromTheme ( "view-grid" ) );
+  ac->setIcon ( getThemeIcon ( "view-grid" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::SHIFT + Qt::Key_R );
   return ac;
@@ -264,7 +267,7 @@ QAction* MenuBar::startRecordAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionStartRecord" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Start Recording" ) );
-  ac->setIcon ( QIcon::fromTheme ( "media-record" ) );
+  ac->setIcon ( getThemeIcon ( "media-record" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_R );
   return ac;
@@ -277,7 +280,7 @@ QAction* MenuBar::stopRecordAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionStopRecord" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Stop Recording" ) );
-  ac->setIcon ( QIcon::fromTheme ( "media-playback-stop" ) );
+  ac->setIcon ( getThemeIcon ( "media-playback-stop" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_E );
   ac->setEnabled ( false );
@@ -291,7 +294,7 @@ QAction* MenuBar::killRecordAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionKillRecord" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Kill Recording" ) );
-  ac->setIcon ( QIcon::fromTheme ( "menu-debugger" ) );
+  ac->setIcon ( getThemeIcon ( "menu-debugger" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_Z );
   ac->setEnabled ( false );
@@ -331,7 +334,7 @@ QAction* MenuBar::exportAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "exportAction" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Export current command set" ) );
-  ac->setIcon ( QIcon::fromTheme ( "document-export" ) );
+  ac->setIcon ( getThemeIcon ( "document-export" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_N );
   return ac;
@@ -344,7 +347,7 @@ QAction* MenuBar::saveAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionSave" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Save current Settings" ) );
-  ac->setIcon ( QIcon::fromTheme ( "document-save" ) );
+  ac->setIcon ( getThemeIcon ( "document-save" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Save );
   return ac;
@@ -357,7 +360,7 @@ QAction* MenuBar::refreshAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionRefresh" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Refresh Commandline Preview" ) );
-  ac->setIcon ( QIcon::fromTheme ( "view-refresh" ) );
+  ac->setIcon ( getThemeIcon ( "view-refresh" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Refresh );
   return ac;
@@ -370,7 +373,7 @@ QAction* MenuBar::viewAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionLogfile" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open FFmpeg Protocoll" ) );
-  ac->setIcon ( QIcon::fromTheme ( "view-list-text" ) );
+  ac->setIcon ( getThemeIcon ( "view-list-text" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Refresh );
   return ac;
