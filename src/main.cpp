@@ -24,6 +24,10 @@
 
 /* QtCore */
 #include <QtCore/QString>
+#include <QtCore/QLibraryInfo>
+#include <QtCore/QLocale>
+#include <QtCore/QTextCodec>
+#include <QtCore/QTranslator>
 
 /* QX11Grab */
 #include "application.h"
@@ -33,6 +37,25 @@
 int main ( int argc, char* argv[] )
 {
   Application app ( argc, argv );
+
+  QStringList transpaths ( QCoreApplication::applicationDirPath () );
+  transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
+
+  QTranslator translator;
+  foreach ( QString d, transpaths )
+  {
+    if ( translator.load ( QString ( "%1/qx11grab_%2" ).arg ( d, QLocale().name() ) ) )
+      break;
+  }
+  app.installTranslator ( &translator );
+
+  if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
+  {
+    QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
+    return false;
+  }
+  QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
+
   MainWindow* window = new  MainWindow ( app.setting() );
   Adaptor* adaptor = new Adaptor ( window );
   app.bus()->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );

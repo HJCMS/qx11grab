@@ -25,10 +25,6 @@
 #include <QtCore/QDebug>
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QProcessEnvironment>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QLocale>
-#include <QtCore/QTranslator>
-#include <QtCore/QTextCodec>
 
 Application::Application ( int &argc, char **argv )
     : QApplication ( argc, argv, true )
@@ -81,25 +77,6 @@ bool Application::createEnviroment()
     qWarning ( "can not register dbus session" );
     return false;
   }
-
-  if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
-  {
-    QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
-    return false;
-  }
-  QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
-
-  QStringList transpaths ( QCoreApplication::applicationDirPath () );
-  transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
-
-  QTranslator translator;
-  foreach ( QString d, transpaths )
-  {
-    if ( translator.load ( QString ( "%1/qx11grab_%2" ).arg ( d, QLocale().name() ) ) )
-      break;
-  }
-  installTranslator ( &translator );
-
   return true;
 }
 
