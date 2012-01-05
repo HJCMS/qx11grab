@@ -51,7 +51,7 @@ int main ( int argc, char* argv[] )
     return EXIT_SUCCESS;
   }
 
-  QStringList transpaths ( QCoreApplication::applicationDirPath () );
+  QStringList transpaths ( app->applicationDirPath () );
   transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
 
   QTranslator translator;
