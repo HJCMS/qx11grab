@@ -9,6 +9,9 @@ SET (_subproject_SOURCES
   targetswidget.cpp
   loglevelcombobox.cpp
   extraoptions.cpp
+  iconthemeitem.cpp
+  iconthememodel.cpp
+  iconthemeselector.cpp
 )
 
 SET (_subproject_HEADERS
@@ -18,6 +21,12 @@ SET (_subproject_HEADERS
   targetswidget.h
   loglevelcombobox.h
   extraoptions.h
+  iconthememodel.h
+  iconthemeselector.h
+)
+
+SET (_subproject_NOMOC_HEADERS
+  iconthemeitem.h
 )
 
 INCLUDE_DIRECTORIES (
@@ -32,6 +41,7 @@ QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})
 ADD_LIBRARY (${_subproject} STATIC
   ${_subproject_MOC}
   ${_subproject_HEADERS}
+  ${_subproject_NOMOC_HEADERS}
   ${_subproject_SOURCES}
 )
 

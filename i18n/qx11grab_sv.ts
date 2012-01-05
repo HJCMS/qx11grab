@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="sv_SE">
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../src/aboutdialog.cpp" line="62"/>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AbstractAudioDialog</name>
     <message>
         <location filename="../src/audio/abstractaudiodialog.cpp" line="49"/>
@@ -321,60 +329,60 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CommandLineEdit</name>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="106"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="162"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="108"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="109"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="164"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="165"/>
         <source>Save current command list</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="112"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="168"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="114"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="115"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="170"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="171"/>
         <source>Remove this Command</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="118"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="174"/>
         <source>Insert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="120"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="121"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="176"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="177"/>
         <source>Create custom entry</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="124"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="180"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="126"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="182"/>
         <source>Restore Preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="129"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="185"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/cmd/commandlineedit.cpp" line="131"/>
-        <location filename="../src/cmd/commandlineedit.cpp" line="132"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="187"/>
+        <location filename="../src/cmd/commandlineedit.cpp" line="188"/>
         <source>Copy command list to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -733,154 +741,159 @@ WhatsThis</extracomment>
 <context>
     <name>MainFunctions</name>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="39"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="40"/>
         <source>Features</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="48"/>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="49"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="51"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="56"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="57"/>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="65"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="66"/>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="69"/>
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="73"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="74"/>
         <source>Report Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="77"/>
+        <source>Icon Theme</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="117"/>
+        <location filename="../src/mainwindow.cpp" line="120"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="123"/>
+        <location filename="../src/mainwindow.cpp" line="126"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="129"/>
+        <location filename="../src/mainwindow.cpp" line="132"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="136"/>
+        <location filename="../src/mainwindow.cpp" line="139"/>
         <source>Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="138"/>
+        <location filename="../src/mainwindow.cpp" line="141"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="139"/>
+        <location filename="../src/mainwindow.cpp" line="142"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="151"/>
+        <location filename="../src/mainwindow.cpp" line="154"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="152"/>
+        <location filename="../src/mainwindow.cpp" line="155"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="428"/>
+        <location filename="../src/mainwindow.cpp" line="431"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="501"/>
+        <location filename="../src/mainwindow.cpp" line="504"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="501"/>
+        <location filename="../src/mainwindow.cpp" line="504"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="640"/>
+        <location filename="../src/mainwindow.cpp" line="643"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="668"/>
+        <location filename="../src/mainwindow.cpp" line="671"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="668"/>
+        <location filename="../src/mainwindow.cpp" line="671"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="688"/>
+        <location filename="../src/mainwindow.cpp" line="691"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="702"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -888,183 +901,193 @@ WhatsThis</extracomment>
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="../src/menubar.cpp" line="40"/>
+        <location filename="../src/menubar.cpp" line="43"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="290"/>
+        <location filename="../src/menubar.cpp" line="314"/>
         <source>Kill</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="343"/>
+        <location filename="../src/menubar.cpp" line="367"/>
         <source>Save</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="83"/>
+        <location filename="../src/menubar.cpp" line="86"/>
         <source>Load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="66"/>
+        <location filename="../src/menubar.cpp" line="69"/>
         <source>Actions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="96"/>
+        <location filename="../src/menubar.cpp" line="99"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="105"/>
+        <location filename="../src/menubar.cpp" line="108"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="107"/>
+        <location filename="../src/menubar.cpp" line="110"/>
         <source>FFmpeg Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="101"/>
+        <location filename="../src/menubar.cpp" line="104"/>
         <source>QX11Grab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="92"/>
+        <location filename="../src/menubar.cpp" line="95"/>
         <source>Configure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="103"/>
+        <location filename="../src/menubar.cpp" line="106"/>
         <source>QX11Grab Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="109"/>
+        <location filename="../src/menubar.cpp" line="112"/>
         <source>x264</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="111"/>
+        <location filename="../src/menubar.cpp" line="114"/>
         <source>x264 Homepage</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="113"/>
+        <location filename="../src/menubar.cpp" line="116"/>
         <source>WebM Guideline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="115"/>
+        <location filename="../src/menubar.cpp" line="118"/>
         <source>WebM Container Guidelines</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="175"/>
+        <location filename="../src/menubar.cpp" line="123"/>
+        <source>About QX11Grab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="125"/>
+        <source>About Qt4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/menubar.cpp" line="193"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="178"/>
+        <location filename="../src/menubar.cpp" line="196"/>
         <source>Open create Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="186"/>
+        <location filename="../src/menubar.cpp" line="204"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="189"/>
+        <location filename="../src/menubar.cpp" line="207"/>
         <source>Open delete Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="224"/>
+        <location filename="../src/menubar.cpp" line="248"/>
         <source>Quit</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="227"/>
+        <location filename="../src/menubar.cpp" line="251"/>
         <source>Close Application</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="237"/>
+        <location filename="../src/menubar.cpp" line="261"/>
         <source>Grabbing</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="240"/>
+        <location filename="../src/menubar.cpp" line="264"/>
         <source>get Size from Window</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="250"/>
+        <location filename="../src/menubar.cpp" line="274"/>
         <source>Rubberband</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="253"/>
+        <location filename="../src/menubar.cpp" line="277"/>
         <source>swap rubberband view</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="263"/>
+        <location filename="../src/menubar.cpp" line="287"/>
         <source>Recording</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="266"/>
+        <location filename="../src/menubar.cpp" line="290"/>
         <source>Start Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="276"/>
+        <location filename="../src/menubar.cpp" line="300"/>
         <source>Stop</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="279"/>
+        <location filename="../src/menubar.cpp" line="303"/>
         <source>Stop Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="293"/>
+        <location filename="../src/menubar.cpp" line="317"/>
         <source>Kill Recording</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="304"/>
+        <location filename="../src/menubar.cpp" line="328"/>
         <source>Hide</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="307"/>
-        <location filename="../src/menubar.cpp" line="320"/>
+        <location filename="../src/menubar.cpp" line="331"/>
+        <location filename="../src/menubar.cpp" line="344"/>
         <source>Minimize to Systray</source>
         <extracomment>ToolTip
 ----------
@@ -1072,54 +1095,54 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="317"/>
+        <location filename="../src/menubar.cpp" line="341"/>
         <source>Show</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="330"/>
+        <location filename="../src/menubar.cpp" line="354"/>
         <source>Export</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="333"/>
+        <location filename="../src/menubar.cpp" line="357"/>
         <source>Export current command set</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="72"/>
+        <location filename="../src/menubar.cpp" line="75"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="346"/>
+        <location filename="../src/menubar.cpp" line="370"/>
         <source>Save current Settings</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="356"/>
+        <location filename="../src/menubar.cpp" line="380"/>
         <source>Refresh</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="359"/>
+        <location filename="../src/menubar.cpp" line="383"/>
         <source>Refresh Commandline Preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="369"/>
+        <location filename="../src/menubar.cpp" line="393"/>
         <source>Logfile</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/menubar.cpp" line="372"/>
+        <location filename="../src/menubar.cpp" line="396"/>
         <source>Open FFmpeg Protocoll</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1136,102 +1159,102 @@ ToolTip</extracomment>
 <context>
     <name>MetaData</name>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="40"/>
+        <location filename="../src/utils/metadata.cpp" line="42"/>
         <source>Insert Metadata</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="42"/>
+        <location filename="../src/utils/metadata.cpp" line="44"/>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="55"/>
+        <location filename="../src/utils/metadata.cpp" line="57"/>
         <source>Note many formats only support a handful of metadata keys.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="59"/>
+        <location filename="../src/utils/metadata.cpp" line="61"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="71"/>
+        <location filename="../src/utils/metadata.cpp" line="73"/>
         <source>Name or Movie Name</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="75"/>
+        <location filename="../src/utils/metadata.cpp" line="77"/>
         <source>Artist:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="83"/>
+        <location filename="../src/utils/metadata.cpp" line="85"/>
         <source>Author, Director or Artist</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="87"/>
+        <location filename="../src/utils/metadata.cpp" line="89"/>
         <source>Copyright:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="95"/>
+        <location filename="../src/utils/metadata.cpp" line="97"/>
         <source>Copyright</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="99"/>
+        <location filename="../src/utils/metadata.cpp" line="101"/>
         <source>Creation Date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="107"/>
+        <location filename="../src/utils/metadata.cpp" line="109"/>
         <source>Creation Date</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="113"/>
+        <location filename="../src/utils/metadata.cpp" line="115"/>
         <source>Subject:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="121"/>
+        <location filename="../src/utils/metadata.cpp" line="123"/>
         <source>Subject</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="125"/>
+        <location filename="../src/utils/metadata.cpp" line="127"/>
         <source>Comments:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="133"/>
+        <location filename="../src/utils/metadata.cpp" line="135"/>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="138"/>
+        <location filename="../src/utils/metadata.cpp" line="140"/>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="147"/>
+        <location filename="../src/utils/metadata.cpp" line="149"/>
         <source>recognition of speech must set with three letter ISO 639-2 format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="149"/>
+        <location filename="../src/utils/metadata.cpp" line="151"/>
         <source>Language in ISO 639-2 format in three letters.
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
@@ -1327,7 +1350,7 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
-    <name>QX11Options::AVOptions</name>
+    <name>QX11Grab::AVOptions</name>
     <message>
         <location filename="../src/avoptions/avoptions.cpp" line="146"/>
         <source>sample format</source>
@@ -1395,7 +1418,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>SystemTray</name>
     <message>
-        <location filename="../src/systemtray.cpp" line="42"/>
+        <location filename="../src/systemtray.cpp" line="45"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>

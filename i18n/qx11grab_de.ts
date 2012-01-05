@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de_DE">
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <source>License</source>
+        <translation>Lizenz</translation>
+    </message>
+</context>
+<context>
     <name>AbstractAudioDialog</name>
     <message>
         <source>Available Cards:</source>
@@ -652,6 +659,10 @@ WhatsThis</extracomment>
         <source>Expert Mode</source>
         <translation>Experten Modus</translation>
     </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation>Icon Thema</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -923,6 +934,14 @@ ToolTip</extracomment>
         <source>Configure</source>
         <translation>Konfigurieren</translation>
     </message>
+    <message>
+        <source>About QX11Grab</source>
+        <translation>Über QX11Grab</translation>
+    </message>
+    <message>
+        <source>About Qt4</source>
+        <translation>Über Qt4</translation>
+    </message>
 </context>
 <context>
     <name>Messanger</name>
@@ -1095,7 +1114,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-    <name>QX11Options::AVOptions</name>
+    <name>QX11Grab::AVOptions</name>
     <message>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
@@ -1104,7 +1123,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <message>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
-        <translation></translation>
+        <translation>Bits pro Pixel %1</translation>
     </message>
 </context>
 <context>

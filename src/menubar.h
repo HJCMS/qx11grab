@@ -71,6 +71,7 @@ class MenuBar : public QMenuBar
     void openQX11GrabHomepage();
     void openWebMProjectHomepage();
     void openVideoLanHomepage();
+    void openAboutDialog();
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );

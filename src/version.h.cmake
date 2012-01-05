@@ -66,11 +66,13 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   map["maximize"] = "maximize";
   map["minimize"] = "minimize";
   map["qx11grab"] = "qx11grab";
+  map["qx11grab_large"] = "qx11grab-128";
   map["ffmpeg"] = "ffmpeg";
   map["view-grid"] = "grid";
 
 #ifdef MAINTAINER_REPOSITORY
-  qDebug() << Q_FUNC_INFO << icon << map[icon];
+  if ( map[icon].isEmpty() )
+    qDebug() << "Missing Local Theme Icon:" << icon;
 #endif
 
   QIcon fallbackIcon;

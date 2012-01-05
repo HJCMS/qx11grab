@@ -21,8 +21,8 @@
 
 /* QX11Grab */
 #include "version.h"
-
 #include "menubar.h"
+#include "aboutdialog.h"
 
 /* QtCore */
 #include <QtCore/QCoreApplication>
@@ -117,6 +117,14 @@ MenuBar::MenuBar ( MainWindow * parent )
   /*: ToolTip */
   m_actionWebM->setStatusTip ( trUtf8 ( "WebM Container Guidelines" ) );
 
+  // About
+  m_menuHelp->addSeparator();
+  QAction* m_aboutQX11Grab = m_menuHelp->addAction ( getThemeIcon ( "qx11grab" ),
+                             trUtf8 ( "About QX11Grab" ) );
+
+  QAction* m_aboutQt4 = m_menuHelp->addAction ( helpIcon, trUtf8 ( "About Qt4" ) );
+
+  // SIGNALS
   connect ( m_actionGrabbing, SIGNAL ( triggered () ),
             m_mainWindow, SLOT ( grabFromWindow () ) );
 
@@ -171,6 +179,13 @@ MenuBar::MenuBar ( MainWindow * parent )
 
   connect ( m_actionx264, SIGNAL ( triggered () ),
             this, SLOT ( openVideoLanHomepage() ) );
+
+  // about
+  connect ( m_aboutQX11Grab, SIGNAL ( triggered () ),
+            this, SLOT ( openAboutDialog() ) );
+
+  connect ( m_aboutQt4, SIGNAL ( triggered () ),
+            qApp, SLOT ( aboutQt() ) );
 }
 
 QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
@@ -212,6 +227,12 @@ void MenuBar::openWebMProjectHomepage()
 void MenuBar::openVideoLanHomepage()
 {
   QDesktopServices::openUrl ( QUrl ( "http://www.videolan.org/developers/x264.html" ) );
+}
+
+void MenuBar::openAboutDialog()
+{
+  AboutDialog dialog ( this );
+  dialog.exec();
 }
 
 void MenuBar::setActionsEnabled ( bool b )

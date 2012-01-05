@@ -23,6 +23,7 @@
 
 /* QX11Grab */
 #include "loglevelcombobox.h"
+#include "iconthemeselector.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -72,6 +73,9 @@ MainFunctions::MainFunctions ( QWidget * parent )
   m_logLevelComboBox = new LogLevelComboBox ( this );
   layout->addRow ( trUtf8 ( "Report Level" ), m_logLevelComboBox );
 
+  m_iconThemeSelector = new IconThemeSelector ( this );
+  layout->addRow ( trUtf8 ( "Icon Theme" ), m_iconThemeSelector );
+
   layout->setVerticalSpacing ( 1 );
   setLayout ( layout );
 
@@ -81,6 +85,8 @@ MainFunctions::MainFunctions ( QWidget * parent )
   connect ( startMinimized, SIGNAL ( clicked ( bool ) ),
             this, SIGNAL ( postUpdate ( bool ) ) );
 
+  connect ( m_iconThemeSelector, SIGNAL ( modified ( bool ) ),
+            this, SIGNAL ( postUpdate ( bool ) ) );
 }
 
 void MainFunctions::load ( Settings * cfg )
@@ -89,6 +95,7 @@ void MainFunctions::load ( Settings * cfg )
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ), false ).toBool() );
   expertMode->setChecked ( cfg->expertMode() );
   m_logLevelComboBox->setValue ( cfg->logLevel() );
+  m_iconThemeSelector->setValue ( cfg->value ( QLatin1String ( "IconTheme" ), "oxygen" ).toString() );
 }
 
 void MainFunctions::save ( Settings * cfg )
@@ -97,6 +104,7 @@ void MainFunctions::save ( Settings * cfg )
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
   cfg->setValue ( QLatin1String ( "ExpertMode" ), expertMode->isChecked() );
   cfg->setLogLevel ( m_logLevelComboBox->value() );
+  cfg->setValue ( QLatin1String ( "IconTheme" ), m_iconThemeSelector->value() );
 }
 
 MainFunctions::~MainFunctions()

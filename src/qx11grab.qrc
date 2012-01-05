@@ -10,6 +10,8 @@
     <file>images/qx11grab-128.png</file>
     <file>images/qx11grab_gray.png</file>
   </qresource>
-  <qresource prefix="/">
+  <qresource prefix="/html/">
+    <file>about.html</file>
+    <file>copying.html</file>
   </qresource>
 </RCC>

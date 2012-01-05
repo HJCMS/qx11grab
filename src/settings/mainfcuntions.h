@@ -35,6 +35,7 @@
 #include "settings.h"
 
 class LogLevelComboBox;
+class IconThemeSelector;
 
 class MainFunctions : public QGroupBox
 {
@@ -47,6 +48,7 @@ class MainFunctions : public QGroupBox
     QCheckBox* startMinimized;
     QCheckBox* expertMode;
     LogLevelComboBox* m_logLevelComboBox;
+    IconThemeSelector* m_iconThemeSelector;
 
   Q_SIGNALS:
     void postUpdate ( bool );

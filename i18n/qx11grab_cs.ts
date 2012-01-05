@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="cs_CZ">
 <context>
+    <name>AboutDialog</name>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AbstractAudioDialog</name>
     <message>
         <source>Available Cards:</source>
@@ -649,6 +656,10 @@ WhatsThis</extracomment>
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -920,6 +931,14 @@ ToolTip</extracomment>
         <source>Configure</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>About QX11Grab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About Qt4</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Messanger</name>
@@ -1092,16 +1111,16 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
-    <name>QX11Options::AVOptions</name>
+    <name>QX11Grab::AVOptions</name>
     <message>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
-        <translation>Vzorkovací formát</translation>
+        <translation type="unfinished">Vzorkovací formát</translation>
     </message>
     <message>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
-        <translation>Bitů na pixel %1</translation>
+        <translation type="unfinished">Bitů na pixel %1</translation>
     </message>
 </context>
 <context>

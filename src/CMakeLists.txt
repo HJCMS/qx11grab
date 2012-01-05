@@ -51,6 +51,7 @@ SET (qx11grab_SOURCES
   adaptor.cpp
   exportdialog.cpp
   playeraction.cpp
+  aboutdialog.cpp
 )
 
 SET (qx11grab_HEADERS
@@ -62,6 +63,7 @@ SET (qx11grab_HEADERS
   adaptor.h
   exportdialog.h
   playeraction.h
+  aboutdialog.h
 )
 
 QT4_WRAP_CPP (qx11grab_MOC ${qx11grab_HEADERS})
