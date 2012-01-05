@@ -23,20 +23,33 @@
 #include <cstdlib>
 
 /* QtCore */
-#include <QtCore/QString>
 #include <QtCore/QLibraryInfo>
 #include <QtCore/QLocale>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
 #include <QtCore/QTextCodec>
 #include <QtCore/QTranslator>
 
+/* QtGui */
+#include <QtGui/QIcon>
+#include <QtGui/QMessageBox>
+#include <QtGui/QSystemTrayIcon>
+
 /* QX11Grab */
 #include "application.h"
+#include "settings.h"
 #include "mainwindow.h"
 #include "adaptor.h"
 
 int main ( int argc, char* argv[] )
 {
-  Application app ( argc, argv );
+  Application* app = new Application ( argc, argv );
+  if ( ! app->start() )
+  {
+    qWarning ( "QX11Grab already Running" );
+    delete app;
+    return EXIT_SUCCESS;
+  }
 
   QStringList transpaths ( QCoreApplication::applicationDirPath () );
   transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
@@ -47,26 +60,33 @@ int main ( int argc, char* argv[] )
     if ( translator.load ( QString ( "%1/qx11grab_%2" ).arg ( d, QLocale().name() ) ) )
       break;
   }
-  app.installTranslator ( &translator );
+  QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
+  app->installTranslator ( &translator );
+
+  Settings* m_settings = new Settings ( app );
+
+  QIcon iconTheme; // BUG Qt >= 4.8
+  QString userIconTheme = m_settings->value ( "IconTheme", "oxygen" ).toString();
+  if ( ! iconTheme.hasThemeIcon ( userIconTheme ) )
+    iconTheme.setThemeName ( userIconTheme );
 
   if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
   {
     QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
-    return false;
+    return EXIT_FAILURE;
   }
-  QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
 
-  MainWindow* window = new  MainWindow ( app.setting() );
+  MainWindow* window = new  MainWindow ( m_settings );
   Adaptor* adaptor = new Adaptor ( window );
-  app.bus()->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
+  app->dbus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
 
-  if ( adaptor && app.bus()->isConnected() )
-    window->registerMessanger ( app.bus() );
+  if ( adaptor && app->dbus->isConnected() )
+    window->registerMessanger ( app->dbus );
 
-  if ( app.setting()->value ( "startMinimized", false ).toBool() )
+  if ( m_settings->value ( "startMinimized", false ).toBool() )
     window->hide();
   else
     window->show();
 
-  return app.exec();
+  return app->exec();
 }

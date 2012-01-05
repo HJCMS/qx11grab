@@ -22,33 +22,14 @@
 #ifndef QX11GRAB_MAIN_H
 #define QX11GRAB_MAIN_H
 
-/* QX11Grab */
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
-
 /* QtCore */
-#include <QtCore/QCoreApplication>
 #include <QtCore/QObject>
-#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QApplication>
-#include <QtGui/QIcon>
-#include <QtGui/QMessageBox>
-#include <QtGui/QSystemTrayIcon>
-#include <QtGui/QX11Info>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
-
-/* QtNetwork */
-#include <QtNetwork/QLocalServer>
-#include <QtNetwork/QLocalSocket>
-
-/* QX11Grab */
-#include "settings.h"
 
 class Application : public QApplication
 {
@@ -56,27 +37,10 @@ class Application : public QApplication
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
-  private:
-    QLocalServer* m_server;
-    QDBusConnection* m_dbus;
-    Settings* m_settings;
-    const QString localSocketName() const;
-    const QString socketPath();
-    bool createEnviroment();
-
-  private Q_SLOTS:
-    void newConnection();
-
-  protected:
-    bool startUniqueServer();
-
-  Q_SIGNALS:
-    void messageReceived ( QLocalSocket *socket );
-
   public:
+    QDBusConnection* dbus;
     Application ( int &argc, char **argv );
-    Settings* setting();
-    QDBusConnection* bus();
+    bool start();
     ~Application();
 };
 

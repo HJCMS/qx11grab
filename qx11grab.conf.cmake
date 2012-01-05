@@ -6,6 +6,7 @@ Metadata=false
 SoundRecording=false
 video_codec=theora
 audio_codec=libvorbis
+IconTheme=oxygen
 
 [Targets]
 Binary=@CMAKE_INSTALL_PREFIX@/bin/ffmpeg
