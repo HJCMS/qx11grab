@@ -81,6 +81,13 @@ REMOVE_DEFINITIONS (
   -DQT3_SUPPORT
 )
 
+## Enable Q4 OpenGL Support
+OPTION (ENABLE_OPENGL "Enable Q4 OpenGL Support (ON/OFF)" OFF)
+IF (ENABLE_OPENGL)
+  SET (QT_USE_QTOPENGL_DEPENDS 1)
+  ADD_DEFINITIONS (-DHAVE_OPENGL)
+ENDIF (ENABLE_OPENGL)
+
 ##############################################################
 ## SET Working output Directory
 ##############################################################
@@ -229,6 +236,10 @@ SET (QX11GRAB_LIBRARIES
   ${QT_QTDBUS_LIBRARY}
   ${QT_QTNETWORK_LIBRARY}
 )
+
+IF (ENABLE_OPENGL)
+  SET (QX11GRAB_LIBRARIES ${QX11GRAB_LIBRARIES} ${QT_QTOPENGL_LIBRARY})
+ENDIF (ENABLE_OPENGL)
 
 ##############################################################
 ## KDE4 Framework Support

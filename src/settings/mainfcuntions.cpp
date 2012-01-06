@@ -24,6 +24,7 @@
 /* QX11Grab */
 #include "loglevelcombobox.h"
 #include "iconthemeselector.h"
+#include "graphicsengineselecter.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -76,6 +77,9 @@ MainFunctions::MainFunctions ( QWidget * parent )
   m_iconThemeSelector = new IconThemeSelector ( this );
   layout->addRow ( trUtf8 ( "Icon Theme" ), m_iconThemeSelector );
 
+  m_graphicsEngine = new GraphicsEngineSelecter ( this );
+  layout->addRow ( trUtf8 ( "Graphics System" ), m_graphicsEngine );
+
   layout->setVerticalSpacing ( 1 );
   setLayout ( layout );
 
@@ -96,6 +100,7 @@ void MainFunctions::load ( Settings * cfg )
   expertMode->setChecked ( cfg->expertMode() );
   m_logLevelComboBox->setValue ( cfg->logLevel() );
   m_iconThemeSelector->setValue ( cfg->value ( QLatin1String ( "IconTheme" ), "oxygen" ).toString() );
+  m_graphicsEngine->setValue ( cfg->value ( QLatin1String ( "GraphicsSystem" ), "native" ).toString() );
 }
 
 void MainFunctions::save ( Settings * cfg )
@@ -105,6 +110,7 @@ void MainFunctions::save ( Settings * cfg )
   cfg->setValue ( QLatin1String ( "ExpertMode" ), expertMode->isChecked() );
   cfg->setLogLevel ( m_logLevelComboBox->value() );
   cfg->setValue ( QLatin1String ( "IconTheme" ), m_iconThemeSelector->value() );
+  cfg->setValue ( QLatin1String ( "GraphicsSystem" ), m_graphicsEngine->value() );
 }
 
 MainFunctions::~MainFunctions()

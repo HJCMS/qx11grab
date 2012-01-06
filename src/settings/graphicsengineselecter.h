@@ -19,49 +19,31 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef MAINFUNCTIONS_H
-#define MAINFUNCTIONS_H
+#ifndef GRAPHICSENGINESELECTER_H
+#define GRAPHICSENGINESELECTER_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QCheckBox>
-#include <QtGui/QGroupBox>
+#include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-/* QX11Grab */
-#include "settings.h"
-
-class LogLevelComboBox;
-class IconThemeSelector;
-class GraphicsEngineSelecter;
-
-class MainFunctions : public QGroupBox
+class GraphicsEngineSelecter : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-
-  private:
-    QCheckBox* showRubberband;
-    QCheckBox* startMinimized;
-    QCheckBox* expertMode;
-    GraphicsEngineSelecter* m_graphicsEngine;
-    LogLevelComboBox* m_logLevelComboBox;
-    IconThemeSelector* m_iconThemeSelector;
-
-  Q_SIGNALS:
-    void postUpdate ( bool );
+    Q_PROPERTY ( QString value READ value WRITE setValue USER true )
 
   public Q_SLOTS:
-    void load ( Settings * cfg );
-    void save ( Settings * cfg );
+    void setValue ( const QString & );
 
   public:
-    explicit MainFunctions ( QWidget * parent = 0 );
-    ~MainFunctions();
+    GraphicsEngineSelecter ( QWidget * parent = 0 );
+    const QString value();
+    ~GraphicsEngineSelecter();
 };
 
 #endif

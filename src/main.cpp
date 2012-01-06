@@ -41,6 +41,11 @@
 #include "mainwindow.h"
 #include "adaptor.h"
 
+/* QtOpenGL */
+#ifdef HAVE_OPENGL
+# include <QtOpenGL/QtOpenGL>
+#endif
+
 int main ( int argc, char* argv[] )
 {
   Application* app = new Application ( argc, argv );
@@ -50,6 +55,21 @@ int main ( int argc, char* argv[] )
     delete app;
     return EXIT_SUCCESS;
   }
+
+  Settings* m_settings = new Settings ( app );
+
+  QIcon iconTheme; // BUG Qt >= 4.8
+  QString userIconTheme = m_settings->value ( "IconTheme", "oxygen" ).toString();
+  if ( ! iconTheme.hasThemeIcon ( userIconTheme ) )
+    iconTheme.setThemeName ( userIconTheme );
+
+#ifdef HAVE_OPENGL
+  QString engine = m_settings->value ( "GraphicsSystem", "native" ).toString();
+  app->setGraphicsSystem ( engine );
+  QGL::setPreferredPaintEngine ( QPaintEngine::X11 );
+#else
+  app->setGraphicsSystem ( "native" );
+#endif
 
   QStringList transpaths ( app->applicationDirPath () );
   transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
@@ -63,13 +83,6 @@ int main ( int argc, char* argv[] )
   QTextCodec::setCodecForLocale ( QTextCodec::codecForName ( "UTF-8" ) );
   app->installTranslator ( &translator );
 
-  Settings* m_settings = new Settings ( app );
-
-  QIcon iconTheme; // BUG Qt >= 4.8
-  QString userIconTheme = m_settings->value ( "IconTheme", "oxygen" ).toString();
-  if ( ! iconTheme.hasThemeIcon ( userIconTheme ) )
-    iconTheme.setThemeName ( userIconTheme );
-
   if ( ! QSystemTrayIcon::isSystemTrayAvailable() )
   {
     QMessageBox::critical ( 0, "Systray", "I couldn't detect any system tray." );
@@ -77,11 +90,9 @@ int main ( int argc, char* argv[] )
   }
 
   MainWindow* window = new  MainWindow ( m_settings );
-  Adaptor* adaptor = new Adaptor ( window );
+  new Adaptor ( window );
   app->dbus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
-
-  if ( adaptor && app->dbus->isConnected() )
-    window->registerMessanger ( app->dbus );
+  window->registerMessanger ( app->dbus );
 
   if ( m_settings->value ( "startMinimized", false ).toBool() )
     window->hide();

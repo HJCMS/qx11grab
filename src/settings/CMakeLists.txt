@@ -12,6 +12,7 @@ SET (_subproject_SOURCES
   iconthemeitem.cpp
   iconthememodel.cpp
   iconthemeselector.cpp
+  graphicsengineselecter.cpp
 )
 
 SET (_subproject_HEADERS
@@ -23,6 +24,7 @@ SET (_subproject_HEADERS
   extraoptions.h
   iconthememodel.h
   iconthemeselector.h
+  graphicsengineselecter.h
 )
 
 SET (_subproject_NOMOC_HEADERS
