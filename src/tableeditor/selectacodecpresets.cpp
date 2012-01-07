@@ -29,6 +29,7 @@
 
 /* QtDBus */
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusError>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 
@@ -41,10 +42,12 @@ SelectAcodecPresets::SelectAcodecPresets ( QWidget * parent )
   setToolTip ( trUtf8 ( "For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option." ) );
 
   QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
-  QDBusReply<QString> reply = iface.call ( "getAudioCodec" );
+  QDBusReply<QString> reply = iface.call ( "audiocodec" );
   if ( reply.isValid() )
     codecSuffix = reply.value();
-
+  else
+    qDebug() << Q_FUNC_INFO << reply.error().name() << reply.error().message();
+  
   reload();
 }
 
@@ -90,6 +93,10 @@ void SelectAcodecPresets::reload()
   QStringList list;
   if ( ! codecSuffix.isEmpty() )
     list << userPresets ( codecSuffix ) << systemPresets ( codecSuffix );
+
+#ifdef MAINTAINER_REPOSITORY
+    qDebug() << Q_FUNC_INFO << list;
+#endif
 
   clear();
   addItem ( trUtf8 ( "Presets for (%1)" ).arg ( codecSuffix ), false );
