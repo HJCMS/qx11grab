@@ -29,6 +29,7 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QApplication>
 #include <QtGui/QCompleter>
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>

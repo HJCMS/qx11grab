@@ -547,6 +547,26 @@ WhatsThis</extracomment>
     </message>
 </context>
 <context>
+    <name>GraphicsEngineSelecter</name>
+    <message>
+        <source>Set default graphics backend to system</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Native</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OpenGL</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Listener</name>
     <message>
         <source>Time: %1 Size: %2</source>
@@ -658,6 +678,10 @@ WhatsThis</extracomment>
     </message>
     <message>
         <source>Icon Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

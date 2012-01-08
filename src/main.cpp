@@ -21,6 +21,7 @@
 
 
 #include <cstdlib>
+#include <cstdio>
 
 /* QtCore */
 #include <QtCore/QLibraryInfo>
@@ -31,23 +32,18 @@
 #include <QtCore/QTranslator>
 
 /* QtGui */
-#include <QtGui/QIcon>
 #include <QtGui/QMessageBox>
 #include <QtGui/QSystemTrayIcon>
 
 /* QX11Grab */
 #include "application.h"
-#include "settings.h"
-#include "mainwindow.h"
-#include "adaptor.h"
-
-/* QtOpenGL */
-#ifdef HAVE_OPENGL
-# include <QtOpenGL/QtOpenGL>
-#endif
 
 int main ( int argc, char* argv[] )
 {
+  /* only for debugging
+  setenv ( "QT_GRAPHICSSYSTEM", "opengl", 1 );
+  QApplication::setDesktopSettingsAware ( false ); */
+  QApplication::setColorSpec ( QApplication::CustomColor );
   Application* app = new Application ( argc, argv );
   if ( ! app->start() )
   {
@@ -55,21 +51,6 @@ int main ( int argc, char* argv[] )
     delete app;
     return EXIT_SUCCESS;
   }
-
-  Settings* m_settings = new Settings ( app );
-
-  QIcon iconTheme; // BUG Qt >= 4.8
-  QString userIconTheme = m_settings->value ( "IconTheme", "oxygen" ).toString();
-  if ( ! iconTheme.hasThemeIcon ( userIconTheme ) )
-    iconTheme.setThemeName ( userIconTheme );
-
-#ifdef HAVE_OPENGL
-  QString engine = m_settings->value ( "GraphicsSystem", "native" ).toString();
-  app->setGraphicsSystem ( engine );
-  QGL::setPreferredPaintEngine ( QPaintEngine::X11 );
-#else
-  app->setGraphicsSystem ( "native" );
-#endif
 
   QStringList transpaths ( app->applicationDirPath () );
   transpaths << QLibraryInfo::location ( QLibraryInfo::TranslationsPath );
@@ -89,15 +70,6 @@ int main ( int argc, char* argv[] )
     return EXIT_FAILURE;
   }
 
-  MainWindow* window = new  MainWindow ( m_settings );
-  new Adaptor ( window );
-  app->dbus->registerObject ( QString ( "/" ), window, ( QDBusConnection::ExportAdaptors ) );
-  window->registerMessanger ( app->dbus );
-
-  if ( m_settings->value ( "startMinimized", false ).toBool() )
-    window->hide();
-  else
-    window->show();
-
+  app->createWindow();
   return app->exec();
 }

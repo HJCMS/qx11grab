@@ -671,6 +671,30 @@ WhatsThis</extracomment>
     </message>
 </context>
 <context>
+    <name>GraphicsEngineSelecter</name>
+    <message>
+        <location filename="../src/settings/graphicsengineselecter.cpp" line="32"/>
+        <source>Set default graphics backend to system</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/graphicsengineselecter.cpp" line="33"/>
+        <source>Native</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/graphicsengineselecter.cpp" line="34"/>
+        <source>Raster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/graphicsengineselecter.cpp" line="36"/>
+        <source>OpenGL</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Listener</name>
     <message>
         <location filename="../src/ffprocess/listener.cpp" line="74"/>
@@ -741,70 +765,75 @@ WhatsThis</extracomment>
 <context>
     <name>MainFunctions</name>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="40"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="41"/>
         <source>Features</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="48"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="49"/>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="51"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="51"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="52"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="57"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="61"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="66"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="69"/>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="69"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="70"/>
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="74"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="75"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="77"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="78"/>
         <source>Icon Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="81"/>
+        <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1390,13 +1419,13 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>SelectAcodecPresets</name>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="41"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="42"/>
         <source>For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="95"/>
+        <location filename="../src/tableeditor/selectacodecpresets.cpp" line="102"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1410,7 +1439,7 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="95"/>
+        <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="101"/>
         <source>Presets for (%1)</source>
         <translation type="unfinished"></translation>
     </message>

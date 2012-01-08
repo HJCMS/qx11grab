@@ -69,6 +69,16 @@ static inline const QIcon getThemeIcon ( const QString &icon )
   map["qx11grab_large"] = "qx11grab-128";
   map["ffmpeg"] = "ffmpeg";
   map["view-grid"] = "grid";
+  map["configure"] = "configure";
+  map["application-exit"] = "exit";
+  map["folder-bookmark"] = "bookmark";
+  map["bookmark-new"] = "bookmark";
+  map["bookmarks-organize"] = "bookmark";
+  map["view-refresh"] = "reload";
+  map["menu-settings-desktop"] = "desktop";
+  map["menu-editors"] = "qx11grab";
+  map["menu-video-edit"] = "qx11grab";
+  map["menu-audio-edit"] = "qx11grab";
 
 #ifdef MAINTAINER_REPOSITORY
   if ( map[icon].isEmpty() )

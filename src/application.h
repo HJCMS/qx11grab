@@ -27,9 +27,14 @@
 
 /* QtGui */
 #include <QtGui/QApplication>
+#include <QtGui/QSessionManager>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
+
+/* QX11Grab */
+class Settings;
+class MainWindow;
 
 class Application : public QApplication
 {
@@ -37,10 +42,22 @@ class Application : public QApplication
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    bool connected;
+    MainWindow* m_window;
+    Settings* m_settings;
+    QDBusConnection* m_dbus;
+
+  private Q_SLOTS:
+    void configureSession ( QSessionManager &manager );
+
+  protected:
+    virtual void commitData ( QSessionManager &manager );
+
   public:
-    QDBusConnection* dbus;
     Application ( int &argc, char **argv );
     bool start();
+    void createWindow();
     ~Application();
 };
 
