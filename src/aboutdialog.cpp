@@ -23,6 +23,7 @@
 
 /* QX11Grab */
 #include "version.h"
+#include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -39,7 +40,7 @@ AboutDialog::AboutDialog ( QWidget * parent )
     : QDialog ( parent )
 {
   setObjectName ( QLatin1String ( "AboutDialog" ) );
-  setWindowIcon ( getThemeIcon ( "qx11grab" ) );
+  setWindowIcon ( Settings::themeIcon ( "qx11grab" ) );
   setMinimumSize ( 400, 250 );
 
   QVBoxLayout* layout = new QVBoxLayout ( this );
@@ -54,12 +55,12 @@ AboutDialog::AboutDialog ( QWidget * parent )
   m_about->setTextFormat ( Qt::RichText );
   m_about->setTextInteractionFlags ( Qt::TextBrowserInteraction );
   m_about->setOpenExternalLinks ( true );
-  m_tabWidget->addTab ( m_about, getThemeIcon ( "qx11grab" ), QLatin1String ( "QX11Grab" ) );
+  m_tabWidget->addTab ( m_about, Settings::themeIcon ( "qx11grab" ), QLatin1String ( "QX11Grab" ) );
 
   m_copying = new QTextBrowser ( m_tabWidget );
   m_copying->setObjectName ( QLatin1String ( "AboutDialog/Tab/Label2" ) );
   m_copying->setOpenExternalLinks ( true );
-  m_tabWidget->addTab ( m_copying, getThemeIcon ( "qx11grab" ), trUtf8 ( "License" ) );
+  m_tabWidget->addTab ( m_copying, Settings::themeIcon ( "qx11grab" ), trUtf8 ( "License" ) );
 
   QDialogButtonBox* m_box = new QDialogButtonBox ( QDialogButtonBox::Ok, Qt::Horizontal, this );
   m_box->setObjectName ( QLatin1String ( "AboutDialog/ButtonBox" ) );

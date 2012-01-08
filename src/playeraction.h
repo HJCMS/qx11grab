@@ -40,7 +40,6 @@ class PlayerAction : public QToolButton
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    const QIcon icon;
     QMenu* m_menu;
     QSignalMapper* m_signalMapper;
     const QString predefinedApps ( const QString & ) const;

@@ -20,6 +20,7 @@
 **/
 
 #include "tableeditor.h"
+#include "settings.h"
 #include "avoptions.h"
 #include "codectable.h"
 #include "codecselecter.h"
@@ -69,17 +70,17 @@ TableEditor::TableEditor ( QWidget * parent )
 
   QDialogButtonBox* buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
   QPushButton* m_add = buttonBox->addButton ( trUtf8 ( "Add" ), QDialogButtonBox::ActionRole );
-  m_add->setIcon ( QIcon::fromTheme ( "insert-table" ) );
+  m_add->setIcon ( Settings::themeIcon ( "insert-table" ) );
   /*: WhatsThis */
   m_add->setWhatsThis ( trUtf8 ( "This button insert a new empty table row" ) );
 
   QPushButton* m_del = buttonBox->addButton ( trUtf8 ( "Remove" ), QDialogButtonBox::ActionRole );
-  m_del->setIcon ( QIcon::fromTheme ( "edit-table-delete-row" ) );
+  m_del->setIcon ( Settings::themeIcon ( "edit-table-delete-row" ) );
   /*: WhatsThis */
   m_del->setWhatsThis ( trUtf8 ( "This button remove selected table rows" ) );
 
   QPushButton* m_clear = buttonBox->addButton ( trUtf8 ( "Clear" ), QDialogButtonBox::ActionRole );
-  m_clear->setIcon ( QIcon::fromTheme ( "edit-clear" ) );
+  m_clear->setIcon ( Settings::themeIcon ( "edit-clear" ) );
   /*: WhatsThis */
   m_clear->setWhatsThis ( trUtf8 ( "This button clear table contents" ) );
 

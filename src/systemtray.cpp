@@ -23,6 +23,7 @@
 #include "version.h"
 
 #include "systemtray.h"
+#include "settings.h"
 #include "menubar.h"
 #include "messanger.h"
 
@@ -40,7 +41,7 @@ SystemTray::SystemTray ( MainWindow * parent )
     , m_messanger ( 0 )
 {
   setObjectName ( QLatin1String ( "SystemTray" ) );
-  setIcon ( getThemeIcon ( "qx11grab" ) );
+  setIcon ( Settings::themeIcon ( "qx11grab" ) );
   /*: ToolTip */
   setToolTip ( trUtf8 ( "qx11grab: recording X11 Windows with ffmpeg" ) );
 

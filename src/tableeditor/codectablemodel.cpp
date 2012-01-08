@@ -20,6 +20,7 @@
 **/
 
 #include "codectablemodel.h"
+#include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -175,7 +176,7 @@ QVariant CodecTableModel::headerData ( int section, Qt::Orientation orientation,
       }
 
       case Qt::DecorationRole:
-        return QIcon::fromTheme ( "view-form-table" );
+        return Settings::themeIcon ( "view-form-table" );
 
       case Qt::SizeHintRole:
         return QSize ( 110, 25 );

@@ -20,6 +20,7 @@
 **/
 
 #include "abstractedit.h"
+#include "settings.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -61,7 +62,7 @@ void AbstractEdit::contextMenuEvent ( QContextMenuEvent * e )
   if ( proposeList.size() > 2 )
   {
     /*: MenuEntry */
-    QAction* ac = m->addAction ( QIcon::fromTheme ( "menu-editors" ), trUtf8 ( "Proposing" ) );
+    QAction* ac = m->addAction ( Settings::themeIcon ( "menu-editors" ), trUtf8 ( "Proposing" ) );
     connect ( ac, SIGNAL ( triggered() ),
               this, SLOT ( openProposedDialog() ) );
   }

@@ -46,7 +46,7 @@ ADD_LIBRARY (TableEditor STATIC
   ${tableeditor_SOURCES}
 )
 
-ADD_DEPENDENCIES (TableEditor AVOptions)
+ADD_DEPENDENCIES (TableEditor AVOptions Settings)
 
 TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTMAIN_LIBRARY}
@@ -54,6 +54,7 @@ TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
   AVOptions
+  Settings
 )
 
 SET_TARGET_PROPERTIES (TableEditor PROPERTIES

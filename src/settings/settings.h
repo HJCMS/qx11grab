@@ -29,6 +29,9 @@
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
+/* QtGui */
+#include <QtGui/QIcon>
+
 class Settings : public QSettings
 {
     Q_OBJECT
@@ -166,6 +169,13 @@ class Settings : public QSettings
      * read Extra Commandline Options
      **/
     const QStringList getExpertCommand();
+
+    /**
+    * @short fallback  icon theme method
+    * find Oxygen Theme Icon or receive it from qrc
+    */
+    static const QIcon themeIcon ( const QString &icon,
+                                   const QString &broken = QString::fromUtf8 ( "broken" ) );
 
     ~Settings();
 

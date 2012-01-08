@@ -21,7 +21,6 @@
 
 /* QX11Grab */
 #include "version.h"
-
 #include "playeraction.h"
 #include "settings.h"
 
@@ -40,11 +39,10 @@
 
 PlayerAction::PlayerAction ( QWidget * parent )
     : QToolButton ( parent )
-    , icon ( QIcon::fromTheme ( "start-here" ) )
 {
   setObjectName ( QLatin1String ( "PlayerAction" ) );
   setPopupMode ( QToolButton::MenuButtonPopup );
-  setIcon ( icon );
+  setIcon ( Settings::themeIcon ( "start-here" ) );
 
   m_menu =  new QMenu ( this );
   setMenu ( m_menu );
@@ -99,7 +97,7 @@ void PlayerAction::searchPlayers()
         if ( info.exists() )
         {
           QString name = info.baseName();
-          QAction* ac = m_menu->addAction ( QIcon::fromTheme ( name, icon ), predefinedApps ( name ) );
+          QAction* ac = m_menu->addAction ( Settings::themeIcon ( name, "qx11grab" ), predefinedApps ( name ) );
           connect ( ac, SIGNAL ( triggered() ), m_signalMapper, SLOT ( map() ) );
           m_signalMapper->setMapping ( ac, info.absoluteFilePath() );
         }

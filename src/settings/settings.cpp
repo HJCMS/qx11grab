@@ -26,7 +26,11 @@
 #endif
 
 /* QtCore */
+#include <QtCore/QGlobalStatic>
 #include <QtCore/QHashIterator>
+
+/* QtGui */
+#include <QtGui/QPixmap>
 
 Settings::Settings ( QObject *parent )
     : QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent )
@@ -223,6 +227,31 @@ const QStringList Settings::getExpertCommand()
   endArray();
 
   return out;
+}
+
+/**
+* Sucht nach einem Symbol, wenn nicht gefunden andere Auswahl setzen!
+* NOTE Ist abhängig von application.cpp Q_INIT_RESOURCE
+*/
+const QIcon Settings::themeIcon ( const QString &icon, const QString &broken )
+{
+  QMap<QString,QString> map;
+  map["maximize"] = "maximize";
+  map["minimize"] = "minimize";
+  map["qx11grab"] = "qx11grab";
+  map["qx11grab_large"] = "qx11grab-128";
+  map["ffmpeg"] = "ffmpeg";
+  map["view-grid"] = "grid";
+  map["application-exit"] = "exit";
+
+  QString mIcon =  QString::fromUtf8 ( "://images/%1.png" )
+                   .arg ( ( ( map[icon].isEmpty() ) ? broken : map[icon] ) );
+
+  QIcon fallbackIcon;
+  QPixmap pixmap = QPixmap ( mIcon );
+  fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );
+
+  return QIcon::fromTheme ( icon, fallbackIcon );
 }
 
 Settings::~Settings()

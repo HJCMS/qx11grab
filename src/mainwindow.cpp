@@ -88,7 +88,7 @@ MainWindow::MainWindow ( Settings * settings )
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
   setContentsMargins ( 0, 5, 0, 5 );
 
-  QIcon boxIcon = getThemeIcon ( "qx11grab" );
+  QIcon boxIcon = cfg->themeIcon ( "qx11grab" );
   setWindowIcon ( boxIcon );
 
   m_menuBar = new MenuBar ( this );
@@ -117,19 +117,19 @@ MainWindow::MainWindow ( Settings * settings )
 
   // Dimension {
   m_grabberInfo = new GrabberInfo ( toolBox );
-  toolBox->addItem ( m_grabberInfo, getThemeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
+  toolBox->addItem ( m_grabberInfo, cfg->themeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
   // } Dimension
 
   // MetaData {
   m_metaData = new MetaData ( toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  toolBox->addItem ( m_metaData, getThemeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
+  toolBox->addItem ( m_metaData, cfg->themeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
   // } MetaData
 
   // vCodec {
   m_videoEditor = new TableEditor ( toolBox );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
-  toolBox->addItem ( m_videoEditor, getThemeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
+  toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
   // } vCodec
 
   // aCodec {
@@ -139,7 +139,7 @@ MainWindow::MainWindow ( Settings * settings )
   m_audioGroupBox->setTitle ( trUtf8 ( "Audio Recording" ) );
   /*: WhatsThis */
   m_audioGroupBox->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
-  toolBox->addItem ( m_audioGroupBox, getThemeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
+  toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
   m_audioEditor = new TableEditor ( m_audioGroupBox );
@@ -152,7 +152,7 @@ MainWindow::MainWindow ( Settings * settings )
   m_commandPreview = new CommandPreview ( toolBox );
   /*: ToolTip */
   m_commandPreview->setToolTip ( trUtf8 ( "command line preview" ) );
-  toolBox->addItem ( m_commandPreview, getThemeIcon ( "ffmpeg" ), trUtf8 ( "FFmpeg" ) );
+  toolBox->addItem ( m_commandPreview, cfg->themeIcon ( "ffmpeg" ), trUtf8 ( "FFmpeg" ) );
   // } Preview
 
   layerWidget->setLayout ( verticalLayout );
@@ -431,7 +431,7 @@ void MainWindow::pushInfoMessage ( const QString &txt )
     m_systemTray->sendMessage ( trUtf8 ( "Info" ), txt, QSystemTrayIcon::Information );
 
   if ( ! m_FFProcess->isRunning() )
-    m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+    m_systemTray->setIcon ( cfg->themeIcon ( "qx11grab" ) );
 }
 
 /**
@@ -444,7 +444,7 @@ void MainWindow::pushErrorMessage ( const QString &title, const QString &txt )
     m_systemTray->sendMessage ( title, txt, QSystemTrayIcon::Critical );
 
     if ( ! m_FFProcess->isRunning() )
-      m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+      m_systemTray->setIcon ( cfg->themeIcon ( "qx11grab" ) );
   }
 }
 
@@ -496,7 +496,7 @@ void MainWindow::startRecord()
     {
       m_systemTray->setActionsEnabled ( true );
       m_menuBar->setActionsEnabled ( true );
-      m_systemTray->setIcon ( getThemeIcon ( "media-record" ) );
+      m_systemTray->setIcon ( cfg->themeIcon ( "media-record" ) );
       m_toolBar->setPlayerEnabled ( false );
     }
   }
@@ -514,7 +514,7 @@ void MainWindow::setActionsBack()
 {
   m_systemTray->setActionsEnabled ( false );
   m_menuBar->setActionsEnabled ( false );
-  m_systemTray->setIcon ( getThemeIcon ( "qx11grab" ) );
+  m_systemTray->setIcon ( cfg->themeIcon ( "qx11grab" ) );
   m_toolBar->setPlayerEnabled ( true );
 }
 

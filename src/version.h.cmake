@@ -31,8 +31,6 @@
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QIcon>
-#include <QtGui/QPixmap>
 #include <QtGui/QX11Info>
 
 /**
@@ -54,42 +52,6 @@ static inline const QString qx11grabLogfile()
   log.sprintf ( "qx11grab-%s_%s.log", getenv ( "USER" ), getenv ( "DISPLAY" ) );
   QDir dir ( QDir::tempPath() );
   return dir.filePath ( log );
-}
-
-/**
-* @short fallback function
-* find Oxygen Theme Icon or receive it from qrc
-*/
-static inline const QIcon getThemeIcon ( const QString &icon )
-{
-  QMap<QString,QString> map;
-  map["maximize"] = "maximize";
-  map["minimize"] = "minimize";
-  map["qx11grab"] = "qx11grab";
-  map["qx11grab_large"] = "qx11grab-128";
-  map["ffmpeg"] = "ffmpeg";
-  map["view-grid"] = "grid";
-  map["configure"] = "configure";
-  map["application-exit"] = "exit";
-  map["folder-bookmark"] = "bookmark";
-  map["bookmark-new"] = "bookmark";
-  map["bookmarks-organize"] = "bookmark";
-  map["view-refresh"] = "reload";
-  map["menu-settings-desktop"] = "desktop";
-  map["menu-editors"] = "qx11grab";
-  map["menu-video-edit"] = "qx11grab";
-  map["menu-audio-edit"] = "qx11grab";
-
-#ifdef MAINTAINER_REPOSITORY
-  if ( map[icon].isEmpty() )
-    qDebug() << "Missing Local Theme Icon:" << icon;
-#endif
-
-  QIcon fallbackIcon;
-  QPixmap pixmap = QPixmap ( QString::fromUtf8 ( "://images/%1.png" ).arg ( map[icon] ) );
-  fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );
-
-  return QIcon::fromTheme ( icon, fallbackIcon );
 }
 
 /**

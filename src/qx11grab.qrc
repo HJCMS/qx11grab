@@ -1,9 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
   <qresource prefix="/">
-    <file>images/application-exit.png</file>
-    <file>images/bookmark.png</file>
-    <file>images/configure.png</file>
+    <file>images/broken.png</file>
     <file>images/desktop.png</file>
     <file>images/exit.png</file>
     <file>images/ffmpeg.png</file>
@@ -14,8 +12,6 @@
     <file>images/qx11grab-64.png</file>
     <file>images/qx11grab_gray.png</file>
     <file>images/qx11grab.png</file>
-    <file>images/reload.png</file>
-    <file>images/window.png</file>
   </qresource>
   <qresource prefix="/html/">
     <file>about.html</file>
