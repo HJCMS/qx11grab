@@ -112,6 +112,15 @@ void Application::commitData ( QSessionManager &manager )
   m_settings->remove ( "SessionManager" );
 }
 
+
+bool Application::event ( QEvent * e )
+{
+  if ( e->type() == QEvent::Close )
+    qDebug() << Q_FUNC_INFO << e->type();
+
+  return true;
+}
+
 /**
 * NOTE DBus kann erst nach QApplication Initialisiert werden!
 * Wenn die DBus Schnittstelle noch nicht gesetzt ist wird sie
@@ -153,4 +162,10 @@ void Application::createWindow()
 }
 
 Application::~Application()
-{}
+{
+  if ( m_window )
+  {
+    m_dbus->unregisterObject ( QString ( "/" ), QDBusConnection::UnregisterTree );
+    delete m_window;
+  }
+}

@@ -41,6 +41,7 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
     : QObject ( parent )
     , cfg ( settings )
     , xInfo()
+    , m_QProcess ( 0 )
 {
   arguments = QStringList();
 }
@@ -125,10 +126,10 @@ bool FFProcess::start ( const QStringList &cmd )
 /**
 * Stoppe die Aufnahme
 */
-bool FFProcess::stop()
+void FFProcess::stop()
 {
   if ( ! m_QProcess )
-    return false;
+    return;
 
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
@@ -138,22 +139,19 @@ bool FFProcess::stop()
     m_QProcess->closeWriteChannel();
   else
     m_QProcess->kill();
-
-  return isRunning();
 }
 
 /**
 * Aufnahme abbrechen
 */
-bool FFProcess::kill()
+void FFProcess::kill()
 {
   if ( ! m_QProcess )
-    return false;
+    return;
 
   emit message ( trUtf8 ( "force shutdown" ) );
 
   m_QProcess->kill ();
-  return true;
 }
 
 /**

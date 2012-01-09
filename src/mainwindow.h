@@ -90,8 +90,6 @@ class MainWindow : public QMainWindow
     void toRubber ( bool );
     void grabFromWindow();
     void systemTrayWatcher ( QSystemTrayIcon::ActivationReason );
-    void hideEvent ( QHideEvent * );
-    void closeEvent ( QCloseEvent * );
     void pushInfoMessage ( const QString & );
     void pushErrorMessage ( const QString &, const QString & );
     void pushToolTip ( const QString & );
@@ -107,6 +105,11 @@ class MainWindow : public QMainWindow
     void openRemoveBookmark();
     void openBookmark ( const QString &id );
     void openConfiguration();
+    void shutdown();
+
+  protected:
+    virtual void hideEvent ( QHideEvent * );
+    virtual void closeEvent ( QCloseEvent * );
 
   Q_SIGNALS:
     void stopRecording();
@@ -126,7 +129,7 @@ class MainWindow : public QMainWindow
   public:
     MainWindow ( Settings * settings = 0 );
     void registerMessanger ( QDBusConnection* connection );
-    virtual ~MainWindow();
+    ~MainWindow();
 
 };
 

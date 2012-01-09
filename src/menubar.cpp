@@ -145,7 +145,7 @@ MenuBar::MenuBar ( MainWindow * parent )
             m_mainWindow, SLOT ( hide() ) );
 
   connect ( m_actionQuit, SIGNAL ( triggered() ),
-            qApp, SLOT ( quit() ) );
+            m_mainWindow, SLOT ( shutdown() ) );
 
   connect ( m_actionExport, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( exportCommand() ) );

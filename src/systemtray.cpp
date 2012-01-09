@@ -91,7 +91,7 @@ SystemTray::SystemTray ( MainWindow * parent )
             m_mainWindow, SLOT ( showNormal() ) );
 
   connect ( quitWindowAction, SIGNAL ( triggered() ),
-            qApp, SLOT ( quit() ) );
+            m_mainWindow, SLOT ( shutdown() ) );
 }
 
 void SystemTray::setActionsEnabled ( bool b )

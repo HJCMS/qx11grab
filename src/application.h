@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QEvent>
 
 /* QtGui */
 #include <QtGui/QApplication>
@@ -53,12 +54,13 @@ class Application : public QApplication
 
   protected:
     virtual void commitData ( QSessionManager &manager );
+    virtual bool event ( QEvent * e );
 
   public:
     Application ( int &argc, char **argv );
     bool start();
     void createWindow();
-    ~Application();
+    virtual ~Application();
 };
 
 #endif

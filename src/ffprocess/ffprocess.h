@@ -39,8 +39,8 @@ class FFProcess : public QObject
   private:
     Settings* cfg;
     const QX11Info xInfo;
+    QProcess* m_QProcess;
     QStringList arguments;
-    QProcess *m_QProcess;
     const QString application();
     const QString workdir();
 
@@ -58,14 +58,14 @@ class FFProcess : public QObject
     void exited ( int, QProcess::ExitStatus );
 
   public Q_SLOTS:
-    bool start ( const QStringList &cmd );
-    bool stop();
-    bool kill();
-    bool isRunning();
+    void stop();
+    void kill();
 
   public:
     explicit FFProcess ( QObject *parent = 0, Settings *settings = 0 );
     bool create ( const QRect & );
+    bool start ( const QStringList &cmd );
+    bool isRunning();
     ~FFProcess();
 };
 

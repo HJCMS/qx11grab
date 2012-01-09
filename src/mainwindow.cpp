@@ -87,6 +87,9 @@ MainWindow::MainWindow ( Settings * settings )
   setMinimumHeight ( 400 );
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );
   setContentsMargins ( 0, 5, 0, 5 );
+#ifdef HAVE_OPENGL
+  setAnimated ( true );
+#endif
 
   QIcon boxIcon = cfg->themeIcon ( "qx11grab" );
   setWindowIcon ( boxIcon );
@@ -95,7 +98,7 @@ MainWindow::MainWindow ( Settings * settings )
   setMenuBar ( m_menuBar );
 
   m_toolBar = new ToolBar ( this );
-  addToolBar ( m_toolBar );
+  addToolBar ( Qt::TopToolBarArea, m_toolBar );
 
   statusBar()->show();
 
@@ -399,30 +402,6 @@ void MainWindow::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 }
 
 /**
-* Beim Minimieren die Fenster Geometrie speichern
-*/
-void MainWindow::hideEvent ( QHideEvent * ev )
-{
-  saveStats();
-  QMainWindow::hideEvent ( ev );
-}
-
-/**
-* Das beenden über den WindowManager CloseButton
-* verhindern! Statt dessen die Einstellungen mit
-* \ref hideEvent Speichern und Hauptfenster in das
-* Systray minimieren!
-*/
-void MainWindow::closeEvent ( QCloseEvent * ev )
-{
-  if ( ev->type() == QEvent::Close )
-  {
-    ev->ignore();
-    hide();
-  }
-}
-
-/**
 * Informationen an die Statusleiste senden.
 */
 void MainWindow::pushInfoMessage ( const QString &txt )
@@ -716,6 +695,50 @@ void MainWindow::openConfiguration()
 }
 
 /**
+* Sauber beenden!
+*/
+void MainWindow::shutdown()
+{
+  if ( m_FFProcess )
+  {
+    stop();
+    delete m_FFProcess;
+  }
+
+  if ( m_listener )
+    delete m_listener;
+
+  qDebug ( "qx11grab quit" );
+  qApp->quit();
+}
+
+/**
+* Beim Minimieren die Fenster Geometrie speichern
+*/
+void MainWindow::hideEvent ( QHideEvent * ev )
+{
+  saveStats();
+  QMainWindow::hideEvent ( ev );
+}
+
+/**
+* Das beenden über den WindowManager CloseButton
+* verhindern! Statt dessen die Einstellungen mit
+* \ref hideEvent Speichern und Hauptfenster in das
+* Systray minimieren!
+*/
+void MainWindow::closeEvent ( QCloseEvent * ev )
+{
+  if ( ev->type() == QEvent::Close )
+  {
+    ev->ignore();
+    hide();
+    return;
+  }
+  QMainWindow::closeEvent ( ev );
+}
+
+/**
 * Schreibe Nachricht in das Meldungs Label
 */
 void MainWindow::statusBarMessage ( const QString &msg, int timeout )
@@ -754,7 +777,4 @@ void MainWindow::registerMessanger ( QDBusConnection* bus )
 }
 
 MainWindow::~MainWindow()
-{
-  if ( m_listener )
-    delete m_listener;
-}
+{}
