@@ -6,6 +6,12 @@
     <method name="rubberband">
       <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
     </method>
+    <method name="start">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
+    <method name="stop">
+      <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
+    </method>
     <method name="show">
       <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
     </method>

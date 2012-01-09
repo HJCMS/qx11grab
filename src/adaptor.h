@@ -44,6 +44,8 @@ class Adaptor : public QDBusAbstractAdaptor
 
   public Q_SLOTS:
     Q_NOREPLY void rubberband ();
+    Q_NOREPLY void start ();
+    Q_NOREPLY void stop ();
     Q_NOREPLY void show ();
     Q_NOREPLY void hide ();
     Q_NOREPLY void message ( const QString &mess );

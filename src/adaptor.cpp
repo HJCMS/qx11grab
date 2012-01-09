@@ -36,6 +36,16 @@ void Adaptor::rubberband()
   QMetaObject::invokeMethod ( parent(), "swapRubberBand" );
 }
 
+void Adaptor::start ()
+{
+  QMetaObject::invokeMethod ( parent(), "record" );
+}
+
+void Adaptor::stop ()
+{
+  QMetaObject::invokeMethod ( parent(), "stop" );
+}
+
 void Adaptor::show ()
 {
   QMetaObject::invokeMethod ( parent(), "showNormal" );
