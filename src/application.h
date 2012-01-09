@@ -49,11 +49,7 @@ class Application : public QApplication
     Settings* m_settings;
     QDBusConnection* m_dbus;
 
-  private Q_SLOTS:
-    void configureSession ( QSessionManager &manager );
-
   protected:
-    virtual void commitData ( QSessionManager &manager );
     virtual bool event ( QEvent * e );
 
   public:

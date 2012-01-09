@@ -69,49 +69,7 @@ Application::Application ( int &argc, char **argv )
   }
 
 #endif
-
-  connect ( this, SIGNAL ( saveStateRequest ( QSessionManager & ) ),
-            this, SLOT ( configureSession ( QSessionManager & ) ),
-            Qt::DirectConnection );
 }
-
-void Application::configureSession ( QSessionManager &manager )
-{
-  QStringList cmd ( applicationName() );
-  cmd << "-session" << manager.sessionId();
-  m_settings->setValue ( "SessionManager", cmd );
-  manager.setRestartCommand ( cmd );
-  if ( m_dbus )
-  {
-    // qDebug() << Q_FUNC_INFO << m_dbus->baseService() << m_dbus->name();
-    manager.setManagerProperty ( "baseService", m_dbus->baseService() );
-  }
-}
-
-/**
-* Wenn eine DBus Verbindung besteht kann der Adapter an die
-* Schnittstelle gesendet werden und das Fenster wird gestartet.
-*/
-void Application::commitData ( QSessionManager &manager )
-{
-  if ( manager.allowsInteraction() )
-  {
-    if ( m_settings->contains ( "SessionManager" ) )
-      manager.setDiscardCommand ( m_settings->value ( "SessionManager" ).toStringList() );
-
-
-    manager.cancel();
-  }
-  else
-  {
-    QStringList cmd ( applicationName() );
-    cmd << "-session" << manager.sessionId();
-    manager.setRestartCommand ( cmd );
-    manager.release();
-  }
-  m_settings->remove ( "SessionManager" );
-}
-
 
 bool Application::event ( QEvent * e )
 {
