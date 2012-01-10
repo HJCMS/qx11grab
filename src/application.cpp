@@ -69,7 +69,36 @@ Application::Application ( int &argc, char **argv )
   }
 
 #endif
+
+  connect ( this, SIGNAL ( saveStateRequest ( QSessionManager & ) ),
+            this, SLOT ( configureSession ( QSessionManager & ) ),
+            Qt::DirectConnection );
 }
+
+/**
+* Session Manager Registrieren
+*/
+void Application::configureSession ( QSessionManager &manager )
+{
+  // qDebug() << Q_FUNC_INFO << m_dbus->baseService() << m_dbus->name();
+  if ( m_dbus )
+    manager.setManagerProperty ( "baseService", m_dbus->baseService() );
+}
+
+/**
+* Sicher gehen das laufenden Aufnahmen mit der Sitzung beendet werden!
+* Danach von der DBus Session abmelden!
+*/
+void Application::commitData ( QSessionManager &manager )
+{
+  if ( m_window )
+  {
+    m_window->stop();
+    m_dbus->unregisterObject ( QString ( "/" ), QDBusConnection::UnregisterTree );
+  }
+  manager.release();
+}
+
 
 bool Application::event ( QEvent * e )
 {
@@ -120,10 +149,4 @@ void Application::createWindow()
 }
 
 Application::~Application()
-{
-  if ( m_window )
-  {
-    m_dbus->unregisterObject ( QString ( "/" ), QDBusConnection::UnregisterTree );
-    delete m_window;
-  }
-}
+{}
