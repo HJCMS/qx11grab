@@ -37,6 +37,10 @@
 #include <QtGui/QDesktopServices>
 #include <QtGui/QVBoxLayout>
 
+/**
+* @class PlayerAction
+* Menü für das abspielen von Videoausgabe Dateien
+*/
 PlayerAction::PlayerAction ( QWidget * parent )
     : QToolButton ( parent )
 {
@@ -54,6 +58,11 @@ PlayerAction::PlayerAction ( QWidget * parent )
   searchPlayers();
 }
 
+/**
+* Vordefinierte Video Abspieler
+* Wird im Kontainter kein Eintrag gefunden wird der
+* Binärname zurück gegeben.
+*/
 const QString PlayerAction::predefinedApps ( const QString &txt ) const
 {
   QHash<QString,QString> hash;
@@ -78,6 +87,11 @@ const QString PlayerAction::predefinedApps ( const QString &txt ) const
   return ( hash[txt].isEmpty() ) ? txt : hash[txt];
 }
 
+/**
+* Sucht in "~/bin","/usr/bin" und "/usr/local/bin" nach
+* Vordefinierten Video Abspielern und setz bei gefunden
+* einen Menü Eintrag.
+*/
 void PlayerAction::searchPlayers()
 {
   QStringList nameFilters;
@@ -106,6 +120,10 @@ void PlayerAction::searchPlayers()
   }
 }
 
+/**
+* Fragt in den Einstellungen nach der Ausgabe Datei.
+* Wenn gefunden wird die abgepsielt!
+*/
 void PlayerAction::playOuputFile ( const QString &player )
 {
   Settings settings;

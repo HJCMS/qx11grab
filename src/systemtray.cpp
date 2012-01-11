@@ -94,17 +94,26 @@ SystemTray::SystemTray ( MainWindow * parent )
             m_mainWindow, SLOT ( shutdown() ) );
 }
 
+/**
+* Aktiviert/Deaktiviert die Menüeinträge für die Aufnahme
+*/
 void SystemTray::setActionsEnabled ( bool b )
 {
   m_actionStopRecord->setEnabled ( b );
   m_actionStartRecord->setEnabled ( ( ( b ) ? false : true ) );
 }
 
+/**
+* Methode zum Ändern des Tooltips!
+*/
 void SystemTray::setCustomToolTip ( const QString &txt )
 {
   setToolTip ( txt );
 }
 
+/**
+* Aktiviert den Messanger
+*/
 void SystemTray::setMessanger ( QDBusConnection* bus )
 {
   m_messanger = new Messanger ( *bus, this );

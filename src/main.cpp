@@ -24,6 +24,7 @@
 #include <cstdio>
 
 /* QtCore */
+#include <QtCore/QDebug>
 #include <QtCore/QLibraryInfo>
 #include <QtCore/QLocale>
 #include <QtCore/QString>

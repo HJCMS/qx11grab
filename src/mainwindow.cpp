@@ -244,7 +244,6 @@ void MainWindow::stop()
 */
 void MainWindow::createEnviroment()
 {
-  // init desktop info
   m_DesktopInfo = new DesktopInfo ( this );
   m_DesktopInfo->grabScreenGeometry ( centralWidget() );
 
@@ -257,6 +256,9 @@ void MainWindow::createEnviroment()
   toRubber ( true );
 }
 
+/**
+* Das Symbol in der System Statusleiste setzen.
+*/
 void MainWindow::createSystemTrayIcon()
 {
   m_systemTray = new SystemTray ( this );
@@ -277,14 +279,17 @@ void MainWindow::showRubber ( bool b )
     m_RubberBand->hide();
 }
 
+/**
+* Automtische Ein/Ausblenden funktion für die Gummibandanzeige.
+*/
 void MainWindow::swapRubberBand ()
 {
   showRubber ( ( ( m_RubberBand->isVisible() ) ? false : true ) );
 }
 
 /**
-* Lese die Fenster Geometrien neu ein.
-* @note Wird immer nur beim Start und show() und hide() aufgerufen!
+* Lese die Fenster Geometrie neu ein.
+* @note Wird immer nur bei Konstruktor und show() aufgerufen!
 */
 void MainWindow::loadStats()
 {
@@ -305,7 +310,7 @@ void MainWindow::loadStats()
 
 /**
 * Fenster Verhältnisse Speichern
-* @note Wird immer nur bei show() und hide() aufgerufen!
+* @note Wird immer nur bei hide() und \ref shutdown() aufgerufen!
 */
 void MainWindow::saveStats()
 {
@@ -316,7 +321,7 @@ void MainWindow::saveStats()
 
 /**
 * Ausgabepfad erstellen und zwischenspeichern!
-* \note Der Dateiname ändert sich bei jedem aufruf!
+* @note Der Dateiname ändert sich bei jedem aufruf!
 */
 const QString MainWindow::generateOutputFile()
 {
@@ -381,7 +386,7 @@ void MainWindow::grabFromWindow()
 }
 
 /**
-* Statusleisten Aktionen verarbeiten
+* System Symbolleisten hide(), show() Aktionen verarbeiten
 */
 void MainWindow::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
 {
@@ -696,6 +701,7 @@ void MainWindow::openConfiguration()
 
 /**
 * Sauber beenden!
+* @note Diese Methode wird von den Menüs aufgerufen!
 */
 void MainWindow::shutdown()
 {
@@ -725,7 +731,7 @@ void MainWindow::hideEvent ( QHideEvent * ev )
 * Das beenden über den WindowManager CloseButton
 * verhindern! Statt dessen die Einstellungen mit
 * \ref hideEvent Speichern und Hauptfenster in das
-* Systray minimieren!
+* System Symbol minimieren!
 */
 void MainWindow::closeEvent ( QCloseEvent * ev )
 {
@@ -746,19 +752,28 @@ void MainWindow::statusBarMessage ( const QString &msg, int timeout )
   statusBar()->showMessage ( msg, timeout );
 }
 
-/** Wird für DBUS und ItemDelegation benötigt! */
+/** 
+* Aktuell verwendeter Audio Codec
+* Wird für DBus Adaptor und ItemDelegation benötigt!
+*/
 const QString MainWindow::audioCodec()
 {
   return m_audioEditor->selectedCodec();
 }
 
-/** Wird für DBUS und ItemDelegation benötigt! */
+/** 
+* Aktuell verwendeter Video Codec
+* Wird für DBus Adaptor und ItemDelegation benötigt!
+*/
 const QString MainWindow::videoCodec()
 {
   return m_videoEditor->selectedCodec();
 }
 
-/** Wird für DBUS benötigt! */
+/** 
+* Aufnahme ausgabe Dateipfad
+* Wird für DBus Adaptor und CommandLine benötigt!
+*/
 const QString MainWindow::outputFile()
 {
   return cfg->absoluteOutputPath();

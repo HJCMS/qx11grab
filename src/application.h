@@ -37,6 +37,27 @@
 class Settings;
 class MainWindow;
 
+/**
+* \class Application
+* \code
+* #include <cstdlib>
+* #include <QtCore/QDebug>
+* #include "application.h"
+*
+* int main ( int argc, char* argv[] )
+* {
+*   Application* app = new Application ( argc, argv );
+*   if ( ! app->start() )
+*   {
+*     qWarning ( "Application already Running" );
+*     delete app;
+*     return EXIT_SUCCESS;
+*   }
+*   // ...
+*   app->createWindow();
+*   return app->exec();
+* \endcode
+*/
 class Application : public QApplication
 {
     Q_OBJECT
@@ -57,8 +78,10 @@ class Application : public QApplication
     virtual bool event ( QEvent * e );
 
   public:
-    Application ( int &argc, char **argv );
+    explicit Application ( int &argc, char **argv );
+    /** Start Application */
     bool start();
+    /** If Application connected open Window */
     void createWindow();
     virtual ~Application();
 };

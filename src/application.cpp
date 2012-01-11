@@ -88,6 +88,8 @@ void Application::configureSession ( QSessionManager &manager )
 /**
 * Sicher gehen das laufenden Aufnahmen mit der Sitzung beendet werden!
 * Danach von der DBus Session abmelden!
+* @note Damit die Desktopumgebung keine Sperre erhält \b muss Unbedingt
+* ein QSessionManager::release() gesetzt werden!
 */
 void Application::commitData ( QSessionManager &manager )
 {
@@ -99,7 +101,9 @@ void Application::commitData ( QSessionManager &manager )
   manager.release();
 }
 
-
+/**
+* TODO Unvorhergesehene Ereignisse abfangen absturz etc.
+*/
 bool Application::event ( QEvent * e )
 {
   if ( e->type() == QEvent::Close )
