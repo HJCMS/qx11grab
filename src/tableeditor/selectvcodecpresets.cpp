@@ -23,18 +23,17 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QRegExp>
 
 /* QtDBus */
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 
+/* QX11Grab */
+#include "avoptions.h"
+
 SelectVcodecPresets::SelectVcodecPresets ( QWidget * parent )
     : AbstractSelection ( parent )
-    , nameFilters ( QStringList ( "*.ffpreset" ) )
 {
   setObjectName ( QLatin1String ( "SelectVcodecPresets" ) );
   /*: ToolTip */
@@ -53,48 +52,17 @@ SelectVcodecPresets::SelectVcodecPresets ( QWidget * parent )
 void SelectVcodecPresets::initItemDataset()
 {}
 
-const QStringList SelectVcodecPresets::userPresets ( const QString &suffix )
-{
-  QStringList list;
-  QDir d ( QDir::home() );
-  d.setPath ( QString::fromUtf8 ( "%1/.ffmpeg" ).arg ( d.homePath() ) );
-  foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
-  {
-    QString bn = info.completeBaseName();
-    QRegExp pattern ( "^"+suffix+"\\-" );
-    if ( bn.contains ( pattern ) )
-    {
-      list.append ( bn.replace ( pattern, "" ) );
-    }
-  }
-  return list;
-}
-
-const QStringList SelectVcodecPresets::systemPresets ( const QString &suffix )
-{
-  QStringList list;
-  QDir d ( QDir::home() );
-  d.setPath ( QString::fromUtf8 ( "/usr/share/ffmpeg" ) );
-  foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
-  {
-    QString bn = info.completeBaseName();
-    QRegExp pattern ( "^"+suffix+"\\-" );
-    if ( bn.contains ( pattern ) )
-    {
-      list.append ( bn.replace ( pattern, "" ) );
-    }
-  }
-  return list;
-}
-
 void SelectVcodecPresets::reload()
 {
   QStringList list;
   if ( ! codecSuffix.isEmpty() )
-    list << userPresets ( codecSuffix ) << systemPresets ( codecSuffix );
+  {
+    list << QX11Grab::AVOptions::userPresets ( codecSuffix );
+    list << QX11Grab::AVOptions::systemPresets ( codecSuffix );
+  }
 
 #ifdef MAINTAINER_REPOSITORY
-    qDebug() << Q_FUNC_INFO << list;
+  qDebug() << Q_FUNC_INFO << list;
 #endif
 
   clear();

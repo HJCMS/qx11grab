@@ -36,6 +36,7 @@
 #include <QtGui/QX11Info>
 
 /**
+* \class DesktopInfo
 * Create Desktop Information from Current Screen
 */
 class DesktopInfo : public QObject, private QX11Info

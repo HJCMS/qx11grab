@@ -64,6 +64,7 @@ MetaData::MetaData ( QWidget * parent )
 
   /**
   * Metadaten Beschreibung
+  * \link http://www.ffmpeg.org/doxygen/trunk/group__metadata__api.html
   * \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
   */
   metadata_INAM = new QLineEdit ( this );
@@ -226,7 +227,9 @@ const QStringList MetaData::getCmd ( const QString &codec )
 
   cmd << "-metadata" << QString ( "year=%1" ).arg ( metadata_ICRD->date().year() );
   // DEPRECATED timestamp use "creation_time Key ISO 8601"
-  cmd << "-metadata" << QString ( "creation_time=%1" ).arg ( metadata_ICRD->dateTime().toString ( Qt::ISODate ) );
+  QString date = metadata_ICRD->dateTime().toString ( Qt::ISODate );
+  cmd << "-metadata" << QString ( "date=%1" ).arg ( date );
+  cmd << "-metadata" << QString ( "creation_time=%1" ).arg ( date );
 
   return cmd;
 }

@@ -37,6 +37,10 @@
 class ScreenComboBox;
 class DesktopInfo;
 
+/**
+* \class GrabberInfo
+* Widget to display the current dimension settings
+*/
 class GrabberInfo : public QWidget
 {
     Q_OBJECT

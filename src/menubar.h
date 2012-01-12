@@ -59,6 +59,7 @@ class MenuBar : public QMenuBar
     QAction* m_actionExport;
     QAction* m_actionAddBookmark;
     QAction* m_actionDelBookmark;
+    QAction* m_actionPrEditor;
     QAction* m_actionSave;
     QAction* m_actionLoad;
     QAction* m_actionRefresh;

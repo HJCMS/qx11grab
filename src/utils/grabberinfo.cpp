@@ -38,6 +38,10 @@
 #include <QtGui/QPalette>
 #include <QtGui/QSpacerItem>
 
+/**
+* @class GrabberInfo
+* Widget für Anzeige der Dimensionen
+*/
 GrabberInfo::GrabberInfo ( QWidget * parent )
     : QWidget ( parent )
     , screenGeometry ( QRect ( 0, 0, 100, 100 ) )

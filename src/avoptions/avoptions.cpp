@@ -26,6 +26,9 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QRegExp>
 
 /* QtGui */
 // #include <QtGui>
@@ -193,6 +196,7 @@ namespace QX11Grab
         c.id = codec->id;
         c.name = QString ( codec->name );
         c.fullname = QString ( codec->long_name );
+        c.info = QString();
         list.append ( c );
       }
     }
@@ -217,7 +221,46 @@ namespace QX11Grab
         c.id = codec->id;
         c.name = QString ( codec->name );
         c.fullname = QString ( codec->long_name );
+        c.info = QString();
         list.append ( c );
+      }
+    }
+    return list;
+  }
+
+  /** Eine Liste der Verfügbaren Benutzer Presets für diesen Codec */
+  const QStringList AVOptions::userPresets ( const QString &suffix )
+  {
+    QStringList nameFilters ( "*.ffpreset" );
+    QStringList list;
+    QDir d ( QDir::home() );
+    d.setPath ( QString::fromUtf8 ( "%1/.ffmpeg" ).arg ( d.homePath() ) );
+    foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+    {
+      QString bn = info.completeBaseName();
+      QRegExp pattern ( "^"+suffix+"\\-" );
+      if ( bn.contains ( pattern ) )
+      {
+        list.append ( bn.replace ( pattern, "" ) );
+      }
+    }
+    return list;
+  }
+
+  /** Eine Liste der Verfügbaren System Presets für diesen Codec */
+  const QStringList AVOptions::systemPresets ( const QString &suffix )
+  {
+    QStringList nameFilters ( "*.ffpreset" );
+    QStringList list;
+    QDir d ( QDir::home() );
+    d.setPath ( QString::fromUtf8 ( "/usr/share/ffmpeg" ) );
+    foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+    {
+      QString bn = info.completeBaseName();
+      QRegExp pattern ( "^"+suffix+"\\-" );
+      if ( bn.contains ( pattern ) )
+      {
+        list.append ( bn.replace ( pattern, "" ) );
       }
     }
     return list;

@@ -69,9 +69,6 @@ MenuBar::MenuBar ( MainWindow * parent )
   // Actions
   m_menuActions = addMenu ( trUtf8 ( "Actions" ) );
 
-  m_actionExport = exportAction ( this, true );
-  m_menuActions->addAction ( m_actionExport );
-
   QMenu* m_menuBookmark = m_menuActions->addMenu ( Settings::themeIcon ( "folder-bookmark" ),
                           trUtf8 ( "Bookmark" ) );
 
@@ -80,6 +77,8 @@ MenuBar::MenuBar ( MainWindow * parent )
 
   m_actionDelBookmark = bookmarkRemoveAction ( m_menuBookmark );
   m_menuBookmark->addAction ( m_actionDelBookmark );
+
+  m_menuActions->addSeparator();
 
   m_actionSave = saveAction ( this, true );
   m_menuActions->addAction ( m_actionSave );
@@ -90,6 +89,17 @@ MenuBar::MenuBar ( MainWindow * parent )
 
   m_actionRefresh = refreshAction ( this, true );
   m_menuActions->addAction ( m_actionRefresh );
+
+  m_menuActions->addSeparator();
+
+  m_actionExport = exportAction ( this, true );
+  m_menuActions->addAction ( m_actionExport );
+
+  /*: MenuEntry */
+  m_actionPrEditor = m_menuActions->addAction ( trUtf8 ( "Presets Editor" ) );
+  /*: ToolTip */
+  m_actionPrEditor->setStatusTip ( trUtf8 ( "Open Presets Editor" ) );
+  m_actionPrEditor->setIcon ( Settings::themeIcon ( "menu-editors" ) );
 
   m_menuActions->addSeparator();
 
@@ -155,6 +165,9 @@ MenuBar::MenuBar ( MainWindow * parent )
 
   connect ( m_actionDelBookmark, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( openRemoveBookmark() ) );
+
+  connect ( m_actionPrEditor, SIGNAL ( triggered() ),
+            m_mainWindow, SLOT ( openPresetEditor() ) );
 
   connect ( m_actionSave, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( saveSettings() ) );

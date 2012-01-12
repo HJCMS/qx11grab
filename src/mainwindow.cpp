@@ -42,6 +42,7 @@
 #include "bookmarkdialog.h"
 #include "bookmark.h"
 #include "configdialog.h"
+#include "preseteditor.h"
 
 /* QtCore */
 #include <QtCore/QDateTime>
@@ -693,7 +694,16 @@ void MainWindow::openBookmark ( const QString &id )
 void MainWindow::openConfiguration()
 {
   ConfigDialog* d = new ConfigDialog ( cfg, this );
-  if ( d->exec() )
+  if ( d->exec() == QDialog::Accepted )
+    preparePreview();
+
+  delete d;
+}
+
+void MainWindow::openPresetEditor()
+{
+  PresetEditor* d = new PresetEditor ( this );
+  if ( d->exec() == QDialog::Accepted )
     preparePreview();
 
   delete d;

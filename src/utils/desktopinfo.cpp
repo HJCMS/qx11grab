@@ -29,6 +29,10 @@
 /* QtGui */
 #include <QtGui/QApplication>
 
+/**
+* @class DesktopInfo
+* Erstellt Desktop Informationen vom aktuellen Bildschirm
+*/
 DesktopInfo::DesktopInfo ( QObject * parent )
     : QObject ( parent )
     , QX11Info()
@@ -63,6 +67,9 @@ const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, 
   return mode;
 }
 
+/**
+* Liste der Standardtisierten Modi in FFmpeg
+*/
 const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
 {
   QList<FrameMode> buf;
@@ -114,36 +121,57 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
   return out;
 }
 
+/**
+* Aktuell verwendeter Bildschirm
+*/
 int DesktopInfo::getScreen()
 {
   return screen();
 }
 
+/**
+* Maximale breite des aktuellen Bildschirms
+*/
 int DesktopInfo::getMaxWidth()
 {
   return screenGeometry ( screen() ).width();
 }
 
+/**
+* Maximale höhe des aktuellen Bildschirms
+*/
 int DesktopInfo::getMaxHeight()
 {
   return screenGeometry ( screen() ).height();
 }
 
+/**
+* Aktuellen Farbtiefe des Bildschirms
+*/
 int DesktopInfo::getDepth()
 {
   return depth();
 }
 
+/**
+* Globales Bildschirm Widget
+*/
 QWidget* DesktopInfo::screenWidget()
 {
   return m_desktopWidget->screen ( screen() );
 }
 
+/**
+* Aktuelle Bildschirm Geometrie
+*/
 const QRect DesktopInfo::screenGeometry ( int screen )
 {
   return m_desktopWidget->screenGeometry ( screen );
 }
 
+/**
+* Sucht in der Modi Liste nach einem Eintrag
+*/
 const DesktopInfo::FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidget *parent )
 {
   if ( parent )
@@ -157,6 +185,9 @@ const DesktopInfo::FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidg
   return generateFrameMode ( trUtf8 ( "Unknown" ), 640, 480 );
 }
 
+/**
+* Abgreifen der Geometrie eines Desktop Widgets
+*/
 const DesktopInfo::FrameMode DesktopInfo::grabScreenGeometry ( QWidget * parent )
 {
   int sc = ( parent ) ? m_desktopWidget->screenNumber ( parent ) : screen();

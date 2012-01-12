@@ -105,6 +105,7 @@ class MainWindow : public QMainWindow
     void openRemoveBookmark();
     void openBookmark ( const QString &id );
     void openConfiguration();
+    void openPresetEditor();
     void shutdown();
 
   protected:

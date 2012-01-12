@@ -45,10 +45,10 @@ namespace QX11Grab
   */
   typedef struct Q_DECL_EXPORT
   {
-    CodecID id;             /**< Codec ID from avcodec.h */
+    CodecID id;         /**< Codec ID from avcodec.h */
     QString name;       /**< Codec Name */
-    QString fullname; /**< Full Codec Description */
-    QString info;         /**< Extra Codec Information fpr Tool Tips */
+    QString fullname;   /**< Full Codec Description */
+    QString info;       /**< Extra Codec Information for Tool Tips */
   } FFCodec;
 
   /**
@@ -57,13 +57,13 @@ namespace QX11Grab
   */
   typedef struct Q_DECL_EXPORT
   {
-    int id;                      /**< Incremental Identifier for ComboBoxes */
+    int id;           /**< Incremental Identifier for ComboBoxes */
     QString name;     /**< Parameter Name */
-    QVariant value;  /**<  Optional Default Value */
-    QString help;      /**< Optional Helptext */
+    QVariant value;   /**< Optional Default Value */
+    QString help;     /**< Optional Helptext */
   } FFOption;
 
-  /** 
+  /**
   * required for QStringList::join() and QString::split() in Table ItemViews
   * @ingroup Declarations
   */
@@ -84,11 +84,11 @@ namespace QX11Grab
     public:
       AVOptions ( QObject * parent = 0 );
 
-/**
-* Read all default Values from CodecID
-* If Codec Options found \ref codecDefaults will emitted
-* \param codecId  Codec ID from avcodec.h
-*/
+      /**
+      * Read all default Values from CodecID
+      * If Codec Options found \ref codecDefaults will emitted
+      * \param codecId  Codec ID from avcodec.h
+      */
       void initCodecDefaults ( CodecID codecId );
 
       /** send a avcodec option request only VIDEO/AUDIO supported
@@ -107,6 +107,10 @@ namespace QX11Grab
 
       /** all supported AVMEDIA_TYPE_AUDIO encoder types */
       static const QList<FFCodec> audioCodecs();
+
+      static const QStringList userPresets ( const QString &suffix );
+
+      static const QStringList systemPresets ( const QString &suffix );
 
       virtual ~AVOptions();
   };

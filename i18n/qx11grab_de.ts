@@ -476,6 +476,19 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>FileSaveDialog</name>
+    <message>
+        <source>Save ffpreset File</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation>Speichere ffpreset Datei</translation>
+    </message>
+    <message>
+        <source>FFmpeg preset file (*.ffpreset)</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>FFmpeg Preset Datei (*.ffpreset)</translation>
+    </message>
+</context>
+<context>
     <name>GrabberInfo</name>
     <message>
         <source>Width:</source>
@@ -966,6 +979,16 @@ ToolTip</extracomment>
         <source>About Qt4</source>
         <translation>Über Qt4</translation>
     </message>
+    <message>
+        <source>Presets Editor</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Open Presets Editor</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Öffne den Preset Editor</translation>
+    </message>
 </context>
 <context>
     <name>Messanger</name>
@@ -1127,6 +1150,20 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>PresetSelector</name>
+    <message>
+        <source>New</source>
+        <translation>Neu</translation>
+    </message>
+</context>
+<context>
+    <name>PresetsComboBox</name>
+    <message>
+        <source>Select Preset</source>
+        <translation>Wähle Preset</translation>
     </message>
 </context>
 <context>

@@ -42,10 +42,7 @@ class SelectAcodecPresets : public AbstractSelection
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    const QStringList nameFilters;
     QString codecSuffix;
-    const QStringList userPresets ( const QString &suffix );
-    const QStringList systemPresets ( const QString &suffix );
 
   protected:
     void initItemDataset();

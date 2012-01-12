@@ -473,6 +473,19 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>FileSaveDialog</name>
+    <message>
+        <source>Save ffpreset File</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FFmpeg preset file (*.ffpreset)</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GrabberInfo</name>
     <message>
         <source>Width:</source>
@@ -963,6 +976,16 @@ ToolTip</extracomment>
         <source>About Qt4</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Presets Editor</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Presets Editor</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Messanger</name>
@@ -1123,6 +1146,20 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PresetSelector</name>
+    <message>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PresetsComboBox</name>
+    <message>
+        <source>Select Preset</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
