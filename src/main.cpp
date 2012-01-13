@@ -72,5 +72,6 @@ int main ( int argc, char* argv[] )
   }
 
   app->createWindow();
+
   return app->exec();
 }

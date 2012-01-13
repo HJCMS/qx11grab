@@ -19,45 +19,27 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef PRESETSCOMBOBOX_H
-#define PRESETSCOMBOBOX_H
+#include "preseteditlayout.h"
+
+/* QX11Grab */
+// #include ""
 
 /* QtCore */
-#include <QtCore/QFileInfo>
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QtCore/QDebug>
 
 /* QtGui */
-#include <QtGui/QComboBox>
-#include <QtGui/QWidget>
+// #include <QtGui/QVBoxLayout>
 
-/**
-* \class PresetsComboBox
-* Combo Selection for all (User/System) ffpresets
-*/
-class PresetsComboBox : public QComboBox
+PresetEditLayout::PresetEditLayout ( QTextDocument * document )
+    : QPlainTextDocumentLayout ( document )
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  setObjectName ( QLatin1String ( "PresetEditLayout" ) );
+}
 
-  private:
-    void insertItemData ( const QFileInfo &info );
-    void load();
+void PresetEditLayout::documentChanged ( int from, int charsRemoved, int charsAdded )
+{
+  qDebug() << Q_FUNC_INFO << from << charsRemoved << charsAdded;
+}
 
-  private Q_SLOTS:
-    void indexChanged ( int );
-
-  Q_SIGNALS:
-    /** this signal will emitted when a readable preset has changed */
-    void fileChanged ( const QString & );
-
-  public Q_SLOTS:
-    void reload();
-
-  public:
-    explicit PresetsComboBox ( QWidget * parent = 0 );
-    ~PresetsComboBox();
-};
-
-#endif
+PresetEditLayout::~PresetEditLayout()
+{}

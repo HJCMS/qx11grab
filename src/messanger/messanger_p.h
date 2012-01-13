@@ -62,9 +62,6 @@ class MessangerPrivate
 
   public:
     org::freedesktop::Notifications* iface;
-    quint32 notifyID;
-    QDateTime lastNotifyTime;
-
     QVariantMap hints ( const QString &iconName = QString::fromUtf8 ( "qx11grab" ) ) const;
 
     explicit MessangerPrivate ( Messanger * p );

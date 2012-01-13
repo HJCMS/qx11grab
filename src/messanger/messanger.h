@@ -33,7 +33,6 @@
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusPendingCallWatcher>
 
 class MessangerPrivate;
 
@@ -50,7 +49,6 @@ class Messanger : public QDBusInterface
     QScopedPointer<MessangerPrivate> d_ptr;
 
   private Q_SLOTS:
-    void finished ( QDBusPendingCallWatcher * );
     void notify ( const QString &type, const QString &title, const QString &body );
 
   protected:
@@ -63,32 +61,31 @@ class Messanger : public QDBusInterface
     /**
     * this will emitted if no Notification Daemon reply errors
     */
-    void errors ( const QString &mess, int timeout = 5000 );
+    void replyMessage ( const QString &mess, int timeout = 5000 );
 
-  public Q_SLOTS:
+  public:
+    explicit Messanger ( const QDBusConnection &connection, QObject * parent = 0 );
     /**
     * Send Info Message to Notification Daemon
     * @param title  Message Title
     * @param body Body Message
     */
-    void sendInfoMessage ( const QString &title, const QString &body );
+    bool sendInfoMessage ( const QString &title, const QString &body );
 
     /**
     * Send Warning Message to Notification Daemon
     * @param title  Message Title
     * @param body Body Message
     */
-    void sendWarnMessage ( const QString &title, const QString &body );
+    bool sendWarnMessage ( const QString &title, const QString &body );
 
     /**
     * Send Failure Message to Notification Daemon
     * @param title  Message Title
     * @param body Body Message
     */
-    void sendErrorMessage ( const QString &title, const QString &body );
+    bool sendErrorMessage ( const QString &title, const QString &body );
 
-  public:
-    explicit Messanger ( const QDBusConnection &connection, QObject * parent = 0 );
     ~Messanger();
 };
 

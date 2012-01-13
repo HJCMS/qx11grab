@@ -23,11 +23,7 @@
 #include "icon_p.h"
 #include "messanger_p.h"
 
-/* QX11Grab */
-// #include ""
-
 /* QtCore */
-#include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 
 /* QtGui */
@@ -84,7 +80,6 @@ const QDBusArgument& operator>> ( const QDBusArgument &arg, QImage &image )
 MessangerPrivate::MessangerPrivate ( Messanger * p )
     : q_ptr ( p )
     , iface ( 0 )
-    , notifyID ( 0 )
 {}
 
 QVariantMap MessangerPrivate::hints ( const QString &iconName ) const
@@ -113,41 +108,12 @@ Messanger::Messanger ( const QDBusConnection &connection, QObject * parent )
   setObjectName ( QLatin1String ( "Messanger" ) );
 }
 
-void Messanger::finished ( QDBusPendingCallWatcher * watcher )
-{
-  Q_D ( Messanger );
-  QDBusPendingReply<uint> reply = *watcher;
-  if ( reply.isError() )
-  {
-    qWarning() << "Error sending notification" << reply.error().name();
-    return;
-  }
-
-#ifdef MAINTAINER_REPOSITORY
-  qDebug() << Q_FUNC_INFO << "Reply:" << reply.value();
-#endif
-
-  quint32 id = reply.value();
-  if ( id != 0 )
-  {
-    d->notifyID = id;
-    d->lastNotifyTime = QDateTime::currentDateTime();
-  }
-}
-
 void Messanger::notify ( const QString &type, const QString &title, const QString &body )
 {
   Q_D ( Messanger );
 
   qint32 id = 0;
-  qint32 timeout = 5000; // 5 Sekunden
-  if ( ( d->lastNotifyTime.secsTo ( QDateTime::currentDateTime() ) * 1000 ) < timeout )
-  {
-    /* Wenn in KDE4 ein Nachricht bereits gesendet wurde.
-    *  Müssen wir erst die ID zerstören damit ältere
-    *  Nachrichten nicht noch einmal anzeigt! */
-    id = d->notifyID;
-  }
+  qint32 timeout = 3000; // 5 Sekunden
 
   QString appName = qApp->applicationName();
   QDBusPendingReply<uint> reply = d->iface->Notify (
@@ -161,17 +127,13 @@ void Messanger::notify ( const QString &type, const QString &title, const QStrin
                                       timeout
                                   );
 
-  QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher ( reply, this );
-  connect ( watcher, SIGNAL ( finished ( QDBusPendingCallWatcher* ) ),
-            this, SLOT ( finished ( QDBusPendingCallWatcher* ) ) );
-
   if ( reply.isError() )
   {
     qWarning ( "Notification Failure: %s\n%s\n",
                qPrintable ( reply.error().name() ),
                qPrintable ( reply.error().message() ) );
 
-    emit errors ( trUtf8 ( "Notification not send!" ) );
+    emit replyMessage ( trUtf8 ( "Notification not send!" ) );
   }
 }
 
@@ -187,34 +149,37 @@ bool Messanger::createConnection()
   return d->iface->isValid();
 }
 
-void Messanger::sendInfoMessage ( const QString &title, const QString &body )
+bool Messanger::sendInfoMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
   {
     qWarning() << "Notification Daemon not available!";
-    return;
+    return false;
   }
   notify ( "dialog-information", title, body );
+  return true;
 }
 
-void Messanger::sendWarnMessage ( const QString &title, const QString &body )
+bool Messanger::sendWarnMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
   {
     qWarning() << "Notification Daemon not available!";
-    return;
+    return false;
   }
   notify ( "dialog-warning", title, body );
+  return true;
 }
 
-void Messanger::sendErrorMessage ( const QString &title, const QString &body )
+bool Messanger::sendErrorMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
   {
     qWarning() << "Notification Daemon not available!";
-    return;
+    return false;
   }
   notify ( "dialog-error", title, body );
+  return true;
 }
 
 Messanger::~Messanger()

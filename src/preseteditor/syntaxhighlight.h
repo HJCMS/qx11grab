@@ -24,16 +24,20 @@
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QString>
 #include <QtCore/QRegExp>
+#include <QtCore/QString>
 #include <QtCore/QVector>
 
 /* QtGui */
-#include <QtGui/QTextEdit>
-#include <QtGui/QTextCharFormat>
 #include <QtGui/QSyntaxHighlighter>
+#include <QtGui/QPlainTextEdit>
+#include <QtGui/QTextCharFormat>
 #include <QtGui/QTextBlock>
 
+/**
+* \class SyntaxHighlight
+* Syntax Highlighter for *.ffpreset Documents
+*/
 class SyntaxHighlight : public QSyntaxHighlighter
 {
     Q_OBJECT
@@ -42,6 +46,7 @@ class SyntaxHighlight : public QSyntaxHighlighter
 
   private:
     int block_stat;
+    const QPlainTextEdit* editor;
     struct RuleHighlight
     {
       QRegExp pattern;
@@ -57,7 +62,7 @@ class SyntaxHighlight : public QSyntaxHighlighter
     void highlightBlock ( const QString &text );
 
   public:
-    SyntaxHighlight ( QTextEdit * parent = 0 );
+    explicit SyntaxHighlight ( QPlainTextEdit * parent );
     virtual ~SyntaxHighlight();
 };
 

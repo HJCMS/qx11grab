@@ -267,6 +267,9 @@ void MainWindow::createSystemTrayIcon()
             this, SLOT ( systemTrayWatcher ( QSystemTrayIcon::ActivationReason ) ) );
 
   m_systemTray->show();
+
+  if ( ! ( cfg->value ( "startMinimized", false ).toBool() ) )
+    show();
 }
 
 /**
@@ -515,6 +518,11 @@ void MainWindow::loadSettings()
   m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
   preparePreview();
   setWindowModified ( false );
+
+  if ( cfg->value ( "startMinimized", false ).toBool() )
+    hide();
+  else
+    show();
 }
 
 /**
@@ -762,7 +770,7 @@ void MainWindow::statusBarMessage ( const QString &msg, int timeout )
   statusBar()->showMessage ( msg, timeout );
 }
 
-/** 
+/**
 * Aktuell verwendeter Audio Codec
 * Wird für DBus Adaptor und ItemDelegation benötigt!
 */
@@ -771,7 +779,7 @@ const QString MainWindow::audioCodec()
   return m_audioEditor->selectedCodec();
 }
 
-/** 
+/**
 * Aktuell verwendeter Video Codec
 * Wird für DBus Adaptor und ItemDelegation benötigt!
 */
@@ -780,7 +788,7 @@ const QString MainWindow::videoCodec()
   return m_videoEditor->selectedCodec();
 }
 
-/** 
+/**
 * Aufnahme ausgabe Dateipfad
 * Wird für DBus Adaptor und CommandLine benötigt!
 */

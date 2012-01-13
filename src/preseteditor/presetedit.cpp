@@ -20,6 +20,7 @@
 **/
 
 #include "presetedit.h"
+#include "preseteditlayout.h"
 #include "syntaxhighlight.h"
 
 /* QtCore */
@@ -28,17 +29,15 @@
 #include <QtCore/QTextStream>
 
 PresetEdit::PresetEdit ( QWidget * parent )
-    : QTextEdit ( parent )
+    : QPlainTextEdit ( parent )
     , docPath ( QString::null )
 {
   setObjectName ( QLatin1String ( "PresetEdit" ) );
-  setReadOnly ( false );
-  setAcceptRichText ( false );
-  setAutoFormatting ( QTextEdit::AutoNone );
   setWordWrapMode ( QTextOption::WordWrap );
-  setLineWrapMode ( QTextEdit::WidgetWidth );
+  setLineWrapMode ( QPlainTextEdit::WidgetWidth );
   setTextInteractionFlags ( Qt::TextEditorInteraction );
-  setAlignment ( ( Qt::AlignLeft | Qt::AlignTop ) );
+  setReadOnly ( false );
+// TODO document()->setDocumentLayout ( new PresetEditLayout ( document() ) );
   new SyntaxHighlight ( this );
 }
 

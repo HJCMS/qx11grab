@@ -66,16 +66,12 @@ class Application : public QApplication
 
   private:
     bool connected;
-    MainWindow* m_window;
     Settings* m_settings;
     QDBusConnection* m_dbus;
+    MainWindow* m_window;
 
   private Q_SLOTS:
     virtual void commitData ( QSessionManager &manager );
-    void configureSession ( QSessionManager &manager );
-
-  protected:
-    virtual bool event ( QEvent * e );
 
   public:
     explicit Application ( int &argc, char **argv );

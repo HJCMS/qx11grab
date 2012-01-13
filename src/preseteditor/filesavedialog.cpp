@@ -29,12 +29,11 @@
 
 static const QString ffmpegHome()
 {
-  QDir dir ( QDir::homePath() + "/.ffmpeg/" );
+  QString home = QDir::homePath();
+  QDir dir ( home + "/.ffmpeg/" );
   if ( ! dir.exists () )
-  {
-    dir.mkdir ( ".ffmpeg" );
-    dir.setPath ( "/.ffmpeg/" );
-  }
+    dir.mkpath ( home + "/.ffmpeg/" );
+
   return dir.absolutePath();
 }
 

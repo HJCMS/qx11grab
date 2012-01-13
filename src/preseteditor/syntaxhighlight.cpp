@@ -21,9 +21,6 @@
 
 #include "syntaxhighlight.h"
 
-/* QX11Grab */
-// #include ""
-
 /* QtCore */
 #include <QtCore/QDebug>
 
@@ -34,9 +31,14 @@
 #include <QtGui/QFont>
 #include <QtGui/QPalette>
 
-SyntaxHighlight::SyntaxHighlight ( QTextEdit * parent )
+/**
+* @class SyntaxHighlight
+* Syntax Hervorhebung für *.ffpreset Dokumente
+*/
+SyntaxHighlight::SyntaxHighlight ( QPlainTextEdit * parent )
     : QSyntaxHighlighter ( parent->document() )
     , block_stat ( 0 )
+    , editor ( parent )
 {
   setObjectName ( QLatin1String ( "SyntaxHighlight" ) );
   QPalette pl = qApp->palette();
@@ -46,54 +48,62 @@ SyntaxHighlight::SyntaxHighlight ( QTextEdit * parent )
   numericFormat.setForeground ( Qt::darkRed );
   commentFormat.setForeground ( Qt::gray );
 
-  QFont font = parent->currentFont();
-  font.setBold ( true );
-  operatorFormat.setForeground ( Qt::darkBlue );
-  operatorFormat.setFont ( font );
+//   QFont font = editor->currentFont();
+//   font.setBold ( true );
+//   operatorFormat.setForeground ( Qt::darkBlue );
+//   operatorFormat.setFont ( font );
 
-
-  RuleHighlight step1;  // Predicates
+  RuleHighlight step1;  // Prädikate
   step1.pattern = QRegExp ( "(^[\\w_]+(?=[=]))" );
   step1.format = keywordFormat;
   highlightRules.append ( step1 );
 
-  RuleHighlight step2;  // Numeric
+  RuleHighlight step2;  // Zahlen
   step2.pattern = QRegExp ( "((?!=[=])[\\d\\.]+$)" );
   step2.format = numericFormat;
   highlightRules.append ( step2 );
 
-  RuleHighlight step3;  // Comments
+  RuleHighlight step3;  // Operatoren
   step3.pattern = QRegExp ( "([=\\+\\-])" );
   step3.format = operatorFormat;
   highlightRules.append ( step3 );
 
-  RuleHighlight step4;  // Comments
+  RuleHighlight step4;  // Kommentare
   step4.pattern = QRegExp ( "(^#+.+$)" );
   step4.format = commentFormat;
   highlightRules.append ( step4 );
 
 }
 
+/**
+* Textbausteine für die Hervorhebung durchlaufen
+*/
 void SyntaxHighlight::highlightBlock ( const QString &text )
 {
   if ( text.isEmpty() )
     return;
 
+  // setzt die Aktuelle Zeilennummer
   setCurrentBlockState ( ++block_stat );
 
+  // vector durchlaufen
   foreach ( const RuleHighlight &r, highlightRules )
   {
-    QRegExp reg ( r.pattern );
-    int in = text.indexOf ( reg );
+    QRegExp expr ( r.pattern );
+    int in = text.indexOf ( expr );
     while ( in >= 0 )
     {
-      int le = reg.matchedLength();
+      int le = expr.matchedLength();
       setFormat ( in, le, r.format );
-      in = text.indexOf ( reg, in + le );
+      in = text.indexOf ( expr, in + le );
     }
   }
+
 }
 
+/**
+* Beim beenden den Vector leeren
+*/
 SyntaxHighlight::~SyntaxHighlight()
 {
   highlightRules.clear();

@@ -7,6 +7,7 @@ SET (_subproject_SOURCES
   presetselector.cpp
   presetscombobox.cpp
   presetedit.cpp
+  preseteditlayout.cpp
   syntaxhighlight.cpp
   filesavedialog.cpp
 )
@@ -16,6 +17,7 @@ SET (_subproject_HEADERS
   presetselector.h
   presetscombobox.h
   presetedit.h
+  preseteditlayout.h
   syntaxhighlight.h
   filesavedialog.h
 )

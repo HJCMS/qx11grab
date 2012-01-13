@@ -28,10 +28,10 @@
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QTextEdit>
+#include <QtGui/QPlainTextEdit>
 #include <QtGui/QWidget>
 
-class PresetEdit : public QTextEdit
+class PresetEdit : public QPlainTextEdit
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )

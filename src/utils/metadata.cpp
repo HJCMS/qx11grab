@@ -36,6 +36,7 @@
 
 MetaData::MetaData ( QWidget * parent )
     : QGroupBox ( parent )
+    , mType ( QString ( "mpeg" ) )
 {
   setObjectName ( QLatin1String ( "metadata" ) );
   /*: GroupBoxTitle */
@@ -62,11 +63,6 @@ MetaData::MetaData ( QWidget * parent )
   txt_title->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt_title, grow, 0, 1, 1 );
 
-  /**
-  * Metadaten Beschreibung
-  * \link http://www.ffmpeg.org/doxygen/trunk/group__metadata__api.html
-  * \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
-  */
   metadata_INAM = new QLineEdit ( this );
   metadata_INAM->setObjectName ( QLatin1String ( "Metadata/title" ) );
   metadata_INAM->setToolTip ( QLatin1String ( "INAM" ) );
@@ -163,7 +159,7 @@ MetaData::MetaData ( QWidget * parent )
 }
 
 /**
-* Einstellungen Laden
+* Liste aller Texteingabe Felder
 */
 const QList<QLineEdit*> MetaData::metadataObjects()
 {
@@ -173,6 +169,40 @@ const QList<QLineEdit*> MetaData::metadataObjects()
   return items;
 }
 
+/**
+* \class MetaData
+* Metadaten Beschreibung
+* \link http://www.ffmpeg.org/doxygen/trunk/group__metadata__api.html
+* \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
+*/
+const QString MetaData::translateKeyword ( const QString &key )
+{
+  QHash<QString,QString> hash;
+  hash["title"] = "title";
+  hash["author"] = "author";
+  hash["copyright"] = "copyright";
+  hash["year"] = "year";
+  hash["subject"] = "subject";
+  hash["description"] = "comment";
+  hash["language"] = "language";
+  // Updates
+  if ( mType.contains ( "avi", Qt::CaseInsensitive ) )
+  {
+    hash["title"] = "INAM";
+    hash["author"] = "IART";
+    hash["copyright"] = "ICOP";
+    hash["year"] = "ICRD";
+    hash["subject"] = "ISBJ";
+    hash["description"] = "ICMT"; // e.g. comment
+    hash["language"] = "ILNG";
+  }
+
+  return hash[key];
+}
+
+/**
+* Umleitung auf signal @ref postUpdate
+*/
 void MetaData::statusUpdate ( bool )
 {
   emit postUpdate();
@@ -206,14 +236,33 @@ void MetaData::save ( QSettings * cfg )
 }
 
 /**
+* Setze MediaType für die Schlüsselwörter
+*/
+void MetaData::setMediaType ( const QString &t )
+{
+  mType = t;
+}
+
+/**
+* Verwendeter Media type für die Schlüsselwörter
+*/
+const QString MetaData::mediaType()
+{
+  return mType;
+}
+
+/**
 * Einlesen der aktuellen Metadaten
 * \todo Je nach Codec den Schlüssel ändern!
 */
 const QStringList MetaData::getCmd ( const QString &codec )
 {
-  Q_UNUSED ( codec );
-
   QStringList cmd;
+
+  if ( codec.contains ( "avi", Qt::CaseInsensitive ) )
+    setMediaType ( "avi" );
+  else
+    setMediaType ( "mpeg" );
 
   foreach ( QLineEdit* edit, metadataObjects() )
   {
@@ -221,8 +270,9 @@ const QStringList MetaData::getCmd ( const QString &codec )
       continue;
 
     QString param ( edit->objectName() );
+    QString key = param.remove ( "Metadata/" );
     QByteArray data = QUrl::toPercentEncoding ( edit->text() );
-    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( param.remove ( "Metadata/" ), QString ( data ) );
+    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( translateKeyword ( key ), QString ( data ) );
   }
 
   cmd << "-metadata" << QString ( "year=%1" ).arg ( metadata_ICRD->date().year() );

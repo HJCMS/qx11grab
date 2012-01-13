@@ -40,9 +40,9 @@
 Application::Application ( int &argc, char **argv )
     : QApplication ( argc, argv, QApplication::GuiClient )
     , connected ( false )
-    , m_window ( 0 )
     , m_settings ( 0 )
     , m_dbus ( 0 )
+    , m_window ( 0 )
 {
   Q_INIT_RESOURCE ( qx11grab );
   setApplicationName ( "qx11grab" );
@@ -70,19 +70,6 @@ Application::Application ( int &argc, char **argv )
 
 #endif
 
-  connect ( this, SIGNAL ( saveStateRequest ( QSessionManager & ) ),
-            this, SLOT ( configureSession ( QSessionManager & ) ),
-            Qt::DirectConnection );
-}
-
-/**
-* Session Manager Registrieren
-*/
-void Application::configureSession ( QSessionManager &manager )
-{
-  // qDebug() << Q_FUNC_INFO << m_dbus->baseService() << m_dbus->name();
-  if ( m_dbus )
-    manager.setManagerProperty ( "baseService", m_dbus->baseService() );
 }
 
 /**
@@ -99,17 +86,6 @@ void Application::commitData ( QSessionManager &manager )
     m_dbus->unregisterObject ( QString ( "/" ), QDBusConnection::UnregisterTree );
   }
   manager.release();
-}
-
-/**
-* TODO Unvorhergesehene Ereignisse abfangen absturz etc.
-*/
-bool Application::event ( QEvent * e )
-{
-  if ( e->type() == QEvent::Close )
-    qDebug() << Q_FUNC_INFO << e->type();
-
-  return true;
 }
 
 /**
@@ -145,11 +121,6 @@ void Application::createWindow()
   new Adaptor ( m_window );
   m_dbus->registerObject ( QString ( "/" ), m_window, ( QDBusConnection::ExportAdaptors ) );
   m_window->registerMessanger ( m_dbus );
-
-  if ( m_settings->value ( "startMinimized", false ).toBool() )
-    m_window->hide();
-  else
-    m_window->show();
 }
 
 Application::~Application()

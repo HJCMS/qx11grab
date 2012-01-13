@@ -29,6 +29,10 @@
 /* QtGui */
 #include <QtGui/QIcon>
 
+/**
+* @class PresetsComboBox
+* Auswahl Box für alle (Benutzer/System) ffpresets
+*/
 PresetsComboBox::PresetsComboBox ( QWidget * parent )
     : QComboBox ( parent )
 {
@@ -42,24 +46,24 @@ PresetsComboBox::PresetsComboBox ( QWidget * parent )
             this, SLOT ( indexChanged ( int ) ) );
 }
 
+/**
+* Erstellt einen ComboBox Eintrag.
+*/
 void PresetsComboBox::insertItemData ( const QFileInfo &info )
 {
   QIcon icon;
   int index = ( count() + 1 );
   if ( info.isWritable() )
-    icon = QIcon::fromTheme ( "document-decrypt" ); // properties
+    icon = QIcon::fromTheme ( "document-properties" );
   else
     icon = QIcon::fromTheme ( "document-encrypt" );
 
   insertItem ( index, icon, info.completeBaseName(), info.absoluteFilePath() );
-  /* didnt work :-/
-  setItemData ( index, icon, Qt::DecorationRole );
-  setItemData ( index, info.completeBaseName(), Qt::DisplayRole );
-  setItemData ( index, info.absoluteFilePath(), Qt::UserRole );
-  setItemData ( index, info.completeBaseName(), Qt::ToolTipRole );
-  */
 }
 
+/**
+* Daten einlesen und an @ref insertItemData übergeben.
+*/
 void PresetsComboBox::load()
 {
   QStringList nameFilters ( "*.ffpreset" );
@@ -77,6 +81,11 @@ void PresetsComboBox::load()
   setCurrentIndex ( 0 );
 }
 
+/**
+* Ein Index wurde ausgewählt.
+* Ist dieser mit einem lesbaren Preset verbunden
+* wird das signal @ref fileChanged aufgerufen.
+*/
 void PresetsComboBox::indexChanged ( int i )
 {
   QString file = itemData ( i, Qt::UserRole ).toString();
@@ -84,6 +93,9 @@ void PresetsComboBox::indexChanged ( int i )
     emit fileChanged ( file );
 }
 
+/**
+* Leert die ComboBox und liest alles neu ein!
+*/
 void PresetsComboBox::reload()
 {
   clear();

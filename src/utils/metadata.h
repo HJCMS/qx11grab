@@ -41,8 +41,10 @@ class MetaData : public QGroupBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_PROPERTY ( QString mType READ mediaType WRITE setMediaType USER true )
 
   private:
+    QString mType;
     QLineEdit* metadata_INAM;
     QLineEdit* metadata_IART;
     QLineEdit* metadata_ICOP;
@@ -52,6 +54,7 @@ class MetaData : public QGroupBox
     QDateTimeEdit* metadata_ICRD;
 
     const QList<QLineEdit*> metadataObjects();
+    const QString translateKeyword ( const QString &key );
 
   private Q_SLOTS:
     void statusUpdate ( bool );
@@ -65,6 +68,8 @@ class MetaData : public QGroupBox
 
   public:
     MetaData ( QWidget * parent = 0 );
+    void setMediaType ( const QString &t );
+    const QString mediaType();
     const QStringList getCmd ( const QString &codec = QString() );
     ~MetaData ();
 };

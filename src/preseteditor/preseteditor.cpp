@@ -37,9 +37,6 @@
 #include <QtGui/QIcon>
 #include <QtGui/QVBoxLayout>
 
-/* QtDBus */
-// #include <QtDBus>
-
 PresetEditor::PresetEditor ( QWidget * parent )
     : QDialog ( parent )
 {
@@ -69,6 +66,9 @@ PresetEditor::PresetEditor ( QWidget * parent )
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 }
 
+/**
+* Schreibe ffpreset mit Neuen Namen nach ~/.ffmpeg/
+*/
 bool PresetEditor::setOtherFileSaveTarget ( const QString &name, const QString &content )
 {
   bool b = false;
@@ -81,10 +81,15 @@ bool PresetEditor::setOtherFileSaveTarget ( const QString &name, const QString &
   return b;
 }
 
+/**
+* Suche Daten zum speichern, bei bedarf werden
+* weitere Dialoge zum speichern aufgerufen.
+*/
 void PresetEditor::saveAndExit()
 {
   QPair<QString,QString> pair = m_presetEdit->data();
   QFileInfo info ( pair.first );
+  // Wenn beschreibbar dann speichern!
   if ( info.exists() && info.isWritable() )
   {
     QFile fp ( info.absoluteFilePath() );
@@ -97,9 +102,15 @@ void PresetEditor::saveAndExit()
     }
   }
   else if ( setOtherFileSaveTarget ( info.completeBaseName(), pair.second ) )
+  {
+    // Wenn mit neuen Namen gespeichert
     accept();
+  }
   else
+  {
+    // Alles ist fehlgeschlagen
     reject();
+  }
 }
 
 PresetEditor::~PresetEditor()
