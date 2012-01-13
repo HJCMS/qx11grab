@@ -404,6 +404,36 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation type="unfinished">Hodnota</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Vyprázdnit</translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FFProcess</name>

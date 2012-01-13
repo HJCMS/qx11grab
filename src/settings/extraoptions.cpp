@@ -21,9 +21,6 @@
 
 #include "extraoptions.h"
 
-/* QX11Grab */
-// #include ""
-
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QHash>
@@ -31,6 +28,7 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QAction>
 #include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
 #include <QtGui/QTableWidgetItem>
@@ -50,6 +48,7 @@ ExtraOptions::ExtraOptions ( QWidget * parent )
   setAlternatingRowColors ( true );
   setSelectionMode ( QAbstractItemView::ExtendedSelection );
   setSelectionBehavior ( QAbstractItemView::SelectRows );
+  setContextMenuPolicy ( Qt::DefaultContextMenu );
   setGridStyle ( Qt::DashLine );
   setWordWrap ( false );
   setCornerButtonEnabled ( true );
@@ -68,6 +67,60 @@ ExtraOptions::ExtraOptions ( QWidget * parent )
   tHeader->setDefaultSectionSize ( 150 );
   tHeader->setStretchLastSection ( true );
   tHeader->setMovable ( false );
+
+  // Kontext Menü
+  m_menu = new QMenu ( this );
+  /*: MenuEntry */
+  QAction* m_actionInsert = m_menu->addAction ( Settings::themeIcon ( "insert-table" ), trUtf8 ( "Add" ) );
+  /*: ToolTip */
+  m_actionInsert->setToolTip ( trUtf8 ( "This button insert a new empty table row" ) );
+  /*: MenuEntry */
+  QAction* m_actionRemove = m_menu->addAction ( Settings::themeIcon ( "edit-table-delete-row" ), trUtf8 ( "Remove" ) );
+  /*: ToolTip */
+  m_actionRemove->setToolTip ( trUtf8 ( "This button remove selected table rows" ) );
+  /*: MenuEntry */
+  QAction* m_actionClear = m_menu->addAction ( Settings::themeIcon ( "edit-clear" ), trUtf8 ( "Clear" ) );
+  /*: ToolTip */
+  m_actionClear->setToolTip ( trUtf8 ( "This button clear table contents" ) );
+
+  connect ( m_actionInsert, SIGNAL ( triggered () ), this, SLOT ( addTableRow() ) );
+  connect ( m_actionRemove, SIGNAL ( triggered () ), this, SLOT ( delTableRow() ) );
+  connect ( m_actionClear, SIGNAL ( triggered () ), this, SLOT ( clearContents() ) );
+}
+
+/**
+* Eine neue Zeile in die Tabelle einfügen.
+*/
+void ExtraOptions::addTableRow()
+{
+  setRowCount ( ( rowCount() + 1 ) );
+}
+
+/**
+* Ausgewählte Zeile aus Tabelle entfernen.
+*/
+void ExtraOptions::delTableRow()
+{
+  QList<int> rows;
+  // erst nach gültigen zeilen suchen
+  foreach ( QTableWidgetItem* item, selectedItems () )
+  {
+    if ( ! rows.contains ( item->row() ) )
+      rows.append ( item->row() );
+  }
+  // jetzt Zeilen löschen
+  foreach ( int r, rows )
+  {
+    removeRow ( r );
+  }
+}
+
+/**
+* Kontext Menü öffnen
+*/
+void ExtraOptions::contextMenuEvent ( QContextMenuEvent *e )
+{
+  m_menu->exec ( e->globalPos() );
 }
 
 void ExtraOptions::load ( Settings * cfg )
@@ -77,12 +130,11 @@ void ExtraOptions::load ( Settings * cfg )
   {
     int row = 0;
     clearContents();
-    setRowCount ( 1 );
+    setRowCount ( ( data.size() + 1 ) );
     QHashIterator<QString,QVariant> it ( data );
     while ( it.hasNext() )
     {
       it.next();
-      // setRowCount ( row );
       setItem ( row, 0, new QTableWidgetItem ( it.key(), QTableWidgetItem::UserType ) );
       setItem ( row, 1, new QTableWidgetItem ( it.value().toString(), QTableWidgetItem::UserType ) );
       row++;
@@ -95,12 +147,15 @@ void ExtraOptions::save ( Settings * cfg )
   QHash<QString,QVariant> data;
   for ( int r = 0; r < rowCount(); ++r )
   {
-    QString key = item ( r, 0 )->data ( Qt::EditRole ).toString();
-    QVariant value = item ( r, 1 )->data ( Qt::EditRole );
-    if ( key.isEmpty() )
-      continue;
+    if ( item ( r, 0 ) )
+    {
+      QString key = item ( r, 0 )->data ( Qt::EditRole ).toString();
+      QVariant value = item ( r, 1 )->data ( Qt::EditRole );
+      if ( key.isEmpty() )
+        continue;
 
-    data.insert ( key, value );
+      data.insert ( key, value );
+    }
   }
   cfg->saveGroup ( "ExpertOptions", data );
 }

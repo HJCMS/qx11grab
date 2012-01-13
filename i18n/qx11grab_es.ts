@@ -470,23 +470,59 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ExtraOptions</name>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="42"/>
+        <location filename="../src/settings/extraoptions.cpp" line="40"/>
         <source>Expert Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="43"/>
+        <location filename="../src/settings/extraoptions.cpp" line="41"/>
         <source>Here you can configure extra commands.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="60"/>
+        <location filename="../src/settings/extraoptions.cpp" line="59"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="60"/>
+        <location filename="../src/settings/extraoptions.cpp" line="59"/>
         <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="74"/>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="76"/>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="78"/>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="80"/>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="82"/>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="84"/>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -581,13 +617,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FileSaveDialog</name>
     <message>
-        <location filename="../src/preseteditor/filesavedialog.cpp" line="48"/>
+        <location filename="../src/preseteditor/filesavedialog.cpp" line="47"/>
         <source>Save ffpreset File</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/preseteditor/filesavedialog.cpp" line="50"/>
+        <location filename="../src/preseteditor/filesavedialog.cpp" line="49"/>
         <source>FFmpeg preset file (*.ffpreset)</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -897,47 +933,47 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="416"/>
+        <location filename="../src/mainwindow.cpp" line="419"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="475"/>
+        <location filename="../src/mainwindow.cpp" line="478"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="489"/>
+        <location filename="../src/mainwindow.cpp" line="492"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="489"/>
+        <location filename="../src/mainwindow.cpp" line="492"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="628"/>
+        <location filename="../src/mainwindow.cpp" line="636"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="656"/>
+        <location filename="../src/mainwindow.cpp" line="664"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="656"/>
+        <location filename="../src/mainwindow.cpp" line="664"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="676"/>
+        <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="687"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1207,7 +1243,7 @@ ToolTip</extracomment>
 <context>
     <name>Messanger</name>
     <message>
-        <location filename="../src/messanger/messanger.cpp" line="174"/>
+        <location filename="../src/messanger/messanger.cpp" line="136"/>
         <source>Notification not send!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1215,102 +1251,102 @@ ToolTip</extracomment>
 <context>
     <name>MetaData</name>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="42"/>
+        <location filename="../src/utils/metadata.cpp" line="43"/>
         <source>Insert Metadata</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="44"/>
+        <location filename="../src/utils/metadata.cpp" line="45"/>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="57"/>
+        <location filename="../src/utils/metadata.cpp" line="58"/>
         <source>Note many formats only support a handful of metadata keys.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="61"/>
+        <location filename="../src/utils/metadata.cpp" line="62"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="74"/>
+        <location filename="../src/utils/metadata.cpp" line="70"/>
         <source>Name or Movie Name</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="78"/>
+        <location filename="../src/utils/metadata.cpp" line="74"/>
         <source>Artist:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="86"/>
+        <location filename="../src/utils/metadata.cpp" line="82"/>
         <source>Author, Director or Artist</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="90"/>
+        <location filename="../src/utils/metadata.cpp" line="86"/>
         <source>Copyright:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="98"/>
+        <location filename="../src/utils/metadata.cpp" line="94"/>
         <source>Copyright</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="102"/>
+        <location filename="../src/utils/metadata.cpp" line="98"/>
         <source>Creation Date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="110"/>
+        <location filename="../src/utils/metadata.cpp" line="106"/>
         <source>Creation Date</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="116"/>
+        <location filename="../src/utils/metadata.cpp" line="112"/>
         <source>Subject:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="124"/>
+        <location filename="../src/utils/metadata.cpp" line="120"/>
         <source>Subject</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="128"/>
+        <location filename="../src/utils/metadata.cpp" line="124"/>
         <source>Comments:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="136"/>
+        <location filename="../src/utils/metadata.cpp" line="132"/>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="141"/>
+        <location filename="../src/utils/metadata.cpp" line="137"/>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="150"/>
+        <location filename="../src/utils/metadata.cpp" line="146"/>
         <source>recognition of speech must set with three letter ISO 639-2 format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="152"/>
+        <location filename="../src/utils/metadata.cpp" line="148"/>
         <source>Language in ISO 639-2 format in three letters.
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
@@ -1407,8 +1443,8 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PresetsComboBox</name>
     <message>
-        <location filename="../src/preseteditor/presetscombobox.cpp" line="38"/>
-        <location filename="../src/preseteditor/presetscombobox.cpp" line="90"/>
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="42"/>
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="102"/>
         <source>Select Preset</source>
         <translation type="unfinished"></translation>
     </message>

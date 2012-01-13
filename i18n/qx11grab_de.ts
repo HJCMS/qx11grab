@@ -407,6 +407,36 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf fügt eine Neue Zeile in die Tabelle ein.</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf entfernt alle Ausgewählten Zeilen aus der Tabelle.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Leeren</translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf leert den Tabellen Inhalt.</translation>
+    </message>
 </context>
 <context>
     <name>FFProcess</name>
