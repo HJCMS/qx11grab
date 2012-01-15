@@ -347,6 +347,10 @@ const QString MainWindow::generateOutputFile()
     outFile = QString ( "%1.webm" ).arg ( dest );
   else if ( codec.contains ( "libx264", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.mp4" ).arg ( dest );
+  else if ( codec.contains ( "mpeg4", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.avi" ).arg ( dest );
+  else if ( codec.contains ( "h26", Qt::CaseInsensitive ) )
+    outFile = QString ( "%1.avi" ).arg ( dest );
   else if ( codec.contains ( "mpeg", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.mpg" ).arg ( dest );
   else
