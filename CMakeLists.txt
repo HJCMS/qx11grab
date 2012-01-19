@@ -51,30 +51,29 @@ INCLUDE (CheckCXXCompilerFlag)
 INCLUDE (MacroEnsureVersion)
 
 ##############################################################
-## gcc g++ ld
+## Compile Optimisation
 ##############################################################
+INCLUDE (CheckingGNUCXX)
 
-IF (CMAKE_COMPILER_IS_GNUCXX)
+SET (QX11GRAB_LDFLAGS "" CACHE STRING "additional project linker flags")
 
-  INCLUDE (CheckingGNUCXX)
+IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  SET (QX11GRAB_LDFLAGS "-Wl,--build-id")
+ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
-  SET (QX11GRAB_LDFLAGS "" CACHE STRING "additional project linker flags")
+IF (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+  SET (QX11GRAB_LDFLAGS "-Wl,--build-id")
+ENDIF (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 
-  IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    SET (QX11GRAB_LDFLAGS "${QX11GRAB_LDFLAGS} -Wl,--build-id")
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQX11GRAB_DEBUG")
-  ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+OPTION (BUILD_WERROR "Build with -Werror" OFF)
+IF(BUILD_WERROR)
+  SET (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Werror")
+ENDIF (BUILD_WERROR)
 
-  OPTION (BUILD_WERROR "Build with -Werror" OFF)
-  IF(BUILD_WERROR)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-  ENDIF(BUILD_WERROR)
-
-  IF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable")
-  ENDIF (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-
-ENDIF (CMAKE_COMPILER_IS_GNUCXX)
+SET (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DQX11GRAB_DEBUG")
+SET (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wno-deprecated-declarations -Wno-unused-result -Wno-unused-parameter -Wno-unused-but-set-variable")
+SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${CMAKE_CXX_FLAGS_RELEASE}")
+SET (CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} ${CMAKE_CXX_FLAGS_RELEASE}")
 
 REMOVE_DEFINITIONS (
   -DQT3_SUPPORT_WARNINGS
@@ -130,6 +129,10 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
   libavutil${FFMPEG_SUFFIX}>=${FFMPEG_AVUTIL_VERSION}
 )
 
+IF (FFMPEG_FOUND)
+  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+ENDIF (FFMPEG_FOUND)
+
 SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
 
 FIND_PATH (_ffmpeg_sharedir
@@ -150,11 +153,6 @@ IF (_ffmpeg_sharedir)
   SET (FFMPEG_SHAREDIR "${_ffmpeg_sharedir}/ffmpeg" CACHE PATH
     "FFmpeg data directory for ffpreset files (PATH)")
 ENDIF (_ffmpeg_sharedir)
-
-## required by FFmpeg
-IF (FFMPEG_FOUND)
-  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
-ENDIF (FFMPEG_FOUND)
 
 ##############################################################
 ## PulseAudio 

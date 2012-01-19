@@ -1,5 +1,6 @@
 [General]
 Version=@QX11GRAB_VERSION@
+Autostart=true
 showRubberband=false
 startMinimized=false
 Metadata=false
