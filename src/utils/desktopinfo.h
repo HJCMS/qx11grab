@@ -39,7 +39,7 @@
 * \class DesktopInfo
 * Create Desktop Information from Current Screen
 */
-class DesktopInfo : public QObject, public QX11Info
+class DesktopInfo : public QObject, private QX11Info
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )

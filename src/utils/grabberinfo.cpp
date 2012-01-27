@@ -170,6 +170,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   horizontalLayout->addWidget ( txt7, Qt::AlignRight );
 
   m_screenBox = new QSpinBox ( this );
+  m_screenBox->setRange ( 0, 8 );
   /*: WhatsThis */
   m_screenBox->setToolTip ( trUtf8 ( "current selected screen" ) );
   horizontalLayout->addWidget ( m_screenBox, Qt::AlignLeft );
@@ -428,7 +429,7 @@ const QString GrabberInfo::getX11GrabIdent()
 {
   QRect r = getRect();
   return QString ( ":%1.%2+%3,%4 " ) .arg (
-             QString::number ( m_desktopInfo->appScreen() ),
+             QString::number ( QX11Info::appScreen() ),
              QString::number ( m_screenBox->value() ),
              QString::number ( r.x() ),
              QString::number ( r.y() )
