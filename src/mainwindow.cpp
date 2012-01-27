@@ -569,19 +569,10 @@ void MainWindow::preparePreview ( bool b )
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
 
-  // Dimension
-  QX11Info xInfo;
-  QRect r = m_grabberInfo->getRect();
-  QString geometry = QString ( "%1x%2" ).arg ( QString::number ( r.width() ), QString::number ( r.height() ) );
   /* WARNING ordered SIZE before POINT is implicit required
   * or else FFmpeg didnt correct scale the stream */
-  commandLine << "-video_size" << geometry;
-  commandLine << "-i" << QString ( ":%1.%2+%3,%4 " ) .arg (
-      QString::number ( xInfo.screen() ),
-      QString::number ( xInfo.appScreen() ),
-      QString::number ( r.x() ),
-      QString::number ( r.y() )
-  );
+  commandLine << "-video_size" <<  m_grabberInfo->getGeometry();
+  commandLine << "-i" << m_grabberInfo->getX11GrabIdent();
 
   // Decoder
   commandLine << "-dcodec" << "copy";

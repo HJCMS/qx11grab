@@ -59,6 +59,7 @@ class GrabberInfo : public QWidget
     QSlider* setXSlider;
     QSpinBox* setYBox;
     QSlider* setYSlider;
+    QSpinBox* m_screenBox;
     QSpinBox* setDepth;
     QSpinBox* setFrameRate;
 
@@ -82,9 +83,11 @@ class GrabberInfo : public QWidget
     void setScreenHeight ( int h );
     void setScreenX ( int x );
     void setScreenY ( int y );
-    void setRect ( const QRect &rect );
+    void setRect ( const QRect &rect, int screen = 0 );
     const QRect getRect();
     int frameRate();
+    const QString getGeometry();
+    const QString getX11GrabIdent();
     ~GrabberInfo();
 };
 

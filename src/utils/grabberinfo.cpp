@@ -163,11 +163,23 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   // end: Y Position
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout;
-  // begin: Desktop Color Depth
+  // begin: Desktop Screen
   QLabel* txt7 = new QLabel ( this );
-  txt7->setText ( trUtf8 ( "Color depth:" ) );
+  txt7->setText ( trUtf8 ( "Screen:" ) );
   txt7->setAlignment ( labelAlignment );
   horizontalLayout->addWidget ( txt7, Qt::AlignRight );
+
+  m_screenBox = new QSpinBox ( this );
+  /*: WhatsThis */
+  m_screenBox->setToolTip ( trUtf8 ( "current selected screen" ) );
+  horizontalLayout->addWidget ( m_screenBox, Qt::AlignLeft );
+  // end: Desktop Screen
+
+  // begin: Desktop Color Depth
+  QLabel* txt8 = new QLabel ( this );
+  txt8->setText ( trUtf8 ( "Color depth:" ) );
+  txt8->setAlignment ( labelAlignment );
+  horizontalLayout->addWidget ( txt8, Qt::AlignRight );
 
   setDepth = new QSpinBox ( this );
   setDepth->setDisabled ( true );
@@ -177,10 +189,10 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   // end: Desktop Color Depth
 
   // begin: Frame Rate
-  QLabel* txt8 = new QLabel ( this );
-  txt8->setText ( trUtf8 ( "Framerate:" ) );
-  txt8->setAlignment ( labelAlignment );
-  horizontalLayout->addWidget ( txt8, Qt::AlignRight );
+  QLabel* txt9 = new QLabel ( this );
+  txt9->setText ( trUtf8 ( "Framerate:" ) );
+  txt9->setAlignment ( labelAlignment );
+  horizontalLayout->addWidget ( txt9, Qt::AlignRight );
 
   setFrameRate = new QSpinBox ( this );
   /*: WhatsThis */
@@ -254,6 +266,9 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
 
+  connect ( m_screenBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
             this, SLOT ( setInputDefaults ( int ) ) );
 }
@@ -272,6 +287,7 @@ void GrabberInfo::integerUpdate ( int )
 */
 void GrabberInfo::setInputDefaults ( int screen )
 {
+  m_screenBox->setValue ( screen );
   screenGeometry = m_desktopInfo->screenGeometry ( screen );
   // Weidth
   setWidthBox->setMaximum ( ( screenGeometry.width() + 2 ) );
@@ -367,8 +383,9 @@ void GrabberInfo::setScreenY ( int y )
   setYBox->setValue ( y );
 }
 
-void GrabberInfo::setRect ( const QRect &rect )
+void GrabberInfo::setRect ( const QRect &rect, int screen )
 {
+  m_screenBox->setValue ( screen );
   setXBox->setValue ( rect.x() );
   setYBox->setValue ( rect.y() );
   setWidthBox->setValue ( rect.width() );
@@ -393,6 +410,29 @@ int GrabberInfo::frameRate()
 {
   int rate = setFrameRate->value();
   return ( rate > 0 ) ? rate : 25;
+}
+
+/**
+* Gibt die Aktuelle Geometrie zurück.
+*/
+const QString GrabberInfo::getGeometry()
+{
+  QRect r = getRect();
+  return QString ( "%1x%2" ).arg ( QString::number ( r.width() ), QString::number ( r.height() ) );
+}
+
+/**
+* Gibt die Aktuelle Geometrie zurück.
+*/
+const QString GrabberInfo::getX11GrabIdent()
+{
+  QRect r = getRect();
+  return QString ( ":%1.%2+%3,%4 " ) .arg (
+             QString::number ( m_desktopInfo->appScreen() ),
+             QString::number ( m_screenBox->value() ),
+             QString::number ( r.x() ),
+             QString::number ( r.y() )
+         );
 }
 
 GrabberInfo::~GrabberInfo()
