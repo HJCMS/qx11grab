@@ -1,0 +1,21 @@
+Source: qx11grab
+Section: kde
+Priority: optional
+Maintainer: Juergen Heinemann <noreply@hjcms.de>
+XSBC-Original-Maintainer: Juergen Heinemann <noreply@hjcms.de>
+Build-Depends:
+ cmake,
+ debhelper (>= 7.3.16),
+ libx11-dev,
+Standards-Version: 3.9.2
+Homepage: http://qx11grab.hjcms.de/
+
+Package: qx11grab
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, ffmpeg
+Description: systray program that uses FFmpeg for recording X11 desktop windows
+ This program grabs window dimensions with xevent and prepares a command line
+ for ffmpeg with configuration options. It sends the generated parameter list
+ to a new FFmpeg process.
+ .
+ qx11grab doesn't record itself, it just prepare commands for FFmpeg.

@@ -1,0 +1,13 @@
+kx11grab (0.1.12-0ubuntu3) oneiric; urgency=low
+
+  [ Kyle Williams ]
+  * Add missing build dependency on libx11-dev. LP: #831105
+
+  [ Stefano Rivera ]
+  * Bumped Standards-Version to 3.9.2, no changes needed.
+  * wrap-and-sort debian/control.
+  * Rephrase package description to please lintian.
+  * Tweak wording in debian/copyright.
+  * Depend on ffmpeg.
+
+ -- Kyle Williams <kwilliams@cs.uct.ac.za>  Sun, 04 Sep 2011 00:57:56 +0200
