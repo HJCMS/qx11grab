@@ -13,7 +13,7 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 ##############################################################
 ## Requiered "QtCore QtGui QtXml QtNetwork"
 ##############################################################
-SET (QT_MIN_VERSION 4.7.1)
+SET (QT_MIN_VERSION 4.7.2)
 FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML QTNETWORK)
 FIND_PACKAGE (PkgConfig REQUIRED)
@@ -145,6 +145,8 @@ PKG_CHECK_MODULES (FFMPEG REQUIRED
 
 IF (FFMPEG_FOUND)
   ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
+ELSE (FFMPEG_FOUND)
+  MESSAGE (FATAL_ERROR "Required FFmpeg libraries not found")
 ENDIF (FFMPEG_FOUND)
 
 SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})

@@ -5,8 +5,14 @@ Maintainer: Juergen Heinemann <noreply@hjcms.de>
 XSBC-Original-Maintainer: Juergen Heinemann <noreply@hjcms.de>
 Build-Depends:
  cmake,
+ libqt4-dev (>= 7.4.2),
  debhelper (>= 7.3.16),
  libx11-dev,
+ libasound2-dev,
+ libpulse-dev,
+ libavformat-dev,
+ libavcodec-dev,
+ libavutil-dev
 Standards-Version: 3.9.2
 Homepage: http://qx11grab.hjcms.de/
 

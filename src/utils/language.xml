@@ -2,10 +2,10 @@
 <!DOCTYPE language [
   <!ELEMENT language (item)+>
   <!ATTLIST language lang (en) #IMPLIED>
-  <!ELEMENT item (iso_639_1,iso_639_2,name)>
+  <!ELEMENT item (iso639_1,iso639_2,name)>
   <!ATTLIST item lang CDATA #REQUIRED>
-  <!ELEMENT iso_639_1 (#PCDATA)>
-  <!ELEMENT iso_639_2 (#PCDATA)>
+  <!ELEMENT iso639_1 (#PCDATA)>
+  <!ELEMENT iso639_2 (#PCDATA)>
   <!ELEMENT name (#PCDATA)>
 ]>
 <!--
@@ -18,1278 +18,1279 @@
 -->
 <language>
   <item lang="aa">
-    <iso_639_1>aa</iso_639_1>
-    <iso_639_2>aar</iso_639_2>
+    <iso639_1>aa</iso639_1>
+    <iso639_2>aar</iso639_2>
     <name>Afar</name>
   </item>
   <item lang="ab">
-    <iso_639_1>ab</iso_639_1>
-    <iso_639_2>abk</iso_639_2>
+    <iso639_1>ab</iso639_1>
+    <iso639_2>abk</iso639_2>
     <name>Abkhazian</name>
   </item>
   <item lang="ac">
-    <iso_639_1>ac</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ac</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ascension Island</name>
   </item>
   <item lang="ad">
-    <iso_639_1>ad</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ad</iso639_1>
+    <iso639_2></iso639_2>
     <name>Andorra</name>
   </item>
   <item lang="ae">
-    <iso_639_1>ae</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ae</iso639_1>
+    <iso639_2></iso639_2>
     <name>United Arab Emirates</name>
   </item>
   <item lang="af">
-    <iso_639_1>af</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>af</iso639_1>
+    <iso639_2></iso639_2>
     <name>Afghanistan</name>
   </item>
   <item lang="ag">
-    <iso_639_1>ag</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ag</iso639_1>
+    <iso639_2></iso639_2>
     <name>Antigua and Barbuda</name>
   </item>
   <item lang="ai">
-    <iso_639_1>ai</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ai</iso639_1>
+    <iso639_2></iso639_2>
     <name>Anguilla</name>
   </item>
   <item lang="al">
-    <iso_639_1>al</iso_639_1>
-    <iso_639_2>alb</iso_639_2>
+    <iso639_1>al</iso639_1>
+    <iso639_2>alb</iso639_2>
     <name>Albania</name>
   </item>
   <item lang="am">
-    <iso_639_1>am</iso_639_1>
-    <iso_639_2>arm</iso_639_2>
+    <iso639_1>am</iso639_1>
+    <iso639_2>arm</iso639_2>
     <name>Armenia</name>
   </item>
   <item lang="an">
-    <iso_639_1>an</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>an</iso639_1>
+    <iso639_2></iso639_2>
     <name>Netherlands Antilles</name>
   </item>
   <item lang="ao">
-    <iso_639_1>ao</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ao</iso639_1>
+    <iso639_2></iso639_2>
     <name>Angola</name>
   </item>
   <item lang="aq">
-    <iso_639_1>aq</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>aq</iso639_1>
+    <iso639_2></iso639_2>
     <name>Antarctica</name>
   </item>
   <item lang="ar">
-    <iso_639_1>ar</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ar</iso639_1>
+    <iso639_2></iso639_2>
     <name>Argentina</name>
   </item>
   <item lang="as">
-    <iso_639_1>as</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>as</iso639_1>
+    <iso639_2></iso639_2>
     <name>American Samoa</name>
   </item>
   <item lang="at">
-    <iso_639_1>at</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>at</iso639_1>
+    <iso639_2></iso639_2>
     <name>Austria</name>
   </item>
   <item lang="au">
-    <iso_639_1>au</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>au</iso639_1>
+    <iso639_2></iso639_2>
     <name>Australia</name>
   </item>
   <item lang="aw">
-    <iso_639_1>aw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>aw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Aruba</name>
   </item>
   <item lang="ax">
-    <iso_639_1>ax</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ax</iso639_1>
+    <iso639_2></iso639_2>
     <name>Aland Islands</name>
   </item>
   <item lang="az">
-    <iso_639_1>az</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>az</iso639_1>
+    <iso639_2></iso639_2>
     <name>Azerbaijan</name>
   </item>
   <item lang="ba">
-    <iso_639_1>ba</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ba</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bosnia and Herzegovina</name>
   </item>
   <item lang="bb">
-    <iso_639_1>bb</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bb</iso639_1>
+    <iso639_2></iso639_2>
     <name>Barbados</name>
   </item>
   <item lang="bd">
-    <iso_639_1>bd</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bd</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bangladesh</name>
   </item>
   <item lang="be">
-    <iso_639_1>be</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>be</iso639_1>
+    <iso639_2></iso639_2>
     <name>Belgium</name>
   </item>
   <item lang="bf">
-    <iso_639_1>bf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bf</iso639_1>
+    <iso639_2></iso639_2>
     <name>Burkina Faso</name>
   </item>
   <item lang="bg">
-    <iso_639_1>bg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bulgaria</name>
   </item>
   <item lang="bh">
-    <iso_639_1>bh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bahrain</name>
   </item>
   <item lang="bi">
-    <iso_639_1>bi</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bi</iso639_1>
+    <iso639_2></iso639_2>
     <name>Burundi</name>
   </item>
   <item lang="bj">
-    <iso_639_1>bj</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bj</iso639_1>
+    <iso639_2></iso639_2>
     <name>Benin</name>
   </item>
   <item lang="bl">
-    <iso_639_1>bl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Barthelemy</name>
   </item>
   <item lang="bm">
-    <iso_639_1>bm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bermuda</name>
   </item>
   <item lang="bn">
-    <iso_639_1>bn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Brunei Darussalam</name>
   </item>
   <item lang="bo">
-    <iso_639_1>bo</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bo</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bolivia</name>
   </item>
   <item lang="br">
-    <iso_639_1>br</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>br</iso639_1>
+    <iso639_2></iso639_2>
     <name>Brazil</name>
   </item>
   <item lang="bs">
-    <iso_639_1>bs</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bs</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bahamas</name>
   </item>
   <item lang="bt">
-    <iso_639_1>bt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bhutan</name>
   </item>
   <item lang="bv">
-    <iso_639_1>bv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bv</iso639_1>
+    <iso639_2></iso639_2>
     <name>Bouvet Island</name>
   </item>
   <item lang="bw">
-    <iso_639_1>bw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Botswana</name>
   </item>
   <item lang="by">
-    <iso_639_1>by</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>by</iso639_1>
+    <iso639_2></iso639_2>
     <name>Belarus</name>
   </item>
   <item lang="bz">
-    <iso_639_1>bz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>bz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Belize</name>
   </item>
   <item lang="ca">
-    <iso_639_1>ca</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ca</iso639_1>
+    <iso639_2></iso639_2>
     <name>Canada</name>
   </item>
   <item lang="cc">
-    <iso_639_1>cc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cocos (Keeling) Islands</name>
   </item>
   <item lang="cd">
-    <iso_639_1>cd</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cd</iso639_1>
+    <iso639_2></iso639_2>
     <name>Congo, The Democratic Republic of the</name>
   </item>
   <item lang="cf">
-    <iso_639_1>cf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cf</iso639_1>
+    <iso639_2></iso639_2>
     <name>Central African Republic</name>
   </item>
   <item lang="cg">
-    <iso_639_1>cg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Congo, Republic of</name>
   </item>
   <item lang="ch">
-    <iso_639_1>ch</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ch</iso639_1>
+    <iso639_2></iso639_2>
     <name>Switzerland</name>
   </item>
   <item lang="ci">
-    <iso_639_1>ci</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ci</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cote d'Ivoire</name>
   </item>
   <item lang="ck">
-    <iso_639_1>ck</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ck</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cook Islands</name>
   </item>
   <item lang="cl">
-    <iso_639_1>cl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Chile</name>
   </item>
   <item lang="cm">
-    <iso_639_1>cm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cameroon</name>
   </item>
   <item lang="cn">
-    <iso_639_1>cn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cn</iso639_1>
+    <iso639_2></iso639_2>
     <name>China</name>
   </item>
   <item lang="co">
-    <iso_639_1>co</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>co</iso639_1>
+    <iso639_2></iso639_2>
     <name>Colombia</name>
   </item>
   <item lang="cr">
-    <iso_639_1>cr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Costa Rica</name>
   </item>
   <item lang="cu">
-    <iso_639_1>cu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cuba</name>
   </item>
   <item lang="cv">
-    <iso_639_1>cv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cv</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cape Verde</name>
   </item>
   <item lang="cx">
-    <iso_639_1>cx</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cx</iso639_1>
+    <iso639_2></iso639_2>
     <name>Christmas Island</name>
   </item>
   <item lang="cy">
-    <iso_639_1>cy</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cy</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cyprus</name>
   </item>
   <item lang="cz">
-    <iso_639_1>cz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>cz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Czech Republic</name>
   </item>
   <item lang="de">
-    <iso_639_1>de</iso_639_1>
-    <iso_639_2>ger</iso_639_2>
+    <iso639_1>de</iso639_1>
+    <iso639_2>ger</iso639_2>
     <name>Germany</name>
+    <name lang="de">Deutschland</name>
   </item>
   <item lang="dj">
-    <iso_639_1>dj</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>dj</iso639_1>
+    <iso639_2></iso639_2>
     <name>Djibouti</name>
   </item>
   <item lang="dk">
-    <iso_639_1>dk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>dk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Denmark</name>
   </item>
   <item lang="dm">
-    <iso_639_1>dm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>dm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Dominica</name>
   </item>
   <item lang="do">
-    <iso_639_1>do</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>do</iso639_1>
+    <iso639_2></iso639_2>
     <name>Dominican Republic</name>
   </item>
   <item lang="dz">
-    <iso_639_1>dz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>dz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Algeria</name>
   </item>
   <item lang="ec">
-    <iso_639_1>ec</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ec</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ecuador</name>
   </item>
   <item lang="ee">
-    <iso_639_1>ee</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ee</iso639_1>
+    <iso639_2></iso639_2>
     <name>Estonia</name>
   </item>
   <item lang="eg">
-    <iso_639_1>eg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>eg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Egypt</name>
   </item>
   <item lang="eh">
-    <iso_639_1>eh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>eh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Western Sahara</name>
   </item>
   <item lang="er">
-    <iso_639_1>er</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>er</iso639_1>
+    <iso639_2></iso639_2>
     <name>Eritrea</name>
   </item>
   <item lang="es">
-    <iso_639_1>es</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>es</iso639_1>
+    <iso639_2></iso639_2>
     <name>Spain</name>
   </item>
   <item lang="et">
-    <iso_639_1>et</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>et</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ethiopia</name>
   </item>
   <item lang="eu">
-    <iso_639_1>eu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>eu</iso639_1>
+    <iso639_2></iso639_2>
     <name>European Union</name>
   </item>
   <item lang="fi">
-    <iso_639_1>fi</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fi</iso639_1>
+    <iso639_2></iso639_2>
     <name>Finland</name>
   </item>
   <item lang="fj">
-    <iso_639_1>fj</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fj</iso639_1>
+    <iso639_2></iso639_2>
     <name>Fiji</name>
   </item>
   <item lang="fk">
-    <iso_639_1>fk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Falkland Islands (Malvinas)</name>
   </item>
   <item lang="fm">
-    <iso_639_1>fm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Micronesia, Federated States of</name>
   </item>
   <item lang="fo">
-    <iso_639_1>fo</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fo</iso639_1>
+    <iso639_2></iso639_2>
     <name>Faroe Islands</name>
   </item>
   <item lang="fr">
-    <iso_639_1>fr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>fr</iso639_1>
+    <iso639_2></iso639_2>
     <name>France</name>
   </item>
   <item lang="ga">
-    <iso_639_1>ga</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ga</iso639_1>
+    <iso639_2></iso639_2>
     <name>Gabon</name>
   </item>
   <item lang="gb">
-    <iso_639_1>gb</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gb</iso639_1>
+    <iso639_2></iso639_2>
     <name>United Kingdom</name>
   </item>
   <item lang="gd">
-    <iso_639_1>gd</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gd</iso639_1>
+    <iso639_2></iso639_2>
     <name>Grenada</name>
   </item>
   <item lang="ge">
-    <iso_639_1>ge</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ge</iso639_1>
+    <iso639_2></iso639_2>
     <name>Georgia</name>
   </item>
   <item lang="gf">
-    <iso_639_1>gf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gf</iso639_1>
+    <iso639_2></iso639_2>
     <name>French Guiana</name>
   </item>
   <item lang="gg">
-    <iso_639_1>gg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guernsey</name>
   </item>
   <item lang="gh">
-    <iso_639_1>gh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ghana</name>
   </item>
   <item lang="gi">
-    <iso_639_1>gi</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gi</iso639_1>
+    <iso639_2></iso639_2>
     <name>Gibraltar</name>
   </item>
   <item lang="gl">
-    <iso_639_1>gl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Greenland</name>
   </item>
   <item lang="gm">
-    <iso_639_1>gm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Gambia</name>
   </item>
   <item lang="gn">
-    <iso_639_1>gn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guinea</name>
   </item>
   <item lang="gp">
-    <iso_639_1>gp</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gp</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guadeloupe</name>
   </item>
   <item lang="gq">
-    <iso_639_1>gq</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gq</iso639_1>
+    <iso639_2></iso639_2>
     <name>Equatorial Guinea</name>
   </item>
   <item lang="gr">
-    <iso_639_1>gr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Greece</name>
   </item>
   <item lang="gs">
-    <iso_639_1>gs</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gs</iso639_1>
+    <iso639_2></iso639_2>
     <name>South Georgia and the South Sandwich Islands</name>
   </item>
   <item lang="gt">
-    <iso_639_1>gt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guatemala</name>
   </item>
   <item lang="gu">
-    <iso_639_1>gu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guam</name>
   </item>
   <item lang="gw">
-    <iso_639_1>gw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guinea-Bissau</name>
   </item>
   <item lang="gy">
-    <iso_639_1>gy</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>gy</iso639_1>
+    <iso639_2></iso639_2>
     <name>Guyana</name>
   </item>
   <item lang="hk">
-    <iso_639_1>hk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>hk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Hong Kong</name>
   </item>
   <item lang="hm">
-    <iso_639_1>hm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>hm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Heard and McDonald Islands</name>
   </item>
   <item lang="hn">
-    <iso_639_1>hn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>hn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Honduras</name>
   </item>
   <item lang="hr">
-    <iso_639_1>hr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>hr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Croatia/Hrvatska</name>
   </item>
   <item lang="ht">
-    <iso_639_1>ht</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ht</iso639_1>
+    <iso639_2></iso639_2>
     <name>Haiti</name>
   </item>
   <item lang="hu">
-    <iso_639_1>hu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>hu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Hungary</name>
   </item>
   <item lang="id">
-    <iso_639_1>id</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>id</iso639_1>
+    <iso639_2></iso639_2>
     <name>Indonesia</name>
   </item>
   <item lang="ie">
-    <iso_639_1>ie</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ie</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ireland</name>
   </item>
   <item lang="il">
-    <iso_639_1>il</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>il</iso639_1>
+    <iso639_2></iso639_2>
     <name>Israel</name>
   </item>
   <item lang="im">
-    <iso_639_1>im</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>im</iso639_1>
+    <iso639_2></iso639_2>
     <name>Isle of Man</name>
   </item>
   <item lang="in">
-    <iso_639_1>in</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>in</iso639_1>
+    <iso639_2></iso639_2>
     <name>India</name>
   </item>
   <item lang="io">
-    <iso_639_1>io</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>io</iso639_1>
+    <iso639_2></iso639_2>
     <name>British Indian Ocean Territory</name>
   </item>
   <item lang="iq">
-    <iso_639_1>iq</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>iq</iso639_1>
+    <iso639_2></iso639_2>
     <name>Iraq</name>
   </item>
   <item lang="ir">
-    <iso_639_1>ir</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ir</iso639_1>
+    <iso639_2></iso639_2>
     <name>Iran, Islamic Republic of</name>
   </item>
   <item lang="is">
-    <iso_639_1>is</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>is</iso639_1>
+    <iso639_2></iso639_2>
     <name>Iceland</name>
   </item>
   <item lang="it">
-    <iso_639_1>it</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>it</iso639_1>
+    <iso639_2></iso639_2>
     <name>Italy</name>
   </item>
   <item lang="je">
-    <iso_639_1>je</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>je</iso639_1>
+    <iso639_2></iso639_2>
     <name>Jersey</name>
   </item>
   <item lang="jm">
-    <iso_639_1>jm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>jm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Jamaica</name>
   </item>
   <item lang="jo">
-    <iso_639_1>jo</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>jo</iso639_1>
+    <iso639_2></iso639_2>
     <name>Jordan</name>
   </item>
   <item lang="jp">
-    <iso_639_1>jp</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>jp</iso639_1>
+    <iso639_2></iso639_2>
     <name>Japan</name>
   </item>
   <item lang="ke">
-    <iso_639_1>ke</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ke</iso639_1>
+    <iso639_2></iso639_2>
     <name>Kenya</name>
   </item>
   <item lang="kg">
-    <iso_639_1>kg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Kyrgyzstan</name>
   </item>
   <item lang="kh">
-    <iso_639_1>kh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cambodia</name>
   </item>
   <item lang="ki">
-    <iso_639_1>ki</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ki</iso639_1>
+    <iso639_2></iso639_2>
     <name>Kiribati</name>
   </item>
   <item lang="km">
-    <iso_639_1>km</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>km</iso639_1>
+    <iso639_2></iso639_2>
     <name>Comoros</name>
   </item>
   <item lang="kn">
-    <iso_639_1>kn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Kitts and Nevis</name>
   </item>
   <item lang="kp">
-    <iso_639_1>kp</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kp</iso639_1>
+    <iso639_2></iso639_2>
     <name>Korea, Democratic People's Republic</name>
   </item>
   <item lang="kr">
-    <iso_639_1>kr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Korea, Republic of</name>
   </item>
   <item lang="kw">
-    <iso_639_1>kw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Kuwait</name>
   </item>
   <item lang="ky">
-    <iso_639_1>ky</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ky</iso639_1>
+    <iso639_2></iso639_2>
     <name>Cayman Islands</name>
   </item>
   <item lang="kz">
-    <iso_639_1>kz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>kz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Kazakhstan</name>
   </item>
   <item lang="la">
-    <iso_639_1>la</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>la</iso639_1>
+    <iso639_2></iso639_2>
     <name>Lao People's Democratic Republic</name>
   </item>
   <item lang="lb">
-    <iso_639_1>lb</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lb</iso639_1>
+    <iso639_2></iso639_2>
     <name>Lebanon</name>
   </item>
   <item lang="lc">
-    <iso_639_1>lc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Lucia</name>
   </item>
   <item lang="li">
-    <iso_639_1>li</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>li</iso639_1>
+    <iso639_2></iso639_2>
     <name>Liechtenstein</name>
   </item>
   <item lang="lk">
-    <iso_639_1>lk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Sri Lanka</name>
   </item>
   <item lang="lr">
-    <iso_639_1>lr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Liberia</name>
   </item>
   <item lang="ls">
-    <iso_639_1>ls</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ls</iso639_1>
+    <iso639_2></iso639_2>
     <name>Lesotho</name>
   </item>
   <item lang="lt">
-    <iso_639_1>lt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Lithuania</name>
   </item>
   <item lang="lu">
-    <iso_639_1>lu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Luxembourg</name>
   </item>
   <item lang="lv">
-    <iso_639_1>lv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>lv</iso639_1>
+    <iso639_2></iso639_2>
     <name>Latvia</name>
   </item>
   <item lang="ly">
-    <iso_639_1>ly</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ly</iso639_1>
+    <iso639_2></iso639_2>
     <name>Libyan Arab Jamahiriya</name>
   </item>
   <item lang="ma">
-    <iso_639_1>ma</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ma</iso639_1>
+    <iso639_2></iso639_2>
     <name>Morocco</name>
   </item>
   <item lang="mc">
-    <iso_639_1>mc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Monaco</name>
   </item>
   <item lang="md">
-    <iso_639_1>md</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>md</iso639_1>
+    <iso639_2></iso639_2>
     <name>Moldova, Republic of</name>
   </item>
   <item lang="me">
-    <iso_639_1>me</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>me</iso639_1>
+    <iso639_2></iso639_2>
     <name>Montenegro</name>
   </item>
   <item lang="mf">
-    <iso_639_1>mf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mf</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Martin (French part)</name>
   </item>
   <item lang="mg">
-    <iso_639_1>mg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Madagascar</name>
   </item>
   <item lang="mh">
-    <iso_639_1>mh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Marshall Islands</name>
   </item>
   <item lang="mk">
-    <iso_639_1>mk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Macedonia, The Former Yugoslav Republic of</name>
   </item>
   <item lang="ml">
-    <iso_639_1>ml</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ml</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mali</name>
   </item>
   <item lang="mm">
-    <iso_639_1>mm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Myanmar</name>
   </item>
   <item lang="mn">
-    <iso_639_1>mn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mongolia</name>
   </item>
   <item lang="mo">
-    <iso_639_1>mo</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mo</iso639_1>
+    <iso639_2></iso639_2>
     <name>Macao</name>
   </item>
   <item lang="mp">
-    <iso_639_1>mp</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mp</iso639_1>
+    <iso639_2></iso639_2>
     <name>Northern Mariana Islands</name>
   </item>
   <item lang="mq">
-    <iso_639_1>mq</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mq</iso639_1>
+    <iso639_2></iso639_2>
     <name>Martinique</name>
   </item>
   <item lang="mr">
-    <iso_639_1>mr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mauritania</name>
   </item>
   <item lang="ms">
-    <iso_639_1>ms</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ms</iso639_1>
+    <iso639_2></iso639_2>
     <name>Montserrat</name>
   </item>
   <item lang="mt">
-    <iso_639_1>mt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Malta</name>
   </item>
   <item lang="mu">
-    <iso_639_1>mu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mauritius</name>
   </item>
   <item lang="mv">
-    <iso_639_1>mv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mv</iso639_1>
+    <iso639_2></iso639_2>
     <name>Maldives</name>
   </item>
   <item lang="mw">
-    <iso_639_1>mw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Malawi</name>
   </item>
   <item lang="mx">
-    <iso_639_1>mx</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mx</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mexico</name>
   </item>
   <item lang="my">
-    <iso_639_1>my</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>my</iso639_1>
+    <iso639_2></iso639_2>
     <name>Malaysia</name>
   </item>
   <item lang="mz">
-    <iso_639_1>mz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>mz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mozambique</name>
   </item>
   <item lang="na">
-    <iso_639_1>na</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>na</iso639_1>
+    <iso639_2></iso639_2>
     <name>Namibia</name>
   </item>
   <item lang="nc">
-    <iso_639_1>nc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nc</iso639_1>
+    <iso639_2></iso639_2>
     <name>New Caledonia</name>
   </item>
   <item lang="ne">
-    <iso_639_1>ne</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ne</iso639_1>
+    <iso639_2></iso639_2>
     <name>Niger</name>
   </item>
   <item lang="nf">
-    <iso_639_1>nf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nf</iso639_1>
+    <iso639_2></iso639_2>
     <name>Norfolk Island</name>
   </item>
   <item lang="ng">
-    <iso_639_1>ng</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ng</iso639_1>
+    <iso639_2></iso639_2>
     <name>Nigeria</name>
   </item>
   <item lang="ni">
-    <iso_639_1>ni</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ni</iso639_1>
+    <iso639_2></iso639_2>
     <name>Nicaragua</name>
   </item>
   <item lang="nl">
-    <iso_639_1>nl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Netherlands</name>
   </item>
   <item lang="no">
-    <iso_639_1>no</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>no</iso639_1>
+    <iso639_2></iso639_2>
     <name>Norway</name>
   </item>
   <item lang="np">
-    <iso_639_1>np</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>np</iso639_1>
+    <iso639_2></iso639_2>
     <name>Nepal</name>
   </item>
   <item lang="nr">
-    <iso_639_1>nr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Nauru</name>
   </item>
   <item lang="nu">
-    <iso_639_1>nu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Niue</name>
   </item>
   <item lang="nz">
-    <iso_639_1>nz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>nz</iso639_1>
+    <iso639_2></iso639_2>
     <name>New Zealand</name>
   </item>
   <item lang="om">
-    <iso_639_1>om</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>om</iso639_1>
+    <iso639_2></iso639_2>
     <name>Oman</name>
   </item>
   <item lang="pa">
-    <iso_639_1>pa</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pa</iso639_1>
+    <iso639_2></iso639_2>
     <name>Panama</name>
   </item>
   <item lang="pe">
-    <iso_639_1>pe</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pe</iso639_1>
+    <iso639_2></iso639_2>
     <name>Peru</name>
   </item>
   <item lang="pf">
-    <iso_639_1>pf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pf</iso639_1>
+    <iso639_2></iso639_2>
     <name>French Polynesia</name>
   </item>
   <item lang="pg">
-    <iso_639_1>pg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Papua New Guinea</name>
   </item>
   <item lang="ph">
-    <iso_639_1>ph</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ph</iso639_1>
+    <iso639_2></iso639_2>
     <name>Philippines</name>
   </item>
   <item lang="pk">
-    <iso_639_1>pk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Pakistan</name>
   </item>
   <item lang="pl">
-    <iso_639_1>pl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Poland</name>
   </item>
   <item lang="pm">
-    <iso_639_1>pm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Pierre and Miquelon</name>
   </item>
   <item lang="pn">
-    <iso_639_1>pn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Pitcairn Island</name>
   </item>
   <item lang="pr">
-    <iso_639_1>pr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Puerto Rico</name>
   </item>
   <item lang="ps">
-    <iso_639_1>ps</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ps</iso639_1>
+    <iso639_2></iso639_2>
     <name>Palestinian Territory, Occupied</name>
   </item>
   <item lang="pt">
-    <iso_639_1>pt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Portugal</name>
   </item>
   <item lang="pw">
-    <iso_639_1>pw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>pw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Palau</name>
   </item>
   <item lang="py">
-    <iso_639_1>py</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>py</iso639_1>
+    <iso639_2></iso639_2>
     <name>Paraguay</name>
   </item>
   <item lang="qa">
-    <iso_639_1>qa</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>qa</iso639_1>
+    <iso639_2></iso639_2>
     <name>Qatar</name>
   </item>
   <item lang="re">
-    <iso_639_1>re</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>re</iso639_1>
+    <iso639_2></iso639_2>
     <name>Reunion Island</name>
   </item>
   <item lang="ro">
-    <iso_639_1>ro</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ro</iso639_1>
+    <iso639_2></iso639_2>
     <name>Romania</name>
   </item>
   <item lang="rs">
-    <iso_639_1>rs</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>rs</iso639_1>
+    <iso639_2></iso639_2>
     <name>Serbia</name>
   </item>
   <item lang="ru">
-    <iso_639_1>ru</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ru</iso639_1>
+    <iso639_2></iso639_2>
     <name>Russian Federation</name>
   </item>
   <item lang="rw">
-    <iso_639_1>rw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>rw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Rwanda</name>
   </item>
   <item lang="sa">
-    <iso_639_1>sa</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sa</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saudi Arabia</name>
   </item>
   <item lang="sb">
-    <iso_639_1>sb</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sb</iso639_1>
+    <iso639_2></iso639_2>
     <name>Solomon Islands</name>
   </item>
   <item lang="sc">
-    <iso_639_1>sc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Seychelles</name>
   </item>
   <item lang="sd">
-    <iso_639_1>sd</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sd</iso639_1>
+    <iso639_2></iso639_2>
     <name>Sudan</name>
   </item>
   <item lang="se">
-    <iso_639_1>se</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>se</iso639_1>
+    <iso639_2></iso639_2>
     <name>Sweden</name>
   </item>
   <item lang="sg">
-    <iso_639_1>sg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Singapore</name>
   </item>
   <item lang="sh">
-    <iso_639_1>sh</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sh</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Helena</name>
   </item>
   <item lang="si">
-    <iso_639_1>si</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>si</iso639_1>
+    <iso639_2></iso639_2>
     <name>Slovenia</name>
   </item>
   <item lang="sj">
-    <iso_639_1>sj</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sj</iso639_1>
+    <iso639_2></iso639_2>
     <name>Svalbard and Jan Mayen Islands</name>
   </item>
   <item lang="sk">
-    <iso_639_1>sk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Slovak Republic</name>
   </item>
   <item lang="sl">
-    <iso_639_1>sl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Sierra Leone</name>
   </item>
   <item lang="sm">
-    <iso_639_1>sm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sm</iso639_1>
+    <iso639_2></iso639_2>
     <name>San Marino</name>
   </item>
   <item lang="sn">
-    <iso_639_1>sn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Senegal</name>
   </item>
   <item lang="so">
-    <iso_639_1>so</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>so</iso639_1>
+    <iso639_2></iso639_2>
     <name>Somalia</name>
   </item>
   <item lang="sq">
-    <iso_639_1>sq</iso_639_1>
-    <iso_639_2>sqi</iso_639_2>
+    <iso639_1>sq</iso639_1>
+    <iso639_2>sqi</iso639_2>
     <name>Albania</name>
   </item>
   <item lang="sr">
-    <iso_639_1>sr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Suriname</name>
   </item>
   <item lang="st">
-    <iso_639_1>st</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>st</iso639_1>
+    <iso639_2></iso639_2>
     <name>Sao Tome and Principe</name>
   </item>
   <item lang="su">
-    <iso_639_1>su</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>su</iso639_1>
+    <iso639_2></iso639_2>
     <name>Soviet Union (being phased out)</name>
   </item>
   <item lang="sv">
-    <iso_639_1>sv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sv</iso639_1>
+    <iso639_2></iso639_2>
     <name>El Salvador</name>
   </item>
   <item lang="sy">
-    <iso_639_1>sy</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sy</iso639_1>
+    <iso639_2></iso639_2>
     <name>Syrian Arab Republic</name>
   </item>
   <item lang="sz">
-    <iso_639_1>sz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>sz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Swaziland</name>
   </item>
   <item lang="tc">
-    <iso_639_1>tc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Turks and Caicos Islands</name>
   </item>
   <item lang="td">
-    <iso_639_1>td</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>td</iso639_1>
+    <iso639_2></iso639_2>
     <name>Chad</name>
   </item>
   <item lang="tf">
-    <iso_639_1>tf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tf</iso639_1>
+    <iso639_2></iso639_2>
     <name>French Southern Territories</name>
   </item>
   <item lang="tg">
-    <iso_639_1>tg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Togo</name>
   </item>
   <item lang="th">
-    <iso_639_1>th</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>th</iso639_1>
+    <iso639_2></iso639_2>
     <name>Thailand</name>
   </item>
   <item lang="tj">
-    <iso_639_1>tj</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tj</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tajikistan</name>
   </item>
   <item lang="tk">
-    <iso_639_1>tk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tk</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tokelau</name>
   </item>
   <item lang="tl">
-    <iso_639_1>tl</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tl</iso639_1>
+    <iso639_2></iso639_2>
     <name>Timor-Leste</name>
   </item>
   <item lang="tm">
-    <iso_639_1>tm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Turkmenistan</name>
   </item>
   <item lang="tn">
-    <iso_639_1>tn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tunisia</name>
   </item>
   <item lang="to">
-    <iso_639_1>to</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>to</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tonga</name>
   </item>
   <item lang="tp">
-    <iso_639_1>tp</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tp</iso639_1>
+    <iso639_2></iso639_2>
     <name>East Timor</name>
   </item>
   <item lang="tr">
-    <iso_639_1>tr</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tr</iso639_1>
+    <iso639_2></iso639_2>
     <name>Turkey</name>
   </item>
   <item lang="tt">
-    <iso_639_1>tt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Trinidad and Tobago</name>
   </item>
   <item lang="tv">
-    <iso_639_1>tv</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tv</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tuvalu</name>
   </item>
   <item lang="tw">
-    <iso_639_1>tw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Taiwan</name>
   </item>
   <item lang="tz">
-    <iso_639_1>tz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>tz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Tanzania</name>
   </item>
   <item lang="ua">
-    <iso_639_1>ua</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ua</iso639_1>
+    <iso639_2></iso639_2>
     <name>Ukraine</name>
   </item>
   <item lang="ug">
-    <iso_639_1>ug</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ug</iso639_1>
+    <iso639_2></iso639_2>
     <name>Uganda</name>
   </item>
   <item lang="uk">
-    <iso_639_1>uk</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>uk</iso639_1>
+    <iso639_2></iso639_2>
     <name>United Kingdom</name>
   </item>
   <item lang="um">
-    <iso_639_1>um</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>um</iso639_1>
+    <iso639_2></iso639_2>
     <name>United States Minor Outlying Islands</name>
   </item>
   <item lang="us">
-    <iso_639_1>us</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>us</iso639_1>
+    <iso639_2></iso639_2>
     <name>United States</name>
   </item>
   <item lang="uy">
-    <iso_639_1>uy</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>uy</iso639_1>
+    <iso639_2></iso639_2>
     <name>Uruguay</name>
   </item>
   <item lang="uz">
-    <iso_639_1>uz</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>uz</iso639_1>
+    <iso639_2></iso639_2>
     <name>Uzbekistan</name>
   </item>
   <item lang="va">
-    <iso_639_1>va</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>va</iso639_1>
+    <iso639_2></iso639_2>
     <name>Holy See (Vatican City State)</name>
   </item>
   <item lang="vc">
-    <iso_639_1>vc</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>vc</iso639_1>
+    <iso639_2></iso639_2>
     <name>Saint Vincent and the Grenadines</name>
   </item>
   <item lang="ve">
-    <iso_639_1>ve</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ve</iso639_1>
+    <iso639_2></iso639_2>
     <name>Venezuela</name>
   </item>
   <item lang="vg">
-    <iso_639_1>vg</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>vg</iso639_1>
+    <iso639_2></iso639_2>
     <name>Virgin Islands, British</name>
   </item>
   <item lang="vi">
-    <iso_639_1>vi</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>vi</iso639_1>
+    <iso639_2></iso639_2>
     <name>Virgin Islands, U.S.</name>
   </item>
   <item lang="vn">
-    <iso_639_1>vn</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>vn</iso639_1>
+    <iso639_2></iso639_2>
     <name>Vietnam</name>
   </item>
   <item lang="vu">
-    <iso_639_1>vu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>vu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Vanuatu</name>
   </item>
   <item lang="wf">
-    <iso_639_1>wf</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>wf</iso639_1>
+    <iso639_2></iso639_2>
     <name>Wallis and Futuna Islands</name>
   </item>
   <item lang="ws">
-    <iso_639_1>ws</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ws</iso639_1>
+    <iso639_2></iso639_2>
     <name>Samoa</name>
   </item>
   <item lang="ye">
-    <iso_639_1>ye</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>ye</iso639_1>
+    <iso639_2></iso639_2>
     <name>Yemen</name>
   </item>
   <item lang="yt">
-    <iso_639_1>yt</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>yt</iso639_1>
+    <iso639_2></iso639_2>
     <name>Mayotte</name>
   </item>
   <item lang="yu">
-    <iso_639_1>yu</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>yu</iso639_1>
+    <iso639_2></iso639_2>
     <name>Yugoslavia (being phased out)</name>
   </item>
   <item lang="za">
-    <iso_639_1>za</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>za</iso639_1>
+    <iso639_2></iso639_2>
     <name>South Africa</name>
   </item>
   <item lang="zm">
-    <iso_639_1>zm</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>zm</iso639_1>
+    <iso639_2></iso639_2>
     <name>Zambia</name>
   </item>
   <item lang="zw">
-    <iso_639_1>zw</iso_639_1>
-    <iso_639_2></iso_639_2>
+    <iso639_1>zw</iso639_1>
+    <iso639_2></iso639_2>
     <name>Zimbabwe</name>
   </item>
 </language>
