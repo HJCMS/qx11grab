@@ -114,7 +114,7 @@ const QRect WindowGrabber::grabWindowRect()
     int nsizes;
     XGetWindowAttributes ( dpy, retwin, &attr );
     rectVal = QRect ( attr.x, attr.y, normalize ( attr.width ), normalize ( attr.height ) );
-    // TODO Desktops die mit XRandr 1.3 erstellt werden erkennen und ausgeben!
+    // TODO Bildschirme die mit XRandr 1.3 erstellt werden erkennen und ausgeben!
     XRRScreenConfiguration* randrcfg = XRRGetScreenInfo ( dpy, root );
     XRRScreenSize* size = XRRConfigSizes ( randrcfg, &nsizes );
     qDebug ( "grabbing from Desktop(%dx%d@%d): \"-i %s.%d+%d,%d -s %dx%d\"",
@@ -131,7 +131,6 @@ const QRect WindowGrabber::grabWindowRect()
     XRRFreeScreenConfigInfo ( randrcfg );
   }
 
-  Q_UNUSED ( retbutton );
   return rectVal;
 }
 
