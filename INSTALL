@@ -4,14 +4,15 @@
 REQUIREMENTS:
   -  Qt 4 >= 4.7.2 (required)  http://qt.nokia.com/products/
   -  Oxygen Icon Theme >= 4.6.0 (required) ftp://ftp.kde.org/pub/kde/stable/
-  -  FFmpeg >= 0.8 (required) 0.9(recommended) http://www.ffmpeg.org
+  -  FFmpeg >= 0.8 (required) 0.10 (recommended) http://www.ffmpeg.org
   -  libavformat >= 52.78.3 (required) 53.24.0 (recommended) http://www.ffmpeg.org
   -  libavcodec >= 52.86.1 (required) 52.20.0 (recommended)  http://www.ffmpeg.org
   -  libavutil >= 50.24.0 (required) 51.32.0 (recommended)  http://www.ffmpeg.org
   -  pulseaudio >= 0.9 (required) 1.1 (recommended) http://pulseaudio.org/
   -  alsa >= 1.0.14 (required) 1.0.24 (recommended) http://alsa-project.org
+  -  dbus-1 >= 1.4.12 (required) 1.4.16 (recommended) http://www.freedesktop.org/wiki/Software/dbus
   -  cmake >= 2.8.0 (required for build) http://www.cmake.org
-
+ 
 INSTALLATION:
   1) create a subdirectory build in source home directory
   2) open a terminal and change this directory
@@ -21,7 +22,7 @@ INSTALLATION:
         -DCMAKE_BUILD_TYPE:STRING=Release \
         -DCMAKE_INSTALL_PREFIX:PATH=/usr \
         -DSYSCONF_INSTALL_DIR:PATH=/etc ../
-        -DINSTALL_FFPRESETS:BOOL=ON \
+        -DINSTALL_EXTRA_FFPRESETS:BOOL=ON \
         -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
         ../
 

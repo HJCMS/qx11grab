@@ -30,10 +30,14 @@
 /* QtCore */
 #include <QtCore/QDebug>
 
+// FIXME qwindowdefs.h
+#define XLIB_ILLEGAL_ACCESS 1
+
 /* X11 */
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/cursorfont.h>
+#include <X11/extensions/Xrandr.h>
 
 #define MASK (ButtonPressMask | ButtonReleaseMask)
 
@@ -44,8 +48,8 @@ WindowGrabber::WindowGrabber ( QObject *parent )
 
 const QRect WindowGrabber::grabWindowRect()
 {
-  const QRect empty;
-  Display *dpy =  display();
+  QRect rectVal;
+  Display* dpy =  display();
   int curScreen = screen();
   /* the current root */
   Window root = RootWindow ( dpy, curScreen );
@@ -63,7 +67,7 @@ const QRect WindowGrabber::grabWindowRect()
   if ( cursor == None )
   {
     qWarning ( "Unable to create crosshair cursor." );
-    return empty;
+    return rectVal;
   }
   /* give xterm a chance */
   XSync ( dpy, 0 );
@@ -72,7 +76,7 @@ const QRect WindowGrabber::grabWindowRect()
                       None, cursor, CurrentTime ) != GrabSuccess )
   {
     qWarning ( "Unable to grab cursor." );
-    return empty;
+    return rectVal;
   }
 
   /* initial Loop */
@@ -81,14 +85,15 @@ const QRect WindowGrabber::grabWindowRect()
     XEvent event;
     XAllowEvents ( dpy, SyncPointer, CurrentTime );
     XWindowEvent ( dpy, root, MASK, &event );
+    XRRSelectInput ( dpy, root, MASK );
+
     switch ( event.type )
     {
       case ButtonPress:
         if ( retwin == None )
         {
           retbutton = event.xbutton.button;
-          retwin = ( ( event.xbutton.subwindow != None ) ?
-                     event.xbutton.subwindow : root );
+          retwin = ( ( event.xbutton.subwindow != None ) ? event.xbutton.subwindow : root );
         }
         pressed++;
         continue;
@@ -106,11 +111,28 @@ const QRect WindowGrabber::grabWindowRect()
 
   if ( retwin )
   {
+    int nsizes;
     XGetWindowAttributes ( dpy, retwin, &attr );
-    return QRect ( attr.x, attr.y, normalize ( attr.width ), normalize ( attr.height ) );
+    rectVal = QRect ( attr.x, attr.y, normalize ( attr.width ), normalize ( attr.height ) );
+    // TODO Desktops die mit XRandr 1.3 erstellt werden erkennen und ausgeben!
+    XRRScreenConfiguration* randrcfg = XRRGetScreenInfo ( dpy, root );
+    XRRScreenSize* size = XRRConfigSizes ( randrcfg, &nsizes );
+    qDebug ( "grabbing from Desktop(%dx%d@%d): \"-i %s.%d+%d,%d -s %dx%d\"",
+             size->width,
+             size->height,
+             XRRConfigCurrentRate ( randrcfg ),
+             dpy->display_name,
+             XRRRootToScreen ( dpy, root ),
+             attr.x,
+             attr.y,
+             attr.width,
+             attr.height
+           );
+    XRRFreeScreenConfigInfo ( randrcfg );
   }
 
-  return empty;
+  Q_UNUSED ( retbutton );
+  return rectVal;
 }
 
 int WindowGrabber::normalize ( int z ) const

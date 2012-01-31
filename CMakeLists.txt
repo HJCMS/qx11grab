@@ -25,7 +25,7 @@ IF (ENABLE_KDE_SUPPORT)
   FIND_PACKAGE (KDE4 4.5.0)
 ENDIF (ENABLE_KDE_SUPPORT)
 
-OPTION (INSTALL_FFPRESETS "Install extra FFmpeg ffpresets (ON/OFF)" OFF)
+OPTION (INSTALL_EXTRA_FFPRESETS "Install extra FFmpeg ffpresets (ON/OFF)" OFF)
 
 SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.${CMAKE_PROJECT_NAME}")
 
@@ -40,12 +40,12 @@ ENDIF (NOT UNIX)
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 4)
 SET (QX11GRAB_VERSION_RELEASE 0)
-SET (QX11GRAB_VERSION_DEVELOPMENT ".rc2")
+SET (QX11GRAB_VERSION_DEVELOPMENT ".rc3")
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}${QX11GRAB_VERSION_DEVELOPMENT}")
 # If Git is installed and a '.git' directory is found,
 # we append the Git revision to QX11GRAB_VERSION
 IF(EXISTS "${qx11grab_SOURCE_DIR}/.git")
-  FIND_PROGRAM(GIT_EXECUTABLE NAMES git)
+  FIND_PROGRAM (GIT_EXECUTABLE NAMES git)
   IF (GIT_EXECUTABLE)
     SET (qx11grab_git_revision "")
     MESSAGE (STATUS "Found git: ${GIT_EXECUTABLE}")
@@ -194,13 +194,18 @@ ENDIF (PULSE_FOUND)
 ## Xorg 
 ##############################################################
 
-PKG_CHECK_MODULES (X11 REQUIRED x11>=1.3.4)
+PKG_CHECK_MODULES (XLIBS REQUIRED x11>=1.3.4 xrandr>=1.3)
+IF (NOT XLIBS_FOUND)
+  MESSAGE (FATAL_ERROR "X11 or XRandr not found")
+ENDIF (NOT XLIBS_FOUND)
 
 ##############################################################
-## DBus 
+## DBus-1
+## The current stable branch is 1.4.x
+## http://www.freedesktop.org/wiki/Software/dbus
 ##############################################################
 
-PKG_CHECK_MODULES (DBUS REQUIRED dbus-1>=1.5.0)
+PKG_CHECK_MODULES (DBUS REQUIRED dbus-1>=1.4.12)
 IF (DBUS_FOUND)
   SET (_dbus_interfaces_dir "")
   EXECUTE_PROCESS (COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=interfaces_dir dbus-1
@@ -357,15 +362,15 @@ MESSAGE ("Configuration summary:")
 MESSAGE (STATUS "${CMAKE_PROJECT_NAME} Install Directory ${CMAKE_INSTALL_PREFIX}")
 MESSAGE (STATUS "Install DBus Interface spec to ${DBUS_INTERFACES_DIR}")
 MESSAGE (STATUS "Install DBus Service spec to ${DBUS_SERVICES_DIR}")
-IF (INSTALL_FFPRESETS)
+IF (INSTALL_EXTRA_FFPRESETS)
   MESSAGE (STATUS "Install extra FFmpeg ffpresets to ${FFMPEG_SHAREDIR}")
-ELSE (INSTALL_FFPRESETS)
+ELSE (INSTALL_EXTRA_FFPRESETS)
   MESSAGE (STATUS "Install extra FFmpeg ffpresets disabled")
-ENDIF (INSTALL_FFPRESETS)
+ENDIF (INSTALL_EXTRA_FFPRESETS)
 MESSAGE ("")
 MESSAGE ("Required Packages:")
 summary (FFMPEG_FOUND "FFmpeg" FALSE)
-summary (X11_FOUND "X11" FALSE)
+summary (XLIBS_FOUND "XLIBS" FALSE)
 summary (QT4_FOUND "Qt4" FALSE)
 summary (ALSA_FOUND "Alsa" FALSE)
 MESSAGE ("")
