@@ -255,6 +255,10 @@ void MainWindow::createEnviroment()
   showRubber ( cfg->showRubberOnStart() );
 
   toRubber ( true );
+
+  m_windowGrabber = new WindowGrabber ( this );
+  connect ( m_windowGrabber, SIGNAL ( rectChanged ( const QRect &, int ) ),
+            m_grabberInfo, SLOT ( setRect ( const QRect &, int ) ) );
 }
 
 /**
@@ -379,18 +383,10 @@ void MainWindow::toRubber ( bool )
 */
 void MainWindow::grabFromWindow()
 {
-  if ( ! m_RubberBand )
+  if ( ! m_RubberBand || ! m_windowGrabber )
     return;
 
-  WindowGrabber* grabber = new WindowGrabber ( m_DesktopInfo->screenWidget() );
-  QRect rect = grabber->grabWindowRect();
-
-  if ( rect.isValid() )
-  {
-    m_RubberBand->show();
-    m_grabberInfo->setRect ( rect );
-  }
-  delete grabber;
+  m_windowGrabber->createRequest();
 }
 
 /**

@@ -36,6 +36,7 @@
 
 class ScreenComboBox;
 class DesktopInfo;
+class WindowGrabber;
 
 /**
 * \class GrabberInfo
@@ -50,6 +51,7 @@ class GrabberInfo : public QWidget
   private:
     QRect screenGeometry;
     DesktopInfo* m_desktopInfo;
+    WindowGrabber* m_windowGrabber;
     ScreenComboBox* screenComboBox;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;
@@ -76,6 +78,7 @@ class GrabberInfo : public QWidget
   public Q_SLOTS:
     void load ( QSettings * );
     void save ( QSettings * );
+    void setRect ( const QRect &rect, int screen = 0 );
 
   public:
     GrabberInfo ( QWidget * parent = 0 );
@@ -83,7 +86,6 @@ class GrabberInfo : public QWidget
     void setScreenHeight ( int h );
     void setScreenX ( int x );
     void setScreenY ( int y );
-    void setRect ( const QRect &rect, int screen = 0 );
     const QRect getRect();
     int frameRate();
     const QString getGeometry();

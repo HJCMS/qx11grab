@@ -27,10 +27,10 @@
 #include <QtCore/QRect>
 
 /* QtGui */
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QWidget>
-#include <QtGui/QX11Info>
 
-class WindowGrabber : public QObject, private QX11Info
+class WindowGrabber : public QDesktopWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
@@ -39,11 +39,21 @@ class WindowGrabber : public QObject, private QX11Info
     /** Do not accept Incorrect aspect ratio specification. */
     inline int normalize ( int ) const;
 
-  public:
-    explicit WindowGrabber ( QObject *parent = 0 );
-
     /** grab Window Dimension from X-Server */
-    const QRect grabWindowRect();
+    void grabWindowRect ( int screen = 0 );
+
+  Q_SIGNALS:
+    void rectChanged ( const QRect &, int screen );
+
+  public:
+    explicit WindowGrabber ( QObject * parent = 0 );
+
+    void createRequest ( int screen = 0 );
+
+    /**
+    * Maximum Desktop Rect with all Screens
+    */
+    const QRect fullDesktopsRect ();
 
     ~WindowGrabber();
 

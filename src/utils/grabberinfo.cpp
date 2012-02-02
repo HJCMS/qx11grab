@@ -22,6 +22,7 @@
 #include "grabberinfo.h"
 #include "desktopinfo.h"
 #include "screencombobox.h"
+#include "windowgrabber.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -211,6 +212,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // Default Dimensions
   m_desktopInfo =  new DesktopInfo ( this );
+  m_windowGrabber = new WindowGrabber ( this );
   setInputDefaults ( m_desktopInfo->getScreen() );
 
   connect ( screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
@@ -283,25 +285,25 @@ void GrabberInfo::integerUpdate ( int )
 }
 
 /**
-* Wenn der Benutzer die Aufkösung wechselt die
-* Maximal Werte neu setzen!
+* Wenn der Benutzer die Auflösung wechselt die
+* Maximalen Werte neu setzen!
 */
 void GrabberInfo::setInputDefaults ( int screen )
 {
+  QRect maxRect = m_windowGrabber->fullDesktopsRect();
   m_screenBox->setValue ( screen );
-  screenGeometry = m_desktopInfo->screenGeometry ( screen );
   // Weidth
-  setWidthBox->setMaximum ( ( screenGeometry.width() + 2 ) );
-  setWidthSlider->setMaximum ( ( screenGeometry.width() + 2 ) );
+  setWidthBox->setMaximum ( ( maxRect.width() + 2 ) );
+  setWidthSlider->setMaximum ( ( maxRect.width() + 2 ) );
   // Height
-  setHeightBox->setMaximum ( ( screenGeometry.height() + 2 ) );
-  setHeightSlider->setMaximum ( ( screenGeometry.height() + 2 ) );
+  setHeightBox->setMaximum ( ( maxRect.height() + 2 ) );
+  setHeightSlider->setMaximum ( ( maxRect.height() + 2 ) );
   // X Postion
-  setXBox->setMaximum ( screenGeometry.width() );
-  setXSlider->setMaximum ( screenGeometry.width() );
+  setXBox->setMaximum ( maxRect.width() );
+  setXSlider->setMaximum ( maxRect.width() );
   // Y Position
-  setYBox->setMaximum ( screenGeometry.height() );
-  setYSlider->setMaximum ( screenGeometry.height() );
+  setYBox->setMaximum ( maxRect.height() );
+  setYSlider->setMaximum ( maxRect.height() );
 }
 
 /**
@@ -310,8 +312,11 @@ void GrabberInfo::setInputDefaults ( int screen )
 */
 void GrabberInfo::setRubberbandUpdate ( int i )
 {
+  QRect maxRect = m_windowGrabber->fullDesktopsRect();
   emit showRubber ( true );
-  int maxWidth = screenGeometry.width();
+  // qDebug() << Q_FUNC_INFO << maxRect;
+
+  int maxWidth = maxRect.width();
   int boxRight = qRound ( setXBox->value() + setWidthBox->value() );
   if ( boxRight >= maxWidth )
   {
@@ -319,7 +324,7 @@ void GrabberInfo::setRubberbandUpdate ( int i )
     setWidthBox->setValue ( ( ( ( w % 2 ) == 0 ) ? w : ( w - 1 ) ) );
   }
 
-  int maxHeight = screenGeometry.height();
+  int maxHeight = maxRect.height();
   int boxBottom = qRound ( setYBox->value() + setHeightBox->value() );
   if ( boxBottom >= maxHeight )
   {
@@ -353,6 +358,19 @@ void GrabberInfo::save ( QSettings *cfg )
 }
 
 /**
+* Dieser SLOT wird unter anderem
+* von Windowgrabber aufgerufen
+*/
+void GrabberInfo::setRect ( const QRect &rect, int screen )
+{
+  m_screenBox->setValue ( screen );
+  setXBox->setValue ( rect.x() );
+  setYBox->setValue ( rect.y() );
+  setWidthBox->setValue ( rect.width() );
+  setHeightBox->setValue ( rect.height() );
+}
+
+/**
 * Aufnahme Breite in Pixel
 */
 void GrabberInfo::setScreenWidth ( int w )
@@ -382,15 +400,6 @@ void GrabberInfo::setScreenX ( int x )
 void GrabberInfo::setScreenY ( int y )
 {
   setYBox->setValue ( y );
-}
-
-void GrabberInfo::setRect ( const QRect &rect, int screen )
-{
-  m_screenBox->setValue ( screen );
-  setXBox->setValue ( rect.x() );
-  setYBox->setValue ( rect.y() );
-  setWidthBox->setValue ( rect.width() );
-  setHeightBox->setValue ( rect.height() );
 }
 
 /**
