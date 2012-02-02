@@ -591,6 +591,15 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktuelle Farbtiefe</translation>
     </message>
+    <message>
+        <source>Screen:</source>
+        <translation>Bildschirm:</translation>
+    </message>
+    <message>
+        <source>current selected screen</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Aktuell ausgewählter Bildschirm</translation>
+    </message>
 </context>
 <context>
     <name>GraphicsEngineSelecter</name>

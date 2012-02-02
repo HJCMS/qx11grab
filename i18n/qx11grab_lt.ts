@@ -633,24 +633,24 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="63"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="64"/>
         <source>Dimension:</source>
         <translation>Dydis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="69"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="70"/>
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="75"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="76"/>
         <source>Width:</source>
         <translation>Plotis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="84"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="92"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="85"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="93"/>
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -658,13 +658,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="98"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="99"/>
         <source>Height:</source>
         <translation>Aukštis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="115"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="108"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="116"/>
         <source>made rubberband height smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -672,13 +672,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="121"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="122"/>
         <source>Position X:</source>
         <translation>X padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="130"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="138"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="131"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="139"/>
         <source>Displaces x-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -686,13 +686,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="144"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
         <source>Position Y:</source>
         <translation>Y padėtis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="153"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="161"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="154"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="162"/>
         <source>Displaces y-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -700,23 +700,34 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
+        <source>Screen:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="176"/>
+        <source>current selected screen</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
         <source>Color depth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="175"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
         <source>current color depth</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="195"/>
         <source>Framerate:</source>
         <translation>Kadrų dažnis:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="201"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -954,27 +965,27 @@ WhatsThis</extracomment>
         <translation type="unfinished">qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="636"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="655"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="655"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="684"/>
+        <location filename="../src/mainwindow.cpp" line="675"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="686"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

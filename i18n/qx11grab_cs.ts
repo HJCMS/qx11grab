@@ -588,6 +588,15 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Screen:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>current selected screen</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GraphicsEngineSelecter</name>
