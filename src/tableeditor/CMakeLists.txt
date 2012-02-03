@@ -7,6 +7,7 @@ SET (tableeditor_SOURCES
   codectablemodel.cpp
   codectabledelegate.cpp
   abstractselection.cpp
+  filtermenu.cpp
   abstractedit.cpp
   selectacodecpresets.cpp
   selectvcodecpresets.cpp
@@ -20,6 +21,7 @@ SET (tableeditor_HEADERS
   codectablemodel.h
   codectabledelegate.h
   abstractselection.h
+  filtermenu.h
   abstractedit.h
   selectacodecpresets.h
   selectvcodecpresets.h
@@ -46,7 +48,7 @@ ADD_LIBRARY (TableEditor STATIC
   ${tableeditor_SOURCES}
 )
 
-ADD_DEPENDENCIES (TableEditor AVOptions Settings)
+ADD_DEPENDENCIES (TableEditor AVOptions Settings qx11grabinterface)
 
 TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTMAIN_LIBRARY}
@@ -55,6 +57,7 @@ TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTDBUS_LIBRARY}
   AVOptions
   Settings
+  qx11grabinterface
 )
 
 SET_TARGET_PROPERTIES (TableEditor PROPERTIES

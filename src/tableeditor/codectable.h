@@ -32,6 +32,7 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QContextMenuEvent>
 #include <QtGui/QTableView>
 #include <QtGui/QTableWidget>
 #include <QtGui/QTableWidgetItem>
@@ -48,6 +49,12 @@ class CodecTable : public QTableView
   private:
     CodecTableModel* m_model;
     CodecTableDelegate* m_codecTableDelegate;
+
+  private Q_SLOTS:
+    void openFilterDialog ( const QString &filter );
+
+  protected:
+    void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
     void postUpdate();

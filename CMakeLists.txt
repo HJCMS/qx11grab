@@ -117,6 +117,10 @@ SET (LIBRARY_OUTPUT_PATH
   ${CMAKE_CURRENT_BINARY_DIR}/app
 )
 
+SET (PLUGIN_OUTPUT_PATH
+  ${CMAKE_CURRENT_BINARY_DIR}/app/plugins
+)
+
 ##############################################################
 ## FFmpeg 
 ##############################################################

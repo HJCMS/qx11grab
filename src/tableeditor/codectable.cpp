@@ -22,6 +22,11 @@
 #include "codectable.h"
 #include "codectablemodel.h"
 #include "codectabledelegate.h"
+#include "filtermenu.h"
+
+/* QX11Grab interface */
+#include "interface.h"
+#include "qx11grabplugins.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -29,9 +34,11 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QAction>
 #include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
 #include <QtGui/QTableWidgetItem>
+#include <QtGui/QMenu>
 
 CodecTable::CodecTable ( QWidget * parent )
     : QTableView ( parent )
@@ -71,21 +78,70 @@ CodecTable::CodecTable ( QWidget * parent )
             this, SIGNAL ( postUpdate() ) );
 }
 
+/**
+* Einen Filter Dialog öffnen
+*/
+void CodecTable::openFilterDialog ( const QString &filter )
+{
+  QX11Grab::Plugins* m_plugins = new QX11Grab::Plugins ( this );
+  if ( m_plugins )
+  {
+    QX11Grab::Interface* plugin = m_plugins->get ( filter, this );
+    if ( plugin )
+    {
+      if ( plugin->exec() )
+      {
+        m_model->addOption ( rowCount(), "-vf", plugin->data() );
+        emit postUpdate();
+      }
+      delete plugin;
+    }
+  }
+  delete m_plugins;
+}
+
+/**
+* Kontext Menü abfangen und einen Eingabe Dialoge anbieten
+*/
+void CodecTable::contextMenuEvent ( QContextMenuEvent * e )
+{
+  QMenu* m = new QMenu ( this );
+  FilterMenu* mfm = new FilterMenu ( this );
+  connect ( mfm, SIGNAL ( openFilter ( const QString & ) ),
+            this, SLOT ( openFilterDialog ( const QString & ) ) );
+
+  m->addMenu ( mfm );
+  m->exec ( e->globalPos() );
+  delete m;
+}
+
+/**
+* Komplette Tabelle leeren
+*/
 void CodecTable::clearContents()
 {
   return m_model->clear();
 }
 
+/**
+* Zeilen Anzahl
+*/
 int CodecTable::rowCount()
 {
   return m_model->rowCount();
 }
 
+/**
+* Spalten Anzahl
+*/
 int CodecTable::columnCount()
 {
   return m_model->columnCount();
 }
 
+/**
+* Datensatz einfügen
+*/
 void CodecTable::insertItem ( int row, const QString &key, const QVariant &value )
 {
   m_model->addOption ( row, key, value );

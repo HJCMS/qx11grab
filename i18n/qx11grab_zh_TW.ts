@@ -25,8 +25,8 @@
 <context>
     <name>AbstractEdit</name>
     <message>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="49"/>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="65"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="53"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="69"/>
         <source>Proposing</source>
         <extracomment>WindowTitle
 ----------
@@ -34,7 +34,7 @@ MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="50"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="54"/>
         <source>submitted items</source>
         <translation type="unfinished"></translation>
     </message>
@@ -630,6 +630,14 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+    <name>FilterMenu</name>
+    <message>
+        <location filename="../src/tableeditor/filtermenu.cpp" line="37"/>
+        <source>Create Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GrabberInfo</name>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="64"/>
@@ -966,57 +974,57 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="483"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="483"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Stopping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="484"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="497"/>
+        <location filename="../src/mainwindow.cpp" line="501"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="511"/>
+        <location filename="../src/mainwindow.cpp" line="515"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="511"/>
+        <location filename="../src/mainwindow.cpp" line="515"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="650"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="674"/>
+        <location filename="../src/mainwindow.cpp" line="678"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="674"/>
+        <location filename="../src/mainwindow.cpp" line="678"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="705"/>
+        <location filename="../src/mainwindow.cpp" line="709"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1736,6 +1744,62 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="93"/>
         <source>Logfile (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Unsharp</name>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="38"/>
+        <source>Unsharp Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="48"/>
+        <source>Sharpen or blur the input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="56"/>
+        <source>horizontal luma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="62"/>
+        <source>vertical luma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="67"/>
+        <source>luma effect strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="73"/>
+        <source>horizontal chroma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="79"/>
+        <source>vertical chroma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="84"/>
+        <source>chroma effect strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UnsharpPlugin</name>
+    <message>
+        <location filename="../src/filters/unsharp/unsharpplugin.cpp" line="53"/>
+        <source>Unsharp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/unsharp/unsharpplugin.cpp" line="58"/>
+        <source>Sharpen or blur filter for the input</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

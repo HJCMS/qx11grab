@@ -22,6 +22,10 @@
 #include "abstractedit.h"
 #include "settings.h"
 
+/* QX11Grab interface */
+#include "interface.h"
+#include "qx11grabplugins.h"
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>

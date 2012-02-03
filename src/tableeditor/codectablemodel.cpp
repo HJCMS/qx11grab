@@ -278,6 +278,7 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
   Item item;
   item.argument = key;
   item.value = value;
+//   qDebug() << Q_FUNC_INFO << row << key << value;
   items.insert ( row, item );
   endInsertRows();
 }

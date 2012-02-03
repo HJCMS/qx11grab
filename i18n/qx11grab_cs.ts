@@ -516,6 +516,13 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>FilterMenu</name>
+    <message>
+        <source>Create Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GrabberInfo</name>
     <message>
         <source>Width:</source>
@@ -1431,6 +1438,52 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Logfile (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Unsharp</name>
+    <message>
+        <source>Unsharp Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharpen or blur the input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>horizontal luma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vertical luma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>luma effect strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>horizontal chroma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vertical chroma matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>chroma effect strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UnsharpPlugin</name>
+    <message>
+        <source>Unsharp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharpen or blur filter for the input</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

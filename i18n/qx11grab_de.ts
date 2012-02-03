@@ -519,6 +519,13 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>FilterMenu</name>
+    <message>
+        <source>Create Filter</source>
+        <translation>Erstelle Filter</translation>
+    </message>
+</context>
+<context>
     <name>GrabberInfo</name>
     <message>
         <source>Width:</source>
@@ -1444,6 +1451,52 @@ ToolTip</extracomment>
     <message>
         <source>Logfile (%1)</source>
         <translation>Protokolldatei (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>Unsharp</name>
+    <message>
+        <source>Unsharp Filter</source>
+        <translation>Schärfe Filter</translation>
+    </message>
+    <message>
+        <source>Sharpen or blur the input</source>
+        <translation>Schärfe oder verwische die Eingabe</translation>
+    </message>
+    <message>
+        <source>horizontal luma matrix</source>
+        <translation>Horizontale Luminanz Matrix</translation>
+    </message>
+    <message>
+        <source>vertical luma matrix</source>
+        <translation>Vertikale Luminanz Matrix</translation>
+    </message>
+    <message>
+        <source>luma effect strength</source>
+        <translation>Luminanz Effektstärke</translation>
+    </message>
+    <message>
+        <source>horizontal chroma matrix</source>
+        <translation>Horizontale Chorma Matrix</translation>
+    </message>
+    <message>
+        <source>vertical chroma matrix</source>
+        <translation>Vertikale Chorma Matrix</translation>
+    </message>
+    <message>
+        <source>chroma effect strength</source>
+        <translation>Chroma Effektstärke</translation>
+    </message>
+</context>
+<context>
+    <name>UnsharpPlugin</name>
+    <message>
+        <source>Unsharp</source>
+        <translation>Unschärfe</translation>
+    </message>
+    <message>
+        <source>Sharpen or blur filter for the input</source>
+        <translation>Schärfe oder Verwische die Eingabe</translation>
     </message>
 </context>
 </TS>
