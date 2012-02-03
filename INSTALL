@@ -36,84 +36,99 @@ INSTALLATION:
   5) make DESTDIR=/tmp/test install/fast
 
 INSTALL_TREE:
-  /
-  |-- etc
-  |   `-- xdg
-  |       `-- hjcms.de
-  |           `-- qx11grab.conf
-  `-- usr
-      |-- bin
-      |   `-- qx11grab
-      `-- share
-          |-- applications
-          |   `-- qx11grab.desktop
-          |-- dbus-1
-          |   `-- services
-          |       `-- de.hjcms.qx11grab.service
-          |-- ffmpeg
-          |   |-- libx264-baseline.ffpreset
-          |   |-- libx264-default.ffpreset
-          |   |-- libx264-fast.ffpreset
-          |   |-- libx264-faster.ffpreset
-          |   |-- libx264-hq.ffpreset
-          |   |-- libx264-main.ffpreset
-          |   |-- libx264-max.ffpreset
-          |   |-- libx264-medium.ffpreset
-          |   |-- libx264-normal.ffpreset
-          |   |-- libx264-placebo.ffpreset
-          |   |-- libx264-slow.ffpreset
-          |   |-- libx264-slower.ffpreset
-          |   |-- libx264-ultrafast.ffpreset
-          |   |-- libx264-veryfast.ffpreset
-          |   `-- libx264-veryslow.ffpreset
-          |-- hicolor
-          |   |-- 128x128
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 16x16
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 192x192
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 22x22
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 24x24
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 32x32
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 36x36
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 48x48
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 64x64
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   |-- 96x96
-          |   |   `-- apps
-          |   |       `-- qx11grab.png
-          |   `-- scalable
-          |       `-- apps
-          |           `-- qx11grab.svgz
-          |-- pixmaps
-          |   `-- qx11grab.png
-          |       `-- qx11grab_36.png
-          |-- qt
-          |   `-- translations
-          |       |-- qx11grab_cs.qm
-          |       |-- qx11grab_de.qm
-          |       `-- qx11grab_lt.qm
-          `-- qx11grab
-              |-- AUTHORS
-              |-- COPYING
-              |-- ChangeLog
-              |-- NEWS
-              |-- README
-              `-- qx11grab_untranslated.ts
+/
+|-- etc
+|   `-- xdg
+|       `-- hjcms.de
+|           `-- qx11grab.conf
+`-- usr
+    |-- bin
+    |   `-- qx11grab
+    |-- include
+    |   `-- qx11grab-0.4
+    |       |-- interface.h
+    |       `-- qx11grabplugins.h
+    |-- lib
+    |   |-- libqx11grab-0.4.so -> libqx11grab-0.4.so.0
+    |   |-- libqx11grab-0.4.so.0 -> libqx11grab-0.4.so.0.4.0
+    |   |-- libqx11grab-0.4.so.0.4.0
+    |   |-- pkgconfig
+    |   |   `-- qx11grab.pc
+    |   `-- qx11grab
+    |       `-- libUnsharp.so
+    `-- share
+        |-- applications
+        |   `-- qx11grab.desktop
+        |-- dbus-1
+        |   |-- interfaces
+        |   |   `-- de.hjcms.qx11grab.xml
+        |   `-- services
+        |       `-- de.hjcms.qx11grab.service
+        |-- ffmpeg
+        |   |-- libx264-QX11Grab.ffpreset
+        |   |-- libx264-baseline.ffpreset
+        |   |-- libx264-default.ffpreset
+        |   |-- libx264-fast.ffpreset
+        |   |-- libx264-faster.ffpreset
+        |   |-- libx264-hq.ffpreset
+        |   |-- libx264-main.ffpreset
+        |   |-- libx264-max.ffpreset
+        |   |-- libx264-medium.ffpreset
+        |   |-- libx264-placebo.ffpreset
+        |   |-- libx264-slow.ffpreset
+        |   |-- libx264-slower.ffpreset
+        |   |-- libx264-ultrafast.ffpreset
+        |   |-- libx264-veryfast.ffpreset
+        |   `-- libx264-veryslow.ffpreset
+        |-- icons
+        |   `-- hicolor
+        |       |-- 128x128
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 16x16
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 192x192
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 22x22
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 24x24
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 32x32
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 36x36
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 48x48
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 64x64
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       |-- 96x96
+        |       |   `-- apps
+        |       |       `-- qx11grab.png
+        |       `-- scalable
+        |           `-- apps
+        |               `-- qx11grab.svgz
+        |-- pixmaps
+        |   `-- qx11grab.png
+        |       `-- qx11grab_36.png
+        |-- qt
+        |   `-- translations
+        |       |-- qx11grab_cs.qm
+        |       |-- qx11grab_de.qm
+        |       `-- qx11grab_lt.qm
+        `-- qx11grab
+            |-- AUTHORS
+            |-- COPYING
+            |-- ChangeLog
+            |-- NEWS
+            |-- README
+            `-- qx11grab_untranslated.ts
 
-38 directories, 40 files
+45 directories, 48 files
