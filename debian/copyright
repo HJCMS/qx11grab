@@ -1,0 +1,28 @@
+Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=59
+Source: http://qx11grab.hjcms.de
+
+Files: *
+Copyright: © 2007 - 2012 Juergen Heinemann
+
+License: GPL-3
+
+Files: qx11grab/*
+Copyright: © 2007 - 2012 Juergen Heinemann
+
+License: GPL-3
+
+License: GPL-3
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 3.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+
+License: LGPL-3
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; version 3.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.
