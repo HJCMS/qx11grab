@@ -22,7 +22,7 @@
 #include "grabberinfo.h"
 #include "desktopinfo.h"
 #include "screencombobox.h"
-#include "windowgrabber.h"
+#include "desktoptapping.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -212,7 +212,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // Default Dimensions
   m_desktopInfo =  new DesktopInfo ( this );
-  m_windowGrabber = new WindowGrabber ( this );
+  m_desktopTapping = new DesktopTapping ( this );
   setInputDefaults ( m_desktopInfo->getScreen() );
 
   connect ( screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
@@ -290,7 +290,7 @@ void GrabberInfo::integerUpdate ( int )
 */
 void GrabberInfo::setInputDefaults ( int screen )
 {
-  QRect maxRect = m_windowGrabber->fullDesktopsRect();
+  QRect maxRect = m_desktopTapping->fullDesktopsRect();
   m_screenBox->setValue ( screen );
   // Weidth
   setWidthBox->setMaximum ( ( maxRect.width() + 2 ) );
@@ -312,7 +312,7 @@ void GrabberInfo::setInputDefaults ( int screen )
 */
 void GrabberInfo::setRubberbandUpdate ( int i )
 {
-  QRect maxRect = m_windowGrabber->fullDesktopsRect();
+  QRect maxRect = m_desktopTapping->fullDesktopsRect();
   emit showRubber ( true );
   // qDebug() << Q_FUNC_INFO << maxRect;
 

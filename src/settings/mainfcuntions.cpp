@@ -44,32 +44,37 @@ MainFunctions::MainFunctions ( QWidget * parent )
   QFormLayout* layout = new QFormLayout ( this );
   layout->setLabelAlignment ( Qt::AlignRight );
 
-  showRubberband = new QCheckBox ( this );
+  showRubberband = new QCheckBox ( trUtf8 ( "Display Rubberband" ), this );
   /*: ToolTip */
   showRubberband->setToolTip ( trUtf8 ( "enable rubberband at application start" ) );
   /*: WhatsThis */
   showRubberband->setWhatsThis ( trUtf8 ( "always show the rubberband on application start" ) );
-  showRubberband->setText ( trUtf8 ( "Display Rubberband" ) );
   showRubberband->setChecked ( true );
   layout->addRow ( showRubberband );
 
-  startMinimized = new QCheckBox ( this );
+  startMinimized = new QCheckBox ( trUtf8 ( "Start Minimized" ), this );
   /*: ToolTip */
   startMinimized->setToolTip ( trUtf8 ( "start qx11grab minimized" ) );
   /*: WhatsThis */
   startMinimized->setWhatsThis ( trUtf8 ( "only show qx11grab on start in systray" ) );
-  startMinimized->setText ( trUtf8 ( "Start Minimized" ) );
   startMinimized->setChecked ( true );
   layout->addRow ( startMinimized );
 
-  expertMode = new QCheckBox ( this );
+  expertMode = new QCheckBox ( trUtf8 ( "Expert Mode" ), this );
   /*: ToolTip */
   expertMode->setToolTip ( trUtf8 ( "Enable/Disable expert editor mode" ) );
   /*: WhatsThis */
   expertMode->setWhatsThis ( trUtf8 ( "Enable auto insert my expert settings" ) );
-  expertMode->setText ( trUtf8 ( "Expert Mode" ) );
   expertMode->setChecked ( false );
   layout->addRow ( expertMode );
+
+  unsavedChanges = new QCheckBox ( trUtf8 ( "record with unsaved changes" ), this );
+  /*: ToolTip */
+  unsavedChanges->setToolTip ( trUtf8 ( "force start record with unsaved changes" ) );
+  /*: WhatsThis */
+  unsavedChanges->setWhatsThis ( trUtf8 ( "start recording if qx11grab have unsaved changes" ) );
+  unsavedChanges->setChecked ( false );
+  layout->addRow ( unsavedChanges );
 
   m_logLevelComboBox = new LogLevelComboBox ( this );
   layout->addRow ( trUtf8 ( "Report Level" ), m_logLevelComboBox );
@@ -96,6 +101,7 @@ MainFunctions::MainFunctions ( QWidget * parent )
 void MainFunctions::load ( Settings * cfg )
 {
   showRubberband->setChecked ( cfg->showRubberOnStart() );
+  unsavedChanges->setChecked ( cfg->value ( QLatin1String ( "unsavedChanges" ), false ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ), false ).toBool() );
   expertMode->setChecked ( cfg->expertMode() );
   m_logLevelComboBox->setValue ( cfg->logLevel() );
@@ -106,6 +112,7 @@ void MainFunctions::load ( Settings * cfg )
 void MainFunctions::save ( Settings * cfg )
 {
   cfg->setValue ( QLatin1String ( "showRubberband" ), showRubberband->isChecked() );
+  cfg->setValue ( QLatin1String ( "unsavedChanges" ), unsavedChanges->isChecked() );
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
   cfg->setValue ( QLatin1String ( "ExpertMode" ), expertMode->isChecked() );
   cfg->setLogLevel ( m_logLevelComboBox->value() );

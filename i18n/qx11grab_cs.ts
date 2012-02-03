@@ -736,6 +736,20 @@ WhatsThis</extracomment>
         <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>record with unsaved changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>force start record with unsaved changes</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start recording if qx11grab have unsaved changes</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -807,6 +821,18 @@ WhatsThis</extracomment>
     </message>
     <message>
         <source>Missing Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Varování</translation>
+    </message>
+    <message>
+        <source>Stopping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

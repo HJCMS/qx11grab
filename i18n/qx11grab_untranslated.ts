@@ -442,13 +442,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="199"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="200"/>
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/desktopinfo.cpp" line="185"/>
-        <location filename="../src/utils/desktopinfo.cpp" line="196"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="186"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="197"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -845,56 +845,73 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="52"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="57"/>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="61"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="55"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="65"/>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="69"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="70"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="63"/>
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="71"/>
+        <source>record with unsaved changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="73"/>
+        <source>force start record with unsaved changes</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="75"/>
+        <source>start recording if qx11grab have unsaved changes</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="80"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="78"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="83"/>
         <source>Icon Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="81"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="86"/>
         <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -902,89 +919,104 @@ WhatsThis</extracomment>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="124"/>
+        <location filename="../src/mainwindow.cpp" line="125"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="130"/>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="136"/>
+        <location filename="../src/mainwindow.cpp" line="137"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="143"/>
+        <location filename="../src/mainwindow.cpp" line="144"/>
         <source>Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="145"/>
+        <location filename="../src/mainwindow.cpp" line="146"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="146"/>
+        <location filename="../src/mainwindow.cpp" line="147"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="158"/>
+        <location filename="../src/mainwindow.cpp" line="159"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="159"/>
+        <location filename="../src/mainwindow.cpp" line="160"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="419"/>
+        <location filename="../src/mainwindow.cpp" line="427"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="478"/>
+        <location filename="../src/mainwindow.cpp" line="483"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="483"/>
+        <source>Stopping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="484"/>
+        <source>unsaved changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="497"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="492"/>
+        <location filename="../src/mainwindow.cpp" line="511"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="492"/>
+        <location filename="../src/mainwindow.cpp" line="511"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="627"/>
+        <location filename="../src/mainwindow.cpp" line="646"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="674"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="674"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="675"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="686"/>
+        <location filename="../src/mainwindow.cpp" line="705"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1487,22 +1519,22 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/utils/rubberband.cpp" line="69"/>
+        <location filename="../src/tapping/rubberband.cpp" line="66"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/rubberband.cpp" line="70"/>
+        <location filename="../src/tapping/rubberband.cpp" line="67"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/rubberband.cpp" line="77"/>
+        <location filename="../src/tapping/rubberband.cpp" line="74"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/rubberband.cpp" line="78"/>
+        <location filename="../src/tapping/rubberband.cpp" line="75"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>

@@ -47,6 +47,7 @@ class MainFunctions : public QGroupBox
   private:
     QCheckBox* showRubberband;
     QCheckBox* startMinimized;
+    QCheckBox* unsavedChanges;
     QCheckBox* expertMode;
     GraphicsEngineSelecter* m_graphicsEngine;
     LogLevelComboBox* m_logLevelComboBox;

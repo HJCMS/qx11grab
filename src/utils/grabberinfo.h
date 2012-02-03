@@ -36,7 +36,7 @@
 
 class ScreenComboBox;
 class DesktopInfo;
-class WindowGrabber;
+class DesktopTapping;
 
 /**
 * \class GrabberInfo
@@ -51,7 +51,7 @@ class GrabberInfo : public QWidget
   private:
     QRect screenGeometry;
     DesktopInfo* m_desktopInfo;
-    WindowGrabber* m_windowGrabber;
+    DesktopTapping* m_desktopTapping;
     ScreenComboBox* screenComboBox;
     QSpinBox* setWidthBox;
     QSlider* setWidthSlider;

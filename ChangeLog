@@ -1,42 +1,30 @@
-2011/12/*
-  Version: 0.3.0
-  Bugfix: application crash when open pulsedialog and no pulseserver exists
-  REMOVED: kde4 support - is now optional
-  Add: Bookmark functions
-  Add: Add Table Editor Model
-  TODO: Table Editor Item Delegation
+Version 0.4.0
+* add ffpreset editor
+* add configuration dialog
+* add more context actions
+* fix invalid item delegation
+* new rubberband behavior
+* fixed rubberband behavior with Xinerama
 
-2010/10/*
-  Version: 0.2.3.rc1
-  Modified: By Default using Theora and libvosbis for Codecs in qx11grab.conf
-  Add: KDE4 Support - This can be explicit Disabled with cmake -DDISABLE_KDE_SUPPORT:BOOL=ON
-  Add: Customized Codec Selection
-  Add: refresh logfile
-  Add: Drag and Drop Support for Command line Preview
+Version 0.3.0
+* fix application crash when open pulsedialog and no pulseserver exists
+* removed kde4 support - is now optional
+* add bookmark functions
+* add add table editor model and item delegation
 
-2010/09/17
-  Version: 0.2.2
-  Bugfix: Move Settings (windowPos/windowSize and windowState) in a separate Category to fix QMainWindow invalid loader behavior
-  Add: Support for Audio/Video Codec Selection with libavformat and libavcodec
-  Modified: new Rubberband Style
+Version 0.2.3.rc1
+* add kde4 support - this can be explicit disabled with cmake -ddisable_kde_support:bool=on
+* add customized codec selection
+* add refresh logfile
+* add drag and drop support for command line preview
 
-2010/04/05
-  Version: 0.2.1
-  Note: FFmpeg Version lower then Year 2010 now longer supported
-  Done: Add new Configuration Dialog
-  Bugfix: Video and Options sorting now Ordered by Tables
-  Bugfix: Fix crash if empty items in configuration tables
+Version 0.2.2
+* fix move settings (windowpos/windowsize and windowstate) in a separate category to fix qmainwindow invalid loader behavior
+* add support for audio/video codec selection with libavformat and libavcodec
+* new rubberband style
 
-2008/09/18
-  Version: 0.1.5
-  Bugfix: ffmpeg will crash if Audio Device is alreay in use!
-  Done: check for valid output and warn if already exists.
-
-2008/09/15
-  Add: Kill Signal
-  Add: ffmpeg -xerror option
-  Bugfix: systrayicon restore if process breaks
-
-2008/09/14 
-  Bugfix: on first start open configuration dialog and set defaults
-  Bugfix: Show Hidden option
+Version 0.2.1
+* ffmpeg Version lower then year 2010 now longer supported
+* done add new configuration dialog
+* fix video and options sorting now ordered by tables
+* fix fix crash if empty items in configuration tables

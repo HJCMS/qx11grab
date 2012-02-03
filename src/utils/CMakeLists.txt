@@ -3,21 +3,15 @@
 SET(_subproject "Utils")
 
 SET (_subproject_SOURCES
-  desktopinfo.cpp
   metadata.cpp
   screencombobox.cpp
   grabberinfo.cpp
-  windowgrabber.cpp
-  rubberband.cpp
 )
 
 SET (_subproject_HEADERS
-  desktopinfo.h
   metadata.h
   screencombobox.h
   grabberinfo.h
-  windowgrabber.h
-  rubberband.h
 )
 
 SET (_subproject_NOMOC_HEADERS
@@ -28,7 +22,7 @@ QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})
 INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${QX11GRAB_INCLUDES}
+  ${QX11GRAB_BINARY_PROJECT_INCULDE}
 )
 
 ADD_LIBRARY (${_subproject} STATIC
@@ -37,6 +31,8 @@ ADD_LIBRARY (${_subproject} STATIC
   ${_subproject_NOMOC_HEADERS}
   ${_subproject_SOURCES}
 )
+
+ADD_DEPENDENCIES (${_subproject} Tapping)
 
 SET_TARGET_PROPERTIES (${_subproject} PROPERTIES
   LINKER_LANGUAGE CXX

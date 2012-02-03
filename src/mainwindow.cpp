@@ -28,9 +28,10 @@
 #include "toolbar.h"
 #include "systemtray.h"
 
-#include "desktopinfo.h"
+/* QX11Grab subtargets */
 #include "rubberband.h"
-#include "windowgrabber.h"
+#include "desktoptapping.h"
+#include "desktopinfo.h"
 #include "grabberinfo.h"
 #include "tableeditor.h"
 #include "metadata.h"
@@ -223,6 +224,9 @@ MainWindow::MainWindow ( Settings * settings )
   setWindowModified ( false );
 }
 
+/**
+* Started die Aufnahme
+*/
 void MainWindow::record()
 {
   if ( ! m_FFProcess || m_FFProcess->isRunning() )
@@ -231,6 +235,9 @@ void MainWindow::record()
   startRecord ();
 }
 
+/**
+* Aufnahme beenden
+*/
 void MainWindow::stop()
 {
   if ( ! m_FFProcess )
@@ -256,8 +263,8 @@ void MainWindow::createEnviroment()
 
   toRubber ( true );
 
-  m_windowGrabber = new WindowGrabber ( this );
-  connect ( m_windowGrabber, SIGNAL ( rectChanged ( const QRect &, int ) ),
+  m_desktopTapping = new DesktopTapping ( this );
+  connect ( m_desktopTapping, SIGNAL ( rectChanged ( const QRect &, int ) ),
             m_grabberInfo, SLOT ( setRect ( const QRect &, int ) ) );
 }
 
@@ -345,6 +352,7 @@ const QString MainWindow::generateOutputFile()
 
   QString outFile;
   QString codec = videoCodec();
+  // TODO Das muss noch geändert werden
   if ( codec.contains ( "theora", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.ogg" ).arg ( dest );
   else if ( codec.contains ( "libvpx", Qt::CaseInsensitive ) )
@@ -383,10 +391,10 @@ void MainWindow::toRubber ( bool )
 */
 void MainWindow::grabFromWindow()
 {
-  if ( ! m_RubberBand || ! m_windowGrabber )
+  if ( ! m_RubberBand || ! m_desktopTapping )
     return;
 
-  m_windowGrabber->createRequest();
+  m_desktopTapping->createRequest();
 }
 
 /**
@@ -469,6 +477,21 @@ void MainWindow::startRecord()
   if ( ! m_RubberBand->isScalability() || ! m_listener->setOutputFile ( outputFile() ) )
     return;
 
+  /* Wenn der Benutzer Änderungen nicht gespeichert hat, wird im das hier mitgeteilt.
+  * Ist in der Konfiguration die Option "unsavedChanges" nicht aktiviert ist.
+  * Wird an dieser Stelle abgebrochen.
+  * Andernfalls startet die Aufnahme nur mit einem Warnhinweis */
+  if ( isWindowModified() )
+  {
+    bool force = cfg->value ( QLatin1String ( "unsavedChanges" ), false ).toBool();
+    m_systemTray->sendMessage ( ( ( force ) ? trUtf8 ( "Warning" ) : trUtf8 ( "Stopping" ) ),
+                                trUtf8 ( "unsaved changes" ),
+                                QSystemTrayIcon::Information );
+
+    if ( ! force )
+      return;
+  }
+
   if ( m_FFProcess->create ( m_grabberInfo->getRect() ) )
   {
     // Nehme die Editierte Zeile des Benutzers
@@ -489,7 +512,7 @@ void MainWindow::startRecord()
     }
   }
   else
-    QMessageBox::critical ( this, trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ) );
+    m_systemTray->sendMessage ( trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ), QSystemTrayIcon::Critical );
 
   m_toolBar->setActionsEnabled ( true );
   QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );

@@ -53,7 +53,7 @@ class MetaData;
 class TableEditor;
 class DesktopInfo;
 class RubberBand;
-class WindowGrabber;
+class DesktopTapping;
 class CommandPreview;
 class SystemTray;
 
@@ -76,7 +76,7 @@ class MainWindow : public QMainWindow
     CommandPreview* m_commandPreview;
     DesktopInfo* m_DesktopInfo;
     RubberBand* m_RubberBand;
-    WindowGrabber* m_windowGrabber;
+    DesktopTapping* m_desktopTapping;
     // SysTray
     SystemTray* m_systemTray;
     // triggred Actions

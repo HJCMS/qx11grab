@@ -739,6 +739,20 @@ WhatsThis</extracomment>
         <source>Graphics System</source>
         <translation>Grafiksytem</translation>
     </message>
+    <message>
+        <source>record with unsaved changes</source>
+        <translation>Mit nicht gespeicherten Änderungen aufnehmen</translation>
+    </message>
+    <message>
+        <source>force start record with unsaved changes</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Starte die Aufnahme auch mit nicht gespeicherten Änderungen.</translation>
+    </message>
+    <message>
+        <source>start recording if qx11grab have unsaved changes</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Wenn diese Option Aktiviert ist wird die Aufnahme auch dann gestartet wenn nicht gespeicherten Änderungen vorliegen.</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -811,6 +825,18 @@ WhatsThis</extracomment>
     <message>
         <source>Missing Input</source>
         <translation>Keine Eingabe erhalten</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Warnung</translation>
+    </message>
+    <message>
+        <source>Stopping</source>
+        <translation>Beende</translation>
+    </message>
+    <message>
+        <source>unsaved changes</source>
+        <translation>Nicht gespeicherte Änderungen</translation>
     </message>
 </context>
 <context>
