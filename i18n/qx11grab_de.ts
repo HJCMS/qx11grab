@@ -1160,6 +1160,18 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>OpenFontDialog</name>
+    <message>
+        <source>Open Fontfile</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation>Öffne Schriften Datei</translation>
+    </message>
+    <message>
+        <source>Freetype Font (*.ttf)</source>
+        <translation>Freetype Schrift (*.ttf)</translation>
+    </message>
+</context>
+<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1300,6 +1312,36 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <message>
         <source>Presets for (%1)</source>
         <translation>Presets für (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>SetDar</name>
+    <message>
+        <source>DAR Filter</source>
+        <translation>DAR Filter</translation>
+    </message>
+    <message>
+        <source>DAR - Display Aspect Ratio</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Aspect Ratio</source>
+        <translation>Anzeigeseitenverhältnis</translation>
+    </message>
+    <message>
+        <source>Keep in mind that this filter does not modify the pixel dimensions of the video frame. Also the display aspect ratio set by this filter may be changed by later filters in the filterchain.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetDarPlugin</name>
+    <message>
+        <source>Display Aspect Ratio</source>
+        <translation>Anzeigeseitenverhältnis</translation>
+    </message>
+    <message>
+        <source>Set the Display Aspect Ratio for the filter output video.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1497,6 +1539,28 @@ ToolTip</extracomment>
     <message>
         <source>Sharpen or blur filter for the input</source>
         <translation>Schärfe oder Verwische die Eingabe</translation>
+    </message>
+</context>
+<context>
+    <name>drawtext</name>
+    <message>
+        <source>drawtext Filter</source>
+        <translation>Text Zeichnen Filter</translation>
+    </message>
+    <message>
+        <source>Draw text string into output</source>
+        <translation>Zeichne Textzeichenkette in die Ausgabe</translation>
+    </message>
+</context>
+<context>
+    <name>drawtextPlugin</name>
+    <message>
+        <source>Text</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Draw Text into Video</source>
+        <translation>Zeichne Text in das Video</translation>
     </message>
 </context>
 </TS>

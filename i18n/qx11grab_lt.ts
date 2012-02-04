@@ -443,13 +443,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="200"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="213"/>
         <source>Fullscreen</source>
         <translation>Visame ekrane</translation>
     </message>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="186"/>
-        <location filename="../src/tapping/desktopinfo.cpp" line="197"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="199"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="210"/>
         <source>Unknown</source>
         <translation>Nežinoma</translation>
     </message>
@@ -1407,6 +1407,20 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>OpenFontDialog</name>
+    <message>
+        <location filename="../src/filters/drawtext/openfontdialog.cpp" line="36"/>
+        <source>Open Fontfile</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/openfontdialog.cpp" line="42"/>
+        <source>Freetype Font (*.ttf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenSoundDialog</name>
     <message>
         <location filename="../src/audio/opensounddialog.cpp" line="34"/>
@@ -1573,6 +1587,42 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/tableeditor/selectvcodecpresets.cpp" line="69"/>
         <source>Presets for (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetDar</name>
+    <message>
+        <location filename="../src/filters/setdar/setdar.cpp" line="40"/>
+        <source>DAR Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/setdar/setdar.cpp" line="53"/>
+        <source>DAR - Display Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/setdar/setdar.cpp" line="58"/>
+        <source>Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/setdar/setdar.cpp" line="67"/>
+        <source>Keep in mind that this filter does not modify the pixel dimensions of the video frame. Also the display aspect ratio set by this filter may be changed by later filters in the filterchain.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetDarPlugin</name>
+    <message>
+        <location filename="../src/filters/setdar/setdarplugin.cpp" line="53"/>
+        <source>Display Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/setdar/setdarplugin.cpp" line="58"/>
+        <source>Set the Display Aspect Ratio for the filter output video.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1761,12 +1811,12 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="56"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="55"/>
         <source>horizontal luma matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="62"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="61"/>
         <source>vertical luma matrix</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1786,7 +1836,7 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="84"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="85"/>
         <source>chroma effect strength</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1801,6 +1851,32 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/unsharp/unsharpplugin.cpp" line="58"/>
         <source>Sharpen or blur filter for the input</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>drawtext</name>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="40"/>
+        <source>drawtext Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="50"/>
+        <source>Draw text string into output</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>drawtextPlugin</name>
+    <message>
+        <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="53"/>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="58"/>
+        <source>Draw Text into Video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1157,6 +1157,18 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
+    <name>OpenFontDialog</name>
+    <message>
+        <source>Open Fontfile</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freetype Font (*.ttf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1297,6 +1309,36 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Presets for (%1)</source>
         <translation>Přednastavení pro (%1)</translation>
+    </message>
+</context>
+<context>
+    <name>SetDar</name>
+    <message>
+        <source>DAR Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DAR - Display Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep in mind that this filter does not modify the pixel dimensions of the video frame. Also the display aspect ratio set by this filter may be changed by later filters in the filterchain.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetDarPlugin</name>
+    <message>
+        <source>Display Aspect Ratio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the Display Aspect Ratio for the filter output video.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1484,6 +1526,28 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Sharpen or blur filter for the input</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>drawtext</name>
+    <message>
+        <source>drawtext Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw text string into output</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>drawtextPlugin</name>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw Text into Video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
