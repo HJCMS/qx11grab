@@ -22,6 +22,8 @@
 #include "desktopinfo.h"
 #include "desktoptapping.h"
 
+#include <cstdlib>
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QSize>
@@ -46,10 +48,19 @@ DesktopInfo::DesktopInfo ( QObject * parent )
             this, SIGNAL ( resized ( int ) ) );
 }
 
+qreal DesktopInfo::todar ( int w, int h ) const
+{
+  char* dar = new char[7];
+  qreal width = static_cast<qreal> ( w );
+  qreal height = static_cast<qreal> ( h );
+  sprintf ( dar, "%0.4f", ( width / height ) );
+  return std::atof ( dar );
+}
+
 /**
 * Generiert einen FrameMode Eintrag.
 */
-const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, int w, int h )
+const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, int w, int h, qreal ratio )
 {
   FrameMode mode;
   QString info ( n );
@@ -64,6 +75,7 @@ const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, 
   mode.height = h;
   mode.depth = depth();
   mode.summary = info;
+  mode.dar = ( ( ratio == 0.0 ) ? todar ( w, h ) : ratio );
 
   return mode;
 }
@@ -76,14 +88,20 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
   QList<FrameMode> buf;
   buf.append ( generateFrameMode ( "sqcif", 128, 96 ) );
   buf.append ( generateFrameMode ( "qcif", 176, 144 ) );
-  buf.append ( generateFrameMode ( "cif", 352, 288 ) );
+  buf.append ( generateFrameMode ( "cga", 320, 200 ) );
+  buf.append ( generateFrameMode ( "cif (VCD)", 352, 288 ) );
+  buf.append ( generateFrameMode ( "ega", 640, 350 ) );
   buf.append ( generateFrameMode ( "4cif", 704, 576 ) );
   buf.append ( generateFrameMode ( "qqvga", 160, 120 ) );
   buf.append ( generateFrameMode ( "qvga", 320, 240 ) );
   buf.append ( generateFrameMode ( "vga", 640, 480 ) );
+  buf.append ( generateFrameMode ( "dvd (PAL)", 720, 576 ) );
   buf.append ( generateFrameMode ( "svga", 800, 600 ) );
+  buf.append ( generateFrameMode ( "hd480", 852, 480 ) );
   buf.append ( generateFrameMode ( "xga", 1024, 768 ) );
+  buf.append ( generateFrameMode ( "hd720 (EDTV)", 1280, 720 ) );
   buf.append ( generateFrameMode ( "uxga", 1600, 1200 ) );
+  buf.append ( generateFrameMode ( "hd1080 (HDTV)", 1920, 1080 ) );
   buf.append ( generateFrameMode ( "qxga", 2048, 1536 ) );
   buf.append ( generateFrameMode ( "sxga", 1280, 1024 ) );
   buf.append ( generateFrameMode ( "qsxga", 2560, 2048 ) );
@@ -97,11 +115,6 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
   buf.append ( generateFrameMode ( "wquxga", 3840, 2400 ) );
   buf.append ( generateFrameMode ( "whsxga", 6400, 4096 ) );
   buf.append ( generateFrameMode ( "whuxga", 7680, 4800 ) );
-  buf.append ( generateFrameMode ( "cga", 320, 200 ) );
-  buf.append ( generateFrameMode ( "ega", 640, 350 ) );
-  buf.append ( generateFrameMode ( "hd480", 852, 480 ) );
-  buf.append ( generateFrameMode ( "hd720", 1280, 720 ) );
-  buf.append ( generateFrameMode ( "hd1080", 1920, 1080 ) );
 
   if ( parent )
     buf.append ( grabScreenGeometry ( parent ) );

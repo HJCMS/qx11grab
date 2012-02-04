@@ -46,6 +46,7 @@ class DesktopInfo : public QObject, private QX11Info
 
   private:
     QDesktopWidget* m_desktopWidget;
+    inline qreal todar ( int w, int h ) const;
 
   Q_SIGNALS:
     /**
@@ -70,6 +71,7 @@ class DesktopInfo : public QObject, private QX11Info
       int height; /**< mode height */
       int depth; /**< current screen depth */
       QString summary; /**< Mode Description e.g.: name (width x height) */
+      qreal dar; /**< DAR - Display Aspect Ratio */
     } FrameMode;
 
     /**
@@ -78,7 +80,7 @@ class DesktopInfo : public QObject, private QX11Info
      * @param w  Mode Width
      * @param h  Mode Height
      */
-    const FrameMode generateFrameMode ( const QString &n, int w, int h );
+    const FrameMode generateFrameMode ( const QString &n, int w, int h, qreal ratio = 0.0 );
 
     /**
      * Returns the number of the screen currently in use.

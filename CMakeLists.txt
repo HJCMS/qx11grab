@@ -204,6 +204,15 @@ IF (NOT XLIBS_FOUND)
 ENDIF (NOT XLIBS_FOUND)
 
 ##############################################################
+## Freetype 
+##############################################################
+
+PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
+IF (NOT FONTS_FOUND)
+  MESSAGE (FATAL_ERROR "freetype2 or fontconfig not found")
+ENDIF (NOT FONTS_FOUND)
+
+##############################################################
 ## DBus-1
 ## The current stable branch is 1.4.x
 ## http://www.freedesktop.org/wiki/Software/dbus
@@ -375,6 +384,8 @@ MESSAGE ("")
 MESSAGE ("Required Packages:")
 summary (FFMPEG_FOUND "FFmpeg" FALSE)
 summary (XLIBS_FOUND "XLIBS" FALSE)
+summary (FONTS_FOUND "freetype2/fontconfig" FALSE)
+summary (DBUS_FOUND "DBus" FALSE)
 summary (QT4_FOUND "Qt4" FALSE)
 summary (ALSA_FOUND "Alsa" FALSE)
 MESSAGE ("")

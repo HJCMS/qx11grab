@@ -48,7 +48,6 @@ Unsharp::Unsharp ( QWidget * parent )
   info->setText ( trUtf8 ( "Sharpen or blur the input" ) );
   layout->addRow ( info );
 
-
   luma_msize_x = new QSlider ( Qt::Horizontal, this );
   luma_msize_x->setRange ( 3, 13 );
   luma_msize_x->setTickInterval ( 1 );
@@ -63,7 +62,8 @@ Unsharp::Unsharp ( QWidget * parent )
 
   luma_amount = new QDoubleSpinBox ( this );
   luma_amount->setRange ( -2.0, 5.0 );
-  luma_amount->setValue ( 1.0 );
+  luma_amount->setValue ( 0.4 );
+  luma_amount->setSingleStep ( 0.1 );
   layout->addRow ( trUtf8 ( "luma effect strength" ), luma_amount );
 
   chroma_msize_x = new QSlider ( Qt::Horizontal, this );
@@ -81,6 +81,7 @@ Unsharp::Unsharp ( QWidget * parent )
   chroma_amount = new QDoubleSpinBox ( this );
   chroma_amount->setRange ( -2.0, 5.0 );
   chroma_amount->setValue ( 0.0 );
+  chroma_amount->setSingleStep ( 0.1 );
   layout->addRow ( trUtf8 ( "chroma effect strength" ), chroma_amount );
 
   m_preview = new QLineEdit ( this );

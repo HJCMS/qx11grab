@@ -36,7 +36,12 @@
 /**
 * @short Version
 */
-#define QX11GRAB_VERSION "@QX11GRAB_VERSION@"
+#define QX11GRAB_VERSION "@QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@"
+
+/**
+* @short Version
+*/
+#define QX11GRAB_VERSION_STRING "@QX11GRAB_VERSION@"
 
 /**
 * @short dbus Domain

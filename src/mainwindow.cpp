@@ -84,7 +84,7 @@ MainWindow::MainWindow ( Settings * settings )
     , m_listener ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
-  setWindowTitle ( QString::fromUtf8 ( "QX11Grab (%1)[*]" ).arg ( QX11GRAB_VERSION ) );
+  setWindowTitle ( QString::fromUtf8 ( "QX11Grab (%1)[*]" ).arg ( QX11GRAB_VERSION_STRING ) );
   setMinimumWidth ( 450 );
   setMinimumHeight ( 400 );
   setWindowFlags ( ( windowFlags() | Qt::WindowContextHelpButtonHint ) );

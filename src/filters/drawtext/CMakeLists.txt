@@ -1,22 +1,30 @@
-## Unsharp Plugin
+## drawtext Plugin
 
-SET (target_plugin "Unsharp")
+SET (target_plugin "drawtext")
 
 SET (LIBRARY_OUTPUT_PATH
   ${PLUGIN_OUTPUT_PATH}/
 )
 
 SET(plugin_SOURCES
-  unsharpplugin.cpp
-  unsharp.cpp
+  drawtextplugin.cpp
+  drawtext.cpp
+  openfontdialog.cpp
 )
 
 SET(plugin_HEADERS
-  unsharp.h
-  unsharpplugin.h
+  drawtext.h
+  drawtextplugin.h
+  openfontdialog.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})
+
+
+INCLUDE_DIRECTORIES (
+  ${QX11GRAB_INCLUDES}
+  ${FONTS_INCLUDE_DIRS}
+)
 
 ADD_LIBRARY (${target_plugin} MODULE
   ${plugin_SOURCES}
@@ -27,6 +35,7 @@ ADD_LIBRARY (${target_plugin} MODULE
 TARGET_LINK_LIBRARIES (${target_plugin}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
+  ${FONTS_LIBRARIES}
   qx11grabinterface
 )
 
@@ -43,3 +52,4 @@ INSTALL (TARGETS ${target_plugin}
 )
 
 ##EOF
+

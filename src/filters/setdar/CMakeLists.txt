@@ -1,19 +1,19 @@
-## Unsharp Plugin
+## SetDar Plugin
 
-SET (target_plugin "Unsharp")
+SET (target_plugin "setdar")
 
 SET (LIBRARY_OUTPUT_PATH
   ${PLUGIN_OUTPUT_PATH}/
 )
 
 SET(plugin_SOURCES
-  unsharpplugin.cpp
-  unsharp.cpp
+  setdarplugin.cpp
+  setdar.cpp
 )
 
 SET(plugin_HEADERS
-  unsharp.h
-  unsharpplugin.h
+  setdar.h
+  setdarplugin.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})
@@ -43,3 +43,4 @@ INSTALL (TARGETS ${target_plugin}
 )
 
 ##EOF
+

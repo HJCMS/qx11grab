@@ -71,6 +71,7 @@ INSTALL (FILES
 )
 
 ADD_SUBDIRECTORY (unsharp)
+ADD_SUBDIRECTORY (setdar)
+ADD_SUBDIRECTORY (drawtext)
 
 ## EOF
- 

@@ -47,7 +47,7 @@
 DesktopTapping::DesktopTapping ( QObject * parent )
     : QDesktopWidget ()
 {
-  Q_UNUSED ( parent );
+  Q_CHECK_PTR ( parent );
   setParent ( qApp->desktop() );
   setMouseTracking ( false );
 }
