@@ -19,47 +19,29 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_DRAWTEXT_H
-#define QX11GRAB_DRAWTEXT_H
+#include "fontpreview.h"
 
 /* QtCore */
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QtCore/QDebug>
+#include <QtCore/QRectF>
+#include <QtCore/QPointF>
 
 /* QtGui */
-#include <QtGui/QDialog>
-#include <QtGui/QLineEdit>
-#include <QtGui/QWidget>
+#include <QtGui/QBrush>
+#include <QtGui/QFontMetrics>
+#include <QtGui/QPainter>
 
-class FontBox;
-
-class Q_DECL_EXPORT drawtext : public QDialog
+FontPreview::FontPreview ( QWidget * parent )
+    : QLabel ( parent )
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  setObjectName ( QLatin1String ( "FontPreview" ) );
+  setContentsMargins ( 0, 0, 0, 0 );
+  setWordWrap ( true );
+  setScaledContents ( false );
+  setTextInteractionFlags ( Qt::NoTextInteraction );
+  setMinimumHeight ( 200 );
+  setAlignment ( ( Qt::AlignTop | Qt::AlignLeft ) );
+}
 
-  private:
-    enum ColorType { BACKGROUND, FOREGROUND };
-    FontBox* m_fontBox;
-    QLineEdit* m_lineEditOutput;
-    QString fileFilePath;
-    QString fontcolor;
-    QString boxcolor;
-
-    void openColorChooser ( ColorType type );
-
-  private Q_SLOTS:
-    void setBackgroundColor();
-    void setForegroundColor();
-    void updateFont();
-
-  public:
-    explicit drawtext ( QWidget * parent = 0 );
-    int start();
-    Q_SCRIPTABLE const QString value();
-    ~drawtext();
-};
-
-#endif
-
+FontPreview::~FontPreview()
+{}

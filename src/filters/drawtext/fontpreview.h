@@ -19,34 +19,26 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef OPENFONTDIALOG_H
-#define OPENFONTDIALOG_H
+#ifndef FontPreview_H
+#define FontPreview_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QFileDialog>
-#include <QtGui/QFont>
+#include <QtGui/QLabel>
 #include <QtGui/QWidget>
 
-class OpenFontDialog : public QFileDialog
+class FontPreview : public QLabel
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
-  private:
-    QString p_fontPath;
-
-  private Q_SLOTS:
-    void fileChanged ( const QString &path );
-
   public:
-    OpenFontDialog ( QWidget * parent = 0 );
-    const QString fontPath();
-    ~OpenFontDialog();
+    explicit FontPreview ( QWidget * parent = 0 );
+    ~FontPreview();
 };
 
 #endif

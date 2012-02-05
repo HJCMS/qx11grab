@@ -19,47 +19,62 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_DRAWTEXT_H
-#define QX11GRAB_DRAWTEXT_H
+#ifndef FONTBOX_H
+#define FONTBOX_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QDialog>
+#include <QtGui/QColor>
+#include <QtGui/QComboBox>
+#include <QtGui/QFont>
+#include <QtGui/QIcon>
+#include <QtGui/QLabel>
+#include <QtGui/QSlider>
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
-class FontBox;
+/* Plugin */
+#include "fontpreview.h"
 
-class Q_DECL_EXPORT drawtext : public QDialog
+class Q_DECL_EXPORT FontBox : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    enum ColorType { BACKGROUND, FOREGROUND };
-    FontBox* m_fontBox;
-    QLineEdit* m_lineEditOutput;
-    QString fileFilePath;
-    QString fontcolor;
-    QString boxcolor;
-
-    void openColorChooser ( ColorType type );
+    FontPreview* m_fontPreview;
+    QIcon fontIcon;
+    QFont currentFont;
+    QString fontFilePath;
+    QComboBox* m_fontComboBox;
+    QLineEdit* m_lineEdit;
+    QSlider* m_sliderSize;
 
   private Q_SLOTS:
-    void setBackgroundColor();
-    void setForegroundColor();
-    void updateFont();
+    void updatedView();
+    void fontIndexChanged ( int );
+    void fontSizeChanged ( int );
+
+  Q_SIGNALS:
+    void updateFont ();
 
   public:
-    explicit drawtext ( QWidget * parent = 0 );
-    int start();
-    Q_SCRIPTABLE const QString value();
-    ~drawtext();
+    explicit FontBox ( QWidget * parent = 0 );
+
+    void initFontConfigDatabase();
+
+    void setPreviewColor ( const QString &bg, const QString &fg );
+
+    const QFont font();
+    const QString path();
+    const QString text();
+    const QString size();
+
+    ~FontBox();
 };
 
 #endif
-

@@ -9,13 +9,15 @@ SET (LIBRARY_OUTPUT_PATH
 SET(plugin_SOURCES
   drawtextplugin.cpp
   drawtext.cpp
-  openfontdialog.cpp
+  fontbox.cpp
+  fontpreview.cpp
 )
 
 SET(plugin_HEADERS
   drawtext.h
   drawtextplugin.h
-  openfontdialog.h
+  fontbox.h
+  fontpreview.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})

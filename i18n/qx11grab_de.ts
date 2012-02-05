@@ -1160,18 +1160,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-    <name>OpenFontDialog</name>
-    <message>
-        <source>Open Fontfile</source>
-        <extracomment>WindowTitle</extracomment>
-        <translation>Öffne Schriften Datei</translation>
-    </message>
-    <message>
-        <source>Freetype Font (*.ttf)</source>
-        <translation>Freetype Schrift (*.ttf)</translation>
-    </message>
-</context>
-<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1550,6 +1538,24 @@ ToolTip</extracomment>
     <message>
         <source>Draw text string into output</source>
         <translation>Zeichne Textzeichenkette in die Ausgabe</translation>
+    </message>
+    <message>
+        <source>Foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set foreground color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set background color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

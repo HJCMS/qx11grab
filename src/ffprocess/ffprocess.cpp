@@ -28,6 +28,7 @@
 #include "version.h"
 #endif
 
+/* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
@@ -35,6 +36,9 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
+#include <QtCore/QProcessEnvironment>
+
+/* QtGui */
 #include <QtGui/QMessageBox>
 
 FFProcess::FFProcess ( QObject *parent, Settings *settings )
@@ -95,9 +99,13 @@ bool FFProcess::start ( const QStringList &cmd )
   if ( arguments.contains ( application() ) )
     arguments.removeOne ( application() );
 
-  setenv ( "FFMPEG_FORCE_NOCOLOR", "1", 1 );
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
+  env.insert ( "AV_LOG_FORCE_NOCOLOR", "1" );
+  env.insert ( "FFREPORT", qx11grabLogfile().toUtf8().constData() );
 
   m_QProcess = new QProcess ( this );
+  m_QProcess->setProcessEnvironment ( env );
   m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
   m_QProcess->setReadChannel ( QProcess::StandardOutput );

@@ -153,6 +153,13 @@ MetaData::MetaData ( QWidget * parent )
 
   setLayout ( gridLayout );
 
+  connect ( metadata_INAM, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+  connect ( metadata_IART, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+  connect ( metadata_ICOP, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+  connect ( metadata_ISBJ, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+  connect ( metadata_ICMT, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+  connect ( metadata_LANG, SIGNAL ( editingFinished () ), this, SIGNAL ( postUpdate () ) );
+
   // Updates
   connect ( this, SIGNAL ( toggled ( bool ) ),
             this, SLOT ( statusUpdate ( bool ) ) );

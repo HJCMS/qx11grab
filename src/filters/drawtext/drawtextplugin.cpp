@@ -40,7 +40,7 @@ bool drawtextPlugin::create ( QWidget * parent )
 
 bool drawtextPlugin::exec()
 {
-  return ( m_drawtext->exec() == QDialog::Accepted ) ? true : false;
+  return ( m_drawtext->start() == QDialog::Accepted ) ? true : false;
 }
 
 const QString drawtextPlugin::pluginName()

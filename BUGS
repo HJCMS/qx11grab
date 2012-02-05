@@ -1,0 +1,3 @@
+* Why now Spaces in Commandline Strings?
+  - QProcess delimiting with spaces
+  - Currently there is now way to modify the delimiter for QProccess

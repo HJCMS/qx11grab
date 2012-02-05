@@ -1157,18 +1157,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
-    <name>OpenFontDialog</name>
-    <message>
-        <source>Open Fontfile</source>
-        <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Freetype Font (*.ttf)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1537,6 +1525,24 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Draw text string into output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Foreground</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set foreground color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set background color dialog</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

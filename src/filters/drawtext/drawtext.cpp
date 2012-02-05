@@ -20,17 +20,22 @@
 **/
 
 #include "drawtext.h"
-#include "openfontdialog.h"
+#include "fontbox.h"
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
+#include <QtCore/QUrl>
 
 /* QtGui */
+#include <QtGui/QColor>
+#include <QtGui/QColorDialog>
 #include <QtGui/QDialogButtonBox>
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
-#include <QtGui/QToolButton>
+#include <QtGui/QLabel>
+#include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 drawtext::drawtext ( QWidget * parent )
@@ -42,69 +47,123 @@ drawtext::drawtext ( QWidget * parent )
   setSizeGripEnabled ( true );
   setMinimumSize ( 100, 100 );
 
-  int grow = 0;
-  QGridLayout* layout = new QGridLayout ( this );
+  fontcolor = QString ( "#000000" );
+  boxcolor = QString ( "#ffffff" );
+
+  QVBoxLayout* layout = new QVBoxLayout ( this );
   layout->setObjectName ( QLatin1String ( "drawtext/Layout" ) );
 
   QLabel* info0 = new QLabel ( this );
   info0->setText ( trUtf8 ( "Draw text string into output" ) );
-  layout->addWidget ( info0, grow++, 0, 1, 2, Qt::AlignLeft );
+  layout->addWidget ( info0 );
 
-  m_lineEditTextFile = new QLineEdit ( this );
-  m_lineEditTextFile->setText ( "/usr/share/fonts/truetype/FreeSans.ttf" );
-  layout->addWidget ( m_lineEditTextFile, grow, 0, 1, 1 );
+  m_fontBox = new FontBox ( this );
+  m_fontBox->setPreviewColor ( boxcolor, fontcolor );
+  layout->addWidget ( m_fontBox );
 
-  QToolButton* btnFonts = new QToolButton ( this );
-  btnFonts->setIcon ( QIcon::fromTheme ( "folder-open" ) );
-  layout->addWidget ( btnFonts, grow++, 1, 1, 1 );
+  QHBoxLayout* hLayout = new QHBoxLayout();
+  hLayout->addStretch ();
 
-  m_lineEditTextLine = new QLineEdit ( this );
-  m_lineEditTextLine->setText ( "QX11Grab Demo" );
-  layout->addWidget ( m_lineEditTextLine, grow++, 0, 1, 2 );
+  QPushButton* btnForeground = new QPushButton ( trUtf8 ( "Foreground" ), this );
+  btnForeground->setIcon ( QIcon::fromTheme ( "preferences-desktop-color" ) );
+  /*: ToolTip */
+  btnForeground->setToolTip ( trUtf8 ( "Set foreground color dialog" ) );
+  hLayout->addWidget ( btnForeground );
 
-  layout->rowStretch ( grow++ );
+  QPushButton* btnBackground = new QPushButton ( trUtf8 ( "Background" ), this );
+  btnBackground->setIcon ( QIcon::fromTheme ( "preferences-desktop-color" ) );
+  /*: ToolTip */
+  btnBackground->setToolTip ( trUtf8 ( "Set background color dialog" ) );
+  hLayout->addWidget ( btnBackground );
+
+  layout->addLayout ( hLayout );
 
   m_lineEditOutput = new QLineEdit ( this );
   m_lineEditOutput->setText ( "drawtext=fontfile=/usr/share/fonts/truetype/FreeSans.ttf:text='Example'" );
-  layout->addWidget ( m_lineEditOutput, grow++, 0, 1, 2 );
+  layout->addWidget ( m_lineEditOutput );
 
   QDialogButtonBox* m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
   m_buttonBox->setObjectName ( QLatin1String ( "drawtext/ButtonBox" ) );
   m_buttonBox->setStandardButtons ( ( QDialogButtonBox::Save | QDialogButtonBox::Cancel ) );
-  layout->addWidget ( m_buttonBox, grow++, 0, 1, 2 );
+  layout->addWidget ( m_buttonBox );
 
   setLayout ( layout );
 
-  connect ( btnFonts, SIGNAL ( clicked () ), this, SLOT ( openFontFile() ) );
+  connect ( btnBackground, SIGNAL ( clicked () ),  this, SLOT ( setBackgroundColor() ) );
+  connect ( btnForeground, SIGNAL ( clicked () ),  this, SLOT ( setForegroundColor() ) );
+  connect ( m_fontBox, SIGNAL ( updateFont () ),  this, SLOT ( updateFont () ) );
   connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 }
 
-void drawtext::openFontFile()
+void drawtext::openColorChooser ( ColorType type )
 {
-  OpenFontDialog* d = new OpenFontDialog ( this );
-  if ( d->exec() == QFileDialog::Accepted )
-    m_lineEditTextFile->setText ( d->fontPath() );
+  QColorDialog* d = new QColorDialog ( this );
+  if ( d->exec() == QColorDialog::Accepted )
+  {
+    QColor color = d->selectedColor();
+    switch ( type )
+    {
+      case BACKGROUND:
+        boxcolor = color.name();
+        break;
 
+      case FOREGROUND:
+        fontcolor = color.name();
+        break;
+
+      default:
+        break;
+    };
+
+    m_fontBox->setPreviewColor ( boxcolor, fontcolor );
+    updateFont();
+  }
   delete d;
 }
 
-void drawtext::update ()
+void drawtext::setBackgroundColor()
 {
-  QString value = QString ( "drawtext=fontfile=%1:text='%2':x=%3:y=%4:fontsize=%5:fontcolor=gray" )
-                  .arg ( m_lineEditTextFile->text(), // File
-                      m_lineEditTextLine->text(), // Text
-                      QString::number ( 5 ), // _x
-                      QString::number ( 5 ), // _y
-                      QString::number ( 24 ) // fontsize
-                  );
+  openColorChooser ( BACKGROUND );
+}
+
+void drawtext::setForegroundColor()
+{
+  openColorChooser ( FOREGROUND );
+}
+
+void drawtext::updateFont ()
+{
+  QString color = fontcolor.replace ( "#", "0x" );
+  QByteArray path = QUrl::toPercentEncoding ( m_fontBox->path() );
+  QByteArray text = QUrl::toPercentEncoding ( m_fontBox->text() );
+  QString value = QString ( "drawtext=\"fontfile=%1:text='%2':x=%3:y=%4:fontsize=%5:fontcolor=%6\"" )
+                  .arg ( path, // File
+                         text, // Text
+                         QString::number ( 5 ), // _x
+                         QString::number ( 5 ), // _y
+                         m_fontBox->size(), // fontsize
+                         color
+                       );
 
   m_lineEditOutput->setText ( value );
 }
 
+/**
+* Erst beim öffnen des Plugins den FontConfig Cache einlesen!
+*/
+int drawtext::start()
+{
+  m_fontBox->initFontConfigDatabase();
+  return exec();
+}
+
+/**
+* Parameter Liste
+*/
 const QString drawtext::value()
 {
-  return m_lineEditOutput->text ();
+  return m_lineEditOutput->text();
 }
 
 drawtext::~drawtext()
