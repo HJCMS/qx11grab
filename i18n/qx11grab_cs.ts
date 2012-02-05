@@ -438,10 +438,6 @@ Příklad pro OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <source>Warning</source>
-        <translation>Varování</translation>
-    </message>
-    <message>
         <source>Dimension</source>
         <translation>Rozměr</translation>
     </message>
@@ -500,6 +496,14 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Permission Denied: %1.</source>
         <translation>Přístup odepřen: %1.</translation>
+    </message>
+    <message>
+        <source>Working Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Executable Script</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1542,6 +1546,25 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Set background color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text shadow color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow offset</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow alpha</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>

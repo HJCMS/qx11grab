@@ -441,10 +441,6 @@ Beispiel für OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <source>Warning</source>
-        <translation>Warnung</translation>
-    </message>
-    <message>
         <source>Dimension</source>
         <translation>Dimension</translation>
     </message>
@@ -503,6 +499,14 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Permission Denied: %1.</source>
         <translation>Zugriff Verweigert: %1.</translation>
+    </message>
+    <message>
+        <source>Working Directory</source>
+        <translation>Arbeits Verzeichnis</translation>
+    </message>
+    <message>
+        <source>Executable Script</source>
+        <translation>Ausführbares Script</translation>
     </message>
 </context>
 <context>
@@ -1325,11 +1329,11 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     <name>SetDarPlugin</name>
     <message>
         <source>Display Aspect Ratio</source>
-        <translation>Anzeigeseitenverhältnis</translation>
+        <translation>Anzeige Seitenverhältnis</translation>
     </message>
     <message>
         <source>Set the Display Aspect Ratio for the filter output video.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setzt das Anzeige Seitenverhältnis für die Video Filterausgabe.</translation>
     </message>
 </context>
 <context>
@@ -1541,21 +1545,40 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Foreground</source>
-        <translation type="unfinished"></translation>
+        <translation>Vordergrund</translation>
     </message>
     <message>
         <source>Set foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Text Farben Dialog</translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Hintergrund</translation>
     </message>
     <message>
         <source>Set background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>Schatten</translation>
+    </message>
+    <message>
+        <source>Text shadow color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Text Schatten Dialog</translation>
+    </message>
+    <message>
+        <source>Shadow offset</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Schattenversatz</translation>
+    </message>
+    <message>
+        <source>Shadow alpha</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Alphawert Schatten</translation>
     </message>
 </context>
 <context>
