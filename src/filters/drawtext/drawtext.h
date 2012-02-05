@@ -28,7 +28,9 @@
 
 /* QtGui */
 #include <QtGui/QDialog>
+#include <QtGui/QDoubleSpinBox>
 #include <QtGui/QLineEdit>
+#include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
 class FontBox;
@@ -40,19 +42,25 @@ class Q_DECL_EXPORT drawtext : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    enum ColorType { BACKGROUND, FOREGROUND };
+    enum ColorType { BACKGROUND, FOREGROUND, TEXTSHADOW };
     FontBox* m_fontBox;
     QLineEdit* m_lineEditOutput;
+    QSpinBox* m_shadowOffset;
+    QDoubleSpinBox* m_shadowAlpha;
     QString fileFilePath;
     QString fontcolor;
     QString boxcolor;
+    QString shadowcolor;
 
     void openColorChooser ( ColorType type );
 
   private Q_SLOTS:
     void setBackgroundColor();
     void setForegroundColor();
+    void setShadowColor();
     void updateFont();
+    void updatePreview ( int );
+    void updatePreview ( double );
 
   public:
     explicit drawtext ( QWidget * parent = 0 );

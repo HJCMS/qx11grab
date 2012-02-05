@@ -22,12 +22,15 @@
 #ifndef FFPROCESS_H
 #define FFPROCESS_H
 
+/* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QRect>
-#include <QtGui/QX11Info>
 #include <QtCore/QProcess>
+
+/* QtGui */
+#include <QtGui/QX11Info>
 
 class Settings;
 
@@ -43,10 +46,11 @@ class FFProcess : public QObject
     QStringList arguments;
     const QString application();
     const QString workdir();
+    const QString writeScript ( const QStringList &cmd );
 
   Q_SIGNALS:
     void running ();
-    void down ();
+    void down();
     void message ( const QString & );
     void trigger ( const QString & );
     void errmessage ( const QString &, const QString & );

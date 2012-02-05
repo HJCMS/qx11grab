@@ -278,8 +278,8 @@ const QStringList MetaData::getCmd ( const QString &codec )
 
     QString param ( edit->objectName() );
     QString key = param.remove ( "Metadata/" );
-    QByteArray data = QUrl::toPercentEncoding ( edit->text() );
-    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( translateKeyword ( key ), QString ( data ) );
+    QString data = QString ( edit->text() ).replace ( QRegExp ( "[\\t\\n\\r]+" ), " " );
+    cmd << "-metadata" << QString ( "%1=\"%2\"" ).arg ( translateKeyword ( key ), data );
   }
 
   cmd << "-metadata" << QString ( "year=%1" ).arg ( metadata_ICRD->date().year() );

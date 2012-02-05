@@ -23,7 +23,9 @@
 #include "drawtext.h"
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
+#include <QtCore/QRegExp>
 #include <QtCore/QtPlugin>
 
 bool drawtextPlugin::create ( QWidget * parent )
@@ -60,7 +62,8 @@ const QString drawtextPlugin::description()
 
 const QString drawtextPlugin::data()
 {
-  return m_drawtext->value();
+  QString text = QString ( m_drawtext->value() );
+  return text.replace ( QRegExp ( "[\\t\\n\\r]+" ), " " );
 }
 
 Q_EXPORT_PLUGIN2 ( drawtext, drawtextPlugin )

@@ -30,11 +30,11 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QFile>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
 #include <QtCore/QProcessEnvironment>
 
@@ -70,9 +70,33 @@ const QString FFProcess::workdir()
   QString p = cfg->outputDirectory();
   QDir d ( p );
   if ( ! d.isReadable() )
-    QMessageBox::warning ( 0x00, trUtf8 ( "Warning" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
+    emit errmessage ( trUtf8 ( "Working Directory" ), trUtf8 ( "Permission Denied: %1." ).arg ( p ) );
 
   return p;
+}
+
+/**
+* Erstellt das Schellscript zum Ausführen von FFmpeg
+* NOTE Wir müssen ein Schellscript verwenden weil QProcess keinen Delimiter modifikator anbietet!
+*/
+const QString FFProcess::writeScript ( const QStringList &cmd )
+{
+  QByteArray username = qgetenv ( "USER" );
+  QString script = QString::fromUtf8 ( "%1/qx11grab_%2.sh" ).arg ( workdir(), QString( username ) );
+  QFile fp ( script );
+  if ( fp.open ( QIODevice::WriteOnly ) )
+  {
+    QTextStream stream ( &fp );
+    stream << QLatin1String ( "#!/usr/bin/env sh\n" );
+    stream << "## QX11Grab FFmpeg QCRreencast Script\n\n";
+    stream << cmd.join ( " " ).trimmed();
+    stream << " \"$@\"\n\n";
+    stream << "exit $?\n\n";
+    stream << "# EOF\n";
+    fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
+    fp.close();
+  }
+  return script;
 }
 
 /**
@@ -95,9 +119,13 @@ bool FFProcess::start ( const QStringList &cmd )
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
 
-  QStringList arguments ( cmd );
-  if ( arguments.contains ( application() ) )
-    arguments.removeOne ( application() );
+  QFileInfo script ( writeScript ( cmd ) );
+  if ( ! script.isExecutable() )
+  {
+    emit errmessage ( trUtf8 ( "Executable Script" ),
+                      trUtf8 ( "Permission Denied: %1." ).arg ( script.absoluteFilePath() ) );
+    return false;
+  }
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
@@ -123,11 +151,7 @@ bool FFProcess::start ( const QStringList &cmd )
   connect ( m_QProcess, SIGNAL ( started() ),
             this, SLOT ( startCheck() ) );
 
-#ifdef QX11GRAB_DEBUG
-  qDebug() << Q_FUNC_INFO << application() << arguments;
-#endif
-
-  m_QProcess->start ( application(), arguments );
+  m_QProcess->start ( script.absoluteFilePath() );
   return true;
 }
 
