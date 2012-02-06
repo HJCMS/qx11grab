@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef FONTBOX_H
-#define FONTBOX_H
+#ifndef DROPSHADOWBOX_H
+#define DROPSHADOWBOX_H
 
 /* QtCore */
 #include <QtCore/QObject>
@@ -28,53 +28,36 @@
 
 /* QtGui */
 #include <QtGui/QColor>
-#include <QtGui/QComboBox>
-#include <QtGui/QFont>
-#include <QtGui/QIcon>
-#include <QtGui/QLabel>
+#include <QtGui/QGroupBox>
 #include <QtGui/QSlider>
-#include <QtGui/QLineEdit>
+#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
-/* Plugin */
-#include "fontpreview.h"
+class ColorPreview;
 
-class Q_DECL_EXPORT FontBox : public QWidget
+class DropShadowBox : public QGroupBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    FontPreview* m_fontPreview;
-    QIcon fontIcon;
-    QFont currentFont;
-    QString fontFilePath;
-    QComboBox* m_fontComboBox;
-    QLineEdit* m_lineEdit;
-    QSlider* m_sliderSize;
-
-  private Q_SLOTS:
-    void updatedView();
-    void fontIndexChanged ( int );
-    void fontSizeChanged ( int );
+    ColorPreview* m_colorPreview;
+    QToolButton* m_buttonSetColor;
+    QSlider* m_shadowOffset;
+    QSlider* m_shadowAlpha;
 
   Q_SIGNALS:
-    void updateFont ();
+    void buttonClicked();
+    void offsetChanged ( int );
+    void alphaChanged ( int );
+
+  public Q_SLOTS:
+    void setShadowColor ( const QColor &color );
 
   public:
-    explicit FontBox ( QWidget * parent = 0 );
-
-    void initFontConfigDatabase();
-
-    void setPreviewColor ( const QString &bg, const QString &fg );
-
-    const QFont font();
-    const QString path();
-    const QString text();
-    const QString size();
-
-    ~FontBox();
+    DropShadowBox ( QWidget * parent = 0 );
+    ~DropShadowBox();
 };
 
 #endif

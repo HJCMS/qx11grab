@@ -27,13 +27,19 @@
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QColor>
+#include <QtGui/QComboBox>
 #include <QtGui/QDialog>
-#include <QtGui/QDoubleSpinBox>
+#include <QtGui/QFont>
+#include <QtGui/QIcon>
 #include <QtGui/QLineEdit>
 #include <QtGui/QSpinBox>
+#include <QtGui/QSlider>
 #include <QtGui/QWidget>
 
-class FontBox;
+class FontPreview;
+class DropShadowBox;
+class ColorPreview;
 
 class Q_DECL_EXPORT drawtext : public QDialog
 {
@@ -43,24 +49,34 @@ class Q_DECL_EXPORT drawtext : public QDialog
 
   private:
     enum ColorType { BACKGROUND, FOREGROUND, TEXTSHADOW };
-    FontBox* m_fontBox;
+    FontPreview* m_fontPreview;
+    DropShadowBox* m_dropShadowBox;
+    ColorPreview* m_foregroundPreview;
+    ColorPreview* m_backgroundPreview;
+    QIcon fontIcon;
+    QFont currentFont;
+    QString fontFilePath;
+    QComboBox* m_fontComboBox;
+    QLineEdit* m_lineEdit;
+    QSlider* m_sliderSize;
     QLineEdit* m_lineEditOutput;
-    QSpinBox* m_shadowOffset;
-    QDoubleSpinBox* m_shadowAlpha;
     QString fileFilePath;
-    QString fontcolor;
-    QString boxcolor;
-    QString shadowcolor;
+    QColor fontcolor;
+    QColor boxcolor;
+    QColor shadowcolor;
 
+    void initFontConfigDatabase();
     void openColorChooser ( ColorType type );
 
   private Q_SLOTS:
+    void fontIndexChanged ( int );
+    void fontSizeChanged ( int );
     void setBackgroundColor();
     void setForegroundColor();
     void setShadowColor();
+    void setShadowOffset ( int );
+    void setShadowAlpha ( int );
     void updateFont();
-    void updatePreview ( int );
-    void updatePreview ( double );
 
   public:
     explicit drawtext ( QWidget * parent = 0 );

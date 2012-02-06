@@ -9,15 +9,17 @@ SET (LIBRARY_OUTPUT_PATH
 SET(plugin_SOURCES
   drawtextplugin.cpp
   drawtext.cpp
-  fontbox.cpp
   fontpreview.cpp
+  dropshadowbox.cpp
+  colorpreview.cpp
 )
 
 SET(plugin_HEADERS
   drawtext.h
   drawtextplugin.h
-  fontbox.h
   fontpreview.h
+  dropshadowbox.h
+  colorpreview.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})

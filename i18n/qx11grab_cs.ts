@@ -375,6 +375,19 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>DropShadowBox</name>
+    <message>
+        <source>Shadow Offset</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shadow Alpha</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ExportDialog</name>
     <message>
         <source>Export current Commandline</source>
@@ -1536,35 +1549,21 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set foreground color dialog</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set background color dialog</source>
+        <source>Font Size</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shadow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text shadow color dialog</source>
+        <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shadow offset</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shadow alpha</source>
+        <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>

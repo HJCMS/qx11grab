@@ -455,6 +455,21 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+    <name>DropShadowBox</name>
+    <message>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="50"/>
+        <source>Shadow Offset</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="57"/>
+        <source>Shadow Alpha</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ExportDialog</name>
     <message>
         <location filename="../src/exportdialog.cpp" line="39"/>
@@ -1849,58 +1864,41 @@ ToolTip</extracomment>
 <context>
     <name>drawtext</name>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="45"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="57"/>
         <source>drawtext Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="58"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="74"/>
         <source>Draw text string into output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="67"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="94"/>
+        <source>Font Size</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="108"/>
         <source>Foreground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="70"/>
-        <source>Set foreground color dialog</source>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="111"/>
+        <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="73"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="121"/>
+        <source>open background color dialog</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="118"/>
         <source>Background</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="76"/>
-        <source>Set background color dialog</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="81"/>
-        <source>Shadow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="84"/>
-        <source>Text shadow color dialog</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="89"/>
-        <source>Shadow offset</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="96"/>
-        <source>Shadow alpha</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
