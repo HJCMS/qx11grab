@@ -1759,6 +1759,77 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>TextPosition</name>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="43"/>
+        <source>Text Position</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="47"/>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="48"/>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="49"/>
+        <source>Top Centered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="50"/>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="51"/>
+        <source>Middle Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="52"/>
+        <source>Middle Centered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="53"/>
+        <source>Middle Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="54"/>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="55"/>
+        <source>Bottom Centered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="56"/>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="61"/>
+        <source>Horizontal Text Indent</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="67"/>
+        <source>Vertical Text Indent</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TextView</name>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="49"/>
@@ -1863,40 +1934,46 @@ ToolTip</extracomment>
 <context>
     <name>drawtext</name>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="57"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="61"/>
         <source>drawtext Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="74"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="78"/>
         <source>Draw text string into output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="94"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="98"/>
         <source>Font Size</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="108"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="112"/>
         <source>Foreground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="111"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
         <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="121"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="125"/>
         <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="118"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="142"/>
+        <source>Copy to Clipboard</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="122"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>

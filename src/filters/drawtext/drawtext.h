@@ -40,6 +40,7 @@
 class FontPreview;
 class DropShadowBox;
 class ColorPreview;
+class TextPosition;
 
 class Q_DECL_EXPORT drawtext : public QDialog
 {
@@ -48,41 +49,101 @@ class Q_DECL_EXPORT drawtext : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    /** types for color dialog */
     enum ColorType { BACKGROUND, FOREGROUND, TEXTSHADOW };
+
+    /** drawed Text previewer */
     FontPreview* m_fontPreview;
+
+    /** groubox for shadow configuration */
     DropShadowBox* m_dropShadowBox;
+
+    /** color preview label for drawed text */
     ColorPreview* m_foregroundPreview;
+
+    /** color preview label for background */
     ColorPreview* m_backgroundPreview;
+
+    /** set drawed text Position */
+    TextPosition* m_textPosition;
+
+    /** icon for combobox items */
     QIcon fontIcon;
+
+    /** current selected font */
     QFont currentFont;
+
+    /** absolute fontfile path */
     QString fontFilePath;
+
+    /** font selector */
     QComboBox* m_fontComboBox;
-    QLineEdit* m_lineEdit;
+
+    /** text to draw */
+    QLineEdit* m_textInputEdit;
+
+    /** slider for font size */
     QSlider* m_sliderSize;
+
+    /** filter commandline */
     QLineEdit* m_lineEditOutput;
+
+    /** freetype fontfile path */
     QString fileFilePath;
+
+    /** text color */
     QColor fontcolor;
+
+    /** preview background color */
     QColor boxcolor;
+
+    /** text shadow color */
     QColor shadowcolor;
 
+    /** get all .ttf files in fontconfig database */
     void initFontConfigDatabase();
+
+    /** open qcolordialog and set type */
     void openColorChooser ( ColorType type );
 
   private Q_SLOTS:
+    /** combobox items changed */
     void fontIndexChanged ( int );
+
+    /** Slider Size Changed */
     void fontSizeChanged ( int );
+
+    /** set previewer background color */
     void setBackgroundColor();
+
+    /** set text color */
     void setForegroundColor();
+
+    /** set shadow color */
     void setShadowColor();
+
+    /** set shadow x, y offset */
     void setShadowOffset ( int );
+
+    /** set shadow alpha */
     void setShadowAlpha ( int );
+
+    /** update the commandline and all previewers */
     void updateFont();
+
+    /** copy dataset into clipboard */
+    void clipper();
 
   public:
     explicit drawtext ( QWidget * parent = 0 );
+
+    /** initial fontconfig and start dialog */
     int start();
+
+    /** filter commandline */
     Q_SCRIPTABLE const QString value();
-    ~drawtext();
+
+    virtual ~drawtext();
 };
 
 #endif

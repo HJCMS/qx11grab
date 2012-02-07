@@ -12,6 +12,7 @@ SET(plugin_SOURCES
   fontpreview.cpp
   dropshadowbox.cpp
   colorpreview.cpp
+  textposition.cpp
 )
 
 SET(plugin_HEADERS
@@ -20,6 +21,7 @@ SET(plugin_HEADERS
   fontpreview.h
   dropshadowbox.h
   colorpreview.h
+  textposition.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})

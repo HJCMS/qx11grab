@@ -23,6 +23,7 @@
 #include "fontpreview.h"
 #include "dropshadowbox.h"
 #include "colorpreview.h"
+#include "textposition.h"
 
 /* QX11Grab */
 #include <fontconfig/fontconfig.h>
@@ -36,16 +37,19 @@
 #include <QtCore/QRegExp>
 
 /* QtGui */
+#include <QtGui/QApplication>
 #include <QtGui/QBrush>
+#include <QtGui/QClipboard>
 #include <QtGui/QColor>
 #include <QtGui/QColorDialog>
 #include <QtGui/QDialogButtonBox>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 #include <QtGui/QLabel>
 #include <QtGui/QPalette>
 #include <QtGui/QPushButton>
-#include <QtGui/QGridLayout>
+#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
 drawtext::drawtext ( QWidget * parent )
@@ -85,9 +89,9 @@ drawtext::drawtext ( QWidget * parent )
   m_fontComboBox = new  QComboBox ( this );
   layout->addWidget ( m_fontComboBox, grow++, 0, 1, 2, Qt::AlignLeft );
 
-  m_lineEdit = new QLineEdit ( this );
-  m_lineEdit->setText ( startText );
-  layout->addWidget ( m_lineEdit, grow++, 0, 1, 2 );
+  m_textInputEdit = new QLineEdit ( this );
+  m_textInputEdit->setText ( startText );
+  layout->addWidget ( m_textInputEdit, grow++, 0, 1, 2 );
 
   m_sliderSize = new QSlider ( Qt::Horizontal, this );
   /*: ToolTip */
@@ -123,11 +127,20 @@ drawtext::drawtext ( QWidget * parent )
 
   hLayout->addStretch ();
 
+  m_textPosition = new TextPosition ( this );
+  hLayout->addWidget ( m_textPosition );
+
   layout->addLayout ( hLayout, grow++, 0, 1, 2 );
   // } HorizontalLayout
 
   m_lineEditOutput = new QLineEdit ( this );
-  layout->addWidget ( m_lineEditOutput, grow++, 0, 1, 2 );
+  layout->addWidget ( m_lineEditOutput, grow, 0, 1, 1 );
+
+  QToolButton* btnCopy = new QToolButton ( this );
+  btnCopy->setIcon ( QIcon::fromTheme ( "edit-copy" ) );
+  /*: ToolTip */
+  btnCopy->setToolTip ( trUtf8 ( "Copy to Clipboard" ) );
+  layout->addWidget ( btnCopy, grow++, 1, 1, 1 );
 
   QDialogButtonBox* m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
   m_buttonBox->setObjectName ( QLatin1String ( "drawtext/ButtonBox" ) );
@@ -136,7 +149,7 @@ drawtext::drawtext ( QWidget * parent )
 
   setLayout ( layout );
 
-  connect ( m_lineEdit, SIGNAL ( editingFinished () ),
+  connect ( m_textInputEdit, SIGNAL ( editingFinished () ),
             this, SLOT ( updateFont () ) );
 
   connect ( m_fontComboBox, SIGNAL ( currentIndexChanged ( int ) ),
@@ -151,6 +164,9 @@ drawtext::drawtext ( QWidget * parent )
   connect ( btnForeground, SIGNAL ( clicked () ),
             this, SLOT ( setForegroundColor() ) );
 
+  connect ( m_textPosition, SIGNAL ( postUpdate() ),
+            this, SLOT ( updateFont() ) );
+
   connect ( m_dropShadowBox, SIGNAL ( buttonClicked () ),
             this, SLOT ( setShadowColor() ) );
 
@@ -159,6 +175,9 @@ drawtext::drawtext ( QWidget * parent )
 
   connect ( m_dropShadowBox, SIGNAL ( alphaChanged ( int ) ),
             this, SLOT ( setShadowAlpha ( int ) ) );
+
+  connect ( btnCopy, SIGNAL ( clicked() ),
+            this, SLOT ( clipper() ) );
 
   connect ( m_buttonBox, SIGNAL ( accepted () ),
             this, SLOT ( accept() ) );
@@ -169,7 +188,7 @@ drawtext::drawtext ( QWidget * parent )
 
 /**
 * Weil FFmpeg nur Freetype unterstützt lese den fontconfig Cache ein
-* und Suche dort alle ttf Dateien.
+* und Suche dort alle .ttf Dateien.
 * Schreibe sie zum neu sortieren in eine Map und füge die Werte
 * ( FC_FAMILY, FC_FILE ) in die ComboBox ein.
 */
@@ -194,7 +213,7 @@ void drawtext::initFontConfigDatabase ()
           {
             QString buf;
             QFileInfo info ( buf.sprintf ( "%s", fc_file ) );
-            if ( info.isFile() && info.fileName().contains ( "ttf", Qt::CaseInsensitive ) )
+            if ( info.isFile() && info.fileName().contains ( ".ttf", Qt::CaseInsensitive ) )
             {
               QString fc_family ( buf.sprintf ( "%s", FcNameUnparse ( fc_fontset->fonts[j] ) ) );
               map.insert ( fc_family, info.absoluteFilePath() );
@@ -277,9 +296,7 @@ void drawtext::openColorChooser ( ColorType type )
   delete d;
 }
 
-/**
-* Eine neue Schrift wurde ausgewählt
-*/
+/** Eine neue Schrift wurde ausgewählt */
 void drawtext::fontIndexChanged ( int index )
 {
   fontFilePath = m_fontComboBox->itemData ( index, Qt::UserRole ).toString();
@@ -297,42 +314,32 @@ void drawtext::fontSizeChanged ( int )
   updateFont();
 }
 
-/**
-* QLabel Hintergrund setzen
-*/
+/** Vorschau Hintergrund setzen */
 void drawtext::setBackgroundColor()
 {
   openColorChooser ( BACKGROUND );
 }
 
-/**
-* Textfarbe setzen
-*/
+/** Textfarbe setzen */
 void drawtext::setForegroundColor()
 {
   openColorChooser ( FOREGROUND );
 }
 
-/**
-* Textschatten farbe setzen
-*/
+/** Textschatten Farbe setzen */
 void drawtext::setShadowColor()
 {
   openColorChooser ( TEXTSHADOW );
 }
 
-/**
-* Siehe updateFont()
-*/
+/** Schatten versatz setzen */
 void drawtext::setShadowOffset ( int i )
 {
   m_fontPreview->setShadowOffset ( i );
   updateFont();
 }
 
-/**
-* Siehe updateFont()
-*/
+/** Schatten Transparenz setzen */
 void drawtext::setShadowAlpha ( int i )
 {
   shadowcolor.setAlpha ( i );
@@ -341,52 +348,53 @@ void drawtext::setShadowAlpha ( int i )
 }
 
 /**
+* Alle gesetzten Parameter einlesen und in die Filter Zeichenkette schreiben.
 * Damit QTextEdit die Änderungen bei der Schrift an nimmt
 * muss der Text neu geschrieben werden.
-* Sende gleichzeitig das signal @ref updateFont an die Unterklassen.
-* Alle gesetzten Paremet einlesen und an die
-* Filter Zeichenkette übergeben.
 */
 void drawtext::updateFont ()
 {
   currentFont.setPointSize ( m_sliderSize->value() );
   m_fontPreview->setFont ( currentFont );
-  m_fontPreview->setText ( m_lineEdit->text() );
+  m_fontPreview->setText ( m_textInputEdit->text() );
   m_fontPreview->setToolTip ( currentFont.key() );
 
-//   m_fontPreview->indent ();
   QStringList values;
   QString color = fontcolor.name().replace ( "#", "0x" );
   values << QString ( "drawtext=\"fontfile=%1:text='%2':x=%3:y=%4:fontsize=%5:fontcolor=%6" )
   .arg ( fontFilePath, // File
          m_fontPreview->text(), // Text
-         "(w-max_glyph_w)/2", // _x
-         "h/2-ascent", // _y
+         m_textPosition->x(), // _x
+         m_textPosition->y(), // _y
          QString::number ( currentFont.pointSize() ), // fontsize
          color // Text Color
        );
 
   QString offsets = QString::number ( m_fontPreview->shadowOffset() );
-  QString alpha;
   color = shadowcolor.name().replace ( "#", "0x" );
+  QString alphaBuffer;
   values << QString ( ":shadowx=%1:shadowy=%2:shadowcolor=%3@%4:ft_load_flags=render\"" )
-  .arg ( offsets, offsets, color, alpha.sprintf ( "%.1f", shadowcolor.alphaF() ) );
+  .arg ( offsets, offsets, color, alphaBuffer.sprintf ( "%.1f", shadowcolor.alphaF() ) );
 
   m_lineEditOutput->setText ( values.join ( "" ) );
 }
 
 /**
-* Erst beim öffnen des Plugins den FontConfig Cache einlesen!
+* Kopiere den aktuellen Listen Inhalt ins das Clipboard
 */
+void drawtext::clipper()
+{
+  QApplication::clipboard()->setText ( m_lineEditOutput->text() );
+}
+
+/** Den FontConfig Cache einlesen und den Dialog starten */
 int drawtext::start()
 {
   initFontConfigDatabase();
   return exec();
 }
 
-/**
-* Parameter Liste
-*/
+/** Aktuelle Parameter Liste */
 const QString drawtext::value()
 {
   return m_lineEditOutput->text();

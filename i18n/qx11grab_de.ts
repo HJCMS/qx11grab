@@ -1464,6 +1464,64 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>TextPosition</name>
+    <message>
+        <source>Text Position</source>
+        <extracomment>ToolTip</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation>Oben Links</translation>
+    </message>
+    <message>
+        <source>Top Centered</source>
+        <translation>Oben Zentriert</translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation>Oben Rechts</translation>
+    </message>
+    <message>
+        <source>Middle Left</source>
+        <translation>Mitte Links</translation>
+    </message>
+    <message>
+        <source>Middle Centered</source>
+        <translation>Zentriert</translation>
+    </message>
+    <message>
+        <source>Middle Right</source>
+        <translation>Mitte Rechts</translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation>Unten Links</translation>
+    </message>
+    <message>
+        <source>Bottom Centered</source>
+        <translation>Unten Zentriert</translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation>Unten Rechts</translation>
+    </message>
+    <message>
+        <source>Horizontal Text Indent</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Horizontales Text Einrücken</translation>
+    </message>
+    <message>
+        <source>Vertical Text Indent</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Vertikales Text Einrücken</translation>
+    </message>
+</context>
+<context>
     <name>TextView</name>
     <message>
         <source>wait for input ...</source>
@@ -1572,12 +1630,17 @@ ToolTip</extracomment>
     <message>
         <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Öffne Vordergund Farbdialog</translation>
     </message>
     <message>
         <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation>Hintergrund auswählen öffnen</translation>
+    </message>
+    <message>
+        <source>Copy to Clipboard</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Kopiere in den Zwischenspeicher</translation>
     </message>
 </context>
 <context>

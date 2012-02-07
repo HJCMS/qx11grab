@@ -36,7 +36,7 @@ ColorPreview::ColorPreview ( QWidget * parent )
   setIndent ( 0 );
   setBackgroundRole ( QPalette::WindowText );
   setBackgroundColor ( QColor ( 0, 0, 0 ) );
-  setFrameStyle ( QFrame::Box );
+  setFrameStyle ( QFrame::StyledPanel );
 }
 
 void ColorPreview::setBackgroundColor ( const QColor &color )
