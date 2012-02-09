@@ -41,9 +41,6 @@
 
 int main ( int argc, char* argv[] )
 {
-  /* only for debugging
-  setenv ( "QT_GRAPHICSSYSTEM", "opengl", 1 );
-  QApplication::setDesktopSettingsAware ( false ); */
   QApplication::setColorSpec ( QApplication::CustomColor );
   Application* app = new Application ( argc, argv );
   if ( ! app->start() )
