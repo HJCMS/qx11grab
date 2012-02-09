@@ -26,6 +26,8 @@
 #endif
 
 /* QtCore */
+#include <QtCore/QByteArray>
+#include <QtCore/QDir>
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QHashIterator>
 
@@ -252,6 +254,28 @@ const QIcon Settings::themeIcon ( const QString &icon, const QString &broken )
   fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );
 
   return QIcon::fromTheme ( icon, fallbackIcon );
+}
+
+/**
+* @short recording logfile
+*/
+const QString Settings::logfile()
+{
+  QString log;
+  log.sprintf ( "qx11grab-%s_%s.log", getenv ( "USER" ), getenv ( "DISPLAY" ) );
+  QDir dir ( QDir::tempPath() );
+  return dir.filePath ( log );
+}
+
+/**
+* @short Contact E-Mail
+*/
+const char* Settings::aboutMail()
+{
+  QByteArray m ( "nospam" );
+  m.append ( "@" );
+  m.append ( "hjcms.de" );
+  return m.constData();
 }
 
 Settings::~Settings()

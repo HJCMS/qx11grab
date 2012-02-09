@@ -136,7 +136,7 @@ bool FFProcess::start ( const QStringList &cmd )
   m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
   m_QProcess->setReadChannel ( QProcess::StandardOutput );
-  m_QProcess->setStandardErrorFile ( qx11grabLogfile() );
+  m_QProcess->setStandardErrorFile ( Settings::logfile() );
 
   connect ( m_QProcess, SIGNAL ( stateChanged ( QProcess::ProcessState ) ),
             this, SLOT ( status ( QProcess::ProcessState ) ) );
@@ -268,7 +268,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
       break;
 
     case QProcess::CrashExit:
-      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( qx11grabLogfile() ) );
+      emit message ( trUtf8 ( "Process crashed see logfile %1" ).arg ( Settings::logfile() ) );
       break;
 
     default:
@@ -282,7 +282,7 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 void FFProcess::startCheck()
 {
   if ( isRunning() )
-    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( qx11grabLogfile() ) );
+    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( Settings::logfile() ) );
 }
 
 FFProcess::~FFProcess()

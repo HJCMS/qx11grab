@@ -177,6 +177,12 @@ class Settings : public QSettings
     static const QIcon themeIcon ( const QString &icon,
                                    const QString &broken = QString::fromUtf8 ( "broken" ) );
 
+    /** recording logfile */
+    static const QString logfile();
+
+    /** Contact E-Mail */
+    static const char* aboutMail();
+
     ~Settings();
 
 };

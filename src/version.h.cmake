@@ -23,12 +23,7 @@
 #define QX11GRAB_VERSION_H
 
 /* QtCore */
-#include <QtCore/QByteArray>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
 #include <QtCore/QGlobalStatic>
-#include <QtCore/QMap>
-#include <QtCore/QString>
 
 /* QtGui */
 #include <QtGui/QX11Info>
@@ -47,27 +42,5 @@
 * @short dbus Domain
 */
 #define QX11GRAB_DBUS_DOMAIN_NAME "@QX11GRAB_DBUS_DOMAIN_NAME@"
-
-/**
-* @short recording logfile
-*/
-static inline const QString qx11grabLogfile()
-{
-  QString log;
-  log.sprintf ( "qx11grab-%s_%s.log", getenv ( "USER" ), getenv ( "DISPLAY" ) );
-  QDir dir ( QDir::tempPath() );
-  return dir.filePath ( log );
-}
-
-/**
-* @short Contact E-Mail
-*/
-static inline const char* aboutMail()
-{
-  QByteArray m ( "nospam" );
-  m.append ( "@" );
-  m.append ( "hjcms.de" );
-  return m.constData();
-}
 
 #endif

@@ -319,7 +319,7 @@ void MainWindow::loadStats()
 
   loadSettings();
 
-  QFileInfo log ( qx11grabLogfile() );
+  QFileInfo log ( cfg->logfile() );
   m_toolBar->setActionsEnabled ( log.exists() );
 }
 
@@ -566,7 +566,7 @@ void MainWindow::saveSettings()
 */
 void MainWindow::openLogFileDialog()
 {
-  QFileInfo log ( qx11grabLogfile() );
+  QFileInfo log ( cfg->logfile() );
   if ( log.isReadable() )
   {
     LogViewer dialog ( log, centralWidget() );
