@@ -130,7 +130,6 @@ bool FFProcess::start ( const QStringList &cmd )
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
   env.insert ( "AV_LOG_FORCE_NOCOLOR", "1" );
-  env.insert ( "FFREPORT", qx11grabLogfile().toUtf8().constData() );
 
   m_QProcess = new QProcess ( this );
   m_QProcess->setProcessEnvironment ( env );
