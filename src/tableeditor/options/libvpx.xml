@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE encoder [
+<!ELEMENT encoder (option+)>
+<!ATTLIST encoder
+  id  CDATA  #REQUIRED
+  summary  CDATA  #REQUIRED
+  extension  CDATA  #REQUIRED
+>
+<!ELEMENT option (value*)>
+<!ATTLIST option 
+  param  CDATA  #REQUIRED
+>
+<!ELEMENT value (#PCDATA)>
+]>
+<!-- VP8 Format -->
+<encoder id="libvpx" summary="VP8 Format" extension="webm">
+	<option param="threads" />
+	<option param="profile" />
+	<option param="vb" />
+	<option param="g" />
+	<option param="keyint_min" />
+	<option param="qmin" />
+	<option param="qmax" />
+	<option param="bufsize" require="vb" />
+	<option param="rc_init_occupancy" require="vb" />
+	<option param="rc_buffer_aggressivity" />
+	<option param="skip_threshold" />
+	<option param="qcomp" />
+	<option param="maxrate" require="vb" />
+	<option param="minrate" require="vb" />
+	<option param="crf" />
+	<option param="quality">
+		<value>best</value>
+		<value>good</value>
+		<value>realtime</value>
+	</option>
+	<option param="speed" />
+	<option param="mb_threshold" />
+	<option param="slices" />
+</encoder>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE encoder [
+<!ELEMENT encoder (option+)>
+<!ATTLIST encoder
+  id  CDATA  #REQUIRED
+  summary  CDATA  #REQUIRED
+  extension  CDATA  #REQUIRED
+>
+<!ELEMENT option (value*)>
+<!ATTLIST option 
+  param  CDATA  #REQUIRED
+>
+<!ELEMENT value (#PCDATA)>
+]>
+<!-- H.264/AVC/MPEG-4 AVC/MPEG-4 Format -->
+<encoder id="libx264" summary="H.264/AVC/MPEG-4 AVC/MPEG-4 Part 10 Format" extension="mp4">
+	<option param="preset">
+		<value>ultrafast</value>
+		<value>superfast</value>
+		<value>veryfast</value>
+		<value>faster</value>
+		<value>fast</value>
+		<value>medium</value>
+		<value>slow</value>
+		<value>slower</value>
+		<value>eryslow</value>
+		<value>placebo</value>
+	</option>
+	<option param="tune">
+		<value>film</value>
+		<value>animation</value>
+		<value>grain</value>
+		<value>stillimage</value>
+		<value>psnr</value>
+		<value>ssim</value>
+		<value>fastdecode</value>
+		<value>zerolatency</value>
+	</option>
+	<option param="fastfirstpass" />
+	<option param="profile">
+		<value>baseline</value>
+		<value>main</value>
+		<value>high</value>
+		<value>high10</value>
+		<value>high422</value>
+		<value>high444</value>
+	</option>
+	<option param="x264opts" />
+</encoder>
