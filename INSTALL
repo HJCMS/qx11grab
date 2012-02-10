@@ -124,6 +124,10 @@ INSTALL_TREE:
             |-- ChangeLog
             |-- NEWS
             |-- README
+            |-- options
+            |   |-- libvpx.xml
+            |   |-- libx264.xml
+            |   `-- options.dtd
             `-- qx11grab_untranslated.ts
 
-43 directories, 45 files
+44 directories, 48 files
