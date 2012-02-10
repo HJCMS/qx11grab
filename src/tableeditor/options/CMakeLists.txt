@@ -13,6 +13,9 @@ SET (options_SOURCES
 
 SET (options_HEADERS
   codecoptions.h
+)
+
+SET (options_NOMOC_HEADERS
   optionsfinder.h
 )
 
@@ -27,6 +30,7 @@ INCLUDE_DIRECTORIES (
 ADD_LIBRARY (CodecOptions STATIC
   ${options_MOC}
   ${options_HEADERS}
+  ${options_NOMOC_HEADERS}
   ${options_SOURCES}
 )
 
