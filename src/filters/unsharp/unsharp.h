@@ -24,7 +24,9 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QDialog>
@@ -40,6 +42,7 @@ class Q_DECL_EXPORT Unsharp : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QSettings* cfg;
     QSlider* luma_msize_x;
     QSlider* luma_msize_y;
     QDoubleSpinBox* luma_amount;
@@ -48,6 +51,11 @@ class Q_DECL_EXPORT Unsharp : public QDialog
     QDoubleSpinBox* chroma_amount;
     QLineEdit* m_preview;
 
+  protected:
+    void setSettings ( const QString &key, const QVariant &value );
+    const QVariant settingsValue ( const QString &key, const QVariant &defaultValue = QVariant() );
+    void loadDefaults();
+
   private Q_SLOTS:
     void update ();
     void update ( int );
@@ -55,7 +63,7 @@ class Q_DECL_EXPORT Unsharp : public QDialog
 
   public:
     explicit Unsharp ( QWidget * parent = 0 );
-    Q_SCRIPTABLE const QString value();
+    Q_SCRIPTABLE const QString data();
     ~Unsharp();
 };
 

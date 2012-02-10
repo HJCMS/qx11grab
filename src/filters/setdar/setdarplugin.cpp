@@ -60,7 +60,7 @@ const QString SetDarPlugin::description()
 
 const QString SetDarPlugin::data()
 {
-  return m_setdar->value();
+  return m_setdar->data();
 }
 
 Q_EXPORT_PLUGIN2 ( SetDar, SetDarPlugin )

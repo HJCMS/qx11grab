@@ -26,7 +26,6 @@
 
 /* QtGui */
 #include <QtGui/QAction>
-#include <QtGui/QIcon>
 #include <QtGui/QVBoxLayout>
 
 /* QtDBus */

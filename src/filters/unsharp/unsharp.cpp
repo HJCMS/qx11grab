@@ -33,12 +33,15 @@
 
 Unsharp::Unsharp ( QWidget * parent )
     : QDialog ( parent )
+    , cfg ( 0 )
 {
   setObjectName ( QLatin1String ( "Unsharp" ) );
   setWindowTitle ( trUtf8 ( "Unsharp Filter" ) );
   setWindowIcon ( QIcon::fromTheme ( "preferences-plugin" ) );
   setSizeGripEnabled ( true );
   setMinimumSize ( 100, 100 );
+
+  cfg = new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", this );
 
   QFormLayout* layout = new QFormLayout ( this );
   layout->setObjectName ( QLatin1String ( "Unsharp/Layout" ) );
@@ -100,13 +103,36 @@ Unsharp::Unsharp ( QWidget * parent )
   connect ( chroma_msize_x, SIGNAL ( valueChanged ( int ) ), this, SLOT ( update ( int ) ) );
   connect ( chroma_msize_y, SIGNAL ( valueChanged ( int ) ), this, SLOT ( update ( int ) ) );
   connect ( chroma_amount, SIGNAL ( valueChanged ( double ) ), this, SLOT ( update ( double ) ) );
-  connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
-  connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
+  connect ( m_buttonBox, SIGNAL ( accepted() ), this, SLOT ( accept() ) );
+  connect ( m_buttonBox, SIGNAL ( rejected() ), this, SLOT ( reject() ) );
 
-  update (); // set defaults
+  loadDefaults(); // set defaults
 }
 
-void Unsharp::update ()
+void Unsharp::setSettings ( const QString &key, const QVariant &value )
+{
+  QString path = QString::fromUtf8 ( "Filter_Unsharp/%1" ).arg ( key );
+  cfg->setValue ( path, value );
+}
+
+const QVariant Unsharp::settingsValue ( const QString &key, const QVariant &defaultValue )
+{
+  QString path = QString::fromUtf8 ( "Filter_Unsharp/%1" ).arg ( key );
+  return cfg->value ( path, defaultValue );
+}
+
+void Unsharp::loadDefaults()
+{
+  luma_msize_x->setValue ( settingsValue ( "luma_msize_x", 3 ).toUInt() );
+  luma_msize_y->setValue ( settingsValue ( "luma_msize_y", 3 ).toUInt() );
+  luma_amount->setValue ( settingsValue ( "luma_amount", 0.2 ).toDouble() );
+  chroma_msize_x->setValue ( settingsValue ( "chroma_msize_x", 3 ).toUInt() );
+  chroma_msize_y->setValue ( settingsValue ( "chroma_msize_y", 3 ).toUInt() );
+  chroma_amount->setValue ( settingsValue ( "chroma_amount", 0.0 ).toDouble() );
+  update();
+}
+
+void Unsharp::update()
 {
   QString buffer;
   QString value = buffer.sprintf ( "unsharp=%d:%d:%0.1f:%d:%d:%0.1f",
@@ -131,9 +157,15 @@ void Unsharp::update ( double )
   update();
 }
 
-const QString Unsharp::value()
+const QString Unsharp::data()
 {
-  return m_preview->text ();
+  setSettings ( "luma_msize_x", luma_msize_x->value() );
+  setSettings ( "luma_msize_y", luma_msize_y->value() );
+  setSettings ( "luma_amount", luma_amount->value() );
+  setSettings ( "chroma_msize_x", chroma_msize_x->value() );
+  setSettings ( "chroma_msize_y", chroma_msize_y->value() );
+  setSettings ( "chroma_amount", chroma_amount->value() );
+  return m_preview->text();
 }
 
 Unsharp::~Unsharp()

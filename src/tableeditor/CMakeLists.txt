@@ -1,5 +1,7 @@
 # CMakeLists.txt
 
+ADD_SUBDIRECTORY(options)
+
 SET (tableeditor_SOURCES
   tableeditor.cpp
   codecselecter.cpp
@@ -37,6 +39,8 @@ QT4_ADD_RESOURCES (tableeditor_RESRC ../qx11grab.qrc)
 INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}/options
+  ${CMAKE_CURRENT_SOURCE_DIR}/options
   ${QX11GRAB_INCLUDES}
   ${QX11GRAB_BINARY_PROJECT_INCULDE}
 )
@@ -57,6 +61,7 @@ TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTDBUS_LIBRARY}
   AVOptions
   Settings
+  CodecOptions
   qx11grabinterface
 )
 

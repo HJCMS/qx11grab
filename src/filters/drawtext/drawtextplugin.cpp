@@ -62,7 +62,7 @@ const QString drawtextPlugin::description()
 
 const QString drawtextPlugin::data()
 {
-  QString text = QString ( m_drawtext->value() );
+  QString text = QString ( m_drawtext->data() );
   return text.replace ( QRegExp ( "[\\t\\n\\r]+" ), " " );
 }
 

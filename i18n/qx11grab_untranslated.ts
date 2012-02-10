@@ -290,11 +290,37 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+    <name>CodecOptions</name>
+    <message>
+        <location filename="../src/tableeditor/options/codecoptions.cpp" line="43"/>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecSelecter</name>
     <message>
         <location filename="../src/tableeditor/codecselecter.cpp" line="109"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodecTable</name>
+    <message>
+        <location filename="../src/tableeditor/codectable.cpp" line="123"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/codectable.cpp" line="126"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/codectable.cpp" line="130"/>
+        <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -310,18 +336,18 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableModel</name>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="133"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="154"/>
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="173"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="194"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="175"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="196"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -565,67 +591,67 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="233"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="237"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="241"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="245"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="249"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="253"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="232"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="236"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="240"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="244"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="248"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="233"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="232"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="237"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="236"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="241"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="240"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="245"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="244"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="249"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="248"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="253"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="268"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="267"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="286"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="272"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="271"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="166"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="165"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="184"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="183"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -653,7 +679,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FilterMenu</name>
     <message>
-        <location filename="../src/tableeditor/filtermenu.cpp" line="37"/>
+        <location filename="../src/tableeditor/filtermenu.cpp" line="36"/>
         <source>Create Filter</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1599,22 +1625,22 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>SetDar</name>
     <message>
-        <location filename="../src/filters/setdar/setdar.cpp" line="40"/>
+        <location filename="../src/filters/setdar/setdar.cpp" line="41"/>
         <source>DAR Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/setdar/setdar.cpp" line="53"/>
+        <location filename="../src/filters/setdar/setdar.cpp" line="56"/>
         <source>DAR - Display Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/setdar/setdar.cpp" line="58"/>
+        <location filename="../src/filters/setdar/setdar.cpp" line="61"/>
         <source>Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/setdar/setdar.cpp" line="67"/>
+        <location filename="../src/filters/setdar/setdar.cpp" line="71"/>
         <source>Keep in mind that this filter does not modify the pixel dimensions of the video frame. Also the display aspect ratio set by this filter may be changed by later filters in the filterchain.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1667,7 +1693,19 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
     <message>
         <location filename="../src/tableeditor/tableeditor.cpp" line="75"/>
-        <source>This button insert a new empty table row</source>
+        <source>insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="80"/>
+        <source> remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
+        <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -1677,20 +1715,8 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="80"/>
-        <source>This button remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/tableeditor/tableeditor.cpp" line="82"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
-        <source>This button clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1878,42 +1904,42 @@ ToolTip</extracomment>
 <context>
     <name>Unsharp</name>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="38"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="39"/>
         <source>Unsharp Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="48"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="51"/>
         <source>Sharpen or blur the input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="55"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="58"/>
         <source>horizontal luma matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="61"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="64"/>
         <source>vertical luma matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="67"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="70"/>
         <source>luma effect strength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="73"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="76"/>
         <source>horizontal chroma matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="79"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="82"/>
         <source>vertical chroma matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/unsharp/unsharp.cpp" line="85"/>
+        <location filename="../src/filters/unsharp/unsharp.cpp" line="88"/>
         <source>chroma effect strength</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1934,46 +1960,46 @@ ToolTip</extracomment>
 <context>
     <name>drawtext</name>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="61"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="65"/>
         <source>drawtext Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="78"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="77"/>
         <source>Draw text string into output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="98"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="94"/>
         <source>Font Size</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="112"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="107"/>
         <source>Foreground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="110"/>
         <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="125"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="119"/>
         <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="142"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="136"/>
         <source>Copy to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="122"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="116"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>

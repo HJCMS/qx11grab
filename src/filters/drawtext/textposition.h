@@ -36,6 +36,7 @@ class TextPosition : public QWidget
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+    Q_PROPERTY ( int index READ index WRITE setIndex USER false )
 
   private:
     QString _x;
@@ -68,6 +69,10 @@ class TextPosition : public QWidget
   Q_SIGNALS:
     void postUpdate ();
 
+  public Q_SLOTS:
+    /** set position combo item index */
+    void setIndex ( int );
+
   public:
     explicit TextPosition ( QWidget * parent = 0 );
 
@@ -76,6 +81,9 @@ class TextPosition : public QWidget
 
     /** text position y */
     const QString y();
+
+    /** position combo item index */
+    int index();
 
     ~TextPosition();
 };

@@ -24,7 +24,9 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QColor>
@@ -49,6 +51,11 @@ class Q_DECL_EXPORT drawtext : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QSettings* cfg;
+    void setSettings ( const QString &key, const QVariant &value );
+    const QVariant settingsValue ( const QString &key, const QVariant &defaultValue = QVariant() );
+    void loadDefaults();
+
     /** types for color dialog */
     enum ColorType { BACKGROUND, FOREGROUND, TEXTSHADOW };
 
@@ -141,7 +148,7 @@ class Q_DECL_EXPORT drawtext : public QDialog
     int start();
 
     /** filter commandline */
-    Q_SCRIPTABLE const QString value();
+    Q_SCRIPTABLE const QString data();
 
     virtual ~drawtext();
 };

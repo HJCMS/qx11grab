@@ -60,7 +60,7 @@ const QString UnsharpPlugin::description()
 
 const QString UnsharpPlugin::data()
 {
-  QString val = m_unsharp->value();
+  QString val = m_unsharp->data();
   if ( val.isEmpty() )
     return QString::fromUtf8 ( "\"unsharp\"" );
 

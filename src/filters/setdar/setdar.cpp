@@ -35,12 +35,15 @@
 
 SetDar::SetDar ( QWidget * parent )
     : QDialog ( parent )
+    , cfg ( 0 )
 {
   setObjectName ( QLatin1String ( "SetDar" ) );
   setWindowTitle ( trUtf8 ( "DAR Filter" ) );
   setWindowIcon ( QIcon::fromTheme ( "preferences-plugin" ) );
   setSizeGripEnabled ( true );
   setMinimumSize ( 100, 100 );
+
+  cfg = new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", this );
 
   QVBoxLayout* vLayout = new QVBoxLayout ( this );
 
@@ -60,6 +63,7 @@ SetDar::SetDar ( QWidget * parent )
   m_comboBox->addItem ( QString::fromUtf8 ( "15/9 (= 1,66:1)" ), QString ( "1.6666" ) );
   m_comboBox->addItem ( QString::fromUtf8 ( "16/9 (= 1,78:1)" ), QString ( "1.7777" ) );
   m_comboBox->addItem ( QString::fromUtf8 ( "21/9 (= 2,35:1)" ), QString ( "2.3333" ) );
+  m_comboBox->setCurrentIndex ( cfg->value ( "Filter_setdar/index", 1 ).toUInt() );
   layout->addRow ( m_comboBox );
 
   QLabel* info1 = new QLabel ( this );
@@ -85,6 +89,8 @@ SetDar::SetDar ( QWidget * parent )
 
   connect ( m_buttonBox, SIGNAL ( accepted () ), this, SLOT ( accept() ) );
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
+
+  update ( m_comboBox->currentIndex() );
 }
 
 void SetDar::update ( int index )
@@ -94,8 +100,9 @@ void SetDar::update ( int index )
   m_lineEdit->setText ( value );
 }
 
-const QString SetDar::value()
+const QString SetDar::data()
 {
+  cfg->setValue ( "Filter_setdar/index", m_comboBox->currentIndex() );
   return m_lineEdit->text ();
 }
 

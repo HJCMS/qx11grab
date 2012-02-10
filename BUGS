@@ -16,4 +16,4 @@
     make: *** [all] Error 2
   </error_code>
   this is not a qx11grab bug see also modules/CheckingGNUCXX.cmake and __CHECK_GCC_FPIC
-  you can force a build with -DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS -fPIC"
+  you can force a build with -DCMAKE_SHARED_LIBRARY_CXX_FLAGS:STRING="-fPIC"

@@ -205,6 +205,11 @@ void TextPosition::indentChanged ( int )
   indexChanged ( m_comboBox->currentIndex() );
 }
 
+void TextPosition::setIndex ( int index )
+{
+  m_comboBox->setCurrentIndex ( index );
+}
+
 const QString TextPosition::x()
 {
   return _x;
@@ -213,6 +218,11 @@ const QString TextPosition::x()
 const QString TextPosition::y()
 {
   return _y;
+}
+
+int TextPosition::index()
+{
+  return m_comboBox->currentIndex();
 }
 
 TextPosition::~TextPosition()

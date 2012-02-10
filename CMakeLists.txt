@@ -299,24 +299,25 @@ CONFIGURE_FILE (src/version.h.cmake
 )
 
 ##############################################################
-## Default Configuration File
+## Manpages
 ##############################################################
-
-CONFIGURE_FILE (qx11grab.conf.cmake
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
-)
-
-INSTALL (FILES
-  ${ARCHIVE_OUTPUT_PATH}/qx11grab.conf
-  DESTINATION /etc/xdg/hjcms.de/
-)
 
 CONFIGURE_FILE (qx11grab.de.1.cmake
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.de.1
 )
 
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.de.1
+  DESTINATION share/man/de/man1
+)
+
 CONFIGURE_FILE (qx11grab.1.cmake
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.1
+)
+
+INSTALL (FILES
+  ${ARCHIVE_OUTPUT_PATH}/qx11grab.1
+  DESTINATION share/man/man1
 )
 
 ##############################################################

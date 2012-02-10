@@ -52,31 +52,42 @@ class CodecTable : public QTableView
 
   private Q_SLOTS:
     void openFilterDialog ( const QString &filter );
+    void appendItem ( const QString &key, const QVariant &value );
 
   protected:
     void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
     void postUpdate();
+    void insertEmptyRow();
+    void removeSelectedRow();
 
   public Q_SLOTS:
     void clearContents();
+    void insertItem ( int row, const QString &key, const QVariant &value );
 
   public:
-    CodecTable ( QWidget * parent = 0 );
+    explicit CodecTable ( QWidget * parent = 0 );
 
+    /** table row count */
     int rowCount();
+
+    /** table column count */
     int columnCount();
 
-    void insertItem ( int row, const QString &key, const QVariant &value );
+    /** get item with row */
     const QPair<QString,QVariant> item ( int row );
 
+    /** get item with row and cell */
     const QVariant item ( int row, int column );
 
+    /** remove row with row number */
     void removeRow ( int row );
 
+    /** Insert a new behind row */
     void insertRow ( int row );
 
+    /** currently selected row numbers */
     const QList<int> selectedRows();
 
     virtual ~CodecTable();

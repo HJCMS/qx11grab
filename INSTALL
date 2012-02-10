@@ -37,25 +37,14 @@ INSTALLATION:
 
 INSTALL_TREE:
 /
-|-- etc
-|   `-- xdg
-|       `-- hjcms.de
-|           `-- qx11grab.conf
 `-- usr
     |-- bin
     |   `-- qx11grab
-    |-- include
-    |   `-- qx11grab-0.4
-    |       |-- interface.h
-    |       `-- qx11grabplugins.h
     |-- lib
-    |   |-- libqx11grab-0.4.so -> libqx11grab-0.4.so.0
-    |   |-- libqx11grab-0.4.so.0 -> libqx11grab-0.4.so.0.4.0
-    |   |-- libqx11grab-0.4.so.0.4.0
-    |   |-- pkgconfig
-    |   |   `-- qx11grab.pc
     |   `-- qx11grab
-    |       `-- libUnsharp.so
+    |       |-- libUnsharp.so
+    |       |-- libdrawtext.so
+    |       `-- libsetdar.so
     `-- share
         |-- applications
         |   `-- qx11grab.desktop
@@ -115,6 +104,12 @@ INSTALL_TREE:
         |       `-- scalable
         |           `-- apps
         |               `-- qx11grab.svgz
+        |-- man
+        |   |-- de
+        |   |   `-- man1
+        |   |       `-- qx11grab.de.1
+        |   `-- man1
+        |       `-- qx11grab.1
         |-- pixmaps
         |   `-- qx11grab.png
         |       `-- qx11grab_36.png
@@ -131,4 +126,4 @@ INSTALL_TREE:
             |-- README
             `-- qx11grab_untranslated.ts
 
-45 directories, 48 files
+43 directories, 45 files

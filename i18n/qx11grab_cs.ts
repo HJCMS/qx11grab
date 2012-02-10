@@ -241,11 +241,33 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>CodecOptions</name>
+    <message>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CodecSelecter</name>
     <message>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vlastní</translation>
+    </message>
+</context>
+<context>
+    <name>CodecTable</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Vyprázdnit</translation>
     </message>
 </context>
 <context>
@@ -1383,17 +1405,17 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This button insert a new empty table row</source>
+        <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This button remove selected table rows</source>
+        <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This button clear table contents</source>
+        <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>

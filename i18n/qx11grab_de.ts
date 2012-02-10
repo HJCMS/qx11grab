@@ -244,11 +244,33 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
+    <name>CodecOptions</name>
+    <message>
+        <source>Option</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>CodecSelecter</name>
     <message>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation>Angepasst</translation>
+    </message>
+</context>
+<context>
+    <name>CodecTable</name>
+    <message>
+        <source>Add</source>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Leeren</translation>
     </message>
 </context>
 <context>
@@ -1335,7 +1357,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
     <message>
         <source>Keep in mind that this filter does not modify the pixel dimensions of the video frame. Also the display aspect ratio set by this filter may be changed by later filters in the filterchain.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1386,19 +1408,19 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <translation>Kodierer Editor Tabelle</translation>
     </message>
     <message>
-        <source>This button insert a new empty table row</source>
+        <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf fügt eine Neue Zeile in die Tabelle ein.</translation>
+        <translation>Füge eine Neue Leerzeile ein</translation>
     </message>
     <message>
-        <source>This button remove selected table rows</source>
+        <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf entfernt alle Ausgewählten Zeilen aus der Tabelle.</translation>
+        <translation>Entferne gewählte Zeile</translation>
     </message>
     <message>
-        <source>This button clear table contents</source>
+        <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf leert den Tabellen Inhalt.</translation>
+        <translation>Tabelleninhalt leeren</translation>
     </message>
 </context>
 <context>

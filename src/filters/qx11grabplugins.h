@@ -27,6 +27,7 @@
 #include <QtCore/QGlobalStatic>
 #include <QtCore/QList>
 #include <QtCore/QMetaObject>
+#include <QtCore/QMetaType>
 #include <QtCore/QObject>
 #include <QtCore/QPluginLoader>
 #include <QtCore/QString>
@@ -35,6 +36,11 @@
 
 /* QtGui */
 #include <QtGui/QWidget>
+
+/** PluginsList Delimiter */
+#ifndef QX11GRAB_DELIMITER
+# define QX11GRAB_DELIMITER QLatin1String(",")
+#endif
 
 namespace QX11Grab
 {

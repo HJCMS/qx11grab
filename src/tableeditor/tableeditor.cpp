@@ -72,38 +72,34 @@ TableEditor::TableEditor ( QWidget * parent )
   QPushButton* m_add = buttonBox->addButton ( trUtf8 ( "Add" ), QDialogButtonBox::ActionRole );
   m_add->setIcon ( Settings::themeIcon ( "insert-table" ) );
   /*: WhatsThis */
-  m_add->setWhatsThis ( trUtf8 ( "This button insert a new empty table row" ) );
+  m_add->setWhatsThis ( trUtf8 ( "insert a new empty table row" ) );
 
   QPushButton* m_del = buttonBox->addButton ( trUtf8 ( "Remove" ), QDialogButtonBox::ActionRole );
   m_del->setIcon ( Settings::themeIcon ( "edit-table-delete-row" ) );
   /*: WhatsThis */
-  m_del->setWhatsThis ( trUtf8 ( "This button remove selected table rows" ) );
+  m_del->setWhatsThis ( trUtf8 ( " remove selected table rows" ) );
 
   QPushButton* m_clear = buttonBox->addButton ( trUtf8 ( "Clear" ), QDialogButtonBox::ActionRole );
   m_clear->setIcon ( Settings::themeIcon ( "edit-clear" ) );
   /*: WhatsThis */
-  m_clear->setWhatsThis ( trUtf8 ( "This button clear table contents" ) );
+  m_clear->setWhatsThis ( trUtf8 ( "clear table contents" ) );
 
   layout->addWidget ( buttonBox, grow++, 0, 1, 2, Qt::AlignRight );
 
   setLayout ( layout );
 
   // onUpdate
-  connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( int ) ),
-            this, SIGNAL ( postUpdate() ) );
+  connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( int ) ), this, SIGNAL ( postUpdate() ) );
 
-  connect ( m_tableWidget, SIGNAL ( postUpdate () ),
-            this, SIGNAL ( postUpdate() ) );
+  // table context signals
+  connect ( m_tableWidget, SIGNAL ( postUpdate() ), this, SIGNAL ( postUpdate() ) );
+  connect ( m_tableWidget, SIGNAL ( insertEmptyRow() ), this, SLOT ( addTableRow() ) );
+  connect ( m_tableWidget, SIGNAL ( removeSelectedRow() ), this, SLOT ( delTableRow() ) );
 
   // Item Buttons
-  connect ( m_add, SIGNAL ( clicked() ),
-            this, SLOT ( addTableRow() ) );
-
-  connect ( m_del, SIGNAL ( clicked() ),
-            this, SLOT ( delTableRow() ) );
-
-  connect ( m_clear, SIGNAL ( clicked () ),
-            m_tableWidget, SLOT ( clearContents() ) );
+  connect ( m_add, SIGNAL ( clicked() ), this, SLOT ( addTableRow() ) );
+  connect ( m_del, SIGNAL ( clicked() ), this, SLOT ( delTableRow() ) );
+  connect ( m_clear, SIGNAL ( clicked() ), m_tableWidget, SLOT ( clearContents() ) );
 }
 
 /**
@@ -212,7 +208,7 @@ void TableEditor::addTableRow()
 */
 void TableEditor::delTableRow()
 {
-  foreach ( int r, m_tableWidget->selectedRows () )
+  foreach ( int r, m_tableWidget->selectedRows() )
   {
     m_tableWidget->removeRow ( r );
   }
@@ -285,7 +281,7 @@ const QString TableEditor::selectedCodec()
 /**
 * Die Komplette Argumenten Liste ausgeben
 */
-const QStringList TableEditor::getCmd ()
+const QStringList TableEditor::getCmd()
 {
   QStringList cmd;
 

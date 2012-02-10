@@ -24,7 +24,9 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QDialog>
@@ -39,6 +41,7 @@ class Q_DECL_EXPORT SetDar : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QSettings* cfg;
     QLineEdit* m_lineEdit;
     QComboBox* m_comboBox;
 
@@ -47,7 +50,7 @@ class Q_DECL_EXPORT SetDar : public QDialog
 
   public:
     explicit SetDar ( QWidget * parent = 0 );
-    Q_SCRIPTABLE const QString value();
+    Q_SCRIPTABLE const QString data();
     ~SetDar();
 };
 

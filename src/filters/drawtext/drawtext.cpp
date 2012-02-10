@@ -26,6 +26,9 @@
 #include "textposition.h"
 
 /* QX11Grab */
+#include "qx11grabplugins.h"
+
+/* QX11Grab */
 #include <fontconfig/fontconfig.h>
 #include <fontconfig/fcfreetype.h>
 
@@ -54,6 +57,7 @@
 
 drawtext::drawtext ( QWidget * parent )
     : QDialog ( parent )
+    , cfg ( 0 )
     , fontIcon ( QIcon::fromTheme ( "addfont" ) )
     , currentFont ( parent->font() )
 {
@@ -61,14 +65,9 @@ drawtext::drawtext ( QWidget * parent )
   setWindowTitle ( trUtf8 ( "drawtext Filter" ) );
   setWindowIcon ( QIcon::fromTheme ( "preferences-plugin" ) );
   setSizeGripEnabled ( true );
-  setMinimumSize ( 100, 100 );
+  setMinimumSize ( 150, 100 );
 
-  QString startText = QString::fromUtf8 ( "QX11Grab" );
-
-  QPalette pal = palette();
-  fontcolor = QColor ( pal.color ( QPalette::Normal, QPalette::Text ) );
-  boxcolor = QColor ( pal.color ( QPalette::Normal, QPalette::Window ) );
-  shadowcolor = QColor ( 35, 35, 35 );
+  cfg = new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", this );
 
   int grow = 0;
   QGridLayout* layout = new QGridLayout ( this );
@@ -79,18 +78,15 @@ drawtext::drawtext ( QWidget * parent )
   layout->addWidget ( info0, grow++, 0, 1, 2 );
 
   m_fontPreview = new FontPreview ( this );
-  m_fontPreview->setText ( startText );
   layout->addWidget ( m_fontPreview, grow, 0, 1, 1 );
 
   m_dropShadowBox = new DropShadowBox ( this );
-  m_dropShadowBox->setShadowColor ( shadowcolor );
   layout->addWidget ( m_dropShadowBox, grow++, 1, 1, 1, Qt::AlignRight );
 
-  m_fontComboBox = new  QComboBox ( this );
+  m_fontComboBox = new QComboBox ( this );
   layout->addWidget ( m_fontComboBox, grow++, 0, 1, 2, Qt::AlignLeft );
 
   m_textInputEdit = new QLineEdit ( this );
-  m_textInputEdit->setText ( startText );
   layout->addWidget ( m_textInputEdit, grow++, 0, 1, 2 );
 
   m_sliderSize = new QSlider ( Qt::Horizontal, this );
@@ -99,14 +95,13 @@ drawtext::drawtext ( QWidget * parent )
   m_sliderSize->setTickInterval ( 10 );
   m_sliderSize->setTickPosition ( QSlider::TicksAbove );
   m_sliderSize->setRange ( 5, 200 );
-  m_sliderSize->setValue ( 24 );
+  m_sliderSize->setValue ( settingsValue ( "FontSize", 24 ).toUInt() );
   layout->addWidget ( m_sliderSize, grow++, 0, 1, 2 );
 
   // HorizontalLayout {
   QHBoxLayout* hLayout = new QHBoxLayout();
 
   m_foregroundPreview = new ColorPreview ( this );
-  m_foregroundPreview->setBackgroundColor ( fontcolor );
   hLayout->addWidget ( m_foregroundPreview );
 
   QPushButton* btnForeground = new QPushButton ( trUtf8 ( "Foreground" ), this );
@@ -116,7 +111,6 @@ drawtext::drawtext ( QWidget * parent )
   hLayout->addWidget ( btnForeground );
 
   m_backgroundPreview = new ColorPreview ( this );
-  m_backgroundPreview->setBackgroundColor ( boxcolor );
   hLayout->addWidget ( m_backgroundPreview );
 
   QPushButton* btnBackground = new QPushButton ( trUtf8 ( "Background" ), this );
@@ -184,6 +178,50 @@ drawtext::drawtext ( QWidget * parent )
 
   connect ( m_buttonBox, SIGNAL ( rejected () ),
             this, SLOT ( reject() ) );
+
+  loadDefaults();
+}
+
+void drawtext::setSettings ( const QString &key, const QVariant &value )
+{
+  QString path = QString::fromUtf8 ( "Filter_draw_Text/%1" ).arg ( key );
+  cfg->setValue ( path, value );
+}
+
+const QVariant drawtext::settingsValue ( const QString &key, const QVariant &defaultValue )
+{
+  QString path = QString::fromUtf8 ( "Filter_draw_Text/%1" ).arg ( key );
+  return cfg->value ( path, defaultValue );
+}
+
+void drawtext::loadDefaults()
+{
+  // Color Defaults
+  QString startText = QString::fromUtf8 ( "QX11Grab" );
+  QPalette pal = palette();
+  fontcolor = QColor ( settingsValue ( "TextColor", pal.color ( QPalette::Normal, QPalette::Text ).name() ).toString() );
+  boxcolor =  QColor ( settingsValue ( "BackgroundColor", pal.color ( QPalette::Normal, QPalette::Window ).name() ).toString() );
+  shadowcolor = QColor ( settingsValue ( "ShadowColor", QColor ( 35, 35, 35 ).name() ).toString() );
+
+  // NOTE Die Font ComboBox muss zuerst gefüllt sein!!
+  m_textInputEdit->setText ( settingsValue ( "Text", startText ).toString() );
+
+  m_foregroundPreview->setBackgroundColor ( fontcolor );
+  m_backgroundPreview->setBackgroundColor ( boxcolor );
+
+  shadowcolor.setAlpha ( settingsValue ( "ShadowAlpha", 100 ).toUInt() );
+  m_dropShadowBox->setShadowColor ( shadowcolor );
+
+  /* Font Preview */
+  m_fontPreview->setText ( m_textInputEdit->text() );
+  m_fontPreview->setBackgroundColor ( boxcolor );
+  m_fontPreview->setTextColor ( fontcolor );
+  m_fontPreview->setShadowColor ( shadowcolor );
+  m_fontPreview->setShadowOffset ( settingsValue ( "ShadowOffset", 5 ).toUInt() );
+
+  m_textPosition->setIndex ( settingsValue ( "PositionType", 1 ).toUInt() );
+
+  updateFont();
 }
 
 /**
@@ -223,11 +261,16 @@ void drawtext::initFontConfigDatabase ()
         }
         FcFontSetDestroy ( fc_fontset );
 
+        int index = 0;
         QMapIterator<QString,QString> it ( map );
         while ( it.hasNext() )
         {
           it.next();
-          m_fontComboBox->addItem ( fontIcon, it.key(), it.value() );
+          m_fontComboBox->insertItem ( index, fontIcon, it.key(), it.value() );
+          if ( settingsValue ( "FontFile", "/dev/null" ).toString() == it.value() )
+            m_fontComboBox->setCurrentIndex ( index );
+
+          index++;
         }
         map.clear();
       }
@@ -254,7 +297,7 @@ void drawtext::openColorChooser ( ColorType type )
       break;
 
     default:
-      break;
+      return;
   };
 
   QColorDialog* d = new QColorDialog ( seleted, this );
@@ -354,16 +397,17 @@ void drawtext::setShadowAlpha ( int i )
 */
 void drawtext::updateFont ()
 {
+  QString text =  m_textInputEdit->text().remove ( QX11GRAB_DELIMITER );
   currentFont.setPointSize ( m_sliderSize->value() );
   m_fontPreview->setFont ( currentFont );
-  m_fontPreview->setText ( m_textInputEdit->text() );
+  m_fontPreview->setText ( text );
   m_fontPreview->setToolTip ( currentFont.key() );
 
   QStringList values;
   QString color = fontcolor.name().replace ( "#", "0x" );
   values << QString ( "drawtext=\"fontfile=%1:text='%2':x=%3:y=%4:fontsize=%5:fontcolor=%6" )
   .arg ( fontFilePath, // File
-         m_fontPreview->text(), // Text
+         text, // Text
          m_textPosition->x(), // _x
          m_textPosition->y(), // _y
          QString::number ( currentFont.pointSize() ), // fontsize
@@ -380,23 +424,32 @@ void drawtext::updateFont ()
 }
 
 /**
-* Kopiere den aktuellen Listen Inhalt ins das Clipboard
+* Kopiere den aktuellen Listen Inhalt in das Clipboard
 */
 void drawtext::clipper()
 {
   QApplication::clipboard()->setText ( m_lineEditOutput->text() );
 }
 
-/** Den FontConfig Cache einlesen und den Dialog starten */
+/** Den FontConfig Cache einlesen und diesen Dialog starten */
 int drawtext::start()
 {
   initFontConfigDatabase();
   return exec();
 }
 
-/** Aktuelle Parameter Liste */
-const QString drawtext::value()
+/** Aktuelle Parameter Liste zurück geben */
+const QString drawtext::data()
 {
+  setSettings ( "FontFile", fontFilePath );
+  setSettings ( "Text", m_textInputEdit->text().remove ( QX11GRAB_DELIMITER ) );
+  setSettings ( "FontSize", currentFont.pointSize() );
+  setSettings ( "TextColor", fontcolor.name() );
+  setSettings ( "BackgroundColor", boxcolor.name() );
+  setSettings ( "ShadowColor", shadowcolor.name() );
+  setSettings ( "ShadowOffset", m_fontPreview->shadowOffset() );
+  setSettings ( "ShadowAlpha", shadowcolor.alpha() );
+  setSettings ( "PositionType", m_textPosition->index() );
   return m_lineEditOutput->text();
 }
 

@@ -22,10 +22,15 @@
 #include "codectablemodel.h"
 #include "settings.h"
 
+/* QX11Grab */
+#include "qx11grabplugins.h"
+
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QHashIterator>
+#include <QtCore/QRegExp>
 #include <QtCore/QSize>
-#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QHeaderView>
@@ -63,6 +68,22 @@ bool CodecTableModel::removeItem ( int key )
     return true;
   }
   return false;
+}
+
+/**
+* Sucht mit der Parameterangabe nach einer Zeile
+*/
+int CodecTableModel::searchRow ( const QString &param )
+{
+  int ret = 0;
+  QHashIterator<int,Item> it ( items );
+  while ( it.hasNext() )
+  {
+    it.next();
+    if ( it.value().argument == param )
+      return it.key();
+  }
+  return ret;
 }
 
 /**
@@ -245,6 +266,37 @@ QModelIndex CodecTableModel::parent ( const QModelIndex &index ) const
   return QModelIndex();
 }
 
+/**
+* Suche nach vorhandenen Filter Einträgen und ersetze diese bei bedarf!
+*/
+bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QModelIndex &parent )
+{
+  QModelIndex mIndex = index ( row, 1, parent );
+  // Aktuelle Filter finden und einlesen
+  QString vf = data ( mIndex, Qt::EditRole ).toString();
+  if ( ! vf.isEmpty() )
+  {
+    // Den Filter Parameter vom übergebenen Inhalt extrahieren
+    QString buffer ( value.toString() );
+    QString pfv = buffer.left ( buffer.indexOf ( '=', 0 ) );
+    QRegExp pattern ( "(^"+pfv+"=)" );
+    // neue FilterListe
+    QStringList filters;
+    /* WARNING Dieser Trenner ist noch nicht Alltags tauglich,
+    * weil auch Filter Inhalte Komma enthalten können! */
+    foreach ( QString filter, vf.split ( QX11GRAB_DELIMITER ) )
+    {
+      // Soll der Filter überschrieben werden?
+      if ( ! filter.contains ( pattern ) )
+        filters.append ( filter );
+    }
+    filters.append ( buffer );
+    // qDebug() << Q_FUNC_INFO << pfv << filters;
+    return setData ( mIndex, filters.join ( QX11GRAB_DELIMITER ), Qt::EditRole );
+  }
+  return setData ( mIndex, value, Qt::EditRole );
+}
+
 bool CodecTableModel::insertRows ( int row, int count, const QModelIndex &parent )
 {
   bool status = false;
@@ -268,17 +320,39 @@ void CodecTableModel::clear()
   endRemoveRows();
 }
 
+/**
+* Einen neuen Eintrag erzeugen.
+* Hierbei sind folgenede Aktionen vorgschaltet:
+* \li Suche nach vorhandenen Parameter in der Tabelle
+* \li Wenn vorhanden den Werte Inhalt mit den Vorhandenen ersetzen!
+* \li Ist es ein Filter?
+* \li Dann die Werte aus der Vorhandenen Tabelle Zelle mit der neuen vergleichen und verbinden!
+* \li Andernfalls wird mit beginInsertRows eine Neuer Eintrag erzeugt!
+*/
 void CodecTableModel::addOption ( int row, const QString &key, const QVariant &value,
                                   const QModelIndex &parent )
 {
   if ( key.isEmpty() )
     return;
 
+  // Suche nach Vorhandenen Datensatz und ersetze bei bedarf den Inhalt!
+  int rindex = searchRow ( key );
+  if ( rindex != 0 )
+  {
+    if ( key.contains ( "-vf" ) )
+      setFilterData ( rindex, value, parent );
+    else if ( value.isNull() )
+      return; // Überschreiben mit leeren inhalt unterbinden
+    else
+      setData ( index ( rindex, 1, parent ), value, Qt::EditRole );
+
+    return;
+  }
+
   beginInsertRows ( parent, items.size(), items.size() );
   Item item;
   item.argument = key;
   item.value = value;
-//   qDebug() << Q_FUNC_INFO << row << key << value;
   items.insert ( row, item );
   endInsertRows();
 }

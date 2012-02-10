@@ -51,6 +51,7 @@ class CodecTableModel : public QAbstractTableModel
     };
     QHash<int,Item> items;
     bool removeItem ( int key );
+    int searchRow ( const QString &param );
 
   private Q_SLOTS:
     void housemaster ( const QString & );
@@ -61,6 +62,7 @@ class CodecTableModel : public QAbstractTableModel
     QVariant data ( const QModelIndex &index, int role = Qt::DisplayRole ) const;
     QModelIndex index ( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
     QModelIndex parent ( const QModelIndex &index ) const;
+    bool setFilterData ( int row, const QVariant &value, const QModelIndex &parent = QModelIndex() );
 
   Q_SIGNALS:
     void postUpdate();

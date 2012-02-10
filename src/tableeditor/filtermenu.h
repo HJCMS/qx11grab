@@ -36,9 +36,7 @@
 #include "interface.h"
 #include "qx11grabplugins.h"
 
-/**
-* Custom Filter Menu
-*/
+/** Custom Filter Menu */
 class FilterMenu : public QMenu
 {
     Q_OBJECT
