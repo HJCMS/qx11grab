@@ -54,6 +54,8 @@ class DropShadowBox : public QGroupBox
 
   public Q_SLOTS:
     void setShadowColor ( const QColor &color );
+    void setShadowOffset ( int );
+    void setShadowAlpha ( int );
 
   public:
     DropShadowBox ( QWidget * parent = 0 );

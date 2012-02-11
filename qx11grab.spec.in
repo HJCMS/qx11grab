@@ -3,8 +3,7 @@
 %define packagename  qx11grab-@QX11GRAB_VERSION@
 
 Name:           qx11grab
-Summary:        qt4 applet for recording x11 windows with ffmpeg
-Summary(de):    Qt4 Programm zum Aufnehmen von X11 Fenstern mit ffmpeg
+Summary:        a high flexible screencast Application for X11 Desktop
 Version:        @QX11GRAB_VERSION@
 Release:        0
 License:        GPLv2+
@@ -35,22 +34,6 @@ Help: --------------
   https://lists.mplayerhq.hu/mailman/listinfo
 
 Author: -------------
-  Juergen Heinemann (Undefined)
-  http://www.hjcms.de
-
-%description -l de
-Ein Qt Basierendes Programm zum Aufnehmen von X11 Fenstern.
-Das Programm verwendet ffmpeg von http://ffmpeg.mplayerhq.hu
-
-Bevor sie das Programm verwenden bitte testen sie zuerst auf dem terminal oder console
-ob ihre ffmpeg Installation diese funktion unterstützt:
-  ffmpeg -f x11grab -s svga -r 24 -b 6500 -bt 256k -sameq -i :0.0+1,33 /tmp/out.avi
-
-Hilfe: --------------
-  http://ffmpeg.mplayerhq.hu/ffmpeg-doc.html#SEC4
-  https://lists.mplayerhq.hu/mailman/listinfo
-
-Autor: -------------
   Juergen Heinemann (Undefined)
   http://www.hjcms.de
 
@@ -106,6 +89,7 @@ popd
 %dir %{_sysconfdir}/xdg/hjcms.de
 %config %{_sysconfdir}/xdg/hjcms.de/qx11grab.conf
 %{_bindir}/qx11grab
+%{_libdir}/qx11grab
 %{_datadir}/qt*/translations/qx11grab*.qm
 %dir %{_datadir}/qx11grab
 %doc %{_datadir}/qx11grab/AUTHORS
@@ -121,6 +105,9 @@ popd
 %{_datadir}/pixmaps/qx11grab.png
 %{_datadir}/icons/hicolor/*/apps/qx11grab.png
 %{_datadir}/icons/hicolor/scalable/apps/qx11grab.svgz
+## Manpages
+%doc %{_mandir}/de/man1/qx11grab.1*
+%doc %{_mandir}/man1/qx11grab.1*
 
 %post ffpresets
 ##

@@ -25,23 +25,39 @@
 #include <QtCore/QDebug>
 
 /* QtGui */
+#include <QtGui/QBrush>
 #include <QtGui/QFrame>
+#include <QtGui/QGraphicsEllipseItem>
+#include <QtGui/QGraphicsScene>
+#include <QtGui/QPalette>
+#include <QtGui/QPen>
 
 ColorPreview::ColorPreview ( QWidget * parent )
-    : QLabel ( parent )
+    : QGraphicsView ( parent )
 {
   setObjectName ( QLatin1String ( "ColorPreview" ) );
   setContentsMargins ( 0, 0, 0, 0 );
-  setMinimumWidth ( 15 );
-  setIndent ( 0 );
-  setBackgroundRole ( QPalette::WindowText );
-  setBackgroundColor ( QColor ( 0, 0, 0 ) );
-  setFrameStyle ( QFrame::StyledPanel );
+  setMaximumSize ( 20, 20 );
+  setCacheMode ( QGraphicsView::CacheNone );
+  setAlignment ( ( Qt::AlignTop | Qt::AlignLeft ) );
+  setInteractive ( true );
+  setRenderHints ( QPainter::NonCosmeticDefaultPen );
+  setTransformationAnchor ( QGraphicsView::NoAnchor );
+  setViewportUpdateMode ( QGraphicsView::MinimalViewportUpdate );
+
+  QBrush brush ( palette().color ( QPalette::Normal, QPalette::Window ) );
+  brush.setStyle ( Qt::SolidPattern );
+  setBackgroundBrush ( brush );
+
+  // create a dummy scene for painter events
+  setScene ( new QGraphicsScene ( this ) );
 }
 
-void ColorPreview::setBackgroundColor ( const QColor &color )
+void ColorPreview::setColor ( const QColor &color )
 {
-  setStyleSheet ( QString::fromUtf8 ( "background:%1;" ).arg ( color.name() ) );
+  QBrush brush = backgroundBrush();
+  brush.setColor ( color );
+  setBackgroundBrush ( brush );
 }
 
 ColorPreview::~ColorPreview()

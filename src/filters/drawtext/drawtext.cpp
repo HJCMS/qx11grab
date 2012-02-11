@@ -40,6 +40,7 @@
 #include <QtCore/QRegExp>
 
 /* QtGui */
+#include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QBrush>
 #include <QtGui/QClipboard>
@@ -47,11 +48,10 @@
 #include <QtGui/QColorDialog>
 #include <QtGui/QDialogButtonBox>
 #include <QtGui/QGridLayout>
-#include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 #include <QtGui/QLabel>
 #include <QtGui/QPalette>
-#include <QtGui/QPushButton>
+#include <QtGui/QToolBar>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
@@ -99,32 +99,29 @@ drawtext::drawtext ( QWidget * parent )
   layout->addWidget ( m_sliderSize, grow++, 0, 1, 2 );
 
   // HorizontalLayout {
-  QHBoxLayout* hLayout = new QHBoxLayout();
+  QIcon colorPrefsIcon = QIcon::fromTheme ( "preferences-desktop-color" );
+  QToolBar* m_toolbar = new QToolBar ( trUtf8 ( "Textlayout" ), this );
 
   m_foregroundPreview = new ColorPreview ( this );
-  hLayout->addWidget ( m_foregroundPreview );
+  m_toolbar->addWidget ( m_foregroundPreview );
 
-  QPushButton* btnForeground = new QPushButton ( trUtf8 ( "Foreground" ), this );
-  btnForeground->setIcon ( QIcon::fromTheme ( "preferences-desktop-color" ) );
+  QAction* btnForeground = m_toolbar->addAction ( colorPrefsIcon, trUtf8 ( "Foreground" ) );
   /*: ToolTip */
   btnForeground->setToolTip ( trUtf8 ( "open foreground color dialog" ) );
-  hLayout->addWidget ( btnForeground );
 
   m_backgroundPreview = new ColorPreview ( this );
-  hLayout->addWidget ( m_backgroundPreview );
+  m_toolbar->addWidget ( m_backgroundPreview );
 
-  QPushButton* btnBackground = new QPushButton ( trUtf8 ( "Background" ), this );
-  btnBackground->setIcon ( QIcon::fromTheme ( "preferences-desktop-color" ) );
+  QAction* btnBackground = m_toolbar->addAction ( colorPrefsIcon, trUtf8 ( "Background" ) );
   /*: ToolTip */
   btnBackground->setToolTip ( trUtf8 ( "open background color dialog" ) );
-  hLayout->addWidget ( btnBackground );
 
-  hLayout->addStretch ();
+  m_toolbar->addSeparator();
 
   m_textPosition = new TextPosition ( this );
-  hLayout->addWidget ( m_textPosition );
+  m_toolbar->addWidget ( m_textPosition );
 
-  layout->addLayout ( hLayout, grow++, 0, 1, 2 );
+  layout->addWidget ( m_toolbar, grow++, 0, 1, 2 );
   // } HorizontalLayout
 
   m_lineEditOutput = new QLineEdit ( this );
@@ -143,8 +140,8 @@ drawtext::drawtext ( QWidget * parent )
 
   setLayout ( layout );
 
-  connect ( m_textInputEdit, SIGNAL ( editingFinished () ),
-            this, SLOT ( updateFont () ) );
+  connect ( m_textInputEdit, SIGNAL ( editingFinished() ),
+            this, SLOT ( updateFont() ) );
 
   connect ( m_fontComboBox, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( fontIndexChanged ( int ) ) );
@@ -152,16 +149,16 @@ drawtext::drawtext ( QWidget * parent )
   connect ( m_sliderSize, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( fontSizeChanged ( int ) ) );
 
-  connect ( btnBackground, SIGNAL ( clicked () ),
+  connect ( btnBackground, SIGNAL ( triggered() ),
             this, SLOT ( setBackgroundColor() ) );
 
-  connect ( btnForeground, SIGNAL ( clicked () ),
+  connect ( btnForeground, SIGNAL ( triggered() ),
             this, SLOT ( setForegroundColor() ) );
 
   connect ( m_textPosition, SIGNAL ( postUpdate() ),
             this, SLOT ( updateFont() ) );
 
-  connect ( m_dropShadowBox, SIGNAL ( buttonClicked () ),
+  connect ( m_dropShadowBox, SIGNAL ( buttonClicked() ),
             this, SLOT ( setShadowColor() ) );
 
   connect ( m_dropShadowBox, SIGNAL ( offsetChanged ( int ) ),
@@ -173,10 +170,10 @@ drawtext::drawtext ( QWidget * parent )
   connect ( btnCopy, SIGNAL ( clicked() ),
             this, SLOT ( clipper() ) );
 
-  connect ( m_buttonBox, SIGNAL ( accepted () ),
+  connect ( m_buttonBox, SIGNAL ( accepted() ),
             this, SLOT ( accept() ) );
 
-  connect ( m_buttonBox, SIGNAL ( rejected () ),
+  connect ( m_buttonBox, SIGNAL ( rejected() ),
             this, SLOT ( reject() ) );
 
   loadDefaults();
@@ -206,11 +203,14 @@ void drawtext::loadDefaults()
   // NOTE Die Font ComboBox muss zuerst gefüllt sein!!
   m_textInputEdit->setText ( settingsValue ( "Text", startText ).toString() );
 
-  m_foregroundPreview->setBackgroundColor ( fontcolor );
-  m_backgroundPreview->setBackgroundColor ( boxcolor );
+  m_foregroundPreview->setColor ( fontcolor );
+  m_backgroundPreview->setColor ( boxcolor );
 
-  shadowcolor.setAlpha ( settingsValue ( "ShadowAlpha", 100 ).toUInt() );
+  /* Shadow Configuration */
   m_dropShadowBox->setShadowColor ( shadowcolor );
+  shadowcolor.setAlpha ( settingsValue ( "ShadowAlpha", 255 ).toUInt() );
+  m_dropShadowBox->setShadowAlpha ( shadowcolor.alpha() );
+  m_dropShadowBox->setShadowOffset ( settingsValue ( "ShadowOffset", 2 ).toUInt() );
 
   /* Font Preview */
   m_fontPreview->setText ( m_textInputEdit->text() );
@@ -230,11 +230,11 @@ void drawtext::loadDefaults()
 * Schreibe sie zum neu sortieren in eine Map und füge die Werte
 * ( FC_FAMILY, FC_FILE ) in die ComboBox ein.
 */
-void drawtext::initFontConfigDatabase ()
+void drawtext::initFontConfigDatabase()
 {
   if ( FcInit() )
   {
-    FcPattern* fc_pattern = FcPatternCreate ();
+    FcPattern* fc_pattern = FcPatternCreate();
     FcObjectSet* fc_object = FcObjectSetBuild ( FC_FAMILY, FC_FILE, NULL );
     if ( fc_pattern && fc_object )
     {
@@ -309,7 +309,7 @@ void drawtext::openColorChooser ( ColorType type )
       case BACKGROUND:
       {
         boxcolor = color;
-        m_backgroundPreview->setBackgroundColor ( color );
+        m_backgroundPreview->setColor ( color );
         m_fontPreview->setBackgroundColor ( color );
       }
       break;
@@ -317,7 +317,7 @@ void drawtext::openColorChooser ( ColorType type )
       case FOREGROUND:
       {
         fontcolor = color;
-        m_foregroundPreview->setBackgroundColor ( color );
+        m_foregroundPreview->setColor ( color );
         m_fontPreview->setTextColor ( color );
       }
       break;
@@ -395,7 +395,7 @@ void drawtext::setShadowAlpha ( int i )
 * Damit QTextEdit die Änderungen bei der Schrift an nimmt
 * muss der Text neu geschrieben werden.
 */
-void drawtext::updateFont ()
+void drawtext::updateFont()
 {
   QString text =  m_textInputEdit->text().remove ( QX11GRAB_DELIMITER );
   currentFont.setPointSize ( m_sliderSize->value() );

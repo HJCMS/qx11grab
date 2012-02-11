@@ -32,7 +32,7 @@
 #include <QtGui/QGraphicsItem>
 #include <QtGui/QGraphicsScene>
 #include <QtGui/QGraphicsView>
-#include <QtGui/QPaintEvent>
+#include <QtGui/QPainter>
 #include <QtGui/QWidget>
 
 class FontPreview : public QGraphicsView

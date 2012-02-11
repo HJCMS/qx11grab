@@ -80,7 +80,6 @@ void FontPreview::setText ( const QString &text )
 
 void FontPreview::setBackgroundColor ( const QColor &color )
 {
-
   QBrush brush = backgroundBrush();
   brush.setColor ( color );
   setBackgroundBrush ( brush );

@@ -73,7 +73,17 @@ DropShadowBox::DropShadowBox ( QWidget * parent )
 
 void DropShadowBox::setShadowColor ( const QColor &color )
 {
-  m_colorPreview->setBackgroundColor ( color );
+  m_colorPreview->setColor ( color );
+}
+
+void DropShadowBox::setShadowOffset ( int i )
+{
+  m_shadowOffset->setValue ( i );
+}
+
+void DropShadowBox::setShadowAlpha ( int i )
+{
+  m_shadowAlpha->setValue ( i );
 }
 
 DropShadowBox::~DropShadowBox()

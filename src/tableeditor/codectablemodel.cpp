@@ -282,8 +282,7 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
     QRegExp pattern ( "(^"+pfv+"=)" );
     // neue FilterListe
     QStringList filters;
-    /* WARNING Dieser Trenner ist noch nicht Alltags tauglich,
-    * weil auch Filter Inhalte Komma enthalten können! */
+    /* WARNING Weil auch Filter Kommas enthalten können ist dieser Trenner nicht alltags tauglich! */
     foreach ( QString filter, vf.split ( QX11GRAB_DELIMITER ) )
     {
       // Soll der Filter überschrieben werden?
@@ -297,6 +296,7 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
   return setData ( mIndex, value, Qt::EditRole );
 }
 
+/** Einträge ab Zeile mit Anzahl index einfügen.   */
 bool CodecTableModel::insertRows ( int row, int count, const QModelIndex &parent )
 {
   bool status = false;
@@ -371,13 +371,14 @@ bool CodecTableModel::removeRows ( int row,  int count, const QModelIndex &paren
   beginRemoveRows ( parent, row, row );
   /**
   * WARNING Qt4:Bug Innerhalb von virtuellen Methoden auf Vector:Iteratoren zugreifen
-  * ist keine gute Idee. Deshalb in eigene Methode gekapselt siehe: \ref removeItem
+  * ist keine gute Idee. Deshalb in eigene gekapselte Methode. \ref removeItem
   */
   status = removeItem ( row );
   endRemoveRows();
   return status;
 }
 
+/** Abfrage eines Eintrages mit Zeile und Index */
 const QPair<QString,QVariant> CodecTableModel::option ( int row, const QModelIndex &parent )
 {
   Q_UNUSED ( parent );
@@ -390,6 +391,7 @@ const QPair<QString,QVariant> CodecTableModel::option ( int row, const QModelInd
   return p;
 }
 
+/** Vector leeren */
 CodecTableModel::~CodecTableModel()
 {
   if ( items.size() > 0 )
