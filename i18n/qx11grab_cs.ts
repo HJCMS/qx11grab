@@ -293,6 +293,10 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
+    <message>
+        <source>pipe filters can not conjunct with normal filters</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>
@@ -1196,6 +1200,30 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
+    <name>OpenImageDialog</name>
+    <message>
+        <source>Open Image File</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha Channel PNG %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Assumption Rejected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>selected image is larger then tapped rectangle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>selected image has no legal transparency.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1615,6 +1643,45 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Watermark</name>
+    <message>
+        <source>Watermark Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margin (Left|Right)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margin (Top|Bottom)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>drawtext</name>
     <message>
         <source>drawtext Filter</source>
@@ -1652,6 +1719,10 @@ ToolTip</extracomment>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Textlayout</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>drawtextPlugin</name>
@@ -1661,6 +1732,17 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Draw Text into Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>watermarkPlugin</name>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert a Watermark into output video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

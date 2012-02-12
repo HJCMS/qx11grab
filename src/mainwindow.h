@@ -120,14 +120,17 @@ class MainWindow : public QMainWindow
     void startMinimized ();
 
   public Q_SLOTS:
+    /** @{ @ref Adaptor */
     void swapRubberBand ();
     void record();
     void stop();
     void statusBarMessage ( const QString &msg, int timeout = 5000 );
     const QString currentCommandLine();
+    const QString recordingArea();
     const QString audioCodec();
     const QString videoCodec();
     const QString outputFile();
+    /** @} */
 
   public:
     MainWindow ( Settings * settings = 0 );

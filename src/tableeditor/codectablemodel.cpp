@@ -276,8 +276,16 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
   QString vf = data ( mIndex, Qt::EditRole ).toString();
   if ( ! vf.isEmpty() )
   {
-    // Den Filter Parameter vom übergebenen Inhalt extrahieren
     QString buffer ( value.toString() );
+    QRegExp pipePattern ( "\\[(in|out|watermark)+\\]" );
+    // FIXME Bei einem Pipe Filter werden alle anderen Inhalte entfernt!
+    if ( buffer.contains ( pipePattern ) )
+    {
+      emit housemaster ( trUtf8 ( "pipe filters can not conjunct with normal filters" ) );
+      return setData ( mIndex, buffer, Qt::EditRole );
+    }
+
+    // Den Filter Parameter vom übergebenen Inhalt extrahieren
     QString pfv = buffer.left ( buffer.indexOf ( '=', 0 ) );
     QRegExp pattern ( "(^"+pfv+"=)" );
     // neue FilterListe
@@ -285,6 +293,14 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
     /* WARNING Weil auch Filter Kommas enthalten können ist dieser Trenner nicht alltags tauglich! */
     foreach ( QString filter, vf.split ( QX11GRAB_DELIMITER ) )
     {
+      // FIXME Pipe Filter werden nicht übernommen!
+      if ( filter.contains ( pipePattern ) )
+      {
+        emit housemaster ( trUtf8 ( "pipe filters can not conjunct with normal filters" ) );
+        filters.clear();
+        break;
+      }
+
       // Soll der Filter überschrieben werden?
       if ( ! filter.contains ( pattern ) )
         filters.append ( filter );

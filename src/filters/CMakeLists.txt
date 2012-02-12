@@ -58,5 +58,6 @@ TARGET_LINK_LIBRARIES (qx11grabinterface
 ADD_SUBDIRECTORY (unsharp)
 ADD_SUBDIRECTORY (setdar)
 ADD_SUBDIRECTORY (drawtext)
+ADD_SUBDIRECTORY (watermark)
 
 ## EOF

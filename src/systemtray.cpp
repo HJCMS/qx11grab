@@ -72,6 +72,9 @@ SystemTray::SystemTray ( MainWindow * parent )
 
   setContextMenu ( m_menu );
 
+  QDBusConnection p_dbus = QDBusConnection::sessionBus();
+  p_dbus.registerObject ( "/SystemTray", this, ( QDBusConnection::ExportScriptableSlots ) );
+
   connect ( grabActionFromWindow, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( grabFromWindow() ) );
 
@@ -109,6 +112,14 @@ void SystemTray::setActionsEnabled ( bool b )
 void SystemTray::setCustomToolTip ( const QString &txt )
 {
   setToolTip ( txt );
+}
+
+/**
+* Fehlermeldung weiter leiten
+*/
+void SystemTray::applicationMessage ( const QString &title, const QString &txt )
+{
+  sendMessage ( title, txt, QSystemTrayIcon::Warning );
 }
 
 /**

@@ -19,49 +19,46 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef SYSTEMTRAY_H
-#define SYSTEMTRAY_H
+#ifndef QX11GRAB_WATERMARK_PLUGIN_H
+#define QX11GRAB_WATERMARK_PLUGIN_H
 
 /* QtCore */
-#include <QtCore/QEvent>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QAction>
-#include <QtGui/QSystemTrayIcon>
 #include <QtGui/QWidget>
 
-/* QtDBus */
-#include <QtDBus/QDBusConnection>
-
 /* QX11Grab */
-#include "mainwindow.h"
+#include "interface.h"
 
-class Messanger;
+class Watermark;
 
-class SystemTray : public QSystemTrayIcon
+/**
+* @short avfilter watermark plugin dialog
+* @ref http://ffmpeg.org/libavfilter.html#watermark
+*/
+class Q_DECL_EXPORT watermarkPlugin : public QX11Grab::Interface
 {
     Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+    Q_INTERFACES ( QX11Grab::Interface )
 
   private:
-    MainWindow* m_mainWindow;
-    Messanger* m_messanger;
-    QAction* m_actionStartRecord;
-    QAction* m_actionStopRecord;
-
-  public Q_SLOTS:
-    void setActionsEnabled ( bool b = true );
-    void setCustomToolTip ( const QString &txt );
-    Q_SCRIPTABLE void applicationMessage ( const QString &title, const QString &txt );
+    Watermark* m_watermark;
 
   public:
-    SystemTray ( MainWindow * parent );
-    void setMessanger ( QDBusConnection* bus );
-    void sendMessage ( const QString &title, const QString &message, QSystemTrayIcon::MessageIcon icon );
-    ~SystemTray();
+    bool create ( QWidget * parent );
+
+    bool exec();
+
+    const QString pluginName();
+
+    const QString title();
+
+    const QString description();
+
+    const QString data();
 };
 
 #endif
+

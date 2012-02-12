@@ -296,6 +296,10 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
+    <message>
+        <source>pipe filters can not conjunct with normal filters</source>
+        <translation>Umleitungs Filter können nicht mit normalen FIltern verbunden werden</translation>
+    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>
@@ -1199,6 +1203,30 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>OpenImageDialog</name>
+    <message>
+        <source>Open Image File</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation>Öffne Bild Datei</translation>
+    </message>
+    <message>
+        <source>Alpha Channel PNG %1</source>
+        <translation>Alphakanal PNG %1</translation>
+    </message>
+    <message>
+        <source>Assumption Rejected</source>
+        <translation>Übernahme Verweigert</translation>
+    </message>
+    <message>
+        <source>selected image is larger then tapped rectangle.</source>
+        <translation>Die Ausgewählte Bilddatei ist größer wie das abgegriffene Rechteck.</translation>
+    </message>
+    <message>
+        <source>selected image has no legal transparency.</source>
+        <translation>Die Ausgewählte Bilddatei enthält keinen Transparenz Wert.</translation>
+    </message>
+</context>
+<context>
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1627,6 +1655,45 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Watermark</name>
+    <message>
+        <source>Watermark Filter</source>
+        <translation>Wasserzeichen Filter</translation>
+    </message>
+    <message>
+        <source>Margin (Left|Right)</source>
+        <translation>Rand (Links|Rechts)</translation>
+    </message>
+    <message>
+        <source>Margin (Top|Bottom)</source>
+        <translation>Rand (Oben|Unten)</translation>
+    </message>
+    <message>
+        <source>Open Image file</source>
+        <translation>Öffne Bilddatei</translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation>Oben Links</translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation>Oben Rechts</translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation>Unten Links</translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation>Unten Rechts</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>drawtext</name>
     <message>
         <source>drawtext Filter</source>
@@ -1664,6 +1731,10 @@ ToolTip</extracomment>
         <extracomment>ToolTip</extracomment>
         <translation>Kopiere in den Zwischenspeicher</translation>
     </message>
+    <message>
+        <source>Textlayout</source>
+        <translation>Textdarstellung</translation>
+    </message>
 </context>
 <context>
     <name>drawtextPlugin</name>
@@ -1674,6 +1745,17 @@ ToolTip</extracomment>
     <message>
         <source>Draw Text into Video</source>
         <translation>Zeichne Text in das Video</translation>
+    </message>
+</context>
+<context>
+    <name>watermarkPlugin</name>
+    <message>
+        <source>Watermark</source>
+        <translation>Wasserzeichen</translation>
+    </message>
+    <message>
+        <source>Insert a Watermark into output video</source>
+        <translation>Füge ein Wasserzeichen in das Ausgabevideo</translation>
     </message>
 </context>
 </TS>

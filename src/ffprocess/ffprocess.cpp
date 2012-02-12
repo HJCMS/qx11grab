@@ -88,7 +88,7 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
   {
     QTextStream stream ( &fp );
     stream << QLatin1String ( "#!/usr/bin/env sh\n" );
-    stream << "## QX11Grab FFmpeg QCRreencast Script\n\n";
+    stream << "## QX11Grab FFmpeg Screencast Script\n\n";
     stream << cmd.join ( " " ).trimmed();
     stream << " \"$@\"\n\n";
     stream << "exit $?\n\n";

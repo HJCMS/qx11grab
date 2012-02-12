@@ -61,6 +61,13 @@ void Adaptor::message ( const QString &mess )
   QMetaObject::invokeMethod ( parent(), "statusBarMessage", Q_ARG ( QString, mess ), Q_ARG ( int, 10000 ) );
 }
 
+const QString Adaptor::dimension()
+{
+  QString str;
+  QMetaObject::invokeMethod ( parent(), "recordingArea", Q_RETURN_ARG ( QString, str ) );
+  return str;
+}
+
 const QString Adaptor::audiocodec()
 {
   QString str;

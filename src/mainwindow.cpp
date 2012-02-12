@@ -632,15 +632,6 @@ void MainWindow::preparePreview ( bool b )
 }
 
 /**
-* Liest die aktuelle Kommandozeile aus der Konfiguration
-*/
-const QString MainWindow::currentCommandLine()
-{
-  QStringList cmd = cfg->getCommandline();
-  return cmd.join ( " " );
-}
-
-/**
 * Aktuelle Kommando Zeile in Shell Script exportieren!
 */
 void MainWindow::exportCommand()
@@ -782,6 +773,25 @@ void MainWindow::closeEvent ( QCloseEvent * ev )
 void MainWindow::statusBarMessage ( const QString &msg, int timeout )
 {
   statusBar()->showMessage ( msg, timeout );
+}
+
+/**
+* Liest die aktuelle Kommandozeile aus der Konfiguration
+*/
+const QString MainWindow::currentCommandLine()
+{
+  QStringList cmd = cfg->getCommandline();
+  return cmd.join ( " " );
+}
+
+/**
+* Gibt den Aktuellen Aufnahme Bereich zurück
+*/
+const QString MainWindow::recordingArea()
+{
+  QString buffer;
+  QRect r =  m_grabberInfo->getRect();
+  return buffer.sprintf ( "@Rect(%d %d %d %d)", r.x(), r.y(), r.width(), r.height() );
 }
 
 /**

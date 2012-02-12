@@ -351,6 +351,12 @@ Example for OSS: /dev/dsp</source>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="284"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="299"/>
+        <source>pipe filters can not conjunct with normal filters</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>
@@ -1051,27 +1057,27 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="650"/>
+        <location filename="../src/mainwindow.cpp" line="641"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="678"/>
+        <location filename="../src/mainwindow.cpp" line="669"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="678"/>
+        <location filename="../src/mainwindow.cpp" line="669"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="698"/>
+        <location filename="../src/mainwindow.cpp" line="689"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="709"/>
+        <location filename="../src/mainwindow.cpp" line="700"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1449,6 +1455,35 @@ ToolTip</extracomment>
 Example: Germany=ger
 Multiple languages can be specified by separating them with commas.</source>
         <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OpenImageDialog</name>
+    <message>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="42"/>
+        <source>Open Image File</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="46"/>
+        <source>Alpha Channel PNG %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="72"/>
+        <source>Assumption Rejected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="76"/>
+        <source>selected image is larger then tapped rectangle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="82"/>
+        <source>selected image has no legal transparency.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1958,6 +1993,54 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>Watermark</name>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="47"/>
+        <source>Watermark Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="62"/>
+        <source>Margin (Left|Right)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="66"/>
+        <source>Margin (Top|Bottom)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="70"/>
+        <source>Open Image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="75"/>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="76"/>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="78"/>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="79"/>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>drawtext</name>
     <message>
         <location filename="../src/filters/drawtext/drawtext.cpp" line="65"/>
@@ -1976,7 +2059,12 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="107"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="103"/>
+        <source>Textlayout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="108"/>
         <source>Foreground</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1987,19 +2075,19 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="119"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="117"/>
         <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="136"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="133"/>
         <source>Copy to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="116"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2014,6 +2102,19 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="60"/>
         <source>Draw Text into Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>watermarkPlugin</name>
+    <message>
+        <location filename="../src/filters/watermark/watermarkplugin.cpp" line="53"/>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermarkplugin.cpp" line="58"/>
+        <source>Insert a Watermark into output video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

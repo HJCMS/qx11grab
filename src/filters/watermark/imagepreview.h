@@ -1,7 +1,7 @@
 /**
 * This file is part of the qx11grab project
 *
-* Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
+* Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Library General Public
@@ -19,46 +19,32 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef ADAPTOR_H
-#define ADAPTOR_H
+#ifndef IMAGEPREVIEW_H
+#define IMAGEPREVIEW_H
 
+/* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QRectF>
 #include <QtCore/QString>
 
-#include <QtDBus/QDBusAbstractAdaptor>
+/* QtGui */
+#include <QtGui/QColor>
+#include <QtGui/QGraphicsView>
+#include <QtGui/QPainter>
+#include <QtGui/QWidget>
 
-#ifndef QX11GRAB_VERSION
-# include "version.h"
-#endif
-
-class Adaptor : public QDBusAbstractAdaptor
+class ImagePreview : public QGraphicsView
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-    Q_CLASSINFO ( "D-Bus Interface", "de.hjcms.qx11grab" )
-    Q_PROPERTY ( QString dimension READ dimension )
-    Q_PROPERTY ( QString acodec READ audiocodec )
-    Q_PROPERTY ( QString avcodec READ videocodec )
-    Q_PROPERTY ( QString command READ commandline )
-    Q_PROPERTY ( QString file READ output )
-
-  public:
-    Adaptor ( QObject *parent = 0 );
-    ~Adaptor();
 
   public Q_SLOTS:
-    Q_NOREPLY void rubberband ();
-    Q_NOREPLY void start ();
-    Q_NOREPLY void stop ();
-    Q_NOREPLY void show ();
-    Q_NOREPLY void hide ();
-    Q_NOREPLY void message ( const QString &mess );
-    const QString dimension();
-    const QString audiocodec();
-    const QString videocodec();
-    const QString commandline();
-    const QString output();
+    void setImagePath ( const QString &path );
+
+  public:
+    ImagePreview ( QWidget * parent = 0 );
+    ~ImagePreview();
 };
 
 #endif
