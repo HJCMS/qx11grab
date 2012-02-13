@@ -1680,6 +1680,10 @@ ToolTip</extracomment>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>drawtext</name>
@@ -1732,6 +1736,32 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Draw Text into Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>fade</name>
+    <message>
+        <source>Fade (In/Out) Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Example: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>fadePlugin</name>
+    <message>
+        <source>Fade Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade (in/out) Filter</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

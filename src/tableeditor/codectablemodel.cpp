@@ -277,7 +277,7 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
   if ( ! vf.isEmpty() )
   {
     QString buffer ( value.toString() );
-    QRegExp pipePattern ( "\\[(in|out|watermark)+\\]" );
+    QRegExp pipePattern ( "\\[(in|out|[\\w\\d]{4,})\\]" );
     // FIXME Bei einem Pipe Filter werden alle anderen Inhalte entfernt!
     if ( buffer.contains ( pipePattern ) )
     {

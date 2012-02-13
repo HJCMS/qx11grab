@@ -19,32 +19,32 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_WATERMARK_PLUGIN_H
-#define QX11GRAB_WATERMARK_PLUGIN_H
+#ifndef QX11GRAB_FADE_PLUGIN_H
+#define QX11GRAB_FADE_PLUGIN_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QWidget>
+// #include <QtGui/QWidget>
 
 /* QX11Grab */
 #include "interface.h"
 
-class Watermark;
+class fade;
 
 /**
-* @short avfilter watermark/overlay plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#overlay-1
+* @short avfilter fade plugin dialog
+* @ref http://ffmpeg.org/libavfilter.html#fade
 */
-class Q_DECL_EXPORT watermarkPlugin : public QX11Grab::Interface
+class Q_DECL_EXPORT fadePlugin : public QX11Grab::Interface
 {
     Q_OBJECT
     Q_INTERFACES ( QX11Grab::Interface )
 
   private:
-    Watermark* m_watermark;
+    fade* m_fade;
 
   public:
     bool create ( QWidget * parent );

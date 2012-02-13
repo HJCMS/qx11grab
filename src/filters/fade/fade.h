@@ -19,45 +19,46 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_WATERMARK_PLUGIN_H
-#define QX11GRAB_WATERMARK_PLUGIN_H
+#ifndef QX11GRAB_FADE_H
+#define QX11GRAB_FADE_H
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
+#include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QDialog>
+#include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
-/* QX11Grab */
-#include "interface.h"
-
-class Watermark;
-
-/**
-* @short avfilter watermark/overlay plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#overlay-1
-*/
-class Q_DECL_EXPORT watermarkPlugin : public QX11Grab::Interface
+class Q_DECL_EXPORT fade : public QDialog
 {
     Q_OBJECT
-    Q_INTERFACES ( QX11Grab::Interface )
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    Watermark* m_watermark;
+    QSettings* cfg;
+    QLineEdit* m_lineEdit;
+
+    void setSettings ( const QString &key, const QVariant &value );
+    const QVariant settingsValue ( const QString &key, const QVariant &defaultValue = QVariant() );
+    void loadDefaults();
+
+  private Q_SLOTS:
+    void update();
 
   public:
-    bool create ( QWidget * parent );
+    explicit fade ( QWidget * parent = 0 );
 
-    bool exec();
+    /** open dialog */
+    int start();
 
-    const QString pluginName();
+    Q_SCRIPTABLE const QString data();
 
-    const QString title();
-
-    const QString description();
-
-    const QString data();
+    ~fade();
 };
 
 #endif

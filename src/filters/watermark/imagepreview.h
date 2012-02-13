@@ -10,11 +10,11 @@
 *
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Library General Public License for more details.
 *
 * You should have received a copy of the GNU Library General Public License
-* along with this library; see the file COPYING.LIB.  If not, write to
+* along with this library; see the file COPYING.LIB. If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
 **/
@@ -24,13 +24,14 @@
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QRectF>
+#include <QtCore/QSizeF>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QColor>
+#include <QtGui/QGraphicsPixmapItem>
+#include <QtGui/QGraphicsScene>
 #include <QtGui/QGraphicsView>
-#include <QtGui/QPainter>
+#include <QtGui/QPixmap>
 #include <QtGui/QWidget>
 
 class ImagePreview : public QGraphicsView
@@ -39,11 +40,29 @@ class ImagePreview : public QGraphicsView
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    QGraphicsPixmapItem* m_pixmapItem;
+    QSizeF p_itemSize;
+
   public Q_SLOTS:
-    void setImagePath ( const QString &path );
+    /** set image transparency */
+    void setItemOpacity ( int i );
 
   public:
-    ImagePreview ( QWidget * parent = 0 );
+    explicit ImagePreview ( QWidget * parent = 0 );
+
+    /** insert a new image an remove old image */
+    bool setImagePath ( const QString &path );
+
+    /** represents the current image size */
+    const QSizeF itemSize();
+
+    /** current image transparency */
+    const QString opacity();
+
+    /** current image */
+    bool savePixmap ( const QString &path );
+
     ~ImagePreview();
 };
 

@@ -32,6 +32,7 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QDialog>
 #include <QtGui/QLineEdit>
+#include <QtGui/QResizeEvent>
 #include <QtGui/QSlider>
 #include <QtGui/QWidget>
 
@@ -45,21 +46,25 @@ class Q_DECL_EXPORT Watermark : public QDialog
 
   private:
     QSettings* cfg;
-    QString p_overlay;
-    QString p_image;
-    int indentX, indentY;
+    QString p_Overlay; // overlay position
+    QString p_Image; // imageFilePath
+    qreal p_MarginX; // Margin (x)
+    qreal p_MarginY; // Margin (y)
     ImagePreview* m_imagePreview;
-    QSlider* m_xIndent;
-    QSlider* m_yIndent;
-    QComboBox* m_positionComboBox;
-    QLineEdit* m_outputEdit;
+    QSlider* m_xIndent; // Margin (x)
+    QSlider* m_yIndent; // Margin (y)
+    QComboBox* m_setOverlayComboBox;
+    QSlider* m_transparency;
+    QLineEdit* m_outputEdit; // Filter Preview
 
     void setSettings ( const QString &key, const QVariant &value );
     const QVariant settingsValue ( const QString &key, const QVariant &defaultValue = QVariant() );
     void loadDefaults();
 
+    bool rewritePixmap ();
+
     /** watermark overlays */
-    enum Overlay
+    enum CORNER_POSITION
     {
       TOP_LEFT_CORNER, /**< Top left corner */
       TOP_RIGHT_CORNER, /**< Top right corner */
@@ -77,14 +82,20 @@ class Q_DECL_EXPORT Watermark : public QDialog
     /** filedialog to open images */
     void openPixmapDialog();
 
-    /** left|right Indent */
+    /** left|right Margin */
     void setMarginX ( int x );
 
-    /** top|bottom Indent */
+    /** top|bottom Margin */
     void setMarginY ( int y );
+
+    /** image transparency changed */
+    void setTransparency ( int i );
 
     /** update/repaint */
     void update ();
+
+  protected:
+    virtual void resizeEvent ( QResizeEvent * event );
 
   public:
     explicit Watermark ( QWidget * parent = 0 );

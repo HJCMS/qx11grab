@@ -19,46 +19,53 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_WATERMARK_PLUGIN_H
-#define QX11GRAB_WATERMARK_PLUGIN_H
+#include "fadeplugin.h"
+#include "fade.h"
 
 /* QtCore */
-#include <QtCore/QObject>
-#include <QtCore/QString>
+#include <QtCore/QDebug>
+#include <QtCore/QtPlugin>
 
-/* QtGui */
-#include <QtGui/QWidget>
-
-/* QX11Grab */
-#include "interface.h"
-
-class Watermark;
-
-/**
-* @short avfilter watermark/overlay plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#overlay-1
-*/
-class Q_DECL_EXPORT watermarkPlugin : public QX11Grab::Interface
+bool fadePlugin::create ( QWidget * parent )
 {
-    Q_OBJECT
-    Q_INTERFACES ( QX11Grab::Interface )
+  if ( parent )
+  {
+    m_fade = new fade ( parent );
+    if ( m_fade )
+      return true;
+  }
+  m_fade = 0;
+  return false;
+}
 
-  private:
-    Watermark* m_watermark;
+bool fadePlugin::exec()
+{
+  return ( m_fade->start() == QDialog::Accepted ) ? true : false;
+}
 
-  public:
-    bool create ( QWidget * parent );
+const QString fadePlugin::pluginName()
+{
+  return QString::fromUtf8 ( "fade" );
+}
 
-    bool exec();
+const QString fadePlugin::title()
+{
+  return trUtf8 ( "Fade Filter" );
+}
 
-    const QString pluginName();
+const QString fadePlugin::description()
+{
+  return trUtf8 ( "Fade (in/out) Filter" );
+}
 
-    const QString title();
+const QString fadePlugin::data()
+{
+  QString val = m_fade->data();
+  if ( val.isEmpty() )
+    return QString::fromUtf8 ( "fade=in:0:10" ); // 10 Frames
 
-    const QString description();
+  return val;
+}
 
-    const QString data();
-};
-
-#endif
+Q_EXPORT_PLUGIN2 ( fade, fadePlugin )
 

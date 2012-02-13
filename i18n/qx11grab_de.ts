@@ -1692,6 +1692,10 @@ ToolTip</extracomment>
         <source>Position</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Transparenz</translation>
+    </message>
 </context>
 <context>
     <name>drawtext</name>
@@ -1745,6 +1749,32 @@ ToolTip</extracomment>
     <message>
         <source>Draw Text into Video</source>
         <translation>Zeichne Text in das Video</translation>
+    </message>
+</context>
+<context>
+    <name>fade</name>
+    <message>
+        <source>Fade (In/Out) Filter</source>
+        <translation>Ein/Ausblenden Filter</translation>
+    </message>
+    <message>
+        <source>Description: %1</source>
+        <translation>Beschreibung: %1</translation>
+    </message>
+    <message>
+        <source>Example: %1</source>
+        <translation>Beispiel: %1</translation>
+    </message>
+</context>
+<context>
+    <name>fadePlugin</name>
+    <message>
+        <source>Fade Filter</source>
+        <translation>Blendenfilter</translation>
+    </message>
+    <message>
+        <source>Fade (in/out) Filter</source>
+        <translation>Ein/Ausblenden Filter</translation>
     </message>
 </context>
 <context>

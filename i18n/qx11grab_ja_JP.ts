@@ -1995,48 +1995,53 @@ ToolTip</extracomment>
 <context>
     <name>Watermark</name>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="47"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="54"/>
         <source>Watermark Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="62"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="71"/>
         <source>Margin (Left|Right)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="66"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="76"/>
         <source>Margin (Top|Bottom)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="70"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="80"/>
         <source>Open Image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="75"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="85"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="76"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="78"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="79"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
         <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="95"/>
+        <source>Transparency</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2102,6 +2107,37 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="60"/>
         <source>Draw Text into Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>fade</name>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="38"/>
+        <source>Fade (In/Out) Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="49"/>
+        <source>Description: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="53"/>
+        <source>Example: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>fadePlugin</name>
+    <message>
+        <location filename="../src/filters/fade/fadeplugin.cpp" line="53"/>
+        <source>Fade Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fadeplugin.cpp" line="58"/>
+        <source>Fade (in/out) Filter</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

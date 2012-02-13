@@ -1,26 +1,19 @@
-## watermark Plugin
+## fade Plugin
 
-SET (target_plugin "watermark")
+SET (target_plugin "fade")
 
 SET (LIBRARY_OUTPUT_PATH
   ${PLUGIN_OUTPUT_PATH}/
 )
 
 SET(plugin_SOURCES
-  watermarkplugin.cpp
-  watermark.cpp
-  imagepreview.cpp
-  openimagedialog.cpp
+  fadeplugin.cpp
+  fade.cpp
 )
 
 SET(plugin_HEADERS
-  watermark.h
-  watermarkplugin.h
-  imagepreview.h
-  openimagedialog.h
-)
-
-SET(plugin_NOMOC_HEADERS
+  fade.h
+  fadeplugin.h
 )
 
 QT4_WRAP_CPP (plugin_MOCS ${plugin_HEADERS})
@@ -29,13 +22,11 @@ ADD_LIBRARY (${target_plugin} MODULE
   ${plugin_SOURCES}
   ${plugin_HEADERS}
   ${plugin_MOCS}
-  ${plugin_NOMOC_HEADERS}
 )
 
 TARGET_LINK_LIBRARIES (${target_plugin}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
-  ${QT_QTBUS_LIBRARY}
   qx11grabinterface
 )
 
