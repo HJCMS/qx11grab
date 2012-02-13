@@ -29,7 +29,10 @@
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QCheckBox>
 #include <QtGui/QDialog>
+#include <QtGui/QRadioButton>
+#include <QtGui/QSpinBox>
 #include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
@@ -41,6 +44,15 @@ class Q_DECL_EXPORT fade : public QDialog
 
   private:
     QSettings* cfg;
+    // Types
+    QRadioButton* m_in;
+    QRadioButton* m_out;
+    // Frames
+    QSpinBox* m_start_frame;
+    QSpinBox* m_nb_frames;
+    // Alpha
+    QCheckBox* m_alpha;
+    // Output
     QLineEdit* m_lineEdit;
 
     void setSettings ( const QString &key, const QVariant &value );
@@ -48,6 +60,8 @@ class Q_DECL_EXPORT fade : public QDialog
     void loadDefaults();
 
   private Q_SLOTS:
+    void updateChanged ( bool );
+    void updateChanged ( int );
     void update();
 
   public:

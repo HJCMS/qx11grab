@@ -2113,18 +2113,48 @@ ToolTip</extracomment>
 <context>
     <name>fade</name>
     <message>
-        <location filename="../src/filters/fade/fade.cpp" line="38"/>
+        <location filename="../src/filters/fade/fade.cpp" line="39"/>
         <source>Fade (In/Out) Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/fade/fade.cpp" line="49"/>
-        <source>Description: %1</source>
+        <location filename="../src/filters/fade/fade.cpp" line="52"/>
+        <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/fade/fade.cpp" line="53"/>
-        <source>Example: %1</source>
+        <location filename="../src/filters/fade/fade.cpp" line="57"/>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="57"/>
+        <source>Fade in the first 25 Frames and only use alpha channel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="61"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="65"/>
+        <source>in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="69"/>
+        <source>out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="75"/>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/fade/fade.cpp" line="94"/>
+        <source>Only alpha channel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

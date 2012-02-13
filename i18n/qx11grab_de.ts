@@ -1758,12 +1758,36 @@ ToolTip</extracomment>
         <translation>Ein/Ausblenden Filter</translation>
     </message>
     <message>
-        <source>Description: %1</source>
-        <translation>Beschreibung: %1</translation>
+        <source>Description</source>
+        <translation>Beschreibung</translation>
     </message>
     <message>
-        <source>Example: %1</source>
-        <translation>Beispiel: %1</translation>
+        <source>Example</source>
+        <translation>Beispiel</translation>
+    </message>
+    <message>
+        <source>Fade in the first 25 Frames and only use alpha channel.</source>
+        <translation>Blende bis zum 25. Frame ein und verwende den Alpha Kanal.</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>in</source>
+        <translation>Einblenden</translation>
+    </message>
+    <message>
+        <source>out</source>
+        <translation>Ausblenden</translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Only alpha channel</source>
+        <translation>Nur den Alpha Kanal</translation>
     </message>
 </context>
 <context>

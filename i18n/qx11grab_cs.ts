@@ -1746,11 +1746,35 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Description: %1</source>
+        <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Example: %1</source>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade in the first 25 Frames and only use alpha channel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only alpha channel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
