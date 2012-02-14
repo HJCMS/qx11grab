@@ -17,5 +17,3 @@ qdiff=4
 bf=3
 refs=2
 trellis=0
-flags2=+wpred+dct8x8+fastpskip+mbtree
-wpredp=2

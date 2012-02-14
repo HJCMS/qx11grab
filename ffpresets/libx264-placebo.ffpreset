@@ -16,7 +16,4 @@ qmax=51
 qdiff=4
 bf=16
 refs=16
-
 trellis=2
-flags2=+bpyramid+mixed_refs+wpred+dct8x8-fastpskip+mbtree
-wpredp=2
