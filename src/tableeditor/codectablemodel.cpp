@@ -23,7 +23,7 @@
 #include "settings.h"
 
 /* QX11Grab */
-#include "qx11grabplugins.h"
+#include "avfiltermodel.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -273,43 +273,15 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
 {
   QModelIndex mIndex = index ( row, 1, parent );
   // Aktuelle Filter finden und einlesen
-  QString vf = data ( mIndex, Qt::EditRole ).toString();
-  if ( ! vf.isEmpty() )
-  {
-    QString buffer ( value.toString() );
-    QRegExp pipePattern ( "\\[(in|out|[\\w\\d]{4,})\\]" );
-    // FIXME Bei einem Pipe Filter werden alle anderen Inhalte entfernt!
-    if ( buffer.contains ( pipePattern ) )
-    {
-      emit housemaster ( trUtf8 ( "pipe filters can not conjunct with normal filters" ) );
-      return setData ( mIndex, buffer, Qt::EditRole );
-    }
+  QString filters = data ( mIndex, Qt::EditRole ).toString();
+  if ( filters.isEmpty() )
+    return setData ( mIndex, value, Qt::EditRole );
 
-    // Den Filter Parameter vom übergebenen Inhalt extrahieren
-    QString pfv = buffer.left ( buffer.indexOf ( '=', 0 ) );
-    QRegExp pattern ( "(^"+pfv+"=)" );
-    // neue FilterListe
-    QStringList filters;
-    /* WARNING Weil auch Filter Kommas enthalten können ist dieser Trenner nicht alltags tauglich! */
-    foreach ( QString filter, vf.split ( QX11GRAB_DELIMITER ) )
-    {
-      // FIXME Pipe Filter werden nicht übernommen!
-      if ( filter.contains ( pipePattern ) )
-      {
-        emit housemaster ( trUtf8 ( "pipe filters can not conjunct with normal filters" ) );
-        filters.clear();
-        break;
-      }
-
-      // Soll der Filter überschrieben werden?
-      if ( ! filter.contains ( pattern ) )
-        filters.append ( filter );
-    }
-    filters.append ( buffer );
-    // qDebug() << Q_FUNC_INFO << pfv << filters;
-    return setData ( mIndex, filters.join ( QX11GRAB_DELIMITER ), Qt::EditRole );
-  }
-  return setData ( mIndex, value, Qt::EditRole );
+  QX11Grab::AVFilterModel* m_filterModel = new QX11Grab::AVFilterModel ( filters );
+  m_filterModel->insertFilter ( value );
+  bool status = setData ( mIndex, m_filterModel->values(), Qt::EditRole );
+  delete m_filterModel;
+  return status;
 }
 
 /** Einträge ab Zeile mit Anzahl index einfügen.   */

@@ -4,6 +4,7 @@ SET(_subproject "AVOptions")
 
 SET (_subproject_SOURCES
   avoptions.cpp
+  avfiltermodel.cpp
 )
 
 SET (_subproject_HEADERS
@@ -11,9 +12,10 @@ SET (_subproject_HEADERS
 )
 
 SET (_subproject_NOMOC_HEADERS
+  avfiltermodel.h
 )
 
-## NOTE add in main CMakeLists.txt
+## NOTE added in main CMakeLists.txt
 # ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
 
 INCLUDE_DIRECTORIES (

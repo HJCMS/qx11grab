@@ -37,7 +37,7 @@
 /* QtGui */
 #include <QtGui/QWidget>
 
-/** PluginsList Delimiter */
+/** Plugins Delimiter */
 #ifndef QX11GRAB_DELIMITER
 # define QX11GRAB_DELIMITER QLatin1String(",")
 #endif
