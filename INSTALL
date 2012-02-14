@@ -19,11 +19,10 @@ INSTALLATION:
   3) run cmake
     Unix
       cmake -Wno-dev \
-        -DCMAKE_BUILD_TYPE:STRING=Release \
-        -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-        -DSYSCONF_INSTALL_DIR:PATH=/etc ../
-        -DINSTALL_EXTRA_FFPRESETS:BOOL=ON \
         -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
+        -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+        -DSYSCONF_INSTALL_DIR:PATH=/etc \
+        -DINSTALL_EXTRA_FFPRESETS:BOOL=ON \
         ../
 
     Options for:

@@ -162,8 +162,8 @@ namespace QX11Grab
         }
         else if ( it->hasInLabel )
         {
-          label.append ( it->filter );
-          label.append ( "," );
+          input.append ( it->filter );
+          input.append ( "," );
         }
         else
           other.append ( it->filter );
