@@ -293,10 +293,6 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation>Hodnota</translation>
     </message>
-    <message>
-        <source>pipe filters can not conjunct with normal filters</source>
-        <translation>Filtry pro přenos dat nelze spojit s normálními filtry</translation>
-    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>

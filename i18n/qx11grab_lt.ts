@@ -328,7 +328,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableDelegate</name>
     <message>
-        <location filename="../src/tableeditor/codectabledelegate.cpp" line="148"/>
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="222"/>
         <source>Missing stated hyphens in given argument</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
@@ -351,12 +351,6 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/tableeditor/codectablemodel.cpp" line="196"/>
         <source>Value</source>
         <translation type="unfinished">Reikšmė</translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="284"/>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="299"/>
-        <source>pipe filters can not conjunct with normal filters</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -686,7 +680,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FilterMenu</name>
     <message>
-        <location filename="../src/tableeditor/filtermenu.cpp" line="36"/>
+        <location filename="../src/tableeditor/filtermenu.cpp" line="32"/>
         <source>Create Filter</source>
         <translation type="unfinished"></translation>
     </message>
@@ -981,12 +975,12 @@ WhatsThis</extracomment>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="125"/>
+        <location filename="../src/mainwindow.cpp" line="124"/>
         <source>Dimension</source>
         <translation type="unfinished">Dydis</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="131"/>
+        <location filename="../src/mainwindow.cpp" line="130"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
@@ -996,89 +990,89 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="144"/>
+        <location filename="../src/mainwindow.cpp" line="145"/>
         <source>Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="146"/>
+        <location filename="../src/mainwindow.cpp" line="147"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="147"/>
+        <location filename="../src/mainwindow.cpp" line="148"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="159"/>
+        <location filename="../src/mainwindow.cpp" line="160"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="160"/>
+        <location filename="../src/mainwindow.cpp" line="161"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="427"/>
+        <location filename="../src/mainwindow.cpp" line="428"/>
         <source>Info</source>
         <translation type="unfinished">Informacija</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Warning</source>
         <translation type="unfinished">Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Stopping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="489"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="501"/>
+        <location filename="../src/mainwindow.cpp" line="502"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="515"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>Error</source>
         <translation type="unfinished">Klaida</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="515"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>qx11grap not started</source>
         <translation type="unfinished">qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="641"/>
+        <location filename="../src/mainwindow.cpp" line="642"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="669"/>
+        <location filename="../src/mainwindow.cpp" line="670"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="669"/>
+        <location filename="../src/mainwindow.cpp" line="670"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="689"/>
+        <location filename="../src/mainwindow.cpp" line="690"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="700"/>
+        <location filename="../src/mainwindow.cpp" line="701"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>

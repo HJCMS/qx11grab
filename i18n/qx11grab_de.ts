@@ -296,10 +296,6 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Value</source>
         <translation>Wert</translation>
     </message>
-    <message>
-        <source>pipe filters can not conjunct with normal filters</source>
-        <translation>Umleitungs Filter können nicht mit normalen FIltern verbunden werden</translation>
-    </message>
 </context>
 <context>
     <name>CommandLineEdit</name>

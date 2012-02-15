@@ -47,6 +47,10 @@ CodecTableDelegate::CodecTableDelegate ( QObject * parent )
   setObjectName ( QLatin1String ( "CodecTableDelegate" ) );
 }
 
+/**
+* Anfrage um welche Codec Tabelle es sich handelt!
+* Ist von der ausgewählten ToolBox abhängig!
+*/
 const QString CodecTableDelegate::queryCodec() const
 {
   QString codec;
@@ -58,6 +62,9 @@ const QString CodecTableDelegate::queryCodec() const
   return codec;
 }
 
+/**
+* Sucht nach vordefinierten Optionen in XML Tabellen
+*/
 const QStringList CodecTableDelegate::hasPredefinedArguments () const
 {
   QStringList buffer;
@@ -74,6 +81,9 @@ const QStringList CodecTableDelegate::hasPredefinedArguments () const
   return buffer;
 }
 
+/**
+* Sucht nach vordefinierten Daten in XML Tabellen
+*/
 const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &predicate ) const
 {
   QStringList buffer;
@@ -93,12 +103,18 @@ const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &pred
   return buffer;
 }
 
+/**
+* Nachrichten an das Hauptfenster senden!
+*/
 void CodecTableDelegate::housemaster ( const QString &message ) const
 {
   QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
   iface.call ( "message", message );
 }
 
+/**
+* Sucht nach Parameter in der ersten Zelle
+*/
 const QString CodecTableDelegate::findOption ( const QModelIndex &index ) const
 {
   QString option = index.sibling ( index.row(), 0 ).data().toString();
