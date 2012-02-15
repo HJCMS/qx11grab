@@ -138,13 +138,14 @@ void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &ind
     return;
   }
 
-  QStringList options = hasPredefinedOptions ( findOption ( index ) );
   DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
   if ( index.column() == 1 )
   {
-    w->setCompleterId ( findOption ( index ) );
-    if ( options.size() > 0 )
-      w->setCompleters ( options );
+    QString id = findOption ( index );
+    w->setCompleterId ( id );
+    QStringList opts = hasPredefinedOptions ( id );
+    if ( opts.size() > 0 )
+      w->setCompleters ( opts );
   }
   w->setValue ( index.model()->data ( index ) );
 }
