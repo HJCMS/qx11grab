@@ -41,6 +41,8 @@ class CodecTableDelegate : public QItemDelegate
 
   private:
     enum PRESET_TYPE { NONE, VCODEC, ACODEC };
+    const QString queryCodec () const;
+    const QStringList hasPredefinedArguments () const;
     const QStringList hasPredefinedOptions ( const QString &predicate ) const;
     void housemaster ( const QString &message ) const;
     const QString findOption ( const QModelIndex &index ) const;

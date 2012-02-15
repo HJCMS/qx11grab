@@ -47,18 +47,40 @@ CodecTableDelegate::CodecTableDelegate ( QObject * parent )
   setObjectName ( QLatin1String ( "CodecTableDelegate" ) );
 }
 
-const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &predicate ) const
+const QString CodecTableDelegate::queryCodec() const
 {
-  QStringList buffer;
-  if ( predicate.isEmpty() )
-    return buffer;
-
   QString codec;
   QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
   QDBusReply<QString> reply = iface.call ( "editorcodec" );
   if ( reply.isValid() )
     codec = reply.value();
 
+  return codec;
+}
+
+const QStringList CodecTableDelegate::hasPredefinedArguments () const
+{
+  QStringList buffer;
+  QString codec = queryCodec();
+  if ( ! codec.isEmpty() )
+  {
+    OptionsFinder* finder = new OptionsFinder ( codec );
+    foreach ( QString a, finder->options () )
+    {
+      buffer.append ( QString::fromUtf8 ( "-%1" ).arg ( a ) );
+    }
+    delete finder;
+  }
+  return buffer;
+}
+
+const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &predicate ) const
+{
+  QStringList buffer;
+  if ( predicate.isEmpty() )
+    return buffer;
+
+  QString codec = queryCodec();
   if ( ! codec.isEmpty() )
   {
     OptionsFinder* finder = new OptionsFinder ( codec );
@@ -139,14 +161,21 @@ void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &ind
   }
 
   DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
-  if ( index.column() == 1 )
+  QStringList opts;
+  if ( index.column() == 0 )
+    opts = hasPredefinedArguments();
+  else if ( index.column() == 1 )
   {
     QString id = findOption ( index );
-    w->setCompleterId ( id );
-    QStringList opts = hasPredefinedOptions ( id );
-    if ( opts.size() > 0 )
-      w->setCompleters ( opts );
+    if ( ! id.isEmpty() )
+    {
+      w->setCompleterId ( id );
+      opts = hasPredefinedOptions ( id );
+    }
   }
+  if ( opts.size() > 0 )
+    w->setCompleters ( opts );
+
   w->setValue ( index.model()->data ( index ) );
 }
 
