@@ -13,7 +13,7 @@ REQUIREMENTS:
   -  dbus-1 >= 1.4.12 (required) 1.4.16 (recommended) http://www.freedesktop.org/wiki/Software/dbus
   -  cmake >= 2.8.0 (required for build) http://www.cmake.org
  
-INSTALLATION:
+Default INSTALLATION:
   1) create a subdirectory build in source home directory
   2) open a terminal and change this directory
   3) run cmake
@@ -22,11 +22,13 @@ INSTALLATION:
         -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
         -DCMAKE_INSTALL_PREFIX:PATH=/usr \
         -DSYSCONF_INSTALL_DIR:PATH=/etc \
-        -DINSTALL_EXTRA_FFPRESETS:BOOL=ON \
         ../
 
     Options for:
       -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
+
+    Optional for FFpresets Support add:
+        -DINSTALL_EXTRA_FFPRESETS:BOOL=ON \
 
     The FFMPEG_SUFFIX option allow you to set different pkg-config Version
     Example: -DFFMPEG_SUFFIX:STRING=_09x will search ${prefix}/${lib}/pkgconfig/libavformat_09x.pc
@@ -34,99 +36,86 @@ INSTALLATION:
   4) make
   5) make DESTDIR=/tmp/test install/fast
 
-INSTALL_TREE:
-/
-`-- usr
-    |-- bin
-    |   `-- qx11grab
-    |-- lib
-    |   `-- qx11grab
-    |       |-- libUnsharp.so
-    |       |-- libdrawtext.so
-    |       `-- libsetdar.so
-    `-- share
-        |-- applications
-        |   `-- qx11grab.desktop
-        |-- dbus-1
-        |   |-- interfaces
-        |   |   `-- de.hjcms.qx11grab.xml
-        |   `-- services
-        |       `-- de.hjcms.qx11grab.service
-        |-- ffmpeg
-        |   |-- libx264-QX11Grab.ffpreset
-        |   |-- libx264-baseline.ffpreset
-        |   |-- libx264-default.ffpreset
-        |   |-- libx264-fast.ffpreset
-        |   |-- libx264-faster.ffpreset
-        |   |-- libx264-hq.ffpreset
-        |   |-- libx264-main.ffpreset
-        |   |-- libx264-max.ffpreset
-        |   |-- libx264-medium.ffpreset
-        |   |-- libx264-placebo.ffpreset
-        |   |-- libx264-slow.ffpreset
-        |   |-- libx264-slower.ffpreset
-        |   |-- libx264-ultrafast.ffpreset
-        |   |-- libx264-veryfast.ffpreset
-        |   `-- libx264-veryslow.ffpreset
-        |-- icons
-        |   `-- hicolor
-        |       |-- 128x128
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 16x16
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 192x192
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 22x22
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 24x24
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 32x32
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 36x36
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 48x48
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 64x64
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       |-- 96x96
-        |       |   `-- apps
-        |       |       `-- qx11grab.png
-        |       `-- scalable
-        |           `-- apps
-        |               `-- qx11grab.svgz
-        |-- man
-        |   |-- de
-        |   |   `-- man1
-        |   |       `-- qx11grab.de.1
-        |   `-- man1
-        |       `-- qx11grab.1
-        |-- pixmaps
-        |   `-- qx11grab.png
-        |       `-- qx11grab_36.png
-        |-- qt
-        |   `-- translations
-        |       |-- qx11grab_cs.qm
-        |       |-- qx11grab_de.qm
-        |       `-- qx11grab_lt.qm
-        `-- qx11grab
-            |-- AUTHORS
-            |-- COPYING
-            |-- ChangeLog
-            |-- NEWS
-            |-- README
-            |-- options
-            |   |-- libvpx.xml
-            |   |-- libx264.xml
-            |   `-- options.dtd
-            `-- qx11grab_untranslated.ts
+openSUSE RPM INSTALLATION:
+  1) Add Packman Repository to your repos http://wiki.links2linux.de/packman:faq_de
+  2) zypper refresh
+  3) zypper in libqt4-devel ffmpeg-devel ffmpeg dbus-1-devel cmake libpulse-devel freetype2-devel rpm-devel
+  4) Copy Source RPM Package to /usr/src/packages/SOURCES/
+  5) change the /usr/src/packages directory and
+  6) run: rpmbuild --rebuild SOURCES/qx11grab-<version>.src.rpm
+  7) after build Install as root with rpm -Uvh RPMS/<arch>/qx11grab-<version>.<arch>.rpm
 
-44 directories, 48 files
+INSTALL_TREE:
+/usr
+  |-- bin
+  |   `-- qx11grab
+  |-- lib
+  |   `-- qx11grab
+  |       |-- lib*.so
+  `-- share
+      |-- applications
+      |   `-- qx11grab.desktop
+      |-- dbus-1
+      |   |-- interfaces
+      |   |   `-- de.hjcms.qx11grab.xml
+      |   `-- services
+      |       `-- de.hjcms.qx11grab.service
+      |-- ffmpeg
+      |   |-- libx264-*.ffpreset
+      |-- icons
+      |   `-- hicolor
+      |       |-- 128x128
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 16x16
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 192x192
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 22x22
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 24x24
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 32x32
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 36x36
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 48x48
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 64x64
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       |-- 96x96
+      |       |   `-- apps
+      |       |       `-- qx11grab.png
+      |       `-- scalable
+      |           `-- apps
+      |               `-- qx11grab.svgz
+      |-- man
+      |   |-- de
+      |   |   `-- man1
+      |   |       `-- qx11grab.de.1
+      |   `-- man1
+      |       `-- qx11grab.1
+      |-- pixmaps
+      |   `-- qx11grab.png
+      |       `-- qx11grab_36.png
+      |-- qt
+      |   `-- translations
+      |       |-- qx11grab_*.qm
+      `-- qx11grab
+          |-- AUTHORS
+          |-- COPYING
+          |-- ChangeLog
+          |-- NEWS
+          |-- README
+          |-- options
+          |   |-- *.xml
+          |   `-- options.dtd
+          `-- qx11grab_untranslated.ts
