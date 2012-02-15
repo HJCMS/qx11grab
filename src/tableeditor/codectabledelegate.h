@@ -26,6 +26,7 @@
 #include <QtCore/QModelIndex>
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtGui */
 #include <QtGui/QItemDelegate>
@@ -40,6 +41,7 @@ class CodecTableDelegate : public QItemDelegate
 
   private:
     enum PRESET_TYPE { NONE, VCODEC, ACODEC };
+    const QStringList hasPredefinedOptions ( const QString &predicate ) const;
     void housemaster ( const QString &message ) const;
     const QString findOption ( const QModelIndex &index ) const;
     PRESET_TYPE isPresetsOption ( const QModelIndex &index ) const;

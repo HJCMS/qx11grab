@@ -21,8 +21,7 @@
 
 #include "codectabledelegate.h"
 #include "codectablemodel.h"
-
-/* QX11Grab */
+#include "optionsfinder.h"
 #include "selectvcodecpresets.h"
 #include "selectacodecpresets.h"
 #include "defaultedit.h"
@@ -40,11 +39,36 @@
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
 
 CodecTableDelegate::CodecTableDelegate ( QObject * parent )
     : QItemDelegate ( parent )
 {
   setObjectName ( QLatin1String ( "CodecTableDelegate" ) );
+}
+
+const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &predicate ) const
+{
+  QStringList buffer;
+  if ( predicate.isEmpty() )
+    return buffer;
+
+  QString codec;
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+  QDBusReply<QString> reply = iface.call ( "editorcodec" );
+  if ( reply.isValid() )
+    codec = reply.value();
+
+  if ( ! codec.isEmpty() )
+  {
+    OptionsFinder* finder = new OptionsFinder ( codec );
+    QStringList list = finder->values ( predicate );
+    if ( list.size() > 1 )
+      buffer.append ( list );
+
+    delete finder;
+  }
+  return buffer;
 }
 
 void CodecTableDelegate::housemaster ( const QString &message ) const
@@ -114,10 +138,14 @@ void CodecTableDelegate::setEditorData ( QWidget* editor, const QModelIndex &ind
     return;
   }
 
+  QStringList options = hasPredefinedOptions ( findOption ( index ) );
   DefaultEdit* w = static_cast<DefaultEdit*> ( editor );
   if ( index.column() == 1 )
+  {
     w->setCompleterId ( findOption ( index ) );
-
+    if ( options.size() > 0 )
+      w->setCompleters ( options );
+  }
   w->setValue ( index.model()->data ( index ) );
 }
 

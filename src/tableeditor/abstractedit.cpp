@@ -138,6 +138,18 @@ void AbstractEdit::setCompleters ( const QList<QX11Grab::FFOption> &list )
   }
 }
 
+void AbstractEdit::setCompleters ( const QStringList &list )
+{
+  if ( list.size() > 0 )
+  {
+    proposeList.clear();
+    proposeList.append ( list );
+    proposeList.sort();
+    QCompleter* m_compliter = new QCompleter ( list, this );
+    setCompleter ( m_compliter );
+  }
+}
+
 /**
 * Vordefinierte Standard Methode für QItemDelegate
 */

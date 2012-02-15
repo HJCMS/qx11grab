@@ -38,6 +38,7 @@
 #include <QtGui/QShowEvent>
 #include <QtGui/QStatusBar>
 #include <QtGui/QSystemTrayIcon>
+#include <QtGui/QToolBox>
 #include <QtGui/QWidget>
 
 /* QtDBus */
@@ -66,6 +67,7 @@ class MainWindow : public QMainWindow
     Settings* cfg;
     FFProcess* m_FFProcess;
     Listener* m_listener;
+    QToolBox* m_toolBox;
     MenuBar* m_menuBar;
     ToolBar* m_toolBar;
     GrabberInfo* m_grabberInfo;
@@ -127,6 +129,7 @@ class MainWindow : public QMainWindow
     void statusBarMessage ( const QString &msg, int timeout = 5000 );
     const QString currentCommandLine();
     const QString recordingArea();
+    const QString selectedCodecEditor();
     const QString audioCodec();
     const QString videoCodec();
     const QString outputFile();

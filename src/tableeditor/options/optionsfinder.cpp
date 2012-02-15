@@ -36,6 +36,7 @@ OptionsFinder::OptionsFinder ( const QString &codec )
     : QDomDocument ( "encoder" )
     , p_codec ( codec )
     , p_template ( QString::null )
+    , p_isOpen ( false )
 {
   if ( ! p_codec.isEmpty() )
     initTemplate();
@@ -58,25 +59,28 @@ void OptionsFinder::initTemplate()
       break;
     }
   }
-}
 
-const QList<QString> OptionsFinder::options()
-{
-  bool status = false;
-  QList<QString> opts;
   if ( p_template.isNull() )
-    return opts;
+    return;
 
   QFile fp ( p_template );
   if ( fp.open ( QIODevice::ReadOnly ) )
   {
     if ( setContent ( &fp ) )
-      status = true;
+      p_isOpen = true;
 
     fp.close();
   }
 
-  if ( status )
+}
+
+const QStringList OptionsFinder::options()
+{
+  QStringList opts;
+  if ( p_template.isNull() )
+    return opts;
+
+  if ( p_isOpen )
   {
     QDomNodeList nodes = elementsByTagName ( "option" );
     for ( int n = 0; n < nodes.size(); ++n )
@@ -88,6 +92,39 @@ const QList<QString> OptionsFinder::options()
   }
 
   return opts;
+}
+
+/**
+* Sucht nach Vorgabewerten für Option
+*/
+const QStringList OptionsFinder::values ( const QString &option )
+{
+  if ( ! p_isOpen )
+    return QStringList();
+
+  QStringList buffer;
+  QString argument ( option );
+  argument.remove ( QRegExp ( "^[\\-]+" ) );
+  if ( ! argument.isEmpty() )
+  {
+    QDomNodeList nodes = elementsByTagName ( "option" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      if ( ! nodes.item ( n ).hasChildNodes() )
+        continue;
+
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( e.hasAttributes() && ( e.attribute ( "param", "NULL" ) == argument ) )
+      {
+        QDomNodeList childs = e.elementsByTagName ( "value" );
+        for ( int j = 0; j < childs.size(); ++j )
+        {
+          buffer.append ( childs.item ( j ).firstChild().nodeValue() );
+        }
+      }
+    }
+  }
+  return buffer;
 }
 
 OptionsFinder::~OptionsFinder()

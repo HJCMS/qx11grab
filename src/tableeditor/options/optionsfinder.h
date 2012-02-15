@@ -25,6 +25,7 @@
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 
 /* QtXml */
 #include <QtXml/QDomDocument>
@@ -34,12 +35,19 @@ class OptionsFinder : public QDomDocument
   private:
     QString p_codec;
     QString p_template;
-    QList<QString> opts;
+    bool p_isOpen;
+    QStringList opts;
     void initTemplate();
 
   public:
     explicit OptionsFinder ( const QString &codec );
-    const QList<QString> options();
+
+    /** OptionSlit */
+    const QStringList options();
+
+    /** has this option predefined values */
+    const QStringList values ( const QString &option );
+
     ~OptionsFinder();
 };
 

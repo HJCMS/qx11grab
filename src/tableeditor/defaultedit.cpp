@@ -20,6 +20,7 @@
 **/
 
 #include "defaultedit.h"
+#include "optionsfinder.h"
 
 /* QtCore */
 #include <QtCore/QByteArray>
@@ -53,11 +54,20 @@ void DefaultEdit::setCompleterId ( const QString &id )
 {
   // Siehe "avoptions.h"
   if ( id.compare ( "-pix_fmt" ) == 0 )
+  {
     setCompleters ( QX11Grab::AVOptions::pixelFormats() );
+    return;
+  }
   else if ( id.compare ( "-sample_fmt" ) == 0 )
+  {
     setCompleters ( QX11Grab::AVOptions::sampleFormats() );
+    return;
+  }
   else if ( id.contains ( QRegExp ( "^\\-{1,2}\\b" ) ) )
+  {
     setCodecOptions ( id );
+    return;
+  }
 }
 
 DefaultEdit::~DefaultEdit()

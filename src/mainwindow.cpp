@@ -68,7 +68,6 @@
 #include <QtGui/QPalette>
 #include <QtGui/QPixmap>
 #include <QtGui/QRubberBand>
-#include <QtGui/QToolBox>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QX11Info>
 
@@ -114,37 +113,39 @@ MainWindow::MainWindow ( Settings * settings )
   QVBoxLayout* verticalLayout = new QVBoxLayout ( layerWidget );
   verticalLayout->setContentsMargins ( 0, 0, 0, 0 );
 
-  QToolBox* toolBox = new QToolBox ( layerWidget, Qt::Widget );
-  toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
-  toolBox->setBackgroundRole ( QPalette::Window );
-  toolBox->setContentsMargins ( 0, 5, 0, 10 );
-  verticalLayout->addWidget ( toolBox );
+  m_toolBox = new QToolBox ( layerWidget, Qt::Widget );
+  m_toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
+  m_toolBox->setBackgroundRole ( QPalette::Window );
+  m_toolBox->setContentsMargins ( 0, 5, 0, 10 );
+  verticalLayout->addWidget ( m_toolBox );
 
   // Dimension {
-  m_grabberInfo = new GrabberInfo ( toolBox );
-  toolBox->addItem ( m_grabberInfo, cfg->themeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
+  m_grabberInfo = new GrabberInfo ( m_toolBox );
+  m_toolBox->addItem ( m_grabberInfo, cfg->themeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
   // } Dimension
 
   // MetaData {
-  m_metaData = new MetaData ( toolBox );
+  m_metaData = new MetaData ( m_toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  toolBox->addItem ( m_metaData, cfg->themeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
+  m_toolBox->addItem ( m_metaData, cfg->themeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
   // } MetaData
 
   // vCodec {
-  m_videoEditor = new TableEditor ( toolBox );
+  m_videoEditor = new TableEditor ( m_toolBox );
+  m_videoEditor->setObjectName ( QString::fromUtf8 ( "vcodec" ) );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
-  toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
+  m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
   // } vCodec
 
   // aCodec {
-  m_audioGroupBox = new QGroupBox ( toolBox );
+  m_audioGroupBox = new QGroupBox ( m_toolBox );
+  m_audioGroupBox->setObjectName ( QString::fromUtf8 ( "acodec" ) );
   m_audioGroupBox->setFlat ( true );
   m_audioGroupBox->setCheckable ( true );
   m_audioGroupBox->setTitle ( trUtf8 ( "Audio Recording" ) );
   /*: WhatsThis */
   m_audioGroupBox->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
-  toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
+  m_toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
   m_audioEditor = new TableEditor ( m_audioGroupBox );
@@ -154,10 +155,10 @@ MainWindow::MainWindow ( Settings * settings )
   // } aCodec
 
   // Preview {
-  m_commandPreview = new CommandPreview ( toolBox );
+  m_commandPreview = new CommandPreview ( m_toolBox );
   /*: ToolTip */
   m_commandPreview->setToolTip ( trUtf8 ( "command line preview" ) );
-  toolBox->addItem ( m_commandPreview, cfg->themeIcon ( "ffmpeg" ), trUtf8 ( "FFmpeg" ) );
+  m_toolBox->addItem ( m_commandPreview, cfg->themeIcon ( "ffmpeg" ), trUtf8 ( "FFmpeg" ) );
   // } Preview
 
   layerWidget->setLayout ( verticalLayout );
@@ -792,6 +793,27 @@ const QString MainWindow::recordingArea()
   QString buffer;
   QRect r =  m_grabberInfo->getRect();
   return buffer.sprintf ( "@Rect(%d %d %d %d)", r.x(), r.y(), r.width(), r.height() );
+}
+
+/**
+* NOTE Wird von Table Editor benötigt!
+* Sucht nach der Aktuell ausgewaählten Editor Tabelle und gibt
+* den Codec zurück. Ist keine der Codec Tabellen (avcodec/vcodec)
+* ausgewählt wird eine leere Zeichenkette zurück geben!
+* \see Adaptor::editorcodec()
+*/
+const QString MainWindow::selectedCodecEditor()
+{
+  QString codec;
+  QString table = m_toolBox->currentWidget()->objectName();
+  if ( table.compare ( "vcodec" ) == 0 )
+    codec = m_videoEditor->selectedCodec();
+  else if ( table.compare ( "acodec" ) == 0 )
+    codec = m_audioEditor->selectedCodec();
+  else
+    codec = QString::null;
+
+  return codec;
 }
 
 /**

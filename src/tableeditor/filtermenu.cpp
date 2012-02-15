@@ -28,10 +28,6 @@
 #include <QtGui/QAction>
 #include <QtGui/QVBoxLayout>
 
-/* QtDBus */
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
-
 FilterMenu::FilterMenu ( QWidget * parent )
     : QMenu ( trUtf8 ( "Create Filter" ), parent )
     , m_plugins ( 0 )

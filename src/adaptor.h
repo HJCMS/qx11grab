@@ -54,6 +54,7 @@ class Adaptor : public QDBusAbstractAdaptor
     Q_NOREPLY void show ();
     Q_NOREPLY void hide ();
     Q_NOREPLY void message ( const QString &mess );
+    const QString editorcodec();
     const QString dimension();
     const QString audiocodec();
     const QString videocodec();

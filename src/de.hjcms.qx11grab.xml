@@ -22,6 +22,9 @@
       <arg name="mess" type="s" direction="in"/>
       <annotation name="org.freedesktop.DBus.Method.NoReply" value="true"/>
     </method>
+    <method name="editorcodec">
+      <arg type="s" direction="out"/>
+    </method>
     <method name="dimension">
       <arg type="s" direction="out"/>
     </method>
