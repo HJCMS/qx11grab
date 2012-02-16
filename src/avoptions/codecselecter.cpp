@@ -21,9 +21,6 @@
 
 #include "codecselecter.h"
 
-/* QX11Grab */
-// #include ""
-
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
@@ -31,7 +28,6 @@
 /* QtGui */
 #include <QtGui/QIcon>
 
-// WARNING Wegen Qt::UserRole nicht von AbstractSelection ableiten!
 CodecSelecter::CodecSelecter ( QWidget * parent )
     : QComboBox ( parent )
 {

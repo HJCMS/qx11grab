@@ -37,6 +37,7 @@
 #include <QtGui/QWidget>
 
 class CodecTable;
+class SelectExtension;
 class CodecSelecter;
 
 class TableEditor : public QWidget
@@ -49,6 +50,7 @@ class TableEditor : public QWidget
     QString currentType;
     QStringList sharedVideoCodec;
     QStringList sharedAudioCodec;
+    SelectExtension* m_selectExtension;
     CodecSelecter* m_codecSelecter;
     CodecTable* m_tableWidget;
 
@@ -73,6 +75,7 @@ class TableEditor : public QWidget
     TableEditor ( QWidget * parent = 0 );
     const QHash<QString,QVariant> getTableItems();
     const QString selectedCodec();
+    const QString selectedCodecExtension();
     const QStringList getCmd();
     void setCodecByName ( const QString &txt );
     void setCodecOptions ( const QHash<QString,QVariant> &options );

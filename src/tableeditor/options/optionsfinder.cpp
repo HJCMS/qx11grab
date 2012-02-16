@@ -127,5 +127,30 @@ const QStringList OptionsFinder::values ( const QString &option )
   return buffer;
 }
 
+/** Liste der Verfügbaren Erweiterungen */
+const QList<VideoExtension> OptionsFinder::extensionList()
+{
+  QList<VideoExtension> list;
+
+  if ( p_isOpen )
+  {
+    QDomNodeList nodes = elementsByTagName ( "ext" );
+    for ( int n = 0; n < nodes.size(); ++n )
+    {
+      QDomElement e = nodes.item ( n ).toElement();
+      if ( e.hasAttributes() )
+      {
+        VideoExtension vext;
+        vext.name = e.attribute ( "name" );
+        vext.description = e.firstChild().nodeValue();
+        vext.isDefault = e.hasAttribute ( "default" );
+        list.append ( vext );
+      }
+    }
+  }
+
+  return list;
+}
+
 OptionsFinder::~OptionsFinder()
 {}

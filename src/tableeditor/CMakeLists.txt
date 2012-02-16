@@ -4,7 +4,6 @@ ADD_SUBDIRECTORY(options)
 
 SET (tableeditor_SOURCES
   tableeditor.cpp
-  codecselecter.cpp
   codectable.cpp
   codectablemodel.cpp
   codectabledelegate.cpp
@@ -14,11 +13,11 @@ SET (tableeditor_SOURCES
   selectacodecpresets.cpp
   selectvcodecpresets.cpp
   defaultedit.cpp
+  selectextension.cpp
 )
 
 SET (tableeditor_HEADERS
   tableeditor.h
-  codecselecter.h
   codectable.h
   codectablemodel.h
   codectabledelegate.h
@@ -28,6 +27,7 @@ SET (tableeditor_HEADERS
   selectacodecpresets.h
   selectvcodecpresets.h
   defaultedit.h
+  selectextension.h
 )
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})

@@ -65,6 +65,7 @@ bool CodecTableModel::removeItem ( int key )
     }
     items.clear();
     items = copy;
+    emit postUpdate();
     return true;
   }
   return false;
@@ -306,6 +307,7 @@ void CodecTableModel::clear()
   beginRemoveRows ( QModelIndex(), 0, items.size() );
   items.clear ();
   endRemoveRows();
+  emit postUpdate();
 }
 
 /**

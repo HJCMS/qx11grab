@@ -103,7 +103,8 @@ class MainWindow : public QMainWindow
     void loadSettings();
     void saveSettings();
     void openLogFileDialog();
-    void preparePreview ( bool b = false );
+    void preparePreview ();
+    void preparePreviewRequest ( bool b = false );
     void exportCommand();
     void openCreateBookmark();
     void openRemoveBookmark();

@@ -19,16 +19,20 @@
   Boston, MA 02110-1301, USA.
 -->
 
-<!ELEMENT encoder (option+)>
+<!ELEMENT encoder (extensions,option+)>
 <!ATTLIST encoder
   id  CDATA  #REQUIRED
   summary  CDATA  #REQUIRED
-  extension  CDATA  #REQUIRED
 >
-
+<!ELEMENT extensions (ext+)>
+<!ELEMENT ext (#PCDATA)>
+<!ATTLIST ext 
+  name  CDATA  #REQUIRED
+  default  CDATA #IMPLIED
+>
 <!ELEMENT option (value*)>
-<!ATTLIST option
+<!ATTLIST option 
   param  CDATA  #REQUIRED
+  require  CDATA #IMPLIED
 >
-
 <!ELEMENT value (#PCDATA)>

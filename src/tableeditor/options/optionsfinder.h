@@ -23,12 +23,22 @@
 #define OPTIONSFINDER_H
 
 /* QtCore */
+#include <QtCore/QList>
+#include <QtCore/QMetaType>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 
 /* QtXml */
 #include <QtXml/QDomDocument>
+
+typedef struct
+{
+  QString name;
+  QString description;
+  bool isDefault;
+} VideoExtension;
+Q_DECLARE_METATYPE ( VideoExtension )
 
 class OptionsFinder : public QDomDocument
 {
@@ -42,11 +52,14 @@ class OptionsFinder : public QDomDocument
   public:
     explicit OptionsFinder ( const QString &codec );
 
-    /** OptionSlit */
+    /** options list */
     const QStringList options();
 
     /** has this option predefined values */
     const QStringList values ( const QString &option );
+
+    /** extensions list */
+    const QList<VideoExtension> extensionList();
 
     ~OptionsFinder();
 };

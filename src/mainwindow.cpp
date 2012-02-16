@@ -191,36 +191,36 @@ MainWindow::MainWindow ( Settings * settings )
   connect ( m_grabberInfo, SIGNAL ( showRubber ( bool ) ),
             this, SLOT ( showRubber ( bool ) ) );
 
-  connect ( this, SIGNAL ( stopRecording () ),
-            m_FFProcess, SLOT ( stop () ) );
+  connect ( this, SIGNAL ( stopRecording() ),
+            m_FFProcess, SLOT ( stop() ) );
 
-  connect ( this, SIGNAL ( killProcess () ),
-            m_FFProcess, SLOT ( kill () ) );
+  connect ( this, SIGNAL ( killProcess() ),
+            m_FFProcess, SLOT ( kill() ) );
 
-  connect ( m_FFProcess, SIGNAL ( down () ),
-            this, SLOT ( setActionsBack () ) );
+  connect ( m_FFProcess, SIGNAL ( down() ),
+            this, SLOT ( setActionsBack() ) );
 
   connect ( m_commandPreview, SIGNAL ( dataSaved ( const QStringList & ) ),
             this, SLOT ( updateCommandLine ( const QStringList & ) ) );
 
   // Widget Updates
-  connect ( m_grabberInfo, SIGNAL ( postUpdate () ),
-            this, SLOT ( preparePreview () ) );
+  connect ( m_grabberInfo, SIGNAL ( postUpdate() ),
+            this, SLOT ( preparePreview() ) );
 
-  connect ( m_metaData, SIGNAL ( postUpdate () ),
-            this, SLOT ( preparePreview () ) );
+  connect ( m_metaData, SIGNAL ( postUpdate() ),
+            this, SLOT ( preparePreview() ) );
 
-  connect ( m_videoEditor, SIGNAL ( postUpdate () ),
-            this, SLOT ( preparePreview () ) );
+  connect ( m_videoEditor, SIGNAL ( postUpdate() ),
+            this, SLOT ( preparePreview() ) );
 
   connect ( m_audioGroupBox, SIGNAL ( toggled ( bool ) ),
-            this, SLOT ( preparePreview ( bool ) ) );
+            this, SLOT ( preparePreviewRequest ( bool ) ) );
 
-  connect ( m_audioEditor, SIGNAL ( postUpdate () ),
-            this, SLOT ( preparePreview () ) );
+  connect ( m_audioEditor, SIGNAL ( postUpdate() ),
+            this, SLOT ( preparePreview() ) );
 
-  connect ( m_commandPreview, SIGNAL ( restoreRequest () ),
-            this, SLOT ( preparePreview () ) );
+  connect ( m_commandPreview, SIGNAL ( restoreRequest() ),
+            this, SLOT ( preparePreview() ) );
 
   setWindowModified ( false );
 }
@@ -233,7 +233,7 @@ void MainWindow::record()
   if ( ! m_FFProcess || m_FFProcess->isRunning() )
     return;
 
-  startRecord ();
+  startRecord();
 }
 
 /**
@@ -245,7 +245,7 @@ void MainWindow::stop()
     return;
 
   if ( m_FFProcess->isRunning() )
-    m_FFProcess->stop ();
+    m_FFProcess->stop();
 }
 
 /**
@@ -298,7 +298,7 @@ void MainWindow::showRubber ( bool b )
 /**
 * Automtische Ein/Ausblenden funktion für die Gummibandanzeige.
 */
-void MainWindow::swapRubberBand ()
+void MainWindow::swapRubberBand()
 {
   showRubber ( ( ( m_RubberBand->isVisible() ) ? false : true ) );
 }
@@ -353,13 +353,15 @@ const QString MainWindow::generateOutputFile()
 
   QString outFile;
   QString codec = videoCodec();
-  // TODO Das muss noch geändert werden
-  if ( codec.contains ( "theora", Qt::CaseInsensitive ) )
+  QString extension = m_videoEditor->selectedCodecExtension();
+  if ( ! extension.isEmpty() )
+    outFile = QString ( "%1.%2" ).arg ( dest, extension );
+  else if ( codec.contains ( "theora", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.ogg" ).arg ( dest );
   else if ( codec.contains ( "libvpx", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.webm" ).arg ( dest );
   else if ( codec.contains ( "libx264", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.mp4" ).arg ( dest );
+    outFile = QString ( "%1.264" ).arg ( dest );
   else if ( codec.contains ( "mpeg4", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.avi" ).arg ( dest );
   else if ( codec.contains ( "h26", Qt::CaseInsensitive ) )
@@ -578,10 +580,8 @@ void MainWindow::openLogFileDialog()
 /**
 * Kommando Zeile für Textausgabe Aufbereiten.
 */
-void MainWindow::preparePreview ( bool b )
+void MainWindow::preparePreview ()
 {
-  Q_UNUSED ( b );
-
   QStringList commandLine;
   commandLine << cfg->binaryPath();
   commandLine << "-xerror";
@@ -610,7 +610,7 @@ void MainWindow::preparePreview ( bool b )
   }
 
   // Video Options
-  commandLine << m_videoEditor->getCmd ();
+  commandLine << m_videoEditor->getCmd();
 
   // Meta Daten
   if ( m_metaData->isChecked() )
@@ -618,11 +618,15 @@ void MainWindow::preparePreview ( bool b )
 
   // Audio Aufnahme
   if ( m_audioGroupBox->isChecked() )
-    commandLine << m_audioEditor->getCmd ();
+    commandLine << m_audioEditor->getCmd();
 
   // Output Options
   QString outFile = generateOutputFile();
   commandLine << "-y" << outFile;
+
+// #ifdef MAINTAINER_REPOSITORY
+//   qDebug() << Q_FUNC_INFO << commandLine;
+// #endif
 
   m_commandPreview->setCommandLine ( commandLine );
 
@@ -630,6 +634,13 @@ void MainWindow::preparePreview ( bool b )
   cfg->setCommandLine ( commandLine );
 
   setWindowModified ( true );
+}
+
+/** Signal Überladung */
+void MainWindow::preparePreviewRequest ( bool b )
+{
+  Q_UNUSED ( b );
+  preparePreview();
 }
 
 /**
@@ -650,8 +661,8 @@ void MainWindow::exportCommand()
 void MainWindow::openCreateBookmark()
 {
   BookmarkDialog* d = new BookmarkDialog ( this );
-  d->setVCodecOptions ( m_videoEditor->selectedCodec(), m_videoEditor->getTableItems () );
-  d->setACodecOptions ( m_audioEditor->selectedCodec(), m_audioEditor->getTableItems () );
+  d->setVCodecOptions ( m_videoEditor->selectedCodec(), m_videoEditor->getTableItems() );
+  d->setACodecOptions ( m_audioEditor->selectedCodec(), m_audioEditor->getTableItems() );
   d->exec();
   delete d;
 }

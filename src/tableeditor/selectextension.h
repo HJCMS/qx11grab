@@ -19,56 +19,31 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef CONFIGDIALOG_H
-#define CONFIGDIALOG_H
+#ifndef SELECTEXTENSION_H
+#define SELECTEXTENSION_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QDialog>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QListWidget>
-#include <QtGui/QStackedWidget>
+#include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-/* QX11Grab */
-#include "settings.h"
-
-class MainFunctions;
-class TargetsWidget;
-class AudioDeviceWidget;
-class ExtraOptions;
-class ExtensionTable;
-
-class ConfigDialog : public QDialog
+class SelectExtension : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
-  private:
-    Settings* cfg;
-    QStackedWidget* m_stackedWidget;
-    MainFunctions* m_mainFunctions;
-    TargetsWidget* m_targets;
-    AudioDeviceWidget* m_audioDeviceWidget;
-    ExtraOptions* m_extraOptions;
-    ExtensionTable* m_extensionTable;
-    QListWidget* m_listWidget;
-    QDialogButtonBox* m_buttonBox;
-
-    void insertMenuItem ( int index, const QString &title, const QString &icon );
-
-  private Q_SLOTS:
-    void checkDistinctions ( bool );
-    void loadSettings();
-    void saveAndExit();
+  public Q_SLOTS:
+    void insertItems ( const QString &codec );
+    void setDefault ( const QString &ext );
 
   public:
-    ConfigDialog ( Settings * settings, QWidget * parent = 0 );
-    ~ConfigDialog();
+    SelectExtension ( QWidget * parent = 0 );
+    const QString extension();
+    ~SelectExtension();
 };
 
 #endif

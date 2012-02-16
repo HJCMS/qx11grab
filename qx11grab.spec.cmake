@@ -1,10 +1,10 @@
 ## Specfile for OpenSuSE Build Service
 
-%define packagename  qx11grab-@QX11GRAB_VERSION@
+%define packagename  qx11grab-@QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@
 
 Name:           qx11grab
 Summary:        a high flexible screencast Application for X11 Desktop
-Version:        @QX11GRAB_VERSION@
+Version:        @QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@
 Release:        0
 License:        GPLv2+
 AutoReqProv:    on
@@ -60,9 +60,12 @@ Author:
 
 cd build
 cmake -Wno-dev \
-  -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
+  -DCMAKE_BUILD_TYPE:STRING=MinSizeRel \
   -DCMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING="$RPM_OPT_FLAGS" \
   -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+%if %{_lib} == lib64
+  -DLIB_SUFFIX:STRING=64 \
+%endif
   -DINSTALL_FFPRESETS:BOOL=ON \
   ../
 
@@ -89,7 +92,7 @@ popd
 %dir %{_sysconfdir}/xdg/hjcms.de
 %config %{_sysconfdir}/xdg/hjcms.de/qx11grab.conf
 %{_bindir}/qx11grab
-%{_libdir}/qx11grab
+%{_prefix}/%{_lib}/qx11grab
 %{_datadir}/qt*/translations/qx11grab*.qm
 %dir %{_datadir}/qx11grab
 %doc %{_datadir}/qx11grab/AUTHORS
@@ -97,6 +100,9 @@ popd
 %doc %{_datadir}/qx11grab/ChangeLog
 %doc %{_datadir}/qx11grab/NEWS
 %doc %{_datadir}/qx11grab/README
+%dir %{_datadir}/qx11grab/options
+%{_datadir}/qx11grab/options/*.xml
+%{_datadir}/qx11grab/options/options.dtd
 %{_datadir}/qx11grab/qx11grab_untranslated.ts
 %{_datadir}/applications/qx11grab.desktop
 %{_datadir}/dbus-1/interfaces/*.qx11grab.xml

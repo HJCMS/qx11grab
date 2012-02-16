@@ -24,6 +24,7 @@
 #include "mainfcuntions.h"
 #include "audiodevicewidget.h"
 #include "extraoptions.h"
+#include "extensiontable.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -76,6 +77,10 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
   m_extraOptions = new ExtraOptions ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_extraOptions );
   insertMenuItem ( index++, trUtf8 ( "Experts" ), "menu-video-edit" );
+
+  m_extensionTable = new ExtensionTable ( m_stackedWidget );
+  m_stackedWidget->insertWidget ( index, m_extensionTable );
+  insertMenuItem ( index++, trUtf8 ( "Extensions" ), "menu-editors" );
   // } End: insertItems
 
   m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
@@ -134,6 +139,7 @@ void ConfigDialog::loadSettings()
   m_audioDeviceWidget->setAudioEngine ( cfg->audioEngine() );
   m_audioDeviceWidget->setSampleFormat ( cfg->sampleFormat() );
   m_audioDeviceWidget->setAudioServiceType ( cfg->audioType() );
+  m_extensionTable->setExtensions ( cfg->readGroup ( "Extensions" ) );
   // } AudioDeviceWidget
 
   // Experts {
@@ -160,6 +166,8 @@ void ConfigDialog::saveAndExit()
   cfg->setSampleFormat ( m_audioDeviceWidget->getSampleFormat() );
   cfg->setAudioType ( m_audioDeviceWidget->getAudioServiceType() );
   cfg->setAudioDeviceCommand ( m_audioDeviceWidget->data() );
+  cfg->saveGroup ( "Extensions", m_extensionTable->extensions() );
+  // m_extensionTable->data();
   // } AudioDeviceWidget
 
   // Experts {

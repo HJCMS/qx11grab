@@ -7,7 +7,6 @@ Makefile*
 qx11grab.kdev*
 Doxyfile
 *.log
-qx11grab.spec
 *.sh
 *.txt.user
 core

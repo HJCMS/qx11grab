@@ -45,7 +45,6 @@ Settings::Settings ( QObject *parent )
     remove ( "windowSize" );
     remove ( "windowState" );
     remove ( "enable_pulse_pasuspender" );
-    remove ( "metadata" ); // new style
     setValue ( "Version", QX11GRAB_VERSION );
   }
 }

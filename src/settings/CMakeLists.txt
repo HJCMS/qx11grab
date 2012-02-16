@@ -1,5 +1,7 @@
 # CMakeLists.txt
 
+ADD_SUBDIRECTORY (extensionselecter)
+
 SET(_subproject "Settings")
 
 SET (_subproject_SOURCES
@@ -36,6 +38,8 @@ INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${QX11GRAB_INCLUDES}
   ${QX11GRAB_BINARY_PROJECT_INCULDE}
+  ${CMAKE_CURRENT_BINARY_DIR}/extensionselecter
+  ${CMAKE_CURRENT_SOURCE_DIR}/extensionselecter
 )
 
 QT4_WRAP_CPP (_subproject_MOC ${_subproject_HEADERS})
@@ -46,8 +50,6 @@ ADD_LIBRARY (${_subproject} STATIC
   ${_subproject_NOMOC_HEADERS}
   ${_subproject_SOURCES}
 )
-
-ADD_DEPENDENCIES (${_subproject} Settings)
 
 SET_TARGET_PROPERTIES (${_subproject} PROPERTIES
   LINKER_LANGUAGE CXX
@@ -60,7 +62,7 @@ TARGET_LINK_LIBRARIES (${_subproject}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
-  Settings
+  ExtensionSelecter
 )
 
 ## EOF

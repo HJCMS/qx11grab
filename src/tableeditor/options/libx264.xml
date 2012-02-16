@@ -1,49 +1,61 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE encoder [
-<!ELEMENT encoder (option+)>
+<!ELEMENT encoder (extensions,option+)>
 <!ATTLIST encoder
   id  CDATA  #REQUIRED
   summary  CDATA  #REQUIRED
-  extension  CDATA  #REQUIRED
+>
+<!ELEMENT extensions (ext+)>
+<!ELEMENT ext (#PCDATA)>
+<!ATTLIST ext 
+  name  CDATA  #REQUIRED
+  default  CDATA #IMPLIED
 >
 <!ELEMENT option (value*)>
 <!ATTLIST option 
   param  CDATA  #REQUIRED
+  require  CDATA #IMPLIED
 >
 <!ELEMENT value (#PCDATA)>
 ]>
 <!-- H.264/AVC/MPEG-4 AVC/MPEG-4 Format -->
-<encoder id="libx264" summary="H.264/AVC/MPEG-4 AVC/MPEG-4 Part 10 Format" extension="mp4">
-	<option param="preset">
-		<value>ultrafast</value>
-		<value>superfast</value>
-		<value>veryfast</value>
-		<value>faster</value>
-		<value>fast</value>
-		<value>medium</value>
-		<value>slow</value>
-		<value>slower</value>
-		<value>eryslow</value>
-		<value>placebo</value>
-	</option>
-	<option param="tune">
-		<value>film</value>
-		<value>animation</value>
-		<value>grain</value>
-		<value>stillimage</value>
-		<value>psnr</value>
-		<value>ssim</value>
-		<value>fastdecode</value>
-		<value>zerolatency</value>
-	</option>
-	<option param="fastfirstpass" />
-	<option param="profile">
-		<value>baseline</value>
-		<value>main</value>
-		<value>high</value>
-		<value>high10</value>
-		<value>high422</value>
-		<value>high444</value>
-	</option>
-	<option param="x264opts" />
+<encoder id="libx264" summary="H.264/AVC/MPEG-4 AVC/MPEG-4 Part 10 Format">
+  <extensions>
+    <ext name="264">Raw bytestream</ext>
+    <ext name="mkv" default="default">Matroska</ext>
+    <ext name="flv">Flash Video</ext>
+    <ext name="mp4">MP4 (Requires GPAC Support)</ext>
+  </extensions>
+  <option param="preset">
+    <value>ultrafast</value>
+    <value>superfast</value>
+    <value>veryfast</value>
+    <value>faster</value>
+    <value>fast</value>
+    <value>medium</value>
+    <value>slow</value>
+    <value>slower</value>
+    <value>eryslow</value>
+    <value>placebo</value>
+  </option>
+  <option param="tune">
+    <value>film</value>
+    <value>animation</value>
+    <value>grain</value>
+    <value>stillimage</value>
+    <value>psnr</value>
+    <value>ssim</value>
+    <value>fastdecode</value>
+    <value>zerolatency</value>
+  </option>
+  <option param="fastfirstpass" />
+  <option param="profile">
+    <value>baseline</value>
+    <value>main</value>
+    <value>high</value>
+    <value>high10</value>
+    <value>high422</value>
+    <value>high444</value>
+  </option>
+  <option param="x264opts" />
 </encoder>
