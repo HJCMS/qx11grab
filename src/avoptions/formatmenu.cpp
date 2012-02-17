@@ -24,60 +24,69 @@
 /* QtCore */
 #include <QtCore/QDebug>
 
-FormatMenu::FormatMenu ( QWidget * parent )
-    : QToolButton ( parent )
-    , p_Icon ( QIcon::fromTheme ( "menu-video-edit" ) )
-    , m_menu ( 0 )
+namespace QX11Grab
 {
-  setObjectName ( QLatin1String ( "FormatMenu" ) );
-  setPopupMode ( QToolButton::MenuButtonPopup );
-  setText ( trUtf8 ( "Video Extension" ) );
-  m_menu = new QMenu ( trUtf8 ( "Extensions" ), this );
-  setMenu ( m_menu );
-
-  m_signalMapper = new QSignalMapper ( this );
-  connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
-            this, SIGNAL ( extensionChanged ( const QString & ) ) );
-
-}
-
-void FormatMenu::updateMenu ( CodecID id )
-{
-  m_menu->clear();
-  p_ActionsList.clear();
-  QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
-  foreach ( QX11Grab::FFFormat f, av->supportedFormats ( id ) )
+  FormatMenu::FormatMenu ( QWidget * parent )
+      : QToolButton ( parent )
+      , p_Icon ( QIcon::fromTheme ( "menu-video-edit" ) )
+      , m_menu ( 0 )
   {
-    QMenu* m = m_menu->addMenu ( p_Icon, f.description );
-    foreach ( QString ext, f.extensions.toStringList() )
-    {
-      QAction* ac = m->addAction ( p_Icon, ext );
-      ac->setCheckable ( true );
-      connect ( ac, SIGNAL ( triggered() ), m_signalMapper, SLOT ( map() ) );
-      m_signalMapper->setMapping ( ac, ext );
-      p_ActionsList.append ( ac );
-    }
-  }
-  delete av;
-}
+    setObjectName ( QLatin1String ( "FormatMenu" ) );
+    setPopupMode ( QToolButton::MenuButtonPopup );
+    setText ( trUtf8 ( "Video Extension" ) );
+    m_menu = new QMenu ( trUtf8 ( "Extensions" ), this );
+    setMenu ( m_menu );
 
-void FormatMenu::setEntryEnabled ( const QString &name )
-{
-  for ( int i = 0; i < p_ActionsList.size(); ++i )
+    m_signalMapper = new QSignalMapper ( this );
+    connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
+              this, SIGNAL ( extensionChanged ( const QString & ) ) );
+
+  }
+
+  void FormatMenu::updateMenu ( const QString &name, CodecID id )
   {
-    // qDebug() << Q_FUNC_INFO << name << p_ActionsList.at ( i )->text();
-    if ( p_ActionsList.at ( i )->isChecked() )
-      p_ActionsList.at ( i )->setChecked ( false );
-
-    if ( p_ActionsList.at ( i )->text().compare ( name ) == 0 )
-    {
-      p_ActionsList.at ( i )->setChecked ( true );
-    }
-  }
-}
-
-FormatMenu::~FormatMenu()
-{
-  if ( m_menu )
     m_menu->clear();
-}
+    p_ActionsList.clear();
+    m_menu->setToolTip ( name );
+
+    QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
+    foreach ( QX11Grab::FFFormat f, av->supportedFormats ( id ) )
+    {
+      QMenu* m = m_menu->addMenu ( p_Icon, f.format );
+      m->setToolTip ( f.description );
+      foreach ( QString ext, f.extensions.toStringList() )
+      {
+        QAction* ac = m->addAction ( p_Icon, ext );
+        ac->setCheckable ( true );
+        connect ( ac, SIGNAL ( triggered() ), m_signalMapper, SLOT ( map() ) );
+        m_signalMapper->setMapping ( ac, ext );
+        p_ActionsList.append ( ac );
+      }
+    }
+    delete av;
+    emit postUpdate();
+  }
+
+  void FormatMenu::setEntryEnabled ( const QString &name )
+  {
+    for ( int i = 0; i < p_ActionsList.size(); ++i )
+    {
+      p_ActionsList.at ( i )->setChecked ( false );
+    }
+
+    for ( int i = 0; i < p_ActionsList.size(); ++i )
+    {
+      if ( p_ActionsList.at ( i )->text().compare ( name ) == 0 )
+      {
+        p_ActionsList.at ( i )->setChecked ( true );
+        break;
+      }
+    }
+  }
+
+  FormatMenu::~FormatMenu()
+  {
+    if ( m_menu )
+      m_menu->clear();
+  }
+}  /* eof namespace QX11Grab */

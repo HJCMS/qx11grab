@@ -2,6 +2,7 @@
 
 SET (single_file_lng
   lt
+  sr_RS
 )
 
 ## merge with qt_*.ts

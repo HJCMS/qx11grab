@@ -40,13 +40,10 @@ CodecSelecter::CodecSelecter ( QWidget * parent )
 void CodecSelecter::itemSelected ( int index )
 {
   QString name = itemData ( index, Qt::DisplayRole ).toString();
-  if ( ! name.isEmpty() )
-    emit codecSelected ( name );
-
   bool ok;
   CodecID id = static_cast<CodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
   if ( ok )
-    emit codecChanged ( id );
+    emit codecChanged ( name, id );
 }
 
 void CodecSelecter::setCodec ( const QString &name )

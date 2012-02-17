@@ -67,7 +67,7 @@ TableEditor::TableEditor ( QWidget * parent )
   m_toolBar->addWidget ( m_codecSelecter );
 
   // ComboBox Extension
-  m_formatMenu = new FormatMenu ( this );
+  m_formatMenu = new QX11Grab::FormatMenu ( this );
   m_toolBar->addWidget ( m_formatMenu );
 
   layout->addWidget ( m_toolBar );
@@ -99,14 +99,13 @@ TableEditor::TableEditor ( QWidget * parent )
   setLayout ( layout );
 
   // ComboBoxes
-  connect ( m_codecSelecter, SIGNAL ( codecSelected ( const QString & ) ),
-            this, SLOT ( codecChanged ( const QString & ) ) );
-
-  connect ( m_codecSelecter, SIGNAL ( codecChanged ( CodecID ) ),
-            m_formatMenu, SLOT ( updateMenu ( CodecID ) ) );
+  connect ( m_codecSelecter, SIGNAL ( codecChanged ( const QString &, CodecID ) ),
+            m_formatMenu, SLOT ( updateMenu ( const QString &, CodecID ) ) );
 
   connect ( m_formatMenu, SIGNAL ( extensionChanged ( const QString & ) ),
             this, SLOT ( setCodecExtension ( const QString & ) ) );
+
+  connect ( m_formatMenu, SIGNAL ( postUpdate() ), this, SIGNAL ( postUpdate() ) );
 
   // table context signals
   connect ( m_tableWidget, SIGNAL ( postUpdate() ), this, SIGNAL ( postUpdate() ) );
@@ -212,19 +211,6 @@ void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
 }
 
 /**
-* Wenn die Codec Auswahl sich geändert hat die Tabelle leeren!
-*/
-void TableEditor::codecChanged ( const QString &codec )
-{
-  QSettings cfg;
-  if ( cfg.value ( QLatin1String ( "video_codec" ) ).toString().compare ( codec ) == 0 )
-    return;
-
-  m_tableWidget->clearContents();
-  // NOTE postUpdate wird von setCodecExtension ausgelöst!
-}
-
-/**
 * Eine neue Zeile ind Tabelle @ref m_tableWidget einfügen.
 */
 void TableEditor::addTableRow()
@@ -245,7 +231,7 @@ void TableEditor::delTableRow()
 }
 
 /**
-* Setzt für den Video Codec die Datei Erweiterung
+* Wenn im Menü Erweiterungen eine Eintrag ausgewählt wird!
 */
 void TableEditor::setCodecExtension ( const QString &ext )
 {
@@ -330,6 +316,7 @@ const QString TableEditor::selectedCodec()
 */
 const QString TableEditor::selectedCodecExtension()
 {
+  // Wenn Leer dann bei XML OptionsFinder suchen!
   if ( currentCodecExtension.isEmpty() )
   {
     OptionsFinder finder ( selectedCodec() );
@@ -338,7 +325,9 @@ const QString TableEditor::selectedCodecExtension()
     {
       if ( list.at ( i ).isDefault )
       {
-        currentCodecExtension = list.at ( i ).name;
+        QString entry = list.at ( i ).name;
+        m_formatMenu->setEntryEnabled ( entry );
+        currentCodecExtension = entry;
         break;
       }
     }

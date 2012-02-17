@@ -38,7 +38,11 @@
 
 class CodecTable;
 class CodecSelecter;
-class FormatMenu;
+
+namespace QX11Grab
+{
+  class FormatMenu;
+}
 
 class TableEditor : public QWidget
 {
@@ -52,7 +56,7 @@ class TableEditor : public QWidget
     QStringList sharedAudioCodec;
     QString currentCodecExtension;
     CodecSelecter* m_codecSelecter;
-    FormatMenu* m_formatMenu;
+    QX11Grab::FormatMenu* m_formatMenu;
     CodecTable* m_tableWidget;
 
     void findVideoCodecs();
@@ -62,7 +66,6 @@ class TableEditor : public QWidget
     void saveTableOptions ( const QString &, QSettings * );
 
   private Q_SLOTS:
-    void codecChanged ( const QString & );
     void addTableRow();
     void delTableRow();
 

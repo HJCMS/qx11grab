@@ -38,28 +38,32 @@
 /* QX11Grab */
 #include "avoptions.h"
 
-class FormatMenu : public QToolButton
+namespace QX11Grab
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  class FormatMenu : public QToolButton
+  {
+      Q_OBJECT
+      Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+      Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
-  private:
-    const QIcon p_Icon;
-    QMenu* m_menu;
-    QSignalMapper* m_signalMapper;
-    QList<QAction*> p_ActionsList;
+    private:
+      const QIcon p_Icon;
+      QMenu* m_menu;
+      QSignalMapper* m_signalMapper;
+      QList<QAction*> p_ActionsList;
 
-  Q_SIGNALS:
-    void extensionChanged ( const QString & );
+    Q_SIGNALS:
+      void postUpdate();
+      void extensionChanged ( const QString & );
 
-  public Q_SLOTS:
-    void updateMenu ( CodecID );
+    public Q_SLOTS:
+      void updateMenu ( const QString &name, CodecID id );
 
-  public:
-    explicit FormatMenu ( QWidget * parent = 0 );
-    void setEntryEnabled ( const QString & );
-    virtual ~FormatMenu();
-};
+    public:
+      explicit FormatMenu ( QWidget * parent = 0 );
+      void setEntryEnabled ( const QString & );
+      virtual ~FormatMenu();
+  };
+}  /* eof namespace QX11Grab */
 
 #endif

@@ -48,8 +48,7 @@ class CodecSelecter : public QComboBox
     void setCodec ( const QString &name );
 
   Q_SIGNALS:
-    void codecSelected ( const QString & );
-    void codecChanged ( CodecID );
+    void codecChanged ( const QString &name, CodecID );
 
   public:
     CodecSelecter ( QWidget * parent = 0 );
