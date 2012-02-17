@@ -2,21 +2,31 @@
 
 SET(_subproject "AVOptions")
 
+SET (options_XML
+  options/libvpx.xml
+  options/libx264.xml
+  options/options.dtd
+)
+
 SET (_subproject_SOURCES
   avoptions.cpp
   avfiltermodel.cpp
   codecselecter.cpp
   formatmenu.cpp
+  codecoptions.cpp
+  optionsfinder.cpp
 )
 
 SET (_subproject_HEADERS
   avoptions.h
   codecselecter.h
   formatmenu.h
+  codecoptions.h
 )
 
 SET (_subproject_NOMOC_HEADERS
   avfiltermodel.h
+  optionsfinder.h
 )
 
 ## NOTE added in main CMakeLists.txt
@@ -48,7 +58,14 @@ TARGET_LINK_LIBRARIES (${_subproject}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
+  ${QT_QTXML_LIBRARY}
   ${FFMPEG_LDFLAGS}
+)
+
+INSTALL (FILES
+  ${options_XML}
+  DESTINATION share/qx11grab/options
+  COMPONENT data
 )
 
 ## EOF

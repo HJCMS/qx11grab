@@ -244,21 +244,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-    <name>CodecOptions</name>
-    <message>
-        <source>Option</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
-    <name>CodecSelecter</name>
-    <message>
-        <source>Customized</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Angepasst</translation>
-    </message>
-</context>
-<context>
     <name>CodecTable</name>
     <message>
         <source>Add</source>
@@ -622,17 +607,6 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Create Filter</source>
         <translation>Erstelle Filter</translation>
-    </message>
-</context>
-<context>
-    <name>FormatMenu</name>
-    <message>
-        <source>Video Extension</source>
-        <translation>Video Erweiterung</translation>
-    </message>
-    <message>
-        <source>Extensions</source>
-        <translation>Erweiterungen</translation>
     </message>
 </context>
 <context>
@@ -1391,6 +1365,28 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
         <translation>Bits pro Pixel %1</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecOptions</name>
+    <message>
+        <source>Option</source>
+        <translation>Option</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecSelecter</name>
+    <message>
+        <source>Customized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Angepasst</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::FormatMenu</name>
+    <message>
+        <source>Extensions</source>
+        <translation>Erweiterungen</translation>
     </message>
 </context>
 <context>

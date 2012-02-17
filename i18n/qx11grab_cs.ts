@@ -241,21 +241,6 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-    <name>CodecOptions</name>
-    <message>
-        <source>Option</source>
-        <translation>Volba</translation>
-    </message>
-</context>
-<context>
-    <name>CodecSelecter</name>
-    <message>
-        <source>Customized</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Vlastní</translation>
-    </message>
-</context>
-<context>
     <name>CodecTable</name>
     <message>
         <source>Add</source>
@@ -619,17 +604,6 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Create Filter</source>
         <translation>Vytvořit filtr</translation>
-    </message>
-</context>
-<context>
-    <name>FormatMenu</name>
-    <message>
-        <source>Video Extension</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extensions</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1388,6 +1362,28 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
         <translation>Bitů na pixel %1</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecOptions</name>
+    <message>
+        <source>Option</source>
+        <translation type="unfinished">Volba</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecSelecter</name>
+    <message>
+        <source>Customized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Vlastní</translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::FormatMenu</name>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

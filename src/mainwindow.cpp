@@ -855,8 +855,8 @@ const QString MainWindow::outputFile()
 }
 
 /**
-* Teile der System Statusleiste mit das sie
-* DBus Notification verwenden soll!
+* Teile der System Statusleiste mit,
+* das sie DBus Notification verwenden soll!
 */
 void MainWindow::registerMessanger ( QDBusConnection* bus )
 {

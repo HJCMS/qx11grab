@@ -290,23 +290,6 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
-    <name>CodecOptions</name>
-    <message>
-        <location filename="../src/tableeditor/options/codecoptions.cpp" line="43"/>
-        <source>Option</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>CodecSelecter</name>
-    <message>
-        <location filename="../src/avoptions/codecselecter.cpp" line="87"/>
-        <source>Customized</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>CodecTable</name>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="123"/>
@@ -753,19 +736,6 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/tableeditor/filtermenu.cpp" line="32"/>
         <source>Create Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FormatMenu</name>
-    <message>
-        <location filename="../src/avoptions/formatmenu.cpp" line="34"/>
-        <source>Video Extension</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/avoptions/formatmenu.cpp" line="35"/>
-        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1590,55 +1560,55 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PlayerAction</name>
     <message>
-        <location filename="../src/playeraction.cpp" line="70"/>
+        <location filename="../src/playeraction.cpp" line="72"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="72"/>
+        <location filename="../src/playeraction.cpp" line="74"/>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="74"/>
+        <location filename="../src/playeraction.cpp" line="76"/>
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="76"/>
+        <location filename="../src/playeraction.cpp" line="78"/>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="78"/>
+        <location filename="../src/playeraction.cpp" line="80"/>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="80"/>
+        <location filename="../src/playeraction.cpp" line="82"/>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="82"/>
+        <location filename="../src/playeraction.cpp" line="84"/>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="84"/>
+        <location filename="../src/playeraction.cpp" line="86"/>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="86"/>
+        <location filename="../src/playeraction.cpp" line="88"/>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation type="unfinished"></translation>
@@ -1682,6 +1652,31 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/avoptions/avoptions.cpp" line="177"/>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecOptions</name>
+    <message>
+        <location filename="../src/avoptions/codecoptions.cpp" line="45"/>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::CodecSelecter</name>
+    <message>
+        <location filename="../src/avoptions/codecselecter.cpp" line="86"/>
+        <source>Customized</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::FormatMenu</name>
+    <message>
+        <location filename="../src/avoptions/formatmenu.cpp" line="37"/>
+        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

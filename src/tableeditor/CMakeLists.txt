@@ -1,7 +1,5 @@
 # CMakeLists.txt
 
-ADD_SUBDIRECTORY(options)
-
 SET (tableeditor_SOURCES
   tableeditor.cpp
   codectable.cpp
@@ -59,7 +57,6 @@ TARGET_LINK_LIBRARIES (TableEditor
   ${QT_QTDBUS_LIBRARY}
   AVOptions
   Settings
-  CodecOptions
   qx11grabinterface
 )
 

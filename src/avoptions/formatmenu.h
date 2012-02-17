@@ -25,7 +25,6 @@
 /* QtCore */
 #include <QtCore/QList>
 #include <QtCore/QObject>
-#include <QtCore/QSignalMapper>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -49,8 +48,10 @@ namespace QX11Grab
     private:
       const QIcon p_Icon;
       QMenu* m_menu;
-      QSignalMapper* m_signalMapper;
       QList<QAction*> p_ActionsList;
+
+    private Q_SLOTS:
+      void itemTriggered ( QAction * );
 
     Q_SIGNALS:
       void postUpdate();

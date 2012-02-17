@@ -71,7 +71,7 @@ const QStringList CodecTableDelegate::hasPredefinedArguments () const
   QString codec = queryCodec();
   if ( ! codec.isEmpty() )
   {
-    OptionsFinder* finder = new OptionsFinder ( codec );
+    QX11Grab::OptionsFinder* finder = new QX11Grab::OptionsFinder ( codec );
     foreach ( QString a, finder->options () )
     {
       buffer.append ( QString::fromUtf8 ( "-%1" ).arg ( a ) );
@@ -93,7 +93,7 @@ const QStringList CodecTableDelegate::hasPredefinedOptions ( const QString &pred
   QString codec = queryCodec();
   if ( ! codec.isEmpty() )
   {
-    OptionsFinder* finder = new OptionsFinder ( codec );
+    QX11Grab::OptionsFinder* finder = new QX11Grab::OptionsFinder ( codec );
     QStringList list = finder->values ( predicate );
     if ( list.size() > 1 )
       buffer.append ( list );

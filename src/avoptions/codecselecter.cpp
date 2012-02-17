@@ -28,69 +28,72 @@
 /* QtGui */
 #include <QtGui/QIcon>
 
-CodecSelecter::CodecSelecter ( QWidget * parent )
-    : QComboBox ( parent )
+namespace QX11Grab
 {
-  setObjectName ( QLatin1String ( "CodecSelecter" ) );
-  setEditable ( true );
-  connect ( this, SIGNAL ( activated ( int ) ),
-            this, SLOT ( itemSelected ( int ) ) );
-}
-
-void CodecSelecter::itemSelected ( int index )
-{
-  QString name = itemData ( index, Qt::DisplayRole ).toString();
-  bool ok;
-  CodecID id = static_cast<CodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
-  if ( ok )
-    emit codecChanged ( name, id );
-}
-
-void CodecSelecter::setCodec ( const QString &name )
-{
-  int index = findData ( name, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
-  if ( index != -1 )
+  CodecSelecter::CodecSelecter ( QWidget * parent )
+      : QComboBox ( parent )
   {
-    setCurrentIndex ( index );
-    itemSelected ( index ); // NOTE wird by onLoad für FormatMenu benötigt!
+    setObjectName ( QLatin1String ( "CodecSelecter" ) );
+    setEditable ( true );
+    connect ( this, SIGNAL ( activated ( int ) ),
+              this, SLOT ( itemSelected ( int ) ) );
   }
-}
 
-void CodecSelecter::setCodecItems ( const QList<QX11Grab::FFCodec> &list )
-{
-  int index = 0;
-  clear();
-
-  for ( int i = 0; i < list.size(); ++i )
+  void CodecSelecter::itemSelected ( int index )
   {
-    QX11Grab::FFCodec codec = list.at ( i );
-    insertItem ( index, codec.name, QVariant ( codec.name ) );
-    setItemData ( index, codec.name, Qt::DisplayRole );
-    setItemData ( index, codec.name, Qt::EditRole );
-    setItemData ( index, codec.id, Qt::UserRole );
-    setItemData ( index, codec.fullname, Qt::ToolTipRole );
-    index = i;
+    QString name = itemData ( index, Qt::DisplayRole ).toString();
+    bool ok;
+    CodecID id = static_cast<CodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
+    if ( ok )
+      emit codecChanged ( name, id );
   }
-}
 
-void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
-{
-  int i = count();
-  insertItem ( i, key, value );
-  setItemData ( i, key, Qt::DisplayRole );
-  setItemData ( i, key, Qt::EditRole );
-  setItemData ( i, CODEC_ID_NONE, Qt::UserRole );
-  /*: ToolTip */
-  setItemData ( i, trUtf8 ( "Customized" ), Qt::ToolTipRole );
-}
+  void CodecSelecter::setCodec ( const QString &name )
+  {
+    int index = findData ( name, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
+    if ( index != -1 )
+    {
+      setCurrentIndex ( index );
+      itemSelected ( index ); // NOTE wird by onLoad für FormatMenu benötigt!
+    }
+  }
 
-/**
-* Aktuellen Codec Text ausgeben
-*/
-const QString CodecSelecter::getCodec ()
-{
-  return itemData ( currentIndex(), Qt::DisplayRole ).toString();
-}
+  void CodecSelecter::setCodecItems ( const QList<QX11Grab::FFCodec> &list )
+  {
+    int index = 0;
+    clear();
 
-CodecSelecter::~CodecSelecter()
-{}
+    for ( int i = 0; i < list.size(); ++i )
+    {
+      QX11Grab::FFCodec codec = list.at ( i );
+      insertItem ( index, codec.name, QVariant ( codec.name ) );
+      setItemData ( index, codec.name, Qt::DisplayRole );
+      setItemData ( index, codec.name, Qt::EditRole );
+      setItemData ( index, codec.id, Qt::UserRole );
+      setItemData ( index, codec.fullname, Qt::ToolTipRole );
+      index = i;
+    }
+  }
+
+  void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
+  {
+    int i = count();
+    insertItem ( i, key, value );
+    setItemData ( i, key, Qt::DisplayRole );
+    setItemData ( i, key, Qt::EditRole );
+    setItemData ( i, CODEC_ID_NONE, Qt::UserRole );
+    /*: ToolTip */
+    setItemData ( i, trUtf8 ( "Customized" ), Qt::ToolTipRole );
+  }
+
+  /**
+  * Aktuellen Codec Text ausgeben
+  */
+  const QString CodecSelecter::getCodec ()
+  {
+    return itemData ( currentIndex(), Qt::DisplayRole ).toString();
+  }
+
+  CodecSelecter::~CodecSelecter()
+  {}
+}  /* eof namespace QX11Grab */

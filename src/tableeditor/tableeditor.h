@@ -42,6 +42,7 @@ class CodecSelecter;
 namespace QX11Grab
 {
   class FormatMenu;
+  class CodecSelecter;
 }
 
 class TableEditor : public QWidget
@@ -55,7 +56,7 @@ class TableEditor : public QWidget
     QStringList sharedVideoCodec;
     QStringList sharedAudioCodec;
     QString currentCodecExtension;
-    CodecSelecter* m_codecSelecter;
+    QX11Grab::CodecSelecter* m_codecSelecter;
     QX11Grab::FormatMenu* m_formatMenu;
     CodecTable* m_tableWidget;
 

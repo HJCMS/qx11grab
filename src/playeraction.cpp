@@ -55,6 +55,8 @@ PlayerAction::PlayerAction ( QWidget * parent )
   connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
             this, SLOT ( playOuputFile ( const QString & ) ) );
 
+  connect ( this, SIGNAL ( clicked () ), this, SLOT ( showMenu () ) );
+
   searchPlayers();
 }
 

@@ -33,22 +33,28 @@ namespace QX11Grab
   {
     setObjectName ( QLatin1String ( "FormatMenu" ) );
     setPopupMode ( QToolButton::MenuButtonPopup );
-    setText ( trUtf8 ( "Video Extension" ) );
+    setText ( QString::fromUtf8 ( "*.?" ) );
     m_menu = new QMenu ( trUtf8 ( "Extensions" ), this );
     setMenu ( m_menu );
 
-    m_signalMapper = new QSignalMapper ( this );
-    connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
-              this, SIGNAL ( extensionChanged ( const QString & ) ) );
+    connect ( this, SIGNAL ( triggered ( QAction * ) ),
+              this, SLOT ( itemTriggered ( QAction * ) ) );
 
+    connect ( this, SIGNAL ( clicked () ),
+              this, SLOT ( showMenu () ) );
   }
 
+  /** Menü neu einlesen */
   void FormatMenu::updateMenu ( const QString &name, CodecID id )
   {
     m_menu->clear();
     p_ActionsList.clear();
-    m_menu->setToolTip ( name );
 
+    setText ( QString::fromUtf8 ( "*.?" ) );
+    if ( name.isEmpty() )
+      return;
+
+    m_menu->setToolTip ( name );
     QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
     foreach ( QX11Grab::FFFormat f, av->supportedFormats ( id ) )
     {
@@ -58,8 +64,6 @@ namespace QX11Grab
       {
         QAction* ac = m->addAction ( p_Icon, ext );
         ac->setCheckable ( true );
-        connect ( ac, SIGNAL ( triggered() ), m_signalMapper, SLOT ( map() ) );
-        m_signalMapper->setMapping ( ac, ext );
         p_ActionsList.append ( ac );
       }
     }
@@ -67,6 +71,13 @@ namespace QX11Grab
     emit postUpdate();
   }
 
+  void FormatMenu::itemTriggered ( QAction * ac )
+  {
+    setText ( QString::fromUtf8 ( "*.%1" ).arg ( ac->text() ) );
+    emit extensionChanged ( ac->text() );
+  }
+
+  /** Markiert den Ausgwählten Eintrag und ändert den Button Text */
   void FormatMenu::setEntryEnabled ( const QString &name )
   {
     for ( int i = 0; i < p_ActionsList.size(); ++i )
@@ -79,6 +90,7 @@ namespace QX11Grab
       if ( p_ActionsList.at ( i )->text().compare ( name ) == 0 )
       {
         p_ActionsList.at ( i )->setChecked ( true );
+        setText ( QString::fromUtf8 ( "*.%1" ).arg ( p_ActionsList.at ( i )->text() ) );
         break;
       }
     }

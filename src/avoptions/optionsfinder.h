@@ -19,42 +19,53 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef CODECOPTIONS_H
-#define CODECOPTIONS_H
+#ifndef OPTIONSFINDER_H
+#define OPTIONSFINDER_H
 
 /* QtCore */
+#include <QtCore/QList>
+#include <QtCore/QMetaType>
 #include <QtCore/QObject>
-#include <QtCore/QSignalMapper>
 #include <QtCore/QString>
-#include <QtCore/QVariant>
+#include <QtCore/QStringList>
 
-/* QtGui */
-#include <QtGui/QIcon>
-#include <QtGui/QMenu>
-#include <QtGui/QWidget>
+/* QtXml */
+#include <QtXml/QDomDocument>
 
-/** Predefined Codec Options Menu */
-class CodecOptions : public QMenu
+namespace QX11Grab
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  typedef struct
+  {
+    QString name;
+    QString description;
+    bool isDefault;
+  } VideoExtension;
 
-  private:
-    QIcon p_icon;
-    QString p_codec;
-    QSignalMapper* m_signalMapper;
-    void queryCodec();
+  class OptionsFinder : public QDomDocument
+  {
+    private:
+      QString p_codec;
+      QString p_template;
+      bool p_isOpen;
+      QStringList opts;
+      void initTemplate();
 
-  private Q_SLOTS:
-    void optionTriggered ( const QString & );
+    public:
+      explicit OptionsFinder ( const QString &codec );
 
-  Q_SIGNALS:
-    void insertOption ( const QString &, const QVariant & );
+      /** options list */
+      const QStringList options();
 
-  public:
-    explicit CodecOptions ( QWidget * parent = 0 );
-    ~CodecOptions();
-};
+      /** has this option predefined values */
+      const QStringList values ( const QString &option );
+
+      /** extensions list */
+      const QList<VideoExtension> extensionList();
+
+      ~OptionsFinder();
+  };
+}  /* eof namespace QX11Grab */
+
+Q_DECLARE_METATYPE ( QX11Grab::VideoExtension )
 
 #endif

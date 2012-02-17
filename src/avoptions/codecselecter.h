@@ -34,32 +34,35 @@
 /* QX11Grab */
 #include "avoptions.h"
 
-class CodecSelecter : public QComboBox
+namespace QX11Grab
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-    Q_PROPERTY ( QString codec READ getCodec WRITE setCodec USER true )
+  class CodecSelecter : public QComboBox
+  {
+      Q_OBJECT
+      Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+      Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+      Q_PROPERTY ( QString codec READ getCodec WRITE setCodec USER true )
 
-  private Q_SLOTS:
-    void itemSelected ( int );
+    private Q_SLOTS:
+      void itemSelected ( int );
 
-  public Q_SLOTS:
-    void setCodec ( const QString &name );
+    public Q_SLOTS:
+      void setCodec ( const QString &name );
 
-  Q_SIGNALS:
-    void codecChanged ( const QString &name, CodecID );
+    Q_SIGNALS:
+      void codecChanged ( const QString &name, CodecID );
 
-  public:
-    CodecSelecter ( QWidget * parent = 0 );
+    public:
+      CodecSelecter ( QWidget * parent = 0 );
 
-    void setCodecItems ( const QList<QX11Grab::FFCodec> & );
+      void setCodecItems ( const QList<QX11Grab::FFCodec> & );
 
-    void setCustomItem ( const QString &key, const QVariant &value );
+      void setCustomItem ( const QString &key, const QVariant &value );
 
-    const QString getCodec ();
+      const QString getCodec ();
 
-    ~CodecSelecter();
-};
+      ~CodecSelecter();
+  };
+}  /* eof namespace QX11Grab */
 
 #endif

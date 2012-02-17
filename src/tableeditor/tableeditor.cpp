@@ -61,7 +61,7 @@ TableEditor::TableEditor ( QWidget * parent )
   m_toolBar->addWidget ( new QLabel ( trUtf8 ( "Encoder" ) ) );
 
   // ComboBox Codec
-  m_codecSelecter = new CodecSelecter ( this );
+  m_codecSelecter = new QX11Grab::CodecSelecter ( this );
   /*: WhatsThis */
   m_codecSelecter->setWhatsThis ( trUtf8 ( "codec selecter" ) );
   m_toolBar->addWidget ( m_codecSelecter );
@@ -319,8 +319,8 @@ const QString TableEditor::selectedCodecExtension()
   // Wenn Leer dann bei XML OptionsFinder suchen!
   if ( currentCodecExtension.isEmpty() )
   {
-    OptionsFinder finder ( selectedCodec() );
-    QList<VideoExtension> list = finder.extensionList();
+    QX11Grab::OptionsFinder finder ( selectedCodec() );
+    QList<QX11Grab::VideoExtension> list = finder.extensionList();
     for ( int i = 0; i < list.size(); ++i )
     {
       if ( list.at ( i ).isDefault )

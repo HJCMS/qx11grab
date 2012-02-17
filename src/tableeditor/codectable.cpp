@@ -106,7 +106,7 @@ void CodecTable::contextMenuEvent ( QContextMenuEvent * e )
   QMenu* m = new QMenu ( this );
 
   // OptionsMenu {
-  CodecOptions* com = new CodecOptions ( this );
+  QX11Grab::CodecOptions* com = new QX11Grab::CodecOptions ( this );
   connect ( com, SIGNAL ( insertOption ( const QString &, const QVariant & ) ),
             this, SLOT ( appendItem ( const QString &, const QVariant & ) ) );
   m->addMenu ( com );
