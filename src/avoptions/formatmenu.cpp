@@ -20,6 +20,7 @@
 **/
 
 #include "formatmenu.h"
+#include "optionsfinder.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -42,6 +43,25 @@ namespace QX11Grab
 
     connect ( this, SIGNAL ( clicked () ),
               this, SLOT ( showMenu () ) );
+  }
+
+  /** Sucht bei den XML Vorgabe Optionen */
+  const QString FormatMenu::findDefaultExtension ( const QString &name )
+  {
+    QString ext;
+    OptionsFinder finder ( name );
+    QList<VideoExtension> list = finder.extensionList();
+    if ( list.isEmpty() )
+      return ext;
+
+    for ( int i = 0; i < list.size(); ++i )
+    {
+      VideoExtension e = list.at ( i );
+      if ( e.isDefault )
+        return e.name;
+    }
+
+    return ext;
   }
 
   /** Menü neu einlesen */
@@ -68,6 +88,11 @@ namespace QX11Grab
       }
     }
     delete av;
+
+    QString etr = findDefaultExtension ( name );
+    if ( ! etr.isEmpty() )
+      setEntryEnabled ( etr );
+
     emit postUpdate();
   }
 

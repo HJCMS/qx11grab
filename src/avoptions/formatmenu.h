@@ -50,6 +50,8 @@ namespace QX11Grab
       QMenu* m_menu;
       QList<QAction*> p_ActionsList;
 
+      const QString findDefaultExtension ( const QString &name );
+
     private Q_SLOTS:
       void itemTriggered ( QAction * );
 
