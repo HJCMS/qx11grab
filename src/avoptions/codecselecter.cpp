@@ -37,44 +37,26 @@ CodecSelecter::CodecSelecter ( QWidget * parent )
             this, SLOT ( itemSelected ( int ) ) );
 }
 
-/**
-* CodecID Abfragen
-* Siehe avcodec.h enum CodecID
-*/
-void CodecSelecter::findCodecContext()
-{
-  return; // FIXME currently get AVCodecContext disabled
-  bool ok;
-  QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
-  connect ( av, SIGNAL ( codecDefaults ( const AVCodecContext* ) ),
-            this, SLOT ( readCodecDefaults ( const AVCodecContext* ) ) );
-
-  QVariant data = itemData ( currentIndex(), Qt::UserRole );
-  CodecID id = static_cast<CodecID> ( data.toUInt ( &ok ) );
-  if ( ok )
-    av->initCodecDefaults ( id );
-}
-
-void CodecSelecter::readCodecDefaults ( const AVCodecContext* avc )
-{
-  if ( avc->codec_type == AVMEDIA_TYPE_VIDEO )
-  {}
-  else if( avc->codec_type == AVMEDIA_TYPE_AUDIO )
-  {}
-}
-
 void CodecSelecter::itemSelected ( int index )
 {
-  int cid = itemData ( index, Qt::UserRole ).toUInt();
-  if ( cid >= 0 )
-    findCodecContext();
+  QString name = itemData ( index, Qt::DisplayRole ).toString();
+  if ( ! name.isEmpty() )
+    emit codecSelected ( name );
+
+  bool ok;
+  CodecID id = static_cast<CodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
+  if ( ok )
+    emit codecChanged ( id );
 }
 
 void CodecSelecter::setCodec ( const QString &name )
 {
   int index = findData ( name, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
   if ( index != -1 )
+  {
     setCurrentIndex ( index );
+    itemSelected ( index ); // NOTE wird by onLoad für FormatMenu benötigt!
+  }
 }
 
 void CodecSelecter::setCodecItems ( const QList<QX11Grab::FFCodec> &list )

@@ -13,7 +13,6 @@ SET (tableeditor_SOURCES
   selectacodecpresets.cpp
   selectvcodecpresets.cpp
   defaultedit.cpp
-  selectextension.cpp
 )
 
 SET (tableeditor_HEADERS
@@ -27,7 +26,6 @@ SET (tableeditor_HEADERS
   selectacodecpresets.h
   selectvcodecpresets.h
   defaultedit.h
-  selectextension.h
 )
 
 QT4_WRAP_CPP (tableeditor_MOC ${tableeditor_HEADERS})

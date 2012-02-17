@@ -25,6 +25,7 @@
 /* QtCore */
 #include <QtCore/QHash>
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 
@@ -58,8 +59,7 @@ class ExtensionTable : public QTableView
 
   public:
     ExtensionTable ( QWidget * parent = 0 );
-    void setExtensions ( const QHash<QString,QVariant> &data );
-    const QHash<QString,QVariant> extensions();
+    void openFormats ( QSettings * settings );
 
     ~ExtensionTable();
 };

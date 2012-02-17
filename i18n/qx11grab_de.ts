@@ -380,6 +380,10 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Experts</source>
         <translation>Experten</translation>
     </message>
+    <message>
+        <source>Extensions</source>
+        <translation>Erweiterung</translation>
+    </message>
 </context>
 <context>
     <name>CreateCustomItem</name>
@@ -422,6 +426,62 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Shell Script (*.sh)</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTable</name>
+    <message>
+        <source>Video File extensions</source>
+        <translation>Video Filtererweiterung</translation>
+    </message>
+    <message>
+        <source>here you can configure video file extensions</source>
+        <translation>Hier kannst du deine Video Dateierweiterungen Einstellen.</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf fügt eine Neue Zeile in die Tabelle ein.</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf entfernt alle Ausgewählten Zeilen aus der Tabelle.</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation>Leeren</translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Dieser Knopf leert den Tabellen Inhalt.</translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTableModel</name>
+    <message>
+        <source>Codec</source>
+        <translation>Kodierer</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Standard</translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation>Erweiterung</translation>
     </message>
 </context>
 <context>
@@ -562,6 +622,17 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Create Filter</source>
         <translation>Erstelle Filter</translation>
+    </message>
+</context>
+<context>
+    <name>FormatMenu</name>
+    <message>
+        <source>Video Extension</source>
+        <translation>Video Erweiterung</translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation>Erweiterungen</translation>
     </message>
 </context>
 <context>

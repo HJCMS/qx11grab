@@ -23,8 +23,9 @@
 #include "settings.h"
 #include "avoptions.h"
 #include "codectable.h"
-#include "selectextension.h"
+#include "formatmenu.h"
 #include "codecselecter.h"
+#include "optionsfinder.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -36,43 +37,46 @@
 /* QtGui */
 #include <QtGui/QAbstractItemView>
 #include <QtGui/QDialogButtonBox>
-#include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
 #include <QtGui/QPalette>
+#include <QtGui/QToolBar>
 #include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
 
 TableEditor::TableEditor ( QWidget * parent )
     : QWidget ( parent )
     , currentType ( QString::null )
     , sharedVideoCodec ( 0 )
     , sharedAudioCodec ( 0 )
+    , currentCodecExtension ( QString ( "avi" ) )
 {
   setObjectName ( QLatin1String ( "TableEditor" ) );
   setContentsMargins ( 5, 5, 5, 5 );
 
-  QGridLayout* layout =  new QGridLayout ( this );
+  QVBoxLayout* layout =  new QVBoxLayout ( this );
+  layout->setContentsMargins ( 0, 0, 0, 0 );
 
-  int grow = 0; // grid Row
-  layout->addWidget ( new QLabel ( trUtf8 ( "Encoder" ) ),
-                      grow, 0, 1, 1, Qt::AlignRight );
+  QToolBar* m_toolBar =  new QToolBar ( this );
+  m_toolBar->addWidget ( new QLabel ( trUtf8 ( "Encoder" ) ) );
 
   // ComboBox Codec
   m_codecSelecter = new CodecSelecter ( this );
   /*: WhatsThis */
   m_codecSelecter->setWhatsThis ( trUtf8 ( "codec selecter" ) );
-  layout->addWidget ( m_codecSelecter, grow, 1, 1, 1 );
+  m_toolBar->addWidget ( m_codecSelecter );
 
   // ComboBox Extension
-  m_selectExtension = new SelectExtension ( this );
-  m_selectExtension->setVisible ( false );
-  layout->addWidget ( m_selectExtension, grow++, 2, 1, 1 );
+  m_formatMenu = new FormatMenu ( this );
+  m_toolBar->addWidget ( m_formatMenu );
+
+  layout->addWidget ( m_toolBar );
 
   // Table
   m_tableWidget = new CodecTable ( this );
   /*: WhatsThis */
   m_tableWidget->setWhatsThis ( trUtf8 ( "codec editor table" ) );
-  layout->addWidget ( m_tableWidget, grow++, 0, 1, 3 );
+  layout->addWidget ( m_tableWidget );
 
   QDialogButtonBox* buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
   QPushButton* m_add = buttonBox->addButton ( trUtf8 ( "Add" ), QDialogButtonBox::ActionRole );
@@ -90,15 +94,19 @@ TableEditor::TableEditor ( QWidget * parent )
   /*: WhatsThis */
   m_clear->setWhatsThis ( trUtf8 ( "clear table contents" ) );
 
-  layout->addWidget ( buttonBox, grow++, 0, 1, 3, Qt::AlignRight );
+  layout->addWidget ( buttonBox, Qt::AlignRight );
 
   setLayout ( layout );
 
-  // onUpdate
-  connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( int ) ), this, SIGNAL ( postUpdate() ) );
-  connect ( m_selectExtension, SIGNAL ( currentIndexChanged ( int ) ), this, SIGNAL ( postUpdate() ) );
-  connect ( m_codecSelecter, SIGNAL ( currentIndexChanged ( const QString & ) ),
-            m_selectExtension, SLOT ( insertItems ( const QString & ) ) );
+  // ComboBoxes
+  connect ( m_codecSelecter, SIGNAL ( codecSelected ( const QString & ) ),
+            this, SLOT ( codecChanged ( const QString & ) ) );
+
+  connect ( m_codecSelecter, SIGNAL ( codecChanged ( CodecID ) ),
+            m_formatMenu, SLOT ( updateMenu ( CodecID ) ) );
+
+  connect ( m_formatMenu, SIGNAL ( extensionChanged ( const QString & ) ),
+            this, SLOT ( setCodecExtension ( const QString & ) ) );
 
   // table context signals
   connect ( m_tableWidget, SIGNAL ( postUpdate() ), this, SIGNAL ( postUpdate() ) );
@@ -204,6 +212,19 @@ void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
 }
 
 /**
+* Wenn die Codec Auswahl sich geändert hat die Tabelle leeren!
+*/
+void TableEditor::codecChanged ( const QString &codec )
+{
+  QSettings cfg;
+  if ( cfg.value ( QLatin1String ( "video_codec" ) ).toString().compare ( codec ) == 0 )
+    return;
+
+  m_tableWidget->clearContents();
+  // NOTE postUpdate wird von setCodecExtension ausgelöst!
+}
+
+/**
 * Eine neue Zeile ind Tabelle @ref m_tableWidget einfügen.
 */
 void TableEditor::addTableRow()
@@ -224,6 +245,15 @@ void TableEditor::delTableRow()
 }
 
 /**
+* Setzt für den Video Codec die Datei Erweiterung
+*/
+void TableEditor::setCodecExtension ( const QString &ext )
+{
+  currentCodecExtension = ext;
+  emit postUpdate();
+}
+
+/**
 * Standard Laden
 */
 void TableEditor::load ( const QString &type, QSettings *cfg )
@@ -232,15 +262,16 @@ void TableEditor::load ( const QString &type, QSettings *cfg )
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     QString vcodec = cfg->value ( "video_codec" ).toString();
+    currentCodecExtension = cfg->value ( "video_codec_extension" ).toString();
+    m_formatMenu->setEnabled ( true );
     sharedVideoCodec << vcodec;
     findVideoCodecs();
-    m_selectExtension->setVisible ( true );
-    m_selectExtension->setEnabled ( true );
     m_codecSelecter->setCodec ( vcodec );
-    m_selectExtension->setDefault ( cfg->value ( "video_codec_extension" ).toString() );
+    m_formatMenu->setEntryEnabled ( currentCodecExtension );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
   {
+    m_formatMenu->setEnabled ( false );
     sharedAudioCodec << cfg->value ( "audio_codec" ).toString();
     findAudioCodecs();
     m_codecSelecter->setCodec ( cfg->value ( "audio_codec" ).toString() );
@@ -258,7 +289,7 @@ void TableEditor::save ( const QString &type, QSettings *cfg )
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     cfg->setValue ( QLatin1String ( "video_codec" ), selectedCodec() );
-    cfg->setValue ( QLatin1String ( "video_codec_extension" ), m_selectExtension->extension() );
+    cfg->setValue ( QLatin1String ( "video_codec_extension" ), currentCodecExtension );
   }
   else if ( currentType.contains ( QLatin1String ( "AudioOptions" ) ) )
     cfg->setValue ( QLatin1String ( "audio_codec" ), selectedCodec() );
@@ -299,7 +330,20 @@ const QString TableEditor::selectedCodec()
 */
 const QString TableEditor::selectedCodecExtension()
 {
-  return m_selectExtension->extension();
+  if ( currentCodecExtension.isEmpty() )
+  {
+    OptionsFinder finder ( selectedCodec() );
+    QList<VideoExtension> list = finder.extensionList();
+    for ( int i = 0; i < list.size(); ++i )
+    {
+      if ( list.at ( i ).isDefault )
+      {
+        currentCodecExtension = list.at ( i ).name;
+        break;
+      }
+    }
+  }
+  return currentCodecExtension;
 }
 
 /**
@@ -333,11 +377,20 @@ const QStringList TableEditor::getCmd()
   return cmd;
 }
 
+/**
+* Setzt den Kodierer mit Namen, wird Üblicherweise von
+* Lesezeichen aus dem Hauptfenster aufgerufen!
+*/
 void TableEditor::setCodecByName ( const QString &txt )
 {
+  currentCodecExtension.clear();
   m_codecSelecter->setCodec ( txt );
 }
 
+/**
+* Setzt den Kodierer Optionen, wird Üblicherweise von
+* Lesezeichen aus dem Hauptfenster aufgerufen!
+*/
 void TableEditor::setCodecOptions ( const QHash<QString,QVariant> &options )
 {
   int row = 0;

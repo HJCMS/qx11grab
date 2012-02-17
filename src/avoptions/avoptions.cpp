@@ -30,9 +30,6 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QRegExp>
 
-/* QtGui */
-// #include <QtGui>
-
 /* FFmpeg */
 extern "C"
 {
@@ -65,16 +62,22 @@ namespace QX11Grab
       return;
 
     AVCodec* buffer = NULL;
-    AVCodec* codec = avcodec_find_encoder ( codecId );
-    if ( ! codec )
+    AVCodec* coder = avcodec_find_encoder ( codecId );
+    if ( ! coder )
+      coder = avcodec_find_decoder ( codecId );
+
+    if ( ! coder )
       return;
 
     AVCodecContext* avc = avcodec_alloc_context3 ( buffer );
     /* Do not call this function if a non-NULL codec has been passed to
     * avcodec_alloc_context3() that allocated this AVCodecContext. */
-    int ret = avcodec_get_context_defaults3 ( avc, codec );
+    int ret = avcodec_get_context_defaults3 ( avc, coder );
     if ( ret == 0 )
-      emit codecDefaults ( avc );
+    {
+      qDebug() << Q_FUNC_INFO << avc->qmax;
+      // emit codecDefaults ( avc );
+    }
   }
 
   /**
@@ -192,6 +195,9 @@ namespace QX11Grab
               && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
       {
         // qDebug ( "VCodec: %s Capability: 0x%02x", codec->name, codec->capabilities );
+        if ( supportedFormats ( codec->id ).size() < 1 )
+          continue;
+
         FFCodec c;
         c.id = codec->id;
         c.name = QString ( codec->name );
@@ -224,6 +230,59 @@ namespace QX11Grab
         c.info = QString();
         list.append ( c );
       }
+    }
+    return list;
+  }
+
+  const QList<QX11Grab::FFFormat> AVOptions::supportedFormats ( CodecID id )
+  {
+    QList<QX11Grab::FFFormat> list;
+    av_register_all();
+    AVOutputFormat* ofmt = NULL;
+    const char* buffer = "000";
+    forever
+    {
+      const char* name = NULL;
+      while ( ( ofmt = av_oformat_next ( ofmt ) ) )
+      {
+        if ( ( name == NULL || strcmp ( ofmt->name, name ) < 0 )
+                && ( strcmp ( ofmt->name, buffer ) > 0 )
+                && ( ofmt->video_codec != CODEC_ID_NONE ) )
+        {
+          if ( ofmt->video_codec == id )
+          {
+            QString extensions ( ofmt->extensions );
+            if ( extensions.isEmpty() )
+              continue;
+
+            FFFormat f;
+            f.format = QString ( ofmt->name );
+            f.description = QString ( ofmt->long_name );
+            f.defaultExt = QString ( ofmt->name );
+            f.extensions = extensions.split ( "," );
+            list.append ( f );
+          }
+          /* only for testing
+          if ( avformat_query_codec ( ofmt, id, 1 ) == 0 )
+          {
+            QString extensions ( ofmt->extensions );
+            if ( extensions.isEmpty() )
+              continue;
+
+            FFFormat f;
+            f.format = QString ( ofmt->name );
+            f.description = QString ( ofmt->long_name );
+            f.defaultExt = QString ( ofmt->name );
+            f.extensions = extensions.split ( "," );
+            list.append ( f );
+          }
+          */
+        }
+      }
+      if ( name == NULL )
+        break;
+
+      buffer = name;
     }
     return list;
   }

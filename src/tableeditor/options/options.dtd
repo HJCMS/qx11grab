@@ -22,6 +22,7 @@
 <!ELEMENT encoder (extensions,option+)>
 <!ATTLIST encoder
   id  CDATA  #REQUIRED
+  audio  CDATA  #REQUIRED
   summary  CDATA  #REQUIRED
 >
 <!ELEMENT extensions (ext+)>

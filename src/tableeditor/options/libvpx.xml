@@ -3,6 +3,7 @@
 <!ELEMENT encoder (extensions,option+)>
 <!ATTLIST encoder
   id  CDATA  #REQUIRED
+  audio  CDATA  #REQUIRED
   summary  CDATA  #REQUIRED
 >
 <!ELEMENT extensions (ext+)>
@@ -19,9 +20,9 @@
 <!ELEMENT value (#PCDATA)>
 ]>
 <!-- VP8 Format -->
-<encoder id="libvpx" summary="VP8 Format">
+<encoder id="libvpx" audio="libvorbis" summary="VP8 Format">
   <extensions>
-    <ext name="webm" default="default">VP8 Format</ext>
+    <ext name="webm" default="default">WebM file format</ext>
   </extensions>
   <option param="threads" />
   <option param="profile" />

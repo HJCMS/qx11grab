@@ -23,7 +23,7 @@
 #include "extensiontablemodel.h"
 
 /* QX11Grab */
-// #include ""
+#include "avoptions.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -108,8 +108,13 @@ void ExtensionTable::contextMenuEvent ( QContextMenuEvent *e )
   m_menu->exec ( e->globalPos() );
 }
 
-void ExtensionTable::setExtensions ( const QHash<QString,QVariant> &data )
+void ExtensionTable::openFormats ( QSettings * settings )
 {
+  Q_UNUSED ( settings );
+
+//   QX11Grab::AVOptions* avopts = new  QX11Grab::AVOptions( this );
+//   avopts->codecFormats();
+
 //   if ( data.size() > 0 )
 //   {
 //     int row = 0;
@@ -124,24 +129,6 @@ void ExtensionTable::setExtensions ( const QHash<QString,QVariant> &data )
 //       row++;
 //     }
 //   }
-}
-
-const QHash<QString,QVariant> ExtensionTable::extensions()
-{
-  QHash<QString,QVariant> data;
-//   for ( int r = 0; r < rowCount(); ++r )
-//   {
-//     if ( item ( r, 0 ) )
-//     {
-//       QString key = item ( r, 0 )->data ( Qt::EditRole ).toString();
-//       QVariant value = item ( r, 1 )->data ( Qt::EditRole );
-//       if ( key.isEmpty() )
-//         continue;
-//
-//       data.insert ( key, value );
-//     }
-//   }
-  return data;
 }
 
 ExtensionTable::~ExtensionTable()

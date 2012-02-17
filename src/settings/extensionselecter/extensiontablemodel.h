@@ -36,6 +36,9 @@
 /* QtGui */
 #include <QtGui/QWidget>
 
+/* QX11Grab */
+#include "avoptions.h"
+
 class ExtensionTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -43,14 +46,7 @@ class ExtensionTableModel : public QAbstractTableModel
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    /** Special Settings Type */
-    struct Item
-    {
-      QString argument; /**< Predicate */
-      QString defaultValue; /** Default Value */
-      QVariant values; /**< Values (QString|QStringList) */
-    };
-    QHash<int,Item> items;
+    QHash<int,QX11Grab::FFFormat> items;
     bool removeItem ( int key );
 
   protected:

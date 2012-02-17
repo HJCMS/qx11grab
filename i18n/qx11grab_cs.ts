@@ -377,6 +377,10 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Experts</source>
         <translation>Odborníci</translation>
     </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CreateCustomItem</name>
@@ -419,6 +423,62 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Shell Script (*.sh)</source>
         <translation>Shellový skript (*.sh)</translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTable</name>
+    <message>
+        <source>Video File extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here you can configure video file extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+    <message>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Toto tlačítko do tabulky vloží nový prázdný řádek</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Toto tlačítko z tabulky odstraní vybrané řádky</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Toto tlačítko odstraní obsah tabulky</translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTableModel</name>
+    <message>
+        <source>Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -559,6 +619,17 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Create Filter</source>
         <translation>Vytvořit filtr</translation>
+    </message>
+</context>
+<context>
+    <name>FormatMenu</name>
+    <message>
+        <source>Video Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

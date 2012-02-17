@@ -41,15 +41,15 @@ class CodecSelecter : public QComboBox
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
     Q_PROPERTY ( QString codec READ getCodec WRITE setCodec USER true )
 
-  private:
-    void findCodecContext();
-
   private Q_SLOTS:
-    void readCodecDefaults ( const AVCodecContext* );
     void itemSelected ( int );
 
   public Q_SLOTS:
     void setCodec ( const QString &name );
+
+  Q_SIGNALS:
+    void codecSelected ( const QString & );
+    void codecChanged ( CodecID );
 
   public:
     CodecSelecter ( QWidget * parent = 0 );

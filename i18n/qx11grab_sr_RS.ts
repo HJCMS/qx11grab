@@ -300,7 +300,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecSelecter</name>
     <message>
-        <location filename="../src/tableeditor/codecselecter.cpp" line="109"/>
+        <location filename="../src/avoptions/codecselecter.cpp" line="87"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation>Подешено</translation>
@@ -336,18 +336,18 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableModel</name>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="154"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="155"/>
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
         <translation>Најпре морате да направите аргумент.</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="194"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="195"/>
         <source>Parameter</source>
         <translation>Параметар</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="196"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="197"/>
         <source>Value</source>
         <translation>Вредност</translation>
     </message>
@@ -431,30 +431,35 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="44"/>
+        <location filename="../src/settings/configdialog.cpp" line="45"/>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation>Подешавање[*]</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="66"/>
+        <location filename="../src/settings/configdialog.cpp" line="67"/>
         <source>Application</source>
         <translation>Програм</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="70"/>
+        <location filename="../src/settings/configdialog.cpp" line="71"/>
         <source>Targets</source>
         <translation>Мете</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="74"/>
+        <location filename="../src/settings/configdialog.cpp" line="75"/>
         <source>Audio</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="78"/>
+        <location filename="../src/settings/configdialog.cpp" line="79"/>
         <source>Experts</source>
         <translation>Напредно</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/configdialog.cpp" line="83"/>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -506,6 +511,73 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/exportdialog.cpp" line="47"/>
         <source>Shell Script (*.sh)</source>
         <translation>Скрипта Шкољке (*.sh)</translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTable</name>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="41"/>
+        <source>Video File extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="42"/>
+        <source>here you can configure video file extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="70"/>
+        <source>Add</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Додај</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="72"/>
+        <source>This button insert a new empty table row</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Умеће нови празан ред у табелу</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="74"/>
+        <source>Remove</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Уклони</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="76"/>
+        <source>This button remove selected table rows</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Уклања изабрани ред табеле</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="78"/>
+        <source>Clear</source>
+        <extracomment>MenuEntry</extracomment>
+        <translation type="unfinished">Очисти</translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="80"/>
+        <source>This button clear table contents</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Чисти садржај табеле</translation>
+    </message>
+</context>
+<context>
+    <name>ExtensionTableModel</name>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="85"/>
+        <source>Codec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="87"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="89"/>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -598,7 +670,7 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/ffprocess/ffprocess.cpp" line="248"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
         <source>Recording</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Снимање</translation>
     </message>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="232"/>
@@ -658,7 +730,7 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="110"/>
         <source>Dimension</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Димензије</translation>
     </message>
 </context>
 <context>
@@ -682,6 +754,19 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/tableeditor/filtermenu.cpp" line="32"/>
         <source>Create Filter</source>
         <translation>Направи филтер</translation>
+    </message>
+</context>
+<context>
+    <name>FormatMenu</name>
+    <message>
+        <location filename="../src/avoptions/formatmenu.cpp" line="34"/>
+        <source>Video Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/formatmenu.cpp" line="35"/>
+        <source>Extensions</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1016,62 +1101,62 @@ WhatsThis</extracomment>
         <translation>ФФмпег</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="428"/>
+        <location filename="../src/mainwindow.cpp" line="430"/>
         <source>Info</source>
         <translation>Информација</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Stopping</source>
         <translation>Заустављање</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="489"/>
+        <location filename="../src/mainwindow.cpp" line="491"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="502"/>
+        <location filename="../src/mainwindow.cpp" line="504"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="642"/>
+        <location filename="../src/mainwindow.cpp" line="653"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="670"/>
+        <location filename="../src/mainwindow.cpp" line="681"/>
         <source>Remove Bookmark</source>
         <translation>Уклони обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="670"/>
+        <location filename="../src/mainwindow.cpp" line="681"/>
         <source>Bookmark</source>
         <translation>Обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="690"/>
+        <location filename="../src/mainwindow.cpp" line="701"/>
         <source>Open Bookmark %1 failed</source>
         <translation>Отварање обележивача %1 није успело</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="701"/>
+        <location filename="../src/mainwindow.cpp" line="712"/>
         <source>Open Bookmark %1</source>
         <translation>Отвори обележивач %1</translation>
     </message>
@@ -1305,7 +1390,7 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/menubar.cpp" line="73"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Обележивач</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="384"/>
@@ -1588,13 +1673,13 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="149"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="152"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="174"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="177"/>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1699,51 +1784,51 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TableEditor</name>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="56"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="61"/>
         <source>Encoder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="62"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="66"/>
         <source>codec selecter</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="68"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="78"/>
         <source>codec editor table</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="72"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="82"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Додај</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="75"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
         <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="77"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="87"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Уклони</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="80"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="90"/>
         <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="82"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="92"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Очисти</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="95"/>
         <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -1894,7 +1979,7 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="73"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Извези</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="75"/>

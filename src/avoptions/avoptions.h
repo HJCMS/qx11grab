@@ -63,6 +63,17 @@ namespace QX11Grab
     QString help;     /**< Optional Helptext */
   } FFOption;
 
+  /** Represents Extension for Codec
+  * @ingroup Declarations
+  */
+  typedef struct Q_DECL_EXPORT
+  {
+    QString format; /**< codec name */
+    QString description; /**< codec description */
+    QString defaultExt; /** default extension */
+    QVariant extensions; /**< all supported extensions */
+  } FFFormat;
+
   /**
   * required for QStringList::join() and QString::split() in Table ItemViews
   * @ingroup Declarations
@@ -79,7 +90,7 @@ namespace QX11Grab
       Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
     Q_SIGNALS:
-      void codecDefaults ( const AVCodecContext* );
+      void codecDefaults ( const FFFormat & );
 
     public:
       AVOptions ( QObject * parent = 0 );
@@ -108,6 +119,9 @@ namespace QX11Grab
       /** all supported AVMEDIA_TYPE_AUDIO encoder types */
       static const QList<FFCodec> audioCodecs();
 
+      /** find valid Format for given codecID */
+      static const QList<FFFormat> supportedFormats ( CodecID id );
+
       static const QStringList userPresets ( const QString &suffix );
 
       static const QStringList systemPresets ( const QString &suffix );
@@ -119,5 +133,6 @@ namespace QX11Grab
 
 Q_DECLARE_METATYPE ( QX11Grab::FFCodec )
 Q_DECLARE_METATYPE ( QX11Grab::FFOption )
+Q_DECLARE_METATYPE ( QX11Grab::FFFormat )
 
 #endif

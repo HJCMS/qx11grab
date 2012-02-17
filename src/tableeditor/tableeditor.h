@@ -37,8 +37,8 @@
 #include <QtGui/QWidget>
 
 class CodecTable;
-class SelectExtension;
 class CodecSelecter;
+class FormatMenu;
 
 class TableEditor : public QWidget
 {
@@ -50,8 +50,9 @@ class TableEditor : public QWidget
     QString currentType;
     QStringList sharedVideoCodec;
     QStringList sharedAudioCodec;
-    SelectExtension* m_selectExtension;
+    QString currentCodecExtension;
     CodecSelecter* m_codecSelecter;
+    FormatMenu* m_formatMenu;
     CodecTable* m_tableWidget;
 
     void findVideoCodecs();
@@ -61,8 +62,12 @@ class TableEditor : public QWidget
     void saveTableOptions ( const QString &, QSettings * );
 
   private Q_SLOTS:
+    void codecChanged ( const QString & );
     void addTableRow();
     void delTableRow();
+
+  protected Q_SLOTS:
+    void setCodecExtension ( const QString & );
 
   Q_SIGNALS:
     void postUpdate();

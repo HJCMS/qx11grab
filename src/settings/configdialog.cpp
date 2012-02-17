@@ -139,7 +139,7 @@ void ConfigDialog::loadSettings()
   m_audioDeviceWidget->setAudioEngine ( cfg->audioEngine() );
   m_audioDeviceWidget->setSampleFormat ( cfg->sampleFormat() );
   m_audioDeviceWidget->setAudioServiceType ( cfg->audioType() );
-  m_extensionTable->setExtensions ( cfg->readGroup ( "Extensions" ) );
+  m_extensionTable->openFormats ( cfg );
   // } AudioDeviceWidget
 
   // Experts {
@@ -166,7 +166,7 @@ void ConfigDialog::saveAndExit()
   cfg->setSampleFormat ( m_audioDeviceWidget->getSampleFormat() );
   cfg->setAudioType ( m_audioDeviceWidget->getAudioServiceType() );
   cfg->setAudioDeviceCommand ( m_audioDeviceWidget->data() );
-  cfg->saveGroup ( "Extensions", m_extensionTable->extensions() );
+//   cfg->saveGroup ( "Extensions", m_extensionTable->extensions() );
   // m_extensionTable->data();
   // } AudioDeviceWidget
 

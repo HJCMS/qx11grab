@@ -49,11 +49,11 @@ bool ExtensionTableModel::removeItem ( int key )
   if ( items.remove ( key ) == 1 )
   {
     int index = 0;
-    QHash<int,Item> copy;
-    QHash<int,Item>::iterator i;
+    QHash<int,QX11Grab::FFFormat> copy;
+    QHash<int,QX11Grab::FFFormat>::iterator i;
     for ( i = items.begin(); i != items.end(); ++i )
     {
-      // qDebug() << Q_FUNC_INFO << i.value().argument;
+      // qDebug() << Q_FUNC_INFO << i.value().format;
       copy.insert ( index++, i.value() );
     }
     items.clear();
@@ -125,13 +125,13 @@ QVariant ExtensionTableModel::data ( const QModelIndex &index, int role ) const
     switch ( index.column() )
     {
       case 0:
-        return items.value ( index.row() ).argument;
+        return items.value ( index.row() ).format;
 
       case 1:
-        return items.value ( index.row() ).defaultValue;
+        return items.value ( index.row() ).defaultExt;
 
       case 2:
-        return items.value ( index.row() ).values;
+        return items.value ( index.row() ).extensions;
 
       default:
         return val;
@@ -183,10 +183,10 @@ bool ExtensionTableModel::insertRows ( int row, int count, const QModelIndex &pa
 {
   bool status = false;
   beginInsertRows ( parent, items.size(), items.size() );
-  Item item;
-  item.argument = QString();
-  item.defaultValue = QString();
-  item.values = QVariant();
+  QX11Grab::FFFormat item;
+  item.format = QString();
+  item.defaultExt = QString();
+  item.extensions = QVariant();
   for ( int i = row; i < ( row + count ); ++i )
   {
     items.insert ( i, item );
@@ -216,8 +216,8 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
         QString data = value.toString();
         if ( ! data.isEmpty() )
         {
-          Item item = items.value ( row );
-          item.argument = data;
+          QX11Grab::FFFormat item = items.value ( row );
+          item.format = data;
           items[row] = item;
           status = true;
         }
@@ -226,9 +226,8 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
 
       case 1:
       {
-        QString data = value.toString();
-        Item item = items.value ( row );
-        item.defaultValue = data;
+        QX11Grab::FFFormat item = items.value ( row );
+        item.defaultExt = value.toString();
         items[row] = item;
         status = true;
       }
@@ -236,9 +235,8 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
 
       case 2:
       {
-        QString data = value.toString();
-        Item item = items.value ( row );
-        item.values = value;
+        QX11Grab::FFFormat item = items.value ( row );
+        item.extensions = value;
         items[row] = item;
         status = true;
       }

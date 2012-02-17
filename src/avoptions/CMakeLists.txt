@@ -6,11 +6,13 @@ SET (_subproject_SOURCES
   avoptions.cpp
   avfiltermodel.cpp
   codecselecter.cpp
+  formatmenu.cpp
 )
 
 SET (_subproject_HEADERS
   avoptions.h
   codecselecter.h
+  formatmenu.h
 )
 
 SET (_subproject_NOMOC_HEADERS

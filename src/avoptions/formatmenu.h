@@ -19,31 +19,47 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef SELECTEXTENSION_H
-#define SELECTEXTENSION_H
+#ifndef FormatMenu_H
+#define FormatMenu_H
 
 /* QtCore */
+#include <QtCore/QList>
 #include <QtCore/QObject>
+#include <QtCore/QSignalMapper>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QComboBox>
+#include <QtGui/QAction>
+#include <QtGui/QIcon>
+#include <QtGui/QMenu>
+#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
-class SelectExtension : public QComboBox
+/* QX11Grab */
+#include "avoptions.h"
+
+class FormatMenu : public QToolButton
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    const QIcon p_Icon;
+    QMenu* m_menu;
+    QSignalMapper* m_signalMapper;
+    QList<QAction*> p_ActionsList;
+
+  Q_SIGNALS:
+    void extensionChanged ( const QString & );
+
   public Q_SLOTS:
-    void insertItems ( const QString &codec );
-    void setDefault ( const QString &ext );
+    void updateMenu ( CodecID );
 
   public:
-    SelectExtension ( QWidget * parent = 0 );
-    const QString extension();
-    ~SelectExtension();
+    explicit FormatMenu ( QWidget * parent = 0 );
+    void setEntryEnabled ( const QString & );
+    virtual ~FormatMenu();
 };
 
 #endif

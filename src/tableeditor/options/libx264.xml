@@ -3,6 +3,7 @@
 <!ELEMENT encoder (extensions,option+)>
 <!ATTLIST encoder
   id  CDATA  #REQUIRED
+  audio  CDATA  #REQUIRED
   summary  CDATA  #REQUIRED
 >
 <!ELEMENT extensions (ext+)>
@@ -19,7 +20,7 @@
 <!ELEMENT value (#PCDATA)>
 ]>
 <!-- H.264/AVC/MPEG-4 AVC/MPEG-4 Format -->
-<encoder id="libx264" summary="H.264/AVC/MPEG-4 AVC/MPEG-4 Part 10 Format">
+<encoder id="libx264" audio="libfaac" summary="H.264/AVC/MPEG-4 AVC/MPEG-4 Part 10 Format">
   <extensions>
     <ext name="264">Raw bytestream</ext>
     <ext name="mkv" default="default">Matroska</ext>
