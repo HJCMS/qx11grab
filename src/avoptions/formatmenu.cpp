@@ -116,10 +116,41 @@ namespace QX11Grab
     delete av;
 
     /* Gibt es eine Standard Erweiterung ?
-    * Wenn Ja - Dann diesen Eintrag markieren! */
+    * Wenn Ja - Dann diesen Eintrag markieren!
+    * Versuche zusätzlich noch ein paar andere
+    * Erweiterungen um es dem Benutzer einfacher zu machen!
+    */
     QString etr = findDefaultExtension ( name );
     if ( ! etr.isEmpty() )
+    {
       setEntryEnabled ( etr );
+    }
+    else if ( ( p_ActionsList.size() > 0 ) && ( p_ActionsList.size() < 4 ) )
+    {
+      /* Nur ein bis drei Einträge vorhanden
+      * dann Automatisch den ersten auswählen */
+      setEntryEnabled ( p_ActionsList.first()->text() );
+    }
+    else if ( name.contains ( "mjpeg", Qt::CaseSensitive ) )
+    {
+      /* Ist es ein mjpeg Container ? */
+      setEntryEnabled ( QLatin1String ( "mjpeg" ) );
+    }
+    else if ( name.contains ( "mpeg1", Qt::CaseSensitive ) )
+    {
+      /* Ist es ein MPEG 1 Container ? */
+      setEntryEnabled ( QLatin1String ( "mpg" ) );
+    }
+    else if ( name.contains ( "mpeg2", Qt::CaseSensitive ) )
+    {
+      /* Ist es ein MPEG 2 Container ? */
+      setEntryEnabled ( QLatin1String ( "m2v" ) );
+    }
+    else
+    {
+      /* in letzter instanz versuche avi */
+      setEntryEnabled ( QLatin1String ( "avi" ) );
+    }
 
     // Änderungen Nachricht an die ober Klasse
     emit postUpdate();
