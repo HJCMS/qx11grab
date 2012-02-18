@@ -30,15 +30,23 @@
 
 namespace QX11Grab
 {
+  /**
+  * Auswahl Box Klasse zum setzen des Verfügbaren Kodierers
+  */
   CodecSelecter::CodecSelecter ( QWidget * parent )
       : QComboBox ( parent )
   {
     setObjectName ( QLatin1String ( "CodecSelecter" ) );
-    setEditable ( true );
+    setEditable ( true ); // Benutzer kann neue Einträge erzeugen!
     connect ( this, SIGNAL ( activated ( int ) ),
               this, SLOT ( itemSelected ( int ) ) );
   }
 
+  /**
+  * Ein Menü Eintrag wurde ausgewählt.
+  * \li Suche nach der FFmpeg \ref CodecID
+  * \li Sende bei erfolg das Signal \ref codecChanged
+  */
   void CodecSelecter::itemSelected ( int index )
   {
     QString name = itemData ( index, Qt::DisplayRole ).toString();
@@ -48,16 +56,26 @@ namespace QX11Grab
       emit codecChanged ( name, id );
   }
 
+  /**
+  * Sucht den Kodierer in den Einträgen mit dem Namen.
+  * \li Sucht den angezeigten Kodierer Namen,
+  * \li Wenn gefunden markiert ihn als ausgewählt,
+  * \li Sendet über \ref itemSelected das Signal \ref codecChanged
+  */
   void CodecSelecter::setCodec ( const QString &name )
   {
     int index = findData ( name, Qt::DisplayRole, ( Qt::MatchExactly | Qt::MatchCaseSensitive ) );
     if ( index != -1 )
     {
       setCurrentIndex ( index );
-      itemSelected ( index ); // NOTE wird by onLoad für FormatMenu benötigt!
+      // NOTE wird by onLoad für FormatMenu benötigt!
+      itemSelected ( index );
     }
   }
 
+  /**
+  * Alle verfügbaren Codecs einfügen
+  */
   void CodecSelecter::setCodecItems ( const QList<QX11Grab::FFCodec> &list )
   {
     int index = 0;
@@ -75,15 +93,32 @@ namespace QX11Grab
     }
   }
 
+  /**
+  * Gibt dem Benutzer die Möglichkeit zusätzliche Kodierer ein zu fügen.
+  * \li Suche nach Vorhandenen Einträgen,
+  * \li Wenn vorhanden - Markieren und aussteigen,
+  * \li Andernfalls neuen Eintrag einfügen.
+  * \note Neue Einträge werden mit \ref CODEC_ID_NONE eingefügt
+  *       und senden deshalb bei einer Auswahl kein Signal!
+  */
   void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
   {
-    int i = count();
-    insertItem ( i, key, value );
-    setItemData ( i, key, Qt::DisplayRole );
-    setItemData ( i, key, Qt::EditRole );
-    setItemData ( i, CODEC_ID_NONE, Qt::UserRole );
+    int c = count();
+    for ( int i = 0; i < c; ++i )
+    {
+      if ( itemData ( i, Qt::DisplayRole ).toString().compare ( key ) == 0 )
+      {
+        setCurrentIndex ( i );
+        return;
+      }
+    }
+
+    insertItem ( c, key, value );
+    setItemData ( c, key, Qt::DisplayRole );
+    setItemData ( c, key, Qt::EditRole );
+    setItemData ( c, CODEC_ID_NONE, Qt::UserRole );
     /*: ToolTip */
-    setItemData ( i, trUtf8 ( "Customized" ), Qt::ToolTipRole );
+    setItemData ( c, trUtf8 ( "Customized" ), Qt::ToolTipRole );
   }
 
   /**

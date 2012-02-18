@@ -122,8 +122,10 @@ namespace QX11Grab
       /** find valid Format for given codecID */
       static const QList<FFFormat> supportedFormats ( CodecID id );
 
+      /** complete list of all ~/.ffmpeg/*.ffpreset */
       static const QStringList userPresets ( const QString &suffix );
 
+      /** complete list of all /usr/share/ffmpeg/*.ffpreset */
       static const QStringList systemPresets ( const QString &suffix );
 
       virtual ~AVOptions();

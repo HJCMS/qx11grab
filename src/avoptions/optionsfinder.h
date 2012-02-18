@@ -41,6 +41,10 @@ namespace QX11Grab
     bool isDefault;
   } VideoExtension;
 
+  /**
+  * this class read predifined options xml files
+  * from {prefix}/usr/share/qx11grab/options/codec.xml
+  */
   class OptionsFinder : public QDomDocument
   {
     private:
@@ -51,6 +55,7 @@ namespace QX11Grab
       void initTemplate();
 
     public:
+      /** \param codec Codec Name without .xml extension */
       explicit OptionsFinder ( const QString &codec );
 
       /** options list */

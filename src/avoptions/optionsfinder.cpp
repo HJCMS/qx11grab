@@ -34,6 +34,11 @@
 
 namespace QX11Grab
 {
+  /**
+  * Diese Klasse sucht die Options XML Dateien und liest bei einem
+  * Treffer nach den passenden Vorgabe Optionen.
+  * \param codec Der Aktuell ausgewählte Kodierer Name
+  */
   OptionsFinder::OptionsFinder ( const QString &codec )
       : QDomDocument ( "encoder" )
       , p_codec ( codec )
@@ -44,6 +49,13 @@ namespace QX11Grab
       initTemplate();
   }
 
+  /**
+  * Suche ausgehend vom Binär Programm nach dem Template Pfad
+  * und der mit \ref p_codec gsetzten Kodierere Datei.
+  * \li Suche nach ?/share/qx11grab/options/codec.xml,
+  * \li Wenn gefunden Lese XML Datei in \ref p_template ein,
+  * \li Führe \e QDomDocument::setContent aus.
+  */
   void OptionsFinder::initTemplate()
   {
     QString path;
@@ -76,6 +88,10 @@ namespace QX11Grab
 
   }
 
+  /**
+  * Lese alle Prädikate \b param von den \b options Elementen
+  * aus und gebe Sie in einer Liste zurück.
+  */
   const QStringList OptionsFinder::options()
   {
     QStringList opts;
@@ -97,7 +113,9 @@ namespace QX11Grab
   }
 
   /**
-  * Sucht nach Vorgabewerten für Option
+  * Wenn das angefragte Options Element zusätzliche Vorgabe
+  * Knoten besitzt gebe dies in einer Liste zurück.
+  * \param option Zeiger auf das Prädikat \b param des option Elementes
   */
   const QStringList OptionsFinder::values ( const QString &option )
   {
@@ -129,7 +147,10 @@ namespace QX11Grab
     return buffer;
   }
 
-  /** Liste der Verfügbaren Erweiterungen */
+  /**
+  * Erstellt eine Liste der Verfügbaren Erweiterungen aus den \b ext Elementen.
+  * \note Jedes Template hat Mindestens ein ext Element!
+  */
   const QList<VideoExtension> OptionsFinder::extensionList()
   {
     QList<VideoExtension> list;

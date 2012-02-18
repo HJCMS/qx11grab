@@ -39,6 +39,10 @@
 
 namespace QX11Grab
 {
+  /**
+  * the main goal of this class is a menu implementation
+  * to switch formats into other video output extensions.
+  */
   class FormatMenu : public QToolButton
   {
       Q_OBJECT
@@ -56,15 +60,27 @@ namespace QX11Grab
       void itemTriggered ( QAction * );
 
     Q_SIGNALS:
+      /** signal menu update */
       void postUpdate();
+
+      /** extension was changed */
       void extensionChanged ( const QString & );
 
     public Q_SLOTS:
+      /** clear and create a new menutree for this codec
+      * \param name selected codec name
+      * \param id   AVCodec CodecID
+      */
       void updateMenu ( const QString &name, CodecID id );
 
     public:
       explicit FormatMenu ( QWidget * parent = 0 );
-      void setEntryEnabled ( const QString & );
+
+      /** marking menu entry with currently used extension
+      * \param ext Extension without leading dot
+      */
+      void setEntryEnabled ( const QString &ext );
+
       virtual ~FormatMenu();
   };
 }  /* eof namespace QX11Grab */

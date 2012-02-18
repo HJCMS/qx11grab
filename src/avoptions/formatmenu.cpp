@@ -27,6 +27,14 @@
 
 namespace QX11Grab
 {
+  /**
+  * Diese Menü Button Klasse dient zum auffinden von
+  * Erweiterungen des ausgewählten Kodierers und wird
+  * ausschließlich von \ref TableEditor für Video
+  * Kodierer verwendet.
+  * Primäre Aufgabe ist es dem Benutzer ein Menü an zu bieten
+  * womit er die Erweiterung des Ausgabe Videos ändern kann.
+  */
   FormatMenu::FormatMenu ( QWidget * parent )
       : QToolButton ( parent )
       , p_Icon ( QIcon::fromTheme ( "menu-video-edit" ) )
@@ -35,28 +43,37 @@ namespace QX11Grab
     setObjectName ( QLatin1String ( "FormatMenu" ) );
     setPopupMode ( QToolButton::MenuButtonPopup );
     setText ( QString::fromUtf8 ( "*.?" ) );
+
+    // Standard Menü Initialisieren
     m_menu = new QMenu ( trUtf8 ( "Extensions" ), this );
     setMenu ( m_menu );
 
+    // Eintrag wurde ausgewählt
     connect ( this, SIGNAL ( triggered ( QAction * ) ),
               this, SLOT ( itemTriggered ( QAction * ) ) );
 
+    // Bei einem Button Klick das Menü anzeigen
     connect ( this, SIGNAL ( clicked () ),
               this, SLOT ( showMenu () ) );
   }
 
-  /** Sucht bei den XML Vorgabe Optionen */
+  /**
+  * Suche mit Kodierer \ref name nach dem Passenden
+  * XML Eintrag in den Options Vorgabe XML Dateien.
+  * Wird eine Standard Erweiterungen gefunden gebe
+  * diese zurück andern falls ist die Zeichenkette leer.
+  */
   const QString FormatMenu::findDefaultExtension ( const QString &name )
   {
     QString ext;
-    OptionsFinder finder ( name );
-    QList<VideoExtension> list = finder.extensionList();
+    QX11Grab::OptionsFinder finder ( name );
+    QList<QX11Grab::VideoExtension> list = finder.extensionList();
     if ( list.isEmpty() )
       return ext;
 
     for ( int i = 0; i < list.size(); ++i )
     {
-      VideoExtension e = list.at ( i );
+      QX11Grab::VideoExtension e = list.at ( i );
       if ( e.isDefault )
         return e.name;
     }
@@ -64,18 +81,27 @@ namespace QX11Grab
     return ext;
   }
 
-  /** Menü neu einlesen */
+  /**
+  * Lese das Menü neu ein und setze den Button Text zurück.
+  * Lese mit \ref CodecID alle Unterstützen Formate für diesen
+  * Codec (\ref name) Neu ein. Und erstelle ein Menü mit den
+  * einzelnen Formaten an. Im Moment fehlt noch seitens FFmpeg
+  * die Unterstützung für die Standard Auswahl. Aus diesem Grund
+  * wird hier zusätzlich auf \ref findDefaultExtension zugegriffen.
+  */
   void FormatMenu::updateMenu ( const QString &name, CodecID id )
   {
     m_menu->clear();
     p_ActionsList.clear();
 
+    // Button Text zurück setzen
     setText ( QString::fromUtf8 ( "*.?" ) );
     if ( name.isEmpty() )
       return;
 
     m_menu->setToolTip ( name );
     QX11Grab::AVOptions* av = new QX11Grab::AVOptions ( this );
+    // Alle verfügbaren Format Erweiterungen einfügen
     foreach ( QX11Grab::FFFormat f, av->supportedFormats ( id ) )
     {
       QMenu* m = m_menu->addMenu ( p_Icon, f.format );
@@ -89,22 +115,37 @@ namespace QX11Grab
     }
     delete av;
 
+    /* Gibt es eine Standard Erweiterung ?
+    * Wenn Ja - Dann diesen Eintrag markieren! */
     QString etr = findDefaultExtension ( name );
     if ( ! etr.isEmpty() )
       setEntryEnabled ( etr );
 
+    // Änderungen Nachricht an die ober Klasse
     emit postUpdate();
   }
 
+  /**
+  * Wird immer dann aufgerufen wenn der Benutzer
+  * einen Eintrag ausgewählt hat. Gleichzeitig wird
+  * der Button Text für die Auswahl angepasst.
+  */
   void FormatMenu::itemTriggered ( QAction * ac )
   {
+    // Button Text setzen
     setText ( QString::fromUtf8 ( "*.%1" ).arg ( ac->text() ) );
     emit extensionChanged ( ac->text() );
   }
 
-  /** Markiert den Ausgwählten Eintrag und ändert den Button Text */
-  void FormatMenu::setEntryEnabled ( const QString &name )
+  /**
+  * QToolButton bietet keine Option gesetzte Einträge zu demarkieren.
+  * Hier werden zuerst alle ausgewählte Markierungen entfernt und der
+  * Eintrag neu Ausgwählt der mit name übergeben wurde.
+  * Auch hier wird der Button Text geändert!
+  */
+  void FormatMenu::setEntryEnabled ( const QString &ext )
   {
+    // alle Markierungen entfernen
     for ( int i = 0; i < p_ActionsList.size(); ++i )
     {
       p_ActionsList.at ( i )->setChecked ( false );
@@ -112,7 +153,8 @@ namespace QX11Grab
 
     for ( int i = 0; i < p_ActionsList.size(); ++i )
     {
-      if ( p_ActionsList.at ( i )->text().compare ( name ) == 0 )
+      // Eintrags Titel ist gleich "ext" dann Markieren und Button Text setzen
+      if ( p_ActionsList.at ( i )->text().compare ( ext ) == 0 )
       {
         p_ActionsList.at ( i )->setChecked ( true );
         setText ( QString::fromUtf8 ( "*.%1" ).arg ( p_ActionsList.at ( i )->text() ) );
@@ -121,6 +163,9 @@ namespace QX11Grab
     }
   }
 
+  /**
+  * Menu leeren
+  */
   FormatMenu::~FormatMenu()
   {
     if ( m_menu )

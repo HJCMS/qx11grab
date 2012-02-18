@@ -80,7 +80,7 @@ namespace QX11Grab
   void CodecOptions::optionTriggered ( const QString &opt )
   {
     // TODO Standard Option erfragen
-    emit insertOption ( opt, QVariant() );
+    emit optionChanged ( opt, QVariant() );
   }
 
   CodecOptions::~CodecOptions()

@@ -52,7 +52,8 @@ namespace QX11Grab
       void optionTriggered ( const QString & );
 
     Q_SIGNALS:
-      void insertOption ( const QString &, const QVariant & );
+      /** option entry was selected */
+      void optionChanged ( const QString &, const QVariant & );
 
     public:
       explicit CodecOptions ( QWidget * parent = 0 );

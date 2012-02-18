@@ -36,6 +36,7 @@
 
 namespace QX11Grab
 {
+  /** Codec Selecter ComboBox */
   class CodecSelecter : public QComboBox
   {
       Q_OBJECT
@@ -46,19 +47,24 @@ namespace QX11Grab
     private Q_SLOTS:
       void itemSelected ( int );
 
-    public Q_SLOTS:
-      void setCodec ( const QString &name );
-
     Q_SIGNALS:
+      /** codec entry has changed */
       void codecChanged ( const QString &name, CodecID );
+
+    public Q_SLOTS:
+      /** marking codec as selected */
+      void setCodec ( const QString &name );
 
     public:
       CodecSelecter ( QWidget * parent = 0 );
 
+      /** insert codec list */
       void setCodecItems ( const QList<QX11Grab::FFCodec> & );
 
+      /** insert a custom codec and dont override existing entries */
       void setCustomItem ( const QString &key, const QVariant &value );
 
+      /** current selected codec */
       const QString getCodec ();
 
       ~CodecSelecter();

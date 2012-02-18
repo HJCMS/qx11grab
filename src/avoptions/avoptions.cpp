@@ -195,6 +195,8 @@ namespace QX11Grab
               && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
       {
         // qDebug ( "VCodec: %s Capability: 0x%02x", codec->name, codec->capabilities );
+
+        // Wir verwenden auschließlich Kodierer die auch ein Ausgabe Format anbieten!
         if ( supportedFormats ( codec->id ).size() < 1 )
           continue;
 
@@ -234,23 +236,41 @@ namespace QX11Grab
     return list;
   }
 
+  /**
+  * Erstellt eine Liste der verfügbaren Kodierer Erweitrungen inklusive
+  * Ihrer Formate.
+  */
   const QList<QX11Grab::FFFormat> AVOptions::supportedFormats ( CodecID id )
   {
     QList<QX11Grab::FFFormat> list;
+    // alle codecs und demuxer initialisieren
     av_register_all();
+
+    // ausgabe format
     AVOutputFormat* ofmt = NULL;
+
+    // wir benötigen für den ersten eintrag einen puffer
     const char* buffer = "000";
+
+    // starte endlos schleife
     forever
     {
+      // setze format namen zurück
       const char* name = NULL;
+
+      // setze den zeiger für AVOutputFormat
       while ( ( ofmt = av_oformat_next ( ofmt ) ) )
       {
+        /* Ist der Formatname nicht leer und wurde noch
+        * nicht gesetzt und ist es ein Video Kodierer ? */
         if ( ( name == NULL || strcmp ( ofmt->name, name ) < 0 )
                 && ( strcmp ( ofmt->name, buffer ) > 0 )
                 && ( ofmt->video_codec != CODEC_ID_NONE ) )
         {
+          // Jetzt nachsehen ob dieser Kodierer die gleiche ID besitzt!
           if ( ofmt->video_codec == id )
           {
+            // Keine Erweiterungen verfügbar, dann keine Verwendung.
             QString extensions ( ofmt->extensions );
             if ( extensions.isEmpty() )
               continue;
@@ -262,21 +282,6 @@ namespace QX11Grab
             f.extensions = extensions.split ( "," );
             list.append ( f );
           }
-          /* only for testing
-          if ( avformat_query_codec ( ofmt, id, 1 ) == 0 )
-          {
-            QString extensions ( ofmt->extensions );
-            if ( extensions.isEmpty() )
-              continue;
-
-            FFFormat f;
-            f.format = QString ( ofmt->name );
-            f.description = QString ( ofmt->long_name );
-            f.defaultExt = QString ( ofmt->name );
-            f.extensions = extensions.split ( "," );
-            list.append ( f );
-          }
-          */
         }
       }
       if ( name == NULL )
