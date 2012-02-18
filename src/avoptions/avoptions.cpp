@@ -21,6 +21,8 @@
 
 #include <cstdlib>
 #include <cstdio>
+#include <cstring>
+#include <sched.h>
 
 #include "avoptions.h"
 
@@ -237,8 +239,9 @@ namespace QX11Grab
   }
 
   /**
-  * Erstellt eine Liste der verfügbaren Kodierer Erweitrungen inklusive
-  * Ihrer Formate.
+  * Erstellt eine Liste der verfügbaren Kodierer Erweiterungen
+  * inklusive ihrer Formate. Wird auch von \ref videoCodecs verwendet
+  * um fest zu stellen ob ein Ausgabe Format zu verfügung steht!
   */
   const QList<QX11Grab::FFFormat> AVOptions::supportedFormats ( CodecID id )
   {
@@ -267,10 +270,11 @@ namespace QX11Grab
                 && ( strcmp ( ofmt->name, buffer ) > 0 )
                 && ( ofmt->video_codec != CODEC_ID_NONE ) )
         {
-          // Jetzt nachsehen ob dieser Kodierer die gleiche ID besitzt!
+          /* Jetzt nachsehen ob dieser Kodierer die gleiche ID besitzt!
+          * NOTE Das funktioniert erst jetzt (Warum ? keine Ahnung :-/) */
           if ( ofmt->video_codec == id )
           {
-            // Keine Erweiterungen verfügbar, dann keine Verwendung.
+            // Keine Erweiterungen verfügbar, dann keine Verwendung dafür.
             QString extensions ( ofmt->extensions );
             if ( extensions.isEmpty() )
               continue;
@@ -328,6 +332,32 @@ namespace QX11Grab
       }
     }
     return list;
+  }
+
+  /**
+  * Soll verhindern das der Benutzer bei der threads Angabe zu viele Kerne angibt!
+  */
+  qint32 AVOptions::maxAllowedThreads()
+  {
+    qint32 ncp = 0;
+    cpu_set_t p_CPUset;
+    memset ( &p_CPUset, 0, sizeof ( p_CPUset ) );
+    if ( sched_getaffinity ( 0, sizeof ( p_CPUset ), &p_CPUset ) )
+    {
+      ncp = 1;
+      return ncp;
+    }
+
+    // die neuere glibc bietet ein macro
+#ifdef CPU_COUNT
+    return CPU_COUNT ( &p_CPUset );
+#endif
+
+    for ( uint bit = 0; bit < ( 8 * sizeof ( p_CPUset ) ); bit++ )
+    {
+      ncp += ( ( ( reinterpret_cast<uint8_t*> ( &p_CPUset ) ) [bit / 8] >> ( bit % 8 ) ) & 1 );
+    }
+    return ncp;
   }
 
   AVOptions::~AVOptions()

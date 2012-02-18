@@ -627,7 +627,7 @@ Example for OSS: /dev/dsp</source>
     <name>FFProcess</name>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="126"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="125"/>
         <source>Permission Denied: %1.</source>
         <translation>Neleidžiama: %1.</translation>
     </message>
@@ -637,82 +637,82 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="110"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
         <source>Invalid Window geometry</source>
         <translation>Netinkama lango geometrija</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="125"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="124"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="232"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="236"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="240"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="244"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="248"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="231"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
         <source>Recording</source>
         <translation>Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="232"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="231"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Nepavyko paleisti (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="236"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
         <source>Crashed (%1) ...</source>
         <translation>Užstrigo (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="240"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
         <source>Timedout (%1) ...</source>
         <translation>Baigėsi laikas (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="244"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
         <source>WriteError (%1) ...</source>
         <translation>Rašymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="248"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
         <source>ReadError (%1) ...</source>
         <translation>Skaitymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
         <source>UnknownError (%1) ...</source>
         <translation>Nežinoma klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="267"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
         <source>Recording finished.</source>
         <translation>Įrašinėjimas baigtas.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="284"/>
         <source>Recording started writing to: %1</source>
         <translation>Pradėti įrašinėti į %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="271"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
         <source>Process crashed see logfile %1</source>
         <translation>Procesas užstrigo, žiūrėkite %1 žurnale</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="165"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="164"/>
         <source>shutdown please wait ...</source>
         <translation>baigiama, palaukite...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="183"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="182"/>
         <source>force shutdown</source>
         <translation>priverstinis išjungimas</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="110"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
         <source>Dimension</source>
         <translation>Dydis</translation>
     </message>
@@ -1644,13 +1644,13 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="152"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="154"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="177"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="179"/>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1667,7 +1667,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::CodecSelecter</name>
     <message>
-        <location filename="../src/avoptions/codecselecter.cpp" line="86"/>
+        <location filename="../src/avoptions/codecselecter.cpp" line="121"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1676,7 +1676,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::FormatMenu</name>
     <message>
-        <location filename="../src/avoptions/formatmenu.cpp" line="37"/>
+        <location filename="../src/avoptions/formatmenu.cpp" line="48"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>

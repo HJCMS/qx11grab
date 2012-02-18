@@ -77,7 +77,7 @@ const QString FFProcess::workdir()
 
 /**
 * Erstellt das Schellscript zum Ausführen von FFmpeg
-* NOTE Wir müssen ein Schellscript verwenden weil QProcess keinen Delimiter modifikator anbietet!
+* NOTE Wir müssen ein Shellscript verwenden weil QProcess keinen Delimiter modifikator anbietet!
 */
 const QString FFProcess::writeScript ( const QStringList &cmd )
 {
@@ -90,8 +90,7 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
     stream << QLatin1String ( "#!/usr/bin/env sh\n" );
     stream << "## QX11Grab FFmpeg Screencast Script\n\n";
     stream << cmd.join ( " " ).trimmed();
-    stream << " \"$@\"\n\n";
-    stream << "exit $?\n\n";
+    stream << "\nexit $?\n\n";
     stream << "# EOF\n";
     fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
     fp.close();

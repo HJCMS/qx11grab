@@ -52,6 +52,12 @@ namespace QX11Grab
     queryCodec();
   }
 
+  /**
+  * Suche mit DBus beim Hauptfenster nach dem im Moment verwendeten Kodierer.
+  * \li Wenn ein Kodierer zurück gegeben wird,
+  * \li Rufe den \ref OptionsFinder auf und suche nach Vorgaben,
+  * \li Sind Vorgaben vorhanden erstelle daraus die Menüeinträge.
+  */
   void CodecOptions::queryCodec()
   {
     QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
@@ -66,7 +72,7 @@ namespace QX11Grab
 
     setEnabled ( true );
 
-    OptionsFinder finder ( p_codec );
+    QX11Grab::OptionsFinder finder ( p_codec );
     foreach ( QString opt, finder.options() )
     {
       QString option = QString::fromUtf8 ( "-%1" ).arg ( opt );
@@ -77,6 +83,11 @@ namespace QX11Grab
     }
   }
 
+  /**
+  * Ein Menü eintrag wurde ausgewählt.
+  * Wandle in ein für QAbstractTableModel brauchbares Signal
+  * um und sende \ref optionChanged
+  */
   void CodecOptions::optionTriggered ( const QString &opt )
   {
     // TODO Standard Option erfragen

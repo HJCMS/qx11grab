@@ -58,5 +58,51 @@
     <value>high422</value>
     <value>high444</value>
   </option>
-  <option param="x264opts" />
+  <option param="x264opts">
+    <value>8x8dct</value>
+    <value>analyse</value>
+    <value>aq</value>
+    <value>b_adapt</value>
+    <value>b_bias</value>
+    <value>bframes</value>
+    <value>bluray_compat</value>
+    <value>b_pyramid</value>
+    <value>cabac</value>
+    <value>chroma_me</value>
+    <value>chroma_qp_offset</value>
+    <value>constrained_intra</value>
+    <value>cqm</value>
+    <value>crf</value>
+    <value>deadzone</value>
+    <value>deblock</value>
+    <value>decimate</value>
+    <value>direct</value>
+    <value>fast_pskip</value>
+    <value>interlaced</value>
+    <value>intra_refresh</value>
+    <value>ip_ratio</value>
+    <value>keyint_min</value>
+    <value>keyint</value>
+    <value>mbtree</value>
+    <value>me_range</value>
+    <value>me</value>
+    <value>mixed_ref</value>
+    <value>nr</value>
+    <value>open_gop</value>
+    <value>psy_rd</value>
+    <value>psy</value>
+    <value>qcomp</value>
+    <value>qpmax</value>
+    <value>qpmin</value>
+    <value>qpstep</value>
+    <value>rc_lookahead</value>
+    <value>rc</value>
+    <value>ref</value>
+    <value>scenecut</value>
+    <value>sliced_threads</value>
+    <value>subme</value>
+    <value>trellis</value>
+    <value>weightb</value>
+    <value>weightp</value>
+  </option>
 </encoder>
