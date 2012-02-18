@@ -23,6 +23,7 @@
 #include "settings.h"
 
 /* QX11Grab */
+#include "avoptions.h"
 #include "avfiltermodel.h"
 
 /* QtCore */
@@ -45,6 +46,20 @@ CodecTableModel::CodecTableModel ( QWidget * parent )
 {
   setObjectName ( QLatin1String ( "CodecTableModel" ) );
   items.clear();
+}
+
+/**
+* Notwendig wegen tauschen von veralteten Argumenten
+*/
+const QString CodecTableModel::replaceDeprecated ( const QString &key ) const
+{
+  QString str ( key );
+  str.trimmed();
+  // ab sofort kein -vf mehr zulassen!
+  if ( str.contains ( "-vf" ) )
+    str.replace ( "-vf", QX11Grab::avFilterPredicate );
+
+  return str;
 }
 
 /**
@@ -134,7 +149,7 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
         if ( ! data.isEmpty() )
         {
           Item item = items.value ( row );
-          item.argument = data;
+          item.argument =  replaceDeprecated ( data );
           items[row] = item;
           status = true;
         }
@@ -325,11 +340,12 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
   if ( key.isEmpty() )
     return;
 
+  QString predicate = replaceDeprecated ( key );
   // Suche nach Vorhandenen Datensatz und ersetze bei bedarf den Inhalt!
-  int rindex = searchRow ( key );
+  int rindex = searchRow ( predicate );
   if ( rindex != 0 )
   {
-    if ( key.contains ( "-vf" ) || key.contains ( "-filter:v" ) )
+    if ( predicate.contains ( QX11Grab::avFilterPredicate ) )
       setFilterData ( rindex, value, parent );
     else if ( value.isNull() )
       return; // Überschreiben mit leeren inhalt unterbinden
@@ -341,7 +357,7 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
 
   beginInsertRows ( parent, items.size(), items.size() );
   Item item;
-  item.argument = key;
+  item.argument = predicate;
   item.value = value;
   items.insert ( row, item );
   endInsertRows();

@@ -82,6 +82,12 @@ namespace QX11Grab
   static const QString delimiter = QLatin1String ( "%" );
 
   /**
+  * QX11Grab using -filter:v and \b not -vf for inserting filters!
+  * @ingroup Declarations
+  */
+  static const QString avFilterPredicate = QLatin1String ( "-filter:v" );
+
+  /**
   * base class for fetching FFmpeg Codecs/Formats and Options
   * @ingroup FFmpeg
   */

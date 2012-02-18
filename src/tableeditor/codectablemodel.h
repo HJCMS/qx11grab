@@ -50,6 +50,7 @@ class CodecTableModel : public QAbstractTableModel
       QVariant value;
     };
     QHash<int,Item> items;
+    const QString replaceDeprecated ( const QString & ) const;
     bool removeItem ( int key );
     int searchRow ( const QString &param );
 
