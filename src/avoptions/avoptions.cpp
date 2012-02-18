@@ -335,7 +335,7 @@ namespace QX11Grab
   }
 
   /**
-  * Soll verhindern das der Benutzer bei der threads Angabe zu viele Kerne angibt!
+  * Soll verhindern das der Benutzer bei der thread Angabe zu viele Kerne angibt!
   */
   qint32 AVOptions::maxAllowedThreads()
   {

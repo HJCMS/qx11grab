@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef FormatMenu_H
-#define FormatMenu_H
+#ifndef QX11GRAB_FORMATMENU_H
+#define QX11GRAB_FORMATMENU_H
 
 /* QtCore */
 #include <QtCore/QList>

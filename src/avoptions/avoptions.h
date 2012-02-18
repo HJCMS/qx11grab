@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11OPTIONS_AVOPTIONS_H
-#define QX11OPTIONS_AVOPTIONS_H
+#ifndef QX11GRAB_AVOPTIONS_H
+#define QX11GRAB_AVOPTIONS_H
 
 /* QtCore */
 #include <QtCore/QByteArray>
@@ -128,7 +128,7 @@ namespace QX11Grab
       /** complete list of all /usr/share/ffmpeg/?.ffpreset */
       static const QStringList systemPresets ( const QString &suffix );
 
-      /** max allowed threads needet for some options */
+      /** needet for validate some thread options */
       static qint32 maxAllowedThreads();
 
       virtual ~AVOptions();

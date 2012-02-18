@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef CODECOPTIONS_H
-#define CODECOPTIONS_H
+#ifndef QX11GRAB_CODECOPTIONS_H
+#define QX11GRAB_CODECOPTIONS_H
 
 /* QtCore */
 #include <QtCore/QObject>

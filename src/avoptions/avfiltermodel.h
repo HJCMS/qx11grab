@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef AVFILTERMODEL_H
-#define AVFILTERMODEL_H
+#ifndef QX11GRAB_AVFILTERMODEL_H
+#define QX11GRAB_AVFILTERMODEL_H
 
 /* QtCore */
 #include <QtCore/QList>

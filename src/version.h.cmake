@@ -25,9 +25,6 @@
 /* QtCore */
 #include <QtCore/QGlobalStatic>
 
-/* QtGui */
-#include <QtGui/QX11Info>
-
 /**
 * @short Version
 */

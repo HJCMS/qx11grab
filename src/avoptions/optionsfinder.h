@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef OPTIONSFINDER_H
-#define OPTIONSFINDER_H
+#ifndef QX11GRAB_OPTIONSFINDER_H
+#define QX11GRAB_OPTIONSFINDER_H
 
 /* QtCore */
 #include <QtCore/QList>
