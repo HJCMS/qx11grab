@@ -329,7 +329,7 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
   int rindex = searchRow ( key );
   if ( rindex != 0 )
   {
-    if ( key.contains ( "-vf" ) )
+    if ( key.contains ( "-vf" ) || key.contains ( "-filter:v" ) )
       setFilterData ( rindex, value, parent );
     else if ( value.isNull() )
       return; // Überschreiben mit leeren inhalt unterbinden

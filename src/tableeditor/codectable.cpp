@@ -91,7 +91,7 @@ void CodecTable::openFilterDialog ( const QString &filter )
     {
       if ( plugin->exec() )
       {
-        m_model->addOption ( rowCount(), "-vf", plugin->data() );
+        m_model->addOption ( rowCount(), "-filter:v", plugin->data() );
         emit postUpdate();
       }
       delete plugin;
