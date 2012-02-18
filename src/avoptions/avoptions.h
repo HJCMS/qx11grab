@@ -63,7 +63,8 @@ namespace QX11Grab
     QString help;     /**< Optional Helptext */
   } FFOption;
 
-  /** Represents Extension for Codec
+  /**
+  * FFFormat
   * @ingroup Declarations
   */
   typedef struct Q_DECL_EXPORT
@@ -81,16 +82,13 @@ namespace QX11Grab
   static const QString delimiter = QLatin1String ( "%" );
 
   /**
-  * base class for fetching FFmpeg Codecs and Options
+  * base class for fetching FFmpeg Codecs/Formats and Options
   * @ingroup FFmpeg
   */
   class Q_DECL_EXPORT AVOptions : public QObject
   {
       Q_OBJECT
       Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-
-    Q_SIGNALS:
-      void codecDefaults ( const FFFormat & );
 
     public:
       AVOptions ( QObject * parent = 0 );
