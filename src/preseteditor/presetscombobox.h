@@ -30,6 +30,7 @@
 /* QtGui */
 #include <QtGui/QComboBox>
 #include <QtGui/QWidget>
+#include <QtGui/QIcon>
 
 /**
 * \class PresetsComboBox
@@ -42,6 +43,7 @@ class PresetsComboBox : public QComboBox
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    const QIcon p_icon;
     void insertItemData ( const QFileInfo &info );
     void load();
 

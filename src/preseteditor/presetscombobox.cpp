@@ -26,20 +26,18 @@
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 
-/* QtGui */
-#include <QtGui/QIcon>
-
 /**
 * @class PresetsComboBox
 * Auswahl Box für alle (Benutzer/System) ffpresets
 */
 PresetsComboBox::PresetsComboBox ( QWidget * parent )
     : QComboBox ( parent )
+    , p_icon ( QIcon::fromTheme ( "document-edit" ) )
 {
   setObjectName ( QLatin1String ( "PresetsComboBox" ) );
   setInsertPolicy ( QComboBox::InsertAtBottom );
   setMaxVisibleItems ( 15 );
-  insertItem ( 0, QIcon::fromTheme ( "document-properties" ), trUtf8 ( "Select Preset" ), QString() );
+  insertItem ( 0, QIcon::fromTheme ( "document-properties", p_icon ), trUtf8 ( "Select Preset" ), QString() );
   load();
 
   connect ( this, SIGNAL ( currentIndexChanged ( int ) ),
@@ -54,7 +52,7 @@ void PresetsComboBox::insertItemData ( const QFileInfo &info )
   QIcon icon;
   int index = ( count() + 1 );
   if ( info.isWritable() )
-    icon = QIcon::fromTheme ( "document-properties" );
+    icon = QIcon::fromTheme ( "document-properties", p_icon );
   else
     icon = QIcon::fromTheme ( "document-encrypt" );
 
@@ -99,7 +97,7 @@ void PresetsComboBox::indexChanged ( int i )
 void PresetsComboBox::reload()
 {
   clear();
-  insertItem ( 0, QIcon::fromTheme ( "document-properties" ), trUtf8 ( "Select Preset" ), QString() );
+  insertItem ( 0, QIcon::fromTheme ( "document-properties", p_icon ), trUtf8 ( "Select Preset" ), QString() );
   load();
 }
 
