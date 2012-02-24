@@ -294,7 +294,7 @@ const QHash<QString,QVariant> TableEditor::getTableItems()
     /* NOTICE Wenn der Benutzer eine Leere Zeile einfügt.
     * Diese aber nicht Bearbeitet, dann verhindern das
     * an dieser Stelle dass Programm wegen fehlenden
-    * QTableWidgetItem Pointer nicht abstürzt! */
+    * QTableWidgetItem Pointer abstürzt! */
     if ( p.first.isEmpty() )
       continue;
 

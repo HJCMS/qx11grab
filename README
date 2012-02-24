@@ -12,7 +12,7 @@ instructions in the INSTALL file.
 -- HOW TO REPORT A BUG
 
 If you think you have found a bug in qx11Grab, we would like to hear about it so that we can fix it. 
-My Mail Address nospam@hjcms.de?subject=qx11grab%20bugreport
+Report Bugs to : https://launchpad.net/~juergen-heinemann/+archive/qx11grab.hjcms.de
 
 Always include the following information in your bug report: the name
 and version number of your compiler; the name and version number of

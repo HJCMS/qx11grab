@@ -64,7 +64,7 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
   int index = 0;
   m_mainFunctions = new MainFunctions ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_mainFunctions );
-  insertMenuItem ( index++, trUtf8 ( "Application" ), "menu-applications" );
+  insertMenuItem ( index++, trUtf8 ( "Application" ), "qx11grab" );
 
   m_targets = new TargetsWidget ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_targets );
@@ -72,15 +72,15 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
 
   m_audioDeviceWidget = new AudioDeviceWidget ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_audioDeviceWidget );
-  insertMenuItem ( index++, trUtf8 ( "Audio" ), "menu-audio-edit" );
+  insertMenuItem ( index++, trUtf8 ( "Audio" ), "audio-input-microphone" );
 
   m_extraOptions = new ExtraOptions ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_extraOptions );
-  insertMenuItem ( index++, trUtf8 ( "Experts" ), "menu-video-edit" );
+  insertMenuItem ( index++, trUtf8 ( "Experts" ), "user-properties" );
 
   m_extensionTable = new ExtensionTable ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_extensionTable );
-  insertMenuItem ( index++, trUtf8 ( "Extensions" ), "menu-editors" );
+  insertMenuItem ( index++, trUtf8 ( "Extensions" ), "view-choose" );
   // } End: insertItems
 
   m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
@@ -113,7 +113,7 @@ void ConfigDialog::insertMenuItem ( int index, const QString &title, const QStri
   QListWidgetItem* item = new QListWidgetItem ( m_listWidget, QListWidgetItem::UserType );
   item->setData ( Qt::DisplayRole, title );
   item->setData ( Qt::UserRole, index );
-  item->setData ( Qt::DecorationRole, QIcon::fromTheme ( icon ) );
+  item->setData ( Qt::DecorationRole, cfg->themeIcon ( icon, "qx11grab" ) );
   m_listWidget->insertItem ( index, item );
 }
 

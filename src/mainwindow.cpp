@@ -121,20 +121,20 @@ MainWindow::MainWindow ( Settings * settings )
 
   // Dimension {
   m_grabberInfo = new GrabberInfo ( m_toolBox );
-  m_toolBox->addItem ( m_grabberInfo, cfg->themeIcon ( "menu-settings-desktop" ), trUtf8 ( "Dimension" ) );
+  m_toolBox->addItem ( m_grabberInfo, cfg->themeIcon ( "user-desktop", "qx11grab" ), trUtf8 ( "Dimension" ) );
   // } Dimension
 
   // MetaData {
   m_metaData = new MetaData ( m_toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  m_toolBox->addItem ( m_metaData, cfg->themeIcon ( "menu-editors" ), trUtf8 ( "Metadata" ) );
+  m_toolBox->addItem ( m_metaData, cfg->themeIcon ( "user-properties", "user-identity" ), trUtf8 ( "Metadata" ) );
   // } MetaData
 
   // vCodec {
   m_videoEditor = new TableEditor ( m_toolBox );
   m_videoEditor->setObjectName ( QString::fromUtf8 ( "vcodec" ) );
   m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
-  m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "menu-video-edit" ), trUtf8 ( "Video" ) );
+  m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "tool-animator", "qx11grab" ), trUtf8 ( "Video" ) );
   // } vCodec
 
   // aCodec {
@@ -145,7 +145,7 @@ MainWindow::MainWindow ( Settings * settings )
   m_audioGroupBox->setTitle ( trUtf8 ( "Audio Recording" ) );
   /*: WhatsThis */
   m_audioGroupBox->setWhatsThis ( trUtf8 ( "enable/disable audio recording in the captured video" ) );
-  m_toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "menu-audio-edit" ), trUtf8 ( "Audio" ) );
+  m_toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "audio-input-microphone", "qx11grab" ), trUtf8 ( "Audio" ) );
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
   m_audioEditor = new TableEditor ( m_audioGroupBox );

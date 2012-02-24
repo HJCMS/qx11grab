@@ -99,7 +99,7 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_actionPrEditor = m_menuActions->addAction ( trUtf8 ( "Presets Editor" ) );
   /*: ToolTip */
   m_actionPrEditor->setStatusTip ( trUtf8 ( "Open Presets Editor" ) );
-  m_actionPrEditor->setIcon ( Settings::themeIcon ( "menu-editors" ) );
+  m_actionPrEditor->setIcon ( Settings::themeIcon ( "document-edit", "menu-editors" ) );
 
   m_menuActions->addSeparator();
 
@@ -329,7 +329,7 @@ QAction* MenuBar::killRecordAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionKillRecord" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Kill Recording" ) );
-  ac->setIcon ( Settings::themeIcon ( "menu-debugger" ) );
+  ac->setIcon ( Settings::themeIcon ( "menu-debugger", "dialog-cancel" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_Z );
   ac->setEnabled ( false );
