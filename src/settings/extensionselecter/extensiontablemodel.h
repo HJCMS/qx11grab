@@ -31,9 +31,11 @@
 #include <QtCore/QObject>
 #include <QtCore/QPair>
 #include <QtCore/QString>
+#include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 /* QtGui */
+#include <QtGui/QTableView>
 #include <QtGui/QWidget>
 
 /* QX11Grab */
@@ -45,8 +47,16 @@ class ExtensionTableModel : public QAbstractTableModel
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  public:
+    struct ExtensionTableItem
+    {
+      QString format;
+      QString defaultExt;
+      QStringList extensions;
+    };
+
   private:
-    QHash<int,QX11Grab::FFFormat> items;
+    QHash<int,ExtensionTableItem> items;
     bool removeItem ( int key );
 
   protected:
@@ -60,12 +70,14 @@ class ExtensionTableModel : public QAbstractTableModel
     void clearContents();
 
   public:
-    explicit ExtensionTableModel ( QObject * parent = 0 );
+    explicit ExtensionTableModel ( QTableView * parent = 0 );
     int columnCount ( const QModelIndex &parent = QModelIndex() ) const;
     int rowCount ( const QModelIndex &parent = QModelIndex() ) const;
     bool insertRows ( int row, int count, const QModelIndex &parent = QModelIndex() );
     bool setData ( const QModelIndex &index, const QVariant &value, int role = Qt::EditRole );
     bool removeRows ( int row,  int count, const QModelIndex &parent = QModelIndex() );
+    void insertItems ( const QHash<int,ExtensionTableModel::ExtensionTableItem> & );
+    const QHash<int,ExtensionTableModel::ExtensionTableItem> modelItems();
     virtual ~ExtensionTableModel();
 };
 

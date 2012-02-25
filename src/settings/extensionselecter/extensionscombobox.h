@@ -19,49 +19,41 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef EXTENSIONTABLE_H
-#define EXTENSIONTABLE_H
+#ifndef EXTENSIONSCOMBOBOX_H
+#define EXTENSIONSCOMBOBOX_H
 
 /* QtCore */
-#include <QtCore/QHash>
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
 #include <QtCore/QString>
-#include <QtCore/QVariant>
+#include <QtCore/QStringList>
 
 /* QtGui */
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
-#include <QtGui/QTableView>
+#include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-class ExtensionTableModel;
+/* QX11Grab */
+#include "avoptions.h"
 
-class ExtensionTable : public QTableView
+class ExtensionsComboBox : public QComboBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    ExtensionTableModel* m_model;
-    QMenu* m_menu;
+    void insertExtensions ( CodecID );
 
   private Q_SLOTS:
-    void addTableRow();
-    void delTableRow();
+    void updateItemList ( const QString & );
 
-  protected:
-    virtual void contextMenuEvent ( QContextMenuEvent *e );
-
-  Q_SIGNALS:
-    void postUpdate ( bool );
+  public Q_SLOTS:
+    void setCodec ( const QString & );
+    void setText ( const QString & );
 
   public:
-    ExtensionTable ( QWidget * parent = 0 );
-    void load ( QSettings * settings );
-    void save ( QSettings * settings );
-    ~ExtensionTable();
+    explicit ExtensionsComboBox ( QWidget * parent = 0 );
+    const QStringList data();
+    ~ExtensionsComboBox();
 };
 
 #endif

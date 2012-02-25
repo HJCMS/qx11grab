@@ -38,6 +38,7 @@
 
 class CodecTable;
 class CodecSelecter;
+class Settings;
 
 namespace QX11Grab
 {
@@ -49,7 +50,6 @@ class TableEditor : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_ENUMS ( CODEC )
 
   private:
     QString currentType;
@@ -62,9 +62,9 @@ class TableEditor : public QWidget
 
     void findVideoCodecs();
     void findAudioCodecs();
-    const QHash<QString,QVariant> readSection ( const QString &, QSettings * );
-    void loadTableOptions ( const QString &, QSettings * );
-    void saveTableOptions ( const QString &, QSettings * );
+    const QHash<QString,QVariant> readSection ( const QString &, Settings * );
+    void loadTableOptions ( const QString &, Settings * );
+    void saveTableOptions ( const QString &, Settings * );
 
   private Q_SLOTS:
     void addTableRow();
@@ -77,8 +77,8 @@ class TableEditor : public QWidget
     void postUpdate();
 
   public Q_SLOTS:
-    void load ( const QString &, QSettings * );
-    void save ( const QString &, QSettings * );
+    void load ( const QString &, Settings * );
+    void save ( const QString &, Settings * );
 
   public:
     TableEditor ( QWidget * parent = 0 );

@@ -54,6 +54,7 @@ namespace QX11Grab
       QMenu* m_menu;
       QList<QAction*> p_ActionsList;
 
+      const QString findSettingsExtension ( const QString &name );
       const QString findDefaultExtension ( const QString &name );
 
     private Q_SLOTS:

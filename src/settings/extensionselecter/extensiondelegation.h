@@ -19,49 +19,44 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef EXTENSIONTABLE_H
-#define EXTENSIONTABLE_H
+#ifndef EXTENSIONDELEGATION_H
+#define EXTENSIONDELEGATION_H
 
 /* QtCore */
-#include <QtCore/QHash>
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
-#include <QtCore/QString>
-#include <QtCore/QVariant>
+#include <QtCore/QModelIndex>
 
 /* QtGui */
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
-#include <QtGui/QTableView>
+#include <QtGui/QItemDelegate>
 #include <QtGui/QWidget>
+#include <QtGui/QStyleOptionViewItem>
+#include <QtGui/QTableView>
 
-class ExtensionTableModel;
-
-class ExtensionTable : public QTableView
+class ExtensionDelegation : public QItemDelegate
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    ExtensionTableModel* m_model;
-    QMenu* m_menu;
+    QWidget* createEditor ( QWidget * parent,
+                            const QStyleOptionViewItem &option,
+                            const QModelIndex &index ) const;
 
-  private Q_SLOTS:
-    void addTableRow();
-    void delTableRow();
+    void setEditorData ( QWidget * editor,
+                         const QModelIndex &index ) const;
 
-  protected:
-    virtual void contextMenuEvent ( QContextMenuEvent *e );
+    void setModelData ( QWidget * editor,
+                        QAbstractItemModel *model,
+                        const QModelIndex &index ) const;
 
-  Q_SIGNALS:
-    void postUpdate ( bool );
+    void updateEditorGeometry ( QWidget * editor,
+                                const QStyleOptionViewItem &option,
+                                const QModelIndex &index ) const;
 
   public:
-    ExtensionTable ( QWidget * parent = 0 );
-    void load ( QSettings * settings );
-    void save ( QSettings * settings );
-    ~ExtensionTable();
+    ExtensionDelegation ( QTableView * parent = 0 );
+    ~ExtensionDelegation();
 };
 
 #endif

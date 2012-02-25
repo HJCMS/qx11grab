@@ -27,12 +27,14 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QStringList>
 
 /* QtGui */
+#include <QtGui/QAbstractItemView>
 #include <QtGui/QAction>
 #include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
-#include <QtGui/QTableWidgetItem>
+#include <QtGui/QItemSelectionModel>
 
 ExtensionTable::ExtensionTable ( QWidget * parent )
     : QTableView ( parent )
@@ -46,7 +48,8 @@ ExtensionTable::ExtensionTable ( QWidget * parent )
   setDragEnabled ( false );
   setDragDropOverwriteMode ( false );
   setAlternatingRowColors ( true );
-  setSelectionMode ( QAbstractItemView::ExtendedSelection );
+  // FIXME Qt4 hat Probleme bei einem entfernen mehrerer Models die Indexes zur laufzeit richtig zus setzen!
+  setSelectionMode ( QAbstractItemView::SingleSelection );
   setSelectionBehavior ( QAbstractItemView::SelectRows );
   setGridStyle ( Qt::DashLine );
   setCornerButtonEnabled ( true );
@@ -98,6 +101,12 @@ void ExtensionTable::addTableRow()
 */
 void ExtensionTable::delTableRow()
 {
+  QModelIndexList m = selectedIndexes();
+  for ( int i = 0; i < m.size(); ++i )
+  {
+    if ( m.at ( i ).column() == 0 )
+      m_model->removeRows ( m.at ( i ).row(), 1 );
+  }
 }
 
 /**
@@ -108,27 +117,90 @@ void ExtensionTable::contextMenuEvent ( QContextMenuEvent *e )
   m_menu->exec ( e->globalPos() );
 }
 
-void ExtensionTable::openFormats ( QSettings * settings )
+/**
+* Lade alle Erweiterungen in die Tabelle
+* \li Sehe nach ob schon eine Konfiguration existiert,
+* \li Wenn ja lese aus der Konfiguration und befülle Tabelle,
+* \li Wenn keine Konfiguration dann nehme FFmpeg Standards
+*/
+void ExtensionTable::load ( QSettings * settings )
 {
-  Q_UNUSED ( settings );
+  int index = 0;
+  QHash<int,ExtensionTableModel::ExtensionTableItem> items;
+  // Wenn in den Settings vorhanden!
+  int size = settings->beginReadArray ( "CodecExtensions" );
+  if ( size > 0 )
+  {
+    for ( int i = 0; i < size; ++i )
+    {
+      settings->setArrayIndex ( i );
+      ExtensionTableModel::ExtensionTableItem item;
+      item.format = settings->value ( "format" ).toString();
+      item.defaultExt = settings->value ( "defaultExt" ).toString();
+      item.extensions = settings->value ( "extensions" ).toStringList();
+      items.insert ( i, item );
+    }
+  }
+  settings->endArray(); // !! Muss immmer geschlossen werden !!
 
-//   QX11Grab::AVOptions* avopts = new  QX11Grab::AVOptions( this );
-//   avopts->codecFormats();
+  // Ready to insert ??
+  if ( items.size() > 0 )
+  {
+    m_model->insertItems ( items );
+    return;
+  }
 
-//   if ( data.size() > 0 )
-//   {
-//     int row = 0;
-//     m_model->clearContents();
-//     setRowCount ( ( data.size() + 1 ) );
-//     QHashIterator<QString,QVariant> it ( data );
-//     while ( it.hasNext() )
-//     {
-//       it.next();
-//       setItem ( row, 0, new QTableWidgetItem ( it.key(), QTableWidgetItem::UserType ) );
-//       setItem ( row, 1, new QTableWidgetItem ( it.value().toString(), QTableWidgetItem::UserType ) );
-//       row++;
-//     }
-//   }
+  QList<QX11Grab::FFCodec> codecList = QX11Grab::AVOptions::videoCodecs();
+  if ( codecList.size() > 0 )
+  {
+    for ( int i = 0; i < codecList.size(); ++i )
+    {
+      if ( codecList.at ( i ).id != CODEC_ID_NONE )
+      {
+        QStringList buffer;
+        QList<QX11Grab::FFFormat> extsList = QX11Grab::AVOptions::supportedFormats ( codecList.at ( i ).id );
+        if ( extsList.size() > 0 )
+        {
+          for ( int j = 0; j < extsList.size(); ++j )
+          {
+            QStringList l = extsList.at ( j ).extensions.toStringList();
+            buffer.append ( l );
+          }
+        }
+        buffer.removeDuplicates();
+        if ( buffer.size() > 0 )
+        {
+          ExtensionTableModel::ExtensionTableItem item;
+          item.format = codecList.at ( i ).name;
+          item.defaultExt = buffer.first();
+          item.extensions = buffer;
+          // qDebug() << Q_FUNC_INFO << item.format << buffer;
+          items.insert ( index++, item );
+        }
+      }
+    }
+    // Ready to insert ??
+    if ( items.size() > 0 )
+      m_model->insertItems ( items );
+  }
+}
+
+/**
+* Lese Aktuellen Tabellen Inhalt und schreibe in die Konfiguration
+*/
+void ExtensionTable::save ( QSettings * settings )
+{
+  QHash<int,ExtensionTableModel::ExtensionTableItem> items = m_model->modelItems();
+  settings->remove ( "CodecExtensions" );
+  settings->beginWriteArray ( "CodecExtensions", items.size() );
+  for ( int i = 0; i < items.size(); ++i )
+  {
+    settings->setArrayIndex ( i );
+    settings->setValue ( "format", items.value ( i ).format );
+    settings->setValue ( "defaultExt", items.value ( i ).defaultExt );
+    settings->setValue ( "extensions", items.value ( i ).extensions );
+  }
+  settings->endArray();
 }
 
 ExtensionTable::~ExtensionTable()

@@ -54,7 +54,8 @@ CodecTable::CodecTable ( QWidget * parent )
   setDragEnabled ( false );
   setDragDropOverwriteMode ( false );
   setAlternatingRowColors ( true );
-  setSelectionMode ( QAbstractItemView::ExtendedSelection );
+  // FIXME Qt4 hat Probleme bei einem entfernen mehrerer Models die Indexes zur laufzeit richtig zus setzen!
+  setSelectionMode ( QAbstractItemView::SingleSelection );
   setSelectionBehavior ( QAbstractItemView::SelectRows );
   setGridStyle ( Qt::DashLine );
   setCornerButtonEnabled ( true );

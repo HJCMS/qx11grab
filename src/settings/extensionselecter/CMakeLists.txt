@@ -5,11 +5,19 @@ SET(_subproject "ExtensionSelecter")
 SET (_subproject_SOURCES
   extensiontable.cpp
   extensiontablemodel.cpp
+  extensionscombobox.cpp
+  extensioncodeccombobox.cpp
+  extensionlineedit.cpp
+  extensiondelegation.cpp
 )
 
 SET (_subproject_HEADERS
   extensiontable.h
   extensiontablemodel.h
+  extensionscombobox.h
+  extensioncodeccombobox.h
+  extensionlineedit.h
+  extensiondelegation.h
 )
 
 SET (_subproject_NOMOC_HEADERS

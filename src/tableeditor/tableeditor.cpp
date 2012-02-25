@@ -157,7 +157,7 @@ void TableEditor::findAudioCodecs()
 /**
 * Liest ein QSettings Gruppen Array aus
 */
-const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QSettings *cfg )
+const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, Settings *cfg )
 {
   QHash <QString,QVariant> map;
   int size = cfg->beginReadArray ( type );
@@ -180,7 +180,7 @@ const QHash<QString,QVariant> TableEditor::readSection ( const QString &type, QS
 /**
 * Tabelle befüllen
 */
-void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
+void TableEditor::loadTableOptions ( const QString &type, Settings *cfg )
 {
   QHash<QString,QVariant> map = readSection ( type, cfg );
   setCodecOptions ( map );
@@ -189,7 +189,7 @@ void TableEditor::loadTableOptions ( const QString &type, QSettings *cfg )
 /**
 * Alle Tabellen Inhalte Speichern
 */
-void TableEditor::saveTableOptions ( const QString &type, QSettings *cfg )
+void TableEditor::saveTableOptions ( const QString &type, Settings *cfg )
 {
   QHash<QString,QVariant> hash = getTableItems();
   if ( hash.size() < 1 )
@@ -242,13 +242,17 @@ void TableEditor::setCodecExtension ( const QString &ext )
 /**
 * Standard Laden
 */
-void TableEditor::load ( const QString &type, QSettings *cfg )
+void TableEditor::load ( const QString &type, Settings *cfg )
 {
   currentType = type;
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )
   {
     QString vcodec = cfg->value ( "video_codec" ).toString();
-    currentCodecExtension = cfg->value ( "video_codec_extension" ).toString();
+    // Suche mit dem Codec nach der passenden erweiterung
+    currentCodecExtension = cfg->getArrayItem ( "CodecExtensions", "format", vcodec, "defaultExt" ).toString();
+    if ( currentCodecExtension.isEmpty() )
+      currentCodecExtension =  cfg->value ( "video_codec_extension" ).toString();
+
     m_formatMenu->setEnabled ( true );
     sharedVideoCodec << vcodec;
     findVideoCodecs();
@@ -269,7 +273,7 @@ void TableEditor::load ( const QString &type, QSettings *cfg )
 * Standard Speichern
 * @ref saveTableOptions
 */
-void TableEditor::save ( const QString &type, QSettings *cfg )
+void TableEditor::save ( const QString &type, Settings *cfg )
 {
   saveTableOptions ( type, cfg );
   if ( currentType.contains ( QLatin1String ( "VideoOptions" ) ) )

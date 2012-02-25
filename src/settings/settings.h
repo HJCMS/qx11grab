@@ -171,6 +171,16 @@ class Settings : public QSettings
     const QStringList getExpertCommand();
 
     /**
+     * read Array Item
+     * @param group  configuration section
+     * @param key    settings value keyword
+     * @param val    e.g. ( Settings::value(key) == val )
+     * @param sub    search value from other subkeyword
+     **/
+    const QVariant getArrayItem ( const QString &group, const QString &ref,
+                                  const QString &value, const QString &sub );
+
+    /**
     * @short fallback  icon theme method
     * find Oxygen Theme Icon or receive it from qrc
     */

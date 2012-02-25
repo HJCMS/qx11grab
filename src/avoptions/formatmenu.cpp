@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QSettings>
 
 namespace QX11Grab
 {
@@ -58,6 +59,33 @@ namespace QX11Grab
   }
 
   /**
+  * Suche den Kodierer zuerst in den Einstellungen des Benutzers!
+  */
+  const QString FormatMenu::findSettingsExtension ( const QString &name )
+  {
+    QString ext;
+    QSettings cfg ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab" );
+    if ( cfg.contains ( "CodecExtensions/size" ) )
+    {
+      int size = cfg.beginReadArray ( "CodecExtensions" );
+      if ( size > 0 )
+      {
+        for ( int i = 0; i < size; ++i )
+        {
+          cfg.setArrayIndex ( i );
+          if ( cfg.value ( "format" ).toString().compare ( name ) == 0 )
+          {
+            ext = cfg.value ( "defaultExt" ).toString();
+            break;
+          }
+        }
+      }
+      cfg.endArray();
+    }
+    return ext;
+  }
+
+  /**
   * Suche mit Kodierer \ref name nach dem Passenden
   * XML Eintrag in den Options Vorgabe XML Dateien.
   * Wird eine Standard Erweiterungen gefunden gebe
@@ -65,7 +93,10 @@ namespace QX11Grab
   */
   const QString FormatMenu::findDefaultExtension ( const QString &name )
   {
-    QString ext;
+    QString ext = findSettingsExtension ( name );
+    if ( ! ext.isEmpty() )
+      return ext;
+
     QX11Grab::OptionsFinder finder ( name );
     QList<QX11Grab::VideoExtension> list = finder.extensionList();
     if ( list.isEmpty() )

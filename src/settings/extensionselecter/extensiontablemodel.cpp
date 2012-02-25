@@ -20,40 +20,48 @@
 **/
 
 #include "extensiontablemodel.h"
-
-/* QX11Grab */
-// #include ""
+#include "extensiondelegation.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
 
 /* QtGui */
+#include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
 
-/* QtDBus */
-// #include <QtDBus>
-
-ExtensionTableModel::ExtensionTableModel ( QObject * parent )
+ExtensionTableModel::ExtensionTableModel ( QTableView * parent )
     : QAbstractTableModel ( parent )
 {
   setObjectName ( QLatin1String ( "ExtensionTableModel" ) );
   items.clear();
+
+  QHeaderView* header = parent->horizontalHeader ();
+  header->setResizeMode ( QHeaderView::ResizeToContents );
+  header->setMovable ( false );
+  header->setDefaultAlignment ( Qt::AlignLeft );
+  header->setStretchLastSection ( true );
+
+  parent->setItemDelegate ( new ExtensionDelegation ( parent ) );
 }
 
 /**
 * Entfernt einen Eintrag und sortiert die
 * Tabellen Indexes für den Vector neu.
+* \note Qt bekommt es im Moment nicht gebacken mehrere Einträge
+*       Gleichzeitg zu löschen! Es werden zwar in dieser Methode
+*       die Indexes neu gesetzt, aber Irgendwie kommt das nicht
+*       beim Tabellen Model an :-/
 */
 bool ExtensionTableModel::removeItem ( int key )
 {
   if ( items.remove ( key ) == 1 )
   {
     int index = 0;
-    QHash<int,QX11Grab::FFFormat> copy;
-    QHash<int,QX11Grab::FFFormat>::iterator i;
+    QHash<int,ExtensionTableItem> copy;
+    QHash<int,ExtensionTableItem>::iterator i;
     for ( i = items.begin(); i != items.end(); ++i )
     {
-      // qDebug() << Q_FUNC_INFO << i.value().format;
+      // qDebug() << Q_FUNC_INFO << key << index << i.value().format;
       copy.insert ( index++, i.value() );
     }
     items.clear();
@@ -86,7 +94,7 @@ QVariant ExtensionTableModel::headerData ( int section, Qt::Orientation orientat
         else if ( section == 1 )
           return trUtf8 ( "Default" );
         else
-          return trUtf8 ( "Extension" );
+          return trUtf8 ( "Extensions" );
       }
 
       case Qt::DecorationRole:
@@ -105,7 +113,6 @@ QVariant ExtensionTableModel::headerData ( int section, Qt::Orientation orientat
     {
       case Qt::DisplayRole:
         return section;
-        break;
 
       default:
         return value;
@@ -131,7 +138,12 @@ QVariant ExtensionTableModel::data ( const QModelIndex &index, int role ) const
         return items.value ( index.row() ).defaultExt;
 
       case 2:
-        return items.value ( index.row() ).extensions;
+      {
+        if ( role == Qt::DisplayRole )
+          return items.value ( index.row() ).extensions.join ( "," );
+        else
+          return items.value ( index.row() ).extensions;
+      }
 
       default:
         return val;
@@ -183,10 +195,10 @@ bool ExtensionTableModel::insertRows ( int row, int count, const QModelIndex &pa
 {
   bool status = false;
   beginInsertRows ( parent, items.size(), items.size() );
-  QX11Grab::FFFormat item;
+  ExtensionTableItem item;
   item.format = QString();
   item.defaultExt = QString();
-  item.extensions = QVariant();
+  item.extensions = QStringList();
   for ( int i = row; i < ( row + count ); ++i )
   {
     items.insert ( i, item );
@@ -216,7 +228,7 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
         QString data = value.toString();
         if ( ! data.isEmpty() )
         {
-          QX11Grab::FFFormat item = items.value ( row );
+          ExtensionTableItem item = items.value ( row );
           item.format = data;
           items[row] = item;
           status = true;
@@ -226,7 +238,7 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
 
       case 1:
       {
-        QX11Grab::FFFormat item = items.value ( row );
+        ExtensionTableItem item = items.value ( row );
         item.defaultExt = value.toString();
         items[row] = item;
         status = true;
@@ -235,8 +247,8 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
 
       case 2:
       {
-        QX11Grab::FFFormat item = items.value ( row );
-        item.extensions = value;
+        ExtensionTableItem item = items.value ( row );
+        item.extensions = value.toStringList();
         items[row] = item;
         status = true;
       }
@@ -252,7 +264,7 @@ bool ExtensionTableModel::setData ( const QModelIndex &index, const QVariant &va
 
 bool ExtensionTableModel::removeRows ( int row,  int count, const QModelIndex &parent )
 {
-  Q_UNUSED ( count );
+  Q_UNUSED ( count ); // Wir entfernen Maximal eine Zeile siehe removeItem
 
   bool status = false;
   if ( ( row < 0 ) || ( row > items.size() ) )
@@ -262,13 +274,31 @@ bool ExtensionTableModel::removeRows ( int row,  int count, const QModelIndex &p
     return status;
 
   beginRemoveRows ( parent, row, row );
-  /**
-  * WARNING Qt4:Bug Innerhalb von virtuellen Methoden auf Vector:Iteratoren zugreifen
-  * ist keine gute Idee. Deshalb in eigene gekapselte Methode. \ref removeItem
-  */
   status = removeItem ( row );
   endRemoveRows();
   return status;
+}
+
+void ExtensionTableModel::insertItems ( const QHash<int,ExtensionTableModel::ExtensionTableItem> &data )
+{
+  if ( data.size() > 0 )
+  {
+    int index = 0;
+    items.clear();
+    beginInsertRows ( QModelIndex(), 0, data.size() );
+    QHashIterator<int,ExtensionTableItem> it ( data );
+    while ( it.hasNext() )
+    {
+      it.next();
+      items.insert ( index++, it.value() );
+    }
+    endInsertRows();
+  }
+}
+
+const QHash<int,ExtensionTableModel::ExtensionTableItem> ExtensionTableModel::modelItems()
+{
+  return items;
 }
 
 ExtensionTableModel::~ExtensionTableModel()

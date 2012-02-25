@@ -19,49 +19,27 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef EXTENSIONTABLE_H
-#define EXTENSIONTABLE_H
+#include "extensioncodeccombobox.h"
 
 /* QtCore */
-#include <QtCore/QHash>
-#include <QtCore/QObject>
-#include <QtCore/QSettings>
-#include <QtCore/QString>
+#include <QtCore/QDebug>
+#include <QtCore/QList>
 #include <QtCore/QVariant>
 
 /* QtGui */
-#include <QtGui/QContextMenuEvent>
-#include <QtGui/QMenu>
-#include <QtGui/QTableView>
-#include <QtGui/QWidget>
+#include <QtGui/QIcon>
 
-class ExtensionTableModel;
+/* QX11Grab */
+#include "avoptions.h"
 
-class ExtensionTable : public QTableView
+ExtensionCodecComboBox::ExtensionCodecComboBox ( QWidget * parent )
+    : QX11Grab::CodecSelecter ( parent )
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  setObjectName ( QLatin1String ( "ExtensionCodecComboBox" ) );
+  QList<QX11Grab::FFCodec> list = QX11Grab::AVOptions::videoCodecs();
+  if ( list.size() > 0 )
+    setCodecItems ( list );
+}
 
-  private:
-    ExtensionTableModel* m_model;
-    QMenu* m_menu;
-
-  private Q_SLOTS:
-    void addTableRow();
-    void delTableRow();
-
-  protected:
-    virtual void contextMenuEvent ( QContextMenuEvent *e );
-
-  Q_SIGNALS:
-    void postUpdate ( bool );
-
-  public:
-    ExtensionTable ( QWidget * parent = 0 );
-    void load ( QSettings * settings );
-    void save ( QSettings * settings );
-    ~ExtensionTable();
-};
-
-#endif
+ExtensionCodecComboBox::~ExtensionCodecComboBox()
+{}

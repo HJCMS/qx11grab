@@ -231,6 +231,34 @@ const QStringList Settings::getExpertCommand()
 }
 
 /**
+* Sucht nach Array Einträgen!
+* \param group  Gruppe
+* \param key    Schlüsselwort
+* \param val    Denn Wert für Schlüssel z.b.: ( Settings::value(key) == value )
+* \param sub    Gesuchter Ausgabe Schlüssel der mit value Referenziert wurde!
+*/
+const QVariant Settings::getArrayItem ( const QString &group, const QString &ref,
+                                        const QString &val, const QString &sub )
+{
+  QVariant ret;
+  int size = beginReadArray ( group );
+  if ( size > 0 )
+  {
+    for ( int i = 0; i < size; ++i )
+    {
+      setArrayIndex ( i );
+      if ( value ( ref ).toString().compare( val ) == 0 )
+      {
+        ret = value ( sub );
+        break;
+      }
+    }
+  }
+  endArray(); // !! Muss immmer geschlossen werden !!
+  return ret;
+}
+
+/**
 * Sucht nach einem Symbol, wenn nicht gefunden andere Auswahl setzen!
 * NOTE Ist abhängig von application.cpp Q_INIT_RESOURCE
 */
