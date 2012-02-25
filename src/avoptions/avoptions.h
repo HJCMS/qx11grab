@@ -88,6 +88,12 @@ namespace QX11Grab
   static const QString avFilterPredicate = QLatin1String ( "-filter:v" );
 
   /**
+  * QX11Grab using -filter:a and \b not -af for inserting filters!
+  * @ingroup Declarations
+  */
+  static const QString acFilterPredicate = QLatin1String ( "-filter:a" );
+
+  /**
   * base class for fetching FFmpeg Codecs/Formats and Options
   * @ingroup FFmpeg
   */

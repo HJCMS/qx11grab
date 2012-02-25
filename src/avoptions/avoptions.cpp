@@ -299,38 +299,86 @@ namespace QX11Grab
   /** Eine Liste der Verfügbaren Benutzer Presets für diesen Codec */
   const QStringList AVOptions::userPresets ( const QString &suffix )
   {
-    QStringList nameFilters ( "*.ffpreset" );
     QStringList list;
     QDir d ( QDir::home() );
-    d.setPath ( QString::fromUtf8 ( "%1/.ffmpeg" ).arg ( d.homePath() ) );
-    foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+
+    // FFmpeg Benutzer Verzeichnisse
+    QStringList targets ( ".ffmpeg" );
+    targets << ".avconv";
+
+    // filter für das preset Suchmuster
+    QStringList nameFilters ( "*.ffpreset" );
+    nameFilters << "*.avpreset";
+
+    // Starte die Verzeichnissuche
+    for ( int i = 0; i < targets.size(); ++i )
     {
-      QString bn = info.completeBaseName();
-      QRegExp pattern ( "^"+suffix+"\\-" );
-      if ( bn.contains ( pattern ) )
+      d.setPath ( QString::fromUtf8 ( "%1/%2" ).arg ( d.homePath(), targets.at ( i ) ) );
+      if ( d.exists() )
       {
-        list.append ( bn.replace ( pattern, "" ) );
+        foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+        {
+          QString bn = info.completeBaseName();
+          QRegExp pattern ( "^"+suffix+"\\-" );
+          if ( bn.contains ( pattern ) )
+          {
+            list.append ( bn.replace ( pattern, "" ) );
+          }
+        }
       }
     }
+    // Doppelte Einträge bei Symbolischen Verknüpfungen vermeiden!
+    list.removeDuplicates();
+
     return list;
   }
 
   /** Eine Liste der Verfügbaren System Presets für diesen Codec */
   const QStringList AVOptions::systemPresets ( const QString &suffix )
   {
-    QStringList nameFilters ( "*.ffpreset" );
     QStringList list;
     QDir d ( QDir::home() );
-    d.setPath ( QString::fromUtf8 ( "/usr/share/ffmpeg" ) );
-    foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+    // Liste von System Verzeichnissen die durchsucht wird, starte mit /usr/share/ffmpeg
+    QStringList targets ( "/usr/share/ffmpeg" );
+    // suche AVCONV_DATADIR
+    QByteArray buf = qgetenv ( "AVCONV_DATADIR" );
+    if ( ! buf.isEmpty() )
+      targets << QString::fromUtf8 ( buf );
+
+    buf.clear(); // FFMPEG_DATADIR
+    buf = qgetenv ( "FFMPEG_DATADIR" );
+    if ( ! buf.isEmpty() )
+      targets << QString::fromUtf8 ( buf );
+
+    buf.clear();
+
+    // filter für das preset Suchmuster
+    QStringList nameFilters ( "*.ffpreset" );
+    nameFilters << "*.avpreset";
+
+    // Doppelte Verzeichnis Angaben entfernen
+    targets.removeDuplicates();
+
+    // Starte die Verzeichnissuche
+    for ( int i = 0; i < targets.size(); ++i )
     {
-      QString bn = info.completeBaseName();
-      QRegExp pattern ( "^"+suffix+"\\-" );
-      if ( bn.contains ( pattern ) )
+      d.setPath ( targets.at ( i ) );
+      if ( d.exists() )
       {
-        list.append ( bn.replace ( pattern, "" ) );
+        foreach ( QFileInfo info, d.entryInfoList ( nameFilters, QDir::Files, QDir::Name ) )
+        {
+          QString bn = info.completeBaseName();
+          QRegExp pattern ( "^"+suffix+"\\-" );
+          if ( bn.contains ( pattern ) )
+          {
+            list.append ( bn.replace ( pattern, "" ) );
+          }
+        }
       }
     }
+    // Doppelte Einträge bei Symbolischen Verknüpfungen vermeiden!
+    list.removeDuplicates();
+
     return list;
   }
 

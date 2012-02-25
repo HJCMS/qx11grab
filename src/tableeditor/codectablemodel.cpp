@@ -58,6 +58,8 @@ const QString CodecTableModel::replaceDeprecated ( const QString &key ) const
   // ab sofort kein -vf mehr zulassen!
   if ( str.contains ( "-vf" ) )
     str.replace ( "-vf", QX11Grab::avFilterPredicate );
+  else if ( str.contains ( "-af" ) )
+    str.replace ( "-af", QX11Grab::acFilterPredicate );
 
   return str;
 }
@@ -346,6 +348,8 @@ void CodecTableModel::addOption ( int row, const QString &key, const QVariant &v
   if ( rindex != 0 )
   {
     if ( predicate.contains ( QX11Grab::avFilterPredicate ) )
+      setFilterData ( rindex, value, parent );
+    else if ( predicate.contains ( QX11Grab::acFilterPredicate ) )
       setFilterData ( rindex, value, parent );
     else if ( value.isNull() )
       return; // Überschreiben mit leeren inhalt unterbinden
