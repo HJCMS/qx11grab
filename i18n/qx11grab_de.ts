@@ -465,8 +465,8 @@ Beispiel für OSS: /dev/dsp</translation>
         <translation>Standard</translation>
     </message>
     <message>
-        <source>Extension</source>
-        <translation>Erweiterung</translation>
+        <source>Extensions</source>
+        <translation>Erweiterungen</translation>
     </message>
 </context>
 <context>

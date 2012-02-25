@@ -292,17 +292,17 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTable</name>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="123"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="124"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="126"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="127"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="130"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="131"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -319,18 +319,18 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableModel</name>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="155"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="170"/>
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="195"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="210"/>
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="197"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -499,47 +499,47 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ExtensionTable</name>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="41"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="43"/>
         <source>Video File extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="42"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="44"/>
         <source>here you can configure video file extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="70"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="73"/>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="72"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="75"/>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="74"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="77"/>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="76"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="79"/>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="78"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="81"/>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="80"/>
+        <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="83"/>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -548,18 +548,18 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ExtensionTableModel</name>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="85"/>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="93"/>
         <source>Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="87"/>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="95"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="89"/>
-        <source>Extension</source>
+        <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="97"/>
+        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1625,8 +1625,8 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PresetsComboBox</name>
     <message>
-        <location filename="../src/preseteditor/presetscombobox.cpp" line="42"/>
-        <location filename="../src/preseteditor/presetscombobox.cpp" line="102"/>
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="40"/>
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="100"/>
         <source>Select Preset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1675,7 +1675,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::FormatMenu</name>
     <message>
-        <location filename="../src/avoptions/formatmenu.cpp" line="48"/>
+        <location filename="../src/avoptions/formatmenu.cpp" line="49"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>

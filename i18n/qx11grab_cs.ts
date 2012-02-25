@@ -462,7 +462,7 @@ Příklad pro OSS: /dev/dsp</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Extension</source>
+        <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
