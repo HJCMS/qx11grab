@@ -70,7 +70,7 @@ Application::Application ( int &argc, char **argv )
 
 #ifdef HAVE_OPENGL
 
-  if ( engine.compare ( "opengl" ) )
+  if ( engine.compare ( "opengl" ) == 0 )
   {
     if ( ! isEffectEnabled ( Qt::UI_AnimateToolBox ) )
       setEffectEnabled ( Qt::UI_AnimateToolBox, true );
