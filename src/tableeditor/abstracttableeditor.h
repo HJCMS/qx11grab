@@ -19,8 +19,8 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef TABLEEDITOR_H
-#define TABLEEDITOR_H
+#ifndef ABSTRACTTABLEEDITOR_H
+#define ABSTRACTTABLEEDITOR_H
 
 /* QtCore */
 #include <QtCore/QHash>
@@ -36,59 +36,50 @@
 #include <QtGui/QTableWidget>
 #include <QtGui/QWidget>
 
-class CodecTable;
-class CodecSelecter;
-class Settings;
+/* QX11Grab */
+#include "settings.h"
+#include "avoptions.h"
+#include "codectable.h"
+#include "formatmenu.h"
+#include "codecselecter.h"
+#include "optionsfinder.h"
 
-namespace QX11Grab
-{
-  class FormatMenu;
-  class CodecSelecter;
-}
-
-class TableEditor : public QWidget
+class AbstractTableEditor : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
 
   private:
-    QString currentType;
-    QStringList sharedVideoCodec;
-    QStringList sharedAudioCodec;
-    QString currentCodecExtension;
+    bool enableExtMenu;
+
+  protected:
     QX11Grab::CodecSelecter* m_codecSelecter;
     QX11Grab::FormatMenu* m_formatMenu;
     CodecTable* m_tableWidget;
 
-    void findVideoCodecs();
-    void findAudioCodecs();
     const QHash<QString,QVariant> readSection ( const QString &, Settings * );
     void loadTableOptions ( const QString &, Settings * );
     void saveTableOptions ( const QString &, Settings * );
 
-  private Q_SLOTS:
+  protected Q_SLOTS:
     void addTableRow();
     void delTableRow();
-
-  protected Q_SLOTS:
-    void setCodecExtension ( const QString & );
 
   Q_SIGNALS:
     void postUpdate();
 
   public Q_SLOTS:
-    void load ( const QString &, Settings * );
-    void save ( const QString &, Settings * );
+    virtual void load ( Settings * ) = 0;
+    virtual void save ( Settings * ) = 0;
 
   public:
-    TableEditor ( QWidget * parent = 0 );
+    explicit AbstractTableEditor ( QWidget * parent = 0, bool extmenu = false );
     const QHash<QString,QVariant> getTableItems();
     const QString selectedCodec();
-    const QString selectedCodecExtension();
-    const QStringList getCmd();
+    virtual const QStringList getCmd() = 0;
     void setCodecByName ( const QString &txt );
     void setCodecOptions ( const QHash<QString,QVariant> &options );
-    ~TableEditor ();
+    virtual ~AbstractTableEditor ();
 };
 
 #endif

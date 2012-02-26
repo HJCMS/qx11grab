@@ -34,6 +34,50 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
+    <name>AbstractTableEditor</name>
+    <message>
+        <source>Encoder</source>
+        <translation type="unfinished">Kodér</translation>
+    </message>
+    <message>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Volič kodeků</translation>
+    </message>
+    <message>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Tabulka kodeků pro editor</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Přidat</translation>
+    </message>
+    <message>
+        <source>insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Vložit do tabulky nový prázdný řádek </translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Odstranit</translation>
+    </message>
+    <message>
+        <source> remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Odstranit vybrané řádky tabulky</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished">Smazat obsah tabulky</translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -1465,50 +1509,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation>QX11Grab: Nahrávají se okna X11 s ffmpeg</translation>
-    </message>
-</context>
-<context>
-    <name>TableEditor</name>
-    <message>
-        <source>Add</source>
-        <translation>Přidat</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Odstranit</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Vyprázdnit</translation>
-    </message>
-    <message>
-        <source>Encoder</source>
-        <translation>Kodér</translation>
-    </message>
-    <message>
-        <source>codec selecter</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Volič kodeků</translation>
-    </message>
-    <message>
-        <source>codec editor table</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Tabulka kodeků pro editor</translation>
-    </message>
-    <message>
-        <source>insert a new empty table row</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Vložit do tabulky nový prázdný řádek </translation>
-    </message>
-    <message>
-        <source> remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Odstranit vybrané řádky tabulky</translation>
-    </message>
-    <message>
-        <source>clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Smazat obsah tabulky</translation>
     </message>
 </context>
 <context>

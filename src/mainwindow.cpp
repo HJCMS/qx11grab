@@ -33,7 +33,8 @@
 #include "desktoptapping.h"
 #include "desktopinfo.h"
 #include "grabberinfo.h"
-#include "tableeditor.h"
+#include "videotableeditor.h"
+#include "audiotableeditor.h"
 #include "metadata.h"
 #include "ffprocess.h"
 #include "listener.h"
@@ -131,9 +132,7 @@ MainWindow::MainWindow ( Settings * settings )
   // } MetaData
 
   // vCodec {
-  m_videoEditor = new TableEditor ( m_toolBox );
-  m_videoEditor->setObjectName ( QString::fromUtf8 ( "vcodec" ) );
-  m_videoEditor->setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
+  m_videoEditor = new VideoTableEditor ( m_toolBox );
   m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "tool-animator", "qx11grab" ), trUtf8 ( "Video" ) );
   // } vCodec
 
@@ -148,8 +147,7 @@ MainWindow::MainWindow ( Settings * settings )
   m_toolBox->addItem ( m_audioGroupBox, cfg->themeIcon ( "audio-input-microphone", "qx11grab" ), trUtf8 ( "Audio" ) );
 
   QVBoxLayout* audioBoxlayout = new QVBoxLayout ( m_audioGroupBox );
-  m_audioEditor = new TableEditor ( m_audioGroupBox );
-  m_audioEditor->setToolTip ( QString::fromUtf8 ( "-acodec" ) );
+  m_audioEditor = new AudioTableEditor ( m_audioGroupBox );
   audioBoxlayout->addWidget ( m_audioEditor );
   m_audioGroupBox->setLayout ( audioBoxlayout );
   // } aCodec
@@ -540,8 +538,8 @@ void MainWindow::loadSettings()
   m_grabberInfo->load ( cfg );
   m_metaData->load ( cfg );
   m_audioGroupBox->setChecked ( cfg->value ( "SoundRecording", false ).toBool() );
-  m_videoEditor->load ( QString::fromUtf8 ( "VideoOptions" ), cfg );
-  m_audioEditor->load ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+  m_videoEditor->load ( cfg );
+  m_audioEditor->load ( cfg );
   preparePreview();
   setWindowModified ( false );
 
@@ -559,8 +557,8 @@ void MainWindow::saveSettings()
   cfg->setValue ( "SoundRecording", m_audioGroupBox->isChecked() );
   m_grabberInfo->save ( cfg );
   m_metaData->save ( cfg );
-  m_videoEditor->save ( QString::fromUtf8 ( "VideoOptions" ), cfg );
-  m_audioEditor->save ( QString::fromUtf8 ( "AudioOptions" ), cfg );
+  m_videoEditor->save ( cfg );
+  m_audioEditor->save ( cfg );
   setWindowModified ( false );
 }
 
@@ -584,7 +582,7 @@ void MainWindow::preparePreview ()
 {
   QStringList commandLine;
   commandLine << cfg->binaryPath();
-  commandLine << "-xerror";
+  // commandLine << "-xerror";
   commandLine << "-loglevel" << cfg->logLevel();
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );

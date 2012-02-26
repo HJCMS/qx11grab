@@ -34,6 +34,50 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
+    <name>AbstractTableEditor</name>
+    <message>
+        <source>Encoder</source>
+        <translation>Kodierer</translation>
+    </message>
+    <message>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Kodierer Auswahl</translation>
+    </message>
+    <message>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Kodierer Editor Tabelle</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Füge eine Neue Leerzeile ein</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source> remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Entferne gewählte Zeile</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Leeren</translation>
+    </message>
+    <message>
+        <source>clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Tabelleninhalt leeren</translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -1468,50 +1512,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
-    </message>
-</context>
-<context>
-    <name>TableEditor</name>
-    <message>
-        <source>Add</source>
-        <translation>Einfügen</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Entfernen</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Leeren</translation>
-    </message>
-    <message>
-        <source>Encoder</source>
-        <translation>Kodierer</translation>
-    </message>
-    <message>
-        <source>codec selecter</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Kodierer Auswahl</translation>
-    </message>
-    <message>
-        <source>codec editor table</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Kodierer Editor Tabelle</translation>
-    </message>
-    <message>
-        <source>insert a new empty table row</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Füge eine Neue Leerzeile ein</translation>
-    </message>
-    <message>
-        <source> remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Entferne gewählte Zeile</translation>
-    </message>
-    <message>
-        <source>clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Tabelleninhalt leeren</translation>
     </message>
 </context>
 <context>

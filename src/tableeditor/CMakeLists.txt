@@ -1,7 +1,9 @@
 # CMakeLists.txt
 
 SET (tableeditor_SOURCES
-  tableeditor.cpp
+  abstracttableeditor.cpp
+  videotableeditor.cpp
+  audiotableeditor.cpp
   codectable.cpp
   codectablemodel.cpp
   codectabledelegate.cpp
@@ -14,7 +16,9 @@ SET (tableeditor_SOURCES
 )
 
 SET (tableeditor_HEADERS
-  tableeditor.h
+  abstracttableeditor.h
+  videotableeditor.h
+  audiotableeditor.h
   codectable.h
   codectablemodel.h
   codectabledelegate.h

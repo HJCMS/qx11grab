@@ -40,6 +40,59 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
+    <name>AbstractTableEditor</name>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="52"/>
+        <source>Encoder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="57"/>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="72"/>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="76"/>
+        <source>Add</source>
+        <translation type="unfinished">Додај</translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="79"/>
+        <source>insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="81"/>
+        <source>Remove</source>
+        <translation type="unfinished">Уклони</translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="84"/>
+        <source> remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="86"/>
+        <source>Clear</source>
+        <translation type="unfinished">Очисти</translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="89"/>
+        <source>clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AlsaAudioDialog</name>
     <message>
         <location filename="../src/audio/alsaaudiodialog.cpp" line="44"/>
@@ -319,18 +372,18 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableModel</name>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="170"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="172"/>
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
         <translation>Најпре морате да направите аргумент.</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="210"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
         <source>Parameter</source>
         <translation>Параметар</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="214"/>
         <source>Value</source>
         <translation>Вредност</translation>
     </message>
@@ -1029,104 +1082,104 @@ WhatsThis</extracomment>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="124"/>
+        <location filename="../src/mainwindow.cpp" line="125"/>
         <source>Dimension</source>
         <translation>Димензије</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="130"/>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Metadata</source>
         <translation>Метаподаци</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="137"/>
+        <location filename="../src/mainwindow.cpp" line="136"/>
         <source>Video</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="145"/>
+        <location filename="../src/mainwindow.cpp" line="144"/>
         <source>Audio Recording</source>
         <translation>Снимање звука</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="147"/>
+        <location filename="../src/mainwindow.cpp" line="146"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Укључује/искључује снимање звука на ухваћеном видеу</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="148"/>
+        <location filename="../src/mainwindow.cpp" line="147"/>
         <source>Audio</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="160"/>
+        <location filename="../src/mainwindow.cpp" line="158"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="161"/>
+        <location filename="../src/mainwindow.cpp" line="159"/>
         <source>FFmpeg</source>
         <translation>ФФмпег</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="430"/>
+        <location filename="../src/mainwindow.cpp" line="428"/>
         <source>Info</source>
         <translation>Информација</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="490"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="490"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Stopping</source>
         <translation>Заустављање</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="491"/>
+        <location filename="../src/mainwindow.cpp" line="489"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="504"/>
+        <location filename="../src/mainwindow.cpp" line="502"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="653"/>
+        <location filename="../src/mainwindow.cpp" line="651"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="681"/>
+        <location filename="../src/mainwindow.cpp" line="679"/>
         <source>Remove Bookmark</source>
         <translation>Уклони обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="681"/>
+        <location filename="../src/mainwindow.cpp" line="679"/>
         <source>Bookmark</source>
         <translation>Обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="701"/>
+        <location filename="../src/mainwindow.cpp" line="699"/>
         <source>Open Bookmark %1 failed</source>
         <translation>Отварање обележивача %1 није успело</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="712"/>
+        <location filename="../src/mainwindow.cpp" line="710"/>
         <source>Open Bookmark %1</source>
         <translation>Отвори обележивач %1</translation>
     </message>
@@ -1773,59 +1826,6 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/systemtray.cpp" line="46"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TableEditor</name>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="61"/>
-        <source>Encoder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="66"/>
-        <source>codec selecter</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="78"/>
-        <source>codec editor table</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="82"/>
-        <source>Add</source>
-        <translation type="unfinished">Додај</translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
-        <source>insert a new empty table row</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="87"/>
-        <source>Remove</source>
-        <translation type="unfinished">Уклони</translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="90"/>
-        <source> remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="92"/>
-        <source>Clear</source>
-        <translation type="unfinished">Очисти</translation>
-    </message>
-    <message>
-        <location filename="../src/tableeditor/tableeditor.cpp" line="95"/>
-        <source>clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
