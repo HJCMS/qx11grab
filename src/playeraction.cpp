@@ -124,7 +124,7 @@ void PlayerAction::searchPlayers()
 
 /**
 * Fragt in den Einstellungen nach der Ausgabe Datei.
-* Wenn gefunden wird die abgepsielt!
+* Wenn gefunden wird die abgespielt!
 */
 void PlayerAction::playOuputFile ( const QString &player )
 {

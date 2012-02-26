@@ -32,6 +32,7 @@
 /* QtCore */
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
 #include <QtCore/QGlobalStatic>
 
 /* QtGui */
@@ -52,7 +53,14 @@ Application::Application ( int &argc, char **argv )
 
   m_settings = new Settings ( this );
 
-  QIcon iconTheme; // BUG Qt >= 4.8
+  // BUG Qt >= 4.8 and IconTheme Paths
+  QIcon iconTheme;
+  QDir dir ( QString::fromUtf8 ( "%1/../share/icons" ).arg ( qApp->applicationDirPath() ) );
+  if ( dir.exists() )
+  {
+    QStringList thlist ( dir.absolutePath() );
+    iconTheme.setThemeSearchPaths ( thlist );
+  }
   QString userIconTheme = m_settings->value ( "IconTheme", "oxygen" ).toString();
   if ( ! iconTheme.hasThemeIcon ( userIconTheme ) )
     iconTheme.setThemeName ( userIconTheme );
