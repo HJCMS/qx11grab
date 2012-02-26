@@ -82,6 +82,9 @@ namespace QX11Grab
       */
       void setEntryEnabled ( const QString &ext );
 
+      /** This property holds the text of the current item. */
+      const QString currentExtension();
+
       virtual ~FormatMenu();
   };
 }  /* eof namespace QX11Grab */

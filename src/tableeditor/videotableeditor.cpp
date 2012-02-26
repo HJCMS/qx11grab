@@ -39,7 +39,7 @@ VideoTableEditor::VideoTableEditor ( QWidget * parent )
   connect ( m_formatMenu, SIGNAL ( extensionChanged ( const QString & ) ),
             this, SLOT ( setCodecExtension ( const QString & ) ) );
 
-  connect ( m_formatMenu, SIGNAL ( postUpdate() ), this, SIGNAL ( postUpdate() ) );
+  connect ( m_formatMenu, SIGNAL ( postUpdate() ), this, SLOT ( formatUpdated() ) );
 }
 
 /**
@@ -63,8 +63,19 @@ void VideoTableEditor::findVideoCodecs()
 /**
 * Wenn im Menü Erweiterungen eine Eintrag ausgewählt wird!
 */
+void VideoTableEditor::formatUpdated()
+{
+
+  currentCodecExtension = m_formatMenu->currentExtension();
+  emit postUpdate();
+}
+
+/**
+* Wenn im Menü Erweiterungen eine Eintrag ausgewählt wird!
+*/
 void VideoTableEditor::setCodecExtension ( const QString &ext )
 {
+  qDebug() << Q_FUNC_INFO << ext;
   currentCodecExtension = ext;
   emit postUpdate();
 }

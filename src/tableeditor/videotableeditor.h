@@ -44,6 +44,7 @@ class VideoTableEditor : public AbstractTableEditor
     void findVideoCodecs();
 
   private Q_SLOTS:
+    void formatUpdated();
     void setCodecExtension ( const QString & );
 
   public Q_SLOTS:

@@ -213,6 +213,9 @@ namespace QX11Grab
       p_ActionsList.at ( i )->setChecked ( false );
     }
 
+    if ( ext.isEmpty() )
+      return;
+
     for ( int i = 0; i < p_ActionsList.size(); ++i )
     {
       // Eintrags Titel ist gleich "ext" dann Markieren und Button Text setzen
@@ -223,6 +226,23 @@ namespace QX11Grab
         break;
       }
     }
+  }
+
+  /** Sucht nach der Aktuell augewählten Erweiterung
+  * Wird keine gefunden ist die Zeichenkette leer
+  */
+  const QString FormatMenu::currentExtension()
+  {
+    QString ext;
+    for ( int i = 0; i < p_ActionsList.size(); ++i )
+    {
+      if ( p_ActionsList.at ( i )->isChecked () )
+      {
+        ext = p_ActionsList.at ( i )->text();
+        break;
+      }
+    }
+    return ext;
   }
 
   /**

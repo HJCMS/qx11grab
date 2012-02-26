@@ -339,18 +339,24 @@ void MainWindow::saveStats()
 */
 const QString MainWindow::generateOutputFile()
 {
+  // Ausgabe Verzeichnis
   QString dest = cfg->outputDirectory();
   dest.append ( "/" );
 
+  // Dateiname
   QString f = cfg->outputTemplateName();
-  QDateTime dt = QDateTime::currentDateTime();
-  QString timeStamp = QString::number ( dt.date().dayOfYear() );
-  timeStamp.append ( dt.toString ( "hhmm" ) );
-  f.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+  if ( f.contains ( "XXX" ) )
+  {
+    QDateTime dt = QDateTime::currentDateTime();
+    QString timeStamp = QString::number ( dt.date().dayOfYear() );
+    timeStamp.append ( dt.toString ( "hhmm" ) );
+    f.replace ( QRegExp ( "\\b(X{3,})\\b" ), timeStamp );
+  }
   dest.append ( f );
 
   QString outFile;
   QString codec = videoCodec();
+  // Datei Erweiterung ermitteln
   QString extension = m_videoEditor->selectedCodecExtension();
   if ( ! extension.isEmpty() )
     outFile = QString ( "%1.%2" ).arg ( dest, extension );
@@ -359,7 +365,7 @@ const QString MainWindow::generateOutputFile()
   else if ( codec.contains ( "libvpx", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.webm" ).arg ( dest );
   else if ( codec.contains ( "libx264", Qt::CaseInsensitive ) )
-    outFile = QString ( "%1.264" ).arg ( dest );
+    outFile = QString ( "%1.mkv" ).arg ( dest );
   else if ( codec.contains ( "mpeg4", Qt::CaseInsensitive ) )
     outFile = QString ( "%1.avi" ).arg ( dest );
   else if ( codec.contains ( "h26", Qt::CaseInsensitive ) )
