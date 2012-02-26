@@ -42,7 +42,6 @@ AbstractTableEditor::AbstractTableEditor ( QWidget * parent, bool extmenu )
     : QWidget ( parent )
     , enableExtMenu ( extmenu )
 {
-  setObjectName ( QLatin1String ( "AbstractTableEditor" ) );
   setContentsMargins ( 5, 5, 5, 5 );
 
   QVBoxLayout* layout =  new QVBoxLayout ( this );
