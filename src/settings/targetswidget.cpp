@@ -22,6 +22,7 @@
 #include "targetswidget.h"
 
 /* QtCore */
+#include <QtCore/QDebug>
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
@@ -80,9 +81,8 @@ TargetsWidget::TargetsWidget ( QWidget * parent )
   txt_outfile->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt_outfile, grow, 0, 1, 1 );
 
-  m_outputName = new QLineEdit ( this );
+  m_outputName = new OutputEdit ( this );
   m_outputName->setObjectName ( QLatin1String ( "Targets/TemplateName" ) );
-  m_outputName->setText ( QString::fromUtf8 ( "qx11grab-XXXXXX" ) );
   /*: WhatsThis */
   m_outputName->setWhatsThis ( trUtf8 ( "Specified output filenames can contain the following template XXXXXX (six upper case \"X\" characters), which will be replaced by the auto-generated portion of the filename." ) );
   gridLayout->addWidget ( m_outputName, grow, 1, 1, 1 );
@@ -120,8 +120,8 @@ TargetsWidget::TargetsWidget ( QWidget * parent )
   connect ( setFFmpegBtn, SIGNAL ( clicked() ),
             this, SLOT ( setFFmpegBinary() ) );
 
-  connect ( m_outputName, SIGNAL ( textChanged ( const QString & ) ),
-            this, SLOT ( valiadateInput ( const QString & ) ) );
+  connect ( m_outputName, SIGNAL ( postUpdate ( bool ) ),
+            this, SIGNAL ( postUpdate ( bool ) ) );
 
   connect ( setOutputBtn, SIGNAL ( clicked() ),
             this, SLOT ( setOutpuDirectory() ) );
@@ -148,12 +148,6 @@ void TargetsWidget::setFFmpegBinary()
     m_binaryFile->setText ( db.absoluteFilePath() );
     emit postUpdate ( true );
   }
-}
-
-void TargetsWidget::valiadateInput ( const QString &name )
-{
-  Q_UNUSED ( name );
-  emit postUpdate ( true );
 }
 
 /**

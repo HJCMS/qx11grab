@@ -36,6 +36,7 @@
 
 /* QX11Grab */
 #include "settings.h"
+#include "outputedit.h"
 
 class TargetsWidget : public QGroupBox
 {
@@ -45,12 +46,11 @@ class TargetsWidget : public QGroupBox
 
   private:
     QLineEdit* m_binaryFile;
-    QLineEdit* m_outputName;
+    OutputEdit* m_outputName;
     QLineEdit* m_outputDirectory;
 
   private Q_SLOTS:
     void setFFmpegBinary();
-    void valiadateInput ( const QString &name );
     void setOutpuDirectory();
     void restoreFileName();
 

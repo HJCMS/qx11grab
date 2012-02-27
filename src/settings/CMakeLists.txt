@@ -8,6 +8,7 @@ SET (_subproject_SOURCES
   settings.cpp
   configdialog.cpp
   mainfcuntions.cpp
+  outputedit.cpp
   targetswidget.cpp
   loglevelcombobox.cpp
   extraoptions.cpp
@@ -21,6 +22,7 @@ SET (_subproject_HEADERS
   settings.h
   configdialog.h
   mainfcuntions.h
+  outputedit.h
   targetswidget.h
   loglevelcombobox.h
   extraoptions.h
