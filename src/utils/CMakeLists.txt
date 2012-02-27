@@ -5,12 +5,14 @@ SET(_subproject "Utils")
 SET (_subproject_SOURCES
   metadata.cpp
   screencombobox.cpp
+  cspinbox.cpp
   grabberinfo.cpp
 )
 
 SET (_subproject_HEADERS
   metadata.h
   screencombobox.h
+  cspinbox.h
   grabberinfo.h
 )
 

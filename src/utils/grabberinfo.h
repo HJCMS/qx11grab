@@ -35,6 +35,7 @@
 #include <QtGui/QWidget>
 
 class ScreenComboBox;
+class CSpinBox;
 class DesktopInfo;
 class DesktopTapping;
 
@@ -53,13 +54,13 @@ class GrabberInfo : public QWidget
     DesktopInfo* m_desktopInfo;
     DesktopTapping* m_desktopTapping;
     ScreenComboBox* screenComboBox;
-    QSpinBox* setWidthBox;
+    CSpinBox* setWidthBox;
     QSlider* setWidthSlider;
-    QSpinBox* setHeightBox;
+    CSpinBox* setHeightBox;
     QSlider* setHeightSlider;
-    QSpinBox* setXBox;
+    CSpinBox* setXBox;
     QSlider* setXSlider;
-    QSpinBox* setYBox;
+    CSpinBox* setYBox;
     QSlider* setYSlider;
     QSpinBox* m_screenBox;
     QSpinBox* setDepth;

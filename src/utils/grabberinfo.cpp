@@ -22,6 +22,7 @@
 #include "grabberinfo.h"
 #include "desktopinfo.h"
 #include "screencombobox.h"
+#include "cspinbox.h"
 #include "desktoptapping.h"
 
 /* QtCore */
@@ -77,7 +78,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt2->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt2, grow, 0, 1, 1 );
 
-  setWidthBox = new QSpinBox ( this );
+  setWidthBox = new CSpinBox ( this );
   setWidthBox->setObjectName ( QLatin1String ( "setWidthBox" ) );
   setWidthBox->setMinimum ( minBox );
   setWidthBox->setValue ( minBox );
@@ -100,7 +101,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt3->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt3, grow, 0, 1, 1 );
 
-  setHeightBox = new QSpinBox ( this );
+  setHeightBox = new CSpinBox ( this );
   setHeightBox->setObjectName ( QLatin1String ( "setHeightBox" ) );
   setHeightBox->setMinimum ( minBox );
   setHeightBox->setValue ( minBox );
@@ -123,7 +124,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt5->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt5, grow, 0, 1, 1 );
 
-  setXBox = new QSpinBox ( this );
+  setXBox = new CSpinBox ( this );
   setXBox->setObjectName ( QLatin1String ( "setXBox" ) );
   setXBox->setMinimum ( 0 );
   setXBox->setValue ( 0 );
@@ -146,7 +147,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt6->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt6, grow, 0, 1, 1 );
 
-  setYBox = new QSpinBox ( this );
+  setYBox = new CSpinBox ( this );
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
   setYBox->setMinimum ( 0 );
   setYBox->setValue ( 0 );
