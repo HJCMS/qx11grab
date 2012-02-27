@@ -543,9 +543,9 @@ void MainWindow::loadSettings()
 {
   m_grabberInfo->load ( cfg );
   m_metaData->load ( cfg );
-  m_audioGroupBox->setChecked ( cfg->value ( "SoundRecording", false ).toBool() );
   m_videoEditor->load ( cfg );
   m_audioEditor->load ( cfg );
+  m_audioGroupBox->setChecked ( cfg->value ( "SoundRecording", false ).toBool() );
   preparePreview();
   setWindowModified ( false );
 

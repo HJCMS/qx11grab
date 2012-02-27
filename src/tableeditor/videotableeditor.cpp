@@ -81,16 +81,16 @@ void VideoTableEditor::setCodecExtension ( const QString &ext )
 
 /**
 * Standard Laden
+* \note Wir verwenden den libvpx als Standard Kodierer
 */
 void VideoTableEditor::load ( Settings *cfg )
 {
-  QString vcodec = cfg->value ( "video_codec" ).toString();
+  QString vcodec = cfg->value ( "video_codec", "libvpx" ).toString();
   // Suche mit dem Codec nach der passenden erweiterung
   currentCodecExtension = cfg->getArrayItem ( "CodecExtensions", "format", vcodec, "defaultExt" ).toString();
   if ( currentCodecExtension.isEmpty() )
     currentCodecExtension =  cfg->value ( "video_codec_extension" ).toString();
 
-  m_formatMenu->setEnabled ( true );
   sharedVideoCodec << vcodec;
   findVideoCodecs();
   m_codecSelecter->setCodec ( vcodec );

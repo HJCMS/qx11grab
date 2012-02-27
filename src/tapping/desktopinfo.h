@@ -133,7 +133,7 @@ class DesktopInfo : public QObject, private QX11Info
      */
     const FrameMode grabScreenGeometry ( QWidget * parent = 0 );
 
-    virtual ~DesktopInfo();
+    ~DesktopInfo();
 
 };
 

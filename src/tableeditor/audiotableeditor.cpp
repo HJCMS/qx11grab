@@ -52,12 +52,13 @@ void AudioTableEditor::findAudioCodecs()
 
 /**
 * Standard Laden
+* \note Wir verwenden den libvorbis als Standard Kodierer
 */
 void AudioTableEditor::load ( Settings * cfg )
 {
   sharedAudioCodec << cfg->value ( "audio_codec" ).toString();
   findAudioCodecs();
-  m_codecSelecter->setCodec ( cfg->value ( "audio_codec" ).toString() );
+  m_codecSelecter->setCodec ( cfg->value ( "audio_codec", "libvorbis" ).toString() );
   loadTableOptions ( QString::fromUtf8 ( "AudioOptions" ), cfg );
 }
 
