@@ -65,7 +65,6 @@ void VideoTableEditor::findVideoCodecs()
 */
 void VideoTableEditor::formatUpdated()
 {
-
   currentCodecExtension = m_formatMenu->currentExtension();
   emit postUpdate();
 }
@@ -75,7 +74,7 @@ void VideoTableEditor::formatUpdated()
 */
 void VideoTableEditor::setCodecExtension ( const QString &ext )
 {
-  qDebug() << Q_FUNC_INFO << ext;
+  // qDebug() << Q_FUNC_INFO << ext;
   currentCodecExtension = ext;
   emit postUpdate();
 }

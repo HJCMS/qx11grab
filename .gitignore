@@ -12,4 +12,5 @@ Doxyfile
 core
 ctags
 .ctags
+.bzr
 tags
