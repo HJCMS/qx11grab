@@ -1,2 +1,2 @@
 *.ts   xml
-*.xml  filter=indent
+*.xml  filter=filter.indent
