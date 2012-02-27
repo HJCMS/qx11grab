@@ -7,10 +7,16 @@ Makefile*
 qx11grab.kdev*
 Doxyfile
 *.log
-*.sh
 *.txt.user
 core
 ctags
 .ctags
 .bzr
 tags
+build-native.sh
+c*.sh
+ddd.sh
+importicon.sh
+lupdate.sh
+snapshot.sh
+testcmd.sh
