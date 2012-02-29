@@ -27,6 +27,7 @@
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QColor>
 #include <QtGui/QPaintEvent>
 #include <QtGui/QRubberBand>
 #include <QtGui/QStyleOptionRubberBand>
@@ -37,6 +38,9 @@ class RubberBand : public QRubberBand
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+
+  private:
+    const QColor frameColor() const;
 
   protected:
     void initStyleOption ( QStyleOptionRubberBand * ) const;

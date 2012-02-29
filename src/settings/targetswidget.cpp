@@ -41,7 +41,7 @@
 // #include <QtGui/>
 
 TargetsWidget::TargetsWidget ( QWidget * parent )
-    : QGroupBox ( parent )
+    : AbstractConfigWidget ( parent )
 {
   setObjectName ( QLatin1String ( "TargetsWidget" ) );
   /*: GroupBoxTitle */
@@ -49,7 +49,7 @@ TargetsWidget::TargetsWidget ( QWidget * parent )
   setFlat ( true );
 
   QGridLayout* gridLayout = new QGridLayout ( this );
-  gridLayout->setContentsMargins ( 2, 2, 2, 2 );
+  gridLayout->setContentsMargins ( 0, 5, 0, 0 );
   gridLayout->setObjectName ( QLatin1String ( "TargetsWidget/GridLayout" ) );
 
   QIcon folderIcon = QIcon::fromTheme ( "folder-open" );

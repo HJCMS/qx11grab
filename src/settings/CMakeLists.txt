@@ -7,9 +7,12 @@ SET(_subproject "Settings")
 SET (_subproject_SOURCES
   settings.cpp
   configdialog.cpp
+  abstractconfigwidget.cpp
   mainfcuntions.cpp
   outputedit.cpp
   targetswidget.cpp
+  configextensions.cpp
+  configrubberband.cpp
   loglevelcombobox.cpp
   extraoptions.cpp
   iconthemeitem.cpp
@@ -21,9 +24,12 @@ SET (_subproject_SOURCES
 SET (_subproject_HEADERS
   settings.h
   configdialog.h
+  abstractconfigwidget.h
   mainfcuntions.h
   outputedit.h
   targetswidget.h
+  configextensions.h
+  configrubberband.h
   loglevelcombobox.h
   extraoptions.h
   iconthememodel.h

@@ -32,13 +32,13 @@
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "settings.h"
+#include "abstractconfigwidget.h"
 
 class LogLevelComboBox;
 class IconThemeSelector;
 class GraphicsEngineSelecter;
 
-class MainFunctions : public QGroupBox
+class MainFunctions : public AbstractConfigWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
@@ -52,9 +52,6 @@ class MainFunctions : public QGroupBox
     GraphicsEngineSelecter* m_graphicsEngine;
     LogLevelComboBox* m_logLevelComboBox;
     IconThemeSelector* m_iconThemeSelector;
-
-  Q_SIGNALS:
-    void postUpdate ( bool );
 
   public Q_SLOTS:
     void load ( Settings * cfg );

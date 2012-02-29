@@ -34,15 +34,16 @@
 #include <QtGui/QWidget>
 
 /* QX11Grab */
-#include "settings.h"
+#include "abstractconfigwidget.h"
 
-class ExtraOptions : public QTableWidget
+class ExtraOptions : public AbstractConfigWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QTableWidget* m_tableWidget;
     QMenu* m_menu;
 
   private Q_SLOTS:
@@ -51,9 +52,6 @@ class ExtraOptions : public QTableWidget
 
   protected:
     virtual void contextMenuEvent ( QContextMenuEvent *e );
-
-  Q_SIGNALS:
-    void postUpdate ( bool );
 
   public Q_SLOTS:
     void load ( Settings * cfg );

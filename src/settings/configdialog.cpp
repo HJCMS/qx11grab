@@ -24,7 +24,8 @@
 #include "mainfcuntions.h"
 #include "audiodevicewidget.h"
 #include "extraoptions.h"
-#include "extensiontable.h"
+#include "configextensions.h"
+#include "configrubberband.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -78,9 +79,13 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
   m_stackedWidget->insertWidget ( index, m_extraOptions );
   insertMenuItem ( index++, trUtf8 ( "Experts" ), "user-properties" );
 
-  m_extensionTable = new ExtensionTable ( m_stackedWidget );
-  m_stackedWidget->insertWidget ( index, m_extensionTable );
+  m_configExtensions = new ConfigExtensions ( m_stackedWidget );
+  m_stackedWidget->insertWidget ( index, m_configExtensions );
   insertMenuItem ( index++, trUtf8 ( "Extensions" ), "view-choose" );
+
+  m_configRubberband = new ConfigRubberband ( m_stackedWidget );
+  m_stackedWidget->insertWidget ( index, m_configRubberband );
+  insertMenuItem ( index++, trUtf8 ( "Rubberband" ), "grid" );
   // } End: insertItems
 
   m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
@@ -146,8 +151,12 @@ void ConfigDialog::loadSettings()
   // } Experts
 
   // Erweiterungen {
-  m_extensionTable->load ( cfg );
+  m_configExtensions->load ( cfg );
   // } Erweiterungen
+
+  // Gummiband {
+  m_configRubberband->load ( cfg );
+  // } Gummiband
 
   setWindowModified ( false );
 }
@@ -176,8 +185,12 @@ void ConfigDialog::saveAndExit()
   // } Experts
 
   // Erweiterungen {
-  m_extensionTable->save ( cfg );
+  m_configExtensions->save ( cfg );
   // } Erweiterungen
+
+  // Gummiband {
+  m_configRubberband->save ( cfg );
+  // } Gummiband
 
   accept();
 }

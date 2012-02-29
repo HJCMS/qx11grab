@@ -23,6 +23,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QSettings>
 
 /* QtGui */
 #include <QtGui/QBrush>
@@ -43,6 +44,14 @@ RubberBand::RubberBand ( QWidget * parent )
   setAttribute ( Qt::WA_PaintOnScreen, true );
 }
 
+const QColor RubberBand::frameColor() const
+{
+  QColor color;
+  QSettings settings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab" );
+  color.setNamedColor ( settings.value ( "Rubberband/Color", "#800000" ).toString() );
+  return color;
+}
+
 void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
 {
   if ( option )
@@ -51,11 +60,16 @@ void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
 
 void RubberBand::paintEvent ( QPaintEvent * event )
 {
+  QRubberBand::paintEvent ( event );
+
+  QStyleOptionRubberBand panel;
+  initStyleOption ( &panel );
+
   QPainter painter ( this );
-  painter.setBrush ( Qt::red );
+  painter.setBrush ( frameColor() );
   painter.setBackgroundMode ( Qt::TransparentMode );
   painter.setPen ( Qt::NoPen );
-  painter.drawRect ( event->rect() );
+  painter.drawRect ( panel.rect );
 }
 
 bool RubberBand::isScalability()

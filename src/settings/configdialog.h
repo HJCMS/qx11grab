@@ -40,7 +40,8 @@ class MainFunctions;
 class TargetsWidget;
 class AudioDeviceWidget;
 class ExtraOptions;
-class ExtensionTable;
+class ConfigExtensions;
+class ConfigRubberband;
 
 class ConfigDialog : public QDialog
 {
@@ -55,7 +56,8 @@ class ConfigDialog : public QDialog
     TargetsWidget* m_targets;
     AudioDeviceWidget* m_audioDeviceWidget;
     ExtraOptions* m_extraOptions;
-    ExtensionTable* m_extensionTable;
+    ConfigExtensions* m_configExtensions;
+    ConfigRubberband* m_configRubberband;
     QListWidget* m_listWidget;
     QDialogButtonBox* m_buttonBox;
 

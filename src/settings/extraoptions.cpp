@@ -32,35 +32,45 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QIcon>
 #include <QtGui/QTableWidgetItem>
+#include <QtGui/QVBoxLayout>
 
 ExtraOptions::ExtraOptions ( QWidget * parent )
-    : QTableWidget ( parent )
+    : AbstractConfigWidget ( parent )
 {
   setObjectName ( QLatin1String ( "ExtraOptions" ) );
-  setToolTip ( trUtf8 ( "Expert Options" ) );
+  /*: GroupBoxTitle */
+  setTitle ( trUtf8 ( "Expert Options" ) );
   setWhatsThis ( trUtf8 ( "Here you can configure extra commands." ) );
-  setEditTriggers ( QAbstractItemView::DoubleClicked );
-  setWordWrap ( false );
-  setCornerButtonEnabled ( true );
-  setDragEnabled ( false );
-  setDragDropOverwriteMode ( false );
-  setDefaultDropAction ( Qt::MoveAction );
-  setAlternatingRowColors ( true );
-  setSelectionMode ( QAbstractItemView::ExtendedSelection );
-  setSelectionBehavior ( QAbstractItemView::SelectRows );
-  setContextMenuPolicy ( Qt::DefaultContextMenu );
-  setGridStyle ( Qt::DashLine );
-  setWordWrap ( false );
-  setCornerButtonEnabled ( true );
-  setColumnCount ( 2 );
-  setRowCount ( 1 );
+
+  QVBoxLayout* layout = new QVBoxLayout ( this );
+  layout->setContentsMargins ( 0, 5, 0, 0 );
+  layout->setObjectName ( QLatin1String ( "ExtraOptions/Layout" ) );
+
+  m_tableWidget = new QTableWidget ( this );
+  layout->addWidget ( m_tableWidget );
+
+  m_tableWidget->setEditTriggers ( QAbstractItemView::DoubleClicked );
+  m_tableWidget->setWordWrap ( false );
+  m_tableWidget->setCornerButtonEnabled ( true );
+  m_tableWidget->setDragEnabled ( false );
+  m_tableWidget->setDragDropOverwriteMode ( false );
+  m_tableWidget->setDefaultDropAction ( Qt::MoveAction );
+  m_tableWidget->setAlternatingRowColors ( true );
+  m_tableWidget->setSelectionMode ( QAbstractItemView::ExtendedSelection );
+  m_tableWidget->setSelectionBehavior ( QAbstractItemView::SelectRows );
+  m_tableWidget->setContextMenuPolicy ( Qt::DefaultContextMenu );
+  m_tableWidget->setGridStyle ( Qt::DashLine );
+  m_tableWidget->setWordWrap ( false );
+  m_tableWidget->setCornerButtonEnabled ( true );
+  m_tableWidget->setColumnCount ( 2 );
+  m_tableWidget->setRowCount ( 1 );
 
   QStringList headers;
   headers << trUtf8 ( "Parameter" ) << trUtf8 ( "Value" );
-  setHorizontalHeaderLabels ( headers );
+  m_tableWidget->setHorizontalHeaderLabels ( headers );
 
   /* Zellen anpassen */
-  QHeaderView* tHeader = horizontalHeader();
+  QHeaderView* tHeader = m_tableWidget->horizontalHeader();
   tHeader->setCascadingSectionResizes ( true );
   tHeader->setDefaultAlignment ( Qt::AlignLeft );
   tHeader->setMinimumSectionSize ( 110 );
@@ -83,9 +93,11 @@ ExtraOptions::ExtraOptions ( QWidget * parent )
   /*: ToolTip */
   m_actionClear->setToolTip ( trUtf8 ( "This button clear table contents" ) );
 
+  setLayout ( layout );
+
   connect ( m_actionInsert, SIGNAL ( triggered () ), this, SLOT ( addTableRow() ) );
   connect ( m_actionRemove, SIGNAL ( triggered () ), this, SLOT ( delTableRow() ) );
-  connect ( m_actionClear, SIGNAL ( triggered () ), this, SLOT ( clearContents() ) );
+  connect ( m_actionClear, SIGNAL ( triggered () ), m_tableWidget, SLOT ( clearContents() ) );
 }
 
 /**
@@ -93,7 +105,8 @@ ExtraOptions::ExtraOptions ( QWidget * parent )
 */
 void ExtraOptions::addTableRow()
 {
-  setRowCount ( ( rowCount() + 1 ) );
+  m_tableWidget->setRowCount ( ( m_tableWidget->rowCount() + 1 ) );
+  emit postUpdate ( true );
 }
 
 /**
@@ -103,7 +116,7 @@ void ExtraOptions::delTableRow()
 {
   QList<int> rows;
   // erst nach gültigen zeilen suchen
-  foreach ( QTableWidgetItem* item, selectedItems () )
+  foreach ( QTableWidgetItem* item, m_tableWidget->selectedItems () )
   {
     if ( ! rows.contains ( item->row() ) )
       rows.append ( item->row() );
@@ -111,8 +124,10 @@ void ExtraOptions::delTableRow()
   // jetzt Zeilen löschen
   foreach ( int r, rows )
   {
-    removeRow ( r );
+    m_tableWidget->removeRow ( r );
   }
+  if ( rows.size() > 0 )
+    emit postUpdate ( true );
 }
 
 /**
@@ -129,14 +144,14 @@ void ExtraOptions::load ( Settings * cfg )
   if ( data.size() > 0 )
   {
     int row = 0;
-    clearContents();
-    setRowCount ( ( data.size() + 1 ) );
+    m_tableWidget->clearContents();
+    m_tableWidget->setRowCount ( ( data.size() + 1 ) );
     QHashIterator<QString,QVariant> it ( data );
     while ( it.hasNext() )
     {
       it.next();
-      setItem ( row, 0, new QTableWidgetItem ( it.key(), QTableWidgetItem::UserType ) );
-      setItem ( row, 1, new QTableWidgetItem ( it.value().toString(), QTableWidgetItem::UserType ) );
+      m_tableWidget->setItem ( row, 0, new QTableWidgetItem ( it.key(), QTableWidgetItem::UserType ) );
+      m_tableWidget->setItem ( row, 1, new QTableWidgetItem ( it.value().toString(), QTableWidgetItem::UserType ) );
       row++;
     }
   }
@@ -145,12 +160,12 @@ void ExtraOptions::load ( Settings * cfg )
 void ExtraOptions::save ( Settings * cfg )
 {
   QHash<QString,QVariant> data;
-  for ( int r = 0; r < rowCount(); ++r )
+  for ( int r = 0; r < m_tableWidget->rowCount(); ++r )
   {
-    if ( item ( r, 0 ) )
+    if ( m_tableWidget->item ( r, 0 ) )
     {
-      QString key = item ( r, 0 )->data ( Qt::EditRole ).toString();
-      QVariant value = item ( r, 1 )->data ( Qt::EditRole );
+      QString key = m_tableWidget->item ( r, 0 )->data ( Qt::EditRole ).toString();
+      QVariant value = m_tableWidget->item ( r, 1 )->data ( Qt::EditRole );
       if ( key.isEmpty() )
         continue;
 

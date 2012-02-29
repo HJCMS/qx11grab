@@ -34,7 +34,7 @@
 #include <QtGui/QLabel>
 
 MainFunctions::MainFunctions ( QWidget * parent )
-    : QGroupBox ( parent )
+    : AbstractConfigWidget ( parent )
 {
   setObjectName ( QLatin1String ( "MainFunctions" ) );
   /*: GroupBoxTitle */

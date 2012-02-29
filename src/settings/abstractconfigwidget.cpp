@@ -19,48 +19,17 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef TARGETSWIDGET_H
-#define TARGETSWIDGET_H
+#include "abstractconfigwidget.h"
 
 /* QtCore */
-#include <QtCore/QObject>
-#include <QtCore/QSettings>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QtCore/QDebug>
 
-/* QtGui */
-#include <QtGui/QGroupBox>
-#include <QtGui/QCheckBox>
-#include <QtGui/QLineEdit>
-#include <QtGui/QWidget>
-
-/* QX11Grab */
-#include "abstractconfigwidget.h"
-#include "outputedit.h"
-
-class TargetsWidget : public AbstractConfigWidget
+AbstractConfigWidget::AbstractConfigWidget ( QWidget * parent )
+    : QGroupBox ( parent )
 {
-    Q_OBJECT
-    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
-    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+  setObjectName ( QLatin1String ( "AbstractConfigWidget" ) );
+  setFlat ( true );
+}
 
-  private:
-    QLineEdit* m_binaryFile;
-    OutputEdit* m_outputName;
-    QLineEdit* m_outputDirectory;
-
-  private Q_SLOTS:
-    void setFFmpegBinary();
-    void setOutpuDirectory();
-    void restoreFileName();
-
-  public Q_SLOTS:
-    void load ( Settings * cfg );
-    void save ( Settings * cfg );
-
-  public:
-    TargetsWidget ( QWidget * parent = 0 );
-    ~TargetsWidget();
-};
-
-#endif
+AbstractConfigWidget::~AbstractConfigWidget()
+{}
