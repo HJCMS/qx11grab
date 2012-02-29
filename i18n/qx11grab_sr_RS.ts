@@ -42,51 +42,51 @@ MenuEntry</extracomment>
 <context>
     <name>AbstractTableEditor</name>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="52"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="51"/>
         <source>Encoder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="57"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="56"/>
         <source>codec selecter</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="72"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="71"/>
         <source>codec editor table</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="76"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="75"/>
         <source>Add</source>
         <translation type="unfinished">Додај</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="79"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="78"/>
         <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="81"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="80"/>
         <source>Remove</source>
         <translation type="unfinished">Уклони</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="84"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="83"/>
         <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="86"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="85"/>
         <source>Clear</source>
         <translation type="unfinished">Очисти</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="89"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="88"/>
         <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -467,34 +467,57 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="45"/>
+        <location filename="../src/settings/configdialog.cpp" line="46"/>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation>Подешавање[*]</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="67"/>
+        <location filename="../src/settings/configdialog.cpp" line="68"/>
         <source>Application</source>
         <translation>Програм</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="71"/>
+        <location filename="../src/settings/configdialog.cpp" line="72"/>
         <source>Targets</source>
         <translation>Мете</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="75"/>
+        <location filename="../src/settings/configdialog.cpp" line="76"/>
         <source>Audio</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="79"/>
+        <location filename="../src/settings/configdialog.cpp" line="80"/>
         <source>Experts</source>
         <translation>Напредно</translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="83"/>
+        <location filename="../src/settings/configdialog.cpp" line="84"/>
         <source>Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/configdialog.cpp" line="88"/>
+        <source>Rubberband</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigExtensions</name>
+    <message>
+        <location filename="../src/settings/configextensions.cpp" line="36"/>
+        <source>Configure Output Extensions</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigRubberband</name>
+    <message>
+        <location filename="../src/settings/configrubberband.cpp" line="40"/>
+        <source>Rubberband Configuration</source>
+        <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -619,57 +642,58 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ExtraOptions</name>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="40"/>
+        <location filename="../src/settings/extraoptions.cpp" line="42"/>
         <source>Expert Options</source>
+        <extracomment>GroupBoxTitle</extracomment>
         <translation>Напредне поставке</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="41"/>
+        <location filename="../src/settings/extraoptions.cpp" line="43"/>
         <source>Here you can configure extra commands.</source>
         <translation>Овде можете да поставите додатне наредбе.</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="59"/>
+        <location filename="../src/settings/extraoptions.cpp" line="69"/>
         <source>Parameter</source>
         <translation>Параметар</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="59"/>
+        <location filename="../src/settings/extraoptions.cpp" line="69"/>
         <source>Value</source>
         <translation>Вредност</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="74"/>
+        <location filename="../src/settings/extraoptions.cpp" line="84"/>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="76"/>
+        <location filename="../src/settings/extraoptions.cpp" line="86"/>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
         <translation>Умеће нови празан ред у табелу</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="78"/>
+        <location filename="../src/settings/extraoptions.cpp" line="88"/>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Уклони</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="80"/>
+        <location filename="../src/settings/extraoptions.cpp" line="90"/>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
         <translation>Уклања изабрани ред табеле</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="82"/>
+        <location filename="../src/settings/extraoptions.cpp" line="92"/>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Очисти</translation>
     </message>
     <message>
-        <location filename="../src/settings/extraoptions.cpp" line="84"/>
+        <location filename="../src/settings/extraoptions.cpp" line="94"/>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
         <translation>Чисти садржај табеле</translation>
@@ -795,24 +819,24 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="64"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="65"/>
         <source>Dimension:</source>
         <translation>Димензије:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="70"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="71"/>
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Предефинисане величине оквира</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="76"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="77"/>
         <source>Width:</source>
         <translation>Ширина:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="85"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="93"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="86"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="94"/>
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -820,13 +844,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="99"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="100"/>
         <source>Height:</source>
         <translation>Висина:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="108"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="116"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="109"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
         <source>made rubberband height smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -834,8 +858,8 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="154"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="162"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="155"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="163"/>
         <source>Displaces y-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -843,41 +867,41 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="170"/>
         <source>Screen:</source>
         <translation>Екран:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="176"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="177"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
         <source>Color depth:</source>
         <translation>Дубина боја:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="190"/>
         <source>current color depth</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="201"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="202"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="122"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="123"/>
         <source>Position X:</source>
         <translation>Положај X:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="131"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="139"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="132"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="140"/>
         <source>Displaces x-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -885,12 +909,12 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="146"/>
         <source>Position Y:</source>
         <translation>Положај Y:</translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="195"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="196"/>
         <source>Framerate:</source>
         <translation>Број кадрова:</translation>
     </message>
@@ -1124,62 +1148,62 @@ WhatsThis</extracomment>
         <translation>ФФмпег</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="428"/>
+        <location filename="../src/mainwindow.cpp" line="434"/>
         <source>Info</source>
         <translation>Информација</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="494"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="494"/>
         <source>Stopping</source>
         <translation>Заустављање</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="489"/>
+        <location filename="../src/mainwindow.cpp" line="495"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="502"/>
+        <location filename="../src/mainwindow.cpp" line="508"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="522"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="522"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="657"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="679"/>
+        <location filename="../src/mainwindow.cpp" line="685"/>
         <source>Remove Bookmark</source>
         <translation>Уклони обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="679"/>
+        <location filename="../src/mainwindow.cpp" line="685"/>
         <source>Bookmark</source>
         <translation>Обележивач</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="705"/>
         <source>Open Bookmark %1 failed</source>
         <translation>Отварање обележивача %1 није успело</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="710"/>
+        <location filename="../src/mainwindow.cpp" line="716"/>
         <source>Open Bookmark %1</source>
         <translation>Отвори обележивач %1</translation>
     </message>
@@ -1736,22 +1760,22 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="66"/>
+        <location filename="../src/tapping/rubberband.cpp" line="80"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="67"/>
+        <location filename="../src/tapping/rubberband.cpp" line="81"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="74"/>
+        <location filename="../src/tapping/rubberband.cpp" line="88"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="75"/>
+        <location filename="../src/tapping/rubberband.cpp" line="89"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1832,24 +1856,24 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TargetsWidget</name>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="47"/>
+        <location filename="../src/settings/targetswidget.cpp" line="48"/>
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="61"/>
+        <location filename="../src/settings/targetswidget.cpp" line="62"/>
         <source>FFmpeg Application:</source>
         <translation>ФФмпег програм:</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="69"/>
+        <location filename="../src/settings/targetswidget.cpp" line="70"/>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="79"/>
+        <location filename="../src/settings/targetswidget.cpp" line="80"/>
         <source>Output Filename:</source>
         <translation>Излазно име фајла:</translation>
     </message>
@@ -1887,7 +1911,7 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation>ФФмпег бинарни фајл</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="166"/>
+        <location filename="../src/settings/targetswidget.cpp" line="160"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation>Излазни директоријум</translation>

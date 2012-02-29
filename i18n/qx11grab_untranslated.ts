@@ -25,8 +25,13 @@
 <context>
     <name>AbstractEdit</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/abstractedit.cpp" line="53"/>
         <location filename="../src/tableeditor/abstractedit.cpp" line="69"/>
+=======
+        <location filename="../src/tableeditor/abstractedit.cpp" line="49"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="65"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Proposing</source>
         <extracomment>WindowTitle
 ----------
@@ -34,65 +39,72 @@ MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/abstractedit.cpp" line="54"/>
+=======
+        <location filename="../src/tableeditor/abstractedit.cpp" line="50"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>submitted items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>AbstractTableEditor</name>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="52"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="51"/>
         <source>Encoder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="57"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="56"/>
         <source>codec selecter</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="72"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="71"/>
         <source>codec editor table</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="76"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="75"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="79"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="78"/>
         <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="81"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="80"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="84"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="83"/>
         <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="86"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="85"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="89"/>
+        <location filename="../src/tableeditor/abstracttableeditor.cpp" line="88"/>
         <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+=======
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>AlsaAudioDialog</name>
     <message>
         <location filename="../src/audio/alsaaudiodialog.cpp" line="44"/>
@@ -343,6 +355,7 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>CodecTable</name>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="124"/>
@@ -357,13 +370,24 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="131"/>
         <source>Clear</source>
+=======
+    <name>CodecSelecter</name>
+    <message>
+        <location filename="../src/tableeditor/codecselecter.cpp" line="109"/>
+        <source>Customized</source>
+        <extracomment>ToolTip</extracomment>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CodecTableDelegate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/codectabledelegate.cpp" line="222"/>
+=======
+        <location filename="../src/tableeditor/codectabledelegate.cpp" line="148"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Missing stated hyphens in given argument</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
@@ -372,18 +396,30 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTableModel</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/codectablemodel.cpp" line="172"/>
+=======
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="133"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
+=======
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="173"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tableeditor/codectablemodel.cpp" line="214"/>
+=======
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="175"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -467,36 +503,82 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="45"/>
+<<<<<<< HEAD
+        <location filename="../src/settings/configdialog.cpp" line="46"/>
+=======
+        <location filename="../src/settings/configdialog.cpp" line="44"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="67"/>
+<<<<<<< HEAD
+        <location filename="../src/settings/configdialog.cpp" line="68"/>
+=======
+        <location filename="../src/settings/configdialog.cpp" line="66"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="71"/>
+<<<<<<< HEAD
+        <location filename="../src/settings/configdialog.cpp" line="72"/>
+=======
+        <location filename="../src/settings/configdialog.cpp" line="70"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="75"/>
+<<<<<<< HEAD
+        <location filename="../src/settings/configdialog.cpp" line="76"/>
+=======
+        <location filename="../src/settings/configdialog.cpp" line="74"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="79"/>
+<<<<<<< HEAD
+        <location filename="../src/settings/configdialog.cpp" line="80"/>
         <source>Experts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="83"/>
+        <location filename="../src/settings/configdialog.cpp" line="84"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/settings/configdialog.cpp" line="88"/>
+        <source>Rubberband</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigExtensions</name>
+    <message>
+        <location filename="../src/settings/configextensions.cpp" line="36"/>
+        <source>Configure Output Extensions</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigRubberband</name>
+    <message>
+        <location filename="../src/settings/configrubberband.cpp" line="40"/>
+        <source>Rubberband Configuration</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+=======
+        <location filename="../src/settings/configdialog.cpp" line="78"/>
+        <source>Experts</source>
+        <translation type="unfinished"></translation>
+    </message>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>CreateCustomItem</name>
@@ -509,18 +591,28 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DesktopInfo</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tapping/desktopinfo.cpp" line="213"/>
+=======
+        <location filename="../src/utils/desktopinfo.cpp" line="199"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/tapping/desktopinfo.cpp" line="199"/>
         <location filename="../src/tapping/desktopinfo.cpp" line="210"/>
+=======
+        <location filename="../src/utils/desktopinfo.cpp" line="185"/>
+        <location filename="../src/utils/desktopinfo.cpp" line="196"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>DropShadowBox</name>
     <message>
         <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="50"/>
@@ -536,6 +628,8 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+=======
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>ExportDialog</name>
     <message>
         <location filename="../src/exportdialog.cpp" line="39"/>
@@ -550,6 +644,7 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>ExtensionTable</name>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="43"/>
@@ -619,57 +714,100 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ExtraOptions</name>
     <message>
+        <location filename="../src/settings/extraoptions.cpp" line="42"/>
+        <source>Expert Options</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/extraoptions.cpp" line="43"/>
+=======
+    <name>ExtraOptions</name>
+    <message>
         <location filename="../src/settings/extraoptions.cpp" line="40"/>
         <source>Expert Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="41"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Here you can configure extra commands.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="69"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="59"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="69"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="59"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="84"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="74"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="86"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="76"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="88"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="78"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="90"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="80"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="92"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="82"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/extraoptions.cpp" line="94"/>
+=======
         <location filename="../src/settings/extraoptions.cpp" line="84"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -678,22 +816,31 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FFProcess</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="125"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="69"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
         <source>Working Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="82"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="124"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
@@ -705,66 +852,127 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
         <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="201"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="205"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="209"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="213"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="217"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="221"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="231"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="201"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="205"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="209"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="213"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="217"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="221"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="236"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="284"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="254"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="240"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="164"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="134"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="182"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="152"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
+=======
+        <location filename="../src/ffprocess/ffprocess.cpp" line="69"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="82"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
@@ -785,6 +993,7 @@ Example for OSS: /dev/dsp</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>FilterMenu</name>
     <message>
         <location filename="../src/tableeditor/filtermenu.cpp" line="32"/>
@@ -795,24 +1004,42 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="64"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="65"/>
+=======
+    <name>GrabberInfo</name>
+    <message>
+        <location filename="../src/utils/grabberinfo.cpp" line="63"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="70"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="71"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="69"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="76"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="77"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="75"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="85"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="93"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="86"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="94"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="84"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="92"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -820,13 +1047,22 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="99"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="100"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="98"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="108"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="116"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="109"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="107"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="115"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>made rubberband height smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -834,13 +1070,22 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="122"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="123"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="121"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="131"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="139"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="132"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="140"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="130"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="138"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Displaces x-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -848,13 +1093,22 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="145"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="146"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="144"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="154"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="162"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="155"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="163"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="153"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="161"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Displaces y-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -862,34 +1116,50 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="169"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="170"/>
         <source>Screen:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="176"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="177"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="182"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="183"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="168"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Color depth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="189"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="190"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="175"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>current color depth</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="195"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="196"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="181"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Framerate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="201"/>
+<<<<<<< HEAD
+        <location filename="../src/utils/grabberinfo.cpp" line="202"/>
+=======
+        <location filename="../src/utils/grabberinfo.cpp" line="187"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -1008,45 +1278,74 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="52"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="57"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="55"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="61"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="65"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="69"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="63"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="70"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="71"/>
         <source>record with unsaved changes</source>
         <translation type="unfinished"></translation>
@@ -1065,16 +1364,27 @@ WhatsThis</extracomment>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="80"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="75"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="83"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="78"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Icon Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/settings/mainfcuntions.cpp" line="86"/>
+=======
+        <location filename="../src/settings/mainfcuntions.cpp" line="81"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1082,12 +1392,20 @@ WhatsThis</extracomment>
 <context>
     <name>MainWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/mainwindow.cpp" line="125"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="124"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/mainwindow.cpp" line="131"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="130"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1097,18 +1415,30 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/mainwindow.cpp" line="144"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="143"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/mainwindow.cpp" line="146"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="145"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/mainwindow.cpp" line="147"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="146"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1124,62 +1454,98 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="428"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="434"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="419"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="494"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="494"/>
         <source>Stopping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="489"/>
+        <location filename="../src/mainwindow.cpp" line="495"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="502"/>
+        <location filename="../src/mainwindow.cpp" line="508"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="478"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="522"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="492"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="522"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="492"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="651"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="657"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="636"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="679"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="685"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="664"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="679"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="685"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="664"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="705"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="684"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="710"/>
+<<<<<<< HEAD
+        <location filename="../src/mainwindow.cpp" line="716"/>
+=======
+        <location filename="../src/mainwindow.cpp" line="695"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1561,6 +1927,7 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>OpenImageDialog</name>
     <message>
         <location filename="../src/filters/watermark/openimagedialog.cpp" line="42"/>
@@ -1590,6 +1957,8 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+=======
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>OpenSoundDialog</name>
     <message>
         <location filename="../src/audio/opensounddialog.cpp" line="34"/>
@@ -1613,55 +1982,91 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PlayerAction</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="72"/>
+=======
+        <location filename="../src/playeraction.cpp" line="70"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="74"/>
+=======
+        <location filename="../src/playeraction.cpp" line="72"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="76"/>
+=======
+        <location filename="../src/playeraction.cpp" line="74"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="78"/>
+=======
+        <location filename="../src/playeraction.cpp" line="76"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="80"/>
+=======
+        <location filename="../src/playeraction.cpp" line="78"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="82"/>
+=======
+        <location filename="../src/playeraction.cpp" line="80"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="84"/>
+=======
+        <location filename="../src/playeraction.cpp" line="82"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="86"/>
+=======
+        <location filename="../src/playeraction.cpp" line="84"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/playeraction.cpp" line="88"/>
+=======
+        <location filename="../src/playeraction.cpp" line="86"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation type="unfinished"></translation>
@@ -1678,8 +2083,13 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PresetsComboBox</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/preseteditor/presetscombobox.cpp" line="40"/>
         <location filename="../src/preseteditor/presetscombobox.cpp" line="100"/>
+=======
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="42"/>
+        <location filename="../src/preseteditor/presetscombobox.cpp" line="102"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Select Preset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1696,19 +2106,28 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/avoptions/avoptions.cpp" line="154"/>
+=======
+        <location filename="../src/avoptions/avoptions.cpp" line="149"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/avoptions/avoptions.cpp" line="179"/>
+=======
+        <location filename="../src/avoptions/avoptions.cpp" line="174"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>QX11Grab::CodecOptions</name>
     <message>
         <location filename="../src/avoptions/codecoptions.cpp" line="45"/>
@@ -1736,22 +2155,39 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="66"/>
+        <location filename="../src/tapping/rubberband.cpp" line="80"/>
+=======
+    <name>RubberBand</name>
+    <message>
+        <location filename="../src/utils/rubberband.cpp" line="69"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="67"/>
+<<<<<<< HEAD
+        <location filename="../src/tapping/rubberband.cpp" line="81"/>
+=======
+        <location filename="../src/utils/rubberband.cpp" line="70"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="74"/>
+<<<<<<< HEAD
+        <location filename="../src/tapping/rubberband.cpp" line="88"/>
+=======
+        <location filename="../src/utils/rubberband.cpp" line="77"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="75"/>
+<<<<<<< HEAD
+        <location filename="../src/tapping/rubberband.cpp" line="89"/>
+=======
+        <location filename="../src/utils/rubberband.cpp" line="78"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1785,6 +2221,7 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>SetDar</name>
     <message>
         <location filename="../src/filters/setdar/setdar.cpp" line="41"/>
@@ -1826,30 +2263,106 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/systemtray.cpp" line="46"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
+=======
+    <name>SystemTray</name>
+    <message>
+        <location filename="../src/systemtray.cpp" line="46"/>
+        <source>qx11grab: recording X11 Windows with ffmpeg</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TableEditor</name>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="56"/>
+        <source>Encoder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="62"/>
+        <source>codec selecter</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="68"/>
+        <source>codec editor table</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="72"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="75"/>
+        <source>This button insert a new empty table row</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="77"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="80"/>
+        <source>This button remove selected table rows</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="82"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/tableeditor/tableeditor.cpp" line="85"/>
+        <source>This button clear table contents</source>
+        <extracomment>WhatsThis</extracomment>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TargetsWidget</name>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/targetswidget.cpp" line="48"/>
+=======
         <location filename="../src/settings/targetswidget.cpp" line="47"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/targetswidget.cpp" line="62"/>
+=======
         <location filename="../src/settings/targetswidget.cpp" line="61"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>FFmpeg Application:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/targetswidget.cpp" line="70"/>
+=======
         <location filename="../src/settings/targetswidget.cpp" line="69"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/targetswidget.cpp" line="80"/>
+=======
         <location filename="../src/settings/targetswidget.cpp" line="79"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1887,13 +2400,18 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/settings/targetswidget.cpp" line="160"/>
+=======
         <location filename="../src/settings/targetswidget.cpp" line="166"/>
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>TextPosition</name>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="43"/>
@@ -1965,6 +2483,8 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+=======
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>TextView</name>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="49"/>
@@ -2010,6 +2530,7 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
+<<<<<<< HEAD
 <context>
     <name>Unsharp</name>
     <message>
@@ -2258,4 +2779,6 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
+=======
+>>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </TS>
