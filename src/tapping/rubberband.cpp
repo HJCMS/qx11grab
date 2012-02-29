@@ -23,7 +23,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
-#include <QtCore/QSettings>
+#include <QtCore/QLineF>
 
 /* QtGui */
 #include <QtGui/QBrush>
@@ -32,11 +32,13 @@
 
 RubberBand::RubberBand ( QWidget * parent )
     : QRubberBand ( QRubberBand::Rectangle, parent )
+    , p_settings ( new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab" ) )
 {
   setMinimumWidth ( 128 );
   setMinimumHeight ( 96 );
   setAutoFillBackground ( false );
   setContentsMargins ( 0, 0, 0, 0 );
+  setWindowOpacity ( 1.0 ); // BUGFIX Composite extension behavior
   setAttribute ( Qt::WA_NoBackground, true );
   setAttribute ( Qt::WA_NoSystemBackground, true );
   setAttribute ( Qt::WA_SetPalette, false );
@@ -47,8 +49,7 @@ RubberBand::RubberBand ( QWidget * parent )
 const QColor RubberBand::frameColor() const
 {
   QColor color;
-  QSettings settings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab" );
-  color.setNamedColor ( settings.value ( "Rubberband/Color", "#800000" ).toString() );
+  color.setNamedColor ( p_settings.value ( "Rubberband/Color", "#800000" ).toString() );
   return color;
 }
 
@@ -58,6 +59,11 @@ void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
     option->initFrom ( this );
 }
 
+/**
+* Es gibt eingige Distribution die der Meinung sind sie müssten
+* Unbedingt den Rubberband Style an Windoof anpassen. :-/
+* Hier mein Hack um dieses wieder zu umgehen!
+*/
 void RubberBand::paintEvent ( QPaintEvent * event )
 {
   QRubberBand::paintEvent ( event );
@@ -66,6 +72,9 @@ void RubberBand::paintEvent ( QPaintEvent * event )
   initStyleOption ( &panel );
 
   QPainter painter ( this );
+  painter.setRenderHint ( QPainter::TextAntialiasing, false );
+  painter.setRenderHint ( QPainter::HighQualityAntialiasing, false );
+  painter.setRenderHint ( QPainter::NonCosmeticDefaultPen, true );
   painter.setBrush ( frameColor() );
   painter.setBackgroundMode ( Qt::TransparentMode );
   painter.setPen ( Qt::NoPen );

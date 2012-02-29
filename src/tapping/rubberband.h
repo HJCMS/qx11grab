@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QSettings>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -40,6 +41,7 @@ class RubberBand : public QRubberBand
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    const QSettings p_settings;
     const QColor frameColor() const;
 
   protected:

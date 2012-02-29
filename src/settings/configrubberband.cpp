@@ -65,6 +65,7 @@ void ConfigRubberband::updateColor ( const QColor &color )
 void ConfigRubberband::load ( Settings * cfg )
 {
   p_color.setNamedColor ( cfg->value ( "Rubberband/Color", "#800000" ).toString() );
+  m_colorWidget->setCurrentColor ( p_color );
 }
 
 void ConfigRubberband::save ( Settings * cfg )
