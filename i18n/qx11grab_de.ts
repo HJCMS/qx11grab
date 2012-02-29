@@ -23,9 +23,7 @@
     <name>AbstractEdit</name>
     <message>
         <source>Proposing</source>
-        <extracomment>WindowTitle
-----------
-MenuEntry</extracomment>
+        <extracomment>MenuEntry</extracomment>
         <translation>Vorschlagen</translation>
     </message>
     <message>
@@ -34,7 +32,6 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>AbstractTableEditor</name>
     <message>
         <source>Encoder</source>
@@ -79,8 +76,6 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -291,7 +286,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>CodecTable</name>
     <message>
         <source>Add</source>
@@ -304,13 +298,6 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Clear</source>
         <translation>Leeren</translation>
-=======
-    <name>CodecSelecter</name>
-    <message>
-        <source>Customized</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Angepasst</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -420,7 +407,6 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Experts</source>
         <translation>Experten</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>Extensions</source>
         <translation>Erweiterung</translation>
@@ -443,10 +429,8 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation>Gummiband Konfiguration</translation>
+        <translation>Gummiband Konfigurieren</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>CreateCustomItem</name>
@@ -467,7 +451,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>DropShadowBox</name>
     <message>
         <source>Shadow Offset</source>
@@ -481,8 +464,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>ExportDialog</name>
     <message>
         <source>Export current Commandline</source>
@@ -495,7 +476,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>ExtensionTable</name>
     <message>
         <source>Video File extensions</source>
@@ -556,11 +536,6 @@ Beispiel für OSS: /dev/dsp</translation>
     <message>
         <source>Expert Options</source>
         <extracomment>GroupBoxTitle</extracomment>
-=======
-    <name>ExtraOptions</name>
-    <message>
-        <source>Expert Options</source>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <translation>Experten Optionen</translation>
     </message>
     <message>
@@ -609,13 +584,6 @@ Beispiel für OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-<<<<<<< HEAD
-=======
-        <source>Warning</source>
-        <translation>Warnung</translation>
-    </message>
-    <message>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dimension</source>
         <translation>Dimension</translation>
     </message>
@@ -675,7 +643,6 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Permission Denied: %1.</source>
         <translation>Zugriff Verweigert: %1.</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>Working Directory</source>
         <translation>Arbeits Verzeichnis</translation>
@@ -684,8 +651,6 @@ Beispiel für OSS: /dev/dsp</translation>
         <source>Executable Script</source>
         <translation>Ausführbares Script</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>FileSaveDialog</name>
@@ -701,7 +666,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>FilterMenu</name>
     <message>
         <source>Create Filter</source>
@@ -709,8 +673,6 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>GrabberInfo</name>
     <message>
         <source>Width:</source>
@@ -783,7 +745,6 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktuelle Farbtiefe</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>Screen:</source>
         <translation>Bildschirm:</translation>
@@ -793,8 +754,6 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktuell ausgewählter Bildschirm</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>GraphicsEngineSelecter</name>
@@ -934,7 +893,6 @@ WhatsThis</extracomment>
         <source>Graphics System</source>
         <translation>Grafiksytem</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>record with unsaved changes</source>
         <translation>Mit nicht gespeicherten Änderungen aufnehmen</translation>
@@ -949,8 +907,6 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Wenn diese Option Aktiviert ist wird die Aufnahme auch dann gestartet wenn nicht gespeicherten Änderungen vorliegen.</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>MainWindow</name>
@@ -1024,7 +980,6 @@ WhatsThis</extracomment>
         <source>Missing Input</source>
         <translation>Keine Eingabe erhalten</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>Warning</source>
         <translation>Warnung</translation>
@@ -1037,8 +992,6 @@ WhatsThis</extracomment>
         <source>unsaved changes</source>
         <translation>Nicht gespeicherte Änderungen</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>MenuBar</name>
@@ -1354,7 +1307,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>OpenImageDialog</name>
     <message>
         <source>Open Image File</source>
@@ -1379,8 +1331,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>OpenSoundDialog</name>
     <message>
         <source>Open Sound System (OSS)</source>
@@ -1481,7 +1431,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>QX11Grab::CodecOptions</name>
     <message>
         <source>Option</source>
@@ -1504,8 +1453,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>RubberBand</name>
     <message>
         <source>Scalability Failure Width</source>
@@ -1549,7 +1496,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>SetDar</name>
     <message>
         <source>DAR Filter</source>
@@ -1585,57 +1531,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
-=======
-    <name>SystemTray</name>
-    <message>
-        <source>qx11grab: recording X11 Windows with ffmpeg</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
-    </message>
-</context>
-<context>
-    <name>TableEditor</name>
-    <message>
-        <source>Add</source>
-        <translation>Einfügen</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Entfernen</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Leeren</translation>
-    </message>
-    <message>
-        <source>Encoder</source>
-        <translation>Kodierer</translation>
-    </message>
-    <message>
-        <source>codec selecter</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Kodierer Auswahl</translation>
-    </message>
-    <message>
-        <source>codec editor table</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Kodierer Editor Tabelle</translation>
-    </message>
-    <message>
-        <source>This button insert a new empty table row</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf fügt eine Neue Zeile in die Tabelle ein.</translation>
-    </message>
-    <message>
-        <source>This button remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf entfernt alle Ausgewählten Zeilen aus der Tabelle.</translation>
-    </message>
-    <message>
-        <source>This button clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Dieser Knopf leert den Tabellen Inhalt.</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1701,7 +1596,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>TextPosition</name>
     <message>
         <source>Text Position</source>
@@ -1760,8 +1654,6 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>TextView</name>
     <message>
         <source>wait for input ...</source>
@@ -1798,7 +1690,6 @@ ToolTip</extracomment>
         <translation>Protokolldatei (%1)</translation>
     </message>
 </context>
-<<<<<<< HEAD
 <context>
     <name>Unsharp</name>
     <message>
@@ -2003,6 +1894,4 @@ ToolTip</extracomment>
         <translation>Füge ein Wasserzeichen in das Ausgabevideo</translation>
     </message>
 </context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </TS>

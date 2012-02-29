@@ -5,11 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>License</source>
-<<<<<<< HEAD
         <translation>Povolení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -27,9 +23,7 @@
     <name>AbstractEdit</name>
     <message>
         <source>Proposing</source>
-        <extracomment>WindowTitle
-----------
-MenuEntry</extracomment>
+        <extracomment>MenuEntry</extracomment>
         <translation>Navrhnout</translation>
     </message>
     <message>
@@ -38,7 +32,6 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>AbstractTableEditor</name>
     <message>
         <source>Encoder</source>
@@ -83,8 +76,6 @@ MenuEntry</extracomment>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>AlsaAudioDialog</name>
     <message>
         <source>ALSA PCM Selection</source>
@@ -264,11 +255,7 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Audio Device</source>
-<<<<<<< HEAD
         <translation>Zvukové zařízení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -296,7 +283,6 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>CodecTable</name>
     <message>
         <source>Add</source>
@@ -309,13 +295,6 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Clear</source>
         <translation>Smazat</translation>
-=======
-    <name>CodecSelecter</name>
-    <message>
-        <source>Customized</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Vlastní</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -373,37 +352,21 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Reset</source>
-<<<<<<< HEAD
         <translation>Nastavit znovu</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Restore Preview</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Obnovit náhled</translation>
     </message>
     <message>
         <source>Insert</source>
         <translation>Vložit</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insert</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Create custom entry</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Vytvořit vlastní záznam</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -415,11 +378,7 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Restore to current Configuration</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Obnovit na nynější nastavení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -427,7 +386,6 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
-<<<<<<< HEAD
         <translation>Nastavit[*]</translation>
     </message>
     <message>
@@ -468,24 +426,6 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Application</source>
-        <translation type="unfinished">Program</translation>
-    </message>
-    <message>
-        <source>Targets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
-    </message>
-    <message>
-        <source>Experts</source>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -493,11 +433,7 @@ Příklad pro OSS: /dev/dsp</translation>
     <name>CreateCustomItem</name>
     <message>
         <source>Create a custom entry</source>
-<<<<<<< HEAD
         <translation>Vytvořit vlastní záznam</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -512,7 +448,6 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>DropShadowBox</name>
     <message>
         <source>Shadow Offset</source>
@@ -526,8 +461,6 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     <name>ExportDialog</name>
     <message>
         <source>Export current Commandline</source>
@@ -540,7 +473,6 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>ExtensionTable</name>
     <message>
         <source>Video File extensions</source>
@@ -614,90 +546,41 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Value</source>
         <translation>Hodnota</translation>
-=======
-    <name>ExtraOptions</name>
-    <message>
-        <source>Expert Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Here you can configure extra commands.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Parameter</source>
-        <translation type="unfinished">Parametr</translation>
-    </message>
-    <message>
-        <source>Value</source>
-        <translation type="unfinished">Hodnota</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
-<<<<<<< HEAD
         <translation>Přidat</translation>
-=======
-        <translation type="unfinished">Přidat</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Toto tlačítko do tabulky vloží nový prázdný řádek</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
-<<<<<<< HEAD
         <translation>Odstranit</translation>
-=======
-        <translation type="unfinished">Odstranit</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Toto tlačítko z tabulky odstraní vybrané řádky</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
-<<<<<<< HEAD
         <translation>Smazat</translation>
-=======
-        <translation type="unfinished">Vyprázdnit</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Toto tlačítko odstraní obsah tabulky</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>FFProcess</name>
     <message>
-<<<<<<< HEAD
-=======
-        <source>Warning</source>
-        <translation>Varování</translation>
-    </message>
-    <message>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
         <source>Dimension</source>
         <translation>Rozměr</translation>
     </message>
@@ -757,7 +640,6 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Permission Denied: %1.</source>
         <translation>Přístup odepřen: %1.</translation>
     </message>
-<<<<<<< HEAD
     <message>
         <source>Working Directory</source>
         <translation>Pracovní adresář</translation>
@@ -766,24 +648,17 @@ Příklad pro OSS: /dev/dsp</translation>
         <source>Executable Script</source>
         <translation>Spustitelný skript</translation>
     </message>
-=======
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
 </context>
 <context>
     <name>FileSaveDialog</name>
     <message>
         <source>Save ffpreset File</source>
         <extracomment>WindowTitle</extracomment>
-<<<<<<< HEAD
         <translation>Uložit soubor ffpreset</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>FFmpeg preset file (*.ffpreset)</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Soubor s přednastavením pro FFmpeg (*.ffpreset)</translation>
     </message>
 </context>
@@ -792,9 +667,6 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Create Filter</source>
         <translation>Vytvořit filtr</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -838,57 +710,36 @@ Příklad pro OSS: /dev/dsp</translation>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Udělat šířku gumičky menší/větší</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>made rubberband height smaller/greater</source>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Udělat výšku gumičky menší/větší</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Displaces x-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Vytlačí souřadnice osy x z gumičky</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Displaces y-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Vytlačí souřadnice osy y z gumičky</translation>
     </message>
     <message>
         <source>Color depth:</source>
         <translation>Barevná hloubka:</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Color depth:</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>current color depth</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Nynější barevná hloubka</translation>
     </message>
     <message>
@@ -899,9 +750,6 @@ WhatsThis</extracomment>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Nyní vybraná obrazovka</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -909,7 +757,6 @@ WhatsThis</extracomment>
     <message>
         <source>Set default graphics backend to system</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Nastavit výchozí grafické jádro na systémové</translation>
     </message>
     <message>
@@ -923,21 +770,6 @@ WhatsThis</extracomment>
     <message>
         <source>OpenGL</source>
         <translation>OpenGL</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Native</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Raster</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OpenGL</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -960,11 +792,7 @@ WhatsThis</extracomment>
     </message>
     <message>
         <source>Fatal</source>
-<<<<<<< HEAD
         <translation>Vážný</translation>
-=======
-        <translation>Kritický</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Set the logging level used by the FFmpeg application</source>
@@ -990,11 +818,7 @@ WhatsThis</extracomment>
     <message>
         <source>FFmpeg logging level</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Úroveň zápisu FFmpeg</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1010,25 +834,16 @@ WhatsThis</extracomment>
     <message>
         <source>Features</source>
         <extracomment>GroupBoxTitle</extracomment>
-<<<<<<< HEAD
         <translation>Vlastnosti</translation>
-=======
-        <translation type="unfinished">Schopnosti</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Povolit při spuštění programu gumičku</translation>
-=======
-        <translation type="unfinished">Ukazovat při spuštění programu gumičku</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Vždy ukazovat při spuštění programu gumičku</translation>
     </message>
     <message>
@@ -1042,53 +857,25 @@ WhatsThis</extracomment>
     <message>
         <source>Report Level</source>
         <translation>Úroveň zprávy</translation>
-=======
-        <translation type="unfinished">Vždy ukazovat při spuštění programu gumičku</translation>
-    </message>
-    <message>
-        <source>Display Rubberband</source>
-        <translation type="unfinished">Zobrazit gumový pás</translation>
-    </message>
-    <message>
-        <source>Start Minimized</source>
-        <translation type="unfinished">Spustit zmenšeně</translation>
-    </message>
-    <message>
-        <source>Report Level</source>
-        <translation type="unfinished">Úroveň zprávy</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Spustit QX11Grab zmenšený</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Při spuštění ukázat QX11Grab jen v oznamovací oblasti panelu</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Povolit/Zakázat odborný režim editoru</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Povolit automatické vložení mých odborných nastavení</translation>
     </message>
     <message>
@@ -1116,28 +903,12 @@ WhatsThis</extracomment>
         <source>start recording if qx11grab have unsaved changes</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Spustit nahrávání, pokud QX11Grab má neuložené změny</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expert Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Graphics System</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Dimension</source>
-<<<<<<< HEAD
         <translation>Rozměr</translation>
     </message>
     <message>
@@ -1151,43 +922,19 @@ WhatsThis</extracomment>
     <message>
         <source>Audio Recording</source>
         <translation>Nahrávání zvuku</translation>
-=======
-        <translation type="unfinished">Rozměr</translation>
-    </message>
-    <message>
-        <source>Metadata</source>
-        <translation type="unfinished">Metadata</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="unfinished">Video</translation>
-    </message>
-    <message>
-        <source>Audio Recording</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Zapnout/Vypnout zvukovou stopu v zachytávaném videu</translation>
     </message>
     <message>
         <source>Audio</source>
         <translation>Zvuk</translation>
-=======
-        <translation type="unfinished">Zapnout/Vypnout zvukovou stopu v zachytávaném videu</translation>
-    </message>
-    <message>
-        <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Náhled na příkazový řádek</translation>
     </message>
     <message>
@@ -1241,49 +988,6 @@ WhatsThis</extracomment>
     <message>
         <source>unsaved changes</source>
         <translation>Neuložené změny</translation>
-=======
-        <translation type="unfinished">Náhled na příkazový řádek</translation>
-    </message>
-    <message>
-        <source>FFmpeg</source>
-        <translation type="unfinished">FFmpeg</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="unfinished">Informace</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Chyba</translation>
-    </message>
-    <message>
-        <source>qx11grap not started</source>
-        <translation type="unfinished">qx11grab není spuštěn</translation>
-    </message>
-    <message>
-        <source>commandline exported</source>
-        <translation type="unfinished">příkazový řádek vyveden</translation>
-    </message>
-    <message>
-        <source>Remove Bookmark</source>
-        <translation type="unfinished">Odstranit záložku</translation>
-    </message>
-    <message>
-        <source>Bookmark</source>
-        <translation type="unfinished">Záložka</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1 failed</source>
-        <translation type="unfinished">Otevření záložky %1 se nezdařilo</translation>
-    </message>
-    <message>
-        <source>Open Bookmark %1</source>
-        <translation type="unfinished">Otevřít záložku %1</translation>
-    </message>
-    <message>
-        <source>Missing Input</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1333,11 +1037,7 @@ WhatsThis</extracomment>
     <message>
         <source>Rubberband</source>
         <extracomment>MenuEntry</extracomment>
-<<<<<<< HEAD
         <translation>Gumička</translation>
-=======
-        <translation>Gumový pás</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Recording</source>
@@ -1485,7 +1185,6 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Configure</source>
-<<<<<<< HEAD
         <translation>Nastavit</translation>
     </message>
     <message>
@@ -1495,46 +1194,23 @@ ToolTip</extracomment>
     <message>
         <source>About Qt4</source>
         <translation>O Qt4</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>About QX11Grab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>About Qt4</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Presets Editor</source>
         <extracomment>MenuEntry</extracomment>
-<<<<<<< HEAD
         <translation>Editor přednastavení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Open Presets Editor</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Otevřít editor přednastavení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>Messanger</name>
     <message>
         <source>Notification not send!</source>
-<<<<<<< HEAD
         <translation>Oznámení neposláno!</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1585,78 +1261,45 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Insert Metadata</source>
         <extracomment>GroupBoxTitle</extracomment>
-<<<<<<< HEAD
         <translation>Vložit hlavičková data</translation>
-=======
-        <translation type="unfinished">Vložit údaje (metadata)</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>enable/disable auto insert metadata in the captured video</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
-=======
-        <translation type="unfinished">Zapnout/Vypnout automatické vkládání hlavičkových dat v zachytávaném videu</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Name or Movie Name</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Název nebo název filmu</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Author, Director or Artist</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Autor, režisér nebo umělec</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Copyright</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Autorské právo</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Creation Date</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Datum vytvoření</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Subject</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Předmět</translation>
     </message>
     <message>
         <source>Comments:</source>
         <translation>Poznámky:</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Comments:</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Poznámky</translation>
     </message>
 </context>
@@ -1682,9 +1325,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>selected image has no legal transparency.</source>
         <translation>Vybraný obrázek nemá průhlednost.</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1692,28 +1332,16 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Open Sound System (OSS)</source>
         <extracomment>WindowTitle</extracomment>
-<<<<<<< HEAD
         <translation>Open Sound System (OSS)</translation>
     </message>
     <message>
         <source>%1 OSS Device: %2</source>
         <translation>%1zařízení OSS: %2</translation>
-=======
-        <translation type="unfinished">Open Sound System (OSS)</translation>
-    </message>
-    <message>
-        <source>%1 OSS Device: %2</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Open Sound System (OSS) Device</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Zařízení Open Sound System (OSS)</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1761,33 +1389,21 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
-<<<<<<< HEAD
         <translation>SMPlayer</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>PresetSelector</name>
     <message>
         <source>New</source>
-<<<<<<< HEAD
         <translation>Nový</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>PresetsComboBox</name>
     <message>
         <source>Select Preset</source>
-<<<<<<< HEAD
         <translation>Vybrat přednastavení</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1803,16 +1419,11 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Vzorkovací formát</translation>
-=======
-        <translation type="unfinished">Vzorkovací formát</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Bits per Pixel %1</source>
         <extracomment>ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Bitů na pixel %1</translation>
     </message>
 </context>
@@ -1836,9 +1447,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
-=======
-        <translation type="unfinished">Bitů na pixel %1</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -1885,7 +1493,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
     <name>SetDar</name>
     <message>
         <source>DAR Filter</source>
@@ -1921,107 +1528,35 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation>QX11Grab: Nahrávají se okna X11 s ffmpeg</translation>
-=======
-    <name>SystemTray</name>
-    <message>
-        <source>qx11grab: recording X11 Windows with ffmpeg</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>QX11Grab: Nahrávají se okna X11 s ffmpeg</translation>
-    </message>
-</context>
-<context>
-    <name>TableEditor</name>
-    <message>
-        <source>Add</source>
-        <translation>Přidat</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Odstranit</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Vyprázdnit</translation>
-    </message>
-    <message>
-        <source>Encoder</source>
-        <translation>Kodér</translation>
-    </message>
-    <message>
-        <source>codec selecter</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>codec editor table</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This button insert a new empty table row</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This button remove selected table rows</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This button clear table contents</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
     <name>TargetsWidget</name>
     <message>
         <source>FFmpeg Application:</source>
-<<<<<<< HEAD
         <translation>Program ffmpeg:</translation>
-=======
-        <translation type="unfinished">Program ffmpeg:</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Absolutní cesta k nahrávacímu programu FFmpeg</translation>
     </message>
     <message>
         <source>Output Filename:</source>
         <translation>Název výstupního souboru:</translation>
-=======
-        <translation type="unfinished">Absolutní cesta k nahrávacímu programu FFmpeg</translation>
-    </message>
-    <message>
-        <source>Output Filename:</source>
-        <translation type="unfinished">Název výstupního souboru:</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Stanovené názvy výstupních souborů mohou obsahovat předlohu v zadaném doplňkovém formátu (šest znaků X psaných velkými písmeny), která bude v názvu výstupního souboru na výstupu automaticky nahrazena klíčem.</translation>
     </message>
     <message>
         <source>Output Directory:</source>
         <translation>Výstupní adresář:</translation>
-=======
-        <translation type="unfinished">Stanovené názvy výstupních souborů mohou obsahovat předlohu v zadaném doplňkovém formátu (šest znaků X psaných velkými písmeny), která bude v názvu výstupního souboru na výstupu automaticky nahrazena klíčem.</translation>
-    </message>
-    <message>
-        <source>Output Directory:</source>
-        <translation type="unfinished">Výstupní adresář:</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
-<<<<<<< HEAD
         <translation>Adresář, v němž se budou ukládat výstupní soubory</translation>
     </message>
     <message>
@@ -2031,40 +1566,20 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Other %1</source>
         <translation>Jiné %1</translation>
-=======
-        <translation type="unfinished">Adresář, v němž se budou ukládat výstupní soubory</translation>
-    </message>
-    <message>
-        <source>without pulse</source>
-        <translation type="unfinished">Bez pulsu</translation>
-    </message>
-    <message>
-        <source>Other %1</source>
-        <translation type="unfinished">Jiné %1</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
-<<<<<<< HEAD
         <translation>Program ffmpeg</translation>
-=======
-        <translation type="unfinished">Program ffmpeg</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
-<<<<<<< HEAD
         <translation>Výstupní adresář</translation>
-=======
-        <translation type="unfinished">Výstupní adresář</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
-<<<<<<< HEAD
         <translation>Adresáře &amp;&amp; soubory</translation>
     </message>
 </context>
@@ -2124,9 +1639,6 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>Vertical Text Indent</source>
         <extracomment>ToolTip</extracomment>
         <translation>Svislé odsazení textu</translation>
-=======
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 <context>
@@ -2148,18 +1660,13 @@ ToolTip</extracomment>
     </message>
     <message>
         <source>Export</source>
-<<<<<<< HEAD
         <translation>Vyvést</translation>
-=======
-        <translation type="unfinished">Vyvést</translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
     <message>
         <source>Export Logfile</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-<<<<<<< HEAD
         <translation>Vyvést soubor se zápisem</translation>
     </message>
     <message>
@@ -2373,17 +1880,6 @@ ToolTip</extracomment>
     <message>
         <source>Insert a Watermark into output video</source>
         <translation>Vložit vodoznak do výstupního videa</translation>
-=======
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Export logfile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Logfile (%1)</source>
-        <translation type="unfinished"></translation>
->>>>>>> a332db3c7a3adf22ea46a1ec854c619e574fdb6a
     </message>
 </context>
 </TS>

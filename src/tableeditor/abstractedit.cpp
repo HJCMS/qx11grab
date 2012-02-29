@@ -49,7 +49,6 @@ void AbstractEdit::openProposedDialog()
 {
   bool ok;
   int index = ( text().isEmpty() ) ? 0 : proposeList.indexOf ( text() );
-  /*: WindowTitle */
   QString item = QInputDialog::getItem ( this, trUtf8 ( "Proposing" ),
                                          trUtf8 ( "submitted items" ),
                                          proposeList, index, false, &ok );

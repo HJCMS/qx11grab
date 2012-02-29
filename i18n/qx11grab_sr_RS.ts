@@ -25,16 +25,14 @@
 <context>
     <name>AbstractEdit</name>
     <message>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="53"/>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="69"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="52"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="68"/>
         <source>Proposing</source>
-        <extracomment>WindowTitle
-----------
-MenuEntry</extracomment>
+        <extracomment>MenuEntry</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/abstractedit.cpp" line="54"/>
+        <location filename="../src/tableeditor/abstractedit.cpp" line="53"/>
         <source>submitted items</source>
         <translation type="unfinished"></translation>
     </message>
