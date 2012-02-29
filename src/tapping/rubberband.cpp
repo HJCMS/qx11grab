@@ -28,6 +28,7 @@
 /* QtGui */
 #include <QtGui/QBrush>
 #include <QtGui/QPainter>
+#include <QtGui/QPainterPath>
 #include <QtGui/QPen>
 
 RubberBand::RubberBand ( QWidget * parent )
@@ -72,13 +73,7 @@ void RubberBand::paintEvent ( QPaintEvent * event )
   initStyleOption ( &panel );
 
   QPainter painter ( this );
-  painter.setRenderHint ( QPainter::TextAntialiasing, false );
-  painter.setRenderHint ( QPainter::HighQualityAntialiasing, false );
-  painter.setRenderHint ( QPainter::NonCosmeticDefaultPen, true );
-  painter.setBrush ( frameColor() );
-  painter.setBackgroundMode ( Qt::TransparentMode );
-  painter.setPen ( Qt::NoPen );
-  painter.drawRect ( panel.rect );
+  painter.fillRect ( panel.rect, frameColor() );
 }
 
 bool RubberBand::isScalability()
