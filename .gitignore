@@ -12,6 +12,7 @@ core
 ctags
 .ctags
 .bzr
+.bzrignore
 tags
 build-native.sh
 build-version-package.pl
