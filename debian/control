@@ -20,7 +20,8 @@ Build-Depends:
   libvpx-dev,
   libxrandr-dev,
   libfreetype6-dev,
-  libfontconfig1-dev
+  libfontconfig1-dev,
+  ffmpeg
 Standards-Version: 3.9.2
 Homepage: http://qx11grab.hjcms.de/
 
