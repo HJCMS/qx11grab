@@ -165,15 +165,10 @@ void FFProcess::stop()
 
   // FIXME Wenn der Sound Channel nicht stimmt entsteht ein loop!
   char q = 'q';
-  if ( ( m_QProcess->write ( &q ) != -1 ) )
-  {
-    if ( m_QProcess->waitForBytesWritten( 3000 ) )
-      m_QProcess->closeWriteChannel();
-    else
-      m_QProcess->close();
-  }
+  if ( ( m_QProcess->write ( &q ) != -1 ) && ( m_QProcess->waitForBytesWritten () ) )
+    m_QProcess->closeWriteChannel();
   else
-    m_QProcess->kill();
+    m_QProcess->close();
 }
 
 /**
