@@ -30,6 +30,7 @@
 #include <QtCore/QLibrary>
 #include <QtCore/QLibraryInfo>
 #include <QtCore/QMetaObject>
+#include <QtCore/QSysInfo>
 
 namespace QX11Grab
 {
@@ -42,8 +43,11 @@ namespace QX11Grab
     QStringList paths; // Alle Suchverzeichnisse
     paths << QString ( "%1/plugins" ).arg ( p_dir.absolutePath() ); // NOTE ganz vorne
     paths << QString ( "%1/qx11grab" ).arg ( QLibraryInfo::location ( QLibraryInfo::LibrariesPath ) );
-    paths << QString ( "%1/../lib/qx11grab" ).arg ( p_dir.absolutePath() );
-    paths << QString ( "%1/../lib64/qx11grab" ).arg ( p_dir.absolutePath() );
+    if ( QSysInfo::WordSize == 64 )
+      paths << QString ( "%1/../lib64/qx11grab" ).arg ( p_dir.absolutePath() );
+    else
+      paths << QString ( "%1/../lib/qx11grab" ).arg ( p_dir.absolutePath() );
+
     p_dir.setSearchPaths ( "plugins", paths );
   }
 
