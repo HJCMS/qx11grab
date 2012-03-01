@@ -82,7 +82,7 @@ const QString FFProcess::workdir()
 const QString FFProcess::writeScript ( const QStringList &cmd )
 {
   QByteArray username = qgetenv ( "USER" );
-  QString script = QString::fromUtf8 ( "%1/qx11grab_%2.sh" ).arg ( workdir(), QString( username ) );
+  QString script = QString::fromUtf8 ( "%1/qx11grab_%2.sh" ).arg ( workdir(), QString ( username ) );
   QFile fp ( script );
   if ( fp.open ( QIODevice::WriteOnly ) )
   {
@@ -164,8 +164,7 @@ void FFProcess::stop()
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
   // FIXME Wenn der Sound Channel nicht stimmt entsteht ein loop!
-  char q = 'q';
-  if ( ( m_QProcess->write ( &q ) != -1 ) && ( m_QProcess->waitForBytesWritten () ) )
+  if ( ( m_QProcess->write ( QByteArray ( "q" ) ) != -1 ) && ( m_QProcess->waitForBytesWritten () ) )
     m_QProcess->closeWriteChannel();
   else
     m_QProcess->close();
@@ -248,6 +247,10 @@ void FFProcess::errors ( QProcess::ProcessError err )
       break;
 
     case QProcess::UnknownError:
+      emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "UnknownError (%1) ..." ).arg ( errtxt ) );
+      break;
+
+    default:
       emit errmessage ( trUtf8 ( "Recording" ), trUtf8 ( "UnknownError (%1) ..." ).arg ( errtxt ) );
       break;
   }
