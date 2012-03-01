@@ -87,11 +87,13 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
   if ( fp.open ( QIODevice::WriteOnly ) )
   {
     QTextStream stream ( &fp );
-    stream << QLatin1String ( "#!/bin/sh\n" );
-    stream << "## QX11Grab FFmpeg Screencast Script\n\n";
+    stream << QLatin1String ( "#!/usr/bin/env sh\n" );
+    stream << QLatin1String ( "## QX11Grab FFmpeg Screencast Script\n\nset -o xtrace\n\n" );
     stream << cmd.join ( " " ).trimmed();
-    stream << "\n\n";
-    stream << "# EOF\n";
+#ifdef MAINTAINER_REPOSITORY
+    stream << QLatin1String ( " 2>&1 | tee /tmp/qx11grab_debug.log" );
+#endif
+    stream << QLatin1String ( "\n\n# EOF\n" );
     fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
     fp.close();
   }
@@ -134,8 +136,8 @@ bool FFProcess::start ( const QStringList &cmd )
   m_QProcess->setProcessEnvironment ( env );
   m_QProcess->setWorkingDirectory ( workdir() );
   m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
-  m_QProcess->setReadChannel ( QProcess::StandardOutput );
   m_QProcess->setStandardErrorFile ( Settings::logfile() );
+  m_QProcess->setReadChannel ( QProcess::StandardOutput );
 
   connect ( m_QProcess, SIGNAL ( stateChanged ( QProcess::ProcessState ) ),
             this, SLOT ( status ( QProcess::ProcessState ) ) );
@@ -149,7 +151,7 @@ bool FFProcess::start ( const QStringList &cmd )
   connect ( m_QProcess, SIGNAL ( started() ),
             this, SLOT ( startCheck() ) );
 
-  m_QProcess->start ( script.absoluteFilePath() );
+  m_QProcess->start ( script.absoluteFilePath(), QIODevice::ReadWrite );
   return true;
 }
 
@@ -163,11 +165,25 @@ void FFProcess::stop()
 
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
-  // FIXME Wenn der Sound Channel nicht stimmt entsteht ein loop!
-  if ( ( m_QProcess->write ( QByteArray ( "q" ) ) != -1 ) && ( m_QProcess->waitForBytesWritten () ) )
+  const char* q = new const char ( 'q' );
+  if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
+  {
+    qWarning ( "QX11Grab - failed to send quit command to FFmpeg process!\n%s",
+               m_QProcess->readAllStandardError().constData() );
+    goto close_channels;
+  }
+
+  if ( m_QProcess->waitForBytesWritten ( 1500 ) )
+  {
+    qDebug ( "QX11Grab - normal shutdown FFmpeg process" );
+    goto close_channels;
+  }
+
+close_channels:
+  {
     m_QProcess->closeWriteChannel();
-  else
-    m_QProcess->close();
+    m_QProcess->closeReadChannel ( QProcess::StandardOutput );
+  }
 }
 
 /**
@@ -179,6 +195,12 @@ void FFProcess::kill()
     return;
 
   emit message ( trUtf8 ( "force shutdown" ) );
+
+#ifdef MAINTAINER_REPOSITORY
+  QStringList psArgs;
+  psArgs << "-a" << QString::number ( m_QProcess->pid() );
+  QProcess::startDetached ( "ps", psArgs );
+#endif
 
   m_QProcess->kill ();
 }
