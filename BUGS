@@ -1,6 +1,12 @@
 
 * Please Report Bugs to : https://launchpad.net/~juergen-heinemann/+archive/qx11grab.hjcms.de
 
+* can not create mp4 videos
+  - you need FFmpeg with libfaac Support. (NOTE This will break GPL License)
+
+* drawtext plugin didn't work
+  - some distributions not compile FFmpeg with freetype2 support.
+
 * Why now Spaces in Commandline Strings?
   - QProcess delimiting with spaces
   - Currently there is now way to modify the delimiter for QProccess

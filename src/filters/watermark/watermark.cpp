@@ -44,6 +44,7 @@
 #include <QtGui/QVBoxLayout>
 
 /* QtDBus */
+#include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 

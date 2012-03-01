@@ -35,6 +35,7 @@ ADD_LIBRARY (${target_plugin} MODULE
 TARGET_LINK_LIBRARIES (${target_plugin}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
+  ${QT_QTXML_LIBRARY}
   ${QT_QTBUS_LIBRARY}
   qx11grabinterface
 )

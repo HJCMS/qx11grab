@@ -1,12 +1,10 @@
 Source: qx11grab
 Section: kde
 Priority: optional
-Maintainer: Juergen Heinemann <noreply@hjcms.de>
-XSBC-Original-Maintainer: Juergen Heinemann <noreply@hjcms.de>
+Maintainer: Juergen Heinemann (Undefined) <noreply@hjcms.de>
 Build-Depends:
   cmake,
   libqt4-dev (>= 7.4.2),
-  qt4-dev-tools,
   debhelper (>= 7.3.16),
   libx11-dev,
   libasound2-dev,
@@ -14,7 +12,6 @@ Build-Depends:
   libavformat-dev,
   libavcodec-dev,
   libavutil-dev,
-  libx264-dev,
   libx264-dev,
   libtheora-dev,
   libvpx-dev,
