@@ -87,10 +87,10 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
   if ( fp.open ( QIODevice::WriteOnly ) )
   {
     QTextStream stream ( &fp );
-    stream << QLatin1String ( "#!/usr/bin/env sh\n" );
+    stream << QLatin1String ( "#!/bin/sh\n" );
     stream << "## QX11Grab FFmpeg Screencast Script\n\n";
     stream << cmd.join ( " " ).trimmed();
-    stream << "\nexit $?\n\n";
+    stream << "\n\n";
     stream << "# EOF\n";
     fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
     fp.close();

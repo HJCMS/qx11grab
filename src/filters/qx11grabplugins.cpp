@@ -39,18 +39,11 @@ namespace QX11Grab
   {
     setObjectName ( QLatin1String ( "Plugins" ) );
 
-    QString pdn ( "qx11grab" ); // Standard Plugin Verzeichnis Name
     QStringList paths; // Alle Suchverzeichnisse
-
-    QString sp = p_dir.separator();
-    paths << QString ( "%1%2%3" ).arg ( p_dir.absolutePath(), sp, QLatin1String ( "plugins" ) );
-
-    // Für Win/Mac im Programm Verzeichnis
-    paths << QString ( "%1%2%3" ).arg ( p_dir.absolutePath(), sp, pdn );
-
-    // Im globalen Installations Verzeichniss
-    paths << QString ( "%1%2%3" ).arg ( QLibraryInfo::location ( QLibraryInfo::LibrariesPath ), sp, pdn );
-
+    paths << QString ( "%1/plugins" ).arg ( p_dir.absolutePath() ); // NOTE ganz vorne
+    paths << QString ( "%1/qx11grab" ).arg ( QLibraryInfo::location ( QLibraryInfo::LibrariesPath ) );
+    paths << QString ( "%1/../lib/qx11grab" ).arg ( p_dir.absolutePath() );
+    paths << QString ( "%1/../lib64/qx11grab" ).arg ( p_dir.absolutePath() );
     p_dir.setSearchPaths ( "plugins", paths );
   }
 
