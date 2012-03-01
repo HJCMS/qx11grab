@@ -1,3 +1,12 @@
+qx11grab (0.4.2) oneiric; urgency=low
+
+  [ Juergen Heinemann (Undefined) ]
+  * Add missing build dependency
+  * wrap-and-sort debian/control.
+  * add Extension Manager
+  * fix brocken icons from newer oxygen icon theme
+  * add workaround to deprecated ffmpeg functions
+
 qx11grab (0.4.0) oneiric; urgency=low
 
   [ Juergen Heinemann (Undefined) ]
