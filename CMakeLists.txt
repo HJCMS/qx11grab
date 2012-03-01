@@ -339,7 +339,6 @@ INSTALL (FILES
 ##############################################################
 
 CONFIGURE_FILE (qx11grab.spec.cmake qx11grab.spec)
-CONFIGURE_FILE (PKGBUILD.cmake PKGBUILD)
 
 ##############################################################
 ## SUBDIRECTORIES
