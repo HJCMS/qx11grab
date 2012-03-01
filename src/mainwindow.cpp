@@ -588,7 +588,7 @@ void MainWindow::preparePreview ()
 {
   QStringList commandLine;
   commandLine << cfg->binaryPath();
-  // commandLine << "-xerror";
+  commandLine << "-xerror";
   commandLine << "-loglevel" << cfg->logLevel();
   commandLine << "-f" << "x11grab";
   commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
