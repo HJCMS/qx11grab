@@ -701,7 +701,7 @@ Example for OSS: /dev/dsp</source>
     <name>FFProcess</name>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="125"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="127"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -711,82 +711,84 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="111"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="124"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="126"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="231"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="256"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="260"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="264"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="268"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="272"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="276"/>
         <source>Recording</source>
         <translation type="unfinished">Снимање</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="231"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="235"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="256"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="239"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="260"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="243"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="264"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="247"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="268"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="272"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="276"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="291"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="284"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="309"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="295"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="164"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="166"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="182"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="197"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="109"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="111"/>
         <source>Dimension</source>
         <translation type="unfinished">Димензије</translation>
     </message>
@@ -1758,22 +1760,22 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="80"/>
+        <location filename="../src/tapping/rubberband.cpp" line="84"/>
         <source>Scalability Failure Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="81"/>
+        <location filename="../src/tapping/rubberband.cpp" line="85"/>
         <source>Frame Width must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="88"/>
+        <location filename="../src/tapping/rubberband.cpp" line="92"/>
         <source>Scalability Failure Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="89"/>
+        <location filename="../src/tapping/rubberband.cpp" line="93"/>
         <source>Frame Height must be a multiple of 2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2091,52 +2093,52 @@ ToolTip</extracomment>
 <context>
     <name>Watermark</name>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="54"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="55"/>
         <source>Watermark Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="71"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="72"/>
         <source>Margin (Left|Right)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="76"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
         <source>Margin (Top|Bottom)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="80"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="81"/>
         <source>Open Image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="85"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="95"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="96"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
     </message>
