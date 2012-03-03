@@ -14,8 +14,6 @@ ctags
 .bzr
 .bzrignore
 tags
-build-native.sh
-build-version-package.pl
 c*.sh
 ddd.sh
 importicon.sh
