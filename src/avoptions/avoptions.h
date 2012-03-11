@@ -138,9 +138,6 @@ namespace QX11Grab
       /** complete list of all /usr/share/ffmpeg/?.ffpreset */
       static const QStringList systemPresets ( const QString &suffix );
 
-      /** needet for validate some thread options */
-      static qint32 maxAllowedThreads();
-
       virtual ~AVOptions();
   };
 

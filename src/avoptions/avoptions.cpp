@@ -382,32 +382,6 @@ namespace QX11Grab
     return list;
   }
 
-  /**
-  * Soll verhindern das der Benutzer bei der thread Angabe zu viele Kerne angibt!
-  */
-  qint32 AVOptions::maxAllowedThreads()
-  {
-    qint32 ncp = 0;
-    cpu_set_t p_CPUset;
-    memset ( &p_CPUset, 0, sizeof ( p_CPUset ) );
-    if ( sched_getaffinity ( 0, sizeof ( p_CPUset ), &p_CPUset ) )
-    {
-      ncp = 1;
-      return ncp;
-    }
-
-    // die neuere glibc bietet ein macro
-#ifdef CPU_COUNT
-    return CPU_COUNT ( &p_CPUset );
-#endif
-
-    for ( uint bit = 0; bit < ( 8 * sizeof ( p_CPUset ) ); bit++ )
-    {
-      ncp += ( ( ( reinterpret_cast<uint8_t*> ( &p_CPUset ) ) [bit / 8] >> ( bit % 8 ) ) & 1 );
-    }
-    return ncp;
-  }
-
   AVOptions::~AVOptions()
   {}
 

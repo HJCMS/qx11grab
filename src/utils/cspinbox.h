@@ -31,6 +31,10 @@
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
+/**
+* spinbox with modified border style
+* if value is non-divisible it will paint a red left border
+*/
 class CSpinBox : public QSpinBox
 {
     Q_OBJECT

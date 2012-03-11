@@ -7,6 +7,7 @@ SET (_subproject_SOURCES
   screencombobox.cpp
   cspinbox.cpp
   grabberinfo.cpp
+  threadsspinbox.cpp
 )
 
 SET (_subproject_HEADERS
@@ -14,6 +15,7 @@ SET (_subproject_HEADERS
   screencombobox.h
   cspinbox.h
   grabberinfo.h
+  threadsspinbox.h
 )
 
 SET (_subproject_NOMOC_HEADERS

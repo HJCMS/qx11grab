@@ -19,40 +19,39 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef LISTENER_H
-#define LISTENER_H
+#ifndef THREADSSPINBOX_H
+#define THREADSSPINBOX_H
 
 /* QtCore */
-#include <QtCore/QDateTime>
-#include <QtCore/QFileInfo>
-#include <QtCore/QFileSystemWatcher>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
-class Listener : public QFileSystemWatcher
+/* QtGui */
+#include <QtGui/QSpinBox>
+#include <QtGui/QWidget>
+
+/**
+* a class for setting the maximum Thread count
+*/
+class ThreadsSpinBox : public QSpinBox
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QFileInfo* m_fileInfo;
-    QDateTime* m_timeSpec;
-    void setInfoUpdate ();
-
-  private Q_SLOTS:
-    void updated ( const QString & );
-
-  Q_SIGNALS:
-    void info ( const QString & );
-
-  public Q_SLOTS:
-    void start();
-    void clear();
+    void setMaxThreads();
 
   public:
-    Listener ( QObject * parent = 0 );
-    bool setOutputFile ( const QString &outFile );
-    ~Listener();
+    explicit ThreadsSpinBox ( QWidget * parent = 0 );
+
+    /**
+    * Commandline Argument e.g.: "-threads 2"
+    * @note If value is lesser then 2, it will return an empty string!
+    */
+    const QString argument();
+
+    ~ThreadsSpinBox();
 };
 
 #endif

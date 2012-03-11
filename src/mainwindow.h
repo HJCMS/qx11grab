@@ -46,7 +46,6 @@
 
 class Settings;
 class FFProcess;
-class Listener;
 class MenuBar;
 class ToolBar;
 class GrabberInfo;
@@ -67,7 +66,6 @@ class MainWindow : public QMainWindow
   private:
     Settings* cfg;
     FFProcess* m_FFProcess;
-    Listener* m_listener;
     QToolBox* m_toolBox;
     MenuBar* m_menuBar;
     ToolBar* m_toolBar;

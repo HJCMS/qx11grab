@@ -33,6 +33,11 @@
 #include <QtGui/QStyle>
 #include <QtGui/QStyleOptionSpinBox>
 
+/**
+* Modifizierte SpinBox
+* Ist der Eingabe Wert nicht Teilbar wird links ein Roter Seitenbalken gezeichnet!
+* Diese Klasse wird Hauptsächlich für die Eingabe der Dimensionen verwendet.
+*/
 CSpinBox::CSpinBox ( QWidget * parent )
     : QSpinBox ( parent )
 {

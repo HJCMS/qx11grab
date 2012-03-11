@@ -23,6 +23,7 @@
 
 #include "ffprocess.h"
 #include "settings.h"
+#include "listener.h"
 
 #ifndef QX11GRAB_VERSION
 #include "version.h"
@@ -35,6 +36,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
+#include <QtCore/QTimer>
 #include <QtCore/QIODevice>
 #include <QtCore/QProcessEnvironment>
 
@@ -46,8 +48,12 @@ FFProcess::FFProcess ( QObject *parent, Settings *settings )
     , cfg ( settings )
     , xInfo()
     , m_QProcess ( 0 )
+    , m_listener ( 0 )
 {
   arguments = QStringList();
+  m_listener = new Listener ( this );
+  connect ( m_listener, SIGNAL ( info ( const QString & ) ),
+            this, SIGNAL ( statusMessage ( const QString & ) ) );
 }
 
 /**
@@ -90,9 +96,8 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
     stream << QLatin1String ( "#!/usr/bin/env sh\n" );
     stream << QLatin1String ( "## QX11Grab FFmpeg Screencast Script\n\nset -o xtrace\n\n" );
     stream << cmd.join ( " " ).trimmed();
-#ifdef MAINTAINER_REPOSITORY
-    stream << QLatin1String ( " 2>&1 | tee /tmp/qx11grab_debug.log" );
-#endif
+    stream << QLatin1String ( " $@" );
+    // stream << QLatin1String ( " 2>&1 | tee /tmp/qx11grab_debug.log" );
     stream << QLatin1String ( "\n\n# EOF\n" );
     fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
     fp.close();
@@ -115,7 +120,7 @@ bool FFProcess::create ( const QRect &r )
 /**
 * Starte die Aufnahme
 */
-bool FFProcess::start ( const QStringList &cmd )
+bool FFProcess::start ( const QStringList &cmd, const QString &outputFile )
 {
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
@@ -127,6 +132,9 @@ bool FFProcess::start ( const QStringList &cmd )
                       trUtf8 ( "Permission Denied: %1." ).arg ( script.absoluteFilePath() ) );
     return false;
   }
+
+  if ( ! m_listener->setOutputFile ( outputFile ) )
+    qWarning ( "QX11Grab: can not set listener ouput file" );
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
@@ -183,6 +191,7 @@ close_channels:
   {
     m_QProcess->closeWriteChannel();
     m_QProcess->closeReadChannel ( QProcess::StandardOutput );
+    m_listener->clear();
   }
 }
 
@@ -229,6 +238,7 @@ void FFProcess::status ( QProcess::ProcessState status )
       break;
 
     case QProcess::Starting:
+      QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );
       break;
 
     case QProcess::Running:
@@ -310,4 +320,7 @@ void FFProcess::startCheck()
 }
 
 FFProcess::~FFProcess()
-{}
+{
+  if ( m_listener )
+    delete m_listener;
+}

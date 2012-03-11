@@ -33,6 +33,7 @@
 #include <QtGui/QX11Info>
 
 class Settings;
+class Listener;
 
 class FFProcess : public QObject
 {
@@ -43,6 +44,7 @@ class FFProcess : public QObject
     Settings* cfg;
     const QX11Info xInfo;
     QProcess* m_QProcess;
+    Listener* m_listener;
     QStringList arguments;
     const QString application();
     const QString workdir();
@@ -52,7 +54,7 @@ class FFProcess : public QObject
     void running ();
     void down();
     void message ( const QString & );
-    void trigger ( const QString & );
+    void statusMessage ( const QString & );
     void errmessage ( const QString &, const QString & );
 
   private Q_SLOTS:
@@ -68,9 +70,9 @@ class FFProcess : public QObject
   public:
     explicit FFProcess ( QObject *parent = 0, Settings *settings = 0 );
     bool create ( const QRect & );
-    bool start ( const QStringList &cmd );
+    bool start ( const QStringList &cmd, const QString &outputFile );
     bool isRunning();
-    ~FFProcess();
+    virtual ~FFProcess();
 };
 
 #endif

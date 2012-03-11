@@ -37,7 +37,6 @@
 #include "audiotableeditor.h"
 #include "metadata.h"
 #include "ffprocess.h"
-#include "listener.h"
 #include "commandpreview.h"
 #include "logviewer.h"
 #include "exportdialog.h"
@@ -53,7 +52,6 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
 #include <QtCore/QString>
-#include <QtCore/QTimer>
 #include <QtCore/QTextStream>
 
 /* QtGui */
@@ -81,7 +79,6 @@ MainWindow::MainWindow ( Settings * settings )
     : QMainWindow()
     , cfg ( settings )
     , m_FFProcess ( 0 )
-    , m_listener ( 0 )
 {
   setObjectName ( QLatin1String ( "qx11grab" ) );
   setWindowTitle ( QString::fromUtf8 ( "QX11Grab (%1)[*]" ).arg ( QX11GRAB_VERSION_STRING ) );
@@ -106,7 +103,6 @@ MainWindow::MainWindow ( Settings * settings )
 
   // Process Management
   m_FFProcess = new FFProcess ( this, cfg );
-  m_listener = new Listener ( this );
 
   QWidget* layerWidget = new QWidget ( this );
   layerWidget->setContentsMargins ( 0, 0, 0, 0 );
@@ -174,13 +170,10 @@ MainWindow::MainWindow ( Settings * settings )
   connect ( m_FFProcess, SIGNAL ( errmessage ( const QString &, const QString & ) ),
             this, SLOT ( pushErrorMessage ( const QString &, const QString & ) ) );
 
-  connect ( m_FFProcess, SIGNAL ( trigger ( const QString & ) ),
-            this, SLOT ( pushToolTip ( const QString & ) ) );
-
-  connect ( m_listener, SIGNAL ( info ( const QString & ) ),
+  connect ( m_FFProcess, SIGNAL ( statusMessage ( const QString & ) ),
             this, SLOT ( statusBarMessage ( const QString & ) ) );
 
-  connect ( m_listener, SIGNAL ( info ( const QString & ) ),
+  connect ( m_FFProcess, SIGNAL ( statusMessage ( const QString & ) ),
             m_systemTray, SLOT ( setCustomToolTip ( const QString & ) ) );
 
   connect ( m_grabberInfo, SIGNAL ( screenDataChanged ( bool ) ),
@@ -481,7 +474,7 @@ void MainWindow::updateCommandLine ( const QStringList &cmd )
 */
 void MainWindow::startRecord()
 {
-  if ( ! m_RubberBand->isScalability() || ! m_listener->setOutputFile ( outputFile() ) )
+  if ( ! m_RubberBand->isScalability() )
     return;
 
   /* Wenn der Benutzer Änderungen nicht gespeichert hat, wird im das hier mitgeteilt.
@@ -503,6 +496,10 @@ void MainWindow::startRecord()
   {
     // Nehme die Editierte Zeile des Benutzers
     QStringList cmd = m_commandPreview->currentCommandLine();
+    // Output File
+    QString outFile = generateOutputFile();
+    cmd << "-y" << outFile;
+
     if ( cmd.size() < 1 )
     {
       statusBarMessage ( trUtf8 ( "Missing Input" ) );
@@ -510,7 +507,7 @@ void MainWindow::startRecord()
     }
 
     showRubber ( false );
-    if ( m_FFProcess->start ( cmd ) )
+    if ( m_FFProcess->start ( cmd, outFile ) )
     {
       m_systemTray->setActionsEnabled ( true );
       m_menuBar->setActionsEnabled ( true );
@@ -522,7 +519,6 @@ void MainWindow::startRecord()
     m_systemTray->sendMessage ( trUtf8 ( "Error" ), trUtf8 ( "qx11grap not started" ), QSystemTrayIcon::Critical );
 
   m_toolBar->setActionsEnabled ( true );
-  QTimer::singleShot ( 6000, m_listener, SLOT ( start() ) );
 }
 
 /**
@@ -623,10 +619,6 @@ void MainWindow::preparePreview ()
   // Audio Aufnahme
   if ( m_audioGroupBox->isChecked() )
     commandLine << m_audioEditor->getCmd();
-
-  // Output Options
-  QString outFile = generateOutputFile();
-  commandLine << "-y" << outFile;
 
 // #ifdef MAINTAINER_REPOSITORY
 //   qDebug() << Q_FUNC_INFO << commandLine;
@@ -749,9 +741,6 @@ void MainWindow::shutdown()
     stop();
     delete m_FFProcess;
   }
-
-  if ( m_listener )
-    delete m_listener;
 
   qDebug ( "qx11grab quit" );
   qApp->quit();
