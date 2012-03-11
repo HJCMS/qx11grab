@@ -85,7 +85,7 @@ const QString FFProcess::workdir()
 * Erstellt das Schellscript zum Ausführen von FFmpeg
 * NOTE Wir müssen ein Shellscript verwenden weil QProcess keinen Delimiter modifikator anbietet!
 */
-const QString FFProcess::writeScript ( const QStringList &cmd )
+const QString FFProcess::writeScript ( const QStringList &cmd, const QString &vfile )
 {
   QByteArray username = qgetenv ( "USER" );
   QString script = QString::fromUtf8 ( "%1/qx11grab_%2.sh" ).arg ( workdir(), QString ( username ) );
@@ -96,8 +96,7 @@ const QString FFProcess::writeScript ( const QStringList &cmd )
     stream << QLatin1String ( "#!/usr/bin/env sh\n" );
     stream << QLatin1String ( "## QX11Grab FFmpeg Screencast Script\n\nset -o xtrace\n\n" );
     stream << cmd.join ( " " ).trimmed();
-    stream << QLatin1String ( " $@" );
-    // stream << QLatin1String ( " 2>&1 | tee /tmp/qx11grab_debug.log" );
+    stream << QString::fromUtf8 ( " $@ -y %1" ).arg ( vfile );
     stream << QLatin1String ( "\n\n# EOF\n" );
     fp.setPermissions ( ( QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner ) );
     fp.close();
@@ -125,7 +124,7 @@ bool FFProcess::start ( const QStringList &cmd, const QString &outputFile )
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
 
-  QFileInfo script ( writeScript ( cmd ) );
+  QFileInfo script ( writeScript ( cmd, outputFile ) );
   if ( ! script.isExecutable() )
   {
     emit errmessage ( trUtf8 ( "Executable Script" ),

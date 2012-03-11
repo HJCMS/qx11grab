@@ -37,7 +37,7 @@ ThreadsSpinBox::ThreadsSpinBox ( QWidget * parent )
   /*: ToolTip */
   setToolTip ( trUtf8 ( "Thread count" ) );
   /*: WhatsThis */
-  setWhatsThis ( trUtf8 ( "Set Maximum Threads for Multithreading." ) );
+  setWhatsThis ( trUtf8 ( "Set Multithreading count" ) );
   setMinimum ( 0 );
   QString p_suffix ( " " );
   p_suffix.append ( trUtf8 ( "Threads" ) );

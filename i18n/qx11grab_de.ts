@@ -1691,6 +1691,23 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>ThreadsSpinBox</name>
+    <message>
+        <source>Thread count</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set Maximum Threads for Multithreading.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Threads</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Unsharp</name>
     <message>
         <source>Unsharp Filter</source>

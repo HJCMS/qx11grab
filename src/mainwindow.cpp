@@ -498,7 +498,6 @@ void MainWindow::startRecord()
     QStringList cmd = m_commandPreview->currentCommandLine();
     // Output File
     QString outFile = generateOutputFile();
-    cmd << "-y" << outFile;
 
     if ( cmd.size() < 1 )
     {
@@ -644,7 +643,11 @@ void MainWindow::preparePreviewRequest ( bool b )
 */
 void MainWindow::exportCommand()
 {
-  ExportDialog* d = new ExportDialog ( currentCommandLine(), this );
+  // Nehme die Editierte Zeile des Benutzers
+  QStringList cmd = m_commandPreview->currentCommandLine();
+  cmd << "-y" << outputFile();
+
+  ExportDialog* d = new ExportDialog ( cmd.join ( " " ), this );
   if ( d->exec() == QFileDialog::Accepted )
     statusBarMessage ( trUtf8 ( "commandline exported" ) );
 

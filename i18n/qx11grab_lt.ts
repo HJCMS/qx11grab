@@ -701,95 +701,95 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="127"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="79"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="132"/>
         <source>Permission Denied: %1.</source>
         <translation>Neleidžiama: %1.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="73"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="79"/>
         <source>Working Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="111"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="116"/>
         <source>Invalid Window geometry</source>
         <translation>Netinkama lango geometrija</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="126"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="131"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="256"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="260"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="264"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="268"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="272"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="276"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="262"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="274"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="278"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="282"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="286"/>
         <source>Recording</source>
         <translation>Įrašoma</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="252"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="262"/>
         <source>FailedToStart (%1) ...</source>
         <translation>Nepavyko paleisti (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="256"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
         <source>Crashed (%1) ...</source>
         <translation>Užstrigo (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="260"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
         <source>Timedout (%1) ...</source>
         <translation>Baigėsi laikas (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="264"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="274"/>
         <source>WriteError (%1) ...</source>
         <translation>Rašymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="268"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="278"/>
         <source>ReadError (%1) ...</source>
         <translation>Skaitymo klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="272"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="276"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="282"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="286"/>
         <source>UnknownError (%1) ...</source>
         <translation>Nežinoma klaida (%1) ...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="291"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="301"/>
         <source>Recording finished.</source>
         <translation>Įrašinėjimas baigtas.</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="309"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="319"/>
         <source>Recording started writing to: %1</source>
         <translation>Pradėti įrašinėti į %1</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="295"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="305"/>
         <source>Process crashed see logfile %1</source>
         <translation>Procesas užstrigo, žiūrėkite %1 žurnale</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="166"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="174"/>
         <source>shutdown please wait ...</source>
         <translation>baigiama, palaukite...</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="197"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
         <source>force shutdown</source>
         <translation>priverstinis išjungimas</translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="111"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="116"/>
         <source>Dimension</source>
         <translation>Dydis</translation>
     </message>
@@ -1107,104 +1107,104 @@ WhatsThis</extracomment>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="125"/>
+        <location filename="../src/mainwindow.cpp" line="121"/>
         <source>Dimension</source>
         <translation type="unfinished">Dydis</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="131"/>
+        <location filename="../src/mainwindow.cpp" line="127"/>
         <source>Metadata</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="136"/>
+        <location filename="../src/mainwindow.cpp" line="132"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="144"/>
+        <location filename="../src/mainwindow.cpp" line="140"/>
         <source>Audio Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="146"/>
+        <location filename="../src/mainwindow.cpp" line="142"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="147"/>
+        <location filename="../src/mainwindow.cpp" line="143"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="158"/>
+        <location filename="../src/mainwindow.cpp" line="154"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="159"/>
+        <location filename="../src/mainwindow.cpp" line="155"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="434"/>
+        <location filename="../src/mainwindow.cpp" line="427"/>
         <source>Info</source>
         <translation type="unfinished">Informacija</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="494"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Warning</source>
         <translation type="unfinished">Įspėjimas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="494"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Stopping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="495"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="508"/>
+        <location filename="../src/mainwindow.cpp" line="505"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="522"/>
+        <location filename="../src/mainwindow.cpp" line="519"/>
         <source>Error</source>
         <translation type="unfinished">Klaida</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="522"/>
+        <location filename="../src/mainwindow.cpp" line="519"/>
         <source>qx11grap not started</source>
         <translation type="unfinished">qx11grap nepaleista</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="657"/>
+        <location filename="../src/mainwindow.cpp" line="649"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="685"/>
+        <location filename="../src/mainwindow.cpp" line="677"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="685"/>
+        <location filename="../src/mainwindow.cpp" line="677"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="705"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="716"/>
+        <location filename="../src/mainwindow.cpp" line="708"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2032,6 +2032,26 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="93"/>
         <source>Logfile (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ThreadsSpinBox</name>
+    <message>
+        <location filename="../src/utils/threadsspinbox.cpp" line="38"/>
+        <source>Thread count</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/threadsspinbox.cpp" line="40"/>
+        <source>Set Maximum Threads for Multithreading.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/utils/threadsspinbox.cpp" line="43"/>
+        <source>Threads</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

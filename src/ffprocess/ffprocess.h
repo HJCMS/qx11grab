@@ -48,7 +48,7 @@ class FFProcess : public QObject
     QStringList arguments;
     const QString application();
     const QString workdir();
-    const QString writeScript ( const QStringList &cmd );
+    const QString writeScript ( const QStringList &cmd, const QString &vfile );
 
   Q_SIGNALS:
     void running ();
