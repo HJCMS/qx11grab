@@ -23,6 +23,7 @@
 #include <cstdio>
 #include <cstring>
 #include <sched.h>
+#include <cstdint>
 
 #include "threadsspinbox.h"
 
