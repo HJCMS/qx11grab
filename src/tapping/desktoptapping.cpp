@@ -126,6 +126,9 @@ void DesktopTapping::grabWindowRect ( int screen )
         if ( pressed > 0 ) pressed--;
         continue;
 
+      default:
+        break;
+
     } /* end switch */
   } /* end loop */
 

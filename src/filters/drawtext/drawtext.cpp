@@ -28,9 +28,19 @@
 /* QX11Grab */
 #include "qx11grabplugins.h"
 
-/* QX11Grab */
+/* FontConfig */
 #include <fontconfig/fontconfig.h>
 #include <fontconfig/fcfreetype.h>
+
+/** FIXME GCC: missing sentinel in function call...
+* This indicates that the parameter list is ended with the special value 0,
+* which must be a char pointer.
+*/
+#if defined(__GNUC__) && (__GNUC__ >= 4)
+# define QX11GRAB_SENTINEL  static_cast<char*> ( NULL )
+#else
+# define QX11GRAB_SENTINEL  NULL
+#endif
 
 /* QtCore */
 #include <QtCore/QByteArray>
@@ -235,7 +245,7 @@ void drawtext::initFontConfigDatabase()
   if ( FcInit() )
   {
     FcPattern* fc_pattern = FcPatternCreate();
-    FcObjectSet* fc_object = FcObjectSetBuild ( FC_FAMILY, FC_FILE, NULL );
+    FcObjectSet* fc_object = FcObjectSetBuild ( FC_FAMILY, FC_FILE, QX11GRAB_SENTINEL );
     if ( fc_pattern && fc_object )
     {
       FcFontSet* fc_fontset = FcFontList ( 0, fc_pattern, fc_object );

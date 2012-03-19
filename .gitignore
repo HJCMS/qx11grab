@@ -16,6 +16,7 @@ ctags
 tags
 c*.sh
 ddd.sh
+qemu.sh
 importicon.sh
 lupdate.sh
 snapshot.sh
