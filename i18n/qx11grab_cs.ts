@@ -904,6 +904,10 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Spustit nahrávání, pokud QX11Grab má neuložené změny</translation>
     </message>
+    <message>
+        <source>Threads</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1681,17 +1685,17 @@ ToolTip</extracomment>
 <context>
     <name>ThreadsSpinBox</name>
     <message>
-        <source>Thread count</source>
+        <source>Multithreading</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Threads</source>
+        <source>Set Number of Threads to use for en/decoding</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set Multithreading count</source>
-        <extracomment>WhatsThis</extracomment>
+        <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

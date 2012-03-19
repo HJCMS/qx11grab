@@ -22,6 +22,7 @@
 #include "mainfcuntions.h"
 
 /* QX11Grab */
+#include "threadsspinbox.h"
 #include "loglevelcombobox.h"
 #include "iconthemeselector.h"
 #include "graphicsengineselecter.h"
@@ -76,6 +77,9 @@ MainFunctions::MainFunctions ( QWidget * parent )
   unsavedChanges->setChecked ( false );
   layout->addRow ( unsavedChanges );
 
+  m_threadsSpinBox = new ThreadsSpinBox ( this );
+  layout->addRow ( trUtf8 ( "Threads" ), m_threadsSpinBox );
+
   m_logLevelComboBox = new LogLevelComboBox ( this );
   layout->addRow ( trUtf8 ( "Report Level" ), m_logLevelComboBox );
 
@@ -104,6 +108,7 @@ void MainFunctions::load ( Settings * cfg )
   unsavedChanges->setChecked ( cfg->value ( QLatin1String ( "unsavedChanges" ), false ).toBool() );
   startMinimized->setChecked ( cfg->value ( QLatin1String ( "startMinimized" ), false ).toBool() );
   expertMode->setChecked ( cfg->expertMode() );
+  m_threadsSpinBox->setValue ( cfg->value ( QLatin1String ( "Threads" ), 0 ).toUInt() );
   m_logLevelComboBox->setValue ( cfg->logLevel() );
   m_iconThemeSelector->setValue ( cfg->value ( QLatin1String ( "IconTheme" ), "oxygen" ).toString() );
   m_graphicsEngine->setValue ( cfg->value ( QLatin1String ( "GraphicsSystem" ), "native" ).toString() );
@@ -115,6 +120,7 @@ void MainFunctions::save ( Settings * cfg )
   cfg->setValue ( QLatin1String ( "unsavedChanges" ), unsavedChanges->isChecked() );
   cfg->setValue ( QLatin1String ( "startMinimized" ), startMinimized->isChecked() );
   cfg->setValue ( QLatin1String ( "ExpertMode" ), expertMode->isChecked() );
+  cfg->setValue ( QLatin1String ( "Threads" ), m_threadsSpinBox->value() );
   cfg->setLogLevel ( m_logLevelComboBox->value() );
   cfg->setValue ( QLatin1String ( "IconTheme" ), m_iconThemeSelector->value() );
   cfg->setValue ( QLatin1String ( "GraphicsSystem" ), m_graphicsEngine->value() );

@@ -34,6 +34,7 @@
 /* QX11Grab */
 #include "abstractconfigwidget.h"
 
+class ThreadsSpinBox;
 class LogLevelComboBox;
 class IconThemeSelector;
 class GraphicsEngineSelecter;
@@ -49,6 +50,7 @@ class MainFunctions : public AbstractConfigWidget
     QCheckBox* startMinimized;
     QCheckBox* unsavedChanges;
     QCheckBox* expertMode;
+    ThreadsSpinBox* m_threadsSpinBox;
     GraphicsEngineSelecter* m_graphicsEngine;
     LogLevelComboBox* m_logLevelComboBox;
     IconThemeSelector* m_iconThemeSelector;

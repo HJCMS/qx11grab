@@ -907,6 +907,10 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis</extracomment>
         <translation>Wenn diese Option Aktiviert ist wird die Aufnahme auch dann gestartet wenn nicht gespeicherten Änderungen vorliegen.</translation>
     </message>
+    <message>
+        <source>Threads</source>
+        <translation>Prozesse</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1693,18 +1697,18 @@ ToolTip</extracomment>
 <context>
     <name>ThreadsSpinBox</name>
     <message>
-        <source>Thread count</source>
+        <source>Multithreading</source>
         <extracomment>ToolTip</extracomment>
-        <translation>Parallele Prozesse</translation>
+        <translation>Multiprozessing</translation>
     </message>
     <message>
-        <source>Threads</source>
-        <translation>Prozesse</translation>
-    </message>
-    <message>
-        <source>Set Multithreading count</source>
+        <source>Set Number of Threads to use for en/decoding</source>
         <extracomment>WhatsThis</extracomment>
-        <translation>Erzeugung paralleler Prozesse</translation>
+        <translation>Setzt die Anzahl der zu verwendenden Prozesse für das de/enkodieren</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation>Anzahl</translation>
     </message>
 </context>
 <context>

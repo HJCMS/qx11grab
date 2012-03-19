@@ -600,6 +600,10 @@ void MainWindow::preparePreview ()
   if ( m_audioGroupBox->isChecked() )
     commandLine << cfg->getAudioDeviceCommand();
 
+  quint32 pthreads = cfg->value ( QLatin1String ( "Threads" ), 0 ).toUInt();
+  if ( pthreads > 0 )
+    commandLine << "-threads" << QString::number ( pthreads );
+
   // Experts
   if ( cfg->expertMode() )
   {

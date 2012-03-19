@@ -19,6 +19,7 @@ SET (_subproject_SOURCES
   iconthememodel.cpp
   iconthemeselector.cpp
   graphicsengineselecter.cpp
+  threadsspinbox.cpp
 )
 
 SET (_subproject_HEADERS
@@ -35,6 +36,7 @@ SET (_subproject_HEADERS
   iconthememodel.h
   iconthemeselector.h
   graphicsengineselecter.h
+  threadsspinbox.h
 )
 
 SET (_subproject_NOMOC_HEADERS

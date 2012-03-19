@@ -1014,91 +1014,96 @@ WhatsThis</extracomment>
 <context>
     <name>MainFunctions</name>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="41"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="42"/>
         <source>Features</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="47"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="48"/>
         <source>Display Rubberband</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="49"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="51"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="52"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="55"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="56"/>
         <source>Start Minimized</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="57"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="59"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="63"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="64"/>
         <source>Expert Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="65"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="66"/>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="67"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="71"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="72"/>
         <source>record with unsaved changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="73"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="74"/>
         <source>force start record with unsaved changes</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="75"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="76"/>
         <source>start recording if qx11grab have unsaved changes</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="80"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="81"/>
+        <source>Threads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings/mainfcuntions.cpp" line="84"/>
         <source>Report Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="83"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="87"/>
         <source>Icon Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/mainfcuntions.cpp" line="86"/>
+        <location filename="../src/settings/mainfcuntions.cpp" line="90"/>
         <source>Graphics System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2037,20 +2042,20 @@ ToolTip</extracomment>
 <context>
     <name>ThreadsSpinBox</name>
     <message>
-        <location filename="../src/utils/threadsspinbox.cpp" line="38"/>
-        <source>Thread count</source>
+        <location filename="../src/settings/threadsspinbox.cpp" line="38"/>
+        <source>Multithreading</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/threadsspinbox.cpp" line="40"/>
-        <source>Set Multithreading count</source>
+        <location filename="../src/settings/threadsspinbox.cpp" line="40"/>
+        <source>Set Number of Threads to use for en/decoding</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/threadsspinbox.cpp" line="43"/>
-        <source>Threads</source>
+        <location filename="../src/settings/threadsspinbox.cpp" line="43"/>
+        <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
