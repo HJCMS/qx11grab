@@ -701,7 +701,7 @@ Example for OSS: /dev/dsp</source>
     <name>FFProcess</name>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="79"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="132"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="131"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -711,84 +711,84 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="116"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="115"/>
         <source>Dimension</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="116"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="115"/>
         <source>Invalid Window geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="131"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="130"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="174"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="173"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="206"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="205"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="262"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="274"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="278"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="282"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="286"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="261"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="265"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="269"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="273"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="277"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="281"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="262"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="261"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="266"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="265"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="270"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="269"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="274"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="273"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="278"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="277"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="282"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="286"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="281"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="301"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="300"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="305"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="304"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="319"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="318"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1168,42 +1168,42 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="505"/>
+        <location filename="../src/mainwindow.cpp" line="504"/>
         <source>Missing Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="519"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="519"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>qx11grap not started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="649"/>
+        <location filename="../src/mainwindow.cpp" line="652"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="677"/>
+        <location filename="../src/mainwindow.cpp" line="680"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="677"/>
+        <location filename="../src/mainwindow.cpp" line="680"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
+        <location filename="../src/mainwindow.cpp" line="700"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="708"/>
+        <location filename="../src/mainwindow.cpp" line="711"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1920,69 +1920,69 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TextPosition</name>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="43"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="46"/>
         <source>Text Position</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="47"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="50"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="48"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="51"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="49"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="52"/>
         <source>Top Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="50"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="53"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="51"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="54"/>
         <source>Middle Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="52"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="55"/>
         <source>Middle Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="53"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="56"/>
         <source>Middle Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="54"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="57"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="55"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="58"/>
         <source>Bottom Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="56"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="59"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="61"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="64"/>
         <source>Horizontal Text Indent</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="67"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="70"/>
         <source>Vertical Text Indent</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -2044,7 +2044,7 @@ ToolTip</extracomment>
     </message>
     <message>
         <location filename="../src/utils/threadsspinbox.cpp" line="40"/>
-        <source>Set Maximum Threads for Multithreading.</source>
+        <source>Set Multithreading count</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
@@ -2166,51 +2166,51 @@ ToolTip</extracomment>
 <context>
     <name>drawtext</name>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="65"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="86"/>
         <source>drawtext Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="77"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="98"/>
         <source>Draw text string into output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="94"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
         <source>Font Size</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="103"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="124"/>
         <source>Textlayout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="108"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="129"/>
         <source>Foreground</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="110"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="131"/>
         <source>open foreground color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="117"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="138"/>
         <source>open background color dialog</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="133"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="154"/>
         <source>Copy to Clipboard</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
+        <location filename="../src/filters/drawtext/drawtext.cpp" line="136"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>

@@ -23,6 +23,9 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QMetaEnum>
+#include <QtCore/QMetaType>
+#include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QHBoxLayout>
@@ -223,6 +226,8 @@ const QString TextPosition::y()
 int TextPosition::index()
 {
   return m_comboBox->currentIndex();
+//   quint32 i = m_comboBox->itemData ( ( m_comboBox->currentIndex() ), Qt::UserRole ).toUInt();
+//   return static_cast<TextPosition::Position> ( i );
 }
 
 TextPosition::~TextPosition()

@@ -1695,16 +1695,16 @@ ToolTip</extracomment>
     <message>
         <source>Thread count</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set Maximum Threads for Multithreading.</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Parallele Prozesse</translation>
     </message>
     <message>
         <source>Threads</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesse</translation>
+    </message>
+    <message>
+        <source>Set Multithreading count</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Erzeugung paralleler Prozesse</translation>
     </message>
 </context>
 <context>

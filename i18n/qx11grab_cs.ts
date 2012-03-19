@@ -1686,12 +1686,12 @@ ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set Maximum Threads for Multithreading.</source>
-        <extracomment>WhatsThis</extracomment>
+        <source>Threads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Threads</source>
+        <source>Set Multithreading count</source>
+        <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

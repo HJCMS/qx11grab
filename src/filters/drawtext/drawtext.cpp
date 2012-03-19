@@ -32,9 +32,20 @@
 #include <fontconfig/fontconfig.h>
 #include <fontconfig/fcfreetype.h>
 
-/** FIXME GCC: missing sentinel in function call...
-* This indicates that the parameter list is ended with the special value 0,
-* which must be a char pointer.
+/**
+* \warning gcc >= 4* "missing sentinel in function call"
+* This is because NULL is not of the right type: it is defined as integer 0 instead of a pointer with the value 0.\n
+* \n
+* One can specify that a function uses a sentinel by declaring it as follows:
+* \code
+*   char* callExample(const char * str, ...) __attribute__((__sentinel__(0)));
+* \endcode
+* This indicates that the parameter list is ended with the special value 0, which must be a char pointer.\n
+* \n
+* On most systems, there is no difference between 0 and (char *)0.
+* On 64 bit systems, however, the integer 0 is 32 bits and the pointer 0 is 64 bits.
+* The compiler does not know whether it is an integer or a pointer, and defaults for the integer.
+* This will not clear the upper 32 bits and the function will not stop scanning its parameters.
 */
 #if defined(__GNUC__) && (__GNUC__ >= 4)
 # define QX11GRAB_SENTINEL  static_cast<char*> ( NULL )

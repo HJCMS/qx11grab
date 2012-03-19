@@ -42,17 +42,19 @@ class TextPosition : public QWidget
     QString _x;
     QString _y;
 
-    enum POSITION { UNKNOWN,
-                    TOP_LEFT,
-                    TOP_CENTER,
-                    TOP_RIGHT,
-                    MIDDLE_LEFT,
-                    MIDDLE_CENTER,
-                    MIDDLE_RIGHT,
-                    BOTTOM_LEFT,
-                    BOTTOM_CENTER,
-                    BOTTOM_RIGTH
-                };
+    enum POSITION
+    {
+      UNKNOWN,
+      TOP_LEFT,
+      TOP_CENTER,
+      TOP_RIGHT,
+      MIDDLE_LEFT,
+      MIDDLE_CENTER,
+      MIDDLE_RIGHT,
+      BOTTOM_LEFT,
+      BOTTOM_CENTER,
+      BOTTOM_RIGTH
+    };
     /** Position Selection */
     QComboBox* m_comboBox;
 
