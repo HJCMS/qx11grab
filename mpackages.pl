@@ -77,5 +77,7 @@ print "- Generate $pkg_name.tar.lzma\n";
 system ( "tar", "--exclude-vcs", "-cJf", "$destdir/$pkg_version/$pkg_name.tar.lzma", "$pkg_name" );
 print "- Generate $pkg_name.tar.xz\n";
 system ( "tar", "--exclude-vcs", "-cJf", "$destdir/$pkg_version/$pkg_name.tar.xz", "$pkg_name" );
+print "- Copy ChangeLog\n";
+system ( "cp", "--update", "$repodir/ChangeLog", "$destdir/ChangeLog" );
 chdir "$repodir";
 print "- Ready\n";
