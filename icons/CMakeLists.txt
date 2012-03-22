@@ -20,7 +20,8 @@ INSTALL (FILES
 ## Pixmaps
 INSTALL (FILES
   qx11grab_36.png
-  DESTINATION share/pixmaps/qx11grab.png
+  DESTINATION share/pixmaps/
+  RENAME qx11grab.png
   COMPONENT data
 )
 

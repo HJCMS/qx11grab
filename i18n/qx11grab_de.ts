@@ -1697,11 +1697,6 @@ ToolTip</extracomment>
 <context>
     <name>ThreadsSpinBox</name>
     <message>
-        <source>Multithreading</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Multiprozessing</translation>
-    </message>
-    <message>
         <source>Set Number of Threads to use for en/decoding</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Setzt die Anzahl der zu verwendenden Prozesse für das de/enkodieren</translation>
@@ -1709,6 +1704,11 @@ ToolTip</extracomment>
     <message>
         <source>Number</source>
         <translation>Anzahl</translation>
+    </message>
+    <message>
+        <source>User-level Threads</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Benutzerdefinierte Parallel Prozesse</translation>
     </message>
 </context>
 <context>

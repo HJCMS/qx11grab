@@ -1188,27 +1188,27 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="652"/>
+        <location filename="../src/mainwindow.cpp" line="656"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="680"/>
+        <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Remove Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="680"/>
+        <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Bookmark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="700"/>
+        <location filename="../src/mainwindow.cpp" line="704"/>
         <source>Open Bookmark %1 failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="711"/>
+        <location filename="../src/mainwindow.cpp" line="715"/>
         <source>Open Bookmark %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2043,7 +2043,7 @@ ToolTip</extracomment>
     <name>ThreadsSpinBox</name>
     <message>
         <location filename="../src/settings/threadsspinbox.cpp" line="38"/>
-        <source>Multithreading</source>
+        <source>User-level Threads</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>

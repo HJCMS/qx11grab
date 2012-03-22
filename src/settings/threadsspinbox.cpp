@@ -35,7 +35,7 @@ ThreadsSpinBox::ThreadsSpinBox ( QWidget * parent )
 {
   setObjectName ( QLatin1String ( "ThreadsSpinBox" ) );
   /*: ToolTip */
-  setToolTip ( trUtf8 ( "Multithreading" ) );
+  setToolTip ( trUtf8 ( "User-level Threads" ) );
   /*: WhatsThis */
   setWhatsThis ( trUtf8 ( "Set Number of Threads to use for en/decoding" ) );
   setMinimum ( 0 );

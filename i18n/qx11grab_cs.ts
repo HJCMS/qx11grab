@@ -1685,17 +1685,17 @@ ToolTip</extracomment>
 <context>
     <name>ThreadsSpinBox</name>
     <message>
-        <source>Multithreading</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set Number of Threads to use for en/decoding</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User-level Threads</source>
+        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

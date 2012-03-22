@@ -318,7 +318,7 @@ CONFIGURE_FILE (qx11grab.1.cmake
 
 INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.1
-  DESTINATION share/man/man1/qx11grab.1
+  DESTINATION share/man/man1/
 )
 
 ##############################################################
