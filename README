@@ -2,8 +2,8 @@ This is QX11Grab
 
 -- INSTALLING SEE INSTALL
 
-If you have a source package (a .tar.gz,.tar.bz2 or .tar.lzma file), follow the
-instructions in the INSTALL file.
+If you have a source package (a .tar.gz,.tar.bz2,.tar.xz or .tar.lzma file),
+follow the instructions in the INSTALL file.
 
 -- SUPPORTED PLATFORMS
 

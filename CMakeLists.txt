@@ -11,7 +11,7 @@ ENDIF (CMAKE_VERSION STREQUAL 2.8.4)
 SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 
 ##############################################################
-## Requiered "QtCore QtGui QtXml QtNetwork"
+## Main Dependeces
 ##############################################################
 SET (QT_MIN_VERSION 4.7.2)
 FIND_PACKAGE (Qt4 REQUIRED)
@@ -40,7 +40,7 @@ ENDIF (NOT UNIX)
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 4)
 SET (QX11GRAB_VERSION_RELEASE 2)
-SET (QX11GRAB_VERSION_DEVELOPMENT "rc1")
+SET (QX11GRAB_VERSION_DEVELOPMENT "")
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}${QX11GRAB_VERSION_DEVELOPMENT}")
 # If Git is installed and a '.git' directory is found,
 # we append the Git revision to QX11GRAB_VERSION
@@ -124,7 +124,6 @@ SET (PLUGIN_OUTPUT_PATH
 ##############################################################
 ## FFmpeg 
 ##############################################################
-
 SET (FFMPEG_SUFFIX "" CACHE STRING
   "ffmpeg pkg-config or library file suffix (STRING)"
 )
@@ -141,10 +140,23 @@ SET (FFMPEG_AVUTIL_VERSION "50.24.0" CACHE STRING
   "Required libavutil${FFMPEG_SUFFIX} Version" FORCE
 )
 
+SET (FFMPEG_AVFILTER_VERSION "2.53.0" CACHE STRING
+  "Required libavfilter${FFMPEG_SUFFIX} Version" FORCE
+)
+
+## to be sure that ffmpeg compiled with freetype support?
+## TODO check for symbol=avfilter_vf_drawtext
+##      nm -D --defined-only ${libdir}/libavfilter.so | grep vf_drawtext
+OPTION (ENABLE_DRAWTEXT_FILTER 
+  "FFmpeg compiled with Freetype Support? To enable compilation of this filter you need to configure FFmpeg with --enable-libfreetype. (ON/OFF)"
+  OFF
+)
+
 PKG_CHECK_MODULES (FFMPEG REQUIRED 
   libavformat${FFMPEG_SUFFIX}>=${FFMPEG_AVFORMAT_VERSION}
   libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
   libavutil${FFMPEG_SUFFIX}>=${FFMPEG_AVUTIL_VERSION}
+  libavfilter${FFMPEG_SUFFIX}>=${FFMPEG_AVFILTER_VERSION}
 )
 
 IF (FFMPEG_FOUND)
@@ -155,8 +167,8 @@ ENDIF (FFMPEG_FOUND)
 
 SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
 
-FIND_PATH (_ffmpeg_sharedir
-  NAMES ffmpeg
+FIND_FILE (FFMPEG_SHAREDIR
+  NAMES ffmpeg avconv
   PATH_SUFFIXES ${FFMPEG_SUFFIX}
   PATHS
     /usr/share
@@ -165,34 +177,29 @@ FIND_PATH (_ffmpeg_sharedir
     $ENV{AVCONV_DATADIR}
   DOC "Find FFmpeg data directory for ffpreset files"
   NO_DEFAULT_PATH
-  NO_SYSTEM_ENVIRONMENT_PATH
-  NO_CMAKE_PATH
 )
-
-IF (_ffmpeg_sharedir)
-  SET (FFMPEG_SHAREDIR "${_ffmpeg_sharedir}/ffmpeg" CACHE PATH
-    "FFmpeg data directory for ffpreset files (PATH)")
-ENDIF (_ffmpeg_sharedir)
 
 ##############################################################
 ## PulseAudio 
 ##############################################################
+OPTION (ENABLE_PULSE "Disable PulseAudio Support (ON/OFF)" ON)
+IF (ENABLE_PULSE)
+  SET (PULSE_SUFFIX "" CACHE STRING
+    "pulse pkg-config or library file suffix (STRING)"
+  )
 
-SET (PULSE_SUFFIX "" CACHE STRING
-  "pulse pkg-config or library file suffix (STRING)"
-)
+  SET (PULSE_VERSION "0.9" CACHE STRING
+    "Required libpulse${PULSE_SUFFIX} Version" FORCE
+  )
 
-SET (PULSE_VERSION "0.9" CACHE STRING
-  "Required libpulse${PULSE_SUFFIX} Version" FORCE
-)
+  PKG_CHECK_MODULES (PULSE 
+    libpulse${PULSE_SUFFIX}>=${PULSE_VERSION}
+  )
 
-PKG_CHECK_MODULES (PULSE 
-  libpulse${PULSE_SUFFIX}>=${PULSE_VERSION}
-)
-
-IF (PULSE_FOUND)
-  ADD_DEFINITIONS (-DHAVE_PULSE)
-ENDIF (PULSE_FOUND)
+  IF (PULSE_FOUND)
+    ADD_DEFINITIONS (-DHAVE_PULSE)
+  ENDIF (PULSE_FOUND)
+ENDIF (ENABLE_PULSE)
 
 ##############################################################
 ## Xorg 
@@ -207,10 +214,12 @@ ENDIF (NOT XLIBS_FOUND)
 ## Freetype 
 ##############################################################
 
-PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
-IF (NOT FONTS_FOUND)
-  MESSAGE (FATAL_ERROR "freetype2 or fontconfig not found")
-ENDIF (NOT FONTS_FOUND)
+IF (ENABLE_DRAWTEXT_FILTER)
+  PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
+  IF (NOT FONTS_FOUND)
+    MESSAGE (STATUS "freetype2 or fontconfig not found drawtext filter disabled")
+  ENDIF (NOT FONTS_FOUND)
+ENDIF (ENABLE_DRAWTEXT_FILTER)
 
 ##############################################################
 ## DBus-1
@@ -392,14 +401,16 @@ MESSAGE ("")
 MESSAGE ("Required Packages:")
 summary (FFMPEG_FOUND "FFmpeg" FALSE)
 summary (XLIBS_FOUND "XLIBS" FALSE)
-summary (FONTS_FOUND "freetype2/fontconfig" FALSE)
 summary (DBUS_FOUND "DBus" FALSE)
 summary (QT4_FOUND "Qt4" FALSE)
 summary (ALSA_FOUND "Alsa" FALSE)
 MESSAGE ("")
+MESSAGE ("Optional Filters:")
+summary (FONTS_FOUND "drawtext filter" TRUE)
+MESSAGE ("")
 MESSAGE ("Optional Packages:")
 summary (PULSE_FOUND "pulseaudio" TRUE)
-summary (KDE_FOUND "kde4" TRUE)
+summary (KDE4_FOUND "kde4" TRUE)
 MESSAGE ("")
 
 ## EOF
