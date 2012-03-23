@@ -38,6 +38,13 @@
 /* QtGui */
 #include <QtGui/QIcon>
 
+/* KDE4 */
+#ifdef HAVE_KDE4_SUPPORT
+# include <KDE/KAboutData>
+# include <KDE/KLocale>
+# include <KDE/KLocalizedString>
+#endif
+
 Application::Application ( int &argc, char **argv )
     : QApplication ( argc, argv, QApplication::GuiClient )
     , connected ( false )
@@ -78,6 +85,20 @@ Application::Application ( int &argc, char **argv )
 
 #endif
 
+#ifdef HAVE_KDE4_SUPPORT
+  QByteArray appsName = applicationName().toAscii();
+  KAboutData kdata ( appsName, appsName,
+                     ki18n ( "QX11Grab" ),
+                     QX11GRAB_VERSION,
+                     ki18n ( "X11 Desktop Recording" ),
+                     KAboutData::License_LGPL_V3,
+                     ki18n ( "Juergen Heinemann (Undefined)" ),
+                     ki18n ( "Besides QX11Grab to tap Window Dimensions from X11 Environment and  generate Command-line options for FFmpeg." ),
+                     QByteArray ( "http://qx11grab.hjcms.de" ),
+                     m_settings->aboutMail()
+                   );
+  KLocale::setMainCatalog ( appsName );
+#endif
 }
 
 /**
