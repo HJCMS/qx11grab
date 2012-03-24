@@ -40,10 +40,10 @@ RubberBand::RubberBand ( QWidget * parent )
   setAutoFillBackground ( false );
   setContentsMargins ( 0, 0, 0, 0 );
   setWindowOpacity ( 1.0 ); // BUGFIX Composite extension behavior
-  setAttribute ( Qt::WA_NoBackground, true );
   setAttribute ( Qt::WA_NoSystemBackground, true );
   setAttribute ( Qt::WA_SetPalette, false );
   setAttribute ( Qt::WA_SetStyle, false );
+  setAttribute ( Qt::WA_OpaquePaintEvent, true );
   setAttribute ( Qt::WA_PaintOnScreen, true );
 }
 

@@ -26,6 +26,7 @@
 #include "settings.h"
 #include "menubar.h"
 #include "messanger.h"
+#include "navigator.h"
 
 /* QtCore */
 #include <QtCore/QCoreApplication>
@@ -33,12 +34,15 @@
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QApplication>
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QMenu>
 
 SystemTray::SystemTray ( MainWindow * parent )
     : QSystemTrayIcon ( parent )
     , m_mainWindow ( parent )
     , m_messanger ( 0 )
+    , m_navigator ( new Navigator ( qApp->desktop() ) )
 {
   setObjectName ( QLatin1String ( "SystemTray" ) );
   setIcon ( Settings::themeIcon ( "qx11grab" ) );
@@ -51,6 +55,14 @@ SystemTray::SystemTray ( MainWindow * parent )
 
   QAction* showRubberbandWindow = MenuBar::rubberbandAction ( this );
   m_menu->addAction ( showRubberbandWindow );
+
+  QAction* m_actionNavi = m_menu->addAction ( trUtf8 ( "Navigation" ) );
+  m_actionNavi->setObjectName ( QLatin1String ( "navigationAction" ) );
+  /*: ToolTip */
+  m_actionNavi->setStatusTip ( trUtf8 ( "to navigate" ) );
+  m_actionNavi->setIcon ( Settings::themeIcon ( "window-new" ) );
+  m_menu->addAction ( m_actionNavi );
+
   m_menu->addSeparator();
 
   m_actionStartRecord = MenuBar::startRecordAction ( this );
@@ -81,6 +93,9 @@ SystemTray::SystemTray ( MainWindow * parent )
   connect ( showRubberbandWindow, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( swapRubberBand() ) );
 
+  connect ( m_actionNavi, SIGNAL ( triggered() ),
+            this, SLOT ( showNavigator() ) );
+
   connect ( m_actionStartRecord, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( startRecord() ) );
 
@@ -95,6 +110,27 @@ SystemTray::SystemTray ( MainWindow * parent )
 
   connect ( quitWindowAction, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( shutdown() ) );
+
+  // Navigation
+  connect ( m_navigator, SIGNAL ( startRecord() ),
+            m_mainWindow, SLOT ( startRecord() ) );
+
+  connect ( m_navigator, SIGNAL ( stopRecord() ),
+            m_mainWindow, SIGNAL ( stopRecording () ) );
+
+  connect ( m_navigator, SIGNAL ( rubberBand() ),
+            m_mainWindow, SLOT ( swapRubberBand() ) );
+}
+
+/**
+* Öffnen das Navigations Fenster
+*/
+void SystemTray::showNavigator()
+{
+  if ( m_navigator->isVisible() )
+    m_navigator->hide();
+  else
+    m_navigator->show();
 }
 
 /**
@@ -104,6 +140,7 @@ void SystemTray::setActionsEnabled ( bool b )
 {
   m_actionStopRecord->setEnabled ( b );
   m_actionStartRecord->setEnabled ( ( ( b ) ? false : true ) );
+  m_navigator->setActivity ( b );
 }
 
 /**
@@ -112,6 +149,7 @@ void SystemTray::setActionsEnabled ( bool b )
 void SystemTray::setCustomToolTip ( const QString &txt )
 {
   setToolTip ( txt );
+  m_navigator->setInfo ( txt );
 }
 
 /**

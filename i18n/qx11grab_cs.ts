@@ -1533,6 +1533,15 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <extracomment>ToolTip</extracomment>
         <translation>QX11Grab: Nahrávají se okna X11 s ffmpeg</translation>
     </message>
+    <message>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to navigate</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TargetsWidget</name>

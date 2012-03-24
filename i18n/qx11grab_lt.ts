@@ -1853,10 +1853,21 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>SystemTray</name>
     <message>
-        <location filename="../src/systemtray.cpp" line="46"/>
+        <location filename="../src/systemtray.cpp" line="50"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished">qx11grab: filmuojami X11 langai su ffmpeg</translation>
+    </message>
+    <message>
+        <location filename="../src/systemtray.cpp" line="59"/>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/systemtray.cpp" line="62"/>
+        <source>to navigate</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

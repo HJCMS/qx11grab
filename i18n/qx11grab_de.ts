@@ -1536,6 +1536,15 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <extracomment>ToolTip</extracomment>
         <translation>qx11grab: Nehme X11 Fenster mit ffmpeg auf</translation>
     </message>
+    <message>
+        <source>Navigation</source>
+        <translation>Navigation</translation>
+    </message>
+    <message>
+        <source>to navigate</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Navigieren</translation>
+    </message>
 </context>
 <context>
     <name>TargetsWidget</name>

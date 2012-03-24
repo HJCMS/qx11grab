@@ -39,6 +39,7 @@
 #include "mainwindow.h"
 
 class Messanger;
+class Navigator;
 
 class SystemTray : public QSystemTrayIcon
 {
@@ -49,8 +50,12 @@ class SystemTray : public QSystemTrayIcon
   private:
     MainWindow* m_mainWindow;
     Messanger* m_messanger;
+    Navigator* m_navigator;
     QAction* m_actionStartRecord;
     QAction* m_actionStopRecord;
+
+  private Q_SLOTS:
+    void showNavigator();
 
   public Q_SLOTS:
     void setActionsEnabled ( bool b = true );
