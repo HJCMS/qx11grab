@@ -24,6 +24,17 @@ SET (_subproject_HEADERS
   codecoptions.h
 )
 
+IF (ENABLE_EXPERIMENTAL)
+  SET (_subproject_SOURCES
+    ${_subproject_SOURCES}
+    x11device.cpp
+  )
+  SET (_subproject_HEADERS
+    ${_subproject_HEADERS}
+    x11device.h
+  )
+ENDIF (ENABLE_EXPERIMENTAL)
+
 SET (_subproject_NOMOC_HEADERS
   avfiltermodel.h
   optionsfinder.h

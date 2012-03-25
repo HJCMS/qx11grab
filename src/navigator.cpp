@@ -41,9 +41,6 @@
 #include <QtGui/QStyleOptionToolBar>
 #include <QtGui/QVBoxLayout>
 
-/* QtDBus */
-// #include <QtDBus>
-
 Navigator::Navigator ( QWidget * parent )
     : QToolBar ( parent )
     , m_settings ( new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", parent ) )
@@ -55,9 +52,10 @@ Navigator::Navigator ( QWidget * parent )
   setAttribute ( Qt::WA_SetStyle, false );
   setAttribute ( Qt::WA_NoSystemBackground, true );
   setAttribute ( Qt::WA_OpaquePaintEvent, true );
-#ifdef HAVE_OPENGL
+#ifdef ENABLE_EXPERIMENTAL
+  // This will not work with move windows :-/
   setAttribute ( Qt::WA_PaintOnScreen, true );
-  setWindowOpacity ( 1.0 ); // BUGFIX Composite extension behavior
+  setWindowOpacity ( 1.0 );
 #endif
 
   addSeparator();
@@ -110,7 +108,7 @@ void Navigator::paintEvent ( QPaintEvent * event )
   painter.setBrush ( gradient );
 
   QPainterPath rectPath;
-#ifdef HAVE_OPENGL
+#ifdef ENABLE_EXPERIMENTAL
   rectPath.addRoundedRect ( 0.0, 0.0, rect.width(), rect.height(), 5.0, 5.0, Qt::AbsoluteSize );
 #else
   rectPath.addRect ( 0.0, 0.0, rect.width(), rect.height() );
