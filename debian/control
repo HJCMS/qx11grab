@@ -12,6 +12,7 @@ Build-Depends:
   libavformat-dev,
   libavcodec-dev,
   libavutil-dev,
+  libavfilter-dev,
   libx264-dev,
   libtheora-dev,
   libvpx-dev,

@@ -39,6 +39,7 @@ my $branch = 'master';
 sub fetch_version()
 {
   my @vers;
+  my $candidate = "";
   open ( FP, "CMakeLists.txt" ) or die ( "can't open CMakeLists.txt" );
   while ( <FP> )
   {
@@ -46,9 +47,14 @@ sub fetch_version()
     {
       push ( @vers, $2 );
     }
+    if ( /QX11GRAB_VERSION_DEVELOPMENT[\s]+\"([\w]+)\"/ )
+    {
+      $candidate = ".$1";
+    }
   }
   close ( FP );
-  return join ( ".", @vers );
+  my $str_version = join ( ".", @vers );
+  return $str_version . $candidate;
 }
 
 # current version
