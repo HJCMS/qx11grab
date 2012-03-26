@@ -150,8 +150,7 @@ ENDIF (NOT FFMPEG_BINARY)
 # Find Filters Macro
 #=============================================================================
 
-MACRO (CHECK_FILTER_EXISTS FILTER VARIABLE)
-  MESSAGE (STATUS "Check if FFmpeg compiled with ${FILTER} filter")
+MACRO (FFMPEG_FILTER_EXISTS FILTER VARIABLE)
   TRY_RUN (filter_arg _filter_supported
     ${CMAKE_BINARY_DIR}
     ${CMAKE_MODULE_PATH}/check_ffmpeg_filter.c
@@ -162,9 +161,9 @@ MACRO (CHECK_FILTER_EXISTS FILTER VARIABLE)
     OUTPUT_VARIABLE OUTPUT
     ARGS ${FILTER}
   )
-  MESSAGE (STATUS "Check if FFmpeg compiled with ${FILTER} filter - ${_filter_supported}")
+  MESSAGE (STATUS "FFmpeg compiled with ${FILTER} filter - ${_filter_supported}")
   SET (${VARIABLE} ${_filter_supported} CACHE INTERNAL "Have ffmpeg Filter ${FILTER}")
-ENDMACRO (CHECK_FILTER_EXISTS)
+ENDMACRO (FFMPEG_FILTER_EXISTS)
 
 #=============================================================================
 # Final

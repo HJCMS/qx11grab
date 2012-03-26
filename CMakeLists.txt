@@ -133,10 +133,10 @@ SET (PLUGIN_OUTPUT_PATH
 ##############################################################
 ## FFmpeg Filters
 ##############################################################
-CHECK_FILTER_EXISTS ("fade" ENABLE_FADE_FILTER)
-CHECK_FILTER_EXISTS ("setdar" ENABLE_SETDAR_FILTER)
-CHECK_FILTER_EXISTS ("watermark" ENABLE_WATERMARK_FILTER)
-CHECK_FILTER_EXISTS ("drawtext" ENABLE_DRAWTEXT_FILTER)
+FFMPEG_FILTER_EXISTS ("fade" ENABLE_FADE_FILTER)
+FFMPEG_FILTER_EXISTS ("setdar" ENABLE_SETDAR_FILTER)
+FFMPEG_FILTER_EXISTS ("watermark" ENABLE_WATERMARK_FILTER)
+FFMPEG_FILTER_EXISTS ("drawtext" ENABLE_DRAWTEXT_FILTER)
 IF (ENABLE_DRAWTEXT_FILTER)
   PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
   IF (NOT FONTS_FOUND)
@@ -147,7 +147,7 @@ ENDIF (ENABLE_DRAWTEXT_FILTER)
 ##############################################################
 ## PulseAudio 
 ##############################################################
-OPTION (ENABLE_PULSE "Disable PulseAudio Support (ON/OFF)" ON)
+OPTION (ENABLE_PULSE "Enable PulseAudio Support (ON/OFF)" ON)
 IF (ENABLE_PULSE)
   SET (PULSE_SUFFIX "" CACHE STRING
     "pulse pkg-config or library file suffix (STRING)"
