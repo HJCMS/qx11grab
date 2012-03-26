@@ -1,5 +1,7 @@
 #!/bin/sh
 
+## sudo dpkg --install qx11grab_*.deb
+
 VERSION=${1:-"@QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@"}
 SIGN_KEY=${2:-""}
 
