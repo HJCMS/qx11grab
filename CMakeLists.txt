@@ -18,6 +18,7 @@ FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML QTNETWORK)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
+FIND_PACKAGE (FFmpeg REQUIRED)
 
 ## Disable KDE4 Framework Support
 OPTION (ENABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
@@ -130,62 +131,18 @@ SET (PLUGIN_OUTPUT_PATH
 )
 
 ##############################################################
-## FFmpeg 
+## FFmpeg Filters
 ##############################################################
-SET (FFMPEG_SUFFIX "" CACHE STRING
-  "ffmpeg pkg-config or library file suffix (STRING)"
-)
-
-SET (FFMPEG_AVFORMAT_VERSION "52.78.3" CACHE STRING
-  "Required libavformat${FFMPEG_SUFFIX} Version" FORCE
-)
-
-SET (FFMPEG_AVCODEC_VERSION "52.86.1" CACHE STRING
-  "Required libavcodec${FFMPEG_SUFFIX} Version" FORCE
-)
-
-SET (FFMPEG_AVUTIL_VERSION "50.24.0" CACHE STRING
-  "Required libavutil${FFMPEG_SUFFIX} Version" FORCE
-)
-
-SET (FFMPEG_AVFILTER_VERSION "2.4.0" CACHE STRING
-  "Required libavfilter${FFMPEG_SUFFIX} Version" FORCE
-)
-
-## to be sure that ffmpeg compiled with freetype support?
-## TODO check for symbol=avfilter_vf_drawtext
-##      nm -D --defined-only ${libdir}/libavfilter.so | grep vf_drawtext
-OPTION (ENABLE_DRAWTEXT_FILTER 
-  "FFmpeg compiled with Freetype Support? To enable compilation of this filter you need to configure FFmpeg with --enable-libfreetype. (ON/OFF)"
-  OFF
-)
-
-PKG_CHECK_MODULES (FFMPEG REQUIRED 
-  libavformat${FFMPEG_SUFFIX}>=${FFMPEG_AVFORMAT_VERSION}
-  libavcodec${FFMPEG_SUFFIX}>=${FFMPEG_AVCODEC_VERSION}
-  libavutil${FFMPEG_SUFFIX}>=${FFMPEG_AVUTIL_VERSION}
-  libavfilter${FFMPEG_SUFFIX}>=${FFMPEG_AVFILTER_VERSION}
-)
-
-IF (FFMPEG_FOUND)
-  ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
-ELSE (FFMPEG_FOUND)
-  MESSAGE (FATAL_ERROR "Required FFmpeg libraries not found")
-ENDIF (FFMPEG_FOUND)
-
-SET (FFMPEG_INCLUDEDIR ${FFMPEG_STATIC_INCLUDE_DIRS})
-
-FIND_FILE (FFMPEG_SHAREDIR
-  NAMES ffmpeg avconv
-  PATH_SUFFIXES ${FFMPEG_SUFFIX}
-  PATHS
-    /usr/share
-    /usr/local/share
-    $ENV{FFMPEG_DATADIR}
-    $ENV{AVCONV_DATADIR}
-  DOC "Find FFmpeg data directory for ffpreset files"
-  NO_DEFAULT_PATH
-)
+CHECK_FILTER_EXISTS ("fade" ENABLE_FADE_FILTER)
+CHECK_FILTER_EXISTS ("setdar" ENABLE_SETDAR_FILTER)
+CHECK_FILTER_EXISTS ("watermark" ENABLE_WATERMARK_FILTER)
+CHECK_FILTER_EXISTS ("drawtext" ENABLE_DRAWTEXT_FILTER)
+IF (ENABLE_DRAWTEXT_FILTER)
+  PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
+  IF (NOT FONTS_FOUND)
+    MESSAGE (FATAL_ERROR "freetype2 or fontconfig not found but drawtext filter enabled")
+  ENDIF (NOT FONTS_FOUND)
+ENDIF (ENABLE_DRAWTEXT_FILTER)
 
 ##############################################################
 ## PulseAudio 
@@ -217,17 +174,6 @@ PKG_CHECK_MODULES (XLIBS REQUIRED x11>=1.3.4 xrandr>=1.3)
 IF (NOT XLIBS_FOUND)
   MESSAGE (FATAL_ERROR "X11 or XRandr not found")
 ENDIF (NOT XLIBS_FOUND)
-
-##############################################################
-## Freetype 
-##############################################################
-
-IF (ENABLE_DRAWTEXT_FILTER)
-  PKG_CHECK_MODULES (FONTS REQUIRED freetype2>=2.4.0 fontconfig>=2.4.0)
-  IF (NOT FONTS_FOUND)
-    MESSAGE (STATUS "freetype2 or fontconfig not found drawtext filter disabled")
-  ENDIF (NOT FONTS_FOUND)
-ENDIF (ENABLE_DRAWTEXT_FILTER)
 
 ##############################################################
 ## DBus-1
@@ -400,6 +346,7 @@ MESSAGE ("Configuration summary:")
 MESSAGE (STATUS "${CMAKE_PROJECT_NAME} Install Directory ${CMAKE_INSTALL_PREFIX}")
 MESSAGE (STATUS "Install DBus Interface spec to ${DBUS_INTERFACES_DIR}")
 MESSAGE (STATUS "Install DBus Service spec to ${DBUS_SERVICES_DIR}")
+MESSAGE (STATUS "Install ffpreset to ${FFMPEG_SHAREDIR}")
 IF (INSTALL_EXTRA_FFPRESETS)
   MESSAGE (STATUS "Install extra FFmpeg ffpresets to ${FFMPEG_SHAREDIR}")
 ELSE (INSTALL_EXTRA_FFPRESETS)
@@ -414,7 +361,10 @@ summary (QT4_FOUND "Qt4" FALSE)
 summary (ALSA_FOUND "Alsa" FALSE)
 MESSAGE ("")
 MESSAGE ("Optional Filters:")
-summary (FONTS_FOUND "drawtext filter" TRUE)
+summary (ENABLE_FADE_FILTER "fade filter" TRUE)
+summary (ENABLE_SETDAR_FILTER "setdar filter" TRUE)
+summary (ENABLE_WATERMARK_FILTER "watermark filter" TRUE) 
+summary (ENABLE_DRAWTEXT_FILTER "drawtext filter" TRUE)
 MESSAGE ("")
 MESSAGE ("Optional Packages:")
 summary (PULSE_FOUND "pulseaudio" TRUE)
