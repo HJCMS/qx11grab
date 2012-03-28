@@ -172,6 +172,13 @@ void FFProcess::stop()
 
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
+  /**
+  * Arrgh - Ubuntu mal wieder... Nächster versuch :-(
+  * \code
+  * const char* q = new const char ( 'q' );
+  * if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
+  * \endcode
+  */
   if ( ! m_QProcess->putChar ( 'q' ) )
   {
     qWarning ( "QX11Grab - failed to send quit command to FFmpeg process!\n%s",
