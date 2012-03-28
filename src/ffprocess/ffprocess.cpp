@@ -173,7 +173,7 @@ void FFProcess::stop()
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
   /**
-  * Arrgh - Ubuntu mal wieder... Nächster versuch :-(
+  * Arrgh - Folgender Code arbeitet nicht bei Ubuntu...
   * \code
   * const char* q = new const char ( 'q' );
   * if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
