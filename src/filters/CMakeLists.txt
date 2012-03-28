@@ -4,6 +4,7 @@
 #
 
 SET (LIB_OUTPUT_NAME "QX11GrabInterface")
+SET (QX11GRAB_MODULES_PATH "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/qx11grab")
 
 CONFIGURE_FILE (interface.h.cmake 
   ${CMAKE_CURRENT_SOURCE_DIR}/interface.h

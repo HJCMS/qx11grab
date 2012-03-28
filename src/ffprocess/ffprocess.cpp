@@ -172,8 +172,7 @@ void FFProcess::stop()
 
   emit message ( trUtf8 ( "shutdown please wait ..." ) );
 
-  const char* q = new const char ( 'q' );
-  if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
+  if ( ! m_QProcess->putChar ( 'q' ) )
   {
     qWarning ( "QX11Grab - failed to send quit command to FFmpeg process!\n%s",
                m_QProcess->readAllStandardError().constData() );

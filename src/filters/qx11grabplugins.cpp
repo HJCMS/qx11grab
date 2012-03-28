@@ -43,6 +43,7 @@ namespace QX11Grab
     QStringList paths; // Alle Suchverzeichnisse
     paths << QString ( "%1/plugins" ).arg ( p_dir.absolutePath() ); // NOTE ganz vorne
     paths << QString ( "%1/qx11grab" ).arg ( QLibraryInfo::location ( QLibraryInfo::LibrariesPath ) );
+    paths << QString ( QX11GRAB_MODULES_PATH );
     if ( QSysInfo::WordSize == 64 )
       paths << QString ( "%1/../lib64/qx11grab" ).arg ( p_dir.absolutePath() );
     else

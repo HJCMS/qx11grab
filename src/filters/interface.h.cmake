@@ -27,6 +27,10 @@
 # define QX11GRAB_VERSION    "@QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@"
 #endif
 
+#ifndef QX11GRAB_MODULES_PATH
+# define QX11GRAB_MODULES_PATH    "@QX11GRAB_MODULES_PATH@"
+#endif
+
 /* QtCore */
 #include <QtCore/QMetaObject>
 #include <QtCore/QObject>
