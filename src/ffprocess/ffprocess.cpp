@@ -178,6 +178,7 @@ void FFProcess::stop()
   * const char* q = new const char ( 'q' );
   * if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
   * \endcode
+  * Nächster test
   */
   if ( ! m_QProcess->putChar ( 'q' ) )
   {

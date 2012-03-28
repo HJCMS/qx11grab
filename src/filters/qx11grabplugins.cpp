@@ -42,8 +42,8 @@ namespace QX11Grab
 
     QStringList paths; // Alle Suchverzeichnisse
     paths << QString ( "%1/plugins" ).arg ( p_dir.absolutePath() ); // NOTE ganz vorne
+    paths << QString ( QX11GRAB_MODULES_PATH ); // Installations Pfad
     paths << QString ( "%1/qx11grab" ).arg ( QLibraryInfo::location ( QLibraryInfo::LibrariesPath ) );
-    paths << QString ( QX11GRAB_MODULES_PATH );
     if ( QSysInfo::WordSize == 64 )
       paths << QString ( "%1/../lib64/qx11grab" ).arg ( p_dir.absolutePath() );
     else
@@ -72,7 +72,7 @@ namespace QX11Grab
         {
           // qDebug() << Q_FUNC_INFO << "Found:" << path << info.baseName();
           unique << info.baseName();
-          plugins << QString ( "%1%2%3" ).arg ( p_dir.path(), p_dir.separator(), p );
+          plugins << QString ( "%1/%2" ).arg ( p_dir.path(), p );
         }
       }
     }
