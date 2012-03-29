@@ -273,6 +273,7 @@ INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.de.1
   RENAME qx11grab.1
   DESTINATION share/man/de/man1/
+  COMPONENT data
 )
 
 CONFIGURE_FILE (qx11grab.1.cmake
@@ -282,6 +283,7 @@ CONFIGURE_FILE (qx11grab.1.cmake
 INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.1
   DESTINATION share/man/man1/
+  COMPONENT data
 )
 
 ##############################################################
@@ -295,6 +297,7 @@ CONFIGURE_FILE (qx11grab.desktop.cmake
 INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.desktop
   DESTINATION share/applications
+  COMPONENT core
 )
 
 ##############################################################
@@ -328,6 +331,11 @@ INSTALL (FILES
 )
 
 ##############################################################
+## CPack
+##############################################################
+INCLUDE (QX11Grab.cpack)
+
+##############################################################
 ## Summary
 ##############################################################
 
@@ -342,7 +350,7 @@ MACRO (summary status info optional)
 ENDMACRO (summary)
 
 MESSAGE ("")
-MESSAGE ("Configuration summary:")
+MESSAGE ("Configuration summary for:")
 MESSAGE (STATUS "${CMAKE_PROJECT_NAME} Install Directory ${CMAKE_INSTALL_PREFIX}")
 MESSAGE (STATUS "Install DBus Interface spec to ${DBUS_INTERFACES_DIR}")
 MESSAGE (STATUS "Install DBus Service spec to ${DBUS_SERVICES_DIR}")

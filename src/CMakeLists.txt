@@ -114,7 +114,10 @@ SET_TARGET_PROPERTIES (${CMAKE_PROJECT_NAME} PROPERTIES
   LINK_FLAGS "${APP_PIE_LDFLAGS} -Wl,--as-needed ${QX11GRAB_LDFLAGS}"
 )
 
-INSTALL (TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
+INSTALL (TARGETS ${CMAKE_PROJECT_NAME}
+  DESTINATION bin
+  COMPONENT core
+)
 
 ##############################################################
 ## DBUS Interface/Service Files

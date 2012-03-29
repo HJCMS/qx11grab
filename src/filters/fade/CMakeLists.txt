@@ -39,7 +39,7 @@ SET_TARGET_PROPERTIES (${target_plugin} PROPERTIES
 
 INSTALL (TARGETS ${target_plugin}
   LIBRARY DESTINATION lib${LIB_SUFFIX}/qx11grab
-  COMPONENT Plugin
+  COMPONENT plugins
 )
 
 ##EOF
