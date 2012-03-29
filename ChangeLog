@@ -5,6 +5,7 @@ Version 0.4.2
 * some CMakeLists.txt fixes
 * add explicit -DENABLE_DRAWTEXT_FILTER:BOOL=ON some distributions e.g. kubuntu didn't compile FFmpeg with libfreetype support :-/
 * add mutexes for QProccess
+* fixed if no bookmark file exists create a dummy file for io/open
 
 Version 0.4.0
 * add ffpreset editor

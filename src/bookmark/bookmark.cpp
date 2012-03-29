@@ -71,7 +71,8 @@ bool Bookmark::open ()
     fp.close();
     return status;
   }
-  return false;
+  // BUGFIX : if not exists create a dummy file
+  return save();
 }
 
 const QStringList Bookmark::entries()
