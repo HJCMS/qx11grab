@@ -38,15 +38,15 @@ Default INSTALLATION:
     Optional for FFpresets Support add:
         -DINSTALL_EXTRA_FFPRESETS:BOOL=ON
 
-    Optional enable FFmpeg drawtext filter support
-    To enable compilation of this filter you need to configure FFmpeg with --enable-libfreetype.
-        -DENABLE_DRAWTEXT_FILTER:BOOL=ON
-
     Optional disable Pulse support:
         -DENABLE_PULSE:BOOL=OFF
 
   4) make
   5) make DESTDIR=/tmp/test install/fast
+
+  Optional - qx11grab provides cpack
+    - for Debian package run "cpack -G DEB"
+    - for RPM package run "cpack -G RPM"
 
 openSUSE RPM INSTALLATION:
   1) Add Packman Repository to your repos http://wiki.links2linux.de/packman:faq_de

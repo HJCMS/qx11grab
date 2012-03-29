@@ -28,6 +28,7 @@ SET (CPACK_TOPLEVEL_TAG "cpack.tmp")
 SET (CPACK_PACKAGE_FILE_NAME "qx11grab-${QX11GRAB_VERSION}")
 SET (CPACK_SOURCE_PACKAGE_FILE_NAME "qx11grab-${QX11GRAB_VERSION}_orig")
 SET (CPACK_PACKAGE_DESCRIPTION_SUMMARY "a high flexible screencast application for X11 desktop")
+SET (CPACK_SOURCE_INSTALLED_DIRECTORIES "${ARCHIVE_OUTPUT_PATH}")
 
 ##############################################################
 ## CPack RPM
@@ -35,9 +36,8 @@ SET (CPACK_PACKAGE_DESCRIPTION_SUMMARY "a high flexible screencast application f
 SET (CPACK_RPM_PACKAGE_LICENSE "GPLv2+")
 SET (CPACK_RPM_PACKAGE_GROUP "Productivity/Multimedia/Other")
 SET (CPACK_RPM_PACKAGE_URL "http://qx11grab.hjcms.de")
-SET (CPACK_RPM_PACKAGE_DESCRIPTION "qt4 applet for recording x11 windows with ffmpeg this prgramm requires ffmpeg from http://ffmpeg.mplayerhq.hu")
+SET (CPACK_RPM_PACKAGE_DESCRIPTION "qt4 applet for recording x11 windows with ffmpeg this prgramm requires ffmpeg from http://ffmpeg.org")
 SET (CPACK_RPM_PACKAGE_VENDOR "Juergen Heinemann (Undefined) http://www.hjcms.de")
-SET (CPACK_RPM_COMPRESSION_TYPE "xz")
 SET (CPACK_RPM_PACKAGE_REQUIRES "ffmpeg")
 SET (CPACK_RPM_PACKAGE_ARCHITECTURE "${_package_architecture}")
 
@@ -51,7 +51,7 @@ IF ("${_package_architecture}" MATCHES "i*86")
 ELSE ("${_package_architecture}" MATCHES "i*86")
   SET (CPACK_DEBIAN_PACKAGE_ARCHITECTURE "${_package_architecture}")
 ENDIF ("${_package_architecture}" MATCHES "i*86")
-SET (CPACK_DEBIAN_PACKAGE_DEPENDS "cmake libqt4-dev (>= 7.4.2) debhelper (>= 7.3.16) libx11-dev libasound2-dev libpulse-dev libavformat-dev libavcodec-dev libavutil-dev libavfilter-dev libx264-dev libtheora-dev libvpx-dev libxrandr-dev libfreetype6-dev libfontconfig1-dev ffmpeg")
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "ffmpeg")
 SET (CPACK_DEBIAN_PACKAGE_MAINTAINER "Juergen Heinemann (Undefined) <noreply@hjcms.de>")
 SET (CPACK_DEBIAN_PACKAGE_SECTION "kde")
 SET (CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
@@ -63,5 +63,7 @@ to a new FFmpeg process.
 .
 qx11grab doesn't record itself, it just prepare commands for FFmpeg.")
 SET (CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+
+INCLUDE (CPack)
 
 ##EOF
