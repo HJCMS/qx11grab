@@ -8,7 +8,7 @@ REQUIREMENTS:
   -  libavformat >= 52.78.3 (required) 53.24.0 (recommended) http://www.ffmpeg.org
   -  libavcodec >= 52.86.1 (required) 52.20.0 (recommended)  http://www.ffmpeg.org
   -  libavutil >= 50.24.0 (required) 51.32.0 (recommended)  http://www.ffmpeg.org
-  -  libavfilter >= 2.53.0 (required) 2.61.100 (recommended)  http://www.ffmpeg.org
+  -  libavfilter >= 2.4.0 (required) 2.61.100 (recommended)  http://www.ffmpeg.org
   -  pulseaudio >= 0.9 (required) 1.1 (recommended) http://pulseaudio.org/
   -  alsa >= 1.0.14 (required) 1.0.24 (recommended) http://alsa-project.org
   -  dbus-1 >= 1.4.12 (required) 1.4.16 (recommended) http://www.freedesktop.org/wiki/Software/dbus

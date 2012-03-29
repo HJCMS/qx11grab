@@ -21,9 +21,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <libavformat/avformat.h>
 #include <libavutil/avutil.h>
-#include <libavfilter/avcodec.h>
 #include <libavfilter/avfilter.h>
 #include <libavfilter/avfiltergraph.h>
 
@@ -38,6 +36,10 @@ int main(int argc, char **argv)
   const char* filterName = argv[1];
   fprintf ( stdout, "Search Filter - %s\n", filterName );
 
+  /*
+   * nm -D /usr/lib/libavfilter.so | grep -e avfilter_register_all -e avfilter_get_by_name
+   * grep avfilter_register_all /usr/include/libavfilter/\*.h
+   */
   avfilter_register_all();
   AVFilter* filter = avfilter_get_by_name(filterName);
   return ( filter == NULL ) ?  EXIT_FAILURE : EXIT_SUCCESS;
