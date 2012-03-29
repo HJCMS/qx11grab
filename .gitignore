@@ -21,3 +21,4 @@ importicon.sh
 lupdate.sh
 snapshot.sh
 testcmd.sh
+remotesshow.sh
