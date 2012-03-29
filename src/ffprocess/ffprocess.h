@@ -23,11 +23,13 @@
 #define FFPROCESS_H
 
 /* QtCore */
+#include <QtCore/QChar>
+#include <QtCore/QMutex>
 #include <QtCore/QObject>
+#include <QtCore/QProcess>
+#include <QtCore/QRect>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
-#include <QtCore/QRect>
-#include <QtCore/QProcess>
 
 /* QtGui */
 #include <QtGui/QX11Info>
@@ -39,6 +41,7 @@ class FFProcess : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
     Settings* cfg;
@@ -46,16 +49,10 @@ class FFProcess : public QObject
     QProcess* m_QProcess;
     Listener* m_listener;
     QStringList arguments;
+    QMutex mutex;
     const QString application();
     const QString workdir();
     const QString writeScript ( const QStringList &cmd, const QString &vfile );
-
-  Q_SIGNALS:
-    void running ();
-    void down();
-    void message ( const QString & );
-    void statusMessage ( const QString & );
-    void errmessage ( const QString &, const QString & );
 
   private Q_SLOTS:
     void startCheck ();
@@ -63,15 +60,63 @@ class FFProcess : public QObject
     void errors ( QProcess::ProcessError );
     void exited ( int, QProcess::ExitStatus );
 
+  Q_SIGNALS:
+    /**
+    * This signal is emitted if QProcess::Running is changed
+    */
+    void running ();
+
+    /**
+    * This signal is emitted if QProcess::NotRunning is changed
+    */
+    void down();
+
+    /**
+    * This signal is emitted with internal notification messages
+    */
+    void message ( const QString & );
+
+    /**
+    * This signal is emitted when QProcess::status changed messages
+    */
+    void statusMessage ( const QString & );
+
+    /**
+    * This signal is emitted when errors detected
+    */
+    void errmessage ( const QString &, const QString & );
+
   public Q_SLOTS:
+    /**
+    * normal shutdown
+    */
     void stop();
+
+    /**
+    * force shutdown
+    */
     void kill();
 
   public:
-    explicit FFProcess ( QObject *parent = 0, Settings *settings = 0 );
-    bool create ( const QRect & );
-    bool start ( const QStringList &cmd, const QString &outputFile );
+    explicit FFProcess ( QObject * parent = 0, Settings * settings = 0 );
+
+    /**
+    * Send a custom command to current process
+    */
+    bool send ( const QChar &data );
+
+    /**
+    * start with given command line to video output file
+    * \param cmd Command Line
+    * \param out Output File
+    */
+    bool start ( const QStringList &cmd, const QString &out );
+
+    /**
+    * check if is running
+    */
     bool isRunning();
+
     virtual ~FFProcess();
 };
 

@@ -492,7 +492,7 @@ void MainWindow::startRecord()
       return;
   }
 
-  if ( m_FFProcess->create ( m_grabberInfo->getRect() ) )
+  if ( m_grabberInfo->getRect().isValid() )
   {
     // Nehme die Editierte Zeile des Benutzers
     QStringList cmd = m_commandPreview->currentCommandLine();

@@ -32,18 +32,19 @@
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
-#include <QtCore/QFileInfo>
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QIODevice>
+#include <QtCore/QMutexLocker>
+#include <QtCore/QProcessEnvironment>
 #include <QtCore/QRegExp>
 #include <QtCore/QTime>
 #include <QtCore/QTimer>
-#include <QtCore/QIODevice>
-#include <QtCore/QProcessEnvironment>
 
 /* QtGui */
 #include <QtGui/QMessageBox>
 
-FFProcess::FFProcess ( QObject *parent, Settings *settings )
+FFProcess::FFProcess ( QObject * parent, Settings * settings )
     : QObject ( parent )
     , cfg ( settings )
     , xInfo()
@@ -105,136 +106,17 @@ const QString FFProcess::writeScript ( const QStringList &cmd, const QString &vf
 }
 
 /**
-* Überprüfe ob die Dimensionen in Ordnung sind
+* Vor dem Starten auf laufenden Prozess prüfen!
 */
-bool FFProcess::create ( const QRect &r )
+void FFProcess::startCheck()
 {
-  if ( r.isValid() )
-    return true;
-
-  emit errmessage ( trUtf8 ( "Dimension" ), trUtf8 ( "Invalid Window geometry" ) );
-  return false;
+  if ( isRunning() )
+    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( Settings::logfile() ) );
 }
 
 /**
-* Starte die Aufnahme
+* Prozess Status beim beenden
 */
-bool FFProcess::start ( const QStringList &cmd, const QString &outputFile )
-{
-  if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
-    return false;
-
-  QFileInfo script ( writeScript ( cmd, outputFile ) );
-  if ( ! script.isExecutable() )
-  {
-    emit errmessage ( trUtf8 ( "Executable Script" ),
-                      trUtf8 ( "Permission Denied: %1." ).arg ( script.absoluteFilePath() ) );
-    return false;
-  }
-
-  if ( ! m_listener->setOutputFile ( outputFile ) )
-    qWarning ( "QX11Grab: can not set listener ouput file" );
-
-  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-  env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
-  env.insert ( "AV_LOG_FORCE_NOCOLOR", "1" );
-
-  m_QProcess = new QProcess ( this );
-  m_QProcess->setProcessEnvironment ( env );
-  m_QProcess->setWorkingDirectory ( workdir() );
-  m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
-  m_QProcess->setStandardErrorFile ( Settings::logfile() );
-  m_QProcess->setReadChannel ( QProcess::StandardOutput );
-
-  connect ( m_QProcess, SIGNAL ( stateChanged ( QProcess::ProcessState ) ),
-            this, SLOT ( status ( QProcess::ProcessState ) ) );
-
-  connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
-            this, SLOT ( errors ( QProcess::ProcessError ) ) );
-
-  connect ( m_QProcess, SIGNAL ( finished ( int, QProcess::ExitStatus ) ),
-            this, SLOT ( exited ( int, QProcess::ExitStatus ) ) );
-
-  connect ( m_QProcess, SIGNAL ( started() ),
-            this, SLOT ( startCheck() ) );
-
-  m_QProcess->start ( script.absoluteFilePath(), QIODevice::ReadWrite );
-  return true;
-}
-
-/**
-* Stoppe die Aufnahme
-*/
-void FFProcess::stop()
-{
-  if ( ! m_QProcess )
-    return;
-
-  emit message ( trUtf8 ( "shutdown please wait ..." ) );
-
-  /**
-  * Arrgh - Folgender Code arbeitet nicht bei Ubuntu...
-  * \code
-  * const char* q = new const char ( 'q' );
-  * if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
-  * \endcode
-  * Nächster test
-  */
-  if ( ! m_QProcess->putChar ( 'q' ) )
-  {
-    qWarning ( "QX11Grab - failed to send quit command to FFmpeg process!\n%s",
-               m_QProcess->readAllStandardError().constData() );
-    goto close_channels;
-  }
-
-  if ( m_QProcess->waitForBytesWritten ( 1500 ) )
-  {
-    qDebug ( "QX11Grab - normal shutdown FFmpeg process" );
-    goto close_channels;
-  }
-
-close_channels:
-  {
-    m_QProcess->closeWriteChannel();
-    m_QProcess->closeReadChannel ( QProcess::StandardOutput );
-    m_listener->clear();
-  }
-}
-
-/**
-* Aufnahme abbrechen
-*/
-void FFProcess::kill()
-{
-  if ( ! m_QProcess )
-    return;
-
-  emit message ( trUtf8 ( "force shutdown" ) );
-
-#ifdef MAINTAINER_REPOSITORY
-  QStringList psArgs;
-  psArgs << "-a" << QString::number ( m_QProcess->pid() );
-  QProcess::startDetached ( "ps", psArgs );
-#endif
-
-  m_QProcess->kill ();
-}
-
-/**
-* Status Überprüfung
-*/
-bool FFProcess::isRunning()
-{
-  if ( ! m_QProcess )
-    return false;
-
-  // If no process is currently running, 0 is returned.
-  if ( m_QProcess->pid() == 0 )
-    return false;
-
-  return true;
-}
-
 void FFProcess::status ( QProcess::ProcessState status )
 {
   switch ( status )
@@ -317,12 +199,153 @@ void FFProcess::exited ( int exitCode, QProcess::ExitStatus stat )
 }
 
 /**
-* Vor dem Starten auf laufenden Prozess prüfen!
+* Stoppe die Aufnahme
 */
-void FFProcess::startCheck()
+void FFProcess::stop()
 {
-  if ( isRunning() )
-    emit message ( trUtf8 ( "Recording started writing to: %1" ).arg ( Settings::logfile() ) );
+  if ( ! m_QProcess )
+    return;
+
+  emit message ( trUtf8 ( "shutdown please wait ..." ) );
+  mutex.lock();
+
+  /**
+  * Arrgh - Folgender Code arbeitet nicht bei Kubuntu...
+  * \code
+  * const char* q = new const char ( 'q' );
+  * if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
+  * \endcode
+  * Nächster test
+  */
+  if ( ! m_QProcess->putChar ( 'q' ) )
+  {
+    qWarning ( "QX11Grab - failed to send quit command to FFmpeg process!\n%s",
+               m_QProcess->readAllStandardError().constData() );
+    goto close_channels;
+  }
+
+  if ( m_QProcess->waitForBytesWritten ( 1500 ) )
+  {
+    qDebug ( "QX11Grab - normal shutdown FFmpeg process" );
+    goto close_channels;
+  }
+
+close_channels:
+  {
+    m_QProcess->closeWriteChannel();
+    m_QProcess->closeReadChannel ( QProcess::StandardOutput );
+    m_listener->clear();
+  }
+
+  mutex.unlock();
+}
+
+/**
+* Aufnahme abbrechen
+*/
+void FFProcess::kill()
+{
+  if ( ! m_QProcess )
+    return;
+
+  emit message ( trUtf8 ( "force shutdown" ) );
+  mutex.lock();
+
+#ifdef MAINTAINER_REPOSITORY
+  QStringList psArgs;
+  psArgs << "-a" << QString::number ( m_QProcess->pid() );
+  QProcess::startDetached ( "ps", psArgs );
+#endif
+
+  m_QProcess->kill ();
+  mutex.unlock();
+}
+
+/**
+* Einen Befehl an den laufenden Prozess senden!
+*/
+bool FFProcess::send ( const QChar &data )
+{
+  QMutexLocker locker ( &mutex );
+  if ( ! m_QProcess )
+    return false;
+
+  const char* q = new const char ( data.toAscii() );
+  if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
+  {
+    qWarning ( "QX11Grab - failed to send command to FFmpeg process!\n%s",
+               m_QProcess->readAllStandardError().constData() );
+    return false;
+  }
+
+  if ( m_QProcess->waitForBytesWritten () )
+  {
+    qDebug ( "QX11Grab - command successful send to FFmpeg process!" );
+    return true;
+  }
+
+  return true;
+}
+
+/**
+* Starte die Aufnahme
+*/
+bool FFProcess::start ( const QStringList &cmd, const QString &out )
+{
+  if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
+    return false;
+
+  QFileInfo script ( writeScript ( cmd, out ) );
+  if ( ! script.isExecutable() )
+  {
+    emit errmessage ( trUtf8 ( "Executable Script" ),
+                      trUtf8 ( "Permission Denied: %1." ).arg ( script.absoluteFilePath() ) );
+    return false;
+  }
+
+  if ( ! m_listener->setOutputFile ( out ) )
+    qWarning ( "QX11Grab: can not set listener ouput file" );
+
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
+  env.insert ( "AV_LOG_FORCE_NOCOLOR", "1" );
+
+  m_QProcess = new QProcess ( this );
+  m_QProcess->setProcessEnvironment ( env );
+  m_QProcess->setWorkingDirectory ( workdir() );
+  m_QProcess->setProcessChannelMode ( QProcess::SeparateChannels );
+  m_QProcess->setStandardErrorFile ( Settings::logfile() );
+  m_QProcess->setReadChannel ( QProcess::StandardOutput );
+
+  connect ( m_QProcess, SIGNAL ( stateChanged ( QProcess::ProcessState ) ),
+            this, SLOT ( status ( QProcess::ProcessState ) ) );
+
+  connect ( m_QProcess, SIGNAL ( error ( QProcess::ProcessError ) ),
+            this, SLOT ( errors ( QProcess::ProcessError ) ) );
+
+  connect ( m_QProcess, SIGNAL ( finished ( int, QProcess::ExitStatus ) ),
+            this, SLOT ( exited ( int, QProcess::ExitStatus ) ) );
+
+  connect ( m_QProcess, SIGNAL ( started() ),
+            this, SLOT ( startCheck() ) );
+
+  m_QProcess->start ( script.absoluteFilePath(), QIODevice::ReadWrite );
+  return true;
+}
+
+/**
+* Status Überprüfung
+*/
+bool FFProcess::isRunning()
+{
+  if ( ! m_QProcess )
+    return false;
+
+  // If no process is currently running, 0 is returned.
+  if ( m_QProcess->pid() == 0 )
+    return false;
+
+  return true;
 }
 
 FFProcess::~FFProcess()
