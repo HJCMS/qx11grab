@@ -103,7 +103,11 @@ SET (FFMPEG_LIBRARIES
 #=============================================================================
 
 ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
-SET (FFMPEG_INCLUDEDIR ${_ffmpeg_INCLUDE_DIRS})
+IF (_ffmpeg_INCLUDE_DIRS)
+  SET (FFMPEG_INCLUDEDIR ${_ffmpeg_INCLUDE_DIRS})
+ELSE (_ffmpeg_INCLUDE_DIRS)
+  SET (FFMPEG_INCLUDEDIR ${_ffmpeg_libavcodec_INCLUDEDIR})
+ENDIF (_ffmpeg_INCLUDE_DIRS)
 
 #=============================================================================
 # Data Directory
