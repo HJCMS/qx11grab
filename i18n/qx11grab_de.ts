@@ -584,14 +584,6 @@ Beispiel für OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <source>Dimension</source>
-        <translation>Dimension</translation>
-    </message>
-    <message>
-        <source>Invalid Window geometry</source>
-        <translation>Ungültige Fenster Geometrie</translation>
-    </message>
-    <message>
         <source>shutdown please wait ...</source>
         <translation>Beende bitte warten ...</translation>
     </message>

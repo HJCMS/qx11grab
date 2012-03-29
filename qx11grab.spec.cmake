@@ -1,6 +1,10 @@
 ## Specfile for OpenSuSE Build Service
 
 %define packagename  qx11grab-@QX11GRAB_VERSION_MAJOR@.@QX11GRAB_VERSION_MINOR@.@QX11GRAB_VERSION_RELEASE@
+####
+%define ff_suffix    %{nil}
+%define enable_kde4  0
+
 
 Name:           qx11grab
 Summary:        a high flexible screencast Application for X11 Desktop
@@ -13,12 +17,15 @@ Group:          Productivity/Multimedia/Other
 Url:            http://qx11grab.hjcms.de
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires:       ffmpeg
-BuildRequires:  cmake >= 2.8.0 ffmpeg-devel
+BuildRequires:  cmake >= 2.8.0 ffmpeg%{ff_suffix}-devel
 %if %{defined suse_version}
 BuildRequires:  libqt4-devel >= 4.6.0 update-desktop-files
 %else
 BuildRequires:  qt4-devel >= 4.6.0
 %endif 
+%if %enable_kde4
+BuildRequires:  automoc4
+%endif
 Vendor:         Juergen Heinemann (Undefined) http://www.hjcms.de
 
 %description
@@ -64,8 +71,14 @@ cmake -Wno-dev \
   -DCMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING="$RPM_OPT_FLAGS" \
   -DCMAKE_INSTALL_PREFIX:PATH=/usr \
   -DENABLE_DRAWTEXT_FILTER:BOOL=ON \
+  -DFFMPEG_SUFFIX:STRING="%{ff_suffix}" \
 %if %{_lib} == lib64
   -DLIB_SUFFIX:STRING=64 \
+%endif
+%if %enable_kde4
+  -DENABLE_OPENGL:BOOL=ON \
+  -DENABLE_KDE_SUPPORT:BOOL=ON \
+  -DAUTOMOC4_EXECUTABLE:FILEPATH=%(which automoc4) \
 %endif
   -DINSTALL_FFPRESETS:BOOL=ON \
   ../

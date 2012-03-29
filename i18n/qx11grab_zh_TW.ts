@@ -700,95 +700,85 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="79"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="131"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="80"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="302"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="79"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="80"/>
         <source>Working Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="115"/>
-        <source>Dimension</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="115"/>
-        <source>Invalid Window geometry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="130"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="301"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="173"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="209"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="205"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="251"/>
         <source>force shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="261"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="265"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="269"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="273"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="277"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="281"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="150"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="154"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="158"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="162"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="166"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="170"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="174"/>
         <source>Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="261"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="150"/>
         <source>FailedToStart (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="265"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="154"/>
         <source>Crashed (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="269"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="158"/>
         <source>Timedout (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="273"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="162"/>
         <source>WriteError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="277"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="166"/>
         <source>ReadError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="281"/>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="285"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="170"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="174"/>
         <source>UnknownError (%1) ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="300"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="189"/>
         <source>Recording finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="304"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="193"/>
         <source>Process crashed see logfile %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="318"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="114"/>
         <source>Recording started writing to: %1</source>
         <translation type="unfinished"></translation>
     </message>
