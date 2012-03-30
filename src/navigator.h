@@ -23,6 +23,7 @@
 #define NAVIGATOR_H
 
 /* QtCore */
+#include <QtCore/QEvent>
 #include <QtCore/QObject>
 #include <QtCore/QPoint>
 #include <QtCore/QSettings>
@@ -58,6 +59,7 @@ class Navigator : public QWidget
       QDesktopWidget* widget;
       QPoint startPos;
       bool move;
+      bool activ;
     };
     MoveState* m_state;
     Settings* m_settings;
@@ -79,6 +81,7 @@ class Navigator : public QWidget
     virtual void mouseMoveEvent ( QMouseEvent * event );
     virtual void mousePressEvent ( QMouseEvent * event );
     virtual void mouseReleaseEvent ( QMouseEvent * event );
+    virtual void leaveEvent ( QEvent * event );
 
   Q_SIGNALS:
     void startRecord();

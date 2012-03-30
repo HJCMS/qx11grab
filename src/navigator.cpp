@@ -133,6 +133,7 @@ void Navigator::initMoveState ( const QPoint &p )
   m_state->widget = qApp->desktop();
   m_state->startPos = p;
   m_state->move = false;
+  m_state->activ = false;
 }
 
 /**
@@ -144,20 +145,26 @@ void Navigator::startMoveWidget ( bool b )
   if ( ( b && m_state->move ) )
     return;
 
+  if ( ! m_state->widget )
+    m_state->widget = qApp->desktop();
+
   m_state->move = b;
-  setCursor ( Qt::ClosedHandCursor );
+  m_state->activ = !b;
 }
 
 /**
 * Beende das Verschieben und räume auf
+* \warning Kein Assert verwenden siehe leaveEvent!
 */
 void Navigator::stopMoveWidget()
 {
-  Q_ASSERT ( m_state != 0 );
+  if ( ! m_state )
+    return;
+
+  m_state->widget->releaseMouse();
   m_state->widget = 0;
   delete m_state;
   m_state = 0;
-  setCursor ( Qt::ArrowCursor );
 }
 
 /**
@@ -240,37 +247,40 @@ void Navigator::mouseMoveEvent ( QMouseEvent * event )
     return;
   }
 
-  if ( ( event->pos() - m_state->startPos ).manhattanLength() > qApp->startDragDistance() )
+  if ( ( event->pos() - m_state->startPos ).manhattanLength() > QApplication::startDragDistance() )
   {
-    const bool move = ( ( ! m_state->widget->isWindow() ) ?
-                        ( ( event->x() >= 0 ) && ( event->x() < m_state->widget->width() ) ) :
-                        ( ( event->y() >= 0 ) && ( event->y() < m_state->widget->height() ) ) );
+    const bool m = ( ( ! m_state->widget->isWindow() ) ?
+                     ( ( event->x() >= 0 ) && ( event->x() < m_state->widget->width() ) ) :
+                     ( ( event->y() >= 0 ) && ( event->y() < m_state->widget->height() ) ) );
 
-    startMoveWidget ( move );
+    startMoveWidget ( m );
 
-    if ( ! move )
+    if ( ! m )
       m_state->widget->grabMouse();
   }
 
   if ( m_state->move )
   {
     QPoint pos = event->globalPos();
+    // qDebug() << Q_FUNC_INFO << m_state->move << m_state->activ << pos;
     // passend zur Layoutrichtung
     if ( qApp->isLeftToRight() )
       pos -= m_state->startPos;
     else
       pos += QPoint ( ( m_state->startPos.x() - m_state->widget->width() ), -m_state->startPos.y() );
 
-    move ( pos );
+    if ( ! pos.isNull() )
+      move ( pos );
   }
 }
 
 /**
-* Wenn die Maus die Linke Maustaste gedrückt wird
+* Wenn die Linke Maustaste gedrückt wird
 * Die Verschieben aktionen Initialisieren
 */
 void Navigator::mousePressEvent ( QMouseEvent * event )
 {
+  setCursor ( Qt::ClosedHandCursor );
   if ( event->button() == Qt::LeftButton )
     initMoveState ( event->pos() );
   else
@@ -282,10 +292,34 @@ void Navigator::mousePressEvent ( QMouseEvent * event )
 */
 void Navigator::mouseReleaseEvent ( QMouseEvent * event )
 {
+  setCursor ( Qt::ArrowCursor );
   if ( event->button() == Qt::LeftButton )
     stopMoveWidget ();
   else
     event->ignore();
+}
+
+/**
+* Wenn das Widget bei schnellen Mausbewegungen
+* verlassen wird. Sicher gehen das \b stopMoveWidget
+* aufgerufen wird!
+*/
+void Navigator::leaveEvent ( QEvent * event )
+{
+  switch ( event->type() )
+  {
+    case QEvent::Leave:
+      stopMoveWidget ();
+      break;
+
+    case QEvent::DragLeave:
+      stopMoveWidget ();
+      break;
+
+    default:
+      event->ignore();
+      break;
+  };
 }
 
 /**

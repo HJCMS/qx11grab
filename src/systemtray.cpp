@@ -56,12 +56,16 @@ SystemTray::SystemTray ( MainWindow * parent )
   QAction* showRubberbandWindow = MenuBar::rubberbandAction ( this );
   m_menu->addAction ( showRubberbandWindow );
 
+#ifdef ENABLE_EXPERIMENTAL
+
   QAction* m_actionNavi = m_menu->addAction ( trUtf8 ( "Navigation" ) );
   m_actionNavi->setObjectName ( QLatin1String ( "navigationAction" ) );
   /*: ToolTip */
   m_actionNavi->setStatusTip ( trUtf8 ( "to navigate" ) );
   m_actionNavi->setIcon ( Settings::themeIcon ( "window-new" ) );
   m_menu->addAction ( m_actionNavi );
+
+#endif
 
   m_menu->addSeparator();
 
@@ -93,9 +97,6 @@ SystemTray::SystemTray ( MainWindow * parent )
   connect ( showRubberbandWindow, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( swapRubberBand() ) );
 
-  connect ( m_actionNavi, SIGNAL ( triggered() ),
-            this, SLOT ( showNavigator() ) );
-
   connect ( m_actionStartRecord, SIGNAL ( triggered() ),
             m_mainWindow, SLOT ( startRecord() ) );
 
@@ -112,6 +113,10 @@ SystemTray::SystemTray ( MainWindow * parent )
             m_mainWindow, SLOT ( shutdown() ) );
 
   // Navigation
+#ifdef ENABLE_EXPERIMENTAL
+  connect ( m_actionNavi, SIGNAL ( triggered() ),
+            this, SLOT ( showNavigator() ) );
+
   connect ( m_navigator, SIGNAL ( startRecord() ),
             m_mainWindow, SLOT ( startRecord() ) );
 
@@ -120,6 +125,7 @@ SystemTray::SystemTray ( MainWindow * parent )
 
   connect ( m_navigator, SIGNAL ( rubberBand() ),
             m_mainWindow, SLOT ( swapRubberBand() ) );
+#endif
 }
 
 /**
