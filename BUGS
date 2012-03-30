@@ -1,6 +1,10 @@
 
 * Please Report Bugs to : https://launchpad.net/~juergen-heinemann/+archive/qx11grab.hjcms.de
 
+* QTableView Item Update
+  - on some distributions first add item not visible but also inserted
+  - I'm searching...  currently not fixed
+
 * can not create mp4 videos
   - you need FFmpeg with libfaac Support. (NOTE This will break GPL License)
 

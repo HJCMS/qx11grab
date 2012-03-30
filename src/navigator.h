@@ -24,38 +24,61 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QPoint>
 #include <QtCore/QSettings>
 
 /* QtGui */
 #include <QtGui/QAction>
-#include <QtGui/QDialog>
+#include <QtGui/QContextMenuEvent>
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QHideEvent>
 #include <QtGui/QLineEdit>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QMoveEvent>
 #include <QtGui/QPaintEvent>
 #include <QtGui/QShowEvent>
-#include <QtGui/QToolBar>
+#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
 /* QX11Grab */
 #include "mainwindow.h"
 
-class Navigator : public QToolBar
+class PlayerAction;
+class Settings;
+
+class Navigator : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    QSettings* m_settings;
-    QLineEdit* m_infoLabel;
-    QAction* m_actionStartRecord;
-    QAction* m_actionStopRecord;
-    QAction* m_rubberbandAction;
+    struct MoveState
+    {
+      QDesktopWidget* widget;
+      QPoint startPos;
+      bool move;
+    };
+    MoveState* m_state;
+    Settings* m_settings;
+    QToolButton* m_actionStartRecord;
+    QToolButton* m_actionStopRecord;
+    QToolButton* m_rubberbandAction;
+    QLineEdit* m_infoData;
+    PlayerAction* m_playerAction;
+
+    void initMoveState ( const QPoint &p );
+    void startMoveWidget ( bool b = false );
+    void stopMoveWidget();
 
   protected:
+    virtual void contextMenuEvent ( QContextMenuEvent * event );
     virtual void paintEvent ( QPaintEvent * event );
     virtual void hideEvent ( QHideEvent * event );
     virtual void showEvent ( QShowEvent * event );
+    virtual void mouseMoveEvent ( QMouseEvent * event );
+    virtual void mousePressEvent ( QMouseEvent * event );
+    virtual void mouseReleaseEvent ( QMouseEvent * event );
 
   Q_SIGNALS:
     void startRecord();
@@ -63,8 +86,9 @@ class Navigator : public QToolBar
     void rubberBand();
 
   public Q_SLOTS:
-    void setInfo ( const QString &info );
     void setActivity ( bool b = false );
+    Q_SCRIPTABLE void setInfo ( const QString &info );
+    Q_SCRIPTABLE void setPlayerEnabled ( bool b = false );
 
   public:
     explicit Navigator ( QWidget * parent = 0 );

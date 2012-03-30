@@ -1581,6 +1581,27 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>Navigator</name>
+    <message>
+        <location filename="../src/navigator.cpp" line="84"/>
+        <source>Start Recording</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Pradėti įrašinėti</translation>
+    </message>
+    <message>
+        <location filename="../src/navigator.cpp" line="91"/>
+        <source>Stop Recording</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished">Baigti įrašinėjimą</translation>
+    </message>
+    <message>
+        <location filename="../src/navigator.cpp" line="99"/>
+        <source>swap rubberband view</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OpenImageDialog</name>
     <message>
         <location filename="../src/filters/watermark/openimagedialog.cpp" line="42"/>
@@ -1633,55 +1654,55 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PlayerAction</name>
     <message>
-        <location filename="../src/playeraction.cpp" line="72"/>
+        <location filename="../src/playeraction.cpp" line="73"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="74"/>
+        <location filename="../src/playeraction.cpp" line="75"/>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="76"/>
+        <location filename="../src/playeraction.cpp" line="77"/>
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="78"/>
+        <location filename="../src/playeraction.cpp" line="79"/>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="80"/>
+        <location filename="../src/playeraction.cpp" line="81"/>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="82"/>
+        <location filename="../src/playeraction.cpp" line="83"/>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="84"/>
+        <location filename="../src/playeraction.cpp" line="85"/>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="86"/>
+        <location filename="../src/playeraction.cpp" line="87"/>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="88"/>
+        <location filename="../src/playeraction.cpp" line="89"/>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation type="unfinished"></translation>

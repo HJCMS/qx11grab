@@ -46,6 +46,7 @@ PlayerAction::PlayerAction ( QWidget * parent )
 {
   setObjectName ( QLatin1String ( "PlayerAction" ) );
   setPopupMode ( QToolButton::MenuButtonPopup );
+  setToolButtonStyle ( Qt::ToolButtonIconOnly );
   setIcon ( Settings::themeIcon ( "start-here" ) );
 
   m_menu =  new QMenu ( this );

@@ -1303,6 +1303,24 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>Navigator</name>
+    <message>
+        <source>Start Recording</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Aufnehmen</translation>
+    </message>
+    <message>
+        <source>Stop Recording</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Aufnahme beenden</translation>
+    </message>
+    <message>
+        <source>swap rubberband view</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Gummiband Ansicht umschalten</translation>
+    </message>
+</context>
+<context>
     <name>OpenImageDialog</name>
     <message>
         <source>Open Image File</source>
