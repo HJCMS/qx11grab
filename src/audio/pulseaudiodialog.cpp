@@ -68,20 +68,20 @@ typedef struct PaDevInfo
   quint32 index;
   QString name;
   QString description;
+  bool isInputDevice;
 } padevinfo_t;
 
 /** Insert all input cards into pulseInfo */
 static QList<PaDevInfo> pulseInfo;
 
 /** Pulse "pa_context_get_source_info_list" callback function */
-static void getPulseSourceInfo ( pa_context *, const pa_source_info *i, int success, void * )
+static void getPulseSourceInfo ( pa_context *co, const pa_source_info *i, int success, void * state )
 {
   if ( success > 0 )
   {
-    if ( pa_context_errno ( context ) == PA_ERR_NOENTITY )
+    if ( pa_context_errno ( co ) == PA_ERR_NOENTITY )
       return;
 
-    qWarning ( "Source callback failure" );
     mainloop_api->quit ( mainloop_api, 0 );
     return;
   }
@@ -89,11 +89,27 @@ static void getPulseSourceInfo ( pa_context *, const pa_source_info *i, int succ
   if ( success < 0 )
     return;
 
-  // qDebug() <<  "Pulse::getPulseSourceInfo >> " << i->index << i->name << i->description;
+  bool inp = false;
+  if ( i->proplist )
+  {
+    const char* key = pa_proplist_iterate ( i->proplist, &state );
+    while ( key != NULL )
+    {
+      if ( QString::fromUtf8 ( key ).contains ( "device.class", Qt::CaseInsensitive ) )
+      {
+        inp = !QString::fromUtf8 ( pa_proplist_gets ( i->proplist, key ) ).contains ( "monitor", Qt::CaseInsensitive );
+        break;
+      }
+      key = pa_proplist_iterate ( i->proplist, &state );
+    }
+  }
+
+  // qDebug() <<  "Pulse::getPulseSourceInfo >> " << i->index << i->name << i->description << inp;
   PaDevInfo devinfo;
   devinfo.index = i->index;
   devinfo.name = QString ( i->name );
   devinfo.description = QString ( i->description );
+  devinfo.isInputDevice = inp;
   pulseInfo.append ( devinfo );
 }
 
@@ -113,11 +129,13 @@ static void pulseContextState ( pa_context *c, void *userdata )
 
     case PA_CONTEXT_READY:
     {
-      fprintf ( stderr, "Pulse: Connection established.\n" );
+      qDebug ( "QX11Grab: connection established." );
       pa_operation *o;
       if ( ! ( o = pa_context_get_source_info_list ( c, getPulseSourceInfo, dummy ) ) )
       {
-        qWarning ( "Pulse context get card info list failed!" );
+        const char* errorMessage = pa_strerror ( pa_context_errno ( c ) );
+        fprintf ( stderr, "QX11Grab: pulse context get card info list failed! - %s\n", errorMessage );
+        sendPulseErrorToMainWindow ( errorMessage );
         mainloop_api->quit ( mainloop_api, 0 );
         return;
       }
@@ -132,11 +150,9 @@ static void pulseContextState ( pa_context *c, void *userdata )
     case PA_CONTEXT_FAILED:
     default:
     {
-      fprintf ( stderr, "Context error: %s\n", pa_strerror ( pa_context_errno ( c ) ) );
-      sendPulseErrorToMainWindow ( pa_strerror ( pa_context_errno ( c ) ) );
-      /** FIXME pulse:abort(); Ist keine gute Idee weil:
-      * Wenn kein Server erreichbar ist bringt abort mit sigsev QX11Grab zum absturts!
-      */
+      const char* errorMessage = pa_strerror ( pa_context_errno ( c ) );
+      fprintf ( stderr, "QX11Grab: context error - %s\n", errorMessage );
+      sendPulseErrorToMainWindow ( errorMessage );
       mainloop_api->quit ( mainloop_api, 0 );
       break;
     }
@@ -161,6 +177,8 @@ PulseAudioDialog::PulseAudioDialog ( QWidget * parent )
 void PulseAudioDialog::insertItems()
 {
   int size = pulseInfo.size();
+  QIcon inputIcon = QIcon::fromTheme ( "audio-input-microphone" );
+  QIcon monitorIcon = QIcon::fromTheme ( "audio-card" );
   if ( size > 0 )
   {
     for ( int i = 0; i < size; ++i )
@@ -169,10 +187,15 @@ void PulseAudioDialog::insertItems()
       QString name = pulseInfo.at ( i ).name;
       QString desc = pulseInfo.at ( i ).description;
       QListWidgetItem* item = new QListWidgetItem ( m_deviceListWidget );
-      item->setText ( QString ( "%1 \"%2\" Index:%3" ).arg ( desc, name, index ) );
+      item->setText ( desc );
       item->setData ( Qt::UserRole, name );
-      item->setData ( Qt::ToolTipRole, index );
+      item->setData ( Qt::ToolTipRole, QString ( "%1 = %2" ).arg ( index, name ) );
       item->setData ( Qt::StatusTipRole, desc );
+      if ( pulseInfo.at ( i ).isInputDevice )
+        item->setData ( Qt::DecorationRole, inputIcon );
+      else
+        item->setData ( Qt::DecorationRole, monitorIcon );
+
       m_deviceListWidget->addItem ( item );
     }
   }
@@ -180,18 +203,20 @@ void PulseAudioDialog::insertItems()
 
 /**
 * main method to get interfaces from pulseaudio server
+* http://freedesktop.org/software/pulseaudio/doxygen/async.html
 */
 void PulseAudioDialog::initInterface()
 {
   pa_mainloop* mloop = NULL;
   char* server = NULL;
-  QByteArray client_name = qApp->applicationName().toUtf8();
+  QByteArray client_name ( "qx11grab" );
   int ret = 0;
 
   // qDebug() <<  Q_FUNC_INFO << __LINE__ << "pa_mainloop_new";
-  if ( ! ( mloop = pa_mainloop_new() ) )
+  mloop = pa_mainloop_new();
+  if ( ! mloop )
   {
-    fprintf ( stderr, "Set up a new pulse main loop failed with.\n" );
+    fprintf ( stderr, "QX11Grab: Set up a new pulse main loop failed with.\n" );
     return;
   }
 
@@ -199,9 +224,11 @@ void PulseAudioDialog::initInterface()
   mainloop_api = pa_mainloop_get_api ( mloop );
 
   // qDebug() <<  Q_FUNC_INFO << __LINE__ << "pa_context_new";
-  if ( ! ( context = pa_context_new ( mainloop_api, client_name.constData() ) ) )
+  context = pa_context_new ( mainloop_api, client_name.constData() );
+  if ( ! context )
   {
-    fprintf ( stderr, "Create a new pulse connection context failed.\n" );
+    fprintf ( stderr, "QX11Grab: Create a new pulse connection context failed.\n" );
+    pa_mainloop_free ( mloop );
     return;
   }
 
@@ -211,7 +238,7 @@ void PulseAudioDialog::initInterface()
   // qDebug() <<  Q_FUNC_INFO << __LINE__ << "pa_context_connect";
   if ( pa_context_connect ( context, server, PA_CONTEXT_NOFLAGS, NULL ) < 0 )
   {
-    fprintf ( stderr, "Pulse connection failed.\n" );
+    fprintf ( stderr, "QX11Grab: Pulse connection failed.\n" );
     pa_mainloop_free ( mloop );
     return;
   }
@@ -219,12 +246,14 @@ void PulseAudioDialog::initInterface()
   // qDebug() <<  Q_FUNC_INFO << __LINE__ << "pa_mainloop_run";
   if ( pa_mainloop_run ( mloop, &ret ) < 0 )
   {
-    fprintf ( stderr, "Running pulse mainloop failed.\n" );
+    fprintf ( stderr, "QX11Grab: Running pulse mainloop failed.\n" );
     pa_mainloop_free ( mloop );
     return;
   }
 
   // qDebug() <<  Q_FUNC_INFO << __LINE__ << "pa_mainloop_free";
+  qDebug ( "QX11Grab: pulse source info done." );
+  pa_context_unref ( context );
   pa_mainloop_free ( mloop );
 
   insertItems();
