@@ -1582,21 +1582,18 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../src/navigator.cpp" line="84"/>
+        <location filename="../src/navigator.cpp" line="104"/>
         <source>Start Recording</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="91"/>
+        <location filename="../src/navigator.cpp" line="107"/>
         <source>Stop Recording</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="99"/>
+        <location filename="../src/navigator.cpp" line="111"/>
         <source>swap rubberband view</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1653,55 +1650,55 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PlayerAction</name>
     <message>
-        <location filename="../src/playeraction.cpp" line="73"/>
+        <location filename="../src/playeraction.cpp" line="74"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="75"/>
+        <location filename="../src/playeraction.cpp" line="76"/>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="77"/>
+        <location filename="../src/playeraction.cpp" line="78"/>
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="79"/>
+        <location filename="../src/playeraction.cpp" line="80"/>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="81"/>
+        <location filename="../src/playeraction.cpp" line="82"/>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="83"/>
+        <location filename="../src/playeraction.cpp" line="84"/>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="85"/>
+        <location filename="../src/playeraction.cpp" line="86"/>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="87"/>
+        <location filename="../src/playeraction.cpp" line="88"/>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/playeraction.cpp" line="89"/>
+        <location filename="../src/playeraction.cpp" line="90"/>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation type="unfinished"></translation>
@@ -1727,7 +1724,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PulseAudioDialog</name>
     <message>
-        <location filename="../src/audio/pulseaudiodialog.cpp" line="152"/>
+        <location filename="../src/audio/pulseaudiodialog.cpp" line="168"/>
         <source>Pulse Device Selection</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -1869,12 +1866,12 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="59"/>
+        <location filename="../src/systemtray.cpp" line="61"/>
         <source>Navigation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="62"/>
+        <location filename="../src/systemtray.cpp" line="64"/>
         <source>to navigate</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>

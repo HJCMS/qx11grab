@@ -10,11 +10,11 @@
 *
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 * Library General Public License for more details.
 *
 * You should have received a copy of the GNU Library General Public License
-* along with this library; see the file COPYING.LIB.  If not, write to
+* along with this library; see the file COPYING.LIB. If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
 **/
@@ -47,6 +47,21 @@
 class PlayerAction;
 class Settings;
 
+class NavAction : public QToolButton
+{
+    Q_OBJECT
+    Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
+    Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
+
+  protected:
+    virtual void paintEvent ( QPaintEvent * event );
+
+  public:
+    explicit NavAction ( const QString &toolTip,
+                         const QString &iconName,
+                         QWidget * parent = 0 );
+};
+
 class Navigator : public QWidget
 {
     Q_OBJECT
@@ -54,18 +69,17 @@ class Navigator : public QWidget
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QDesktopWidget* m_desktop;
     struct MoveState
     {
-      QDesktopWidget* widget;
-      QPoint startPos;
-      bool move;
-      bool activ;
+      QPoint position;
+      bool moving;
     };
     MoveState* m_state;
     Settings* m_settings;
-    QToolButton* m_actionStartRecord;
-    QToolButton* m_actionStopRecord;
-    QToolButton* m_rubberbandAction;
+    NavAction* m_actionStartRecord;
+    NavAction* m_actionStopRecord;
+    NavAction* m_rubberbandAction;
     QLineEdit* m_infoData;
     PlayerAction* m_playerAction;
 
@@ -81,7 +95,6 @@ class Navigator : public QWidget
     virtual void mouseMoveEvent ( QMouseEvent * event );
     virtual void mousePressEvent ( QMouseEvent * event );
     virtual void mouseReleaseEvent ( QMouseEvent * event );
-    virtual void leaveEvent ( QEvent * event );
 
   Q_SIGNALS:
     void startRecord();
@@ -94,7 +107,7 @@ class Navigator : public QWidget
     Q_SCRIPTABLE void setPlayerEnabled ( bool b = false );
 
   public:
-    explicit Navigator ( QWidget * parent = 0 );
+    explicit Navigator ( QDesktopWidget * parent = 0 );
     virtual ~Navigator();
 };
 

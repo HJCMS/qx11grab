@@ -35,6 +35,7 @@
 /* QtGui */
 #include <QtGui/QAction>
 #include <QtGui/QDesktopServices>
+#include <QtGui/QStyleOptionToolButton>
 #include <QtGui/QVBoxLayout>
 
 /**
@@ -121,6 +122,16 @@ void PlayerAction::searchPlayers()
       }
     }
   }
+}
+
+/**
+* Wir muessen wegen Naviagator bei einem Move neu Zeichnen!
+*/
+void PlayerAction::paintEvent ( QPaintEvent * event )
+{
+  QStyleOptionToolButton option;
+  initStyleOption ( &option );
+  QToolButton::paintEvent ( event );
 }
 
 /**

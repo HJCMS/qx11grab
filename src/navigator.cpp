@@ -44,28 +44,48 @@
 #include <QtGui/QMenu>
 #include <QtGui/QPalette>
 #include <QtGui/QPainter>
+#include <QtGui/QStyleOptionToolButton>
 #include <QtGui/QVBoxLayout>
 
 /* QtDBus */
 #include <QtDBus/QDBusConnection>
 
-Navigator::Navigator ( QWidget * parent )
+/** \class NavAction */
+NavAction::NavAction ( const QString &toolTip, const QString &iconName, QWidget * parent )
+    : QToolButton ( parent )
+{
+  setToolButtonStyle ( Qt::ToolButtonIconOnly );
+  setStatusTip ( toolTip );
+  setIcon ( Settings::themeIcon ( iconName ) );
+}
+
+void NavAction::paintEvent ( QPaintEvent * event )
+{
+  QStyleOptionToolButton option;
+  initStyleOption ( &option );
+
+  QToolButton::paintEvent ( event );
+}
+
+/** \class Navigator */
+Navigator::Navigator ( QDesktopWidget * parent )
     : QWidget ( parent )
+    , m_desktop ( parent )
     , m_state ( 0 )
     , m_settings ( new Settings ( parent ) )
 {
   setObjectName ( QLatin1String ( "Navigation" ) );
-  setWindowFlags ( ( Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint ) );
+  setWindowFlags ( ( Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint ) );
   setWindowModality ( Qt::NonModal );
   setAttribute ( Qt::WA_SetPalette, false );
   setAttribute ( Qt::WA_SetStyle, false );
   setAttribute ( Qt::WA_NoSystemBackground, true );
   setAttribute ( Qt::WA_Hover, true );
-  setAttribute ( Qt::WA_X11NetWmWindowTypeToolBar, true );
   setAttribute ( Qt::WA_OpaquePaintEvent, true );
   setAttribute ( Qt::WA_PaintOnScreen, true );
   // wird hier nicht benötigt
   setMouseTracking ( false );
+  setAcceptDrops ( false );
   // x11 composite hack
   setWindowOpacity ( 1.0 );
   // genügent anfasser breich zu verfügung stellen
@@ -75,29 +95,20 @@ Navigator::Navigator ( QWidget * parent )
   // ausblenden anbieten
   setContextMenuPolicy ( Qt::DefaultContextMenu );
 
+  setAccessibleName ( QLatin1String ( "Toolbar" ) );
+  setAccessibleDescription ( QLatin1String ( "Navigation Toolbar" ) );
+
   QHBoxLayout* layout = new QHBoxLayout ( this );
   layout->setSpacing ( 6 );
 
-  m_actionStartRecord = new QToolButton ( this );
-  m_actionStartRecord->setToolButtonStyle ( Qt::ToolButtonIconOnly );
-  /*: ToolTip */
-  m_actionStartRecord->setStatusTip ( trUtf8 ( "Start Recording" ) );
-  m_actionStartRecord->setIcon ( Settings::themeIcon ( "media-record" ) );
+  m_actionStartRecord = new NavAction ( trUtf8 ( "Start Recording" ), QString ( "media-record" ), this );
   layout->addWidget ( m_actionStartRecord );
 
-  m_actionStopRecord = new QToolButton ( this );
-  m_actionStopRecord->setToolButtonStyle ( Qt::ToolButtonIconOnly );
-  /*: ToolTip */
-  m_actionStopRecord->setStatusTip ( trUtf8 ( "Stop Recording" ) );
-  m_actionStopRecord->setIcon ( Settings::themeIcon ( "media-playback-stop" ) );
+  m_actionStopRecord = new NavAction ( trUtf8 ( "Stop Recording" ), QString ( "media-playback-stop" ), this );
   m_actionStopRecord->setEnabled ( false );
   layout->addWidget ( m_actionStopRecord );
 
-  m_rubberbandAction = new QToolButton ( this );
-  m_rubberbandAction->setToolButtonStyle ( Qt::ToolButtonIconOnly );
-  /*: ToolTip */
-  m_rubberbandAction->setStatusTip ( trUtf8 ( "swap rubberband view" ) );
-  m_rubberbandAction->setIcon ( Settings::themeIcon ( "view-grid" ) );
+  m_rubberbandAction = new NavAction ( trUtf8 ( "swap rubberband view" ), QString ( "view-grid" ), this );
   layout->addWidget ( m_rubberbandAction );
 
   m_playerAction = new PlayerAction ( this );
@@ -105,6 +116,8 @@ Navigator::Navigator ( QWidget * parent )
   layout->addWidget ( m_playerAction );
 
   m_infoData = new QLineEdit ( this );
+  m_infoData->setReadOnly ( true );
+  m_infoData->setEnabled ( false );
   m_infoData->setMinimumWidth ( 230 );
   layout->addWidget ( m_infoData );
 
@@ -130,10 +143,8 @@ void Navigator::initMoveState ( const QPoint &p )
     return;
 
   m_state = new MoveState;
-  m_state->widget = qApp->desktop();
-  m_state->startPos = p;
-  m_state->move = false;
-  m_state->activ = false;
+  m_state->position = p;
+  m_state->moving = false;
 }
 
 /**
@@ -142,14 +153,10 @@ void Navigator::initMoveState ( const QPoint &p )
 void Navigator::startMoveWidget ( bool b )
 {
   Q_ASSERT ( m_state != 0 );
-  if ( ( b && m_state->move ) )
+  if ( b && m_state->moving )
     return;
 
-  if ( ! m_state->widget )
-    m_state->widget = qApp->desktop();
-
-  m_state->move = b;
-  m_state->activ = !b;
+  m_state->moving = b;
 }
 
 /**
@@ -158,13 +165,14 @@ void Navigator::startMoveWidget ( bool b )
 */
 void Navigator::stopMoveWidget()
 {
-  if ( ! m_state )
+  if ( m_state == 0 )
     return;
 
-  m_state->widget->releaseMouse();
-  m_state->widget = 0;
+  releaseMouse();
+
   delete m_state;
   m_state = 0;
+  repaint();
 }
 
 /**
@@ -178,6 +186,7 @@ void Navigator::contextMenuEvent ( QContextMenuEvent * event )
   m->addAction ( m_hideAction );
   m->exec ( event->globalPos() );
   delete m;
+  repaint();
 }
 
 /**
@@ -208,8 +217,8 @@ void Navigator::paintEvent ( QPaintEvent * event )
   painter.setBrush ( gradient );
 
   QPainterPath rectPath;
-  rectPath.addRoundedRect ( 0.0, 0.0, r.width(), r.height(), radius, radius, Qt::AbsoluteSize );
   rectPath.setFillRule ( Qt::WindingFill );
+  rectPath.addRoundedRect ( 0.0, 0.0, r.width(), r.height(), radius, radius, Qt::AbsoluteSize );
   painter.drawPath ( rectPath );
 }
 
@@ -241,37 +250,36 @@ void Navigator::showEvent ( QShowEvent * event )
 */
 void Navigator::mouseMoveEvent ( QMouseEvent * event )
 {
-  if ( ! m_state || ! m_state->widget )
+  if ( ! m_state || ! isVisible() )
   {
     event->ignore();
     return;
   }
 
-  if ( ( event->pos() - m_state->startPos ).manhattanLength() > QApplication::startDragDistance() )
+  // qDebug() << "MouseMoveEvent Positions - WIDGET:" << event->pos() << " GLOBAL:" << event->globalPos();;
+
+  if ( ( event->pos() - m_state->position ).manhattanLength() > qApp->startDragDistance() )
   {
-    const bool m = ( ( ! m_state->widget->isWindow() ) ?
-                     ( ( event->x() >= 0 ) && ( event->x() < m_state->widget->width() ) ) :
-                     ( ( event->y() >= 0 ) && ( event->y() < m_state->widget->height() ) ) );
+    const bool m = ( ( ( event->x() >= 0 ) && ( event->x() < m_desktop->width() ) )
+                     || ( ( event->y() >= 0 ) && ( event->y() < m_desktop->height() ) ) );
 
     startMoveWidget ( m );
 
     if ( ! m )
-      m_state->widget->grabMouse();
+    {
+      qWarning ( "Using buggy grab the mouse input." );
+      grabMouse();
+    }
   }
 
-  if ( m_state->move )
-  {
-    QPoint pos = event->globalPos();
-    // qDebug() << Q_FUNC_INFO << m_state->move << m_state->activ << pos;
-    // passend zur Layoutrichtung
-    if ( qApp->isLeftToRight() )
-      pos -= m_state->startPos;
-    else
-      pos += QPoint ( ( m_state->startPos.x() - m_state->widget->width() ), -m_state->startPos.y() );
+  QPoint pos = event->globalPos();
+  // passend zur Layoutrichtung
+  if ( m_desktop->isLeftToRight() )
+    pos -= m_state->position;
+  else
+    pos += QPoint ( ( m_state->position.x() - m_desktop->width() ), -m_state->position.y() );
 
-    if ( ! pos.isNull() )
-      move ( pos );
-  }
+  move ( pos );
 }
 
 /**
@@ -280,9 +288,11 @@ void Navigator::mouseMoveEvent ( QMouseEvent * event )
 */
 void Navigator::mousePressEvent ( QMouseEvent * event )
 {
-  setCursor ( Qt::ClosedHandCursor );
   if ( event->button() == Qt::LeftButton )
+  {
+    setCursor ( Qt::ClosedHandCursor );
     initMoveState ( event->pos() );
+  }
   else
     event->ignore();
 }
@@ -292,34 +302,12 @@ void Navigator::mousePressEvent ( QMouseEvent * event )
 */
 void Navigator::mouseReleaseEvent ( QMouseEvent * event )
 {
-  setCursor ( Qt::ArrowCursor );
   if ( event->button() == Qt::LeftButton )
     stopMoveWidget ();
   else
     event->ignore();
-}
 
-/**
-* Wenn das Widget bei schnellen Mausbewegungen
-* verlassen wird. Sicher gehen das \b stopMoveWidget
-* aufgerufen wird!
-*/
-void Navigator::leaveEvent ( QEvent * event )
-{
-  switch ( event->type() )
-  {
-    case QEvent::Leave:
-      stopMoveWidget ();
-      break;
-
-    case QEvent::DragLeave:
-      stopMoveWidget ();
-      break;
-
-    default:
-      event->ignore();
-      break;
-  };
+  setCursor ( Qt::ArrowCursor );
 }
 
 /**
@@ -328,6 +316,7 @@ void Navigator::leaveEvent ( QEvent * event )
 void Navigator::setInfo ( const QString &info )
 {
   m_infoData->setText ( info );
+//   m_infoData->setEnabled ( true );
 }
 
 /**

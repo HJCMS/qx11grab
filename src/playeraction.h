@@ -30,6 +30,7 @@
 /* QtGui */
 #include <QtGui/QIcon>
 #include <QtGui/QMenu>
+#include <QtGui/QPaintEvent>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
@@ -44,6 +45,9 @@ class PlayerAction : public QToolButton
     QSignalMapper* m_signalMapper;
     const QString predefinedApps ( const QString & ) const;
     void searchPlayers();
+
+  protected:
+    virtual void paintEvent ( QPaintEvent * event );
 
   private Q_SLOTS:
     void playOuputFile ( const QString & );

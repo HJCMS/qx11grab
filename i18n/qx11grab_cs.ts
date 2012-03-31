@@ -1303,17 +1303,14 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <name>Navigator</name>
     <message>
         <source>Start Recording</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Spustit nahrávání</translation>
     </message>
     <message>
         <source>Stop Recording</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Zastavit nahrávání</translation>
     </message>
     <message>
         <source>swap rubberband view</source>
-        <extracomment>ToolTip</extracomment>
         <translation type="unfinished">Přepnout pohled gumičky</translation>
     </message>
 </context>
