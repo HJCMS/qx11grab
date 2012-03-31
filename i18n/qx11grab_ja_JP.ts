@@ -1582,18 +1582,33 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../src/navigator.cpp" line="104"/>
+        <location filename="../src/navigator.cpp" line="103"/>
         <source>Start Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="107"/>
+        <location filename="../src/navigator.cpp" line="106"/>
         <source>Stop Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="111"/>
+        <location filename="../src/navigator.cpp" line="110"/>
         <source>swap rubberband view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/navigator.cpp" line="184"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/navigator.cpp" line="189"/>
+        <source>Hide Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/navigator.cpp" line="193"/>
+        <source>Show Window</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

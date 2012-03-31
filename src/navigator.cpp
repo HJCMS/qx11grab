@@ -23,7 +23,6 @@
 
 /* QX11Grab */
 #include "settings.h"
-#include "menubar.h"
 #include "playeraction.h"
 
 /* QtCore */
@@ -75,7 +74,7 @@ Navigator::Navigator ( QDesktopWidget * parent )
     , m_settings ( new Settings ( parent ) )
 {
   setObjectName ( QLatin1String ( "Navigation" ) );
-  setWindowFlags ( ( Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint ) );
+  setWindowFlags ( ( Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint ) );
   setWindowModality ( Qt::NonModal );
   setAttribute ( Qt::WA_SetPalette, false );
   setAttribute ( Qt::WA_SetStyle, false );
@@ -181,9 +180,20 @@ void Navigator::stopMoveWidget()
 void Navigator::contextMenuEvent ( QContextMenuEvent * event )
 {
   QMenu* m = new QMenu ( this );
-  QAction* m_hideAction = MenuBar::hideWindowAction ( m );
+
+  QAction* m_hideAction = m->addAction ( Settings::themeIcon ( "dialog-close" ), trUtf8 ( "Close" ) );
   connect ( m_hideAction, SIGNAL ( triggered() ), this, SLOT ( hide() ) );
-  m->addAction ( m_hideAction );
+
+  m->addSeparator();
+
+  QAction* ac_hideWindow = m->addAction ( Settings::themeIcon ( "minimize" ), trUtf8 ( "Hide Window" ) );
+  connect ( ac_hideWindow, SIGNAL ( triggered() ), this, SIGNAL ( hideMainWindow() ) );
+  m->addAction ( ac_hideWindow );
+
+  QAction* ac_showWindow = m->addAction ( Settings::themeIcon ( "maximize" ), trUtf8 ( "Show Window" ) );
+  connect ( ac_showWindow, SIGNAL ( triggered() ), this, SIGNAL ( showMainWindow() ) );
+  m->addAction ( ac_showWindow );
+
   m->exec ( event->globalPos() );
   delete m;
   repaint();

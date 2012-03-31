@@ -1313,6 +1313,18 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <source>swap rubberband view</source>
         <translation type="unfinished">Přepnout pohled gumičky</translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OpenImageDialog</name>

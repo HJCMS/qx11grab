@@ -113,7 +113,6 @@ SystemTray::SystemTray ( MainWindow * parent )
             m_mainWindow, SLOT ( shutdown() ) );
 
   // Navigation
-#ifdef ENABLE_EXPERIMENTAL
   connect ( m_actionNavi, SIGNAL ( triggered() ),
             this, SLOT ( showNavigator() ) );
 
@@ -125,7 +124,13 @@ SystemTray::SystemTray ( MainWindow * parent )
 
   connect ( m_navigator, SIGNAL ( rubberBand() ),
             m_mainWindow, SLOT ( swapRubberBand() ) );
-#endif
+
+  connect ( m_navigator, SIGNAL ( hideMainWindow() ),
+            m_mainWindow, SLOT ( hide() ) );
+
+  connect ( m_navigator, SIGNAL ( showMainWindow() ),
+            m_mainWindow, SLOT ( showNormal() ) );
+
 }
 
 /**

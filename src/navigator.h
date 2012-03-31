@@ -100,6 +100,8 @@ class Navigator : public QWidget
     void startRecord();
     void stopRecord();
     void rubberBand();
+    void hideMainWindow();
+    void showMainWindow();
 
   public Q_SLOTS:
     void setActivity ( bool b = false );

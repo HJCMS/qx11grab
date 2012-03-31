@@ -1316,6 +1316,18 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <source>swap rubberband view</source>
         <translation>Gummiband Ansicht umschalten</translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation>Schliessen</translation>
+    </message>
+    <message>
+        <source>Hide Window</source>
+        <translation>Fenster ausblenden</translation>
+    </message>
+    <message>
+        <source>Show Window</source>
+        <translation>Fenster anzeigen</translation>
+    </message>
 </context>
 <context>
     <name>OpenImageDialog</name>
