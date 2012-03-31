@@ -56,16 +56,12 @@ SystemTray::SystemTray ( MainWindow * parent )
   QAction* showRubberbandWindow = MenuBar::rubberbandAction ( this );
   m_menu->addAction ( showRubberbandWindow );
 
-#ifdef ENABLE_EXPERIMENTAL
-
   QAction* m_actionNavi = m_menu->addAction ( trUtf8 ( "Navigation" ) );
   m_actionNavi->setObjectName ( QLatin1String ( "navigationAction" ) );
   /*: ToolTip */
   m_actionNavi->setStatusTip ( trUtf8 ( "to navigate" ) );
   m_actionNavi->setIcon ( Settings::themeIcon ( "window-new" ) );
   m_menu->addAction ( m_actionNavi );
-
-#endif
 
   m_menu->addSeparator();
 
