@@ -35,44 +35,44 @@
     <name>AbstractTableEditor</name>
     <message>
         <source>Encoder</source>
-        <translation type="unfinished">Kodér</translation>
+        <translation>Kodér</translation>
     </message>
     <message>
         <source>codec selecter</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Volič kodeků</translation>
+        <translation>Volič kodeků</translation>
     </message>
     <message>
         <source>codec editor table</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Tabulka kodeků pro editor</translation>
+        <translation>Tabulka kodeků pro editor</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Přidat</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Vložit do tabulky nový prázdný řádek </translation>
+        <translation>Vložit do tabulky nový prázdný řádek </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Odstranit vybrané řádky tabulky</translation>
+        <translation>Odstranit vybrané řádky tabulky</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Smazat</translation>
+        <translation>Smazat</translation>
     </message>
     <message>
         <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Smazat obsah tabulky</translation>
+        <translation>Smazat obsah tabulky</translation>
     </message>
 </context>
 <context>
@@ -406,11 +406,11 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Přípony</translation>
     </message>
     <message>
         <source>Rubberband</source>
-        <translation type="unfinished">Gumička</translation>
+        <translation>Gumička</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Configure Output Extensions</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit výstupní přípony</translation>
     </message>
 </context>
 <context>
@@ -426,7 +426,7 @@ Příklad pro OSS: /dev/dsp</translation>
     <message>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení gumičky</translation>
     </message>
 </context>
 <context>
@@ -476,56 +476,56 @@ Příklad pro OSS: /dev/dsp</translation>
     <name>ExtensionTable</name>
     <message>
         <source>Video File extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Přípony videosouborů</translation>
     </message>
     <message>
         <source>here you can configure video file extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Zde můžete nastavit přípony videosouborů</translation>
     </message>
     <message>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Přidat</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Toto tlačítko do tabulky vloží nový prázdný řádek</translation>
+        <translation>Toto tlačítko do tabulky vloží nový prázdný řádek</translation>
     </message>
     <message>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Odstranit</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Toto tlačítko z tabulky odstraní vybrané řádky</translation>
+        <translation>Toto tlačítko z tabulky odstraní vybrané řádky</translation>
     </message>
     <message>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Smazat</translation>
+        <translation>Smazat</translation>
     </message>
     <message>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Toto tlačítko odstraní obsah tabulky</translation>
+        <translation>Toto tlačítko odstraní obsah tabulky</translation>
     </message>
 </context>
 <context>
     <name>ExtensionTableModel</name>
     <message>
         <source>Codec</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodek</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Přípony</translation>
     </message>
 </context>
 <context>
@@ -898,7 +898,7 @@ WhatsThis</extracomment>
     </message>
     <message>
         <source>Threads</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlákna</translation>
     </message>
 </context>
 <context>
@@ -1303,27 +1303,27 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <name>Navigator</name>
     <message>
         <source>Start Recording</source>
-        <translation type="unfinished">Spustit nahrávání</translation>
+        <translation>Spustit nahrávání</translation>
     </message>
     <message>
         <source>Stop Recording</source>
-        <translation type="unfinished">Zastavit nahrávání</translation>
+        <translation>Zastavit nahrávání</translation>
     </message>
     <message>
         <source>swap rubberband view</source>
-        <translation type="unfinished">Přepnout pohled gumičky</translation>
+        <translation>Přepnout pohled gumičky</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít</translation>
     </message>
     <message>
         <source>Hide Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt okno</translation>
     </message>
     <message>
         <source>Show Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázat okno</translation>
     </message>
 </context>
 <context>
@@ -1454,7 +1454,7 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <name>QX11Grab::CodecOptions</name>
     <message>
         <source>Option</source>
-        <translation type="unfinished">Volba</translation>
+        <translation>Volba</translation>
     </message>
 </context>
 <context>
@@ -1462,14 +1462,14 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     <message>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Vlastní</translation>
+        <translation>Vlastní</translation>
     </message>
 </context>
 <context>
     <name>QX11Grab::FormatMenu</name>
     <message>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Přípony</translation>
     </message>
 </context>
 <context>
@@ -1554,12 +1554,12 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Pohyb</translation>
     </message>
     <message>
         <source>to navigate</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pro pohyb</translation>
     </message>
 </context>
 <context>
@@ -1715,16 +1715,16 @@ ToolTip</extracomment>
     <message>
         <source>Set Number of Threads to use for en/decoding</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nastavit počet vláken k použití pro zakódování/rozkódování</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet</translation>
     </message>
     <message>
         <source>User-level Threads</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vlákna na úrovni uživatele</translation>
     </message>
 </context>
 <context>

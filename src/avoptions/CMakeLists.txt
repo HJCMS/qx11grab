@@ -15,6 +15,7 @@ SET (_subproject_SOURCES
   formatmenu.cpp
   codecoptions.cpp
   optionsfinder.cpp
+  avfilteritem.cpp
 )
 
 SET (_subproject_HEADERS
@@ -38,6 +39,7 @@ ENDIF (ENABLE_EXPERIMENTAL)
 SET (_subproject_NOMOC_HEADERS
   avfiltermodel.h
   optionsfinder.h
+  avfilteritem.h
 )
 
 ## NOTE added in main CMakeLists.txt

@@ -20,6 +20,7 @@
 **/
 
 #include "avfiltermodel.h"
+#include "avfilteritem.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -27,60 +28,7 @@
 
 namespace QX11Grab
 {
-  /**
-  * \class AVFilterItem
-  */
-  AVFilterItem::AVFilterItem ( const QString &f )
-      : name ( QString::null )
-      , filter ( f.trimmed() )
-      , hasInLabel ( false )
-      , hasPipeLabel ( false )
-  {
-    /**
-    * Suche den Filter Parameter und schreibe ihn zum Sortieren
-    * nach Name. NOTE Labels müssen hier entfernt werden!
-    */
-    QString buffer = filter.left ( filter.indexOf ( '=', 0 ) );
-    if ( buffer.contains ( "[" ) )
-      name = buffer.remove ( QRegExp ( "^(\\[[\\w\\d]+\\])+" ) ).trimmed();
-    else
-      name = buffer.trimmed();
 
-    /**
-    * Völlig egal ob ein [out] Label existiert, es kommt ohnehin an
-    * das Ende der Definition! Wann ein [out] angehangen wird,
-    * wird von \ref hasPipeLabel bestimmt. Also weg damit!
-    */
-    filter.remove ( QRegExp ( "\\[out\\]" ) );
-
-    /**
-    * Ein Input Label kann weitere Labels besitzen!
-    * Muss aber hinter dem 1. Referenzierten Anker Label stehen!
-    * Deshalb hier einen Marker setzen!
-    */
-    QRegExp inputPattern ( "\\[in\\]" );
-    hasInLabel = filter.contains ( inputPattern );
-
-    /**
-    * Suche nach vorhandenen Ankern und setze bei einem Treffer
-    * \ref hasPipeLabel auf true. Gleichzeitig werden die Start-
-    * Labels für die Sortierung extrahiert und in \ref labels geschrieben!
-    */
-    QRegExp labelPattern ( "(\\[[\\d\\w]+\\][\\s\\t]*)$" );
-    if ( filter.contains ( labelPattern ) )
-    {
-      QStringList l = labelPattern.capturedTexts();
-      l.removeDuplicates();
-      labels = l.join ( "" );
-      hasPipeLabel = true;
-      l.clear();
-      // qDebug() << Q_FUNC_INFO << labels;
-    }
-  }
-
-  /**
-  * \class AVFilterModel
-  */
   AVFilterModel::AVFilterModel ( const QString &filter )
       : currentFilters ( filter.split ( QX11GRAB_FILTER_DELIMITER ) )
       , isPiped ( false )
@@ -89,8 +37,8 @@ namespace QX11Grab
     filters.clear();
     foreach ( QString item, currentFilters )
     {
-      AVFilterItem it ( item );
-      isPiped = ( ( isPiped ) ? isPiped : ( it.hasInLabel || it.hasPipeLabel ) );
+      AVFilterItem* it = new AVFilterItem ( item );
+      isPiped = ( ( isPiped ) ? isPiped : ( it->hasInLabel() || it->hasPipeLabel() ) );
       filters.append ( it );
     }
   }
@@ -106,15 +54,15 @@ namespace QX11Grab
     // Neuer Filter
     QString filter = data.toString();
 
-    // Den Filter Parameter vom übergebenen Inhalt extrahieren
-    QString parameter = filter.left ( filter.indexOf ( '=', 0 ) );
-    QRegExp pattern ( "(^"+parameter+"=)" );
-
-    /* Filter in Liste setzen */
+    /* Schreibe die Aktuelle Filterliste in den Puffer
+    * und grenze die Einträge aus die mit dem gleichen
+    * Parameter und/oder Label beginnen!
+    */
     foreach ( QString item, currentFilters )
     {
-      // Soll der Filter überschrieben werden?
-      if ( ! item.contains ( pattern ) )
+      QString param = item.left ( item.indexOf ( '=', 0 ) );
+      param.append ( "=" );
+      if ( ! filter.contains ( param, Qt::CaseSensitive ) )
         buffer.append ( item );
     }
     buffer.append ( filter );
@@ -130,8 +78,8 @@ namespace QX11Grab
       filters.clear();
       foreach ( QString f,  buffer )
       {
-        AVFilterItem it ( f );
-        isPiped = ( ( isPiped ) ? isPiped : ( it.hasInLabel || it.hasPipeLabel ) );
+        AVFilterItem* it = new AVFilterItem ( f );
+        isPiped = ( it->hasInLabel() || it->hasPipeLabel() );
         filters.append ( it );
       }
     }
@@ -151,32 +99,35 @@ namespace QX11Grab
       QString label; // Steht ganz vorne!
       QString input; // Steht an zweiter stelle!
       QStringList other; // werden angehangen
-      QList<AVFilterItem>::iterator it;
-      for ( it = filters.begin(); it != filters.end(); ++it )
+      for ( int i = 0; i < filters.size(); ++i )
       {
-        // Eingabe Filter mit Ausgabe Label <param>=...[??],
-        if ( it->hasPipeLabel )
+        AVFilterItem* item = filters.at ( i );
+        // qDebug() << __LINE__ << item->filterName() << item->hasPipeLabel() << item->hasInLabel() << item->filter();
+        if ( item->hasPipeLabel() )
         {
-          label.append ( it->filter );
-          label.append ( "," );
+          // Eingabe Filter mit Ausgabe Label <param>=...[??],
+          label.prepend ( "," );
+          label.prepend ( item->filter() );
         }
-        else if ( it->hasInLabel )
+        else if ( item->hasInLabel() )
         {
-          input.append ( it->filter );
+          // Ausgangs Filter mit [in][??]<param>=...,
+          input.append ( item->filter() );
           input.append ( "," );
         }
         else
-          other.append ( it->filter );
+        {
+          // Standard Filter <param>=...,
+          other.append ( item->filter() );
+        }
+
       }
+
       QString data;
       data.append ( label );
       data.append ( input );
       data.append ( other.join ( QX11GRAB_FILTER_DELIMITER ) );
       data.append ( "[out]" );
-
-#ifdef MAINTAINER_REPOSITORY
-      qDebug() << Q_FUNC_INFO << data;
-#endif
 
       return data;
     }

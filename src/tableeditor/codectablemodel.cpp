@@ -77,7 +77,7 @@ bool CodecTableModel::removeItem ( int key )
     QHash<int,Item>::iterator i;
     for ( i = items.begin(); i != items.end(); ++i )
     {
-      // qDebug() << Q_FUNC_INFO << i.value().argument;
+      qDebug() << Q_FUNC_INFO << i.value().argument << "\n";
       copy.insert ( index++, i.value() );
     }
     items.clear();
@@ -182,9 +182,6 @@ bool CodecTableModel::setData ( const QModelIndex &index, const QVariant &value,
         return false;
     };
   }
-
-  if ( status )
-    emit postUpdate();
 
   return status;
 }
@@ -293,7 +290,15 @@ bool CodecTableModel::setFilterData ( int row, const QVariant &value, const QMod
   // Aktuelle Filter finden und einlesen
   QString filters = data ( mIndex, Qt::EditRole ).toString();
   if ( filters.isEmpty() )
-    return setData ( mIndex, value, Qt::EditRole );
+  {
+    if ( setData ( mIndex, value, Qt::EditRole ) )
+    {
+      emit postUpdate();
+      return true;
+    }
+    else
+      return false;
+  }
 
   QX11Grab::AVFilterModel* m_filterModel = new QX11Grab::AVFilterModel ( filters );
   m_filterModel->insertFilter ( value );

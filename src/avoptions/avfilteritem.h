@@ -19,52 +19,44 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef QX11GRAB_AVFILTERMODEL_H
-#define QX11GRAB_AVFILTERMODEL_H
+#ifndef QX11GRAB_AVFILTERITEM_H
+#define QX11GRAB_AVFILTERITEM_H
 
 /* QtCore */
-#include <QtCore/QList>
-#include <QtCore/QRegExp>
+#include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
-
-/** Filter Delimiter */
-#ifndef QX11GRAB_FILTER_DELIMITER
-# define QX11GRAB_FILTER_DELIMITER QLatin1String(",")
-#endif
+#include <QtCore/QThread>
 
 namespace QX11Grab
 {
-
-  class AVFilterItem;
-
   /**
-  * AVFilter List
+  * AVFilter
   * @ref http://ffmpeg.org/libavfilter.html
   */
-  class AVFilterModel
+  class AVFilterItem
   {
     private:
-      // current filters
-      QStringList currentFilters;
-      // piped plugin available
-      bool isPiped;
-      // FilterList
-      QList<AVFilterItem*> filters;
+      QString p_labels;
+      QString p_filter;
 
     public:
-      explicit AVFilterModel ( const QString &filter );
+      explicit AVFilterItem ( const QString &data );
 
-      /** insert a new filter */
-      void insertFilter ( const QVariant &data );
+      const QString filterName();
 
-      /** generated filter list */
-      const QString values();
+      bool hasInLabel();
 
-      virtual ~AVFilterModel();
+      bool hasPipeLabel();
+
+      const QString filter();
+
+      const QString labels();
+
+      static bool isPipeFilter ( const QString &filter );
+
+      virtual ~AVFilterItem();
   };
 
-}  /* eof namespace QX11Grab */
+} /* eof namespace QX11Grab */
 
 #endif
