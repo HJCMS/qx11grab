@@ -50,6 +50,8 @@
 
 Watermark::Watermark ( QWidget * parent )
     : QDialog ( parent )
+    , p_MarginX ( 0 )
+    , p_MarginY ( 0 )
 {
   setObjectName ( QLatin1String ( "Watermark" ) );
   setWindowTitle ( trUtf8 ( "Watermark Filter" ) );
