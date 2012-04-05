@@ -22,6 +22,9 @@
 #include "webcamdevicechooser.h"
 #include "webcamdeviceinfo.h"
 
+/* Kernel */
+#include <linux/videodev2.h>
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
@@ -38,11 +41,14 @@ WebCamDeviceChooser::WebCamDeviceChooser ( QWidget * parent )
     , cameraIcon ( QIcon::fromTheme ( "camera-web" ) )
 {
   setObjectName ( QLatin1String ( "WebCamDeviceChooser" ) );
+  addItem ( cameraIcon, trUtf8 ( "No web camera found" ), QString() );
+  setEnabled ( false );
 }
 
 const QString WebCamDeviceChooser::toString ( unsigned char* ptr ) const
 {
-  return  QString::fromUtf8 ( reinterpret_cast<char *> ( ptr ) );
+  const char* data = reinterpret_cast<char *> ( ptr );
+  return  QString::fromAscii ( data, sizeof ( data ) );
 }
 
 bool WebCamDeviceChooser::isWebCamDevice ( const QFileInfo &dev )
@@ -51,41 +57,68 @@ bool WebCamDeviceChooser::isWebCamDevice ( const QFileInfo &dev )
   if ( ! dev.isReadable() )
     return status;
 
-  v4l2* p_v4l2 = new v4l2;
-  if ( p_v4l2->open ( dev.absoluteFilePath() , false ) )
+  v4l2 p_v4l2;
+  if ( p_v4l2.open ( dev.absoluteFilePath() , false ) )
   {
-    struct v4l2_capability m_cap;
-    if ( p_v4l2->querycap ( m_cap ) )
-    {
-      WebCamDeviceInfo devInfo ( dev.absoluteFilePath(),
-                                 toString ( m_cap.driver ),
-                                 toString ( m_cap.card ),
-                                 toString ( m_cap.bus_info )
-                               );
-
-      qDebug() << Q_FUNC_INFO << devInfo.path() << devInfo.driver() << devInfo.card() << devInfo.bus();
-    }
-    p_v4l2->close();
+    // Setze erst mal auf true und suche nach TV Karte
+    // wenn gefunden dann auf false zurück setzen!
     status = true;
+    v4l2_input input;
+    if ( p_v4l2.enum_input ( input, true ) )
+    {
+      do
+      {
+        if ( ( input.capabilities & V4L2_IN_CAP_STD ) || input.capabilities & V4L2_IN_CAP_PRESETS )
+        {
+          status = false;
+          break;
+        }
+      }
+      while ( p_v4l2.enum_input ( input ) );
+    }
+
+    // Ist es keine TV Karte dann Informationen sammeln und in die Liste einfügen
+    if ( status )
+    {
+      struct v4l2_capability m_cap;
+      if ( p_v4l2.querycap ( m_cap ) )
+      {
+        WebCamDeviceInfo info ( dev.absoluteFilePath(),
+                                toString ( m_cap.driver ),
+                                toString ( m_cap.card ),
+                                toString ( m_cap.bus_info )
+                              );
+        devInfo.append ( info );
+      }
+      else
+        status = false; // wenn zugriffs fehler dann zurück setzen
+    }
+    // alle infos vollständig dann wieder schliessen
+    p_v4l2.close();
   }
-  delete p_v4l2;
+
   return status;
 }
 
 void WebCamDeviceChooser::searchDevices()
 {
   QDir dir ( QLatin1String ( "/dev" ), QLatin1String ( "video*" ), QDir::Name, QDir::System );
-  foreach ( QFileInfo info, dir.entryInfoList() )
+  QFileInfoList items = dir.entryInfoList();
+  if ( items.size() > 0 )
   {
-    if ( isWebCamDevice ( info ) )
-      addItem ( cameraIcon, info.baseName(), info.absoluteFilePath() );
+    setEnabled ( true );
+    clear();
+    foreach ( QFileInfo info, items )
+    {
+      if ( isWebCamDevice ( info ) )
+        addItem ( cameraIcon, info.baseName(), info.absoluteFilePath() );
+    }
   }
-
 }
 
 void WebCamDeviceChooser::init()
 {
-  clear();
+  devInfo.clear();
   searchDevices();
 }
 

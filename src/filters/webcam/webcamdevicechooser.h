@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QFileInfo>
+#include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
@@ -42,6 +43,7 @@ class WebCamDeviceChooser : public QComboBox
 
   private:
     const QIcon cameraIcon;
+    QList<WebCamDeviceInfo> devInfo;
     inline const QString toString ( unsigned char* ptr ) const;
     bool isWebCamDevice ( const QFileInfo &dev );
     void searchDevices();
