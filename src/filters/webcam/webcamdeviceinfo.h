@@ -23,31 +23,19 @@
 #define WEBCAMDEVICEINFO_H
 
 /* QtCore */
-#include <QtCore/QObject>
+#include <QtCore/QMetaType>
+#include <QtCore/QString>
+#include <QtCore/Qt>
 #include <QtCore/QVariant>
 
-/* QX11Grab */
-#include "v4l2-api.h"
-
-class WebCamDeviceInfo
+typedef struct Q_DECL_EXPORT
 {
-  private:
-    const QString p_path;
-    const QString p_driver;
-    const QString p_card;
-    const QString p_bus;
+  QString path;    /**< Absolute DevicePath */
+  QString driver;  /**< Driver Name */
+  QString card;    /**< Card Name */
+  QString bus;     /**< SystemBus Name */
+} WebCamDeviceInfo;
 
-  public:
-    WebCamDeviceInfo ( const QString &devicePath,
-                       const QString &driverName,
-                       const QString &cardName,
-                       const QString &busName
-                     );
-
-    const QString path();
-    const QString driver();
-    const QString card();
-    const QString bus();
-};
+Q_DECLARE_METATYPE ( WebCamDeviceInfo )
 
 #endif

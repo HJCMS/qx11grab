@@ -13,7 +13,6 @@ SET(plugin_SOURCES
   webcampreview.cpp
   webcamdevice.cpp
   webcamdevicechooser.cpp
-  webcamdeviceinfo.cpp
 )
 
 SET(plugin_HEADERS

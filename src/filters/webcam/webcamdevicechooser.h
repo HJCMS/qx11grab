@@ -33,7 +33,8 @@
 #include <QtGui/QIcon>
 #include <QtGui/QWidget>
 
-class WebCamDeviceInfo;
+/* QX11Grab */
+#include "webcamdeviceinfo.h"
 
 class WebCamDeviceChooser : public QComboBox
 {

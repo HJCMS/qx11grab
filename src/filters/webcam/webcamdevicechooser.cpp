@@ -20,7 +20,6 @@
 **/
 
 #include "webcamdevicechooser.h"
-#include "webcamdeviceinfo.h"
 
 /* Kernel */
 #include <linux/videodev2.h>
@@ -41,14 +40,14 @@ WebCamDeviceChooser::WebCamDeviceChooser ( QWidget * parent )
     , cameraIcon ( QIcon::fromTheme ( "camera-web" ) )
 {
   setObjectName ( QLatin1String ( "WebCamDeviceChooser" ) );
-  addItem ( cameraIcon, trUtf8 ( "No web camera found" ), QString() );
+  addItem ( cameraIcon, trUtf8 ( "No web camera found" ), false );
   setEnabled ( false );
 }
 
 const QString WebCamDeviceChooser::toString ( unsigned char* ptr ) const
 {
   const char* data = reinterpret_cast<char *> ( ptr );
-  return  QString::fromAscii ( data, sizeof ( data ) );
+  return  QString::fromAscii ( data );
 }
 
 bool WebCamDeviceChooser::isWebCamDevice ( const QFileInfo &dev )
@@ -68,7 +67,8 @@ bool WebCamDeviceChooser::isWebCamDevice ( const QFileInfo &dev )
     {
       do
       {
-        if ( ( input.capabilities & V4L2_IN_CAP_STD ) || input.capabilities & V4L2_IN_CAP_PRESETS )
+        if ( ( input.capabilities & V4L2_IN_CAP_STD )
+               || ( input.capabilities & V4L2_IN_CAP_PRESETS ) )
         {
           status = false;
           break;
@@ -83,11 +83,11 @@ bool WebCamDeviceChooser::isWebCamDevice ( const QFileInfo &dev )
       struct v4l2_capability m_cap;
       if ( p_v4l2.querycap ( m_cap ) )
       {
-        WebCamDeviceInfo info ( dev.absoluteFilePath(),
-                                toString ( m_cap.driver ),
-                                toString ( m_cap.card ),
-                                toString ( m_cap.bus_info )
-                              );
+        WebCamDeviceInfo info;
+        info.path = dev.absoluteFilePath();
+        info.driver = toString ( m_cap.driver );
+        info.card = toString ( m_cap.card );
+        info.bus = toString ( m_cap.bus_info );
         devInfo.append ( info );
       }
       else
@@ -106,12 +106,30 @@ void WebCamDeviceChooser::searchDevices()
   QFileInfoList items = dir.entryInfoList();
   if ( items.size() > 0 )
   {
-    setEnabled ( true );
-    clear();
     foreach ( QFileInfo info, items )
     {
-      if ( isWebCamDevice ( info ) )
-        addItem ( cameraIcon, info.baseName(), info.absoluteFilePath() );
+      if ( ! isWebCamDevice ( info ) )
+        continue;
+    }
+
+    if ( devInfo.size() > 0 )
+    {
+      setEnabled ( true );
+      clear();
+      addItem ( cameraIcon, trUtf8 ( "Choose Camera" ), false );
+
+      qRegisterMetaType<WebCamDeviceInfo>();
+
+      for ( int i = 0 ; i < devInfo.size(); ++i )
+      {
+        WebCamDeviceInfo info = devInfo.at ( i );
+
+        QVariant data;
+        data.setValue ( info );
+
+        QString title = QString::fromUtf8 ( "%1 (%2)" ).arg ( info.card, info.driver );
+        addItem ( cameraIcon, title, data );
+      }
     }
   }
 }
