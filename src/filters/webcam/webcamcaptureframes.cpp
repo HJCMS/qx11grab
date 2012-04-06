@@ -21,6 +21,7 @@
 
 #include "webcamcaptureframes.h"
 
+/* std */
 #include <errno.h>
 
 /* QtCore */
@@ -55,7 +56,7 @@ WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
   m_setTimout = new QSpinBox ( this );
   /*: ToolTip */
   m_setTimout->setToolTip ( trUtf8 ( "Timeout in seconds" ) );
-  m_setTimout->setRange ( 3, 10 );
+  m_setTimout->setRange ( 3, 30 ); // Max 30 Sekunden
   m_setTimout->setValue ( 3 );
   layout->addWidget ( m_setTimout, Qt::AlignLeft );
 
@@ -85,6 +86,7 @@ void WebCamCaptureFrames::startCaptureFrames ( bool b )
     m_streamData = new unsigned char[m_inputFormat.fmt.pix.sizeimage];
     // Kopiere zum Konvertieren in den Ausgabe Puffer
     m_outputFormat = m_inputFormat;
+    // Setze auf "24  RGB-8-8-8" siehe linux/videodev2.h
     m_outputFormat.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
 
     // QImage bietet kein "YUV420 planar" an deshalb müssen wir immer konvertieren

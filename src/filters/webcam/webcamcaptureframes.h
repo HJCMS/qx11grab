@@ -38,6 +38,7 @@
 
 /* libv4l2 */
 #include <libv4l2.h>
+#include <libv4lconvert.h>
 
 /* QX11Grab */
 #include "webcamdeviceinfo.h"
@@ -59,7 +60,7 @@ class WebCamCaptureFrames : public QWidget
     /** monitoring opened device handle */
     QSocketNotifier* m_socketNotifier;
 
-    /**  */
+    /** except that the try format will succeed */
     struct v4lconvert_data* m_convertData;
 
     /** current v4l2 device path */
@@ -74,16 +75,16 @@ class WebCamCaptureFrames : public QWidget
     /** capture max time in seconds */
     QSpinBox* m_setTimout;
 
-    /**  */
+    /** v4l2 datastream buffer */
     unsigned char* m_streamData;
 
-    /**  */
+    /** v4l2 input format  */
     struct v4l2_format m_inputFormat;
 
-    /**  */
+    /** v4l2 output format */
     struct v4l2_format m_outputFormat;
 
-    /**  */
+    /** create buffers and start capture frames */
     void startCaptureFrames ( bool );
 
   private Q_SLOTS:
