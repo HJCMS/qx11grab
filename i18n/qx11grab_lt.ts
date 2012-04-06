@@ -377,12 +377,12 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="209"/>
         <source>Parameter</source>
         <translation type="unfinished">Parametras</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="214"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="211"/>
         <source>Value</source>
         <translation type="unfinished">Reikšmė</translation>
     </message>
@@ -1882,12 +1882,12 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation type="unfinished">qx11grab: filmuojami X11 langai su ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="61"/>
+        <location filename="../src/systemtray.cpp" line="59"/>
         <source>Navigation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="64"/>
+        <location filename="../src/systemtray.cpp" line="62"/>
         <source>to navigate</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -2153,53 +2153,135 @@ ToolTip</extracomment>
 <context>
     <name>Watermark</name>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="55"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="57"/>
         <source>Watermark Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="72"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="74"/>
         <source>Margin (Left|Right)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="79"/>
         <source>Margin (Top|Bottom)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="81"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="83"/>
         <source>Open Image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="91"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="92"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="96"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="98"/>
         <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebCamCaptureFrames</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="57"/>
+        <source>Timeout in seconds</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="50"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="166"/>
+        <source>to capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="153"/>
+        <source>Stop</source>
+        <translation type="unfinished">Stabdyti</translation>
+    </message>
+</context>
+<context>
+    <name>WebCamDeviceChooser</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="41"/>
+        <source>No web camera found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="162"/>
+        <source>Choose Camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Webcam</name>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="58"/>
+        <source>Webcam Filter</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="87"/>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="88"/>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="89"/>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="90"/>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="91"/>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="97"/>
+        <source>Scale Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="102"/>
+        <source>Margin (Left|Right)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="107"/>
+        <source>Margin (Top|Bottom)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2339,6 +2421,19 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/watermark/watermarkplugin.cpp" line="58"/>
         <source>Insert a Watermark into output video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>webcamPlugin</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamplugin.cpp" line="53"/>
+        <source>Webcam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamplugin.cpp" line="58"/>
+        <source>Insert a Webcam into output video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

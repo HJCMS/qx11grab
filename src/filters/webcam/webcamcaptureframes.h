@@ -50,35 +50,63 @@ class WebCamCaptureFrames : public QWidget
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    /** v4l2-api */
     v4l2* m_v4l2;
+
+    /** captured frame image */
     QImage* m_frameImage;
+
+    /** monitoring opened device handle */
     QSocketNotifier* m_socketNotifier;
+
+    /**  */
     struct v4lconvert_data* m_convertData;
+
+    /** current v4l2 device path */
     QString p_device;
 
+    /** timer for timeout capture frames */
     QTimer* m_timer;
+
+    /** capture button */
     QPushButton* m_button;
+
+    /** capture max time in seconds */
     QSpinBox* m_setTimout;
 
+    /**  */
     unsigned char* m_streamData;
+
+    /**  */
     struct v4l2_format m_inputFormat;
+
+    /**  */
     struct v4l2_format m_outputFormat;
 
+    /**  */
     void startCaptureFrames ( bool );
 
   private Q_SLOTS:
+    /**  */
     void captureFrame ( int );
+
+    /** capture button clicked */
     void buttonClicked();
 
   Q_SIGNALS:
+    /** captured frame */
     void frameCaptered ( const QImage & );
 
   public Q_SLOTS:
+    /** disable capture frames */
     void stopCapture();
 
   public:
     explicit WebCamCaptureFrames ( QWidget * parent = 0 );
-    void setInterface ( const WebCamDeviceInfo & );
+
+    /** init capture device */
+    void setInterface ( const WebCamDeviceInfo &devInfo, const QSize &toSize = QSize ( 160, 120 ) );
+
     virtual ~WebCamCaptureFrames();
 };
 

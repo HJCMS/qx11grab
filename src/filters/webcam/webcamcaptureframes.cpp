@@ -47,14 +47,14 @@ WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
 
   m_timer = new QTimer ( this );
 
-  m_button = new QPushButton ( trUtf8 ( "Capture" ), this );
+  m_button = new QPushButton ( trUtf8 ( "to capture" ), this );
   m_button->setIcon ( QIcon::fromTheme ( "media-record" ) );
   m_button->setEnabled ( false );
   layout->addWidget ( m_button );
 
   m_setTimout = new QSpinBox ( this );
   /*: ToolTip */
-  m_setTimout->setToolTip ( trUtf8 ( "Timeout" ) );
+  m_setTimout->setToolTip ( trUtf8 ( "Timeout in seconds" ) );
   m_setTimout->setRange ( 3, 10 );
   m_setTimout->setValue ( 3 );
   layout->addWidget ( m_setTimout, Qt::AlignLeft );
@@ -68,6 +68,10 @@ WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
             this, SLOT ( stopCapture() ) );
 }
 
+/**
+* Belege den Datenstrom Speicher, bei Erfolg Starte
+* mit QSocketNotifier das abgreifen des Puffers.
+*/
 void WebCamCaptureFrames::startCaptureFrames ( bool b )
 {
   if ( b )
@@ -79,9 +83,11 @@ void WebCamCaptureFrames::startCaptureFrames ( bool b )
 
     // Schreibe den Puffer
     m_streamData = new unsigned char[m_inputFormat.fmt.pix.sizeimage];
+    // Kopiere zum Konvertieren in den Ausgabe Puffer
     m_outputFormat = m_inputFormat;
     m_outputFormat.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
 
+    // QImage bietet kein "YUV420 planar" an deshalb müssen wir immer konvertieren
     v4lconvert_try_format ( m_convertData, &m_outputFormat, &m_inputFormat );
     m_v4l2->g_fmt_cap ( m_inputFormat );
 
@@ -89,31 +95,39 @@ void WebCamCaptureFrames::startCaptureFrames ( bool b )
     m_frameImage = new QImage ( m_outputFormat.fmt.pix.width, m_outputFormat.fmt.pix.height, QImage::Format_RGB888 );
     m_frameImage->fill ( 0 );
 
+    // Es wird immmer nur einen gewisse Zeit aufgenommen!
+    m_timer->start ( ( 1000 * m_setTimout->value() ) );
+
     m_socketNotifier = new QSocketNotifier ( m_v4l2->fd(), QSocketNotifier::Read, this );
     connect ( m_socketNotifier, SIGNAL ( activated ( int ) ), this, SLOT ( captureFrame ( int ) ) );
   }
 }
 
+/**
+* Versucht Bilder aus dem Datenstrom zu holen...
+*/
 void WebCamCaptureFrames::captureFrame ( int )
 {
   int s = m_v4l2->read ( m_streamData, m_inputFormat.fmt.pix.sizeimage );
   if ( s < 0 )
   {
+    // Bei schwerwiegenden Fehlern aussteigen
     if ( errno != EAGAIN )
     {
-      qWarning ( "QX11Grab - webcam read error" );
+      qWarning ( "QX11Grab - webcam ioctl read error" );
       stopCapture();
     }
+    // bei einem leeren puffer aussteigen
     return;
   }
   memcpy ( m_frameImage->bits(), m_streamData, s );
 
-  int err = v4lconvert_convert ( m_convertData, &m_inputFormat, &m_outputFormat, m_streamData, s,
-                                 m_frameImage->bits(), m_outputFormat.fmt.pix.sizeimage );
+  int err = v4lconvert_convert ( m_convertData, &m_inputFormat, &m_outputFormat, m_streamData,
+                                 s, m_frameImage->bits(), m_outputFormat.fmt.pix.sizeimage );
 
   if ( err == -1 )
   {
-    qWarning ( "QX11Grab - webcam read error" );
+    qWarning ( "QX11Grab - webcam frame convert error" );
     stopCapture();
     return;
   }
@@ -122,30 +136,34 @@ void WebCamCaptureFrames::captureFrame ( int )
     emit frameCaptered ( *m_frameImage );
 }
 
+/**
+* Ein/Abschalten der Aufnahme
+*/
 void WebCamCaptureFrames::buttonClicked()
 {
   if ( m_v4l2->fd() >= 0 )
   {
+    // laufende aufnahmen beenden
     stopCapture();
   }
   else if ( m_v4l2->open ( p_device, false ) )
   {
+    // QImage bietet kein "YUV420 planar" an deshalb müssen wir immer konvertieren
     m_convertData = v4lconvert_create ( m_v4l2->fd(), NULL, &libv4l2_default_dev_ops );
     m_button->setText ( trUtf8 ( "Stop" ) );
     startCaptureFrames ( true );
-    m_timer->start ( ( 1000 * m_setTimout->value() ) );
   }
 }
 
 /**
-* Beenden und bereiningen
+* Bereinigen und Sauber beenden
 * \warning Der Timer muß an dieser Stelle gestoppt werden.
 *          Damit v4lconvert keinen Speicherzugriffsfehler erzeugt!
 */
 void WebCamCaptureFrames::stopCapture()
 {
   m_timer->stop();
-  m_button->setText ( trUtf8 ( "Capture" ) );
+  m_button->setText ( trUtf8 ( "to capture" ) );
 
   if ( m_socketNotifier )
   {
@@ -180,16 +198,21 @@ void WebCamCaptureFrames::stopCapture()
   }
 }
 
-void WebCamCaptureFrames::setInterface ( const WebCamDeviceInfo &dev )
+void WebCamCaptureFrames::setInterface ( const WebCamDeviceInfo &devInfo, const QSize &toSize )
 {
-  QFileInfo info ( dev.path );
+  Q_UNUSED ( toSize ); // TODO Ausgabe Größe
+  QFileInfo info ( devInfo.path );
+  m_button->setEnabled ( false );
+
+  // Vorhandene Aufnahmen zuerst stoppen
+  if ( m_v4l2->fd() >= 0 )
+    stopCapture();
+
   if ( info.isReadable() )
   {
-    p_device = dev.path;
+    p_device = devInfo.path;
     m_button->setEnabled ( true );
   }
-  else
-    m_button->setEnabled ( false );
 }
 
 WebCamCaptureFrames::~WebCamCaptureFrames()

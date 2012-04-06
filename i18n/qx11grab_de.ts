@@ -1829,6 +1829,73 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>WebCamCaptureFrames</name>
+    <message>
+        <source>Timeout in seconds</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Ablaufzeit in Sekunden</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation>Anhalten</translation>
+    </message>
+    <message>
+        <source>to capture</source>
+        <translation>Aufnehmen</translation>
+    </message>
+</context>
+<context>
+    <name>WebCamDeviceChooser</name>
+    <message>
+        <source>No web camera found</source>
+        <translation>Keine Web Kamera gefunden</translation>
+    </message>
+    <message>
+        <source>Choose Camera</source>
+        <translation>Wähle eine Kamera</translation>
+    </message>
+</context>
+<context>
+    <name>Webcam</name>
+    <message>
+        <source>Webcam Filter</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation>Web- Kamerafilter</translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation>Oben Links</translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation>Oben Rechts</translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation>Unten Links</translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation>Unten Rechts</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Position</translation>
+    </message>
+    <message>
+        <source>Scale Frame</source>
+        <translation>Skaliere Rahmen</translation>
+    </message>
+    <message>
+        <source>Margin (Left|Right)</source>
+        <translation>Rand (Links|Rechts)</translation>
+    </message>
+    <message>
+        <source>Margin (Top|Bottom)</source>
+        <translation>Rand (Oben|Unten)</translation>
+    </message>
+</context>
+<context>
     <name>drawtext</name>
     <message>
         <source>drawtext Filter</source>
@@ -1941,6 +2008,17 @@ ToolTip</extracomment>
     <message>
         <source>Insert a Watermark into output video</source>
         <translation>Füge ein Wasserzeichen in das Ausgabevideo</translation>
+    </message>
+</context>
+<context>
+    <name>webcamPlugin</name>
+    <message>
+        <source>Webcam</source>
+        <translation>Videokamera</translation>
+    </message>
+    <message>
+        <source>Insert a Webcam into output video</source>
+        <translation>Füge eine Videokamera in das Ausgabe Video</translation>
     </message>
 </context>
 </TS>

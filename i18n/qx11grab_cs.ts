@@ -1817,6 +1817,73 @@ ToolTip</extracomment>
     </message>
 </context>
 <context>
+    <name>WebCamCaptureFrames</name>
+    <message>
+        <source>Timeout in seconds</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Zastavit</translation>
+    </message>
+    <message>
+        <source>to capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebCamDeviceChooser</name>
+    <message>
+        <source>No web camera found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose Camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Webcam</name>
+    <message>
+        <source>Webcam Filter</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation type="unfinished">Nahoře vlevo</translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation type="unfinished">Nahoře vpravo</translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation type="unfinished">Dole vlevo</translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation type="unfinished">Dole vpravo</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished">Poloha</translation>
+    </message>
+    <message>
+        <source>Scale Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margin (Left|Right)</source>
+        <translation type="unfinished">Okraj (levý|pravý)</translation>
+    </message>
+    <message>
+        <source>Margin (Top|Bottom)</source>
+        <translation type="unfinished">Okraj (lhorní|dolní)</translation>
+    </message>
+</context>
+<context>
     <name>drawtext</name>
     <message>
         <source>drawtext Filter</source>
@@ -1929,6 +1996,17 @@ ToolTip</extracomment>
     <message>
         <source>Insert a Watermark into output video</source>
         <translation>Vložit vodoznak do výstupního videa</translation>
+    </message>
+</context>
+<context>
+    <name>webcamPlugin</name>
+    <message>
+        <source>Webcam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert a Webcam into output video</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
