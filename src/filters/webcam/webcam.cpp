@@ -54,6 +54,7 @@ Webcam::Webcam ( QWidget * parent )
     , p_MarginY ( 20 )
 {
   setObjectName ( QLatin1String ( "Webcam" ) );
+  /*: WindowTitle */
   setWindowTitle ( trUtf8 ( "Webcam Filter" ) );
   setWindowIcon ( QIcon::fromTheme ( "camera-web" ) );
   setContentsMargins ( 0, 0, 0, 10 );
@@ -137,10 +138,10 @@ Webcam::Webcam ( QWidget * parent )
             this, SLOT ( setMarginY ( int ) ) );
 
   connect ( m_buttonBox, SIGNAL ( accepted() ),
-            m_webcamPreview, SLOT ( closeWebCam() ) );
+            m_webcamPreview, SLOT ( restoreView() ) );
 
   connect ( m_buttonBox, SIGNAL ( rejected() ),
-            m_webcamPreview, SLOT ( closeWebCam() ) );
+            m_webcamPreview, SLOT ( restoreView() ) );
 
   connect ( m_buttonBox, SIGNAL ( accepted() ),
             this, SLOT ( accept() ) );

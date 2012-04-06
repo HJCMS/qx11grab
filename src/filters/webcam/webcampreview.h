@@ -49,8 +49,7 @@ class WebCamPreview : public QGraphicsView
 
   public Q_SLOTS:
     void pixmapFromImage ( const QImage & );
-    void openWebCam();
-    void closeWebCam();
+    void restoreView();
 
   public:
     explicit WebCamPreview ( QWidget * parent = 0 );

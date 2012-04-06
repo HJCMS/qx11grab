@@ -29,7 +29,7 @@
 
 /* QtGui */
 #include <QtGui/QIcon>
-#include <QtGui/QVBoxLayout>
+#include <QtGui/QHBoxLayout>
 
 WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
     : QWidget ( parent )
@@ -42,7 +42,7 @@ WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
   setObjectName ( QLatin1String ( "WebCamCaptureFrames" ) );
   setContentsMargins ( 0, 0, 0, 0 );
 
-  QVBoxLayout* layout = new QVBoxLayout ( this );
+  QHBoxLayout* layout = new QHBoxLayout ( this );
   layout->setContentsMargins ( 0, 0, 0, 0 );
 
   m_timer = new QTimer ( this );
@@ -51,6 +51,13 @@ WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
   m_button->setIcon ( QIcon::fromTheme ( "media-record" ) );
   m_button->setEnabled ( false );
   layout->addWidget ( m_button );
+
+  m_setTimout = new QSpinBox ( this );
+  /*: ToolTip */
+  m_setTimout->setToolTip ( trUtf8 ( "Timeout" ) );
+  m_setTimout->setRange ( 3, 10 );
+  m_setTimout->setValue ( 3 );
+  layout->addWidget ( m_setTimout, Qt::AlignLeft );
 
   setLayout ( layout );
 
@@ -117,7 +124,7 @@ void WebCamCaptureFrames::captureFrame ( int )
 
 void WebCamCaptureFrames::buttonClicked()
 {
-  if ( m_v4l2->fd() != -1 )
+  if ( m_v4l2->fd() >= 0 )
   {
     stopCapture();
   }
@@ -126,12 +133,20 @@ void WebCamCaptureFrames::buttonClicked()
     m_convertData = v4lconvert_create ( m_v4l2->fd(), NULL, &libv4l2_default_dev_ops );
     m_button->setText ( trUtf8 ( "Stop" ) );
     startCaptureFrames ( true );
-    m_timer->start ( ( 1000 * 3 ) );
+    m_timer->start ( ( 1000 * m_setTimout->value() ) );
   }
 }
 
+/**
+* Beenden und bereiningen
+* \warning Der Timer muß an dieser Stelle gestoppt werden.
+*          Damit v4lconvert keinen Speicherzugriffsfehler erzeugt!
+*/
 void WebCamCaptureFrames::stopCapture()
 {
+  m_timer->stop();
+  m_button->setText ( trUtf8 ( "Capture" ) );
+
   if ( m_socketNotifier )
   {
     m_socketNotifier->setEnabled ( false );
@@ -139,19 +154,30 @@ void WebCamCaptureFrames::stopCapture()
     m_socketNotifier = 0;
   }
 
-  v4l2_encoder_cmd cmd;
-  memset ( &cmd, 0, sizeof ( cmd ) );
-  cmd.cmd = V4L2_ENC_CMD_STOP;
-  m_v4l2->ioctl ( VIDIOC_ENCODER_CMD, &cmd );
-
-  if ( m_v4l2->fd() )
+  if ( m_frameImage )
   {
-    qDebug ( "QX11Grab - close capture device" );
-    m_v4l2->close();
+    delete m_frameImage;
+    m_frameImage = 0;
   }
 
-  m_button->setText ( trUtf8 ( "Capture" ) );
-  qDebug ( "QX11Grab - capture frames done" );
+  if ( m_v4l2->fd() >= 0 )
+  {
+    qDebug ( "QX11Grab - send v4l2 cmd stop" );
+    v4l2_encoder_cmd cmd;
+    memset ( &cmd, 0, sizeof ( cmd ) );
+    cmd.cmd = V4L2_ENC_CMD_STOP;
+    m_v4l2->ioctl ( VIDIOC_ENCODER_CMD, &cmd );
+
+    qDebug ( "QX11Grab - restore stream buffer" );
+    delete m_streamData;
+    m_streamData = NULL;
+
+    qDebug ( "QX11Grab - v4lconvert destroy buffer" );
+    v4lconvert_destroy ( m_convertData );
+    qDebug ( "QX11Grab - close capture device" );
+    m_v4l2->close();
+    qDebug ( "QX11Grab - capture frames done" );
+  }
 }
 
 void WebCamCaptureFrames::setInterface ( const WebCamDeviceInfo &dev )

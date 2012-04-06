@@ -33,6 +33,7 @@
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
 #include <QtGui/QPushButton>
+#include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
 /* libv4l2 */
@@ -57,6 +58,7 @@ class WebCamCaptureFrames : public QWidget
 
     QTimer* m_timer;
     QPushButton* m_button;
+    QSpinBox* m_setTimout;
 
     unsigned char* m_streamData;
     struct v4l2_format m_inputFormat;

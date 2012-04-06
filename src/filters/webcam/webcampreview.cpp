@@ -75,17 +75,15 @@ void WebCamPreview::pixmapFromImage ( const QImage &image )
   if ( ! m_pixmapItem )
     return;
 
-  QPixmap p = QPixmap::fromImage ( image, Qt::AutoColor );
+  QPixmap pixmap = QPixmap::fromImage ( image, Qt::AutoColor );
+  QPixmap p = pixmap.scaled ( m_pixmapItem->pixmap().size(), Qt::KeepAspectRatio );
   if ( ! p.isNull() )
     m_pixmapItem->setPixmap ( p );
 }
 
-void WebCamPreview::openWebCam()
-{}
-
-void WebCamPreview::closeWebCam()
+void WebCamPreview::restoreView()
 {
-  QPixmap p ( 150, 150 );
+  QPixmap p ( 160, 120 );
   p.fill ( Qt::black );
   m_pixmapItem->setPixmap ( p );
 }
