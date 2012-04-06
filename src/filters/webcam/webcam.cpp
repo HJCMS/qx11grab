@@ -299,7 +299,7 @@ void Webcam::update()
 {
   QSize scale = m_webcamPreview->itemSize().toSize();
   QString buf;
-  QString value = QString::fromUtf8 ( "movie=%1:f=v4l2,scale=%2:%3[logo],[in][logo]overlay=%4,setpts=PTS-STARTPTS[out]" )
+  QString value = QString::fromUtf8 ( "movie=%1:f=v4l2,scale=%2:%3:interl=1,setpts=PTS-STARTPTS[logo],[in][logo]overlay=%4,setpts=PTS-STARTPTS[out]" )
                   .arg (
                       p_v4lDevice,
                       QString::number ( scale.width() ),
@@ -319,6 +319,7 @@ int Webcam::start()
 
 const QString Webcam::data()
 {
+  m_webCamCaptureFrames->stopCapture();
   setSettings ( "Device", p_v4lDevice );
   setSettings ( "Overlay", p_Overlay );
   setSettings ( "PositionType", m_setOverlayComboBox->currentIndex() );
@@ -326,8 +327,7 @@ const QString Webcam::data()
   setSettings ( "Indent_Y", p_MarginY );
   QSize scale = m_webcamPreview->itemSize().toSize();
   setSettings ( "Scale", qMax ( scale.width(), scale.height() ) );
-  qDebug() << Q_FUNC_INFO << "TODO>>" << m_outputEdit->text ();
-  return QString();
+  return m_outputEdit->text ();
 }
 
 Webcam::~Webcam()

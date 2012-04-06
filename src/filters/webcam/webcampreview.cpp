@@ -54,7 +54,7 @@ WebCamPreview::WebCamPreview ( QWidget * parent )
   setInteractive ( true );
   setRenderHints ( QPainter::NonCosmeticDefaultPen );
   setTransformationAnchor ( QGraphicsView::NoAnchor );
-  setViewportUpdateMode ( QGraphicsView::BoundingRectViewportUpdate );
+  setViewportUpdateMode ( QGraphicsView::MinimalViewportUpdate );
   setOptimizationFlags ( QGraphicsView::DontAdjustForAntialiasing );
   setSizePolicy ( QSizePolicy::Preferred, QSizePolicy::Expanding );
   setAttribute ( Qt::WA_PaintOnScreen, true );
