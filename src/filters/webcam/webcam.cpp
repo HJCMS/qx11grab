@@ -21,7 +21,8 @@
 
 #include "webcam.h"
 #include "webcampreview.h"
-#include "webcamdevice.h"
+#include "webcamdevicechooser.h"
+#include "webcamcaptureframes.h"
 
 /* QtCore */
 #include <QtCore/QByteArray>
@@ -67,16 +68,17 @@ Webcam::Webcam ( QWidget * parent )
   m_webcamPreview = new WebCamPreview ( this );
   verticalLayout->addWidget ( m_webcamPreview );
 
-  QToolBox* m_toolBox = new QToolBox ( this );
-  m_toolBox->setObjectName ( QLatin1String ( "toolbox" ) );
-  m_toolBox->setBackgroundRole ( QPalette::Window );
-  verticalLayout->addWidget ( m_toolBox );
 
   // begin::layer {
-  QWidget* layerWidget = new QWidget ( m_toolBox );
+  QWidget* layerWidget = new QWidget ( this );
+  verticalLayout->addWidget ( layerWidget );
 
   QFormLayout* layout = new QFormLayout ( layerWidget );
   layout->setObjectName ( QLatin1String ( "webcam/Layout" ) );
+
+  m_webcamDeviceChooser = new WebCamDeviceChooser ( layerWidget );
+  m_webCamCaptureFrames = new WebCamCaptureFrames ( layerWidget );
+  layout->addRow ( m_webCamCaptureFrames, m_webcamDeviceChooser );
 
   int i = 0;
   QIcon scIcon = QIcon::fromTheme ( "video-display" );
@@ -89,7 +91,7 @@ Webcam::Webcam ( QWidget * parent )
 
   // Gültige Werte sind von 160x120 bis 640x480
   m_scaleFrame = new QSlider ( Qt::Horizontal, layerWidget );
-  m_scaleFrame->setRange ( 160, 640 );
+  m_scaleFrame->setRange ( 100, 640 );
   m_scaleFrame->setValue ( 160 );
   layout->addRow ( trUtf8 ( "Scale Frame" ), m_scaleFrame );
 
@@ -106,12 +108,8 @@ Webcam::Webcam ( QWidget * parent )
   m_outputEdit = new QLineEdit ( layerWidget );
   layout->addRow ( m_outputEdit );
 
-  m_toolBox->addItem ( layerWidget, QIcon::fromTheme ( "preferences-plugin" ), trUtf8 ( "Orientation" ) );
   layerWidget->setLayout ( layout );
   // } end::layer
-
-  m_webCamDeviceWidget = new WebCamDevice ( this );
-  m_toolBox->addItem ( m_webCamDeviceWidget, QIcon::fromTheme ( "camera-web" ), trUtf8 ( "Camera" ) );
 
   QDialogButtonBox* m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
   m_buttonBox->setObjectName ( QLatin1String ( "webcam/ButtonBox" ) );
@@ -120,8 +118,14 @@ Webcam::Webcam ( QWidget * parent )
 
   setLayout ( verticalLayout );
 
+  connect ( m_webcamDeviceChooser, SIGNAL ( cameraSelected ( const WebCamDeviceInfo & ) ),
+            this, SLOT ( cameraDeviceChanged ( const WebCamDeviceInfo & ) ) );
+
   connect ( m_setOverlayComboBox, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( positionIndexChanged ( int ) ) );
+
+  connect ( m_webCamCaptureFrames, SIGNAL ( frameCaptered ( const QImage & ) ),
+            m_webcamPreview, SLOT ( pixmapFromImage ( const QImage & ) ) );
 
   connect ( m_scaleFrame, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( setScale ( int ) ) );
@@ -131,12 +135,6 @@ Webcam::Webcam ( QWidget * parent )
 
   connect ( m_yIndent, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( setMarginY ( int ) ) );
-
-//   connect ( ac_connect, SIGNAL ( clicked() ),
-//             m_webcamPreview, SLOT ( openWebCam() ) );
-//
-//   connect ( ac_disconnect, SIGNAL ( clicked() ),
-//             m_webcamPreview, SLOT ( closeWebCam() ) );
 
   connect ( m_buttonBox, SIGNAL ( accepted() ),
             m_webcamPreview, SLOT ( closeWebCam() ) );
@@ -166,8 +164,8 @@ const QVariant Webcam::settingsValue ( const QString &key, const QVariant &defau
 void Webcam::loadDefaults()
 {
   p_v4lDevice = settingsValue ( "Device", "/dev/video0" ).toString();
-  m_webCamDeviceWidget->triggerDevices ( p_v4lDevice );
   m_webcamPreview->setDevice ( p_v4lDevice );
+  m_webcamDeviceChooser->init();
 
   // Vorschau bereich auf Slider übertragen
   m_scaleFrame->setValue ( settingsValue ( "Scale", 100 ).toUInt() );
@@ -177,6 +175,19 @@ void Webcam::loadDefaults()
   // Index der Combobox setzen und update auslösen
   p_Overlay = settingsValue ( "Overlay", "20:20" ).toString();
   m_setOverlayComboBox->setCurrentIndex ( settingsValue ( "PositionType", 0 ).toUInt() );
+}
+
+/**
+* Kamera wurde ausgwewählt
+*/
+void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
+{
+  p_v4lDevice = dev.path;
+  m_scaleFrame->setRange ( 100, qMax ( dev.size.width(), dev.size.height() ) );
+  m_webCamCaptureFrames->setInterface ( dev );
+
+  // Ausgabezeile neu Schreiben
+  update();
 }
 
 void Webcam::resizeEvent ( QResizeEvent * event )

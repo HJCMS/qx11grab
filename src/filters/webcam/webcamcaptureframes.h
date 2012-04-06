@@ -19,74 +19,65 @@
 * Boston, MA 02110-1301, USA.
 **/
 
-#ifndef WEBCAMDEVICE_H
-#define WEBCAMDEVICE_H
+#ifndef WEBCAMCAPTUREFRAMES_H
+#define WEBCAMCAPTUREFRAMES_H
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QPointer>
 #include <QtCore/QString>
 #include <QtCore/QSocketNotifier>
-#include <QtCore/QThread>
+#include <QtCore/QTimer>
 
 /* QtGui */
 #include <QtGui/QImage>
+#include <QtGui/QPixmap>
+#include <QtGui/QPushButton>
+#include <QtGui/QWidget>
+
+/* libv4l2 */
+#include <libv4l2.h>
 
 /* QX11Grab */
+#include "webcamdeviceinfo.h"
 #include "v4l2-api.h"
 
-class WebCamDevice : public QThread, public v4l2
+class WebCamCaptureFrames : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    const QString &v4l2dev;
-    QImage* m_captureImage;
-    QSocketNotifier* m_listener;
-
-    enum CapMethod
-    {
-      methodRead,
-      methodMmap,
-      methodUser
-    };
-
-    struct buffer
-    {
-      void   *start;
-      size_t  length;
-    };
-    struct buffer* m_buffers;
-
-    unsigned m_nbuffers;
-    unsigned m_frame;
-    unsigned m_lastFrame;
-    unsigned m_fps;
-    unsigned char *m_frameData;
-
-    struct v4l2_format m_capSrcFormat;
-    struct v4l2_format m_capDestFormat;
+    v4l2* m_v4l2;
+    QImage* m_frameImage;
+    QSocketNotifier* m_socketNotifier;
     struct v4lconvert_data* m_convertData;
+    QString p_device;
 
-    bool startCapture ();
-    void stopCapture();
+    QTimer* m_timer;
+    QPushButton* m_button;
+
+    unsigned char* m_streamData;
+    struct v4l2_format m_inputFormat;
+    struct v4l2_format m_outputFormat;
+
+    void startCaptureFrames ( bool );
 
   private Q_SLOTS:
-    void captureFrame();
-    void deviceOpened();
-    void deviceClosed();
-
-  protected:
-    virtual void run();
+    void captureFrame ( int );
+    void buttonClicked();
 
   Q_SIGNALS:
-    void frameEntered ( const QImage & );
+    void frameCaptered ( const QImage & );
+
+  public Q_SLOTS:
+    void stopCapture();
 
   public:
-    explicit WebCamDevice ( const QString &device, QObject * parent = 0 );
-
-    virtual ~WebCamDevice();
+    explicit WebCamCaptureFrames ( QWidget * parent = 0 );
+    void setInterface ( const WebCamDeviceInfo & );
+    virtual ~WebCamCaptureFrames();
 };
 
 #endif

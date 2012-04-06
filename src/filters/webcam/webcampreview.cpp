@@ -94,6 +94,7 @@ void WebCamPreview::setItemSize ( const QSizeF &size )
 {
   QPixmap p = m_pixmapItem->pixmap().scaled ( size.toSize(), Qt::KeepAspectRatio );
   m_pixmapItem->setPixmap ( p );
+  update();
 }
 
 const QSizeF WebCamPreview::itemSize()

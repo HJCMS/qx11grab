@@ -37,8 +37,13 @@
 #include <QtGui/QSlider>
 #include <QtGui/QWidget>
 
+/* QX11Grab */
+#include "v4l2-api.h"
+#include "webcamdeviceinfo.h"
+
 class WebCamPreview;
-class WebCamDevice;
+class WebCamDeviceChooser;
+class WebCamCaptureFrames;
 
 class Webcam : public QDialog
 {
@@ -47,7 +52,8 @@ class Webcam : public QDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    WebCamDevice* m_webCamDeviceWidget;
+    WebCamDeviceChooser* m_webcamDeviceChooser;
+    WebCamCaptureFrames* m_webCamCaptureFrames;
     QSettings* cfg;
     QString p_Overlay; // overlay orientation
     QString p_v4lDevice; // video4linux device
@@ -74,6 +80,9 @@ class Webcam : public QDialog
     };
 
   private Q_SLOTS:
+    /** camera changed */
+    void cameraDeviceChanged ( const WebCamDeviceInfo & );
+
     /** combobox position changed */
     void positionIndexChanged ( int index );
 

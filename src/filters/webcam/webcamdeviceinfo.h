@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QMetaType>
+#include <QtCore/QSize>
 #include <QtCore/QString>
 #include <QtCore/Qt>
 #include <QtCore/QVariant>
@@ -34,6 +35,8 @@ typedef struct Q_DECL_EXPORT
   QString driver;  /**< Driver Name */
   QString card;    /**< Card Name */
   QString bus;     /**< SystemBus Name */
+  QString pixfmt;  /**< Pixel Format */
+  QSize   size;    /**< Default Frame Size */
 } WebCamDeviceInfo;
 
 Q_DECLARE_METATYPE ( WebCamDeviceInfo )

@@ -47,10 +47,8 @@ class WebCamPreview : public QGraphicsView
     const QSize p_defaultSize;
     QString p_device;
 
-  private Q_SLOTS:
-    void pixmapFromImage ( const QImage & );
-
   public Q_SLOTS:
+    void pixmapFromImage ( const QImage & );
     void openWebCam();
     void closeWebCam();
 

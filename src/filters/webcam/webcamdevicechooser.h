@@ -46,8 +46,14 @@ class WebCamDeviceChooser : public QComboBox
     const QIcon cameraIcon;
     QList<WebCamDeviceInfo> devInfo;
     inline const QString toString ( unsigned char* ptr ) const;
-    bool isWebCamDevice ( const QFileInfo &dev );
+    bool insertWebCamDevice ( const QFileInfo &dev );
     void searchDevices();
+
+  private Q_SLOTS:
+    void itemChanged ( int index );
+
+  Q_SIGNALS:
+    void cameraSelected ( const WebCamDeviceInfo & );
 
   public Q_SLOTS:
     void init();

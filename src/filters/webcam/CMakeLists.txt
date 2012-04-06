@@ -11,16 +11,16 @@ SET(plugin_SOURCES
   webcamplugin.cpp
   webcam.cpp
   webcampreview.cpp
-  webcamdevice.cpp
   webcamdevicechooser.cpp
+  webcamcaptureframes.cpp
 )
 
 SET(plugin_HEADERS
   webcam.h
   webcamplugin.h
   webcampreview.h
-  webcamdevice.h
   webcamdevicechooser.h
+  webcamcaptureframes.h
 )
 
 SET(plugin_NOMOC_HEADERS
