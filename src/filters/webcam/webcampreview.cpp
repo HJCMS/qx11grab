@@ -43,18 +43,19 @@
 WebCamPreview::WebCamPreview ( QWidget * parent )
     : QGraphicsView ( parent )
     , m_pixmapItem ( 0 )
-    , p_defaultSize ( QSize ( 160, 120 ) )
+    , p_itemSize ( QSizeF ( 160, 120 ) )
 {
   setObjectName ( QLatin1String ( "WebCamPreview" ) );
   setContentsMargins ( 0, 0, 0, 0 );
   setMinimumSize ( 250, 250 );
+//   setCacheMode ( QGraphicsView::CacheNone );
   setDragMode ( QGraphicsView::NoDrag );
   // NOTE bestimmt das Koordinaten System!
   setAlignment ( ( Qt::AlignTop | Qt::AlignLeft ) );
   setInteractive ( true );
   setRenderHints ( QPainter::NonCosmeticDefaultPen );
   setTransformationAnchor ( QGraphicsView::NoAnchor );
-  setViewportUpdateMode ( QGraphicsView::MinimalViewportUpdate );
+  setViewportUpdateMode ( QGraphicsView::BoundingRectViewportUpdate );
   setOptimizationFlags ( QGraphicsView::DontAdjustForAntialiasing );
   setSizePolicy ( QSizePolicy::Preferred, QSizePolicy::Expanding );
   setAttribute ( Qt::WA_PaintOnScreen, true );
@@ -63,11 +64,7 @@ WebCamPreview::WebCamPreview ( QWidget * parent )
   brush.setStyle ( Qt::CrossPattern );
   setBackgroundBrush ( brush );
 
-  QPixmap dummyPixmap ( p_defaultSize );
-  dummyPixmap.fill ( Qt::black );
   setScene ( new QGraphicsScene ( this ) );
-
-  m_pixmapItem = scene()->addPixmap ( dummyPixmap );
 }
 
 void WebCamPreview::pixmapFromImage ( const QImage &image )
@@ -76,20 +73,22 @@ void WebCamPreview::pixmapFromImage ( const QImage &image )
     return;
 
   QPixmap pixmap = QPixmap::fromImage ( image, Qt::AutoColor );
-  QPixmap p = pixmap.scaled ( m_pixmapItem->pixmap().size(), Qt::KeepAspectRatio );
+  QPixmap p = pixmap.scaled ( p_itemSize.toSize(), Qt::KeepAspectRatio );
   if ( ! p.isNull() )
     m_pixmapItem->setPixmap ( p );
 }
 
 void WebCamPreview::restoreView()
 {
-  QPixmap p ( 160, 120 );
-  p.fill ( Qt::black );
-  m_pixmapItem->setPixmap ( p );
+  QPixmap dummyPixmap ( p_itemSize.toSize() );
+  dummyPixmap.fill ( Qt::black );
+  scene()->clear();
+  m_pixmapItem = scene()->addPixmap ( dummyPixmap );
 }
 
 void WebCamPreview::setItemSize ( const QSizeF &size )
 {
+  p_itemSize = size;
   QPixmap p = m_pixmapItem->pixmap().scaled ( size.toSize(), Qt::KeepAspectRatio );
   m_pixmapItem->setPixmap ( p );
   update();
@@ -97,17 +96,7 @@ void WebCamPreview::setItemSize ( const QSizeF &size )
 
 const QSizeF WebCamPreview::itemSize()
 {
-  return m_pixmapItem->pixmap().size();
-}
-
-const QString WebCamPreview::device()
-{
-  return p_device;
-}
-
-void WebCamPreview::setDevice ( const QString &path )
-{
-  p_device = path;
+  return p_itemSize;
 }
 
 WebCamPreview::~WebCamPreview()

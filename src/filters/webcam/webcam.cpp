@@ -165,14 +165,12 @@ const QVariant Webcam::settingsValue ( const QString &key, const QVariant &defau
 void Webcam::loadDefaults()
 {
   p_v4lDevice = settingsValue ( "Device", "/dev/video0" ).toString();
-  m_webcamPreview->setDevice ( p_v4lDevice );
   m_webcamDeviceChooser->init();
-
+  m_webcamPreview->restoreView();
   // Vorschau bereich auf Slider übertragen
   m_scaleFrame->setValue ( settingsValue ( "Scale", 100 ).toUInt() );
   m_xIndent->setValue ( settingsValue ( "Indent_X", 20 ).toUInt() );
   m_yIndent->setValue ( settingsValue ( "Indent_Y", 20 ).toUInt() );
-
   // Index der Combobox setzen und update auslösen
   p_Overlay = settingsValue ( "Overlay", "20:20" ).toString();
   m_setOverlayComboBox->setCurrentIndex ( settingsValue ( "PositionType", 0 ).toUInt() );
@@ -193,7 +191,7 @@ void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
 
 void Webcam::resizeEvent ( QResizeEvent * event )
 {
-  // positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
+  positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
   QDialog::resizeEvent ( event );
 }
 
@@ -256,10 +254,11 @@ void Webcam::positionIndexChanged ( int index )
   // qDebug() << Q_FUNC_INFO << overlayTopLeft << m_webcamPreview->itemSize();
 
   QSizeF currentSizeF = m_webcamPreview->itemSize();
-  // Bild verschieben
-  m_webcamPreview->setSceneRect ( QRectF ( overlayTopLeft, currentSizeF ) );
   // Scaler neu setzen
   m_scaleFrame->setValue ( qMax ( currentSizeF.width(), currentSizeF.height() ) );
+
+  // Bild verschieben
+  m_webcamPreview->setSceneRect ( QRectF ( overlayTopLeft, currentSizeF ) );
 
   // Ausgabezeile neu Schreiben
   update();
@@ -299,7 +298,7 @@ void Webcam::update()
 {
   QSize scale = m_webcamPreview->itemSize().toSize();
   QString buf;
-  QString value = QString::fromUtf8 ( "movie=%1:f=v4l2,scale=%2:%3:interl=1,setpts=PTS-STARTPTS[logo],[in][logo]overlay=%4,setpts=PTS-STARTPTS[out]" )
+  QString value = QString::fromUtf8 ( "movie=%1:f=v4l2,scale=%2:%3:interl=0,setpts=PTS-STARTPTS[logo],[in][logo]overlay=%4,setpts=PTS-STARTPTS[out]" )
                   .arg (
                       p_v4lDevice,
                       QString::number ( scale.width() ),

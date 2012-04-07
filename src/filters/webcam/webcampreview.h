@@ -40,12 +40,10 @@ class WebCamPreview : public QGraphicsView
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
-    Q_PROPERTY ( QString device READ device WRITE setDevice )
 
   private:
     QGraphicsPixmapItem* m_pixmapItem;
-    const QSize p_defaultSize;
-    QString p_device;
+    QSizeF p_itemSize;
 
   public Q_SLOTS:
     void pixmapFromImage ( const QImage & );
@@ -58,10 +56,6 @@ class WebCamPreview : public QGraphicsView
     void setItemSize ( const QSizeF &size );
 
     const QSizeF itemSize();
-
-    const QString device();
-
-    void setDevice ( const QString &path );
 
     virtual ~WebCamPreview();
 };
