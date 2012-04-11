@@ -69,7 +69,6 @@ Webcam::Webcam ( QWidget * parent )
   m_webcamPreview = new WebCamPreview ( this );
   verticalLayout->addWidget ( m_webcamPreview );
 
-
   // begin::layer {
   QWidget* layerWidget = new QWidget ( this );
   verticalLayout->addWidget ( layerWidget );
@@ -179,7 +178,7 @@ void Webcam::loadDefaults()
 }
 
 /**
-* Kamera wurde ausgwewählt
+* Eine Kamera wurde ausgewählt
 */
 void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
 {
@@ -191,9 +190,12 @@ void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
   update();
 }
 
+/**
+* Nach jedem Update muss die QGraphicsScene neu gezeichnet werden
+*/
 void Webcam::resizeEvent ( QResizeEvent * event )
 {
-  // positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
+  positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
   QDialog::resizeEvent ( event );
 }
 
@@ -275,7 +277,9 @@ void Webcam::setScale ( int s )
   update();
 }
 
-/** links|rechts einrücken */
+/**
+* links|rechts den Rahmen abstand einrücken
+*/
 void Webcam::setMarginX ( int x )
 {
   if ( ( x % 2 ) == 0 )
@@ -285,7 +289,9 @@ void Webcam::setMarginX ( int x )
   }
 }
 
-/** oben|unten einrücken */
+/**
+* oben|unten den Rahmen abstand einrücken
+*/
 void Webcam::setMarginY ( int y )
 {
   if ( ( y % 2 ) == 0 )
@@ -295,6 +301,9 @@ void Webcam::setMarginY ( int y )
   }
 }
 
+/**
+*  Ein Update auf die Kommandozeile schreiben...
+*/
 void Webcam::update()
 {
   QSize scale = m_webcamPreview->itemSize().toSize();
@@ -317,6 +326,10 @@ int Webcam::start()
   return exec();
 }
 
+/**
+* Aktuelle Konfiguration Speichern und die Ausgabe
+* von \ref m_outputEdit zurück geben.
+*/
 const QString Webcam::data()
 {
   m_webCamCaptureFrames->stopCapture();
