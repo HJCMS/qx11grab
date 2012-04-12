@@ -33,6 +33,7 @@
 #include <QtGui/QGraphicsScene>
 #include <QtGui/QGraphicsView>
 #include <QtGui/QImage>
+#include <QtGui/QPainter>
 #include <QtGui/QWidget>
 
 class WebCamPreview : public QGraphicsView
@@ -46,14 +47,12 @@ class WebCamPreview : public QGraphicsView
     QSizeF p_itemSize;
 
   public Q_SLOTS:
-    void pixmapFromImage ( const QImage & );
+    void setPreviewFrame ( const QImage & );
+    void setFrameScale ( qreal s );
     void restoreView();
 
   public:
-    explicit WebCamPreview ( QWidget * parent = 0 );
-
-    /** set the current frame size */
-    void setItemSize ( const QSizeF &size );
+    explicit WebCamPreview ( const QSizeF &baseSize, QWidget * parent = 0 );
 
     const QSizeF itemSize();
 

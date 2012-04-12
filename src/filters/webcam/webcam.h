@@ -55,16 +55,17 @@ class Webcam : public QDialog
     WebCamDeviceChooser* m_webcamDeviceChooser;
     WebCamCaptureFrames* m_webCamCaptureFrames;
     QSettings* cfg;
-    QString p_Overlay; // overlay orientation
-    QString p_v4lDevice; // video4linux device
-    qreal p_MarginX; // Margin (x)
-    qreal p_MarginY; // Margin (y)
+    QString p_Overlay; /**< overlay orientation */
+    QString p_v4lDevice; /**< video4linux device */
+    qreal p_MarginX; /**< Margin (x) */
+    qreal p_MarginY; /**< Margin (y) */
+    qreal p_ScaleFactor; /**< Factor for FrameScale */
     WebCamPreview* m_webcamPreview;
-    QSlider* m_scaleFrame; // Scale Camera Frames
-    QSlider* m_xIndent; // Margin (x)
-    QSlider* m_yIndent; // Margin (y)
-    QComboBox* m_setOverlayComboBox;
-    QLineEdit* m_outputEdit; // Filter Preview
+    QSlider* m_scaleFrame; /**< Scale Camera Frames */
+    QSlider* m_xIndent; /**< Margin (x) */
+    QSlider* m_yIndent; /**< Margin (y) */
+    QComboBox* m_setOverlayComboBox; /**< Overlay Selection */
+    QLineEdit* m_outputEdit; /**< Filter Preview */
 
     void setSettings ( const QString &key, const QVariant &value );
     const QVariant settingsValue ( const QString &key, const QVariant &defaultValue = QVariant() );
@@ -86,6 +87,9 @@ class Webcam : public QDialog
     /** combobox position changed */
     void positionIndexChanged ( int index );
 
+    /** update/repaint graphicsscene */
+    void updateScene();
+
     /** scale cam frame */
     void setScale ( int s );
 
@@ -95,8 +99,8 @@ class Webcam : public QDialog
     /** top|bottom Margin */
     void setMarginY ( int y );
 
-    /** update/repaint */
-    void update ();
+    /** update/comamnd */
+    void updateCommand();
 
   protected:
     virtual void resizeEvent ( QResizeEvent * event );
@@ -104,9 +108,10 @@ class Webcam : public QDialog
   public:
     explicit Webcam ( QWidget * parent = 0 );
 
-    /** open dialog */
+    /** open dialog and init all subobjects */
     int start();
 
+    /** get generated filter data */
     Q_SCRIPTABLE const QString data();
 
     ~Webcam();

@@ -52,6 +52,7 @@ Webcam::Webcam ( QWidget * parent )
     : QDialog ( parent )
     , p_MarginX ( 20 )
     , p_MarginY ( 20 )
+    , p_ScaleFactor ( 10.0 )
 {
   setObjectName ( QLatin1String ( "Webcam" ) );
   /*: WindowTitle */
@@ -62,11 +63,13 @@ Webcam::Webcam ( QWidget * parent )
   setMinimumSize ( 650, 550 );
 
   cfg = new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab", this );
+  // Gültige Werte sind von 160x120 bis 640x480
+  QSizeF baseSize = cfg->value ( "Filter_Webcam/BaseSize", QSizeF ( 640, 480 ) ).toSizeF();
 
   QVBoxLayout* verticalLayout = new QVBoxLayout ( this );
   verticalLayout->setContentsMargins ( 0, 5, 0, 0 );
 
-  m_webcamPreview = new WebCamPreview ( this );
+  m_webcamPreview = new WebCamPreview ( baseSize, this );
   verticalLayout->addWidget ( m_webcamPreview );
 
   // begin::layer {
@@ -89,10 +92,11 @@ Webcam::Webcam ( QWidget * parent )
   m_setOverlayComboBox->insertItem ( i++, scIcon,  trUtf8 ( "Bottom Right" ), BOTTOM_RIGHT_CORNER );
   layout->addRow ( trUtf8 ( "Position" ), m_setOverlayComboBox );
 
-  // Gültige Werte sind von 160x120 bis 640x480
   m_scaleFrame = new QSlider ( Qt::Horizontal, layerWidget );
-  m_scaleFrame->setRange ( 100, 640 );
-  m_scaleFrame->setValue ( 160 );
+  m_scaleFrame->setRange ( 1, 10 );
+  m_scaleFrame->setTickInterval ( 1 );
+  m_scaleFrame->setTickPosition ( QSlider::TicksAbove );
+  m_scaleFrame->setValue ( 10 );
   layout->addRow ( trUtf8 ( "Scale Frame" ), m_scaleFrame );
 
   m_xIndent = new QSlider ( Qt::Horizontal, layerWidget );
@@ -125,7 +129,7 @@ Webcam::Webcam ( QWidget * parent )
             this, SLOT ( positionIndexChanged ( int ) ) );
 
   connect ( m_webCamCaptureFrames, SIGNAL ( frameCaptered ( const QImage & ) ),
-            m_webcamPreview, SLOT ( pixmapFromImage ( const QImage & ) ) );
+            m_webcamPreview, SLOT ( setPreviewFrame ( const QImage & ) ) );
 
   connect ( m_scaleFrame, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( setScale ( int ) ) );
@@ -165,11 +169,10 @@ void Webcam::loadDefaults()
 {
   p_v4lDevice = settingsValue ( "Device", "/dev/video0" ).toString();
   m_webcamDeviceChooser->init();
-  m_webcamPreview->restoreView();
   // Vorschau bereich auf Slider übertragen
-  m_scaleFrame->setValue ( settingsValue ( "Scale", 100 ).toUInt() );
   m_xIndent->setValue ( settingsValue ( "Indent_X", 20 ).toUInt() );
   m_yIndent->setValue ( settingsValue ( "Indent_Y", 20 ).toUInt() );
+  m_scaleFrame->setValue ( settingsValue ( "Scale", 10 ).toUInt() );
   // Index der Combobox setzen und update auslösen
   p_Overlay = settingsValue ( "Overlay", "20:20" ).toString();
   m_setOverlayComboBox->setCurrentIndex ( settingsValue ( "PositionType", 0 ).toUInt() );
@@ -185,7 +188,7 @@ void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
   m_webCamCaptureFrames->setInterface ( dev );
 
   // Ausgabezeile neu Schreiben
-  update();
+  updateScene();
 }
 
 /**
@@ -214,8 +217,9 @@ void Webcam::positionIndexChanged ( int index )
   qreal main_h = m_webcamPreview->rect().height();
 
   // Bild Bereich
-  qreal overlay_w = m_webcamPreview->itemSize().width();
-  qreal overlay_h = m_webcamPreview->itemSize().height();
+  QSizeF frameSize = m_webcamPreview->itemSize();
+  qreal overlay_w = frameSize.width();
+  qreal overlay_h = frameSize.height();
 
   // Das Koordinaten System startet immer oben Links
   QPointF overlayTopLeft ( ( 0 - p_MarginX ), ( 0 - p_MarginY ) );
@@ -253,27 +257,26 @@ void Webcam::positionIndexChanged ( int index )
     break;
   };
 
-  // qDebug() << Q_FUNC_INFO << overlayTopLeft << m_webcamPreview->itemSize();
-
-  QSizeF currentSizeF = m_webcamPreview->itemSize();
-  // Scaler neu setzen
-  m_scaleFrame->setValue ( qMax ( currentSizeF.width(), currentSizeF.height() ) );
-
   // Bild verschieben
-  m_webcamPreview->setSceneRect ( QRectF ( overlayTopLeft, currentSizeF ) );
+  qDebug() << Q_FUNC_INFO << overlayTopLeft << frameSize;
+  m_webcamPreview->setSceneRect ( QRectF ( overlayTopLeft, frameSize ) );
 
   // Ausgabezeile neu Schreiben
-  update();
+  updateCommand();
+}
+
+void Webcam::updateScene()
+{
+  positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
 }
 
 /** Größen Skalierung in Size */
 void Webcam::setScale ( int s )
 {
-  qreal r = static_cast<qreal> ( s );
-  QSizeF ret ( m_webcamPreview->itemSize() );
-  ret.scale ( r, r, Qt::KeepAspectRatio );
-  m_webcamPreview->setItemSize ( ret );
-  update();
+  qreal r = static_cast<qreal> ( s / 10.0 );
+  m_webcamPreview->setFrameScale ( r );
+  p_ScaleFactor = r;
+  updateScene();
 }
 
 /**
@@ -284,7 +287,7 @@ void Webcam::setMarginX ( int x )
   if ( ( x % 2 ) == 0 )
   {
     p_MarginX = x;
-    positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
+    updateScene();
   }
 }
 
@@ -296,14 +299,14 @@ void Webcam::setMarginY ( int y )
   if ( ( y % 2 ) == 0 )
   {
     p_MarginY = y;
-    positionIndexChanged ( m_setOverlayComboBox->currentIndex() );
+    updateScene();
   }
 }
 
 /**
 *  Ein Update auf die Kommandozeile schreiben...
 */
-void Webcam::update()
+void Webcam::updateCommand()
 {
   QSize scale = m_webcamPreview->itemSize().toSize();
   QString buf;
@@ -337,8 +340,8 @@ const QString Webcam::data()
   setSettings ( "PositionType", m_setOverlayComboBox->currentIndex() );
   setSettings ( "Indent_X", p_MarginX );
   setSettings ( "Indent_Y", p_MarginY );
-  QSize scale = m_webcamPreview->itemSize().toSize();
-  setSettings ( "Scale", qMax ( scale.width(), scale.height() ) );
+  setSettings ( "Scale", m_scaleFrame->value() );
+  setSettings ( "BaseSize", m_webcamPreview->itemSize() );
   return m_outputEdit->text ();
 }
 

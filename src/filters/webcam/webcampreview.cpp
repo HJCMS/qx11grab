@@ -34,21 +34,21 @@
 #include <QtGui/QGraphicsAnchorLayout>
 #include <QtGui/QGraphicsProxyWidget>
 #include <QtGui/QHBoxLayout>
-#include <QtGui/QPainter>
+#include <QtGui/QMatrix>
 #include <QtGui/QPalette>
 #include <QtGui/QImage>
 #include <QtGui/QImageWriter>
 #include <QtGui/QSizePolicy>
+#include <QtGui/QTransform>
 
-WebCamPreview::WebCamPreview ( QWidget * parent )
+WebCamPreview::WebCamPreview ( const QSizeF &baseSize, QWidget * parent )
     : QGraphicsView ( parent )
     , m_pixmapItem ( 0 )
-    , p_itemSize ( QSizeF ( 160, 120 ) )
+    , p_itemSize ( baseSize )
 {
   setObjectName ( QLatin1String ( "WebCamPreview" ) );
   setContentsMargins ( 0, 0, 0, 0 );
-  setMinimumSize ( 250, 250 );
-//   setCacheMode ( QGraphicsView::CacheNone );
+  setMinimumSize ( 280, 240 );
   setDragMode ( QGraphicsView::NoDrag );
   // NOTE bestimmt das Koordinaten System!
   setAlignment ( ( Qt::AlignTop | Qt::AlignLeft ) );
@@ -64,25 +64,41 @@ WebCamPreview::WebCamPreview ( QWidget * parent )
   brush.setStyle ( Qt::CrossPattern );
   setBackgroundBrush ( brush );
 
-  // Erstelle einen schwarzen Frame für die Vorschau
-  QPixmap dummyPixmap ( p_defaultSize );
-  dummyPixmap.fill ( Qt::black );
-
   setScene ( new QGraphicsScene ( this ) );
+
+  // Erstelle einen schwarzen Frame für die Vorschau
+  // NOTE Scene muss vorhanden sein!
+  QPixmap dummyPixmap ( p_itemSize.toSize() );
+  dummyPixmap.fill ( Qt::black );
+  m_pixmapItem = scene()->addPixmap ( dummyPixmap );
+  m_pixmapItem->setTransformationMode ( Qt::SmoothTransformation );
 }
 
 /**
 * Erstellt das Vorschau Bild
 */
-void WebCamPreview::pixmapFromImage ( const QImage &image )
+void WebCamPreview::setPreviewFrame ( const QImage &image )
 {
   if ( ! m_pixmapItem )
+  {
+    qWarning ( "QX11Grab - Invalid v4l2 pixmap item - cancel scene update" );
     return;
+  }
 
   QPixmap pixmap = QPixmap::fromImage ( image, Qt::AutoColor );
   QPixmap p = pixmap.scaled ( p_itemSize.toSize(), Qt::KeepAspectRatio );
   if ( ! p.isNull() )
     m_pixmapItem->setPixmap ( p );
+}
+
+/**
+* Ändert den Skalierungsfaktor für den Frame und
+* setzt gleichzeitg \ref p_itemSize Neu!
+*/
+void WebCamPreview::setFrameScale ( qreal s )
+{
+  m_pixmapItem->setScale ( s );
+  p_itemSize = m_pixmapItem->sceneBoundingRect().size();
 }
 
 /**
@@ -92,19 +108,7 @@ void WebCamPreview::restoreView()
 {
   QPixmap dummyPixmap ( p_itemSize.toSize() );
   dummyPixmap.fill ( Qt::black );
-  scene()->clear();
-  m_pixmapItem = scene()->addPixmap ( dummyPixmap );
-}
-
-/**
-* Setzt unter Beibehaltung der Dimension die Vorschaugröße neu
-*/
-void WebCamPreview::setItemSize ( const QSizeF &size )
-{
-  p_itemSize = size;
-  QPixmap p = m_pixmapItem->pixmap().scaled ( size.toSize(), Qt::KeepAspectRatio );
-  m_pixmapItem->setPixmap ( p );
-  update();
+  m_pixmapItem->setPixmap ( dummyPixmap );
 }
 
 /**
@@ -113,22 +117,6 @@ void WebCamPreview::setItemSize ( const QSizeF &size )
 const QSizeF WebCamPreview::itemSize()
 {
   return p_itemSize;
-}
-
-/**
-* Lesen der Video Schnittstelle
-*/
-const QString WebCamPreview::device()
-{
-  return p_device;
-}
-
-/**
-* Setzt die Video Schnittstelle Manuell
-*/
-void WebCamPreview::setDevice ( const QString &path )
-{
-  p_device = path;
 }
 
 WebCamPreview::~WebCamPreview()
