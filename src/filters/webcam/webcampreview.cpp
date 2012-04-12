@@ -64,9 +64,16 @@ WebCamPreview::WebCamPreview ( QWidget * parent )
   brush.setStyle ( Qt::CrossPattern );
   setBackgroundBrush ( brush );
 
+  // Erstelle einen schwarzen Frame für die Vorschau
+  QPixmap dummyPixmap ( p_defaultSize );
+  dummyPixmap.fill ( Qt::black );
+
   setScene ( new QGraphicsScene ( this ) );
 }
 
+/**
+* Erstellt das Vorschau Bild
+*/
 void WebCamPreview::pixmapFromImage ( const QImage &image )
 {
   if ( ! m_pixmapItem )
@@ -78,6 +85,9 @@ void WebCamPreview::pixmapFromImage ( const QImage &image )
     m_pixmapItem->setPixmap ( p );
 }
 
+/**
+* Anzeige zurück setzen...
+*/
 void WebCamPreview::restoreView()
 {
   QPixmap dummyPixmap ( p_itemSize.toSize() );
@@ -86,6 +96,9 @@ void WebCamPreview::restoreView()
   m_pixmapItem = scene()->addPixmap ( dummyPixmap );
 }
 
+/**
+* Setzt unter Beibehaltung der Dimension die Vorschaugröße neu
+*/
 void WebCamPreview::setItemSize ( const QSizeF &size )
 {
   p_itemSize = size;
@@ -94,9 +107,28 @@ void WebCamPreview::setItemSize ( const QSizeF &size )
   update();
 }
 
+/**
+* Aktuelle Vorschaugröße
+*/
 const QSizeF WebCamPreview::itemSize()
 {
   return p_itemSize;
+}
+
+/**
+* Lesen der Video Schnittstelle
+*/
+const QString WebCamPreview::device()
+{
+  return p_device;
+}
+
+/**
+* Setzt die Video Schnittstelle Manuell
+*/
+void WebCamPreview::setDevice ( const QString &path )
+{
+  p_device = path;
 }
 
 WebCamPreview::~WebCamPreview()
