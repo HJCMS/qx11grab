@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -43,6 +43,9 @@ class AlsaAudioDialog : public AbstractAudioDialog
     void initInterface();
 
   public:
+    /**
+    * Dialog to get Alsa devices
+    */
     AlsaAudioDialog ( QWidget * parent = 0 );
     ~AlsaAudioDialog();
 };

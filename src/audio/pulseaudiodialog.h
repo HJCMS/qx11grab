@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef PULSEAUDIODIALOG_H
 #define PULSEAUDIODIALOG_H
@@ -33,13 +33,6 @@
 /* QX11Grab */
 #include "abstractaudiodialog.h"
 
-/**
-* this dialog will find all pulse sources for user selcetion
-* normaly FFmpeg use the "default" record descriptor
-* \code
-*   xprop -root | grep ^PULSE_S
-* \endcode
-*/
 class PulseAudioDialog : public AbstractAudioDialog
 {
     Q_OBJECT
@@ -47,10 +40,26 @@ class PulseAudioDialog : public AbstractAudioDialog
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    /**
+    * insert all items into \b DeviceListWidget
+    */
     void insertItems();
+
+    /**
+    * main method to get interfaces from pulseaudio server
+    * http://freedesktop.org/software/pulseaudio/doxygen/async.html
+    */
     void initInterface();
 
   public:
+    /**
+    * \class PulseAudioDialog
+    * this dialog will find all pulse sources for user selcetion
+    * normaly FFmpeg use the "default" record descriptor
+    * \code
+    *   xprop -root | grep ^PULSE_S
+    * \endcode
+    */
     PulseAudioDialog ( QWidget * parent = 0 );
     ~PulseAudioDialog();
 };

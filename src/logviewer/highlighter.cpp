@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the xhtmldbg project
 *
 * Copyright (C) Juergen Heinemann http://www.hjcms.de, (C) 2007-2012

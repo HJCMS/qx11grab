@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -133,7 +133,7 @@ Navigator::Navigator ( QDesktopWidget * parent )
   connect ( m_rubberbandAction, SIGNAL ( clicked() ), this, SIGNAL ( rubberBand() ) );
 }
 
-/**
+/*
 * Initialisiere die Status Informationen
 */
 void Navigator::initMoveState ( const QPoint &p )
@@ -146,7 +146,7 @@ void Navigator::initMoveState ( const QPoint &p )
   m_state->moving = false;
 }
 
-/**
+/*
 * Ändere beim Verschieben die Status Informationen
 */
 void Navigator::startMoveWidget ( bool b )
@@ -158,7 +158,7 @@ void Navigator::startMoveWidget ( bool b )
   m_state->moving = b;
 }
 
-/**
+/*
 * Beende das Verschieben und räume auf
 * \warning Kein Assert verwenden siehe leaveEvent!
 */
@@ -174,7 +174,7 @@ void Navigator::stopMoveWidget()
   repaint();
 }
 
-/**
+/*
 * Ausblenden Menü anzeigen
 */
 void Navigator::contextMenuEvent ( QContextMenuEvent * event )
@@ -199,7 +199,7 @@ void Navigator::contextMenuEvent ( QContextMenuEvent * event )
   repaint();
 }
 
-/**
+/*
 * Wir zeichnen ein Widget ohne Fenster Dekoration mit runden Ecken.
 * \note siehe im Konstruktor setWindowFlags und setAttribute
 */
@@ -232,7 +232,7 @@ void Navigator::paintEvent ( QPaintEvent * event )
   painter.drawPath ( rectPath );
 }
 
-/**
+/*
 * Wenn das Widget ausgeblendet wird die Position speichern.
 */
 void Navigator::hideEvent ( QHideEvent * event )
@@ -242,7 +242,7 @@ void Navigator::hideEvent ( QHideEvent * event )
   event->ignore();
 }
 
-/**
+/*
 * Beim einblenden die Position aus der Konfiguration laden
 * \note Wir verändern \b NICHT die Breite und Höhe!
 */
@@ -255,7 +255,7 @@ void Navigator::showEvent ( QShowEvent * event )
   event->ignore();
 }
 
-/**
+/*
 * Widget verschieben verarbeiten
 */
 void Navigator::mouseMoveEvent ( QMouseEvent * event )
@@ -292,7 +292,7 @@ void Navigator::mouseMoveEvent ( QMouseEvent * event )
   move ( pos );
 }
 
-/**
+/*
 * Wenn die Linke Maustaste gedrückt wird
 * Die Verschieben aktionen Initialisieren
 */
@@ -307,7 +307,7 @@ void Navigator::mousePressEvent ( QMouseEvent * event )
     event->ignore();
 }
 
-/**
+/*
 * Wenn die Maus los gelassen wird alles zurück setzen
 */
 void Navigator::mouseReleaseEvent ( QMouseEvent * event )
@@ -320,7 +320,7 @@ void Navigator::mouseReleaseEvent ( QMouseEvent * event )
   setCursor ( Qt::ArrowCursor );
 }
 
-/**
+/*
 * Infoanzeige erneuern
 */
 void Navigator::setInfo ( const QString &info )
@@ -329,7 +329,7 @@ void Navigator::setInfo ( const QString &info )
 //   m_infoData->setEnabled ( true );
 }
 
-/**
+/*
 * Status der Knöpfe ändern
 */
 void Navigator::setActivity ( bool b )
@@ -344,7 +344,7 @@ void Navigator::setActivity ( bool b )
   }
 }
 
-/**
+/*
 * Videomenü Aktivieren
 */
 void Navigator::setPlayerEnabled ( bool b )

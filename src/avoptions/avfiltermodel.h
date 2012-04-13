@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef QX11GRAB_AVFILTERMODEL_H
 #define QX11GRAB_AVFILTERMODEL_H
@@ -29,7 +29,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
-/** Filter Delimiter */
+/** \brief Filter Delimiter */
 #ifndef QX11GRAB_FILTER_DELIMITER
 # define QX11GRAB_FILTER_DELIMITER QLatin1String(",")
 #endif
@@ -46,11 +46,13 @@ namespace QX11Grab
   class AVFilterModel
   {
     private:
-      // current filters
+      /** current filters */
       QStringList currentFilters;
-      // piped plugin available
+
+      /** piped plugin available */
       bool isPiped;
-      // FilterList
+
+      /** FilterList */
       QList<AVFilterItem*> filters;
 
     public:

@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef GRABBERINFO_H
 #define GRABBERINFO_H
@@ -39,10 +39,6 @@ class CSpinBox;
 class DesktopInfo;
 class DesktopTapping;
 
-/**
-* \class GrabberInfo
-* Widget to display the current dimension settings
-*/
 class GrabberInfo : public QWidget
 {
     Q_OBJECT
@@ -82,6 +78,9 @@ class GrabberInfo : public QWidget
     void setRect ( const QRect &rect, int screen = 0 );
 
   public:
+    /**
+    * Widget to display the current dimension settings
+    */
     GrabberInfo ( QWidget * parent = 0 );
     void setScreenWidth ( int w );
     void setScreenHeight ( int h );

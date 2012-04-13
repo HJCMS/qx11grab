@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef COMMANDPREVIEW_H
 #define COMMANDPREVIEW_H
@@ -42,18 +42,21 @@ class CommandPreview : public QWidget
     CommandLineEdit* m_commandLineEdit;
 
   public Q_SLOTS:
+    /** update Commandline Configuration */
     void setCommandLine ( QStringList & );
 
   Q_SIGNALS:
+    /** reset all Items and read from Configuration */
     void restoreRequest();
+
+    /** saved Commandline Configuration */
     void dataSaved ( const QStringList & );
 
   public:
+    /** TopLevel Commandline Viewer Container */
     CommandPreview ( QWidget * parent = 0 );
 
-    /**
-    * get Users Modified Commandline
-    **/
+    /** get Users Modified Commandline */
     const QStringList currentCommandLine();
 
     ~CommandPreview();

@@ -2,10 +2,10 @@ build
 extras
 tests
 apis
+html
 .kdev4
 Makefile*
 qx11grab.kdev*
-Doxyfile
 *.log
 *.txt.user
 core

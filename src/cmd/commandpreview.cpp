@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -65,7 +65,7 @@ CommandPreview::CommandPreview ( QWidget * parent )
             this, SIGNAL ( dataSaved ( const QStringList & ) ) );
 }
 
-/**
+/*
 * Kommandozeile aufsplitten
 */
 void CommandPreview::setCommandLine ( QStringList &list )
@@ -75,7 +75,7 @@ void CommandPreview::setCommandLine ( QStringList &list )
   m_commandLineEdit->setData ( cmd.split ( "#" ) );
 }
 
-/**
+/*
 * Die vom Benutzer Editierte Kommandozeile zurück geben!
 */
 const QStringList CommandPreview::currentCommandLine()

@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef BOOKMARKDIALOG_H
 #define BOOKMARKDIALOG_H
@@ -60,12 +60,19 @@ class BookmarkDialog : public QDialog
     void saveAndExit();
 
   public:
+    /** Bookmark Editor Dialog */
     explicit BookmarkDialog ( QWidget * parent = 0 );
 
+    /** set VCodec List with ID */
     void setVCodecOptions ( const QString &id, const QHash<QString,QVariant> &hash );
+
+    /** set ACodec List with ID  */
     void setACodecOptions ( const QString &id, const QHash<QString,QVariant> &hash );
 
+    /** set Bookmark Title */
     Q_SCRIPTABLE void setBookmark ( const QString &str );
+
+    /** get current Bookmark */
     Q_SCRIPTABLE const QString getBookmark();
 
     virtual ~BookmarkDialog();

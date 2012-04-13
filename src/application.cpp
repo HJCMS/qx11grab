@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -101,7 +101,7 @@ Application::Application ( int &argc, char **argv )
 #endif
 }
 
-/**
+/*
 * Sicher gehen das laufenden Aufnahmen mit der Sitzung beendet werden!
 * Danach von der DBus Session abmelden!
 * @note Damit die Desktopumgebung keine Sperre erhält \b muss Unbedingt
@@ -117,7 +117,7 @@ void Application::commitData ( QSessionManager &manager )
   manager.release();
 }
 
-/**
+/*
 * NOTE DBus kann erst nach QApplication Initialisiert werden!
 * Wenn die DBus Schnittstelle noch nicht gesetzt ist wird sie
 * Registriert. Bei einem Fehlschlag wird false zurück geben.
@@ -137,7 +137,7 @@ bool Application::start()
   return connected;
 }
 
-/**
+/*
 * Wenn eine DBus Verbindung besteht kann der Adapter an die
 * Schnittstelle gesendet werden und das Fenster wird gestartet.
 */

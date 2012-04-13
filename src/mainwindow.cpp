@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -216,7 +216,7 @@ MainWindow::MainWindow ( Settings * settings )
   setWindowModified ( false );
 }
 
-/**
+/*
 * Started die Aufnahme
 */
 void MainWindow::record()
@@ -227,7 +227,7 @@ void MainWindow::record()
   startRecord();
 }
 
-/**
+/*
 * Aufnahme beenden
 */
 void MainWindow::stop()
@@ -239,7 +239,7 @@ void MainWindow::stop()
     m_FFProcess->stop();
 }
 
-/**
+/*
 * Initialisiert die Desktop Umgebung
 */
 void MainWindow::createEnviroment()
@@ -260,7 +260,7 @@ void MainWindow::createEnviroment()
             m_grabberInfo, SLOT ( setRect ( const QRect &, int ) ) );
 }
 
-/**
+/*
 * Das Symbol in der System Statusleiste setzen.
 */
 void MainWindow::createSystemTrayIcon()
@@ -275,7 +275,7 @@ void MainWindow::createSystemTrayIcon()
     show();
 }
 
-/**
+/*
 * Ein/Ausblenden funktion für die Gummibandanzeige.
 */
 void MainWindow::showRubber ( bool b )
@@ -286,7 +286,7 @@ void MainWindow::showRubber ( bool b )
     m_RubberBand->hide();
 }
 
-/**
+/*
 * Automtische Ein/Ausblenden funktion für die Gummibandanzeige.
 */
 void MainWindow::swapRubberBand()
@@ -294,7 +294,7 @@ void MainWindow::swapRubberBand()
   showRubber ( ( ( m_RubberBand->isVisible() ) ? false : true ) );
 }
 
-/**
+/*
 * Lese die Fenster Geometrie neu ein.
 * @note Wird immer nur bei Konstruktor und show() aufgerufen!
 */
@@ -315,7 +315,7 @@ void MainWindow::loadStats()
   m_toolBar->setActionsEnabled ( log.exists() );
 }
 
-/**
+/*
 * Fenster Verhältnisse Speichern
 * @note Wird immer nur bei hide() und \ref shutdown() aufgerufen!
 */
@@ -326,7 +326,7 @@ void MainWindow::saveStats()
   cfg->setValue ( "window/size", size() );
 }
 
-/**
+/*
 * Ausgabepfad erstellen und zwischenspeichern!
 * @note Der Dateiname ändert sich bei jedem aufruf!
 */
@@ -372,7 +372,7 @@ const QString MainWindow::generateOutputFile()
   return outFile;
 }
 
-/**
+/*
 * Sende verschieben Info an Klasse @class RubberBand
 */
 void MainWindow::toRubber ( bool )
@@ -386,7 +386,7 @@ void MainWindow::toRubber ( bool )
   preparePreview();
 }
 
-/**
+/*
 * Fenster Dimensionen abgreifen
 */
 void MainWindow::grabFromWindow()
@@ -397,7 +397,7 @@ void MainWindow::grabFromWindow()
   m_desktopTapping->createRequest();
 }
 
-/**
+/*
 * System Symbolleisten hide(), show() Aktionen verarbeiten
 */
 void MainWindow::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
@@ -418,7 +418,7 @@ void MainWindow::systemTrayWatcher ( QSystemTrayIcon::ActivationReason type )
   }
 }
 
-/**
+/*
 * Informationen an die Statusleiste senden.
 */
 void MainWindow::pushInfoMessage ( const QString &txt )
@@ -430,7 +430,7 @@ void MainWindow::pushInfoMessage ( const QString &txt )
     m_systemTray->setIcon ( cfg->themeIcon ( "qx11grab" ) );
 }
 
-/**
+/*
 * Fehler Meldungen an die Statusleiste senden.
 */
 void MainWindow::pushErrorMessage ( const QString &title, const QString &txt )
@@ -444,7 +444,7 @@ void MainWindow::pushErrorMessage ( const QString &title, const QString &txt )
   }
 }
 
-/**
+/*
 * Tips an die Statusleiste senden.
 */
 void MainWindow::pushToolTip ( const QString &txt )
@@ -453,7 +453,7 @@ void MainWindow::pushToolTip ( const QString &txt )
     m_systemTray->setToolTip ( txt );
 }
 
-/**
+/*
 * Die Daten wurden von @class CommandLineEdit modifiziert
 * und müssen neu geschrieben werden.
 * Das hat nur einen Einfluss auf die gespeicherte Kommandozeile
@@ -468,7 +468,7 @@ void MainWindow::updateCommandLine ( const QStringList &cmd )
   }
 }
 
-/**
+/*
 * Starte die Aufnahme und Sperre gleichzeitig
 * einige Aktionen um doppel Klicks zu vermeiden.
 */
@@ -520,7 +520,7 @@ void MainWindow::startRecord()
   m_toolBar->setActionsEnabled ( true );
 }
 
-/**
+/*
 * Beim beenden einer Aufnahme alles in die Neutrale Stellung bringen.
 */
 void MainWindow::setActionsBack()
@@ -531,7 +531,7 @@ void MainWindow::setActionsBack()
   m_toolBar->setPlayerEnabled ( true );
 }
 
-/**
+/*
 * Lade beim Start des Dialoges alle Einstellungen.
 */
 void MainWindow::loadSettings()
@@ -550,7 +550,7 @@ void MainWindow::loadSettings()
     show();
 }
 
-/**
+/*
 * Speichere alle Einstellungen.
 */
 void MainWindow::saveSettings()
@@ -563,7 +563,7 @@ void MainWindow::saveSettings()
   setWindowModified ( false );
 }
 
-/**
+/*
 * Log Dialog öffnen
 */
 void MainWindow::openLogFileDialog()
@@ -576,7 +576,7 @@ void MainWindow::openLogFileDialog()
   }
 }
 
-/**
+/*
 * Kommando Zeile für Textausgabe Aufbereiten.
 */
 void MainWindow::preparePreview ()
@@ -642,7 +642,7 @@ void MainWindow::preparePreviewRequest ( bool b )
   preparePreview();
 }
 
-/**
+/*
 * Aktuelle Kommando Zeile in Shell Script exportieren!
 */
 void MainWindow::exportCommand()
@@ -658,7 +658,7 @@ void MainWindow::exportCommand()
   delete d;
 }
 
-/**
+/*
 * Leszeichen Editor erstellen
 */
 void MainWindow::openCreateBookmark()
@@ -670,7 +670,7 @@ void MainWindow::openCreateBookmark()
   delete d;
 }
 
-/**
+/*
 * Leszeichen Editor entfernen
 */
 void MainWindow::openRemoveBookmark()
@@ -690,7 +690,7 @@ void MainWindow::openRemoveBookmark()
   }
 }
 
-/**
+/*
 * Leszeichen Öffnen siehe Toolbar
 */
 void MainWindow::openBookmark ( const QString &id )
@@ -716,7 +716,7 @@ void MainWindow::openBookmark ( const QString &id )
   }
 }
 
-/**
+/*
 * Configurations Dialog Öffnen
 */
 void MainWindow::openConfiguration()
@@ -737,7 +737,7 @@ void MainWindow::openPresetEditor()
   delete d;
 }
 
-/**
+/*
 * Sauber beenden!
 * @note Diese Methode wird von den Menüs aufgerufen!
 */
@@ -753,7 +753,7 @@ void MainWindow::shutdown()
   qApp->quit();
 }
 
-/**
+/*
 * Beim Minimieren die Fenster Geometrie speichern
 */
 void MainWindow::hideEvent ( QHideEvent * ev )
@@ -762,7 +762,7 @@ void MainWindow::hideEvent ( QHideEvent * ev )
   QMainWindow::hideEvent ( ev );
 }
 
-/**
+/*
 * Das beenden über den WindowManager CloseButton
 * verhindern! Statt dessen die Einstellungen mit
 * \ref hideEvent Speichern und Hauptfenster in das
@@ -779,7 +779,7 @@ void MainWindow::closeEvent ( QCloseEvent * ev )
   QMainWindow::closeEvent ( ev );
 }
 
-/**
+/*
 * Schreibe Nachricht in das Meldungs Label
 */
 void MainWindow::statusBarMessage ( const QString &msg, int timeout )
@@ -787,7 +787,7 @@ void MainWindow::statusBarMessage ( const QString &msg, int timeout )
   statusBar()->showMessage ( msg, timeout );
 }
 
-/**
+/*
 * Liest die aktuelle Kommandozeile aus der Konfiguration
 */
 const QString MainWindow::currentCommandLine()
@@ -796,7 +796,7 @@ const QString MainWindow::currentCommandLine()
   return cmd.join ( " " );
 }
 
-/**
+/*
 * Gibt den Aktuellen Aufnahme Bereich zurück
 */
 const QString MainWindow::recordingArea()
@@ -806,7 +806,7 @@ const QString MainWindow::recordingArea()
   return buffer.sprintf ( "@Rect(%d %d %d %d)", r.x(), r.y(), r.width(), r.height() );
 }
 
-/**
+/*
 * NOTE Wird von Table Editor benötigt!
 * Sucht nach der Aktuell ausgewaählten Editor Tabelle und gibt
 * den Codec zurück. Ist keine der Codec Tabellen (avcodec/vcodec)
@@ -827,7 +827,7 @@ const QString MainWindow::selectedCodecEditor()
   return codec;
 }
 
-/**
+/*
 * Aktuell verwendeter Audio Codec
 * Wird für DBus Adaptor und ItemDelegation benötigt!
 */
@@ -836,7 +836,7 @@ const QString MainWindow::audioCodec()
   return m_audioEditor->selectedCodec();
 }
 
-/**
+/*
 * Aktuell verwendeter Video Codec
 * Wird für DBus Adaptor und ItemDelegation benötigt!
 */
@@ -845,7 +845,7 @@ const QString MainWindow::videoCodec()
   return m_videoEditor->selectedCodec();
 }
 
-/**
+/*
 * Aufnahme ausgabe Dateipfad
 * Wird für DBus Adaptor und CommandLine benötigt!
 */
@@ -854,7 +854,7 @@ const QString MainWindow::outputFile()
   return cfg->absoluteOutputPath();
 }
 
-/**
+/*
 * Teile der System Statusleiste mit,
 * das sie DBus Notification verwenden soll!
 */

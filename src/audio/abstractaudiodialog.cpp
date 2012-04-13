@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #include "abstractaudiodialog.h"
 
@@ -33,9 +33,6 @@
 #include <QtGui/QLabel>
 #include <QtGui/QListWidgetItem>
 #include <QtGui/QVBoxLayout>
-
-/* QtDBus */
-// #include <QtDBus>
 
 AbstractAudioDialog::AbstractAudioDialog ( QWidget * parent )
     : QDialog ( parent )
@@ -62,11 +59,17 @@ AbstractAudioDialog::AbstractAudioDialog ( QWidget * parent )
   connect ( m_buttonBox, SIGNAL ( rejected () ), this, SLOT ( reject() ) );
 }
 
+/**
+* Aktueller Karten Schnittstellen Name
+*/
 const QString AbstractAudioDialog::getCard ()
 {
   return m_deviceListWidget->currentItem()->data ( Qt::UserRole ).toString();
 }
 
+/**
+* Setzt die karte für die Schnittstelle
+*/
 void AbstractAudioDialog::setCard ( const QString &c )
 {
   for ( int r = 0; r < m_deviceListWidget->count(); r++ )
@@ -79,6 +82,9 @@ void AbstractAudioDialog::setCard ( const QString &c )
   }
 }
 
+/**
+* Aktueller Karten Informationen
+*/
 const AudioDevice AbstractAudioDialog::cardInfo ()
 {
   QListWidgetItem* item = m_deviceListWidget->currentItem();

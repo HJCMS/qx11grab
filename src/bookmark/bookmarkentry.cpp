@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #include "bookmarkentry.h"
 
@@ -74,9 +74,7 @@ QDomElement BookmarkEntry::acodecNode()
   return firstChildElement ( "acodec" );
 }
 
-/**
-* Schreibe oder ersetze Einträge in "vcodec"
-*/
+/** Schreibe oder ersetze Einträge in "vcodec" */
 void BookmarkEntry::setVCodecChildNodes ( const QDomElement &node )
 {
   QDomNode oldNode = vcodecNode();
@@ -88,9 +86,7 @@ void BookmarkEntry::setVCodecChildNodes ( const QDomElement &node )
   }
 }
 
-/**
-* Schreibe oder ersetze Einträge in "acodec"
-*/
+/** Schreibe oder ersetze Einträge in "acodec" */
 void BookmarkEntry::setACodecChildNodes ( const QDomElement &node )
 {
   QDomNode oldNode = acodecNode();

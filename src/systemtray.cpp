@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -129,7 +129,7 @@ SystemTray::SystemTray ( MainWindow * parent )
 
 }
 
-/**
+/*
 * Öffnen das Navigations Fenster
 */
 void SystemTray::showNavigator()
@@ -140,7 +140,7 @@ void SystemTray::showNavigator()
     m_navigator->show();
 }
 
-/**
+/*
 * Aktiviert/Deaktiviert die Menüeinträge für die Aufnahme
 */
 void SystemTray::setActionsEnabled ( bool b )
@@ -150,7 +150,7 @@ void SystemTray::setActionsEnabled ( bool b )
   m_navigator->setActivity ( b );
 }
 
-/**
+/*
 * Methode zum Ändern des Tooltips!
 */
 void SystemTray::setCustomToolTip ( const QString &txt )
@@ -159,7 +159,7 @@ void SystemTray::setCustomToolTip ( const QString &txt )
   m_navigator->setInfo ( txt );
 }
 
-/**
+/*
 * Fehlermeldung weiter leiten
 */
 void SystemTray::applicationMessage ( const QString &title, const QString &txt )
@@ -167,7 +167,7 @@ void SystemTray::applicationMessage ( const QString &title, const QString &txt )
   sendMessage ( title, txt, QSystemTrayIcon::Warning );
 }
 
-/**
+/*
 * Aktiviert den Messanger
 */
 void SystemTray::setMessanger ( QDBusConnection* bus )
@@ -186,7 +186,7 @@ void SystemTray::setMessanger ( QDBusConnection* bus )
 #endif
 }
 
-/**
+/*
 * Wenn eine Verbindung zum Messanger besteht diesen verwenden.
 * Wenn nicht verwende \ref QSystemTrayIcon::showMessage
 */

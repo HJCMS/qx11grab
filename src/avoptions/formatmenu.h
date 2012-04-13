@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef QX11GRAB_FORMATMENU_H
 #define QX11GRAB_FORMATMENU_H
@@ -39,10 +39,6 @@
 
 namespace QX11Grab
 {
-  /**
-  * the main goal of this class is a menu implementation
-  * to switch formats into other video output extensions.
-  */
   class FormatMenu : public QToolButton
   {
       Q_OBJECT
@@ -75,6 +71,10 @@ namespace QX11Grab
       void updateMenu ( const QString &name, CodecID id );
 
     public:
+      /**
+      * the main goal of this class is a menu implementation
+      * to switch formats into other video output extensions.
+      */
       explicit FormatMenu ( QWidget * parent = 0 );
 
       /** marking menu entry with currently used extension

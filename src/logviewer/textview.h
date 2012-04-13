@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef TEXTVIEW_H
 #define TEXTVIEW_H
@@ -47,14 +47,20 @@ class TextView : public QTextEdit
     void gotoLine ( int );
 
   protected:
+    /** custom Context Menu */
     void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
+    /** reload View */
     void refresh();
 
   public:
+    /** Logfile TextView Widget */
     TextView ( QWidget * parent = 0 );
+
+    /** Insert Data into TextView */
     void insertText ( const QString & );
+
     ~TextView();
 };
 

@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef COMMANDLINEEDIT_H
 #define COMMANDLINEEDIT_H
@@ -52,17 +52,27 @@ class CommandLineEdit : public QListWidget
     void save();
 
   protected:
+    /** custom Context Menu */
     void contextMenuEvent ( QContextMenuEvent * );
 
   Q_SIGNALS:
+    /** reset all Items and read from Configuration */
     void restoreRequest();
+
+    /** save Commandline into Configuration */
     void dataSaved ( const QStringList & );
 
   public:
+    /** Commandline Viewer */
     CommandLineEdit ( QWidget * parent = 0 );
+
+    /** get commandline without binary */
     const QStringList data ();
+
+    /** Create Command List entries */
     void setData ( const QStringList & );
-    virtual ~CommandLineEdit();
+
+    ~CommandLineEdit();
 };
 
 #endif

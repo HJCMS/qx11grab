@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -45,9 +45,7 @@ class AbstractAudioDialog : public QDialog
     QDialogButtonBox* m_buttonBox;
 
   protected:
-    /**
-    * Device ListWidget for User Selection
-    */
+    /** Device ListWidget for User Selection */
     QListWidget* m_deviceListWidget;
 
     /**
@@ -57,14 +55,20 @@ class AbstractAudioDialog : public QDialog
     virtual void initInterface() = 0;
 
   public:
+    /**
+    * \class AbstractAudioDialog
+    */
     AbstractAudioDialog ( QWidget * parent = 0 );
 
-    /**
-    * Current 
-    */
+    /** Current Card Configuration */
     const QString getCard ();
+
+    /** Complite Card Information */
     const AudioDevice cardInfo ();
+
+    /** Set Card Device */
     void setCard ( const QString & );
+
     ~AbstractAudioDialog();
 };
 

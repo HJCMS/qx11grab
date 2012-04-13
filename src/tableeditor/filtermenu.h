@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef FILTERMENU_H
 #define FILTERMENU_H
@@ -36,7 +36,6 @@
 #include "interface.h"
 #include "qx11grabplugins.h"
 
-/** Custom Filter Menu */
 class FilterMenu : public QMenu
 {
     Q_OBJECT
@@ -53,6 +52,7 @@ class FilterMenu : public QMenu
     void openFilter ( const QString & );
 
   public:
+    /** Custom Filter Menu */
     FilterMenu ( QWidget * parent = 0 );
     ~FilterMenu();
 };

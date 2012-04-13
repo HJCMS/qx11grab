@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #include "textposition.h"
 
@@ -92,7 +92,7 @@ void TextPosition::indexChanged ( int index )
   {
     case TOP_LEFT:
     {
-      /*
+      /**
       * x = X_INDENT
       * y = Y_INDENT
       */
@@ -103,7 +103,7 @@ void TextPosition::indexChanged ( int index )
 
     case TOP_CENTER:
     {
-      /*
+      /**
       * x = ( ( VIDEO_WITH - TEXT_WIDTH ) / 2 )
       * y = Y_INDENT
       */
@@ -114,7 +114,7 @@ void TextPosition::indexChanged ( int index )
 
     case TOP_RIGHT:
     {
-      /*
+      /**
       * x = ( VIDEO_WITH - TEXT_WIDTH - X_INDENT )
       * y = Y_INDENT
       */
@@ -125,7 +125,7 @@ void TextPosition::indexChanged ( int index )
 
     case MIDDLE_LEFT:
     {
-      /*
+      /**
       * x = Pixels Left
       * y = ( ( VIDEO_HEIGHT - TEXT_HEIGHT - LINE_HEIGTH ) / 2 )
       */
@@ -136,7 +136,7 @@ void TextPosition::indexChanged ( int index )
 
     case MIDDLE_CENTER:
     {
-      /*
+      /**
       * x = ( ( VIDEO_WITH - TEXT_WIDTH ) / 2 )
       * y = ( ( VIDEO_HEIGHT - TEXT_HEIGHT - LINE_HEIGTH ) / 2 )
       */
@@ -147,7 +147,7 @@ void TextPosition::indexChanged ( int index )
 
     case MIDDLE_RIGHT:
     {
-      /*
+      /**
       * x = ( VIDEO_WITH - TEXT_WIDTH - X_INDENT )
       * y = ( ( VIDEO_HEIGHT - TEXT_HEIGHT - LINE_HEIGTH ) / 2 )
       */
@@ -158,7 +158,7 @@ void TextPosition::indexChanged ( int index )
 
     case BOTTOM_LEFT:
     {
-      /*
+      /**
       * x = Pixels Left
       * y = ( VIDEO_HEIGHT - TEXT_HEIGHT - Y_INDENT )
       */
@@ -169,7 +169,7 @@ void TextPosition::indexChanged ( int index )
 
     case BOTTOM_CENTER:
     {
-      /*
+      /**
       * x = ( ( VIDEO_WITH - TEXT_WIDTH ) / 2 )
       * y = ( VIDEO_HEIGHT - TEXT_HEIGHT - Y_INDENT )
       */
@@ -180,7 +180,7 @@ void TextPosition::indexChanged ( int index )
 
     case BOTTOM_RIGTH:
     {
-      /*
+      /**
       * x = ( VIDEO_WITH - TEXT_WIDTH - X_INDENT )
       * y = ( VIDEO_HEIGHT - TEXT_HEIGHT - Y_INDENT )
       */
@@ -191,7 +191,7 @@ void TextPosition::indexChanged ( int index )
 
     default:
     {
-      /*
+      /**
       * x = X_INDENT
       * y = Y_INDENT
       */
@@ -226,8 +226,6 @@ const QString TextPosition::y()
 int TextPosition::index()
 {
   return m_comboBox->currentIndex();
-//   quint32 i = m_comboBox->itemData ( ( m_comboBox->currentIndex() ), Qt::UserRole ).toUInt();
-//   return static_cast<TextPosition::Position> ( i );
 }
 
 TextPosition::~TextPosition()

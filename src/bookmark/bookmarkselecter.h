@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef BOOKMARKSELECTER_H
 #define BOOKMARKSELECTER_H
@@ -43,13 +43,18 @@ class BookmarkSelecter : public QComboBox
     void textChanged ( int );
 
   public Q_SLOTS:
+    /** reload all Bookmark Items */
     Q_SCRIPTABLE void reload();
 
   Q_SIGNALS:
+    /** Bookmark Item has changed */
     void openBookmark ( const QString & );
 
   public:
+    /** ComboBox to Select Bookmark Items */
     BookmarkSelecter ( QWidget * parent = 0 );
+
+    /** destroy DBus Connection */
     virtual ~BookmarkSelecter();
 };
 

@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -36,7 +36,6 @@
 
 namespace QX11Grab
 {
-  /** Codec Selecter ComboBox */
   class CodecSelecter : public QComboBox
   {
       Q_OBJECT
@@ -56,6 +55,7 @@ namespace QX11Grab
       void setCodec ( const QString &name );
 
     public:
+      /** Codec Selecter ComboBox */
       CodecSelecter ( QWidget * parent = 0 );
 
       /** insert codec list */

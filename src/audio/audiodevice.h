@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -29,9 +29,10 @@
 class AudioDevice
 {
   public:
-    const QString hw;
-    const QString name;
-    const QString description;
+    const QString hw; /**< @brief Card Index */
+    const QString name; /**< @brief Card Name */
+    const QString description; /**< @brief Hardware Description */
+    /** Alsa device Class */
     AudioDevice ( const QString &dev, const QString &title, const QString &info );
 };
 

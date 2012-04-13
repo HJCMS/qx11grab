@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann http://qx11grab.hjcms.de, (C) 2007-2012
@@ -36,6 +36,10 @@
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
+/*
+* \class AudioDeviceWidget
+* General Audio Device Selection Widget
+*/
 class AudioDeviceWidget : public QGroupBox
 {
     Q_OBJECT

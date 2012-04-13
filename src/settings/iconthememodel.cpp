@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the xhtmldbg project
 *
 * Copyright (C) Juergen Heinemann http://www.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #include "iconthememodel.h"
 
@@ -34,7 +34,7 @@ IconThemeModel::IconThemeModel ( QObject * parent )
     : QAbstractItemModel ( parent )
 {}
 
-/**
+/*
 *
 */
 QModelIndex IconThemeModel::index ( int row, int column, const QModelIndex &parent ) const
@@ -51,35 +51,23 @@ QModelIndex IconThemeModel::index ( int row, int column, const QModelIndex &pare
   return createIndex ( row, column, itemDataset.size() );
 }
 
-/**
-*
-*/
 QModelIndex IconThemeModel::parent ( const QModelIndex & ) const
 {
   return QModelIndex();
 }
 
-/**
-*
-*/
 int IconThemeModel::rowCount ( const QModelIndex &parent ) const
 {
   Q_UNUSED ( parent )
   return itemDataset.size();
 }
 
-/**
-*
-*/
 int IconThemeModel::columnCount ( const QModelIndex &parent ) const
 {
   Q_UNUSED ( parent )
   return MODEL_COLUMNS;
 }
 
-/**
-*
-*/
 QVariant IconThemeModel::data ( const QModelIndex &index, int role ) const
 {
   const QVariant val;

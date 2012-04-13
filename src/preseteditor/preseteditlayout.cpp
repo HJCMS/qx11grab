@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,18 +17,12 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #include "preseteditlayout.h"
 
-/* QX11Grab */
-// #include ""
-
 /* QtCore */
 #include <QtCore/QDebug>
-
-/* QtGui */
-// #include <QtGui/QVBoxLayout>
 
 PresetEditLayout::PresetEditLayout ( QTextDocument * document )
     : QPlainTextDocumentLayout ( document )
@@ -38,7 +32,9 @@ PresetEditLayout::PresetEditLayout ( QTextDocument * document )
 
 void PresetEditLayout::documentChanged ( int from, int charsRemoved, int charsAdded )
 {
+  // TODO PresetEditLayout::documentChanged
   qDebug() << Q_FUNC_INFO << from << charsRemoved << charsAdded;
+  QPlainTextDocumentLayout::documentChanged ( from, charsRemoved, charsAdded );
 }
 
 PresetEditLayout::~PresetEditLayout()

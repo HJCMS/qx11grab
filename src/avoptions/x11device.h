@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -38,20 +38,6 @@ extern "C"
 
 namespace QX11Grab
 {
-  /** x11 grabber device demuxer declaration
-  AVInputFormat ff_x11_grab_device_demuxer =
-  {
-    .name           = "x11grab",
-    .long_name      = NULL_IF_CONFIG_SMALL ( "X11grab" ),
-    .priv_data_size = sizeof ( struct x11_grab ),
-    .read_header    = x11grab_read_header,
-    .read_packet    = x11grab_read_packet,
-    .read_close     = x11grab_read_close,
-    .flags          = AVFMT_NOFILE,
-    .priv_class     = &x11_class,
-  };
-  */
-
   /**
   * X11 Device Demuxer
   */

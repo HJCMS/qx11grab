@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef CSPINBOX_H
 #define CSPINBOX_H
@@ -31,10 +31,6 @@
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
-/**
-* spinbox with modified border style
-* if value is non-divisible it will paint a red left border
-*/
 class CSpinBox : public QSpinBox
 {
     Q_OBJECT
@@ -45,6 +41,10 @@ class CSpinBox : public QSpinBox
     virtual void paintEvent ( QPaintEvent * event );
 
   public:
+    /**
+    * spinbox with modified border style
+    * if value is non-divisible it will paint a red left border
+    */
     explicit CSpinBox ( QWidget * parent = 0 );
     ~CSpinBox();
 };

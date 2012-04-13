@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -33,9 +33,6 @@
 /* QX11Grab */
 #include "abstractaudiodialog.h"
 
-/**
-* Dialog to find OSS Devices
-*/
 class OpenSoundDialog : public AbstractAudioDialog
 {
     Q_OBJECT
@@ -46,6 +43,10 @@ class OpenSoundDialog : public AbstractAudioDialog
     void initInterface();
 
   public:
+    /**
+    * \class OpenSoundDialog
+    * Dialog to find OSS Devices
+    */
     OpenSoundDialog ( QWidget * parent = 0 );
     ~OpenSoundDialog();
 };

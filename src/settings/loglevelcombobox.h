@@ -1,4 +1,4 @@
-/**
+/*
 * This file is part of the qx11grab project
 *
 * Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2012
@@ -17,7 +17,7 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
 #ifndef LOGLEVELCOMBOBOX_H
 #define LOGLEVELCOMBOBOX_H
@@ -30,9 +30,6 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QWidget>
 
-/**
-* Set the logging level used by the library.
-*/
 class LogLevelComboBox : public QComboBox
 {
     Q_OBJECT
@@ -43,6 +40,7 @@ class LogLevelComboBox : public QComboBox
     void setValue ( const QString & );
 
   public:
+    /** Set the logging level used by the library. */
     LogLevelComboBox ( QWidget * parent = 0 );
     const QString value();
     ~LogLevelComboBox();
