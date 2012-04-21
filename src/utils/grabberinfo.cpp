@@ -437,9 +437,15 @@ const QString GrabberInfo::getGeometry()
 */
 const QString GrabberInfo::getX11GrabIdent()
 {
+  // FIXME Multible ScreenLayouts
+  QString p_display ( ":0" );
+  QByteArray xdisplay = qgetenv ( "DISPLAY" );
+  if ( ! xdisplay.isNull() )
+    p_display = QString::fromUtf8 ( xdisplay );
+
   QRect r = getRect();
-  return QString ( ":%1.%2+%3,%4 " ) .arg (
-             QString::number ( QX11Info::appScreen() ),
+  return QString ( "%1.%2+%3,%4 " ) .arg (
+             p_display,
              QString::number ( m_screenBox->value() ),
              QString::number ( r.x() ),
              QString::number ( r.y() )
