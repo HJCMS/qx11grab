@@ -25,6 +25,7 @@
 #include <cstdlib>
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
 #include <QtCore/QSize>
 #include <QtCore/QRect>
@@ -135,9 +136,7 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
   return out;
 }
 
-/**
-* Aktuell verwendeter Bildschirm
-*/
+/** Aktuell verwendeter Bildschirm */
 int DesktopInfo::getScreen()
 {
   int ret;
