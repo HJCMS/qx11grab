@@ -1469,6 +1469,61 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
 </context>
 <context>
+    <name>QX11Grab::FFOptionsMenu</name>
+    <message>
+        <source>Options</source>
+        <translation>Optionen</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Set video preset.</source>
+        <translation>Setze Video Voreinstellungen Datei.</translation>
+    </message>
+    <message>
+        <source>Set pixel format.</source>
+        <translation>Setze Pixel Format.</translation>
+    </message>
+    <message>
+        <source>SwScaler flags.</source>
+        <translation>SwScaler Marken.</translation>
+    </message>
+    <message>
+        <source>How strictly to follow the standards.</source>
+        <translation>Wie Strikt soll nach dem Standard vorgegangen werden.</translation>
+    </message>
+    <message>
+        <source>Set bitstream filters for matching stream.</source>
+        <translation>Setze Bitstrom für den Ausgabestrom.</translation>
+    </message>
+    <message>
+        <source>Set video buffer verifier buffer size (in bits).</source>
+        <translation>Setze Video- Überprüfungspuffer in Bits.</translation>
+    </message>
+    <message>
+        <source>Set the audio sampling frequency.</source>
+        <translation>Setze Audio Stichproben Frequenz.</translation>
+    </message>
+    <message>
+        <source>Set the number of audio channels.</source>
+        <translation>Setzt die Anzahl der Audiokanäle.</translation>
+    </message>
+    <message>
+        <source>Set audio preset.</source>
+        <translation>Setze eine Audio Standard einstellungen Datei.</translation>
+    </message>
+    <message>
+        <source>Audio sample format.</source>
+        <translation>Audio Stichproben Format.</translation>
+    </message>
+</context>
+<context>
     <name>QX11Grab::FormatMenu</name>
     <message>
         <source>Extensions</source>

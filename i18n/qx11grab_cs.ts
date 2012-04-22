@@ -1466,6 +1466,61 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
+    <name>QX11Grab::FFOptionsMenu</name>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished">Video</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">Zvuk</translation>
+    </message>
+    <message>
+        <source>Set video preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set pixel format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SwScaler flags.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How strictly to follow the standards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set bitstream filters for matching stream.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set video buffer verifier buffer size (in bits).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the audio sampling frequency.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the number of audio channels.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set audio preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio sample format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QX11Grab::FormatMenu</name>
     <message>
         <source>Extensions</source>

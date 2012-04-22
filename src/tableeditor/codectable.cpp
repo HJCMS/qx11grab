@@ -25,6 +25,7 @@
 #include "filtermenu.h"
 #include "settings.h"
 #include "codecoptions.h"
+#include "ffoptionsmenu.h"
 
 /* QX11Grab interface */
 #include "interface.h"
@@ -112,6 +113,13 @@ void CodecTable::contextMenuEvent ( QContextMenuEvent * e )
             this, SLOT ( appendItem ( const QString &, const QVariant & ) ) );
   m->addMenu ( com );
   // } OptionsMenu
+
+  // FFmpegOptionsMenu {
+  QX11Grab::FFOptionsMenu* ffopts = new QX11Grab::FFOptionsMenu ( this );
+  connect ( ffopts, SIGNAL ( optionChanged ( const QString &, const QVariant & ) ),
+            this, SLOT ( appendItem ( const QString &, const QVariant & ) ) );
+  m->addMenu ( ffopts );
+  // } FFmpegOptionsMenu
 
   // FilterMenu {
   FilterMenu* mfm = new FilterMenu ( this );

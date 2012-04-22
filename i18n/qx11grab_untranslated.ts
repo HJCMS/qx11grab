@@ -12,12 +12,12 @@
 <context>
     <name>AbstractAudioDialog</name>
     <message>
-        <location filename="../src/audio/abstractaudiodialog.cpp" line="49"/>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="46"/>
         <source>Available Cards:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/audio/abstractaudiodialog.cpp" line="86"/>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="92"/>
         <source>Fallback Interface</source>
         <translation type="unfinished"></translation>
     </message>
@@ -343,17 +343,17 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CodecTable</name>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="124"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="132"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="127"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="135"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="131"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="139"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -513,7 +513,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ConfigRubberband</name>
     <message>
-        <location filename="../src/settings/configrubberband.cpp" line="40"/>
+        <location filename="../src/settings/configrubberband.cpp" line="37"/>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -522,7 +522,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>CreateCustomItem</name>
     <message>
-        <location filename="../src/cmd/createcustomitem.cpp" line="45"/>
+        <location filename="../src/cmd/createcustomitem.cpp" line="42"/>
         <source>Create a custom entry</source>
         <translation type="unfinished"></translation>
     </message>
@@ -530,13 +530,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="213"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="222"/>
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="199"/>
-        <location filename="../src/tapping/desktopinfo.cpp" line="210"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="208"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="219"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -544,13 +544,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DropShadowBox</name>
     <message>
-        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="50"/>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="47"/>
         <source>Shadow Offset</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="57"/>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="54"/>
         <source>Shadow Alpha</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -936,7 +936,7 @@ WhatsThis</extracomment>
 <context>
     <name>Listener</name>
     <message>
-        <location filename="../src/ffprocess/listener.cpp" line="74"/>
+        <location filename="../src/ffprocess/listener.cpp" line="71"/>
         <source>Time: %1 Size: %2</source>
         <extracomment>StatusBar</extracomment>
         <translation type="unfinished"></translation>
@@ -1582,32 +1582,32 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../src/navigator.cpp" line="103"/>
+        <location filename="../src/navigator.cpp" line="104"/>
         <source>Start Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="106"/>
+        <location filename="../src/navigator.cpp" line="107"/>
         <source>Stop Recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="110"/>
+        <location filename="../src/navigator.cpp" line="111"/>
         <source>swap rubberband view</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="184"/>
+        <location filename="../src/navigator.cpp" line="179"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="189"/>
+        <location filename="../src/navigator.cpp" line="184"/>
         <source>Hide Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="193"/>
+        <location filename="../src/navigator.cpp" line="188"/>
         <source>Show Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1615,28 +1615,28 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>OpenImageDialog</name>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="42"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="39"/>
         <source>Open Image File</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="46"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="43"/>
         <source>Alpha Channel PNG %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="72"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="69"/>
         <source>Assumption Rejected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="76"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="73"/>
         <source>selected image is larger then tapped rectangle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="82"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="79"/>
         <source>selected image has no legal transparency.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1722,7 +1722,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PresetSelector</name>
     <message>
-        <location filename="../src/preseteditor/presetselector.cpp" line="42"/>
+        <location filename="../src/preseteditor/presetselector.cpp" line="39"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1774,6 +1774,75 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/avoptions/codecselecter.cpp" line="121"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QX11Grab::FFOptionsMenu</name>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="52"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="55"/>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="56"/>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="100"/>
+        <source>Set video preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="101"/>
+        <source>Set pixel format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="102"/>
+        <source>SwScaler flags.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="103"/>
+        <source>How strictly to follow the standards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="104"/>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="112"/>
+        <source>Set bitstream filters for matching stream.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="105"/>
+        <source>Set video buffer verifier buffer size (in bits).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="108"/>
+        <source>Set the audio sampling frequency.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="109"/>
+        <source>Set the number of audio channels.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="110"/>
+        <source>Set audio preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="111"/>
+        <source>Audio sample format.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1895,62 +1964,62 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TargetsWidget</name>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="48"/>
+        <location filename="../src/settings/targetswidget.cpp" line="46"/>
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="62"/>
+        <location filename="../src/settings/targetswidget.cpp" line="60"/>
         <source>FFmpeg Application:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="70"/>
+        <location filename="../src/settings/targetswidget.cpp" line="68"/>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="80"/>
+        <location filename="../src/settings/targetswidget.cpp" line="78"/>
         <source>Output Filename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="87"/>
+        <location filename="../src/settings/targetswidget.cpp" line="85"/>
         <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="97"/>
+        <location filename="../src/settings/targetswidget.cpp" line="95"/>
         <source>Output Directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="105"/>
+        <location filename="../src/settings/targetswidget.cpp" line="103"/>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="139"/>
+        <location filename="../src/settings/targetswidget.cpp" line="137"/>
         <source>without pulse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="140"/>
+        <location filename="../src/settings/targetswidget.cpp" line="138"/>
         <source>Other %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="143"/>
+        <location filename="../src/settings/targetswidget.cpp" line="141"/>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="160"/>
+        <location filename="../src/settings/targetswidget.cpp" line="158"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
@@ -2205,19 +2274,19 @@ ToolTip</extracomment>
 <context>
     <name>WebCamCaptureFrames</name>
     <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="57"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="58"/>
         <source>Timeout in seconds</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="50"/>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="166"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="51"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="168"/>
         <source>to capture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="153"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="155"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2238,48 +2307,48 @@ ToolTip</extracomment>
 <context>
     <name>Webcam</name>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="58"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="59"/>
         <source>Webcam Filter</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="87"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="89"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="88"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="90"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="89"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="91"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="90"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="92"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="91"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="93"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="97"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="100"/>
         <source>Scale Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="102"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="105"/>
         <source>Margin (Left|Right)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="107"/>
+        <location filename="../src/filters/webcam/webcam.cpp" line="110"/>
         <source>Margin (Top|Bottom)</source>
         <translation type="unfinished"></translation>
     </message>

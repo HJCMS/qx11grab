@@ -14,6 +14,7 @@ SET (_subproject_SOURCES
   codecselecter.cpp
   formatmenu.cpp
   codecoptions.cpp
+  ffoptionsmenu.cpp
   optionsfinder.cpp
   avfilteritem.cpp
 )
@@ -23,27 +24,25 @@ SET (_subproject_HEADERS
   codecselecter.h
   formatmenu.h
   codecoptions.h
+  ffoptionsmenu.h
 )
 
-IF (ENABLE_EXPERIMENTAL)
-  SET (_subproject_SOURCES
-    ${_subproject_SOURCES}
-    x11device.cpp
-  )
-  SET (_subproject_HEADERS
-    ${_subproject_HEADERS}
-    x11device.h
-  )
-ENDIF (ENABLE_EXPERIMENTAL)
+# IF (ENABLE_EXPERIMENTAL)
+#   SET (_subproject_SOURCES
+#     ${_subproject_SOURCES}
+#     x11device.cpp
+#   )
+#   SET (_subproject_HEADERS
+#     ${_subproject_HEADERS}
+#     x11device.h
+#   )
+# ENDIF (ENABLE_EXPERIMENTAL)
 
 SET (_subproject_NOMOC_HEADERS
   avfiltermodel.h
   optionsfinder.h
   avfilteritem.h
 )
-
-## NOTE added in main CMakeLists.txt
-# ADD_DEFINITIONS (-D__STDC_CONSTANT_MACROS)
 
 INCLUDE_DIRECTORIES (
   ${CMAKE_CURRENT_BINARY_DIR}

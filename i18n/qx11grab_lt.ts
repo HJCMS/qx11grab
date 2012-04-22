@@ -12,12 +12,12 @@
 <context>
     <name>AbstractAudioDialog</name>
     <message>
-        <location filename="../src/audio/abstractaudiodialog.cpp" line="49"/>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="46"/>
         <source>Available Cards:</source>
         <translation>Galimos plokštės:</translation>
     </message>
     <message>
-        <location filename="../src/audio/abstractaudiodialog.cpp" line="86"/>
+        <location filename="../src/audio/abstractaudiodialog.cpp" line="92"/>
         <source>Fallback Interface</source>
         <translation>Atsarginė sąsaja</translation>
     </message>
@@ -345,17 +345,17 @@ Pvz., OSS atveju – /dev/dsp</translation>
 <context>
     <name>CodecTable</name>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="124"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="132"/>
         <source>Add</source>
         <translation>Pridėti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="127"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="135"/>
         <source>Remove</source>
         <translation>Pašalinti</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectable.cpp" line="131"/>
+        <location filename="../src/tableeditor/codectable.cpp" line="139"/>
         <source>Clear</source>
         <translation>Išvalyti</translation>
     </message>
@@ -378,12 +378,12 @@ Pvz., OSS atveju – /dev/dsp</translation>
         <translation>Pirmiausia reikia sukurti argumentą.</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="209"/>
         <source>Parameter</source>
         <translation>Parametras</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="214"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="211"/>
         <source>Value</source>
         <translation>Reikšmė</translation>
     </message>
@@ -515,7 +515,7 @@ Pvz., OSS atveju – /dev/dsp</translation>
 <context>
     <name>ConfigRubberband</name>
     <message>
-        <location filename="../src/settings/configrubberband.cpp" line="40"/>
+        <location filename="../src/settings/configrubberband.cpp" line="37"/>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation>Rėmelio konfigūravimas</translation>
@@ -524,7 +524,7 @@ Pvz., OSS atveju – /dev/dsp</translation>
 <context>
     <name>CreateCustomItem</name>
     <message>
-        <location filename="../src/cmd/createcustomitem.cpp" line="45"/>
+        <location filename="../src/cmd/createcustomitem.cpp" line="42"/>
         <source>Create a custom entry</source>
         <translation>Sukurti savitą įrašą</translation>
     </message>
@@ -532,13 +532,13 @@ Pvz., OSS atveju – /dev/dsp</translation>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="213"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="222"/>
         <source>Fullscreen</source>
         <translation>Visame ekrane</translation>
     </message>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="199"/>
-        <location filename="../src/tapping/desktopinfo.cpp" line="210"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="208"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="219"/>
         <source>Unknown</source>
         <translation>Nežinoma</translation>
     </message>
@@ -546,13 +546,13 @@ Pvz., OSS atveju – /dev/dsp</translation>
 <context>
     <name>DropShadowBox</name>
     <message>
-        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="50"/>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="47"/>
         <source>Shadow Offset</source>
         <extracomment>ToolTip</extracomment>
         <translation>Šešėlio poslinkis</translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="57"/>
+        <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="54"/>
         <source>Shadow Alpha</source>
         <extracomment>ToolTip</extracomment>
         <translation>Šešėlio alfa</translation>
@@ -938,7 +938,7 @@ WhatsThis</extracomment>
 <context>
     <name>Listener</name>
     <message>
-        <location filename="../src/ffprocess/listener.cpp" line="74"/>
+        <location filename="../src/ffprocess/listener.cpp" line="71"/>
         <source>Time: %1 Size: %2</source>
         <extracomment>StatusBar</extracomment>
         <translation>Laikas: %1 Dydis: %2</translation>
@@ -1584,32 +1584,32 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../src/navigator.cpp" line="103"/>
+        <location filename="../src/navigator.cpp" line="104"/>
         <source>Start Recording</source>
         <translation>Pradėti įrašinėti</translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="106"/>
+        <location filename="../src/navigator.cpp" line="107"/>
         <source>Stop Recording</source>
         <translation>Baigti įrašinėjimą</translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="110"/>
+        <location filename="../src/navigator.cpp" line="111"/>
         <source>swap rubberband view</source>
         <translation>rodyti arba slėpti rėmelį</translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="184"/>
+        <location filename="../src/navigator.cpp" line="179"/>
         <source>Close</source>
         <translation>Užverti</translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="189"/>
+        <location filename="../src/navigator.cpp" line="184"/>
         <source>Hide Window</source>
         <translation>Slėpti langą</translation>
     </message>
     <message>
-        <location filename="../src/navigator.cpp" line="193"/>
+        <location filename="../src/navigator.cpp" line="188"/>
         <source>Show Window</source>
         <translation>Rodyti langą</translation>
     </message>
@@ -1617,28 +1617,28 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>OpenImageDialog</name>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="42"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="39"/>
         <source>Open Image File</source>
         <extracomment>WindowTitle</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="46"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="43"/>
         <source>Alpha Channel PNG %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="72"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="69"/>
         <source>Assumption Rejected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="76"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="73"/>
         <source>selected image is larger then tapped rectangle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/openimagedialog.cpp" line="82"/>
+        <location filename="../src/filters/watermark/openimagedialog.cpp" line="79"/>
         <source>selected image has no legal transparency.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1724,7 +1724,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PresetSelector</name>
     <message>
-        <location filename="../src/preseteditor/presetselector.cpp" line="42"/>
+        <location filename="../src/preseteditor/presetselector.cpp" line="39"/>
         <source>New</source>
         <translation>Naujas</translation>
     </message>
@@ -1780,11 +1780,80 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
 </context>
 <context>
+    <name>QX11Grab::FFOptionsMenu</name>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="52"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="55"/>
+        <source>Video</source>
+        <translation type="unfinished">Vaizdas</translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="56"/>
+        <source>Audio</source>
+        <translation type="unfinished">Garsas</translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="100"/>
+        <source>Set video preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="101"/>
+        <source>Set pixel format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="102"/>
+        <source>SwScaler flags.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="103"/>
+        <source>How strictly to follow the standards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="104"/>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="112"/>
+        <source>Set bitstream filters for matching stream.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="105"/>
+        <source>Set video buffer verifier buffer size (in bits).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="108"/>
+        <source>Set the audio sampling frequency.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="109"/>
+        <source>Set the number of audio channels.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="110"/>
+        <source>Set audio preset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/avoptions/ffoptionsmenu.cpp" line="111"/>
+        <source>Audio sample format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QX11Grab::FormatMenu</name>
     <message>
         <location filename="../src/avoptions/formatmenu.cpp" line="49"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Prievardžiai</translation>
     </message>
 </context>
 <context>
@@ -1883,12 +1952,12 @@ Multiple languages can be specified by separating them with commas.</source>
         <translation>qx11grab: X11 langai filmuojami su ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="61"/>
+        <location filename="../src/systemtray.cpp" line="59"/>
         <source>Navigation</source>
         <translation>Navigacija</translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="64"/>
+        <location filename="../src/systemtray.cpp" line="62"/>
         <source>to navigate</source>
         <extracomment>ToolTip</extracomment>
         <translation>navigacija</translation>
@@ -1897,62 +1966,62 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TargetsWidget</name>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="48"/>
+        <location filename="../src/settings/targetswidget.cpp" line="46"/>
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation>Katalogai ir failai</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="62"/>
+        <location filename="../src/settings/targetswidget.cpp" line="60"/>
         <source>FFmpeg Application:</source>
         <translation>FFmpeg programa:</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="70"/>
+        <location filename="../src/settings/targetswidget.cpp" line="68"/>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
         <translation>absoliutus kelias iki FFmpeg programos</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="80"/>
+        <location filename="../src/settings/targetswidget.cpp" line="78"/>
         <source>Output Filename:</source>
         <translation>Išvedimo failas:</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="87"/>
+        <location filename="../src/settings/targetswidget.cpp" line="85"/>
         <source>Specified output filenames can contain the following template XXXXXX (six upper case &quot;X&quot; characters), which will be replaced by the auto-generated portion of the filename.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="97"/>
+        <location filename="../src/settings/targetswidget.cpp" line="95"/>
         <source>Output Directory:</source>
         <translation>Išvedimo katalogas:</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="105"/>
+        <location filename="../src/settings/targetswidget.cpp" line="103"/>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="139"/>
+        <location filename="../src/settings/targetswidget.cpp" line="137"/>
         <source>without pulse</source>
         <translation>be pulse</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="140"/>
+        <location filename="../src/settings/targetswidget.cpp" line="138"/>
         <source>Other %1</source>
         <translation>Kita %1</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="143"/>
+        <location filename="../src/settings/targetswidget.cpp" line="141"/>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
         <translation>FFmpeg vykdomasis failas</translation>
     </message>
     <message>
-        <location filename="../src/settings/targetswidget.cpp" line="160"/>
+        <location filename="../src/settings/targetswidget.cpp" line="158"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
         <translation>Išvedimo katalogas</translation>
@@ -2154,54 +2223,136 @@ ToolTip</extracomment>
 <context>
     <name>Watermark</name>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="55"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="57"/>
         <source>Watermark Filter</source>
         <translation>Vandens ženklo filtras</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="72"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="74"/>
         <source>Margin (Left|Right)</source>
         <translation>Kraštinė (kairėje|dešinėje)</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="79"/>
         <source>Margin (Top|Bottom)</source>
         <translation>kraštinė (viršuje|apačioje)</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="81"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="83"/>
         <source>Open Image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
         <source>Top Left</source>
         <translation>viršuje kairėje</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
         <source>Top Right</source>
         <translation>viršuje dešinėje</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
         <source>Bottom Left</source>
         <translation>apačioje kairėje</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="91"/>
         <source>Bottom Right</source>
         <translation>apačioje dešinėje</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="92"/>
         <source>Position</source>
         <translation>Padėtis</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="96"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="98"/>
         <source>Transparency</source>
         <translation>Skaidrumas</translation>
+    </message>
+</context>
+<context>
+    <name>WebCamCaptureFrames</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="51"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="168"/>
+        <source>to capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="58"/>
+        <source>Timeout in seconds</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="155"/>
+        <source>Stop</source>
+        <translation type="unfinished">Stabdyti</translation>
+    </message>
+</context>
+<context>
+    <name>WebCamDeviceChooser</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="41"/>
+        <source>No web camera found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="162"/>
+        <source>Choose Camera</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Webcam</name>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="59"/>
+        <source>Webcam Filter</source>
+        <extracomment>WindowTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="89"/>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="90"/>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="91"/>
+        <source>Bottom Left</source>
+        <translation type="unfinished">apačioje kairėje</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="92"/>
+        <source>Bottom Right</source>
+        <translation type="unfinished">apačioje dešinėje</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="93"/>
+        <source>Position</source>
+        <translation type="unfinished">Padėtis</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="100"/>
+        <source>Scale Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="105"/>
+        <source>Margin (Left|Right)</source>
+        <translation type="unfinished">Kraštinė (kairėje|dešinėje)</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcam.cpp" line="110"/>
+        <source>Margin (Top|Bottom)</source>
+        <translation type="unfinished">kraštinė (viršuje|apačioje)</translation>
     </message>
 </context>
 <context>
@@ -2340,6 +2491,19 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/watermark/watermarkplugin.cpp" line="58"/>
         <source>Insert a Watermark into output video</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>webcamPlugin</name>
+    <message>
+        <location filename="../src/filters/webcam/webcamplugin.cpp" line="53"/>
+        <source>Webcam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/filters/webcam/webcamplugin.cpp" line="58"/>
+        <source>Insert a Webcam into output video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
