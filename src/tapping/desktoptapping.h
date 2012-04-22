@@ -41,25 +41,23 @@ class DesktopTapping : public QDesktopWidget
 
   protected:
     /** Do not accept Incorrect aspect ratio specification. */
-    inline int normalize ( int ) const;
+    inline int normalize ( int z ) const;
 
     /** grab Window Dimension from X-Server */
-    void grabWindowRect ( int screen = 0 );
+    void grabWindowRect ( int screen );
 
   Q_SIGNALS:
+    /** This signal is emitted when the size of window and screen changes. */
     void rectChanged ( const QRect &, int screen );
+
+  public Q_SLOTS:
+    /** Create a Desktop tapping Request */
+    void createRequest ( int screen = 0 );
 
   public:
     explicit DesktopTapping ( QObject * parent = 0 );
 
-    /**
-    * Start a Desktop tapping Request
-    */
-    void createRequest ( int screen = 0 );
-
-    /**
-    * Maximum Desktop Rect from all Screens
-    */
+    /** Maximum Desktop Rect from all Screens */
     const QRect fullDesktopsRect ();
 
     virtual ~DesktopTapping();
