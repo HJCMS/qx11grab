@@ -41,6 +41,9 @@ Default INSTALLATION:
     Optional disable Pulse support:
         -DENABLE_PULSE:BOOL=OFF
 
+    Optional enable experimental filters - e.g. v4l2/Webcam Filter:
+        -DENABLE_EXPERIMENTAL:BOOL=ON
+
   4) make
   5) make DESTDIR=/tmp/test install/fast
 

@@ -1,3 +1,8 @@
+Version 0.4.4
+* Czech and Lithuanian translation update
+* fix screen initialization with multiple Xserver layout configurations
+* add experimental webcam filter dialog
+
 Version 0.4.3
 * fixed filter sort model
 

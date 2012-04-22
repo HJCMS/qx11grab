@@ -24,6 +24,7 @@ use 5.008;
 use strict;
 use warnings;
 use Path::Class qw(file);
+use Git;
 use Env qw(HJCMS_DOWNLOAD_DIR);
 
 # current repository directory
@@ -33,7 +34,19 @@ my $repodir = file ( __FILE__ )->absolute()->parent();
 my $destdir = $ENV{'HJCMS_DOWNLOAD_DIR'} . "/qx11grab";
 
 # which branch
-my $branch = 'master';
+sub fetch_branch()
+{
+  my $branch = 'master';
+  my $repo = Git->repository (Directory => $repodir);
+  for ( $repo->command('branch') )
+  {
+    if ( /^\*\s+(v[\d+]\.[\d])$/ )
+    {
+      $branch = $1;
+    }
+  }
+  return $branch;
+}
 
 # get current QX11Grab version from CMakeLists.txt
 sub fetch_version()
@@ -59,6 +72,7 @@ sub fetch_version()
 
 # current version
 my $pkg_version = fetch_version();
+my $branch = fetch_branch();
 
 # complite package name
 my $pkg_name = "qx11grab-$pkg_version";
@@ -68,8 +82,8 @@ print "- Clone to /tmp/$pkg_name\n";
 system ( "rm", "-rf", "/tmp/$pkg_name" );
 system ( "git", "clone", "-b", "$branch", "$repodir", "/tmp/$pkg_name" );
 print "- Clearing /tmp/$pkg_name\n";
+system ( "rm", "-rf", "/tmp/$pkg_name/.git", "/tmp/$pkg_name/templates" );
 system ( "chgrp", "-R", "www", "/tmp/$pkg_name" );
-system ( "rm", "-rf", "/tmp/$pkg_name/.git" );
 # remove old version from download repository
 system ( "rm", "-rf", "$destdir/$pkg_version" );
 # create packages and move it to my download repository

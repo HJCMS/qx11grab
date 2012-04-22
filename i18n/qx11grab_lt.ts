@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="63"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencija</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../src/audio/abstractaudiodialog.cpp" line="49"/>
         <source>Available Cards:</source>
-        <translation type="unfinished">Galimos plokštės:</translation>
+        <translation>Galimos plokštės:</translation>
     </message>
     <message>
         <location filename="../src/audio/abstractaudiodialog.cpp" line="86"/>
         <source>Fallback Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsarginė sąsaja</translation>
     </message>
 </context>
 <context>
@@ -29,12 +29,12 @@
         <location filename="../src/tableeditor/abstractedit.cpp" line="68"/>
         <source>Proposing</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Siūloma</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstractedit.cpp" line="53"/>
         <source>submitted items</source>
-        <translation type="unfinished"></translation>
+        <translation>pateikti įrašai</translation>
     </message>
 </context>
 <context>
@@ -42,52 +42,52 @@
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="51"/>
         <source>Encoder</source>
-        <translation type="unfinished"></translation>
+        <translation>Įkodavimas</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="56"/>
         <source>codec selecter</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>pasirinkite kodavimo priemonę</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="71"/>
         <source>codec editor table</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>kodavimo priemonių redagavimo lentelė</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="75"/>
         <source>Add</source>
-        <translation type="unfinished">Pridėti</translation>
+        <translation>Pridėti</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="78"/>
         <source>insert a new empty table row</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>įterpti naują tuščią eilutę</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="80"/>
         <source>Remove</source>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="83"/>
         <source> remove selected table rows</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>pašalinti pažymėtas eilutes</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="85"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Išvalyti</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/abstracttableeditor.cpp" line="88"/>
         <source>clear table contents</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Išvalyti visą lentelę</translation>
     </message>
 </context>
 <context>
@@ -96,7 +96,7 @@
         <location filename="../src/audio/alsaaudiodialog.cpp" line="44"/>
         <source>ALSA PCM Selection</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished">ALSA plokštės pasirinkimas</translation>
+        <translation>ALSA plokštės pasirinkimas</translation>
     </message>
 </context>
 <context>
@@ -105,90 +105,91 @@
         <location filename="../src/audio/audiodevicewidget.cpp" line="59"/>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>pasirinkite naudotiną garso sąsają</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="60"/>
         <source>Audio System</source>
-        <translation type="unfinished"></translation>
+        <translation>Garso sistema</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="61"/>
         <source>Advanced Linux Sound Architecture (Alsa)</source>
-        <translation type="unfinished">Pagerinta Linux garso sistema (ALSA)</translation>
+        <translation>Pagerinta Linux garso sistema (ALSA)</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="62"/>
         <source>Open Sound System (OSS)</source>
-        <translation type="unfinished">Atvira garso sistema (OSS)</translation>
+        <translation>Atvira garso sistema (OSS)</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="64"/>
         <source>Soundserver (Pulse)</source>
-        <translation type="unfinished"></translation>
+        <translation>Garso serveris (Pulse)</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="71"/>
         <source>Audio Intensifier:</source>
-        <translation type="unfinished">Garso stiprumas:</translation>
+        <translation>Garso stiprumas:</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="78"/>
         <source>Change Audio Volume (256=normal)</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Keisti garsumą (256=normalus)</translation>
+        <translation>Keisti garsumą (256=normalus)</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="80"/>
         <source>Change Audio Amplifier.
 Default: 256=normal</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished">Keisti garsumą.
+        <translation>Keisti garsumą.
 Numatytasis: 256</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="89"/>
         <source>Audio Capture Device:</source>
-        <translation type="unfinished">Garso įrašymo įrenginys:</translation>
+        <translation>Garso įrašymo įrenginys:</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="107"/>
         <source>Sample Format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Garso elemento formatas:</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="116"/>
         <source>The sample format of the incoming audio buffers.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įeinančio garso elementų formatas.</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="96"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garso įrašymo įrenginys
+Pvz., OSS atveju – /dev/dsp</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="49"/>
         <source>Audio Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Garso įrenginys</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="101"/>
         <source>Open dialog to select audio capture device</source>
-        <translation type="unfinished"></translation>
+        <translation>Atveria dialogo langą, kuriame galite pasirinkti garso įrašymo įrenginį</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="114"/>
         <source>Audio sample format</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garso elementų formatas</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="119"/>
         <source>Automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatiškai</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="120"/>
@@ -244,73 +245,73 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/audio/audiodevicewidget.cpp" line="137"/>
         <source>Audio Service Type:</source>
         <extracomment>Note: short</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garso paslauga:</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="144"/>
         <source>Audio service type</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garso paslaugos tipas</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="146"/>
         <source>The type of service that the audio stream contains.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Garso srauto turimas paslaugos tipas.</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="150"/>
         <source>Main Audio Service</source>
         <extracomment>Alternative: Default Audio</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pagrindinė garso paslauga</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="151"/>
         <source>Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Efektai</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="152"/>
         <source>Visually Impaired</source>
-        <translation type="unfinished"></translation>
+        <translation>Susilpnėjusi rega</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="153"/>
         <source>Hearing Impaired</source>
-        <translation type="unfinished"></translation>
+        <translation>Susilpnėjusi klausa</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="155"/>
         <source>Dialogue</source>
         <extracomment>Alternative: dialogue level</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dialogas</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="156"/>
         <source>Commentary</source>
-        <translation type="unfinished"></translation>
+        <translation>Komentaras</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="157"/>
         <source>Emergency</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagalbinis</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="159"/>
         <source>Voice Over</source>
         <extracomment>Alternative: telephony</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Telefonu</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="160"/>
         <source>Karaoke</source>
-        <translation type="unfinished"></translation>
+        <translation>Karaokė</translation>
     </message>
     <message>
         <location filename="../src/audio/audiodevicewidget.cpp" line="361"/>
         <location filename="../src/audio/audiodevicewidget.cpp" line="377"/>
         <source>Unknown</source>
-        <translation type="unfinished">Nežinoma</translation>
+        <translation>Nežinomas</translation>
     </message>
 </context>
 <context>
@@ -319,18 +320,18 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/bookmark/bookmarkdialog.cpp" line="49"/>
         <source>Bookmark</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Žymelė</translation>
     </message>
     <message>
         <location filename="../src/bookmark/bookmarkdialog.cpp" line="58"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Pavadinimas</translation>
     </message>
     <message>
         <location filename="../src/bookmark/bookmarkdialog.cpp" line="63"/>
         <source>Required Bookmark Identifier</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Žymelės pavadinimas</translation>
     </message>
 </context>
 <context>
@@ -338,7 +339,7 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/bookmark/bookmarkselecter.cpp" line="60"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Žymelė</translation>
     </message>
 </context>
 <context>
@@ -346,17 +347,17 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="124"/>
         <source>Add</source>
-        <translation type="unfinished">Pridėti</translation>
+        <translation>Pridėti</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="127"/>
         <source>Remove</source>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/tableeditor/codectable.cpp" line="131"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Išvalyti</translation>
     </message>
 </context>
 <context>
@@ -374,17 +375,17 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/tableeditor/codectablemodel.cpp" line="172"/>
         <source>At first, we have to create a argument.</source>
         <extracomment>StatusBar Message</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pirmiausia reikia sukurti argumentą.</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="209"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="212"/>
         <source>Parameter</source>
-        <translation type="unfinished">Parametras</translation>
+        <translation>Parametras</translation>
     </message>
     <message>
-        <location filename="../src/tableeditor/codectablemodel.cpp" line="211"/>
+        <location filename="../src/tableeditor/codectablemodel.cpp" line="214"/>
         <source>Value</source>
-        <translation type="unfinished">Reikšmė</translation>
+        <translation>Reikšmė</translation>
     </message>
 </context>
 <context>
@@ -392,61 +393,61 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="162"/>
         <source>Save</source>
-        <translation type="unfinished">Įrašyti</translation>
+        <translation>Įrašyti</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="164"/>
         <location filename="../src/cmd/commandlineedit.cpp" line="165"/>
         <source>Save current command list</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įrašyti dabartinį komansų sąrašą</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="168"/>
         <source>Remove</source>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="170"/>
         <location filename="../src/cmd/commandlineedit.cpp" line="171"/>
         <source>Remove this Command</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pašalinti šią komandą</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="174"/>
         <source>Insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Įterpti</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="176"/>
         <location filename="../src/cmd/commandlineedit.cpp" line="177"/>
         <source>Create custom entry</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sukurti savitą įrašą</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="180"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Iš naujo</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="182"/>
         <source>Restore Preview</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atstatyti kaip buvo iš pradžių</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="185"/>
         <source>Copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Nukopijuoti į iškarpinę</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandlineedit.cpp" line="187"/>
         <location filename="../src/cmd/commandlineedit.cpp" line="188"/>
         <source>Copy command list to Clipboard</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Komandų sąrašą nukopijuoti į iškarpinę</translation>
     </message>
 </context>
 <context>
@@ -454,13 +455,13 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/cmd/commandpreview.cpp" line="44"/>
         <source>Display the current FFmpeg command.</source>
-        <translation>FFmpeg komanda.</translation>
+        <translation>Dabartinė FFmpeg komanda.</translation>
     </message>
     <message>
         <location filename="../src/cmd/commandpreview.cpp" line="49"/>
         <source>Restore to current Configuration</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Naudoti numatytąją konfigūraciją</translation>
     </message>
 </context>
 <context>
@@ -469,37 +470,37 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/settings/configdialog.cpp" line="46"/>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Konfigūracija[*]</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="68"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Programa</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="72"/>
         <source>Targets</source>
-        <translation type="unfinished"></translation>
+        <translation>Paskirtis</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="76"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Garsas</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="80"/>
         <source>Experts</source>
-        <translation type="unfinished"></translation>
+        <translation>Prityrusiems naudotojams</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="84"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Prievardžiai</translation>
     </message>
     <message>
         <location filename="../src/settings/configdialog.cpp" line="88"/>
         <source>Rubberband</source>
-        <translation type="unfinished">Rėmelis</translation>
+        <translation>Rėmelis</translation>
     </message>
 </context>
 <context>
@@ -508,7 +509,7 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/settings/configextensions.cpp" line="36"/>
         <source>Configure Output Extensions</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Išvedimo prievardžių konfigūravimas</translation>
     </message>
 </context>
 <context>
@@ -517,7 +518,7 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/settings/configrubberband.cpp" line="40"/>
         <source>Rubberband Configuration</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rėmelio konfigūravimas</translation>
     </message>
 </context>
 <context>
@@ -525,7 +526,7 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/cmd/createcustomitem.cpp" line="45"/>
         <source>Create a custom entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Sukurti savitą įrašą</translation>
     </message>
 </context>
 <context>
@@ -548,13 +549,13 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="50"/>
         <source>Shadow Offset</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Šešėlio poslinkis</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/dropshadowbox.cpp" line="57"/>
         <source>Shadow Alpha</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Šešėlio alfa</translation>
     </message>
 </context>
 <context>
@@ -563,12 +564,12 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/exportdialog.cpp" line="39"/>
         <source>Export current Commandline</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dabartinės komandinės eilutės eksportavimas</translation>
     </message>
     <message>
         <location filename="../src/exportdialog.cpp" line="47"/>
         <source>Shell Script (*.sh)</source>
-        <translation type="unfinished"></translation>
+        <translation>Apvalkalo scenarijus (*.sh)</translation>
     </message>
 </context>
 <context>
@@ -576,48 +577,48 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="43"/>
         <source>Video File extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaizdo įrašų plėtiniai</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="44"/>
         <source>here you can configure video file extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>čia konfigūruokite vaizdo įrašų plėtinius</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="73"/>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Pridėti</translation>
+        <translation>Pridėti</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="75"/>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę šį mygtuką, pridėsite naują lentelės eilutę</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="77"/>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="79"/>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę mygtuką, pašalinsite pasirinktas lentelės eilutes</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="81"/>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Išvalyti</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontable.cpp" line="83"/>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę mygtuką, išvalysite visą lentelę</translation>
     </message>
 </context>
 <context>
@@ -625,17 +626,17 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="93"/>
         <source>Codec</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodavimo priemonė</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="95"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Numatyta</translation>
     </message>
     <message>
         <location filename="../src/settings/extensionselecter/extensiontablemodel.cpp" line="97"/>
         <source>Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Prievardžiai</translation>
     </message>
 </context>
 <context>
@@ -644,58 +645,58 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/settings/extraoptions.cpp" line="42"/>
         <source>Expert Options</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Papildomos parinktys</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="43"/>
         <source>Here you can configure extra commands.</source>
-        <translation type="unfinished"></translation>
+        <translation>čia konfigūruokite papildomas komandas.</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="69"/>
         <source>Parameter</source>
-        <translation type="unfinished">Parametras</translation>
+        <translation>Parametras</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="69"/>
         <source>Value</source>
-        <translation type="unfinished">Reikšmė</translation>
+        <translation>Reikšmė</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="84"/>
         <source>Add</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Pridėti</translation>
+        <translation>Pridėti</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="86"/>
         <source>This button insert a new empty table row</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę šį mygtuką, pridėsite naują lentelės eilutę</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="88"/>
         <source>Remove</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="90"/>
         <source>This button remove selected table rows</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę mygtuką, pašalinsite pasirinktas lentelės eilutes</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="92"/>
         <source>Clear</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Išvalyti</translation>
     </message>
     <message>
         <location filename="../src/settings/extraoptions.cpp" line="94"/>
         <source>This button clear table contents</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nuspaudę mygtuką, išvalysite visą lentelę</translation>
     </message>
 </context>
 <context>
@@ -709,12 +710,12 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="80"/>
         <source>Working Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Darbinis katalogas</translation>
     </message>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="301"/>
         <source>Executable Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Vykdomasis scenarijus</translation>
     </message>
     <message>
         <location filename="../src/ffprocess/ffprocess.cpp" line="150"/>
@@ -790,13 +791,13 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/preseteditor/filesavedialog.cpp" line="47"/>
         <source>Save ffpreset File</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įrašyti ffpreset rinkmeną</translation>
     </message>
     <message>
         <location filename="../src/preseteditor/filesavedialog.cpp" line="49"/>
         <source>FFmpeg preset file (*.ffpreset)</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg nuostatų rinkmena (*.ffpreset)</translation>
     </message>
 </context>
 <context>
@@ -804,7 +805,7 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location filename="../src/tableeditor/filtermenu.cpp" line="32"/>
         <source>Create Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Sukurti filtrą</translation>
     </message>
 </context>
 <context>
@@ -818,7 +819,7 @@ Example for OSS: /dev/dsp</source>
         <location filename="../src/utils/grabberinfo.cpp" line="71"/>
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>dažniausiai naudojami dydžiai</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="77"/>
@@ -832,7 +833,7 @@ Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>rėmelio pločio padidinimui arba sumažinimui</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="100"/>
@@ -846,7 +847,7 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>rėmelio aukščio padidinimui arba sumažinimui</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="123"/>
@@ -860,7 +861,7 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>rėmelio viršutinio kampo padėtis nuo ekrano viršutinio kampo x ašyje</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="146"/>
@@ -874,29 +875,29 @@ WhatsThis</extracomment>
         <extracomment>WhatsThis
 ----------
 WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>rėmelio viršutinio kampo padėtis nuo ekrano viršutinio kampo y ašyje</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="170"/>
         <source>Screen:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekranas:</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="177"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>dabar pasirinktas ekranas</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="183"/>
         <source>Color depth:</source>
-        <translation type="unfinished"></translation>
+        <translation>Spalvų skaičius:</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="190"/>
         <source>current color depth</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>dabartinis spalvų skaičius</translation>
     </message>
     <message>
         <location filename="../src/utils/grabberinfo.cpp" line="196"/>
@@ -907,7 +908,7 @@ WhatsThis</extracomment>
         <location filename="../src/utils/grabberinfo.cpp" line="202"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nurodykite įrašomo vaizdo įrašo kadrų dažnį.</translation>
     </message>
 </context>
 <context>
@@ -916,22 +917,22 @@ WhatsThis</extracomment>
         <location filename="../src/settings/graphicsengineselecter.cpp" line="32"/>
         <source>Set default graphics backend to system</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Numatytas grafinės sistemos variklis</translation>
     </message>
     <message>
         <location filename="../src/settings/graphicsengineselecter.cpp" line="33"/>
         <source>Native</source>
-        <translation type="unfinished"></translation>
+        <translation>Paprastas</translation>
     </message>
     <message>
         <location filename="../src/settings/graphicsengineselecter.cpp" line="34"/>
         <source>Raster</source>
-        <translation type="unfinished"></translation>
+        <translation>Rastrinis</translation>
     </message>
     <message>
         <location filename="../src/settings/graphicsengineselecter.cpp" line="36"/>
         <source>OpenGL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -940,7 +941,7 @@ WhatsThis</extracomment>
         <location filename="../src/ffprocess/listener.cpp" line="74"/>
         <source>Time: %1 Size: %2</source>
         <extracomment>StatusBar</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Laikas: %1 Dydis: %2</translation>
     </message>
 </context>
 <context>
@@ -948,44 +949,44 @@ WhatsThis</extracomment>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="44"/>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Detalus</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="38"/>
         <source>Set the logging level used by the FFmpeg application</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nustatyti FFmpeg naudojamą pranešimų detalumą</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="36"/>
         <source>FFmpeg logging level</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg pranešumų detalumas</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="42"/>
         <source>Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Įspėjimai</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="43"/>
         <source>Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informacija</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="45"/>
         <source>Errors</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaidos</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="46"/>
         <source>Panic</source>
-        <translation type="unfinished"></translation>
+        <translation>Panika</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="47"/>
         <source>Fatal</source>
-        <translation type="unfinished"></translation>
+        <translation>Lemtinga</translation>
     </message>
     <message>
         <location filename="../src/settings/loglevelcombobox.cpp" line="48"/>
@@ -1008,95 +1009,95 @@ WhatsThis</extracomment>
         <location filename="../src/settings/mainfcuntions.cpp" line="42"/>
         <source>Features</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Savybės</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="50"/>
         <source>enable rubberband at application start</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rėmelį rodyti vos paleidus prorgama</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="52"/>
         <source>always show the rubberband on application start</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>paleidus programą visada rodyti tinklelį</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="48"/>
         <source>Display Rubberband</source>
-        <translation type="unfinished">Rodyti rėmelį</translation>
+        <translation>Rodyti rėmelį</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="58"/>
         <source>start qx11grab minimized</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>qx11grab paleisti sistemos dėkle</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="60"/>
         <source>only show qx11grab on start in systray</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Paleistą qx11grab programą rodyti tik sistemos dėkle</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="56"/>
         <source>Start Minimized</source>
-        <translation type="unfinished">Pradėti nuleidus į sistemos dėklą</translation>
+        <translation>Paleisti nuleidus į sistemos dėklą</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="66"/>
         <source>Enable/Disable expert editor mode</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įgalinti/uždrausti prityrusių naudotojų veikseną</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="68"/>
         <source>Enable auto insert my expert settings</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įgalinti automatinį mano papildomų nuostatų įterpimą, nurodytas ties „Prityrusiems naudotojams“</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="64"/>
         <source>Expert Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Patyrusio naudotojo veiksena</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="72"/>
         <source>record with unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>įrašinėti net neįrašius pakeitimų</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="74"/>
         <source>force start record with unsaved changes</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>priverstinai įrašinėti net neįrašius pakeitimų</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="76"/>
         <source>start recording if qx11grab have unsaved changes</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>įrašinėti net jei qx11grab neįrašė pakeitimų</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="81"/>
         <source>Threads</source>
-        <translation type="unfinished"></translation>
+        <translation>Gijos</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="84"/>
         <source>Report Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Pranešimų detalumas</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="87"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Ženkliukų stilius</translation>
     </message>
     <message>
         <location filename="../src/settings/mainfcuntions.cpp" line="90"/>
         <source>Graphics System</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafinė sistema</translation>
     </message>
 </context>
 <context>
@@ -1104,104 +1105,104 @@ WhatsThis</extracomment>
     <message>
         <location filename="../src/mainwindow.cpp" line="121"/>
         <source>Dimension</source>
-        <translation type="unfinished">Dydis</translation>
+        <translation>Dydis</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="127"/>
         <source>Metadata</source>
-        <translation type="unfinished"></translation>
+        <translation>Meta duomenys</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="132"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaizdas</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="140"/>
         <source>Audio Recording</source>
-        <translation type="unfinished"></translation>
+        <translation>Garso įrašymas</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="142"/>
         <source>enable/disable audio recording in the captured video</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>vaizdo įraše įgalinti/uždrausti garso įrašinėjimą</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="143"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Garsas</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="154"/>
         <source>command line preview</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>parodyti komandinę eilutę</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="155"/>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="427"/>
         <source>Info</source>
-        <translation type="unfinished">Informacija</translation>
+        <translation>Informacija</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Warning</source>
-        <translation type="unfinished">Įspėjimas</translation>
+        <translation>Įspėjimas</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Stopping</source>
-        <translation type="unfinished"></translation>
+        <translation>Stabdoma</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="488"/>
         <source>unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>neįrašyti pakeitimai</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="504"/>
         <source>Missing Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Nėra įvesties</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
         <source>Error</source>
-        <translation type="unfinished">Klaida</translation>
+        <translation>Klaida</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
         <source>qx11grap not started</source>
-        <translation type="unfinished">qx11grap nepaleista</translation>
+        <translation>qx11grap nepaleista</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="656"/>
         <source>commandline exported</source>
-        <translation type="unfinished"></translation>
+        <translation>komandinė eilutė eksportuota</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Remove Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Pašalinti žymelę</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="684"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Žymelė</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="704"/>
         <source>Open Bookmark %1 failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko atverti žymelės %1</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="715"/>
         <source>Open Bookmark %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Atverti žymelę %1</translation>
     </message>
 </context>
 <context>
@@ -1209,193 +1210,193 @@ WhatsThis</extracomment>
     <message>
         <location filename="../src/menubar.cpp" line="44"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Failas</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="70"/>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Veiksmai</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="86"/>
         <source>Load</source>
-        <translation type="unfinished">Įkelti</translation>
+        <translation>Įkelti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="110"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagalba</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="119"/>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="121"/>
         <source>FFmpeg Homepage</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg svetainė</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="115"/>
         <source>QX11Grab</source>
-        <translation type="unfinished"></translation>
+        <translation>QX11Grab</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="99"/>
         <source>Presets Editor</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Rinkinių redagavimas</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="101"/>
         <source>Open Presets Editor</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atverti rinkinių redaktorių</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="106"/>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigūruoti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="117"/>
         <source>QX11Grab Homepage</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>QX11Grab svetainė</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="123"/>
         <source>x264</source>
-        <translation type="unfinished"></translation>
+        <translation>x264</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="125"/>
         <source>x264 Homepage</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>x264 svetainė</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="127"/>
         <source>WebM Guideline</source>
-        <translation type="unfinished"></translation>
+        <translation>WebM savybės</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="129"/>
         <source>WebM Container Guidelines</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>WebM konteinerio savybės</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="134"/>
         <source>About QX11Grab</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie QX11Grab</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="136"/>
         <source>About Qt4</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie Qt4</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="207"/>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>Sukurti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="210"/>
         <source>Open create Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atverti žymelės sukūrimo dialogą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="218"/>
         <source>Remove</source>
-        <translation type="unfinished">Pašalinti</translation>
+        <translation>Pašalinti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="221"/>
         <source>Open delete Bookmark Dialog</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atverti žymelės pašalinimo dialogą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="262"/>
         <source>Quit</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Baigti</translation>
+        <translation>Baigti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="265"/>
         <source>Close Application</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Užverti programą</translation>
+        <translation>Užverti programą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="275"/>
         <source>Grabbing</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Čiupti langą</translation>
+        <translation>Čiupti langą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="278"/>
         <source>get Size from Window</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">gauti lango dydį</translation>
+        <translation>gauti lango dydį</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="288"/>
         <source>Rubberband</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Rėmelis</translation>
+        <translation>Rėmelis</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="291"/>
         <source>swap rubberband view</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>rodyti arba slėpti rėmelį</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="301"/>
         <source>Recording</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Įrašoma</translation>
+        <translation>Įrašyti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="304"/>
         <source>Start Recording</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Pradėti įrašinėti</translation>
+        <translation>Pradėti įrašinėti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="314"/>
         <source>Stop</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Stabdyti</translation>
+        <translation>Stabdyti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="317"/>
         <source>Stop Recording</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">Baigti įrašinėjimą</translation>
+        <translation>Baigti įrašinėjimą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="328"/>
         <source>Kill</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Nutraukti</translation>
+        <translation>Nutraukti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="331"/>
         <source>Kill Recording</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nutraukti įrašinėjimą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="342"/>
         <source>Hide</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Slėpti</translation>
+        <translation>Slėpti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="345"/>
@@ -1404,66 +1405,66 @@ WhatsThis</extracomment>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation type="unfinished">Nuleisti į sistemos dėklą</translation>
+        <translation>Nuleisti į sistemos dėklą</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="355"/>
         <source>Show</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Rodyti</translation>
+        <translation>Rodyti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="368"/>
         <source>Export</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuoti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="371"/>
         <source>Export current command set</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuoti dabartinę komandinę eilutę</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="73"/>
         <source>Bookmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Žymelės</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="381"/>
         <source>Save</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Įrašyti</translation>
+        <translation>Įrašyti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="384"/>
         <source>Save current Settings</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Įrašyti dabartines nuostatas</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="394"/>
         <source>Refresh</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Atnaujinti</translation>
+        <translation>Atnaujinti</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="397"/>
         <source>Refresh Commandline Preview</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atnaujinti rodomą komandinę eilutę</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="407"/>
         <source>Logfile</source>
         <extracomment>MenuEntry</extracomment>
-        <translation type="unfinished">Žurnalas</translation>
+        <translation>Žurnalas</translation>
     </message>
     <message>
         <location filename="../src/menubar.cpp" line="410"/>
         <source>Open FFmpeg Protocoll</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atverti FFmpeg žurnalą</translation>
     </message>
 </context>
 <context>
@@ -1471,7 +1472,7 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/messanger/messanger.cpp" line="136"/>
         <source>Notification not send!</source>
-        <translation type="unfinished"></translation>
+        <translation>Pranešimas neišsilstas!</translation>
     </message>
 </context>
 <context>
@@ -1480,7 +1481,7 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="43"/>
         <source>Insert Metadata</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished">Įterpti meta duomenis</translation>
+        <translation>Įterpti meta duomenis</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="45"/>
@@ -1502,7 +1503,7 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="70"/>
         <source>Name or Movie Name</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pavadinimas</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="74"/>
@@ -1513,7 +1514,7 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="82"/>
         <source>Author, Director or Artist</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Autorius, direktorius arba atlikėjas</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="86"/>
@@ -1524,7 +1525,7 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="94"/>
         <source>Copyright</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Autorinės teisės</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="98"/>
@@ -1535,7 +1536,7 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="106"/>
         <source>Creation Date</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sukūrimo data</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="112"/>
@@ -1546,30 +1547,30 @@ ToolTip</extracomment>
         <location filename="../src/utils/metadata.cpp" line="120"/>
         <source>Subject</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="124"/>
         <source>Comments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Komentarai:</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="132"/>
         <source>Comments</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Komentarai</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="137"/>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Kalba:</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="146"/>
         <source>recognition of speech must set with three letter ISO 639-2 format</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>balso atpažinimui reikia nurodyti tris raides pagal ISO 639-2 formatą</translation>
     </message>
     <message>
         <location filename="../src/utils/metadata.cpp" line="148"/>
@@ -1585,32 +1586,32 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/navigator.cpp" line="103"/>
         <source>Start Recording</source>
-        <translation type="unfinished">Pradėti įrašinėti</translation>
+        <translation>Pradėti įrašinėti</translation>
     </message>
     <message>
         <location filename="../src/navigator.cpp" line="106"/>
         <source>Stop Recording</source>
-        <translation type="unfinished">Baigti įrašinėjimą</translation>
+        <translation>Baigti įrašinėjimą</translation>
     </message>
     <message>
         <location filename="../src/navigator.cpp" line="110"/>
         <source>swap rubberband view</source>
-        <translation type="unfinished"></translation>
+        <translation>rodyti arba slėpti rėmelį</translation>
     </message>
     <message>
         <location filename="../src/navigator.cpp" line="184"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Užverti</translation>
     </message>
     <message>
         <location filename="../src/navigator.cpp" line="189"/>
         <source>Hide Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Slėpti langą</translation>
     </message>
     <message>
         <location filename="../src/navigator.cpp" line="193"/>
         <source>Show Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti langą</translation>
     </message>
 </context>
 <context>
@@ -1648,19 +1649,19 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/audio/opensounddialog.cpp" line="34"/>
         <source>Open Sound System (OSS)</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished">Atvira garso sistema (OSS)</translation>
+        <translation>Atvira garso sistema (OSS)</translation>
     </message>
     <message>
         <location filename="../src/audio/opensounddialog.cpp" line="50"/>
         <source>%1 OSS Device: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 OSS įrenginys: %2</translation>
     </message>
     <message>
         <location filename="../src/audio/opensounddialog.cpp" line="53"/>
         <location filename="../src/audio/opensounddialog.cpp" line="54"/>
         <source>Open Sound System (OSS) Device</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atviros garso sistemos (OSS) įrenginys</translation>
     </message>
 </context>
 <context>
@@ -1669,55 +1670,55 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/playeraction.cpp" line="74"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>MPlayer</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="76"/>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>MPlayer grafinė sąsaja</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="78"/>
         <source>KMPlayer</source>
         <extracomment>MenuEntry for &quot;kmplayer&quot; http://kmplayer.kde.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>KMPlayer</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="80"/>
         <source>SMPlayer</source>
         <extracomment>MenuEntry for &quot;smplayer&quot; http://smplayer.sourceforge.net</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>SMPlayer</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="82"/>
         <source>Xine</source>
         <extracomment>MenuEntry for &quot;xine&quot; http://www.xine-project.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Xine</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="84"/>
         <source>VLC</source>
         <extracomment>MenuEntry for &quot;vlc&quot; http://www.videolan.org/vlc/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>VLC</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="86"/>
         <source>FFPlay</source>
         <extracomment>MenuEntry for &quot;ffplay&quot; http://www.ffmpeg.org</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>FFPlay</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="88"/>
         <source>Dragon Player</source>
         <extracomment>MenuEntry for &quot;dragon&quot; http://kde.org/applications/multimedia/dragonplayer/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Dragon leistuvė</translation>
     </message>
     <message>
         <location filename="../src/playeraction.cpp" line="90"/>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Totem leistuvė</translation>
     </message>
 </context>
 <context>
@@ -1725,7 +1726,7 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/preseteditor/presetselector.cpp" line="42"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Naujas</translation>
     </message>
 </context>
 <context>
@@ -1734,7 +1735,7 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/preseteditor/presetscombobox.cpp" line="40"/>
         <location filename="../src/preseteditor/presetscombobox.cpp" line="100"/>
         <source>Select Preset</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasirinkite derinį</translation>
     </message>
 </context>
 <context>
@@ -1743,7 +1744,7 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/audio/pulseaudiodialog.cpp" line="168"/>
         <source>Pulse Device Selection</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Pulse įrenginio pasirinkimas</translation>
     </message>
 </context>
 <context>
@@ -1766,7 +1767,7 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/avoptions/codecoptions.cpp" line="45"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation>Parinktis</translation>
     </message>
 </context>
 <context>
@@ -1879,18 +1880,18 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/systemtray.cpp" line="50"/>
         <source>qx11grab: recording X11 Windows with ffmpeg</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished">qx11grab: filmuojami X11 langai su ffmpeg</translation>
+        <translation>qx11grab: X11 langai filmuojami su ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="59"/>
+        <location filename="../src/systemtray.cpp" line="61"/>
         <source>Navigation</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigacija</translation>
     </message>
     <message>
-        <location filename="../src/systemtray.cpp" line="62"/>
+        <location filename="../src/systemtray.cpp" line="64"/>
         <source>to navigate</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>navigacija</translation>
     </message>
 </context>
 <context>
@@ -1899,23 +1900,23 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/settings/targetswidget.cpp" line="48"/>
         <source>Directories &amp;&amp; Files</source>
         <extracomment>GroupBoxTitle</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Katalogai ir failai</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="62"/>
         <source>FFmpeg Application:</source>
-        <translation type="unfinished">FFmpeg programa:</translation>
+        <translation>FFmpeg programa:</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="70"/>
         <source>absolute path to FFmpeg&apos;s recording application</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>absoliutus kelias iki FFmpeg programos</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="80"/>
         <source>Output Filename:</source>
-        <translation type="unfinished">Išvedimo rinkmena:</translation>
+        <translation>Išvedimo failas:</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="87"/>
@@ -1926,35 +1927,35 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="97"/>
         <source>Output Directory:</source>
-        <translation type="unfinished">Išvedimo katalogas:</translation>
+        <translation>Išvedimo katalogas:</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="105"/>
         <source>directory where to store output files</source>
         <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="139"/>
         <source>without pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>be pulse</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="140"/>
         <source>Other %1</source>
-        <translation type="unfinished">Kita %1</translation>
+        <translation>Kita %1</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="143"/>
         <source>FFmpeg Binary</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished">FFmpeg vykdomoji rinkmena</translation>
+        <translation>FFmpeg vykdomasis failas</translation>
     </message>
     <message>
         <location filename="../src/settings/targetswidget.cpp" line="160"/>
         <source>Output Directory</source>
         <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished">Išvedimo katalogas</translation>
+        <translation>Išvedimo katalogas</translation>
     </message>
 </context>
 <context>
@@ -1963,69 +1964,69 @@ Multiple languages can be specified by separating them with commas.</source>
         <location filename="../src/filters/drawtext/textposition.cpp" line="46"/>
         <source>Text Position</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Teksto padėtis</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="50"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Padėtis</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="51"/>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation>kairėje viršuje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="52"/>
         <source>Top Centered</source>
-        <translation type="unfinished"></translation>
+        <translation>centre viršuje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="53"/>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation>dešinėje viršuje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="54"/>
         <source>Middle Left</source>
-        <translation type="unfinished"></translation>
+        <translation>kairėje viduryje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="55"/>
         <source>Middle Centered</source>
-        <translation type="unfinished"></translation>
+        <translation>centre viduryje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="56"/>
         <source>Middle Right</source>
-        <translation type="unfinished"></translation>
+        <translation>dešinėje viduryje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="57"/>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation>apačioje kairėje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="58"/>
         <source>Bottom Centered</source>
-        <translation type="unfinished"></translation>
+        <translation>apačioje centre</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="59"/>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation>apačioje dešinėje</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="64"/>
         <source>Horizontal Text Indent</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Horizontali teksto įtrauka</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/textposition.cpp" line="70"/>
         <source>Vertical Text Indent</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Vertikali teksto įtrauka</translation>
     </message>
 </context>
 <context>
@@ -2038,7 +2039,7 @@ Multiple languages can be specified by separating them with commas.</source>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="73"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuoti</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="75"/>
@@ -2047,12 +2048,12 @@ Multiple languages can be specified by separating them with commas.</source>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuoti pranešimų žurnalą</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="80"/>
         <source>Refresh</source>
-        <translation type="unfinished">Atnaujinti</translation>
+        <translation>Atnaujinti</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="82"/>
@@ -2061,17 +2062,17 @@ ToolTip</extracomment>
         <extracomment>ToolTip
 ----------
 ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Atnaujinti pranešimų žurnalą</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="92"/>
         <source>Export logfile</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksportuoti pranešimų žurnalą</translation>
     </message>
     <message>
         <location filename="../src/logviewer/textview.cpp" line="93"/>
         <source>Logfile (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pranešimų žurnalas (%1)</translation>
     </message>
 </context>
 <context>
@@ -2153,136 +2154,54 @@ ToolTip</extracomment>
 <context>
     <name>Watermark</name>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="57"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="55"/>
         <source>Watermark Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Vandens ženklo filtras</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="74"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="72"/>
         <source>Margin (Left|Right)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kraštinė (kairėje|dešinėje)</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="79"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="77"/>
         <source>Margin (Top|Bottom)</source>
-        <translation type="unfinished"></translation>
+        <translation>kraštinė (viršuje|apačioje)</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="83"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="81"/>
         <source>Open Image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="86"/>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation>viršuje kairėje</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="87"/>
+        <source>Top Right</source>
+        <translation>viršuje dešinėje</translation>
+    </message>
+    <message>
+        <location filename="../src/filters/watermark/watermark.cpp" line="88"/>
+        <source>Bottom Left</source>
+        <translation>apačioje kairėje</translation>
     </message>
     <message>
         <location filename="../src/filters/watermark/watermark.cpp" line="89"/>
-        <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <source>Bottom Right</source>
+        <translation>apačioje dešinėje</translation>
     </message>
     <message>
         <location filename="../src/filters/watermark/watermark.cpp" line="90"/>
-        <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="91"/>
-        <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="92"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Padėtis</translation>
     </message>
     <message>
-        <location filename="../src/filters/watermark/watermark.cpp" line="98"/>
+        <location filename="../src/filters/watermark/watermark.cpp" line="96"/>
         <source>Transparency</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WebCamCaptureFrames</name>
-    <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="57"/>
-        <source>Timeout in seconds</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="50"/>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="166"/>
-        <source>to capture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="153"/>
-        <source>Stop</source>
-        <translation type="unfinished">Stabdyti</translation>
-    </message>
-</context>
-<context>
-    <name>WebCamDeviceChooser</name>
-    <message>
-        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="41"/>
-        <source>No web camera found</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="162"/>
-        <source>Choose Camera</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Webcam</name>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="58"/>
-        <source>Webcam Filter</source>
-        <extracomment>WindowTitle</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="87"/>
-        <source>Top Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="88"/>
-        <source>Top Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="89"/>
-        <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="90"/>
-        <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="91"/>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="97"/>
-        <source>Scale Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="102"/>
-        <source>Margin (Left|Right)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcam.cpp" line="107"/>
-        <source>Margin (Top|Bottom)</source>
-        <translation type="unfinished"></translation>
+        <translation>Skaidrumas</translation>
     </message>
 </context>
 <context>
@@ -2301,7 +2220,7 @@ ToolTip</extracomment>
         <location filename="../src/filters/drawtext/drawtext.cpp" line="115"/>
         <source>Font Size</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Šrifto dydis</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/drawtext.cpp" line="124"/>
@@ -2329,12 +2248,12 @@ ToolTip</extracomment>
         <location filename="../src/filters/drawtext/drawtext.cpp" line="154"/>
         <source>Copy to Clipboard</source>
         <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Nukopijuoti į iškarpinę</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/drawtext.cpp" line="136"/>
         <source>Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonas</translation>
     </message>
 </context>
 <context>
@@ -2342,7 +2261,7 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="55"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekstas</translation>
     </message>
     <message>
         <location filename="../src/filters/drawtext/drawtextplugin.cpp" line="60"/>
@@ -2360,12 +2279,12 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="52"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Aprašas</translation>
     </message>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="57"/>
         <source>Example</source>
-        <translation type="unfinished"></translation>
+        <translation>Pavyzdys</translation>
     </message>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="57"/>
@@ -2375,7 +2294,7 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="61"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipas</translation>
     </message>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="65"/>
@@ -2390,12 +2309,12 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="75"/>
         <source>Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Kadrai</translation>
     </message>
     <message>
         <location filename="../src/filters/fade/fade.cpp" line="94"/>
         <source>Only alpha channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Tik alfa kanalas</translation>
     </message>
 </context>
 <context>
@@ -2416,24 +2335,11 @@ ToolTip</extracomment>
     <message>
         <location filename="../src/filters/watermark/watermarkplugin.cpp" line="53"/>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Vandens ženklas</translation>
     </message>
     <message>
         <location filename="../src/filters/watermark/watermarkplugin.cpp" line="58"/>
         <source>Insert a Watermark into output video</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>webcamPlugin</name>
-    <message>
-        <location filename="../src/filters/webcam/webcamplugin.cpp" line="53"/>
-        <source>Webcam</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/filters/webcam/webcamplugin.cpp" line="58"/>
-        <source>Insert a Webcam into output video</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
