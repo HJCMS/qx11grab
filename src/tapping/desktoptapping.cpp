@@ -85,6 +85,7 @@ int DesktopTapping::realDesktopScreen ( int screen ) const
   QByteArray x = qgetenv ( "DISPLAY" );
   if ( ! x.isNull() && x.contains ( ':' ) )
   {
+    // NOTE Es werden im Moment nur Bildschirme von 0-9 gelesen!
     char d = x.at ( ( x.size() - 1 ) );
     int s = atoi ( &d );
     ret = ( s >= 0 ) ? s : screen;

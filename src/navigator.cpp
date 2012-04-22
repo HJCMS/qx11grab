@@ -39,6 +39,7 @@
 #include <QtGui/QBrush>
 #include <QtGui/QColor>
 #include <QtGui/QCursor>
+#include <QtGui/QDesktopWidget>
 #include <QtGui/QLinearGradient>
 #include <QtGui/QMenu>
 #include <QtGui/QPalette>
@@ -133,9 +134,7 @@ Navigator::Navigator ( QDesktopWidget * parent )
   connect ( m_rubberbandAction, SIGNAL ( clicked() ), this, SIGNAL ( rubberBand() ) );
 }
 
-/*
-* Initialisiere die Status Informationen
-*/
+/** Initialisiere die Status Informationen */
 void Navigator::initMoveState ( const QPoint &p )
 {
   if ( m_state != 0 )
@@ -146,9 +145,7 @@ void Navigator::initMoveState ( const QPoint &p )
   m_state->moving = false;
 }
 
-/*
-* Ändere beim Verschieben die Status Informationen
-*/
+/** Ändere beim Verschieben die Status Informationen */
 void Navigator::startMoveWidget ( bool b )
 {
   Q_ASSERT ( m_state != 0 );
@@ -158,7 +155,7 @@ void Navigator::startMoveWidget ( bool b )
   m_state->moving = b;
 }
 
-/*
+/**
 * Beende das Verschieben und räume auf
 * \warning Kein Assert verwenden siehe leaveEvent!
 */
@@ -174,9 +171,7 @@ void Navigator::stopMoveWidget()
   repaint();
 }
 
-/*
-* Ausblenden Menü anzeigen
-*/
+/** Ausblenden Menü anzeigen */
 void Navigator::contextMenuEvent ( QContextMenuEvent * event )
 {
   QMenu* m = new QMenu ( this );
@@ -199,7 +194,7 @@ void Navigator::contextMenuEvent ( QContextMenuEvent * event )
   repaint();
 }
 
-/*
+/**
 * Wir zeichnen ein Widget ohne Fenster Dekoration mit runden Ecken.
 * \note siehe im Konstruktor setWindowFlags und setAttribute
 */
@@ -232,9 +227,7 @@ void Navigator::paintEvent ( QPaintEvent * event )
   painter.drawPath ( rectPath );
 }
 
-/*
-* Wenn das Widget ausgeblendet wird die Position speichern.
-*/
+/** Wenn das Widget ausgeblendet wird die Position speichern. */
 void Navigator::hideEvent ( QHideEvent * event )
 {
   m_settings->setValue ( "Navigator/Rect", frameGeometry() );
@@ -242,7 +235,7 @@ void Navigator::hideEvent ( QHideEvent * event )
   event->ignore();
 }
 
-/*
+/**
 * Beim einblenden die Position aus der Konfiguration laden
 * \note Wir verändern \b NICHT die Breite und Höhe!
 */
@@ -251,11 +244,21 @@ void Navigator::showEvent ( QShowEvent * event )
   QRect r = m_settings->value ( "Navigator/Rect", QRect ( 10, 10, 100, 24 ) ).toRect();
   r.setWidth ( rect().width() );
   r.setHeight ( rect().height() );
-  setGeometry ( r );
-  event->ignore();
+  // FIXME Wenn der Benutzer verschieden Layouts verwendet darauf Achten das
+  // nach einem wechsle des Xserver-Layouts dieses Widget in einem Sichtbaren Bereich liegt!
+  if ( m_desktop->availableGeometry ( m_desktop->primaryScreen() ).contains ( r.topLeft() ) )
+  {
+    setGeometry ( r );
+    event->ignore();
+  }
+  else
+  {
+    qWarning ( "Navigator isn't visible!" );
+    QWidget::showEvent ( event );
+  }
 }
 
-/*
+/**
 * Widget verschieben verarbeiten
 */
 void Navigator::mouseMoveEvent ( QMouseEvent * event )
@@ -292,7 +295,7 @@ void Navigator::mouseMoveEvent ( QMouseEvent * event )
   move ( pos );
 }
 
-/*
+/**
 * Wenn die Linke Maustaste gedrückt wird
 * Die Verschieben aktionen Initialisieren
 */
@@ -307,7 +310,7 @@ void Navigator::mousePressEvent ( QMouseEvent * event )
     event->ignore();
 }
 
-/*
+/**
 * Wenn die Maus los gelassen wird alles zurück setzen
 */
 void Navigator::mouseReleaseEvent ( QMouseEvent * event )
@@ -320,16 +323,15 @@ void Navigator::mouseReleaseEvent ( QMouseEvent * event )
   setCursor ( Qt::ArrowCursor );
 }
 
-/*
+/**
 * Infoanzeige erneuern
 */
 void Navigator::setInfo ( const QString &info )
 {
   m_infoData->setText ( info );
-//   m_infoData->setEnabled ( true );
 }
 
-/*
+/**
 * Status der Knöpfe ändern
 */
 void Navigator::setActivity ( bool b )
@@ -344,7 +346,7 @@ void Navigator::setActivity ( bool b )
   }
 }
 
-/*
+/**
 * Videomenü Aktivieren
 */
 void Navigator::setPlayerEnabled ( bool b )
