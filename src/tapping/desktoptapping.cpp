@@ -43,7 +43,7 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/cursorfont.h>
-// #include <X11/extensions/Xrandr.h>
+
 #define MASK (ButtonPressMask | ButtonReleaseMask)
 
 DesktopTapping::DesktopTapping ( QObject * parent )
@@ -59,6 +59,25 @@ DesktopTapping::DesktopTapping ( QObject * parent )
 * Bildschirm Layouts nicht den Richtigen Screen erkennen kann.
 * An dieser Stelle gegen die Globalen Variable \b $DISPLAY Validieren.
 * Grundsätzlich gilt - \b $DISPLAY hat vorrang!
+* 
+* Wenn der Benutzer mehrere Bildschirm Layouts verwendet kann die Anzahl der Bildschirme Nummern
+* stark variieren. Beispiel Konfiguration mit mehreren Layouts aus /etc/X11/xdm/Xservers entnommen.
+* \code
+*   :0 local /usr/bin/X -nolisten tcp -config xorg.conf -layout XineramaLayout +xinerama
+*   :1 local /usr/bin/X -nolisten tcp -config xorg.conf -layout SingleLayout -xinerama
+*   u.s.w.
+* \endcode
+*
+* oder $KDEDIRS/config/kdm/kdmrc
+* \code
+*   [X-:0-Core]
+*   ServerArgsLocal=-nolisten tcp -layout XineramaLayout +xinerama -extension RandR -extension Composite
+* 
+*   [X-:1-Core]
+*   ServerArgsLocal=-nolisten tcp -layout SingleLayout -xinerama +extension RandR +extension Composite
+*
+*   u.s.w.
+* \endcode
 */
 int DesktopTapping::realDesktopScreen ( int screen ) const
 {
