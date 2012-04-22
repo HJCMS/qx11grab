@@ -33,13 +33,12 @@
 /* QtGui */
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QWidget>
-#include <QtGui/QX11Info>
 
 /**
 * \class DesktopInfo
 * Create Desktop Information from Current Screen
 */
-class DesktopInfo : public QObject, private QX11Info
+class DesktopInfo : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
@@ -49,15 +48,11 @@ class DesktopInfo : public QObject, private QX11Info
     inline qreal todar ( int w, int h ) const;
 
   Q_SIGNALS:
-    /**
-     * This signal is emitted when the size of screen changes.
-     */
+    /** This signal is emitted when the size of screen changes. */
     void resized ( int screen );
 
   public:
-    /**
-     * It is recommend to get parent object for screen identification
-     */
+    /** It is recommend to get parent object for screen identification */
     explicit DesktopInfo ( QObject * parent );
 
     /**
@@ -67,7 +62,7 @@ class DesktopInfo : public QObject, private QX11Info
     typedef struct
     {
       QString name; /**< identifier name or title */
-      int width; /**< mode with */
+      int width; /**< mode width */
       int height; /**< mode height */
       int depth; /**< current screen depth */
       QString summary; /**< Mode Description e.g.: name (width x height) */
@@ -82,29 +77,19 @@ class DesktopInfo : public QObject, private QX11Info
      */
     const FrameMode generateFrameMode ( const QString &n, int w, int h, qreal ratio = 0.0 );
 
-    /**
-     * Returns the number of the screen currently in use.
-     */
+    /** Returns the number of the screen currently in use. */
     int getScreen();
 
-    /**
-     * width request at time
-     */
+    /** width request at time */
     int getMaxWidth();
 
-    /**
-     * height request at time
-     */
+    /** height request at time */
     int getMaxHeight();
 
-    /**
-     * depth request at time
-     */
+    /** Application depth request */
     int getDepth();
 
-    /**
-     * widget that represents this screen
-     */
+    /** widget that represents this screen */
     QWidget* screenWidget();
 
     /**
@@ -133,8 +118,8 @@ class DesktopInfo : public QObject, private QX11Info
      */
     const FrameMode grabScreenGeometry ( QWidget * parent = 0 );
 
-    ~DesktopInfo();
-
+    /** destroy m_desktopWidget */
+    virtual ~DesktopInfo();
 };
 
 Q_DECLARE_METATYPE ( DesktopInfo::FrameMode )

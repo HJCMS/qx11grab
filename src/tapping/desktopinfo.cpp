@@ -31,6 +31,7 @@
 
 /* QtGui */
 #include <QtGui/QApplication>
+#include <QtGui/QX11Info>
 
 /**
 * @class DesktopInfo
@@ -38,7 +39,6 @@
 */
 DesktopInfo::DesktopInfo ( QObject * parent )
     : QObject ( parent )
-    , QX11Info()
     , m_desktopWidget ( qApp->desktop() )
 {
   connect ( m_desktopWidget, SIGNAL ( resized ( int ) ),
@@ -73,7 +73,7 @@ const DesktopInfo::FrameMode DesktopInfo::generateFrameMode ( const QString &n, 
   mode.name = n;
   mode.width = w;
   mode.height = h;
-  mode.depth = depth();
+  mode.depth = getDepth();
   mode.summary = info;
   mode.dar = ( ( ratio == 0.0 ) ? todar ( w, h ) : ratio );
 
@@ -140,7 +140,17 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
 */
 int DesktopInfo::getScreen()
 {
-  return screen();
+  int ret;
+  QByteArray x = qgetenv ( "DISPLAY" );
+  if ( ! x.isNull() && x.contains ( ':' ) )
+  {
+    // NOTE Es werden im Moment nur Bildschirme von 0-9 gelesen!
+    char d = x.at ( ( x.size() - 1 ) );
+    int s = atoi ( &d );
+    ret = ( s >= 0 ) ? s : m_desktopWidget->primaryScreen();
+    x.clear();
+  }
+  return ret;
 }
 
 /**
@@ -148,7 +158,7 @@ int DesktopInfo::getScreen()
 */
 int DesktopInfo::getMaxWidth()
 {
-  return screenGeometry ( screen() ).width();
+  return screenGeometry ( getScreen() ).width();
 }
 
 /**
@@ -156,7 +166,7 @@ int DesktopInfo::getMaxWidth()
 */
 int DesktopInfo::getMaxHeight()
 {
-  return screenGeometry ( screen() ).height();
+  return screenGeometry ( getScreen() ).height();
 }
 
 /**
@@ -164,7 +174,7 @@ int DesktopInfo::getMaxHeight()
 */
 int DesktopInfo::getDepth()
 {
-  return depth();
+  return QX11Info::appDepth ( getScreen() );
 }
 
 /**
@@ -172,7 +182,7 @@ int DesktopInfo::getDepth()
 */
 QWidget* DesktopInfo::screenWidget()
 {
-  return m_desktopWidget->screen ( screen() );
+  return m_desktopWidget->screen ( getScreen() );
 }
 
 /**
@@ -204,7 +214,7 @@ const DesktopInfo::FrameMode DesktopInfo::getFrameMode ( const QString &n, QWidg
 */
 const DesktopInfo::FrameMode DesktopInfo::grabScreenGeometry ( QWidget * parent )
 {
-  int sc = ( parent ) ? m_desktopWidget->screenNumber ( parent ) : screen();
+  int sc = ( parent ) ? m_desktopWidget->screenNumber ( parent ) : getScreen();
   QRect rect = screenGeometry ( sc );
   if ( ! rect.isValid() )
     return generateFrameMode ( trUtf8 ( "Unknown" ), 640, 480 );
