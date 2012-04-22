@@ -139,17 +139,7 @@ const QList<DesktopInfo::FrameMode> DesktopInfo::modes ( QWidget * parent )
 /** Aktuell verwendeter Bildschirm */
 int DesktopInfo::getScreen()
 {
-  int ret;
-  QByteArray x = qgetenv ( "DISPLAY" );
-  if ( ! x.isNull() && x.contains ( ':' ) )
-  {
-    // NOTE Es werden im Moment nur Bildschirme von 0-9 gelesen!
-    char d = x.at ( ( x.size() - 1 ) );
-    int s = atoi ( &d );
-    ret = ( s >= 0 ) ? s : m_desktopWidget->primaryScreen();
-    x.clear();
-  }
-  return ret;
+  return m_desktopWidget->primaryScreen();
 }
 
 /**

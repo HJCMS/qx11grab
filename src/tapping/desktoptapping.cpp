@@ -116,7 +116,7 @@ void DesktopTapping::grabWindowRect ( int screen )
   }
 
   /* programm Hauptfenster */
-  Window root = XRootWindow ( dpy, screen );
+  Window root = XRootWindow ( dpy, primaryScreen() );
 
   /* Fenster das ausgewählt wird */
   Window retwin = 0;
