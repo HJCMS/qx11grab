@@ -23,9 +23,11 @@
 
 #include <ctype.h>
 #include <unistd.h>
+#include <cstdlib>
 #include <cstdio>
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QDebug>
 #include <QtCore/QPoint>
 
@@ -53,6 +55,26 @@ DesktopTapping::DesktopTapping ( QObject * parent )
 }
 
 /**
+* Weil Qt bei TwinView, Cloned Desktops und Mehrfachen XServer
+* Bildschirm Layouts nicht den Richtigen Screen erkennen kann.
+* An dieser Stelle gegen die Globalen Variable \b $DISPLAY Validieren.
+* Grundsätzlich gilt - \b $DISPLAY hat vorrang!
+*/
+int DesktopTapping::realDesktopScreen ( int screen ) const
+{
+  int ret = screen;
+  QByteArray x = qgetenv ( "DISPLAY" );
+  if ( ! x.isNull() && x.contains ( ':' ) )
+  {
+    char d = x.at ( ( x.size() - 1 ) );
+    int s = atoi ( &d );
+    ret = ( s >= 0 ) ? s : screen;
+    x.clear();
+  }
+  return ret;
+}
+
+/**
 * Werte müssen durch 2 Teilbar sein
 * damit FFmpeg sie verwenden kann.
 */
@@ -63,7 +85,6 @@ int DesktopTapping::normalize ( int z ) const
 
 /**
 * Fenster Geometrie auf Bildschirm abgreifen
-* WARNING Im Moment werden nur Single Server und Xinerama unterstützt!
 */
 void DesktopTapping::grabWindowRect ( int screen )
 {
@@ -152,11 +173,10 @@ void DesktopTapping::grabWindowRect ( int screen )
 
 /**
 * Startet das abgreifen der Desktop Auflösung
-* TODO TwinView und Clone Desktops
 */
 void DesktopTapping::createRequest ( int screen )
 {
-  grabWindowRect ( screen );
+  grabWindowRect ( realDesktopScreen ( screen ) );
 }
 
 /**

@@ -36,6 +36,9 @@ class DesktopTapping : public QDesktopWidget
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    int realDesktopScreen ( int screen ) const;
+
   protected:
     /** Do not accept Incorrect aspect ratio specification. */
     inline int normalize ( int ) const;

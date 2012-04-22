@@ -33,14 +33,14 @@ my $repodir = file ( __FILE__ )->absolute()->parent();
 # my download repository
 my $destdir = $ENV{'HJCMS_DOWNLOAD_DIR'} . "/qx11grab";
 
-# which branch
+# get current QX11Grab branch
 sub fetch_branch()
 {
-  my $branch = 'master';
+  my $branch = 'v0.4'; ## fallback branch
   my $repo = Git->repository (Directory => $repodir);
   for ( $repo->command('branch') )
   {
-    if ( /^\*\s+(v[\d+]\.[\d])$/ )
+    if ( /^\*\s+(v[\d]\.[\d])$/ )
     {
       $branch = $1;
     }
@@ -78,7 +78,7 @@ my $branch = fetch_branch();
 my $pkg_name = "qx11grab-$pkg_version";
 
 # create a clone in /tmp and clean up
-print "- Clone to /tmp/$pkg_name\n";
+print "- Clone from branch $branch to /tmp/$pkg_name\n";
 system ( "rm", "-rf", "/tmp/$pkg_name" );
 system ( "git", "clone", "-b", "$branch", "$repodir", "/tmp/$pkg_name" );
 print "- Clearing /tmp/$pkg_name\n";

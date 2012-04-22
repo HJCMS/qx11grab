@@ -437,7 +437,7 @@ const QString GrabberInfo::getGeometry()
 */
 const QString GrabberInfo::getX11GrabIdent()
 {
-  // FIXME Multible ScreenLayouts
+  // FIXME Multiple ScreenLayouts
   QString p_display ( ":0" );
   QByteArray xdisplay = qgetenv ( "DISPLAY" );
   if ( ! xdisplay.isNull() )
