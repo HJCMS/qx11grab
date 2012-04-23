@@ -6,6 +6,7 @@ SET (_subproject_SOURCES
   metadata.cpp
   screencombobox.cpp
   cspinbox.cpp
+  screenbox.cpp
   grabberinfo.cpp
 )
 
@@ -13,6 +14,7 @@ SET (_subproject_HEADERS
   metadata.h
   screencombobox.h
   cspinbox.h
+  screenbox.h
   grabberinfo.h
 )
 

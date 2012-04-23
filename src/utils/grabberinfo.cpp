@@ -23,6 +23,7 @@
 #include "desktopinfo.h"
 #include "screencombobox.h"
 #include "cspinbox.h"
+#include "screenbox.h"
 #include "desktoptapping.h"
 
 /* QtCore */
@@ -171,8 +172,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt7->setAlignment ( labelAlignment );
   horizontalLayout->addWidget ( txt7, Qt::AlignRight );
 
-  m_screenBox = new QSpinBox ( this );
-  m_screenBox->setRange ( 0, 8 );
+  m_screenBox = new ScreenBox ( this );
   /*: WhatsThis */
   m_screenBox->setToolTip ( trUtf8 ( "current selected screen" ) );
   horizontalLayout->addWidget ( m_screenBox, Qt::AlignLeft );
@@ -268,9 +268,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   // Updates
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
-            this, SLOT ( integerUpdate ( int ) ) );
-
-  connect ( m_screenBox, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
 
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
@@ -423,23 +420,25 @@ int GrabberInfo::frameRate()
   return ( rate > 0 ) ? rate : 25;
 }
 
-/**
-* Gibt die Aktuelle Geometrie zurück.
-*/
+/** Gibt die Aktuelle Bildschirm Erkennung zurück */
+const QString GrabberInfo::getScreens()
+{
+  return m_screenBox->text();
+}
+
+/** Gibt die Aktuelle Geometrie zurück. */
 const QString GrabberInfo::getGeometry()
 {
   QRect r = getRect();
   return QString ( "%1x%2" ).arg ( QString::number ( r.width() ), QString::number ( r.height() ) );
 }
 
-/**
-* Gibt die Aktuelle Geometrie zurück.
-*/
+/** Komplette Bildschirm und Abmessungen ausgeben */
 const QString GrabberInfo::getX11GrabIdent()
 {
   QRect r = getRect();
-  return QString ( ":%1+%2,%3 " ) .arg (
-             QString::number ( m_screenBox->value() ),
+  return QString::fromUtf8 ( "%1+%2,%3" ).arg (
+             m_screenBox->text(),
              QString::number ( r.x() ),
              QString::number ( r.y() )
          );

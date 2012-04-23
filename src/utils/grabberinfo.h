@@ -30,12 +30,14 @@
 
 /* QtGui */
 #include <QtGui/QCheckBox>
+#include <QtGui/QDoubleSpinBox>
 #include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
 
 class ScreenComboBox;
 class CSpinBox;
+class ScreenBox;
 class DesktopInfo;
 class DesktopTapping;
 
@@ -58,7 +60,7 @@ class GrabberInfo : public QWidget
     QSlider* setXSlider;
     CSpinBox* setYBox;
     QSlider* setYSlider;
-    QSpinBox* m_screenBox;
+    ScreenBox* m_screenBox;
     QSpinBox* setDepth;
     QSpinBox* setFrameRate;
 
@@ -86,10 +88,22 @@ class GrabberInfo : public QWidget
     void setScreenHeight ( int h );
     void setScreenX ( int x );
     void setScreenY ( int y );
+
+    /** Rectangle Rect */
     const QRect getRect();
+
+    /** Framerate */
     int frameRate();
+
+    /** Screens Definition \e Example \b:0.0 */
+    const QString getScreens();
+
+    /** Screen Geometry */
     const QString getGeometry();
+
+    /** FFmpeg Definition for x11grab Input */
     const QString getX11GrabIdent();
+
     ~GrabberInfo();
 };
 
