@@ -25,12 +25,14 @@
 /* QtCore */
 #include <QtCore/QHash>
 #include <QtCore/QSettings>
+#include <QtCore/QSize>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QIcon>
+#include <QtGui/QPixmap>
 
 class Settings : public QSettings
 {
@@ -40,134 +42,91 @@ class Settings : public QSettings
   public:
     Settings ( QObject * parent = 0 );
 
-    /**
-     * Display Rubberband on Application start
-     */
+    /** Display Rubberband on Application start */
     bool showRubberOnStart();
 
-    /**
-     * Muster of the Univers ;)
-     */
+    /** Muster of the Univers ;) */
     bool expertMode();
 
     /**
-     * Write Group Options
-     */
+    * Write Group Options
+    * \param group  Group Section
+    * \param data   Dataset
+    */
     void saveGroup ( const QString &group, const QHash<QString,QVariant> &data );
 
     /**
-     * Group Options
-     */
-    const QHash<QString,QVariant> readGroup ( const QString &group = QLatin1String ( "VideoOptions" ) );
+    * Read Group Options
+    * \param group  Group Section
+    */
+    const QHash<QString,QVariant> readGroup ( const QString &group );
 
-    /**
-     * FFmpeg Binary path
-     **/
+    /** FFmpeg Binary path */
     const QString binaryPath();
 
-    /**
-     * Output Directory
-     **/
+    /** Output Directory */
     const QString outputDirectory();
 
-    /**
-     * Template Name
-     **/
+    /** Template Name */
     const QString outputTemplateName();
 
-    /**
-     * temporary output file configuration
-     **/
+    /** temporary output file configuration */
     void setOutputPath ( const QString &fullpath );
 
-    /**
-     * temporary output file configuration
-     **/
+    /** temporary output file configuration */
     const QString absoluteOutputPath();
 
-    /**
-     * FFmpeg -loglevel
-     **/
+    /** FFmpeg -loglevel */
     void setLogLevel ( const QString &level );
 
     /**
      * FFmpeg -loglevel
-     **/
+     */
     const QString logLevel();
 
-    /**
-     * Save Audio Engine
-     **/
+    /** Save Audio Engine */
     void setAudioEngine ( const QString &engine );
 
-    /**
-     * Audio Engine
-     **/
+    /** Audio Engine */
     const QString audioEngine();
 
-    /**
-     * Save Audio Device
-     **/
+    /** Save Audio Device */
     void setAudioDevice ( const QString &path );
 
-    /**
-     * Audio Device
-     **/
+    /** Audio Device */
     const QString audioDevice();
 
-    /**
-     * save Audio Volume
-     **/
+    /** save Audio Volume */
     void setAudioVolume ( qint16 i );
 
-    /**
-     * Audio Volume
-     **/
+    /** Audio Volume */
     qint16 audioVolume();
 
-    /**
-     * Save Sample Format
-     **/
+    /** Save Sample Format */
     void setSampleFormat ( const QString &format );
 
-    /**
-     * Sample Format
-     **/
+    /** Sample Format */
     const QString sampleFormat();
 
-    /**
-     * Save Audio Media Type
-     **/
+    /** Save Audio Media Type */
     void setAudioType ( const QString &type );
 
-    /**
-     * Audio Media Type
-     **/
+    /** Audio Media Type */
     const QString audioType();
 
-    /**
-     * save Audio Device Description Commandline
-     **/
+    /** save Audio Device Description Commandline */
     void setAudioDeviceCommand ( const QStringList &cmd );
 
-    /**
-     * Audio Device Description Commandline
-     **/
+    /** Audio Device Description Commandline */
     const QStringList getAudioDeviceCommand ();
 
-    /**
-     * save Commandline
-     **/
+    /** save Commandline */
     void setCommandLine ( const QStringList &cmd );
 
-    /**
-     * get Current Commandline
-     **/
+    /** get Current Commandline */
     const QStringList getCommandline();
 
-    /**
-     * read Extra Commandline Options
-     **/
+    /** read Extra Commandline Options */
     const QStringList getExpertCommand();
 
     /**
@@ -176,16 +135,27 @@ class Settings : public QSettings
      * @param key    settings value keyword
      * @param val    e.g. ( Settings::value(key) == val )
      * @param sub    search value from other subkeyword
-     **/
+     */
     const QVariant getArrayItem ( const QString &group, const QString &ref,
                                   const QString &value, const QString &sub );
 
     /**
-    * @short fallback  icon theme method
-    * find Oxygen Theme Icon or receive it from qrc
+    * Returns the QIcon corresponding to name in the current icon theme.
+    * If no such icon is found in the oxygen theme fallback from qrc is returned instead.
+     * @param icon    icon name
+     * @param broken  fallback from qrc
     */
     static const QIcon themeIcon ( const QString &icon,
-                                   const QString &broken = QString::fromUtf8 ( "broken" ) );
+                                   const QString &broken = QLatin1String ( "broken" ) );
+
+    /**
+    * find PNG Image in ${prefix}/share/pixmaps/qx11grab/${name}.png
+    * If not found a null Pixmap is returned
+    * @param name Filename without Extension
+    * @param size Resize Pixmap to Size
+    * @note This function was introduced in QX11Grab v0.4.4
+    */
+    static const QPixmap pixmapIcon ( const QString &name, const QSize &size = QSize ( 48, 48 ) );
 
     /** recording logfile */
     static const QString logfile();

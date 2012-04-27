@@ -32,6 +32,7 @@
 #include <QtCore/QHashIterator>
 
 /* QtGui */
+#include <QtGui/QApplication>
 #include <QtGui/QPixmap>
 
 Settings::Settings ( QObject *parent )
@@ -247,7 +248,7 @@ const QVariant Settings::getArrayItem ( const QString &group, const QString &ref
     for ( int i = 0; i < size; ++i )
     {
       setArrayIndex ( i );
-      if ( value ( ref ).toString().compare( val ) == 0 )
+      if ( value ( ref ).toString().compare ( val ) == 0 )
       {
         ret = value ( sub );
         break;
@@ -260,6 +261,8 @@ const QVariant Settings::getArrayItem ( const QString &group, const QString &ref
 
 /**
 * Sucht nach einem Symbol, wenn nicht gefunden andere Auswahl setzen!
+* \param icon    Titel ohne Erweiterung
+* \param broken  Ausweich Titel
 * NOTE Ist abhängig von application.cpp Q_INIT_RESOURCE
 */
 const QIcon Settings::themeIcon ( const QString &icon, const QString &broken )
@@ -281,6 +284,37 @@ const QIcon Settings::themeIcon ( const QString &icon, const QString &broken )
   fallbackIcon.addPixmap ( pixmap, QIcon::Normal, QIcon::Off );
 
   return QIcon::fromTheme ( icon, fallbackIcon );
+}
+
+/**
+* Sucht nach einer Bilddatei im Pixmaps Verzeichnis
+* \param name   Titel ohne Erweiterung
+* \param size   Größenangabe wenn geändert werden soll
+*/
+const QPixmap Settings::pixmapIcon ( const QString &name, const QSize &size )
+{
+  QString pixmapPath ( "/usr/share/pixmaps/qx11grab" ); // Standard
+  QDir p_dir;
+  QStringList paths ( "/usr/share/pixmaps/qx11grab" );
+  paths << "/usr/local/share/pixmaps/qx11grab";
+  paths << qApp->applicationDirPath() + "../share/pixmaps/qx11grab" ;
+  p_dir.setSearchPaths ( "pixmaps", paths );
+  foreach ( QString path, p_dir.searchPaths ( "pixmaps" ) )
+  {
+    p_dir.setPath ( path );
+    if ( p_dir.exists() )
+    {
+      pixmapPath = p_dir.absolutePath();
+      break;
+    }
+  }
+
+  QString p = QString ( "%1/%2.png" ).arg ( pixmapPath, name );
+  QPixmap pixmap ( p, "PNG", Qt::AutoColor );
+  if ( pixmap.isNull() )
+    return QPixmap();
+
+  return ( pixmap.size() == size ) ? pixmap : pixmap.scaled ( size, Qt::KeepAspectRatio );
 }
 
 /**

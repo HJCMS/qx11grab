@@ -530,13 +530,13 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>DesktopInfo</name>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="222"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="212"/>
         <source>Fullscreen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/tapping/desktopinfo.cpp" line="208"/>
-        <location filename="../src/tapping/desktopinfo.cpp" line="219"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="198"/>
+        <location filename="../src/tapping/desktopinfo.cpp" line="209"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -809,24 +809,24 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="65"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="66"/>
         <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="71"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="72"/>
         <source>predefined frame sizes</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="77"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="78"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="86"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="94"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="87"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="95"/>
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -834,13 +834,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="100"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="101"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="109"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="117"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="110"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="118"/>
         <source>made rubberband height smaller/greater</source>
         <extracomment>WhatsThis
 ----------
@@ -848,13 +848,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="123"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="124"/>
         <source>Position X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="132"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="140"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="133"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="141"/>
         <source>Displaces x-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -862,13 +862,13 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="146"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="147"/>
         <source>Position Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="155"/>
-        <location filename="../src/utils/grabberinfo.cpp" line="163"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="156"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="164"/>
         <source>Displaces y-axis coordinates from Rubberband</source>
         <extracomment>WhatsThis
 ----------
@@ -876,7 +876,7 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="170"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="171"/>
         <source>Screen:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2028,69 +2028,69 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>TextPosition</name>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="46"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="67"/>
         <source>Text Position</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="50"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="70"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="51"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="71"/>
         <source>Top Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="52"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="72"/>
         <source>Top Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="53"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="73"/>
         <source>Top Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="54"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="74"/>
         <source>Middle Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="55"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="75"/>
         <source>Middle Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="56"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="76"/>
         <source>Middle Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="57"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="77"/>
         <source>Bottom Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="58"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="78"/>
         <source>Bottom Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="59"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="79"/>
         <source>Bottom Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="64"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="84"/>
         <source>Horizontal Text Indent</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/filters/drawtext/textposition.cpp" line="70"/>
+        <location filename="../src/filters/drawtext/textposition.cpp" line="90"/>
         <source>Vertical Text Indent</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
