@@ -33,9 +33,10 @@
 
 static const QIcon query_extra_icon ( const QString &n )
 {
-  QString realname = QString ( "qx11grab_position_%1.png" ).arg ( n );
+  QString rname = QString ( "qx11grab_position_%1" ).arg ( n );
   QIcon scIcon = QIcon::fromTheme ( "video-display" );
-  return QIcon::fromTheme ( realname, scIcon );
+  qDebug() << Q_FUNC_INFO << rname;
+  return QIcon::fromTheme ( rname, scIcon );
 }
 
 TextPosition::TextPosition ( QWidget * parent )

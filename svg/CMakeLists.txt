@@ -27,7 +27,7 @@ IF (INKSCAPE_BINARY)
     EXECUTE_PROCESS (COMMAND ${INKSCAPE_BINARY} --export-png=${ARCHIVE_OUTPUT_PATH}/${tpl}.png --without-gui --vacuum-defs --export-dpi=72 --export-width=48 --export-height=48 --export-background=ffffffff ${CMAKE_CURRENT_SOURCE_DIR}/${tpl}.svg)
     INSTALL (FILES
       ${ARCHIVE_OUTPUT_PATH}/${tpl}.png
-      DESTINATION share/icons/hicolor/48x48/actions/
+      DESTINATION share/pixmaps/
       RENAME qx11grab_${tpl}.png
       COMPONENT data
     )
