@@ -31,6 +31,13 @@
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 
+static const QIcon query_extra_icon ( const QString &n )
+{
+  QString realname = QString ( "qx11grab_position_%1.png" ).arg ( n );
+  QIcon scIcon = QIcon::fromTheme ( "video-display" );
+  return QIcon::fromTheme ( realname, scIcon );
+}
+
 TextPosition::TextPosition ( QWidget * parent )
     : QWidget ( parent )
     , _x ( "5" )
@@ -45,18 +52,17 @@ TextPosition::TextPosition ( QWidget * parent )
   /*: ToolTip */
   m_comboBox->setToolTip ( trUtf8 ( "Text Position" ) );
 
-  QIcon scIcon = QIcon::fromTheme ( "video-display" );
   int i = 0;
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Position" ), UNKNOWN );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Top Left" ), TOP_LEFT );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Top Centered" ), TOP_CENTER );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Top Right" ), TOP_RIGHT );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Middle Left" ), MIDDLE_LEFT );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Middle Centered" ), MIDDLE_CENTER );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Middle Right" ), MIDDLE_RIGHT );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Bottom Left" ), BOTTOM_LEFT );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Bottom Centered" ), BOTTOM_CENTER );
-  m_comboBox->insertItem ( i++, scIcon,  trUtf8 ( "Bottom Right" ), BOTTOM_RIGTH );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "unknown" ),  trUtf8 ( "Position" ), UNKNOWN );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "top_left" ),  trUtf8 ( "Top Left" ), TOP_LEFT );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "top_center" ),  trUtf8 ( "Top Centered" ), TOP_CENTER );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "top_right" ),  trUtf8 ( "Top Right" ), TOP_RIGHT );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "middle_left" ),  trUtf8 ( "Middle Left" ), MIDDLE_LEFT );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "middle_center" ),  trUtf8 ( "Middle Centered" ), MIDDLE_CENTER );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "middle_right" ),  trUtf8 ( "Middle Right" ), MIDDLE_RIGHT );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "bottom_left" ),  trUtf8 ( "Bottom Left" ), BOTTOM_LEFT );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "bottom_center" ),  trUtf8 ( "Bottom Centered" ), BOTTOM_CENTER );
+  m_comboBox->insertItem ( i++, query_extra_icon ( "bottom_rigth" ),  trUtf8 ( "Bottom Right" ), BOTTOM_RIGTH );
   layout->addWidget ( m_comboBox );
 
   m_xIndent = new QSpinBox ( this );

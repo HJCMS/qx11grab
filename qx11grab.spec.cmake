@@ -124,6 +124,7 @@ popd
 ## Images
 %{_datadir}/pixmaps/qx11grab.png
 %{_datadir}/icons/hicolor/*/apps/qx11grab.png
+%{_datadir}/icons/hicolor/*/actions/qx11grab_position_*.png
 %{_datadir}/icons/hicolor/scalable/apps/qx11grab.svgz
 ## Manpages
 %doc %{_mandir}/de/man1/qx11grab.1*

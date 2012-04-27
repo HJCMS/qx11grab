@@ -78,6 +78,10 @@ DesktopTapping::DesktopTapping ( QObject * parent )
 *
 *   u.s.w.
 * \endcode
+*
+* \note Es werden im Moment nur Bildschirme von 0-9 ausgewertet!
+*       Wenn dieser Wert verändert wird muß auch die Klasse \ref ScreenBox modifiziert werden!
+*
 */
 int DesktopTapping::realDesktopScreen ( int screen ) const
 {
@@ -85,9 +89,8 @@ int DesktopTapping::realDesktopScreen ( int screen ) const
   QByteArray x = qgetenv ( "DISPLAY" );
   if ( ! x.isNull() && x.contains ( ':' ) )
   {
-    // NOTE Es werden im Moment nur Bildschirme von 0-9 gelesen!
     char d = x.at ( ( x.size() - 1 ) );
-    int s = atoi ( &d );
+    int s = std::atoi ( &d );
     ret = ( s >= 0 ) ? s : screen;
     x.clear();
   }

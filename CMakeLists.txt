@@ -325,6 +325,7 @@ IF (QT_LRELEASE_EXECUTABLE)
 ENDIF (QT_LRELEASE_EXECUTABLE)
 ADD_SUBDIRECTORY (icons)
 ADD_SUBDIRECTORY (ffpresets)
+ADD_SUBDIRECTORY (svg)
 
 ##############################################################
 ## LGPL/GPL3 Exceptions
