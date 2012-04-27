@@ -25,18 +25,28 @@
 #include <QtCore/QDebug>
 #include <QtCore/QMetaEnum>
 #include <QtCore/QMetaType>
+#include <QtCore/QSize>
 #include <QtCore/QVariant>
 
 /* QtGui */
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
+#include <QtGui/QPixmap>
 
 static const QIcon query_extra_icon ( const QString &n )
 {
-  QString rname = QString ( "qx11grab_position_%1" ).arg ( n );
+  QString p = "../share/pixmaps/";
   QIcon scIcon = QIcon::fromTheme ( "video-display" );
-  qDebug() << Q_FUNC_INFO << rname;
-  return QIcon::fromTheme ( rname, scIcon );
+  QSize dSize = scIcon.pixmap ( 0, QIcon::Normal, QIcon::On ).size();
+  QPixmap pixmap ( QString ( "%1/qx11grab_position_%2.png" ).arg ( p, n ), "PNG", Qt::AutoColor );
+  if ( pixmap.isNull() )
+    return scIcon;
+
+  QIcon icon ( pixmap.scaled ( dSize, Qt::KeepAspectRatio, Qt::FastTransformation ) );
+  if ( icon.isNull() )
+    return scIcon;
+
+  return icon;
 }
 
 TextPosition::TextPosition ( QWidget * parent )
