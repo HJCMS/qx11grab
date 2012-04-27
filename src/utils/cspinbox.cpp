@@ -27,10 +27,8 @@
 #include <QtCore/QRect>
 
 /* QtGui */
-#include <QtGui/QColor>
-#include <QtGui/QPainter>
-#include <QtGui/QPen>
-#include <QtGui/QStyle>
+#include <QtGui/QBrush>
+#include <QtGui/QPalette>
 #include <QtGui/QStyleOptionSpinBox>
 
 /**
@@ -40,25 +38,38 @@
 */
 CSpinBox::CSpinBox ( QWidget * parent )
     : QSpinBox ( parent )
+    , invalid ( Qt::red )
+    , normal ( palette().text().color() )
 {
   setObjectName ( QLatin1String ( "CSpinBox" ) );
+  setCorrectionMode ( QAbstractSpinBox::CorrectToPreviousValue );
 }
 
 /**
-* Zeichne bei Ungeraden Werten einen roten Seitenbalken!
+* Bei Ungeraden Werten den Text hervorheben!
 */
 void CSpinBox::paintEvent ( QPaintEvent * event )
 {
+  QStyleOptionSpinBox option;
+  option.initFrom ( this );
+  QPalette p = option.palette;
+  p.setColor ( QPalette::Text, ( ( ( value() % 2 ) != 0 ) ? invalid : normal ) );
+  setPalette ( p );
   QSpinBox::paintEvent ( event );
-  if ( ( value() % 2 ) != 0 )
-  {
-    QStyleOptionSpinBox panel;
-    initStyleOption ( &panel );
-    QLineF lf ( panel.rect.topLeft(), panel.rect.bottomLeft() );
-    QPainter painter ( this );
-    painter.setPen ( Qt::red );
-    painter.drawLine ( lf );
-  }
+}
+
+/**
+* Bei Ungeraden Werten \b QValidator::Invalid zurück geben!
+*/
+QValidator::State CSpinBox::validate ( QString &input, int &pos ) const
+{
+  Q_UNUSED ( pos );
+  bool b;
+  int i = input.toUInt ( &b, 10 );
+  if ( b )
+    return ( ( i % 2 ) != 0 ) ? QValidator::Acceptable : QValidator::Invalid;
+
+  return QValidator::Acceptable; // fallback
 }
 
 CSpinBox::~CSpinBox()

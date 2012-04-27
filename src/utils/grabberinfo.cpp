@@ -125,7 +125,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt5->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt5, grow, 0, 1, 1 );
 
-  setXBox = new CSpinBox ( this );
+  setXBox = new QSpinBox ( this );
   setXBox->setObjectName ( QLatin1String ( "setXBox" ) );
   setXBox->setMinimum ( 0 );
   setXBox->setValue ( 0 );
@@ -148,7 +148,7 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt6->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt6, grow, 0, 1, 1 );
 
-  setYBox = new CSpinBox ( this );
+  setYBox = new QSpinBox ( this );
   setYBox->setObjectName ( QLatin1String ( "setYBox" ) );
   setYBox->setMinimum ( 0 );
   setYBox->setValue ( 0 );

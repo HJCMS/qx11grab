@@ -27,8 +27,11 @@
 #include <QtCore/QString>
 
 /* QtGui */
+#include <QtGui/QAbstractSpinBox>
+#include <QtGui/QColor>
 #include <QtGui/QPaintEvent>
 #include <QtGui/QSpinBox>
+#include <QtGui/QValidator>
 #include <QtGui/QWidget>
 
 class CSpinBox : public QSpinBox
@@ -37,13 +40,18 @@ class CSpinBox : public QSpinBox
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
+  private:
+    const QColor invalid;
+    const QColor normal;
+
   protected:
     virtual void paintEvent ( QPaintEvent * event );
+    virtual QValidator::State validate ( QString & input, int & pos ) const;
 
   public:
     /**
-    * spinbox with modified border style
-    * if value is non-divisible it will paint a red left border
+    * spinbox with font color
+    * if value is non-divisible it will paint a red text
     */
     explicit CSpinBox ( QWidget * parent = 0 );
     ~CSpinBox();

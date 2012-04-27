@@ -56,9 +56,9 @@ class GrabberInfo : public QWidget
     QSlider* setWidthSlider;
     CSpinBox* setHeightBox;
     QSlider* setHeightSlider;
-    CSpinBox* setXBox;
+    QSpinBox* setXBox;
     QSlider* setXSlider;
-    CSpinBox* setYBox;
+    QSpinBox* setYBox;
     QSlider* setYSlider;
     ScreenBox* m_screenBox;
     QSpinBox* setDepth;

@@ -235,7 +235,7 @@ const QStringList Settings::getExpertCommand()
 * Sucht nach Array Einträgen!
 * \param group  Gruppe
 * \param key    Schlüsselwort
-* \param val    Denn Wert für Schlüssel z.b.: ( Settings::value(key) == value )
+* \param val    Den Wert für Schlüssel z.b.: ( Settings::value(key) == value )
 * \param sub    Gesuchter Ausgabe Schlüssel der mit value Referenziert wurde!
 */
 const QVariant Settings::getArrayItem ( const QString &group, const QString &ref,
