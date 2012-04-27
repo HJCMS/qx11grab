@@ -214,6 +214,14 @@ ELSE (DBUS_FOUND)
   MESSAGE (FATAL_ERROR "DBus not found")
 ENDIF (DBUS_FOUND)
 
+
+FIND_PROGRAM (INKSCAPE_BINARY NAMES inkscape)
+IF (INKSCAPE_BINARY)
+  MESSAGE (STATUS "Extra Theme Pixmaps")
+ELSE (INKSCAPE_BINARY)
+  MESSAGE (WARNING "Missing Inkscape for building extra icons!")
+ENDIF (INKSCAPE_BINARY)
+
 ##############################################################
 ## INCLUDES
 ##############################################################
@@ -325,7 +333,9 @@ IF (QT_LRELEASE_EXECUTABLE)
 ENDIF (QT_LRELEASE_EXECUTABLE)
 ADD_SUBDIRECTORY (icons)
 ADD_SUBDIRECTORY (ffpresets)
-ADD_SUBDIRECTORY (svg)
+IF (INKSCAPE_BINARY)
+  ADD_SUBDIRECTORY (svg)
+ENDIF (INKSCAPE_BINARY)
 
 ##############################################################
 ## LGPL/GPL3 Exceptions
@@ -387,6 +397,7 @@ summary (ENABLE_DRAWTEXT_FILTER "drawtext filter" TRUE)
 summary (ENABLE_WEBCAM_FILTER "webcam filter" TRUE)
 MESSAGE ("")
 MESSAGE ("Optional Packages:")
+summary (INKSCAPE_BINARY "inkscape" TRUE)
 summary (PULSE_FOUND "pulseaudio" TRUE)
 summary (KDE4_FOUND "kde4" TRUE)
 MESSAGE ("")

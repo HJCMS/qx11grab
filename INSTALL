@@ -62,91 +62,95 @@ openSUSE RPM INSTALLATION:
 
 INSTALL_TREE:
 /usr
-  |-- bin
-  |   `-- qx11grab
-  |-- lib
-  |   `-- qx11grab
-  |       |-- lib*.so
-  `-- share
-      |-- applications
-      |   `-- qx11grab.desktop
-      |-- dbus-1
-      |   |-- interfaces
-      |   |   `-- de.hjcms.qx11grab.xml
-      |   `-- services
-      |       `-- de.hjcms.qx11grab.service
-      |-- icons
-      |   `-- hicolor
-      |       |-- 128x128
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 16x16
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 192x192
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 22x22
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 24x24
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 32x32
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 36x36
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 48x48
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 64x64
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       |-- 96x96
-      |       |   `-- apps
-      |       |       `-- qx11grab.png
-      |       `-- scalable
-      |           `-- apps
-      |               `-- qx11grab.svgz
-      |-- libx264-QX11Grab.ffpreset
-      |-- libx264-baseline.ffpreset
-      |-- libx264-default.ffpreset
-      |-- libx264-fast.ffpreset
-      |-- libx264-faster.ffpreset
-      |-- libx264-hq.ffpreset
-      |-- libx264-main.ffpreset
-      |-- libx264-max.ffpreset
-      |-- libx264-medium.ffpreset
-      |-- libx264-placebo.ffpreset
-      |-- libx264-slow.ffpreset
-      |-- libx264-slower.ffpreset
-      |-- libx264-ultrafast.ffpreset
-      |-- libx264-veryfast.ffpreset
-      |-- libx264-veryslow.ffpreset
-      |-- man
-      |   |-- de
-      |   |   `-- man1
-      |   |       `-- qx11grab.1
-      |   `-- man1
-      |       `-- qx11grab.1
-      |-- pixmaps
-      |   `-- qx11grab.png
-      |-- qt
-      |   `-- translations
-      |       |-- qx11grab_cs.qm
-      |       |-- qx11grab_de.qm
-      |       |-- qx11grab_lt.qm
-      |       `-- qx11grab_sr_RS.qm
-      `-- qx11grab
-          |-- AUTHORS
-          |-- COPYING
-          |-- ChangeLog
-          |-- NEWS
-          |-- README
-          |-- options
-          |   |-- libvpx.xml
-          |   |-- libx264.xml
-          |   `-- options.dtd
-          `-- qx11grab_untranslated.ts
+|-- bin
+|   `-- qx11grab
+|-- lib
+|   `-- qx11grab
+|       |-- libUnsharp.so
+|       |-- libdrawtext.so
+|       |-- libfade.so
+|       |-- libsetdar.so
+|       |-- libwatermark.so
+|       `-- libwebcam.so
+`-- share
+    |-- applications
+    |   `-- qx11grab.desktop
+    |-- dbus-1
+    |   |-- interfaces
+    |   |   `-- de.hjcms.qx11grab.xml
+    |   `-- services
+    |       `-- de.hjcms.qx11grab.service
+    |-- ffmpeg
+    |   |-- libx264-QX11Grab.ffpreset
+    |   |-- libx264-*.ffpreset
+    |-- icons
+    |   `-- hicolor
+    |       |-- 128x128
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 16x16
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 192x192
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 22x22
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 24x24
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 32x32
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 36x36
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 48x48
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 64x64
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       |-- 96x96
+    |       |   `-- apps
+    |       |       `-- qx11grab.png
+    |       `-- scalable
+    |           `-- apps
+    |               `-- qx11grab.svgz
+    |-- man
+    |   |-- de
+    |   |   `-- man1
+    |   |       `-- qx11grab.1
+    |   `-- man1
+    |       `-- qx11grab.1
+    |-- pixmaps
+    |   |-- qx11grab
+    |   |   |-- position_bottom_center.png
+    |   |   |-- position_bottom_left.png
+    |   |   |-- position_bottom_rigth.png
+    |   |   |-- position_middle_center.png
+    |   |   |-- position_middle_left.png
+    |   |   |-- position_middle_right.png
+    |   |   |-- position_top_center.png
+    |   |   |-- position_top_left.png
+    |   |   |-- position_top_right.png
+    |   |   `-- position_unknown.png
+    |   `-- qx11grab.png
+    |-- qt
+    |   `-- translations
+    |       |-- qx11grab_cs.qm
+    |       |-- qx11grab_de.qm
+    |       |-- qx11grab_lt.qm
+    |       `-- qx11grab_sr_RS.qm
+    `-- qx11grab
+        |-- AUTHORS
+        |-- COPYING
+        |-- ChangeLog
+        |-- NEWS
+        |-- README
+        |-- options
+        |   |-- libvpx.xml
+        |   |-- libx264.xml
+        |   `-- options.dtd
+        `-- qx11grab_untranslated.ts

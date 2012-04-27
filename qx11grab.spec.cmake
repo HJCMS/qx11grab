@@ -123,7 +123,8 @@ popd
 %{_datadir}/dbus-1/services/*.qx11grab.service
 ## Images
 %{_datadir}/pixmaps/qx11grab.png
-%{_datadir}/pixmaps/qx11grab_position_*.png
+%dir %{_datadir}/pixmaps//qx11grab
+%{_datadir}/pixmaps//qx11grab/*.png
 %{_datadir}/icons/hicolor/*/actions/qx11grab_position_*.png
 %{_datadir}/icons/hicolor/scalable/apps/qx11grab.svgz
 ## Manpages

@@ -31,6 +31,10 @@
 # define QX11GRAB_MODULES_PATH    "@QX11GRAB_MODULES_PATH@"
 #endif
 
+#ifndef QX11GRAB_INSTALL_PREFIX
+# define QX11GRAB_INSTALL_PREFIX    "@CMAKE_INSTALL_PREFIX@"
+#endif
+
 /* QtCore */
 #include <QtCore/QMetaObject>
 #include <QtCore/QObject>

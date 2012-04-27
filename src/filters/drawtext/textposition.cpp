@@ -21,6 +21,9 @@
 
 #include "textposition.h"
 
+/* QX11Grab */
+#include "interface.h"
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QMetaEnum>
@@ -35,10 +38,10 @@
 
 static const QIcon query_extra_icon ( const QString &n )
 {
-  QString p = "../share/pixmaps/";
+  QString p = QString ( "%1/share/pixmaps/qx11grab/position_%2.png" ).arg ( QX11GRAB_INSTALL_PREFIX, n );
   QIcon scIcon = QIcon::fromTheme ( "video-display" );
   QSize dSize = scIcon.pixmap ( 0, QIcon::Normal, QIcon::On ).size();
-  QPixmap pixmap ( QString ( "%1/qx11grab_position_%2.png" ).arg ( p, n ), "PNG", Qt::AutoColor );
+  QPixmap pixmap ( p, "PNG", Qt::AutoColor );
   if ( pixmap.isNull() )
     return scIcon;
 
