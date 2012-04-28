@@ -55,11 +55,26 @@ DesktopTapping::DesktopTapping ( QObject * parent )
 }
 
 /**
+*
+*/
+int DesktopTapping::subWindowScreen ( const QByteArray &screen ) const
+{
+  int ret = 0;
+  if ( ! screen.isNull() && screen.contains ( ':' ) )
+  {
+    char d = screen.at ( ( screen.size() - 1 ) );
+    int s = std::atoi ( &d );
+    ret = ( s >= 0 ) ? s : 0;
+  }
+  return ret;
+}
+
+/**
 * Weil Qt bei TwinView, Cloned Desktops und Mehrfachen XServer
 * Bildschirm Layouts nicht den Richtigen Screen erkennen kann.
 * An dieser Stelle gegen die Globalen Variable \b $DISPLAY Validieren.
 * Grundsätzlich gilt - \b $DISPLAY hat vorrang!
-* 
+*
 * Wenn der Benutzer mehrere Bildschirm Layouts verwendet kann die Anzahl der Bildschirme Nummern
 * stark variieren. Beispiel Konfiguration mit mehreren Layouts aus /etc/X11/xdm/Xservers entnommen.
 * \code
@@ -71,16 +86,16 @@ DesktopTapping::DesktopTapping ( QObject * parent )
 * oder $KDEDIRS/config/kdm/kdmrc
 * \code
 *   [X-:0-Core]
-*   ServerArgsLocal=-nolisten tcp -layout XineramaLayout +xinerama -extension RandR -extension Composite
-* 
+*   ServerArgsLocal=-nolisten tcp -layout XineramaLayout +xinerama -extension RANDR -extension Composite
+*
 *   [X-:1-Core]
-*   ServerArgsLocal=-nolisten tcp -layout SingleLayout -xinerama +extension RandR +extension Composite
+*   ServerArgsLocal=-nolisten tcp -layout SingleLayout -xinerama +extension RANDR +extension Composite
 *
 *   u.s.w.
 * \endcode
 *
-* \note Es werden im Moment nur Bildschirme von 0-9 ausgewertet!
-*       Wenn dieser Wert verändert wird muß auch die Klasse \ref ScreenBox modifiziert werden!
+* \note Es werden im Moment nur Bildschirme von 0-9 ausgewertet! \n
+* Wenn dieser Wert verändert wird muß auch die Klasse \ref ScreenBox modifiziert werden!
 *
 */
 int DesktopTapping::realDesktopScreen ( int screen ) const
@@ -108,8 +123,12 @@ int DesktopTapping::normalize ( int z ) const
 
 /**
 * Fenster Geometrie auf Bildschirm abgreifen
+* \warning Wir verwenden Qt:DISPLAY und nicht X:Display \n
+*   Hiermit sind wegen \e XLIB_ILLEGAL_ACCESS einige Einschränkungen verbunden!
+* \li Wir haben \b nicht die ganze Klassen-Struktur wie unter XLib!
+* \li Daraus ergibt sich: Das \e screen_number unf \e number fehlen!
 */
-void DesktopTapping::grabWindowRect ( int screen )
+void DesktopTapping::grabWindowRect ()
 {
   Display* dpy;
   if ( ( dpy = XOpenDisplay ( NULL ) ) == NULL )
@@ -119,7 +138,7 @@ void DesktopTapping::grabWindowRect ( int screen )
   }
 
   /* programm Hauptfenster */
-  Window root = XRootWindow ( dpy, primaryScreen() );
+  Window root = XDefaultRootWindow ( dpy );
 
   /* Fenster das ausgewählt wird */
   Window retwin = 0;
@@ -188,6 +207,7 @@ void DesktopTapping::grabWindowRect ( int screen )
   qDebug ( "qx11grab desktop tapping: \"-i %s+%d,%d -s %dx%d\"",
            dpy->display_name, rect.x(), rect.y(), rect.width(), rect.height() );
 
+  int screen = subWindowScreen ( QByteArray ( dpy->display_name ) );
   if ( rect.isValid() )
     emit rectChanged ( rect, screen );
 
@@ -196,10 +216,12 @@ void DesktopTapping::grabWindowRect ( int screen )
 
 /**
 * Startet das abgreifen der Desktop Auflösung
+* DEPRECATED SCREEN wird jetzt Automatisch ermittelt!
 */
 void DesktopTapping::createRequest ( int screen )
 {
-  grabWindowRect ( realDesktopScreen ( screen ) );
+  Q_UNUSED ( screen );
+  grabWindowRect ();
 }
 
 /**

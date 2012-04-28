@@ -23,6 +23,7 @@
 #define DESKTOPTAPPING_H
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QObject>
 #include <QtCore/QRect>
 
@@ -37,6 +38,7 @@ class DesktopTapping : public QDesktopWidget
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    int subWindowScreen ( const QByteArray &screen ) const;
     int realDesktopScreen ( int screen ) const;
 
   protected:
@@ -44,7 +46,7 @@ class DesktopTapping : public QDesktopWidget
     inline int normalize ( int z ) const;
 
     /** grab Window Dimension from X-Server */
-    void grabWindowRect ( int screen );
+    void grabWindowRect();
 
   Q_SIGNALS:
     /** This signal is emitted when the size of window and screen changes. */
@@ -58,7 +60,7 @@ class DesktopTapping : public QDesktopWidget
     explicit DesktopTapping ( QObject * parent = 0 );
 
     /** Maximum Desktop Rect from all Screens */
-    const QRect fullDesktopsRect ();
+    const QRect fullDesktopsRect();
 
     virtual ~DesktopTapping();
 };
