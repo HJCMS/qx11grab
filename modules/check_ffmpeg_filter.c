@@ -27,7 +27,7 @@
 
 int main(int argc, char **argv)
 {
-  if( ( argc < 1 ) || strlen(argv[1]) < 3 )
+  if( ( argc < 2 ) || strlen(argv[1]) < 3 )
   {
     fprintf ( stderr, "Missing Filter arguments\n" );
     return EXIT_FAILURE;
