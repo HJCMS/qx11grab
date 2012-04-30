@@ -1,6 +1,11 @@
 
 * Please Report Bugs to : https://launchpad.net/~juergen-heinemann/+archive/qx11grab.hjcms.de
 
+* When writing your bug report, please include (uncompressed):
+  - The exact command line Script e.g.: /tmp/qx11grab_$USER.sh
+  - The full, output logfile e.g.: /tmp/qx11grab-$USER_$DISPLAY.log
+  - The full, uncut process output provided by "-report" Option /tmp/ffmpeg-$YEAR*.log
+
 * QTableView Item Update
   - on some distributions first add item not visible but also inserted
   - I'm searching...  currently not fixed
