@@ -53,7 +53,7 @@ void CSpinBox::paintEvent ( QPaintEvent * event )
   QStyleOptionSpinBox option;
   option.initFrom ( this );
   QPalette p = option.palette;
-  p.setColor ( QPalette::Text, ( ( ( value() % 2 ) != 0 ) ? invalid : normal ) );
+  p.setColor ( QPalette::Text, ( ( value() & 1 ) ? invalid : normal ) );
   setPalette ( p );
   QSpinBox::paintEvent ( event );
 }
@@ -67,7 +67,7 @@ QValidator::State CSpinBox::validate ( QString &input, int &pos ) const
   bool b;
   int i = input.toUInt ( &b, 10 );
   if ( b )
-    return ( ( i % 2 ) != 0 ) ? QValidator::Acceptable : QValidator::Invalid;
+    return ( i & 1 ) ? QValidator::Invalid : QValidator::Acceptable;
 
   return QValidator::Acceptable; // fallback
 }

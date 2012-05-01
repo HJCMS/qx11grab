@@ -319,7 +319,7 @@ void GrabberInfo::setRubberbandUpdate ( int i )
   if ( boxRight >= maxWidth )
   {
     int w = qRound ( setWidthBox->value() - ( boxRight - maxWidth ) );
-    setWidthBox->setValue ( ( ( ( w % 2 ) == 0 ) ? w : ( w - 1 ) ) );
+    setWidthBox->setValue ( ( ( w & 1 ) ? ( w - 1 ) : w ) );
   }
 
   int maxHeight = maxRect.height();
@@ -327,7 +327,7 @@ void GrabberInfo::setRubberbandUpdate ( int i )
   if ( boxBottom >= maxHeight )
   {
     int h = qRound ( setHeightBox->value() - ( boxBottom - maxHeight ) );
-    setHeightBox->setValue ( ( ( ( h % 2 ) == 0 ) ? h : ( h - 1 ) ) );
+    setHeightBox->setValue ( ( ( h & 1 ) ? ( h - 1 ) : h ) );
   }
 
   emit screenDataChanged ( ( ( i > 0 ) ? true : false ) );
@@ -406,8 +406,8 @@ void GrabberInfo::setScreenY ( int y )
 const QRect GrabberInfo::getRect()
 {
   QRect rect ( setXBox->value(), setYBox->value(), 1, 1 );
-  rect.setWidth ( ( setWidthBox->value() % 2 == 0 ) ? setWidthBox->value() : ( setWidthBox->value() - 1 ) );
-  rect.setHeight ( ( setHeightBox->value() % 2 == 0 ) ? setHeightBox->value() : ( setHeightBox->value() - 1 ) );
+  rect.setWidth ( ( setWidthBox->value() & 1 ) ? ( setWidthBox->value() - 1 ) : setWidthBox->value() );
+  rect.setHeight ( ( setHeightBox->value() & 1 ) ? ( setHeightBox->value() - 1 ) : setHeightBox->value() );
   return rect;
 }
 
