@@ -41,6 +41,10 @@ class ScreenBox : public QDoubleSpinBox
     virtual void stepBy ( int i );
     QAbstractSpinBox::StepEnabled stepEnabled () const;
 
+  Q_SIGNALS:
+    /** This signal is emitted whenever a valid step has changed. */
+    void valueChanged ( int );
+
   public:
     /**
     * \class ScreenBox

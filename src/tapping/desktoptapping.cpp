@@ -118,7 +118,7 @@ int DesktopTapping::realDesktopScreen ( int screen ) const
 */
 int DesktopTapping::normalize ( int z ) const
 {
-  return ( ( z & 1 ) ? ( z + 1 ) : z );
+  return ( ( z & 1 ) ? ( 1 ^ z ) : z );
 }
 
 /**

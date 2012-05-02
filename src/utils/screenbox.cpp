@@ -34,6 +34,7 @@ ScreenBox::ScreenBox ( QWidget * parent )
   setPrefix ( ":" );
   setDecimals ( 1 );
   lineEdit()->setInputMask ( ":0.0" );
+  // Ist Abhängig von X Server Konfiguration DontVTSwitch
   setRange ( 0.0, 9.0 );
   setSingleStep ( 1.0 );
   setValue ( 0.0 );
@@ -41,12 +42,23 @@ ScreenBox::ScreenBox ( QWidget * parent )
   setButtonSymbols ( QAbstractSpinBox::PlusMinus );
 }
 
+/**
+* Wird immer dann aufgerufen wenn ein +/- ausgelöst wurde!
+* Es wird zusätzlich die Maus Position abgefragt um den
+* entsprechenden Wert for oder nach dem Punkt zu erhöhen!
+* Gleichzeitig wird das signal valueChanged(1) aufgerufen
+* damit GrabberInfo::integerUpdate(int) ausgelöst werden kann!
+*/
 void ScreenBox::stepBy ( int i )
 {
   double s = ( lineEdit()->cursorPosition() <= 3 ) ? 1.0 : 0.1;
   setValue ( ( ( i == 1 ) ? ( value() + s ) : ( value() - s ) ) );
+  emit valueChanged ( 1 );
 }
 
+/**
+* Prüfen ob es sich um einen Validen Wert handelt!
+*/
 QAbstractSpinBox::StepEnabled ScreenBox::stepEnabled () const
 {
   double v = value();

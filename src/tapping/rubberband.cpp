@@ -78,7 +78,7 @@ void RubberBand::paintEvent ( QPaintEvent * event )
 
 bool RubberBand::isScalability()
 {
-  if ( ( size().width() % 2 ) != 0 )
+  if ( size().width() & 1 )
   {
     QString str = QString::number ( size().width() );
     emit error ( trUtf8 ( "Scalability Failure Width" ),
@@ -86,7 +86,7 @@ bool RubberBand::isScalability()
     return false;
   }
 
-  if ( ( size().height() % 2 ) != 0 )
+  if ( size().height() & 1 )
   {
     QString str = QString::number ( size().height() );
     emit error ( trUtf8 ( "Scalability Failure Height" ),

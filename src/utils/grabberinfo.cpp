@@ -270,6 +270,9 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
 
+  connect ( m_screenBox, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( integerUpdate ( int ) ) );
+
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
             this, SLOT ( setInputDefaults ( int ) ) );
 }
@@ -319,7 +322,7 @@ void GrabberInfo::setRubberbandUpdate ( int i )
   if ( boxRight >= maxWidth )
   {
     int w = qRound ( setWidthBox->value() - ( boxRight - maxWidth ) );
-    setWidthBox->setValue ( ( ( w & 1 ) ? ( w - 1 ) : w ) );
+    setWidthBox->setValue ( ( ( w & 1 ) ? ( 1 ^ w ) : w ) );
   }
 
   int maxHeight = maxRect.height();
@@ -327,10 +330,11 @@ void GrabberInfo::setRubberbandUpdate ( int i )
   if ( boxBottom >= maxHeight )
   {
     int h = qRound ( setHeightBox->value() - ( boxBottom - maxHeight ) );
-    setHeightBox->setValue ( ( ( h & 1 ) ? ( h - 1 ) : h ) );
+    setHeightBox->setValue ( ( ( h & 1 ) ? ( 1 ^ h ) : h ) );
   }
 
-  emit screenDataChanged ( ( ( i > 0 ) ? true : false ) );
+  if ( i > 0 )
+    emit screenDataChanged ( true );
 }
 
 /**
@@ -406,8 +410,8 @@ void GrabberInfo::setScreenY ( int y )
 const QRect GrabberInfo::getRect()
 {
   QRect rect ( setXBox->value(), setYBox->value(), 1, 1 );
-  rect.setWidth ( ( setWidthBox->value() & 1 ) ? ( setWidthBox->value() - 1 ) : setWidthBox->value() );
-  rect.setHeight ( ( setHeightBox->value() & 1 ) ? ( setHeightBox->value() - 1 ) : setHeightBox->value() );
+  rect.setWidth ( ( setWidthBox->value() & 1 ) ? ( 1 ^ setWidthBox->value() ) : setWidthBox->value() );
+  rect.setHeight ( ( setHeightBox->value() & 1 ) ? ( 1 ^ setHeightBox->value() ) : setHeightBox->value() );
   return rect;
 }
 
