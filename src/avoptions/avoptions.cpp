@@ -55,34 +55,6 @@ namespace QX11Grab
   }
 
   /**
-  * Liest Standard Kodierer Einträge in AVCodecContext
-  * und sendet das Signal codecDefaults
-  */
-  void AVOptions::initCodecDefaults ( CodecID codecId )
-  {
-    if ( codecId == CODEC_ID_NONE )
-      return;
-
-    AVCodec* buffer = NULL;
-    AVCodec* coder = avcodec_find_encoder ( codecId );
-    if ( ! coder )
-      coder = avcodec_find_decoder ( codecId );
-
-    if ( ! coder )
-      return;
-
-    AVCodecContext* avc = avcodec_alloc_context3 ( buffer );
-    /* Do not call this function if a non-NULL codec has been passed to
-    * avcodec_alloc_context3() that allocated this AVCodecContext. */
-    int ret = avcodec_get_context_defaults3 ( avc, coder );
-    if ( ret == 0 )
-    {
-      qDebug() << Q_FUNC_INFO << avc->qmax;
-      // emit codecDefaults ( avc );
-    }
-  }
-
-  /**
   * Suche für die Typen (AV_OPT_FLAG_VIDEO_PARAM|AV_OPT_FLAG_AUDIO_PARAM)
   * nach Optionen und ihrer Hilfe Texte.
   * \todo Standard Werte Vorschläge!

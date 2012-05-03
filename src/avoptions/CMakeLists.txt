@@ -17,6 +17,7 @@ SET (_subproject_SOURCES
   ffoptionsmenu.cpp
   optionsfinder.cpp
   avfilteritem.cpp
+  videoinfodialog.cpp
 )
 
 SET (_subproject_HEADERS
@@ -25,6 +26,7 @@ SET (_subproject_HEADERS
   formatmenu.h
   codecoptions.h
   ffoptionsmenu.h
+  videoinfodialog.h
 )
 
 # IF (ENABLE_EXPERIMENTAL)

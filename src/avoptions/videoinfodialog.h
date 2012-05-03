@@ -17,15 +17,20 @@
 * along with this library; see the file COPYING.LIB.  If not, write to
 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-**/
+*/
 
-#ifndef QX11GRAB_X11DEVICE_H
-#define QX11GRAB_X11DEVICE_H
+#ifndef QX11GRAB_VIDEOINFODIALOG_H
+#define QX11GRAB_VIDEOINFODIALOG_H
 
 /* QtCore */
+#include <QtCore/QByteArray>
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtCore/QThread>
+
+/* QtGui */
+#include <QtGui/QDialog>
+#include <QtGui/QLabel>
+#include <QtGui/QWidget>
 
 /* QX11Grab */
 #include "avoptions.h"
@@ -33,27 +38,38 @@
 namespace QX11Grab
 {
   /**
-  * X11 Device Demuxer
+  * \class VideoInfoDialog
   */
-  class Q_DECL_EXPORT X11Device : public QThread
+  class VideoInfoDialog : public QDialog
   {
       Q_OBJECT
       Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
       Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
     private:
-      /** Packet Bytes */
-      unsigned char* m_data;
-      AVCodecContext *libavcodec;
+      QLabel* m_vCodecName;
+      QLabel* m_aCodecName;
+      QLabel* m_bitRate;
+      QLabel* m_fileName;
+      QLabel* m_fileModified;
+      QLabel* m_videoSize;
 
-    protected:
-      virtual void run();
+      void setBitrateLabel ( int );
+      void setFileInfos ( const QString & );
+      void setSizeInfo ( int w, int h );
+
+      bool queryFullFileInfo ( const QByteArray & );
 
     public:
-      explicit X11Device ( QObject * parent = 0 );
-      virtual ~X11Device();
-  };
+      /**
+      * \class VideoInfoDialog
+      */
+      VideoInfoDialog ( QWidget * parent = 0 );
 
-} /* eof namespace QX11Grab */
+      int exec ( const QString &file );
+
+      virtual ~VideoInfoDialog();
+  };
+}  /* eof namespace QX11Grab */
 
 #endif

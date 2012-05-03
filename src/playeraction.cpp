@@ -23,6 +23,7 @@
 #include "version.h"
 #include "playeraction.h"
 #include "settings.h"
+#include "videoinfodialog.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -38,7 +39,11 @@
 #include <QtGui/QStyleOptionToolButton>
 #include <QtGui/QVBoxLayout>
 
-/*
+/* QtDBus */
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+
+/**
 * @class PlayerAction
 * Menü für das abspielen von Videoausgabe Dateien
 */
@@ -53,16 +58,42 @@ PlayerAction::PlayerAction ( QWidget * parent )
   m_menu =  new QMenu ( this );
   setMenu ( m_menu );
 
+  QAction* m_infoAction = m_menu->addAction ( QIcon::fromTheme ( "dialog-information" ),
+                          trUtf8 ( "Information" ) );
+
   m_signalMapper = new QSignalMapper ( this );
   connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
             this, SLOT ( playOuputFile ( const QString & ) ) );
 
   connect ( this, SIGNAL ( clicked () ), this, SLOT ( showMenu () ) );
 
+  connect ( m_infoAction, SIGNAL ( triggered() ), this, SLOT ( openVideoInfoDialog () ) );
+
   searchPlayers();
 }
 
-/*
+/**
+* Fragt beim DBus Interface nach der Aktuellen Ausgabe Datei nach!
+* Wenn nicht vorhanden nehme den zuletzt gespeicherten Ausgabepfad!
+*/
+const QString PlayerAction::queryOutputFile() const
+{
+  QFileInfo file;
+  QDBusInterface iface ( "de.hjcms.qx11grab", "/", "de.hjcms.qx11grab" );
+  QDBusReply<QString> reply = iface.call ( "output" );
+  if ( reply.isValid() )
+  {
+    file.setFile ( reply );
+  }
+  else
+  {
+    Settings settings;
+    file.setFile ( settings.absoluteOutputPath() );
+  }
+  return ( ( file.exists() ) ? file.absoluteFilePath() : QString::null );
+}
+
+/**
 * Vordefinierte Video Abspieler
 * Wird im Kontainter kein Eintrag gefunden wird der
 * Binärname zurück gegeben.
@@ -91,7 +122,7 @@ const QString PlayerAction::predefinedApps ( const QString &txt ) const
   return ( hash[txt].isEmpty() ) ? txt : hash[txt];
 }
 
-/*
+/**
 * Sucht in "~/bin","/usr/bin" und "/usr/local/bin" nach
 * Vordefinierten Video Abspielern und setz bei gefunden
 * einen Menü Eintrag.
@@ -124,7 +155,7 @@ void PlayerAction::searchPlayers()
   }
 }
 
-/*
+/**
 * Wir muessen wegen Naviagator bei einem Move neu Zeichnen!
 */
 void PlayerAction::paintEvent ( QPaintEvent * event )
@@ -134,16 +165,30 @@ void PlayerAction::paintEvent ( QPaintEvent * event )
   QToolButton::paintEvent ( event );
 }
 
-/*
+/**
+* Öffnet den Video Informations Dialog
+*/
+void PlayerAction::openVideoInfoDialog ()
+{
+  QString p = queryOutputFile();
+  if ( p.isNull() )
+    return;
+
+  QX11Grab::VideoInfoDialog dialog ( this );
+  dialog.exec ( p );
+}
+
+/**
 * Fragt in den Einstellungen nach der Ausgabe Datei.
 * Wenn gefunden wird die abgespielt!
 */
 void PlayerAction::playOuputFile ( const QString &player )
 {
-  Settings settings;
-  QFileInfo file ( settings.absoluteOutputPath() );
-  if ( file.exists() )
-    QProcess::startDetached ( player, QStringList ( file.absoluteFilePath() ) );
+  QString p = queryOutputFile();
+  if ( p.isNull() )
+    return;
+
+  QProcess::startDetached ( player, QStringList ( p ) );
 }
 
 PlayerAction::~PlayerAction()

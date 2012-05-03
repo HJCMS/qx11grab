@@ -105,13 +105,6 @@ namespace QX11Grab
     public:
       AVOptions ( QObject * parent = 0 );
 
-      /**
-      * Read all default Values from CodecID
-      * If Codec Options found \ref codecDefaults will emitted
-      * \param codecId  Codec ID from avcodec.h
-      */
-      void initCodecDefaults ( CodecID codecId );
-
       /** send a avcodec option request only VIDEO/AUDIO supported
       * \param option  query option \b without leading hyphens
       */
