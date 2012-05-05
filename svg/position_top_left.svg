@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="position_top_center.svg">
+   sodipodi:docname="position_top_left.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -60,16 +60,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5221"
-       id="linearGradient5227"
-       x1="35.820839"
-       y1="18.577009"
-       x2="115.29596"
-       y2="55.945564"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(9.4294487,56.227453)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5221"
        id="linearGradient5237"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(9.4294487,56.227453)"
@@ -111,7 +101,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>

@@ -51,7 +51,6 @@ class PlayerAction : public QToolButton
     virtual void paintEvent ( QPaintEvent * event );
 
   private Q_SLOTS:
-    void openVideoInfoDialog ();
     void playOuputFile ( const QString & );
 
   public:

@@ -23,7 +23,6 @@
 #include "version.h"
 #include "playeraction.h"
 #include "settings.h"
-#include "videoinfodialog.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -58,16 +57,11 @@ PlayerAction::PlayerAction ( QWidget * parent )
   m_menu =  new QMenu ( this );
   setMenu ( m_menu );
 
-  QAction* m_infoAction = m_menu->addAction ( QIcon::fromTheme ( "dialog-information" ),
-                          trUtf8 ( "Information" ) );
-
   m_signalMapper = new QSignalMapper ( this );
   connect ( m_signalMapper, SIGNAL ( mapped ( const QString & ) ),
             this, SLOT ( playOuputFile ( const QString & ) ) );
 
   connect ( this, SIGNAL ( clicked () ), this, SLOT ( showMenu () ) );
-
-  connect ( m_infoAction, SIGNAL ( triggered() ), this, SLOT ( openVideoInfoDialog () ) );
 
   searchPlayers();
 }
@@ -163,19 +157,6 @@ void PlayerAction::paintEvent ( QPaintEvent * event )
   QStyleOptionToolButton option;
   initStyleOption ( &option );
   QToolButton::paintEvent ( event );
-}
-
-/**
-* Öffnet den Video Informations Dialog
-*/
-void PlayerAction::openVideoInfoDialog ()
-{
-  QString p = queryOutputFile();
-  if ( p.isNull() )
-    return;
-
-  QX11Grab::VideoInfoDialog dialog ( this );
-  dialog.exec ( p );
 }
 
 /**
