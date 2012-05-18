@@ -41,7 +41,7 @@ namespace QX11Grab
 {
   /**
   * FFCodec
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   typedef struct Q_DECL_EXPORT
   {
@@ -53,7 +53,7 @@ namespace QX11Grab
 
   /**
   * FFOption
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   typedef struct Q_DECL_EXPORT
   {
@@ -65,7 +65,7 @@ namespace QX11Grab
 
   /**
   * FFFormat
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   typedef struct Q_DECL_EXPORT
   {
@@ -77,25 +77,25 @@ namespace QX11Grab
 
   /**
   * required for QStringList::join() and QString::split() in Table ItemViews
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   static const QString delimiter = QLatin1String ( "%" );
 
   /**
   * QX11Grab using -filter:v and \b not -vf for inserting filters!
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   static const QString avFilterPredicate = QLatin1String ( "-filter:v" );
 
   /**
   * QX11Grab using -filter:a and \b not -af for inserting filters!
-  * @ingroup Declarations
+  * \ingroup Declarations
   */
   static const QString acFilterPredicate = QLatin1String ( "-filter:a" );
 
   /**
   * base class for fetching FFmpeg Codecs/Formats and Options
-  * @ingroup FFmpeg
+  * \ingroup FFmpeg
   */
   class Q_DECL_EXPORT AVOptions : public QObject
   {

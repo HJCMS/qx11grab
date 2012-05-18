@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QRect>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -38,22 +39,50 @@ class ScreenComboBox : public QComboBox
     Q_CLASSINFO ( "Author", "Juergen Heinemann (Undefined)" )
 
   private:
-    DesktopInfo *m_DesktopInfo;
+    DesktopInfo* m_DesktopInfo;
     void setItems();
-
-  public:
-    ScreenComboBox ( QWidget *parent = 0 );
-    ~ScreenComboBox();
-
-  Q_SIGNALS:
-    void screenNameChanged ( const QString & );
-    void screenWidthChanged ( int );
-    void screenHeightChanged ( int );
-    void screenDepthChanged ( int );
+    inline void moveToIndex ( int );
 
   private Q_SLOTS:
     void setDataChanged ( int );
 
+  Q_SIGNALS:
+    /**
+     * This signal is sent the Name for changed Modes and
+     * emitted whenever a valid Rectangle has changed.
+     */
+    void screenNameChanged ( const QString & );
+
+    /**
+     * This signal is sent the \b Rectangle \b Width for changed
+     * Modes and emitted whenever a valid Rectangle has changed.
+     */
+    void screenWidthChanged ( int );
+
+    /**
+     * This signal is sent the \b Rectangle \b Height for changed
+     * Modes and emitted whenever a valid Rectangle has changed.
+     */
+    void screenHeightChanged ( int );
+
+    /**
+     * This signal is sent the Selected Desktop Screen and emitted
+     * whenever a valid Rectangle has changed.
+     */
+    void screenDepthChanged ( int );
+
+  public Q_SLOTS:
+    /**
+     * Find and select ItemData with given Rectangle
+     * \note This Method blocking all QComboBox Signals!
+     * \param rect Rectangle
+     */
+    void setDataChanged ( const QRect &rect );
+
+  public:
+    explicit ScreenComboBox ( QWidget *parent = 0 );
+
+    ~ScreenComboBox();
 };
 
 #endif

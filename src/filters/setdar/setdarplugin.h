@@ -33,7 +33,7 @@ class SetDar;
 
 /**
 * @short avfilter SetDar plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#setdar
+* \sa http://ffmpeg.org/libavfilter.html#setdar
 */
 class Q_DECL_EXPORT SetDarPlugin : public QX11Grab::Interface
 {

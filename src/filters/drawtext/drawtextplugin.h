@@ -33,7 +33,7 @@ class drawtext;
 
 /**
 * @short avfilter drawtext plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#drawtext
+* \sa http://ffmpeg.org/libavfilter.html#drawtext
 */
 class Q_DECL_EXPORT drawtextPlugin : public QX11Grab::Interface
 {

@@ -31,7 +31,7 @@ namespace QX11Grab
 {
   /**
   * AVFilter
-  * @ref http://ffmpeg.org/libavfilter.html
+  * \sa http://ffmpeg.org/libavfilter.html
   */
   class AVFilterItem
   {

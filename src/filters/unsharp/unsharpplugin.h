@@ -33,7 +33,7 @@ class Unsharp;
 
 /**
 * @short avfilter unsharp plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#unsharp
+* \sa http://ffmpeg.org/libavfilter.html#unsharp
 */
 class Q_DECL_EXPORT UnsharpPlugin : public QX11Grab::Interface
 {

@@ -34,9 +34,9 @@
 #include <QtXml/QDomElement>
 
 /**
-* @class BookmarkEntry
-* @short Primary Boomark Entries
-* @code
+* \class BookmarkEntry
+* \short Primary Boomark Entries
+* \code
 * <entry title="QString">
 *   <vcodec id="QString">
 *     <param>
@@ -51,7 +51,7 @@
 *     </param>
 *   </acodec>
 * </entry>
-* @endcode
+* \endcode
 */
 class BookmarkEntry : private QDomElement
 {
@@ -75,7 +75,7 @@ class BookmarkEntry : private QDomElement
 
     /**
     * Initial Bookmark Entry
-    * @param entry  document childNode (nodeName=entry with attribute title)
+    * \param entry  document childNode (nodeName=entry with attribute title)
     */
     explicit BookmarkEntry ( const QDomElement &entry );
 
@@ -84,25 +84,25 @@ class BookmarkEntry : private QDomElement
 
     /**
     * Read Codec Name e.g. -vcodec or -acodec
-    * @param  type  CodecNodeName (vcodec|acodec)
+    * \param  type  CodecNodeName (vcodec|acodec)
     */
     const QString getCodecName ( BTYPE type );
 
     /**
     * Set Codec Options e.g. -vcodec or -acodec
-    * @note If \ref codecName already exists it will overwriting!
-    * @param  type        Codec Type (vcodec|acodec)
-    * @param  codecName   Add Options for Codec Name
-    * @param  hash        Options
+    * \note If \b codecName already exists it will overwriting!
+    * \param  type        Codec Type (vcodec|acodec)
+    * \param  codecName   Add Options for Codec Name
+    * \param  hash        Options
     */
-    void setCodecOptions ( BTYPE t, const QString &codecName,
+    void setCodecOptions ( BTYPE type, const QString &codecName,
                            const QHash<QString,QVariant> &hash );
 
     /**
     * read Codec Options e.g. -vcodec or -acodec
-    * @param  type        Codec Type (vcodec|acodec)
+    * \param  type        Codec Type (vcodec|acodec)
     */
-    const QHash<QString,QVariant> getCodecOptions ( BTYPE t );
+    const QHash<QString,QVariant> getCodecOptions ( BTYPE type );
 };
 
 Q_DECLARE_METATYPE ( BookmarkEntry::BTYPE )

@@ -36,7 +36,7 @@ class Webcam;
 
 /*
 * @short avfilter webcam plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#movie
+* \sa http://ffmpeg.org/libavfilter.html#movie
 */
 class Q_DECL_EXPORT webcamPlugin : public QX11Grab::Interface
 {

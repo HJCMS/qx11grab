@@ -41,12 +41,9 @@ Settings::Settings ( QObject *parent )
   /** Veraltete Einstellungen bei einem neuen Versions Start in die Tonne drücken. */
   if ( ! value ( "Version" ).toString().contains ( QX11GRAB_VERSION ) )
   {
-    // DEPRECATED Config Options
-    remove ( "windowPos" );
-    remove ( "windowSize" );
-    remove ( "windowState" );
-    remove ( "enable_pulse_pasuspender" );
     setValue ( "Version", QX11GRAB_VERSION );
+    // DEPRECATED Config Options
+    remove ( "enable_pulse_pasuspender" );
   }
 }
 

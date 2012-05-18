@@ -131,10 +131,10 @@ class Settings : public QSettings
 
     /**
      * read Array Item
-     * @param group  configuration section
-     * @param key    settings value keyword
-     * @param val    e.g. ( Settings::value(key) == val )
-     * @param sub    search value from other subkeyword
+     * \param group  configuration section
+     * \param ref    settings value keyword
+     * \param value  e.g. ( Settings::value(key) == val )
+     * \param sub    search value from other subkeyword
      */
     const QVariant getArrayItem ( const QString &group, const QString &ref,
                                   const QString &value, const QString &sub );
@@ -142,8 +142,8 @@ class Settings : public QSettings
     /**
     * Returns the QIcon corresponding to name in the current icon theme.
     * If no such icon is found in the oxygen theme fallback from qrc is returned instead.
-     * @param icon    icon name
-     * @param broken  fallback from qrc
+     * \param icon    icon name
+     * \param broken  fallback from qrc
     */
     static const QIcon themeIcon ( const QString &icon,
                                    const QString &broken = QLatin1String ( "broken" ) );
@@ -151,9 +151,9 @@ class Settings : public QSettings
     /**
     * find PNG Image in ${prefix}/share/pixmaps/qx11grab/${name}.png
     * If not found a null Pixmap is returned
-    * @param name Filename without Extension
-    * @param size Resize Pixmap to Size
-    * @note This function was introduced in QX11Grab v0.4.4
+    * \param name Filename without Extension
+    * \param size Resize Pixmap to Size
+    * \note This function was introduced in QX11Grab v0.4.4
     */
     static const QPixmap pixmapIcon ( const QString &name, const QSize &size = QSize ( 48, 48 ) );
 

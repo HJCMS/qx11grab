@@ -65,7 +65,7 @@ class MetaData : public QGroupBox
   public:
     /**
     * Metadata Descriptions
-    * \link http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
+    * \sa http://wiki.multimedia.cx/index.php?title=FFmpeg_Metadata
     */
     MetaData ( QWidget * parent = 0 );
     void setMediaType ( const QString &t );

@@ -36,7 +36,7 @@ class Watermark;
 
 /**
 * @short avfilter watermark/overlay plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#overlay-1
+* \sa http://ffmpeg.org/libavfilter.html#overlay-1
 */
 class Q_DECL_EXPORT watermarkPlugin : public QX11Grab::Interface
 {

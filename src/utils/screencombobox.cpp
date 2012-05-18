@@ -22,25 +22,30 @@
 #include "screencombobox.h"
 #include "desktopinfo.h"
 
+#include <QtCore/QDebug>
 #include <QtCore/QVariant>
 
 ScreenComboBox::ScreenComboBox ( QWidget *parent )
     : QComboBox ( parent )
 {
-  setObjectName( "screenComboBox" );
+  setObjectName ( "screenComboBox" );
+  // Daten müssen vor Signalen gesetzt sein
+  m_DesktopInfo = new DesktopInfo ( this );
   setItems();
 
   connect ( this, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( setDataChanged ( int ) ) );
 }
 
+/**
+* Alle Verfügbaren Rahmengrößen in die Auswahl einfügen.
+*/
 void ScreenComboBox::setItems()
 {
-  m_DesktopInfo = new DesktopInfo ( this );
   int index = 0;
   clear();
 
-  foreach ( DesktopInfo::FrameMode mode, m_DesktopInfo->modes( this ) )
+  foreach ( DesktopInfo::FrameMode mode, m_DesktopInfo->modes ( this ) )
   {
     insertItem ( index, mode.summary );
     setItemData ( index, mode.name, Qt::UserRole );
@@ -48,6 +53,23 @@ void ScreenComboBox::setItems()
   }
 }
 
+/**
+* Verschiebe den Auswahl Index
+* NOTE Wir Blockieren zu diesem Zeitpunkt die Signal Verarbeitung!
+*/
+void ScreenComboBox::moveToIndex ( int index )
+{
+  blockSignals ( true );
+  setCurrentIndex ( index );
+  blockSignals ( false );
+}
+
+/**
+* Wird aufgerufen wenn der Benutzer einen Modus Manuell ausgewählt hat.
+* @li Sucht nach dem passenden Modus
+* @li Wenn kleiner als 100x90 dann aussteigen!
+* @li Signale vergeben
+*/
 void ScreenComboBox::setDataChanged ( int index )
 {
   QString data = itemData ( index, Qt::UserRole ).toString();
@@ -65,6 +87,27 @@ void ScreenComboBox::setDataChanged ( int index )
   emit screenWidthChanged ( mode.width );
   emit screenHeightChanged ( mode.height );
   emit screenDepthChanged ( mode.depth );
+}
+
+/**
+* Sucht mit der Rahmen Geometrie nach einem Datensatz.
+* Wenn gefunden wird @ref moveToIndex aufgerufen.
+*/
+void ScreenComboBox::setDataChanged ( const QRect &rect )
+{
+  QRect fRect ( 0, 0, rect.width(), rect.height() );
+  DesktopInfo::FrameMode mode;
+  for ( int i = 0; i < count(); ++i )
+  {
+    QString data = itemData ( i, Qt::UserRole ).toString();
+    mode = m_DesktopInfo->getFrameMode ( data, this );
+    QRect mRect ( 0, 0, mode.width, mode.height );
+    if ( mRect == fRect )
+    {
+      moveToIndex ( i );
+      break;
+    }
+  }
 }
 
 ScreenComboBox::~ScreenComboBox()

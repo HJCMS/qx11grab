@@ -67,10 +67,10 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   txt1->setAlignment ( labelAlignment );
   gridLayout->addWidget ( txt1, grow, 0, 1, 1 );
 
-  screenComboBox = new ScreenComboBox ( this );
+  m_screenComboBox = new ScreenComboBox ( this );
   /*: WhatsThis */
-  screenComboBox->setWhatsThis ( trUtf8 ( "predefined frame sizes" ) );
-  gridLayout->addWidget ( screenComboBox, grow++, 1, 1, 2 );
+  m_screenComboBox->setWhatsThis ( trUtf8 ( "predefined frame sizes" ) );
+  gridLayout->addWidget ( m_screenComboBox, grow++, 1, 1, 2 );
   // end: Size
 
   // begin: Width
@@ -216,13 +216,13 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   m_desktopTapping = new DesktopTapping ( this );
   setInputDefaults ( m_desktopInfo->getScreen() );
 
-  connect ( screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
+  connect ( m_screenComboBox, SIGNAL ( screenWidthChanged ( int ) ),
             setWidthBox, SLOT ( setValue ( int ) ) );
 
-  connect ( screenComboBox, SIGNAL ( screenHeightChanged ( int ) ),
+  connect ( m_screenComboBox, SIGNAL ( screenHeightChanged ( int ) ),
             setHeightBox, SLOT ( setValue ( int ) ) );
 
-  connect ( screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
+  connect ( m_screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
             setDepth, SLOT ( setValue ( int ) ) );
 
   // SIGNALS:Width {
@@ -360,8 +360,8 @@ void GrabberInfo::save ( QSettings *cfg )
 }
 
 /**
-* Dieser SLOT wird unter anderem
-* von Windowgrabber aufgerufen
+* Sucht mit Geometrie und Desktop Nummer nach den Einstellungen
+* Diese Methode wird unter anderem von Windowgrabber aufgerufen
 */
 void GrabberInfo::setRect ( const QRect &rect, int screen )
 {
@@ -370,6 +370,7 @@ void GrabberInfo::setRect ( const QRect &rect, int screen )
   setYBox->setValue ( rect.y() );
   setWidthBox->setValue ( rect.width() );
   setHeightBox->setValue ( rect.height() );
+  m_screenComboBox->setDataChanged ( rect );
 }
 
 /**
@@ -410,8 +411,12 @@ void GrabberInfo::setScreenY ( int y )
 const QRect GrabberInfo::getRect()
 {
   QRect rect ( setXBox->value(), setYBox->value(), 1, 1 );
+  // Normalisieren
   rect.setWidth ( ( setWidthBox->value() & 1 ) ? ( 1 ^ setWidthBox->value() ) : setWidthBox->value() );
   rect.setHeight ( ( setHeightBox->value() & 1 ) ? ( 1 ^ setHeightBox->value() ) : setHeightBox->value() );
+  // Wenn eine Abfrage gestartet wird, mit der ScreenComboBox abgleichen
+  m_screenComboBox->setDataChanged ( rect );
+
   return rect;
 }
 

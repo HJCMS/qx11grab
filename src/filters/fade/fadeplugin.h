@@ -33,7 +33,7 @@ class fade;
 
 /**
 * @short avfilter fade plugin dialog
-* @ref http://ffmpeg.org/libavfilter.html#fade
+* \sa http://ffmpeg.org/libavfilter.html#fade
 */
 class Q_DECL_EXPORT fadePlugin : public QX11Grab::Interface
 {

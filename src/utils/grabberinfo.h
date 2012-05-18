@@ -51,7 +51,7 @@ class GrabberInfo : public QWidget
     QRect screenGeometry;
     DesktopInfo* m_desktopInfo;
     DesktopTapping* m_desktopTapping;
-    ScreenComboBox* screenComboBox;
+    ScreenComboBox* m_screenComboBox;
     CSpinBox* setWidthBox;
     QSlider* setWidthSlider;
     CSpinBox* setHeightBox;
@@ -95,7 +95,7 @@ class GrabberInfo : public QWidget
     /** Framerate */
     int frameRate();
 
-    /** Screens Definition \e Example \b:0.0 */
+    /** Screens Definition \e Example \b :0.0 */
     const QString getScreens();
 
     /** Screen Geometry */

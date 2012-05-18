@@ -57,7 +57,7 @@ class DesktopInfo : public QObject
 
     /**
      * FameMode
-     * @ingroup Declarations
+     * \ingroup Declarations
      */
     typedef struct
     {
@@ -71,11 +71,12 @@ class DesktopInfo : public QObject
 
     /**
      * Generate a Frame Modes with given arguments
-     * @param n  Identifier Name
-     * @param w  Mode Width
-     * @param h  Mode Height
+     * \param n  Identifier Name
+     * \param w  Mode Width
+     * \param h  Mode Height
+     * \param r  Default DAR
      */
-    const FrameMode generateFrameMode ( const QString &n, int w, int h, qreal ratio = 0.0 );
+    const FrameMode generateFrameMode ( const QString &n, int w, int h, qreal r = 0.0 );
 
     /** Returns the number of the screen currently in use. */
     int getScreen();
@@ -94,27 +95,27 @@ class DesktopInfo : public QObject
 
     /**
      * returns a list from all fixed frame size modes by ffmpeg.
-     * for more Infromation @see man:ffmpeg
-     * @param parent grab Dimension from
+     * for more Infromation \sa man:ffmpeg
+     * \param parent grab Dimension from
      */
     const QList<FrameMode> modes ( QWidget * parent = 0 );
 
     /**
      * get current Screen Dimension from Desktop
-     * @param screen Screen ID
+     * \param screen Screen ID
      */
     const QRect screenGeometry ( int screen = 0 );
 
     /**
      * find frame mode by selected itemdata
-     * @param name  ident FrameMode name
-     * @param parent grab Dimension from
+     * \param name  ident FrameMode name
+     * \param parent grab Dimension from
      */
-    const FrameMode getFrameMode ( const QString &n, QWidget * parent = 0 );
+    const FrameMode getFrameMode ( const QString &name, QWidget * parent = 0 );
 
     /**
      * get current Screen Dimension from parent Widget
-     * @param parent  grab Dimension from
+     * \param parent  grab Dimension from
      */
     const FrameMode grabScreenGeometry ( QWidget * parent = 0 );
 

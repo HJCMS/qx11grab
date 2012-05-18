@@ -128,7 +128,7 @@ const QString BookmarkEntry::getCodecName ( BTYPE type )
 /**
 * Schreibe oder ersetze Parameterliste in Codec Type
 */
-void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const QHash<QString,QVariant> &hash )
+void BookmarkEntry::setCodecOptions ( BTYPE type, const QString &codecName, const QHash<QString,QVariant> &hash )
 {
   // qDebug() << Q_FUNC_INFO << codecName;
   if ( ! hasAttribute ( "title" ) )
@@ -141,7 +141,7 @@ void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const Q
     return;
   }
 
-  QString nodeName = ( t == VCODEC ) ? "vcodec" : "acodec";
+  QString nodeName = ( type == VCODEC ) ? "vcodec" : "acodec";
   QDomElement sharedNode = doc.createElement ( nodeName );
   sharedNode.setAttribute ( "id", id );
 
@@ -160,22 +160,22 @@ void BookmarkEntry::setCodecOptions ( BTYPE t, const QString &codecName, const Q
     param.appendChild ( v );
   }
 
-  if ( t == VCODEC )
+  if ( type == VCODEC )
     setVCodecChildNodes ( sharedNode );
-  else if ( t == ACODEC )
+  else if ( type == ACODEC )
     setACodecChildNodes ( sharedNode );
 }
 
 /**
 * Aktuelle Codec Parameter von Type auslesen
 */
-const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( BTYPE t )
+const QHash<QString,QVariant> BookmarkEntry::getCodecOptions ( BTYPE type )
 {
   QHash<QString,QVariant> hash;
   QDomElement codecNode;
-  if ( ( t == VCODEC ) && elementExists ( "vcodec" ) )
+  if ( ( type == VCODEC ) && elementExists ( "vcodec" ) )
     codecNode = vcodecNode();
-  else if ( ( t == ACODEC ) && elementExists ( "acodec" ) )
+  else if ( ( type == ACODEC ) && elementExists ( "acodec" ) )
     codecNode = acodecNode();
   else
     return hash;

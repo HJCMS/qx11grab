@@ -32,28 +32,25 @@ INHERIT_DOCS           = YES
 SEPARATE_MEMBER_PAGES  = NO
 TAB_SIZE               = 4
 ALIASES                = \
-	"intern=\par<b>Internal use only.</b>" \
-	"reimp=\par<b>Reimplemented from superclass.</b>" \
-	"obsolete=@deprecated" \
-	"feature=\xrefitem features \"Feature(s)\" \"Features\"" \
-	"unmaintained=\xrefitem unmaintained \"Unmaintained\" \"Unmaintained\"" \
-	"requirement=\xrefitem requirements \"Requirement(s)\" \"Requirements\"" \
-	"faq=\xrefitem FAQ \"F.A.Q.\" \"F.A.Q.\"" \
-	"authors=\xrefitem authors \"Author(s)\" \"Authors\"" \
-	"maintainers=\xrefitem maintainers \"Maintainer(s)\" \"Maintainers\"" \
-	"port4=\xrefitem port4 \"KDE 4 Porting Guide\" \"KDE 4 Porting Guide\"" \
-	"glossary=\xrefitem glossary \"KDE 4 Glossary\" \"KDE 4 Glossary\"" \
-	"acronym=\b "\
-	"licenses=\xrefitem licenses \"License(s)\" \"Licenses\"" \
-	"FIXME=\xrefitem fixme \"Fixme\" \"Fixme\"" \
-	"bc=\xrefitem bc \"Binary Compatible\" \"Binary Compatible\"" \
-	"threadsafe=\xrefitem threadsafe \"Threadsafe\" \"Threadsafe\"" \
-	"artistic=<a href=\"http://www.opensource.org/licenses/artistic-license.php\">Artistic</a>" \
-	"bsd=<a href=\"http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5\">BSD</a>" \
-	"x11=<a href=\"http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3\">X11</a>" \
-	"gpl=<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC1\">GPLv2</a>" \
-	"lgpl=<a href=\"http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html#SEC1\">LGPLv2</a>" \
-	"qpl=<a href=\"http://www.trolltech.com/products/qt/licenses\">QPL</a>"
+  "intern=\par<b>Internal use only.</b>" \
+  "reimp=\par<b>Reimplemented from superclass.</b>" \
+  "obsolete=@deprecated" \
+  "feature=\xrefitem features \"Feature(s)\" \"Features\"" \
+  "unmaintained=\xrefitem unmaintained \"Unmaintained\" \"Unmaintained\"" \
+  "requirement=\xrefitem requirements \"Requirement(s)\" \"Requirements\"" \
+  "faq=\xrefitem FAQ \"F.A.Q.\" \"F.A.Q.\"" \
+  "authors=\xrefitem authors \"Author(s)\" \"Authors\"" \
+  "maintainers=\xrefitem maintainers \"Maintainer(s)\" \"Maintainers\"" \
+  "acronym=\b "\
+  "licenses=\xrefitem licenses \"License(s)\" \"Licenses\"" \
+  "FIXME=\xrefitem fixme \"Fixme\" \"Fixme\"" \
+  "bc=\xrefitem bc \"Binary Compatible\" \"Binary Compatible\"" \
+  "bsd=<a href=\"http://www.xfree86.org/3.3.6/COPYRIGHT2.html#5\">BSD</a>" \
+  "x11=<a href=\"http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3\">X11</a>" \
+  "gpl=<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html#SEC1\">GPLv2</a>" \
+  "lgpl=<a href=\"http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html#SEC1\">LGPLv2</a>" \
+  "qpl=<a href=\"http://www.trolltech.com/products/qt/licenses\">QPL</a>" \
+  "homepage=<a href=\"http://qx11grab.hjcms.de\">QX11Grab</a>"
 
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
@@ -77,13 +74,13 @@ CASE_SENSE_NAMES       = YES
 HIDE_SCOPE_NAMES       = NO
 SHOW_INCLUDE_FILES     = YES
 INLINE_INFO            = NO
-SORT_MEMBER_DOCS       = YES
-SORT_BRIEF_DOCS        = NO
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = YES
 SORT_BY_SCOPE_NAME     = NO
 GENERATE_TODOLIST      = NO
 GENERATE_TESTLIST      = NO
 GENERATE_BUGLIST       = NO
-GENERATE_DEPRECATEDLIST= YES
+GENERATE_DEPRECATEDLIST = YES
 ENABLED_SECTIONS       = NO
 MAX_INITIALIZER_LINES  = 30
 SHOW_USED_FILES        = NO
@@ -107,7 +104,9 @@ FILE_PATTERNS          = *.h
 RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_SYMLINKS       = YES
-EXCLUDE_PATTERNS       = */.git/*
+EXCLUDE_PATTERNS       = */.git/* \
+  */build/* \
+
 EXAMPLE_PATH           = 
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = NO
@@ -167,15 +166,11 @@ EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = NO
 INCLUDE_PATH           = 
 INCLUDE_FILE_PATTERNS  = 
-PREDEFINED             = Q_SLOTS="slots" \
+PREDEFINED             = \
+  Q_SLOTS="slots" \
   Q_SIGNALS="signals" \
-  Q_PROPERTY="property" \
-  Q_UNUSED="unused" \
-  Q_CLASSINFO="info" \
-  QTIDY_DEPRECATED="deprecated" \
-  Q_DECLARE_METATYPE="declare metatype" \
-  QTIDY_EXPORT="" \
-  QTIDY_IMPORT=""
+  Q_DECL_EXPORT=" " \
+  Q_NOREPLY=""
 
 EXPAND_AS_DEFINED      = #include=""
 SKIP_FUNCTION_MACROS   = YES
