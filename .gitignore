@@ -1,9 +1,5 @@
 build
-extras
-tests
-apis
 html
-.kdev4
 Makefile*
 qx11grab.kdev*
 *.log
@@ -11,14 +7,9 @@ qx11grab.kdev*
 core
 ctags
 .ctags
-.bzr
-.bzrignore
+.bzr*
 tags
-c*.sh
+cmake.sh
+commit.sh
 ddd.sh
-qemu.sh
-importicon.sh
 lupdate.sh
-snapshot.sh
-testcmd.sh
-remotesshow.sh
