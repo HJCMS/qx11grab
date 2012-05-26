@@ -21,7 +21,8 @@
 ########################################################################################
 
 target_project="qx11grab"
+description="${1:-"`date`"}"
 
 pushd $HJCMS_PROJECTS_DIR/${target_project}
-  LC_ALL=C /usr/bin/git commit -m "`date`" .
+  LC_ALL=C /usr/bin/git commit -m "${description}" .
 popd
