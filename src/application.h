@@ -37,7 +37,7 @@
 class Settings;
 class MainWindow;
 
-/*
+/**
 * \class Application
 * \code
 * #include <cstdlib>

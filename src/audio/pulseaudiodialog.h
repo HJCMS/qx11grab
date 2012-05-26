@@ -54,7 +54,7 @@ class PulseAudioDialog : public AbstractAudioDialog
   public:
     /**
     * \class PulseAudioDialog
-    * this dialog will find all pulse sources for user selcetion
+    * this dialog will find all pulse sources for user selection
     * normaly FFmpeg use the "default" record descriptor
     * \code
     *   xprop -root | grep ^PULSE_S

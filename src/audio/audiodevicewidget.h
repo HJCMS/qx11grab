@@ -36,10 +36,6 @@
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
-/*
-* \class AudioDeviceWidget
-* General Audio Device Selection Widget
-*/
 class AudioDeviceWidget : public QGroupBox
 {
     Q_OBJECT
@@ -71,6 +67,10 @@ class AudioDeviceWidget : public QGroupBox
     void postUpdate( bool );
 
   public:
+    /**
+    * \class AudioDeviceWidget
+    * General Audio Device Selection Widget
+    */
     explicit AudioDeviceWidget ( QWidget * parent = 0 );
 
     /**

@@ -45,6 +45,38 @@ extern "C"
 
 namespace QX11Grab
 {
+
+  /**
+  * Prüfe ob dieser Codec nur zum kodieren geeignet ist.
+  */
+  static bool qx11grab_is_encoder ( AVCodec* _c )
+  {
+#if ( LIBAVCODEC_VERSION_INT >= 3489124 )
+    // qDebug() << "NEW_ENCODER_API" << LIBAVCODEC_VERSION_INT;
+    return ( ( _c && ( _c->encode || _c->encode2 ) ) == 1 );
+#else
+    return ( ( _c && ( _c->encode ) ) == 1 );
+#endif
+  }
+
+  /**
+  * Wir können bei X11 nicht jeden Kodierer verwenden.
+  * Aus diesem grund minimiere die Liste der Möglichkeiten
+  * mit Hilfe eines Regulären Ausdrucks.
+  * Liste der Aktuell gesuchten Kodierer:
+  *   \li Alle lib\w+ Formate
+  *   \li Alle dv Formate
+  *   \li Alle mpeg Formate
+  *   \li Alle h\d+ Formate
+  *   \li Flash Format
+  * TODO Das hier ist im Moment nur eine Notlösung :-/
+  */
+  static bool qx11grab_supported_avcodec ( const char* name )
+  {
+    QString n = QString::fromUtf8 ( name );
+    return n.contains ( QRegExp ( "((^lib\\w+)|(dv)|(mpeg)|(h\\d+)|(flv))", Qt::CaseInsensitive ) );
+  }
+
   /** generate basic ffmpeg options
   * @ref http://ffmpeg.org/doxygen/
   */
@@ -162,22 +194,31 @@ namespace QX11Grab
   {
     QList<FFCodec> list;
     avcodec_register_all();
-    AVCodec* codec = NULL;
-    for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+    AVCodec* m_codec = NULL;
+    for ( m_codec = av_codec_next ( NULL ); m_codec != NULL; m_codec = av_codec_next ( m_codec ) )
     {
-      if ( ( codec->type == AVMEDIA_TYPE_VIDEO ) && ( codec->encode )
-              && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
-      {
-        // qDebug ( "VCodec: %s Capability: 0x%02x", codec->name, codec->capabilities );
+      if ( ! m_codec )
+        continue;
 
+      if ( ( m_codec->type == AVMEDIA_TYPE_VIDEO ) && qx11grab_is_encoder ( m_codec )
+              && qx11grab_supported_avcodec ( m_codec->name ) )
+      {
+#ifdef MAINTAINER_REPOSITORY
+        qDebug ( "VCodec %d: %s, ID: %d, Capability: 0x%02x",
+                 qx11grab_supported_avcodec ( m_codec->name ),
+                 m_codec->name,
+                 m_codec->id,
+                 m_codec->capabilities
+               );
+#endif
         // Wir verwenden auschließlich Kodierer die auch ein Ausgabe Format anbieten!
-        if ( supportedFormats ( codec->id ).size() < 1 )
+        if ( supportedFormats ( m_codec->id ).size() < 1 )
           continue;
 
         FFCodec c;
-        c.id = codec->id;
-        c.name = QString ( codec->name );
-        c.fullname = QString ( codec->long_name );
+        c.id = m_codec->id;
+        c.name = QString ( m_codec->name );
+        c.fullname = QString ( m_codec->long_name );
         c.info = QString();
         list.append ( c );
       }
@@ -192,17 +233,19 @@ namespace QX11Grab
   {
     QList<FFCodec> list;
     avcodec_register_all();
-    AVCodec* codec = NULL;
-    for ( codec = av_codec_next ( 0 ); codec != NULL; codec = av_codec_next ( codec ) )
+    AVCodec* m_codec = NULL;
+    for ( m_codec = av_codec_next ( NULL ); m_codec != NULL; m_codec = av_codec_next ( m_codec ) )
     {
-      if ( ( codec->type == AVMEDIA_TYPE_AUDIO ) && ( codec->encode )
-              && ! ( codec->capabilities & CODEC_CAP_EXPERIMENTAL ) )
+      if ( ! m_codec )
+        continue;
+
+      if ( ( m_codec->type == AVMEDIA_TYPE_AUDIO ) && qx11grab_is_encoder ( m_codec ) )
       {
-        // qDebug ( "ACodec: %s ID: %d", codec->name, codec->id );
+        // qDebug ( "ACodec: %s ID: %d", m_codec->name, m_codec->id );
         FFCodec c;
-        c.id = codec->id;
-        c.name = QString ( codec->name );
-        c.fullname = QString ( codec->long_name );
+        c.id = m_codec->id;
+        c.name = QString ( m_codec->name );
+        c.fullname = QString ( m_codec->long_name );
         c.info = QString();
         list.append ( c );
       }

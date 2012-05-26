@@ -197,7 +197,7 @@ void AudioDeviceWidget::openAlsaDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
-    emit postUpdate( true );
+    emit postUpdate ( true );
   }
   delete dialog;
 }
@@ -215,7 +215,7 @@ void AudioDeviceWidget::openOSSDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
-    emit postUpdate( true );
+    emit postUpdate ( true );
   }
   delete dialog;
 }
@@ -234,7 +234,7 @@ void AudioDeviceWidget::openPulseDialog()
     device->setText ( d.name );
     device->setToolTip ( d.hw );
     device->setStatusTip ( d.description );
-    emit postUpdate( true );
+    emit postUpdate ( true );
   }
   delete dialog;
 #endif
@@ -243,13 +243,13 @@ void AudioDeviceWidget::openPulseDialog()
 /** Ein Eingabe Status wurde geändert */
 void AudioDeviceWidget::statusUpdate ( bool )
 {
-  emit postUpdate( true );
+  emit postUpdate ( true );
 }
 
 /** Ein Eingabe Status wurde geändert */
 void AudioDeviceWidget::integerUpdate ( int )
 {
-  emit postUpdate( true );
+  emit postUpdate ( true );
 }
 
 /**
@@ -323,7 +323,7 @@ void AudioDeviceWidget::audioEngineChanged ( int index )
       m_audiodevButton->setDisabled ( true );
       break;
   };
-  emit postUpdate( true );
+  emit postUpdate ( true );
 }
 
 /**

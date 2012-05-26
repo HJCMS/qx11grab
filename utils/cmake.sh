@@ -21,7 +21,7 @@
 ########################################################################################
 
 target_project="qx11grab"
-ff_suffix=_10x
+ff_suffix=_11x
 
 if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
 source $HJCMS_PROJECTS_DIR/projectconfigurations.sh

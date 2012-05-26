@@ -43,23 +43,47 @@ class Adaptor : public QDBusAbstractAdaptor
     Q_PROPERTY ( QString command READ commandline )
     Q_PROPERTY ( QString file READ output )
 
+  public Q_SLOTS:
+    /** hide/show rubberband */
+    Q_NOREPLY void rubberband ();
+
+    /** start recording  */
+    Q_NOREPLY void start ();
+
+    /** stop recording */
+    Q_NOREPLY void stop ();
+
+    /** show window */
+    Q_NOREPLY void show ();
+
+    /** hide window */
+    Q_NOREPLY void hide ();
+
+    /** send text to qx11grab messanger */
+    Q_NOREPLY void message ( const QString &mess );
+
+    /** selected codec table editor */
+    const QString editorcodec();
+
+    /** get current recording dimension */
+    const QString dimension();
+
+    /** get current audio codec name */
+    const QString audiocodec();
+
+    /** get current video codec name */
+    const QString videocodec();
+
+    /** get current commandline */
+    const QString commandline();
+
+    /** get current output filepath */
+    const QString output();
+
   public:
+     /** QDBus Adaptor */
     Adaptor ( QObject *parent = 0 );
     ~Adaptor();
-
-  public Q_SLOTS:
-    Q_NOREPLY void rubberband ();
-    Q_NOREPLY void start ();
-    Q_NOREPLY void stop ();
-    Q_NOREPLY void show ();
-    Q_NOREPLY void hide ();
-    Q_NOREPLY void message ( const QString &mess );
-    const QString editorcodec();
-    const QString dimension();
-    const QString audiocodec();
-    const QString videocodec();
-    const QString commandline();
-    const QString output();
 };
 
 #endif
