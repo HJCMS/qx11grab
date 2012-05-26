@@ -1,0 +1,34 @@
+i'm using multiple FFmpeg installations for a better test result
+~> dir -m /usr/include/ffmpeg/
+	0.10, 0.11, 0.5, 0.7, 0.9, distributable
+
+QX11Grab supports suffix build with FFmpeg pkg-config suffix
+my patches modifying the generated pkg-config Files from FFmpeg configure script
+
+how to compile with my version patch...
+
+[code]
+export _suffix=”_11x”
+
+cat ffmpeg_11x_build_version.diff | patch -p0
+
+./configure \
+  --build-suffix="${_suffix}" \
+  --incdir=/usr/include/ffmpeg/0.11\
+  …
+
+make
+
+make DESTDIR=/tmp/ffmpeg_build install
+
+pushd /tmp/ffmpeg_build/usr/lib/pkgconfig
+	for pkg in avcodec avdevice avfilter avformat avutil postproc swscale swresample avresample ; do
+		mv lib${pkg}.pc lib${pkg}${_suffix}.pc
+	done
+popd
+
+[/code]
+
+after this you can compile  qx11grab with 
+	-DFFMPEG_SUFFIX:STRING="_11x"
+option
