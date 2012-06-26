@@ -19,6 +19,10 @@ SET (_subproject_HEADERS
 
 IF (PULSE_FOUND)
 
+LINK_DIRECTORIES (
+  ${PULSE_LIBRARY_DIRS}
+)
+
 SET (_subproject_SOURCES
   ${_subproject_SOURCES}
   pulseaudiodialog.cpp
