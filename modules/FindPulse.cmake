@@ -6,8 +6,6 @@
 #   PULSE_FOUND       - True if pulse are found
 #   PULSE_LIBRARIES   - Set when libav* Libraries found
 #   PULSE_INCLUDEDIR  - where to find headers
-#   PULSE_SHAREDIR    - Path to pulse's DATA Directory PULSE_DATADIR or AVCONV_DATADIR
-#   PULSE_BINARY      - Path to pulse's application ffmpeg or avconv
 #
 #=============================================================================
 # Copyright 2012 Juergen Heinemann (Undefined) http://www.hjcms.de
