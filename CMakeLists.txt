@@ -32,15 +32,6 @@ IF (NOT UNIX)
   MESSAGE (FATAL_ERROR "Only Unix is Supported!")
 ENDIF (NOT UNIX)
 
-## Disable KDE4 Framework Support
-OPTION (ENABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
-IF (ENABLE_KDE_SUPPORT)
-  FIND_PACKAGE (KDE4 4.5.0)
-  IF (KDE4_FOUND)
-    ADD_DEFINITIONS (-DHAVE_KDE4_SUPPORT)
-  ENDIF (KDE4_FOUND)
-ENDIF (ENABLE_KDE_SUPPORT)
-
 ##############################################################
 ## Set qx11grab Specific Information
 ##############################################################
@@ -67,7 +58,7 @@ IF(EXISTS "${qx11grab_SOURCE_DIR}/.git")
 ENDIF (EXISTS "${qx11grab_SOURCE_DIR}/.git")
 
 ##############################################################
-## Set Header Definitions
+## Macros
 ##############################################################
 
 INCLUDE (CheckCXXCompilerFlag)
@@ -98,11 +89,6 @@ SET (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wno-deprecated-declara
 SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${CMAKE_CXX_FLAGS_RELEASE}")
 SET (CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} ${CMAKE_CXX_FLAGS_RELEASE}")
 
-REMOVE_DEFINITIONS (
-  -DQT3_SUPPORT_WARNINGS
-  -DQT3_SUPPORT
-)
-
 ## Enable Q4 OpenGL Support
 OPTION (ENABLE_OPENGL "Enable Q4 OpenGL Support (ON/OFF)" OFF)
 IF (ENABLE_OPENGL)
@@ -110,7 +96,16 @@ IF (ENABLE_OPENGL)
   ADD_DEFINITIONS (-DHAVE_OPENGL)
 ENDIF (ENABLE_OPENGL)
 
-## Enable Q4 OpenGL Support
+## Enable Optional KDE4 Framework Support
+OPTION (ENABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
+IF (ENABLE_KDE_SUPPORT)
+  FIND_PACKAGE (KDE4 4.5.0)
+  IF (KDE4_FOUND)
+    ADD_DEFINITIONS (-DHAVE_KDE4_SUPPORT)
+  ENDIF (KDE4_FOUND)
+ENDIF (ENABLE_KDE_SUPPORT)
+
+## Enable Experimental Extensions
 OPTION (ENABLE_EXPERIMENTAL "Enable Experimental Code (ON/OFF)" OFF)
 IF (ENABLE_EXPERIMENTAL)
   ADD_DEFINITIONS (-DENABLE_EXPERIMENTAL)
@@ -197,10 +192,13 @@ ELSE (DBUS_FOUND)
   MESSAGE (FATAL_ERROR "DBus not found")
 ENDIF (DBUS_FOUND)
 
+##############################################################
+## Inkscape
+##############################################################
 
 FIND_PROGRAM (INKSCAPE_BINARY NAMES inkscape)
 IF (INKSCAPE_BINARY)
-  MESSAGE (STATUS "Extra Theme Pixmaps")
+  MESSAGE (STATUS "Create extra theme pixmaps")
 ELSE (INKSCAPE_BINARY)
   MESSAGE (WARNING "Missing Inkscape for building extra icons!")
 ENDIF (INKSCAPE_BINARY)
@@ -253,6 +251,16 @@ IF (KDE4_FOUND)
   )
   ADD_DEFINITIONS ("-DHAVE_KDE4_SUPPORT")
 ENDIF (KDE4_FOUND)
+
+##############################################################
+## Definitions
+## NOTE set this behind ENABLE_KDE_SUPPORT and ENABLE_OPENGL !!!
+##############################################################
+
+REMOVE_DEFINITIONS (
+  -DQT3_SUPPORT_WARNINGS
+  -DQT3_SUPPORT
+)
 
 ##############################################################
 ## Configure Source Files
