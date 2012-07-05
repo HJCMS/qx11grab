@@ -20,6 +20,17 @@ FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
 FIND_PACKAGE (FFmpeg REQUIRED)
 FIND_PACKAGE (V4L2)
+## PulseAudio
+OPTION (ENABLE_PULSE "Enable PulseAudio Support (ON/OFF)" ON)
+IF (ENABLE_PULSE)
+  FIND_PACKAGE (Pulse REQUIRED)
+ENDIF (ENABLE_PULSE)
+
+OPTION (INSTALL_EXTRA_FFPRESETS "Install extra FFmpeg ffpresets (ON/OFF)" OFF)
+
+IF (NOT UNIX)
+  MESSAGE (FATAL_ERROR "Only Unix is Supported!")
+ENDIF (NOT UNIX)
 
 ## Disable KDE4 Framework Support
 OPTION (ENABLE_KDE_SUPPORT "Enable KDE4 Environment (ON/OFF)" OFF)
@@ -29,12 +40,6 @@ IF (ENABLE_KDE_SUPPORT)
     ADD_DEFINITIONS (-DHAVE_KDE4_SUPPORT)
   ENDIF (KDE4_FOUND)
 ENDIF (ENABLE_KDE_SUPPORT)
-
-OPTION (INSTALL_EXTRA_FFPRESETS "Install extra FFmpeg ffpresets (ON/OFF)" OFF)
-
-IF (NOT UNIX)
-  MESSAGE (FATAL_ERROR "Only Unix is Supported!")
-ENDIF (NOT UNIX)
 
 ##############################################################
 ## Set qx11grab Specific Information
@@ -153,28 +158,6 @@ IF (ENABLE_EXPERIMENTAL)
 ELSE (ENABLE_EXPERIMENTAL)
   SET (ENABLE_WEBCAM_FILTER FALSE)
 ENDIF (ENABLE_EXPERIMENTAL)
-
-##############################################################
-## PulseAudio 
-##############################################################
-OPTION (ENABLE_PULSE "Enable PulseAudio Support (ON/OFF)" ON)
-IF (ENABLE_PULSE)
-  SET (PULSE_SUFFIX "" CACHE STRING
-    "pulse pkg-config or library file suffix (STRING)"
-  )
-
-  SET (PULSE_VERSION "0.9" CACHE STRING
-    "Required libpulse${PULSE_SUFFIX} Version" FORCE
-  )
-
-  PKG_CHECK_MODULES (PULSE 
-    libpulse${PULSE_SUFFIX}>=${PULSE_VERSION}
-  )
-
-  IF (PULSE_FOUND)
-    ADD_DEFINITIONS (-DHAVE_PULSE)
-  ENDIF (PULSE_FOUND)
-ENDIF (ENABLE_PULSE)
 
 ##############################################################
 ## Xorg 

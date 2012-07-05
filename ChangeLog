@@ -2,6 +2,11 @@ Version 0.4.4
 * Czech and Lithuanian translation update
 * fix screen initialization with multiple Xserver layout configurations
 * add experimental webcam filter dialog
+* add cmake variable PULSE_LIBRARY_DIRS for pulseaudio>=2.0
+  from pulse version 1.1 to 2.0 the pulsecommon library was moved in a sub directory
+  if compilation fails with cannot find -lpulsecommon-2.0
+  you can add -DPULSE_LIBRARY_DIRS:PATH=/usr/lib/pulseaudio to fix this,
+  or add the new target to /etc/ld.so.conf and regenerate the linker cache with ldconfig.
 
 Version 0.4.3
 * fixed filter sort model

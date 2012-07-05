@@ -1,2 +1,5 @@
+Thu Jul  5 06:14:17 CEST 2012
+  Bugfix - Add PULSE_LIBRARY_DIRS for PulseAudio 2.0
+
 Tue Apr 27 06:57:18 CEST 2010
   add alsa audio device selection support

@@ -2,8 +2,9 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 PROJECT_NAME           = QX11Grab
-PROJECT_NUMBER         = 0.4
-OUTPUT_DIRECTORY       = .
+PROJECT_NUMBER         = 0.4.*
+PROJECT_LOGO           = icons/qx11grab_64.png
+OUTPUT_DIRECTORY       = /srv/www/vhosts/HJCMs/qx11grab/api
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
@@ -104,8 +105,9 @@ FILE_PATTERNS          = *.h
 RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_SYMLINKS       = YES
-EXCLUDE_PATTERNS       = */.git/* \
-  */build/* \
+EXCLUDE_PATTERNS       = *.git \
+  *.d \
+  *_p.h
 
 EXAMPLE_PATH           = 
 EXAMPLE_PATTERNS       = *
@@ -117,7 +119,7 @@ FILTER_SOURCE_FILES    = NO
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = YES
 REFERENCED_BY_RELATION = YES
@@ -137,9 +139,21 @@ IGNORE_PREFIX          =
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
 HTML_FILE_EXTENSION    = .html
-HTML_HEADER            = 
-HTML_FOOTER            = 
-HTML_STYLESHEET        = 
+HTML_HEADER            = utils/doxy/header.html
+HTML_FOOTER            = utils/doxy/footer.html
+# HTML_STYLESHEET        = utils/doxy/doxy_stylesheet.css
+## http://www.stack.nl/~dimitri/doxygen/config.html#cfg_html_colorstyle_hue
+HTML_COLORSTYLE_HUE    = 240
+HTML_COLORSTYLE_SAT    = 0
+HTML_COLORSTYLE_GAMMA  = 100
+HTML_TIMESTAMP         = YES
+HTML_ALIGN_MEMBERS     = YES
+HTML_DYNAMIC_SECTIONS  = NO
+GENERATE_DOCSET        = NO
+DOCSET_FEEDNAME        = "Doxygen generated docs"
+DOCSET_BUNDLE_ID       = org.doxygen.Project
+DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
+DOCSET_PUBLISHER_NAME  = Publisher
 GENERATE_HTMLHELP      = NO
 GENERATE_CHI           = NO
 BINARY_TOC             = NO
@@ -147,7 +161,22 @@ TOC_EXPAND             = NO
 DISABLE_INDEX          = YES
 ENUM_VALUES_PER_LINE   = 4
 GENERATE_TREEVIEW      = YES
-TREEVIEW_WIDTH         = 250
+TREEVIEW_WIDTH         = 380
+EXT_LINKS_IN_WINDOW    = NO
+FORMULA_FONTSIZE       = 12
+FORMULA_TRANSPARENT    = YES
+USE_MATHJAX            = NO
+MATHJAX_RELPATH        = ../mathjax
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+#---------------------------------------------------------------------------
+# configuration options related onto the qt's qhelpgenerator output
+#---------------------------------------------------------------------------
+GENERATE_QHP           = YES
+QHP_NAMESPACE          = QX11Grab
+QHP_VIRTUAL_FOLDER     = QX11Grab
+QCH_FILE               = qx11grab.qch
+QHG_LOCATION           = qhelpgenerator
 #---------------------------------------------------------------------------
 # configuration options related to the LaTeX output
 #---------------------------------------------------------------------------
@@ -197,17 +226,16 @@ INCLUDE_GRAPH          = YES
 INCLUDED_BY_GRAPH      = NO
 CALL_GRAPH             = NO
 CALLER_GRAPH           = NO
-GRAPHICAL_HIERARCHY    = YES
-DIRECTORY_GRAPH        = YES
+GRAPHICAL_HIERARCHY    = NO
+DIRECTORY_GRAPH        = NO
 DOT_IMAGE_FORMAT       = png
 DOT_PATH               = 
 DOTFILE_DIRS           = 
 MAX_DOT_GRAPH_DEPTH    = 1000
 DOT_TRANSPARENT        = NO
 DOT_MULTI_TARGETS      = NO
-GENERATE_LEGEND        = YES
+GENERATE_LEGEND        = NO
 DOT_CLEANUP            = YES
-#---------------------------------------------------------------------------
-# Configuration::additions related to the search engine   
-#---------------------------------------------------------------------------
-SEARCHENGINE           = NO
+
+##EOF
+

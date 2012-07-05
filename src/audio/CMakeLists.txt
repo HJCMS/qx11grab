@@ -19,10 +19,6 @@ SET (_subproject_HEADERS
 
 IF (PULSE_FOUND)
 
-LINK_DIRECTORIES (
-  ${PULSE_LIBRARY_DIRS}
-)
-
 SET (_subproject_SOURCES
   ${_subproject_SOURCES}
   pulseaudiodialog.cpp
@@ -66,7 +62,7 @@ TARGET_LINK_LIBRARIES (${_subproject}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
   ${ALSA_LIBRARY}
-  ${PULSE_LDFLAGS}
+  ${PULSE_LIBRARIES}
 )
 
 ## EOF
