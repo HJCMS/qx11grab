@@ -58,7 +58,7 @@ void ExportDialog::save()
   if ( info.isDir() )
     info.setFile ( "qx11grab.sh" );
 
-  QStringList cmd ( "#!/bin/bash" );
+  QStringList cmd ( "#!/usr/bin/env bash" );
   cmd << "" << "# command line export from QX11Grab Application http://qx11grab.hjcms.de";
   cmd << "" << line << "";
   QFile fp ( info.absoluteFilePath() );
