@@ -29,6 +29,7 @@
 #include <QtCore/QUrl>
 
 /* QtGui */
+#include <QtGui/QCompleter>
 #include <QtGui/QGridLayout>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QLabel>
@@ -93,6 +94,14 @@ MetaData::MetaData ( QWidget * parent )
   /*: WhatsThis */
   metadata_ICOP->setWhatsThis ( trUtf8 ( "Copyright" ) );
   gridLayout->addWidget ( metadata_ICOP, grow++, 1, 1, 1 );
+
+  QStringList ccLicenses;
+  ccLicenses << "CC BY 3.0" << "CC BY-ND 3.0";
+  ccLicenses << "CC BY-NC 3.0" << "CC BY-NC-ND 3.0";
+  ccLicenses << "CC BY-NC-SA 3.0" << "CC BY-SA 3.0";
+
+  QCompleter* m_cc_completer = new QCompleter ( ccLicenses, metadata_ICOP );
+  metadata_ICOP->setCompleter ( m_cc_completer );
 
   QLabel* txt_createdate = new QLabel ( this );
   txt_createdate->setText ( trUtf8 ( "Creation Date:" ) );
