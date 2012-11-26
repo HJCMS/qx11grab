@@ -27,7 +27,9 @@ if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
 source $HJCMS_PROJECTS_DIR/projectconfigurations.sh
 fi
 
-mkdir -p $HJCMS_PROJECTS_DIR/${target_project}/build
+mkdir -p /tmp/${target_project}/build
+
+pushd /tmp/${target_project}/build
 
 /usr/bin/cmake -W-dev \
   -DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS" \
@@ -37,4 +39,8 @@ mkdir -p $HJCMS_PROJECTS_DIR/${target_project}/build
   -DINSTALL_FFPRESETS:BOOL=OFF \
   -DCMAKE_SKIP_RPATH:BOOL=ON \
   -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-  $CMAKE_EXTRAS $@ ../
+  $CMAKE_EXTRAS $@ $HJCMS_PROJECTS_DIR/${target_project}/
+
+popd
+
+echo "make -C /tmp/${target_project}/build"
