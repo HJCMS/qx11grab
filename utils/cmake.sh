@@ -43,4 +43,4 @@ pushd /tmp/${target_project}/build
 
 popd
 
-echo "make -C /tmp/${target_project}/build"
+echo "make -j3 -C /tmp/${target_project}/build"

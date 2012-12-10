@@ -53,11 +53,11 @@ namespace QX11Grab
   {
 #if ( LIBAVCODEC_VERSION_INT >= 3489124 )
 // qDebug() << "NEW_ENCODER_API" << LIBAVCODEC_VERSION_INT;
-# if ( LIBAVCODEC_VERSION_INT >= 3554148 )
-  return ( ( _c && ( _c->encode2 ) ) == 1 );
-# else
-  return ( ( _c && ( _c->encode || _c->encode2 ) ) == 1 );
-# endif
+  #if ( LIBAVCODEC_VERSION_INT >= 3554148 )
+    return ( ( _c && ( _c->encode2 ) ) == 1 );
+  #else
+    return ( ( _c && ( _c->encode || _c->encode2 ) ) == 1 );
+  #endif
 #else
     return ( ( _c && ( _c->encode ) ) == 1 );
 #endif
