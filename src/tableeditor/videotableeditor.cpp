@@ -139,7 +139,7 @@ const QString VideoTableEditor::selectedCodecExtension()
 const QStringList VideoTableEditor::getCmd()
 {
   QStringList cmd;
-  cmd << QLatin1String ( "-vcodec" ) << selectedCodec();
+  cmd << QLatin1String ( "-c:v" ) << selectedCodec();
 
   QHash<QString,QVariant> hash = getTableItems();
   if ( hash.size() >= 1 )

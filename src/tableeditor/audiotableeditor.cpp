@@ -78,7 +78,7 @@ void AudioTableEditor::save ( Settings *cfg )
 const QStringList AudioTableEditor::getCmd()
 {
   QStringList cmd;
-  cmd << QLatin1String ( "-acodec" ) << selectedCodec();
+  cmd << QLatin1String ( "-c:a" ) << selectedCodec();
 
   QHash<QString,QVariant> hash = getTableItems();
   if ( hash.size() >= 1 )

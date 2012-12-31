@@ -57,9 +57,9 @@ const QString CodecTableModel::replaceDeprecated ( const QString &key ) const
   str.trimmed();
   // ab sofort kein -vf mehr zulassen!
   if ( str.contains ( "-vf" ) )
-    str.replace ( "-vf", QX11Grab::avFilterPredicate );
+    str.replace ( QRegExp( "^\\-vf\\b" ), QX11Grab::avFilterPredicate );
   else if ( str.contains ( "-af" ) )
-    str.replace ( "-af", QX11Grab::acFilterPredicate );
+    str.replace ( QRegExp( "^\\-af\\b" ), QX11Grab::acFilterPredicate );
 
   return str;
 }
