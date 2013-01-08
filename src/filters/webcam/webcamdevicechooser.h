@@ -26,6 +26,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QList>
 #include <QtCore/QObject>
+#include <QtCore/QSize>
 #include <QtCore/QString>
 
 /* QtGui */
@@ -36,13 +37,15 @@
 /* QX11Grab */
 #include "webcamdeviceinfo.h"
 
-class WebCamDeviceChooser : public QComboBox
+class WebCamDeviceChooser : public QWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    QComboBox* m_setWebcamDevice; /**< set device */
+    QComboBox* m_setCaptureSize; /**< select predefined framesize */
     const QIcon cameraIcon;
     QList<WebCamDeviceInfo> devInfo;
     inline const QString toString ( unsigned char* ptr ) const;
@@ -51,9 +54,11 @@ class WebCamDeviceChooser : public QComboBox
 
   private Q_SLOTS:
     void itemChanged ( int index );
+    void itemSizeChanged ( int index );
 
   Q_SIGNALS:
     void cameraSelected ( const WebCamDeviceInfo & );
+    void captureSizeSelected ( const QSize & );
 
   public Q_SLOTS:
     void init();

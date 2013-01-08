@@ -184,7 +184,6 @@ void Webcam::loadDefaults()
 void Webcam::cameraDeviceChanged ( const WebCamDeviceInfo &dev )
 {
   p_v4lDevice = dev.path;
-  m_scaleFrame->setRange ( 100, qMax ( dev.size.width(), dev.size.height() ) );
   m_webCamCaptureFrames->setInterface ( dev );
 
   // Ausgabezeile neu Schreiben

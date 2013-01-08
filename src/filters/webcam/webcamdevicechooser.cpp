@@ -24,9 +24,11 @@
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
+#include <QtCore/QRect>
 #include <QtCore/QStringList>
 
 /* QtGui */
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QIcon>
 
 /* V4L2 */
@@ -34,15 +36,34 @@
 #include "v4l2-api.h"
 
 WebCamDeviceChooser::WebCamDeviceChooser ( QWidget * parent )
-    : QComboBox ( parent )
+    : QWidget ( parent )
     , cameraIcon ( QIcon::fromTheme ( "camera-web" ) )
 {
   setObjectName ( QLatin1String ( "WebCamDeviceChooser" ) );
-  addItem ( cameraIcon, trUtf8 ( "No web camera found" ), false );
-  setEnabled ( false );
 
-  connect ( this, SIGNAL ( currentIndexChanged ( int ) ),
+  QHBoxLayout* layout = new QHBoxLayout ( this );
+
+  m_setWebcamDevice = new QComboBox ( this );
+  m_setWebcamDevice->addItem ( cameraIcon, trUtf8 ( "No web camera found" ), false );
+  m_setWebcamDevice->setEnabled ( false );
+  layout->addWidget ( m_setWebcamDevice );
+
+  m_setCaptureSize = new QComboBox ( this );
+  m_setCaptureSize->setToolTip ( trUtf8 ( "capture from framesize" ) );
+  m_setCaptureSize->setWhatsThis ( trUtf8 ( "set maximum input framesize to capture from source" ) );
+  QIcon captureIcon = QIcon::fromTheme ( "media-record" );
+  m_setCaptureSize->addItem ( captureIcon, QLatin1String ( "160x120" ), QSize ( 160, 120 ) );
+  m_setCaptureSize->addItem ( captureIcon, QLatin1String ( "320x240" ), QSize ( 320, 240 ) );
+  m_setCaptureSize->addItem ( captureIcon, QLatin1String ( "640x480" ), QSize ( 640, 480 ) );
+  layout->addWidget ( m_setCaptureSize );
+
+  setLayout ( layout );
+
+  connect ( m_setWebcamDevice, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( itemChanged ( int ) ) );
+
+  connect ( m_setCaptureSize, SIGNAL ( currentIndexChanged ( int ) ),
+            this, SLOT ( itemSizeChanged ( int ) ) );
 }
 
 /**
@@ -111,9 +132,10 @@ bool WebCamDeviceChooser::insertWebCamDevice ( const QFileInfo &dev )
         p_v4l2.g_fmt_cap ( fmt );
         do
         {
-          // qDebug() << Q_FUNC_INFO << fmt.fmt.pix.width << fmt.fmt.pix.height;
           info.pixfmt = p_v4l2.pixfmt2s ( fdesc.pixelformat );
-          info.size = QSize ( fmt.fmt.pix.width, fmt.fmt.pix.height );
+          info.sourceSize = QSize ( fmt.fmt.pix.width, fmt.fmt.pix.height );
+          info.outputSize = m_setCaptureSize->itemData ( m_setCaptureSize->currentIndex(), Qt::UserRole ).toSize();
+          // qDebug() << Q_FUNC_INFO << info.size;
           break;
         }
         while ( p_v4l2.enum_fmt_cap ( fdesc ) );
@@ -122,7 +144,8 @@ bool WebCamDeviceChooser::insertWebCamDevice ( const QFileInfo &dev )
       {
         // Wenn nicht gefunden Versuche YUV420 planar (V4L2_PIX_FMT_YUV420M)
         info.pixfmt = QLatin1String ( "yuv420p" );
-        info.size = QSize ( 160, 120 );
+        info.sourceSize = m_setCaptureSize->itemData ( m_setCaptureSize->currentIndex(), Qt::UserRole ).toSize();
+        info.outputSize = m_setCaptureSize->itemData ( m_setCaptureSize->currentIndex(), Qt::UserRole ).toSize();
       }
     }
 
@@ -156,10 +179,10 @@ void WebCamDeviceChooser::searchDevices()
 
     if ( devInfo.size() > 0 )
     {
-      setEnabled ( true );
-      clear();
+      m_setWebcamDevice->setEnabled ( true );
+      m_setWebcamDevice->clear();
       int index = 0;
-      insertItem ( index, cameraIcon, trUtf8 ( "Choose Camera" ), false );
+      m_setWebcamDevice->insertItem ( index, cameraIcon, trUtf8 ( "Choose Camera" ), false );
 
       qRegisterMetaType<WebCamDeviceInfo>();
 
@@ -173,24 +196,34 @@ void WebCamDeviceChooser::searchDevices()
         QString title = QString::fromUtf8 ( "%1 (%2 - %3)" )
                         .arg ( info.card, info.driver, info.pixfmt );
 
-        insertItem ( ++index, cameraIcon, title, data );
-        setItemData ( index, info.path, Qt::ToolTipRole );
+        m_setWebcamDevice->insertItem ( ++index, cameraIcon, title, data );
+        m_setWebcamDevice->setItemData ( index, info.path, Qt::ToolTipRole );
       }
     }
   }
 }
 
 /**
-* Ein Eintrag wurde ausgewählt
+* Ein Video Schnittstellen eintrag wurde ausgewählt
 */
 void WebCamDeviceChooser::itemChanged ( int index )
 {
   if ( index > 0 )
   {
-    QVariant var = itemData ( index, Qt::UserRole );
+    QVariant var = m_setWebcamDevice->itemData ( index, Qt::UserRole );
     WebCamDeviceInfo info = var.value<WebCamDeviceInfo>();
     emit cameraSelected ( info );
   }
+}
+
+/**
+* Die Video Einstellungen für die Aufnahme Größe wurde geändert
+*/
+void WebCamDeviceChooser::itemSizeChanged ( int index )
+{
+  QSize size = m_setCaptureSize->itemData ( index, Qt::UserRole ).toSize();
+  if ( size.isValid() )
+    emit captureSizeSelected ( size );
 }
 
 /**

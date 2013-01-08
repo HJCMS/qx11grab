@@ -27,17 +27,37 @@
 #include <QtCore/QSize>
 #include <QtCore/QString>
 #include <QtCore/Qt>
-#include <QtCore/QVariant>
 
-typedef struct Q_DECL_EXPORT
+class Q_DECL_EXPORT WebCamDeviceInfo
 {
-  QString path;    /**< Absolute DevicePath */
-  QString driver;  /**< Driver Name */
-  QString card;    /**< Card Name */
-  QString bus;     /**< SystemBus Name */
-  QString pixfmt;  /**< Pixel Format */
-  QSize   size;    /**< Default Frame Size */
-} WebCamDeviceInfo;
+  public:
+    QString path;       /**< Absolute DevicePath */
+    QString driver;     /**< Driver Name */
+    QString card;       /**< Card Name */
+    QString bus;        /**< SystemBus Name */
+    QString pixfmt;     /**< Pixel Format */
+    QSize   sourceSize; /**< Default Source Frame Size */
+    QSize   outputSize; /**< Different Output Frame Size */
+    WebCamDeviceInfo ()
+        : path ( QString::null )
+        , driver ( QString::null )
+        , card ( QString::null )
+        , bus ( QString::null )
+        , pixfmt ( QString::null )
+        , sourceSize ( QSize ( 160, 120 ) )
+        , outputSize ( QSize ( 160, 120 ) )
+    {};
+
+    WebCamDeviceInfo ( const WebCamDeviceInfo &p )
+        : path ( p.path )
+        , driver ( p.driver )
+        , card ( p.card )
+        , bus ( p.bus )
+        , pixfmt ( p.pixfmt )
+        , sourceSize ( p.sourceSize )
+        , outputSize ( p.outputSize )
+    {};
+};
 
 Q_DECLARE_METATYPE ( WebCamDeviceInfo )
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ########################################################################################
 # This file is part of the qx11grab project
 #
@@ -21,7 +21,7 @@
 ########################################################################################
 
 target_project="qx11grab"
-ff_suffix=-1.0
+ff_suffix=-1.1
 
 if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
 source $HJCMS_PROJECTS_DIR/projectconfigurations.sh

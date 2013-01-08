@@ -1,5 +1,5 @@
 Version 0.4.6
-* Bugfix invalid regular expressions replacement with predicate -aftreburner
+* Bugfix invalid regular expressions replacement with libfdk-aac predicate -afterburner
 
 Version 0.4.5
 * Add FFmpeg v0.11 v1.0 Support

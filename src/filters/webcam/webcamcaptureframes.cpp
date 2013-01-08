@@ -24,6 +24,9 @@
 /* std */
 #include <errno.h>
 
+/* Kernel/v4l2 */
+#include <libv4lconvert.h>
+
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QFileInfo>
@@ -35,10 +38,10 @@
 WebCamCaptureFrames::WebCamCaptureFrames ( QWidget * parent )
     : QWidget ( parent )
     , m_v4l2 ( new v4l2 )
+    , m_devInfo ( 0 )
     , m_frameImage ( 0 )
     , m_socketNotifier ( 0 )
     , m_convertData ( 0 )
-    , p_device ( QString() )
 {
   setObjectName ( QLatin1String ( "WebCamCaptureFrames" ) );
   setContentsMargins ( 0, 0, 0, 0 );
@@ -90,10 +93,14 @@ void WebCamCaptureFrames::startCaptureFrames ( bool b )
     m_outputFormat.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
 
     // QImage bietet kein "YUV420 planar" an deshalb müssen wir immer konvertieren
-    v4lconvert_try_format ( m_convertData, &m_outputFormat, &m_inputFormat );
+    v4lconvert_try_format ( m_convertData,
+                            &m_outputFormat,
+                            &m_inputFormat );
+
     m_v4l2->g_fmt_cap ( m_inputFormat );
 
     // Erstelle ein leeres Bild
+    qDebug() << "QX11Grab - Capture fromSize:" << m_outputFormat.fmt.pix.width << m_outputFormat.fmt.pix.height;
     m_frameImage = new QImage ( m_outputFormat.fmt.pix.width, m_outputFormat.fmt.pix.height, QImage::Format_RGB888 );
     m_frameImage->fill ( 0 );
 
@@ -124,8 +131,13 @@ void WebCamCaptureFrames::captureFrame ( int )
   }
   memcpy ( m_frameImage->bits(), m_streamData, s );
 
-  int err = v4lconvert_convert ( m_convertData, &m_inputFormat, &m_outputFormat, m_streamData,
-                                 s, m_frameImage->bits(), m_outputFormat.fmt.pix.sizeimage );
+  int err = v4lconvert_convert ( m_convertData,
+                                 &m_inputFormat,
+                                 &m_outputFormat,
+                                 m_streamData,
+                                 s,
+                                 m_frameImage->bits(),
+                                 m_outputFormat.fmt.pix.sizeimage );
 
   if ( err == -1 )
   {
@@ -148,10 +160,18 @@ void WebCamCaptureFrames::buttonClicked()
     // laufende aufnahmen beenden
     stopCapture();
   }
-  else if ( m_v4l2->open ( p_device, false ) )
+  else if ( m_v4l2->open ( m_devInfo->path, false ) )
   {
     // QImage bietet kein "YUV420 planar" an deshalb müssen wir immer konvertieren
-    m_convertData = v4lconvert_create ( m_v4l2->fd(), NULL, &libv4l2_default_dev_ops );
+    // m_convertData = v4lconvert_create ( m_v4l2->fd(), NULL, &libv4l2_default_dev_ops );
+    qDebug() << "QX11Grab - v4lconvert_create - " << m_devInfo->driver;
+    m_convertData = v4lconvert_create ( m_v4l2->fd() );
+    if ( ! m_convertData )
+    {
+      qWarning ( "QX11Grab - can not open device - %s",
+                 v4lconvert_get_error_message ( m_convertData ) );
+      return;
+    }
     m_button->setText ( trUtf8 ( "Stop" ) );
     startCaptureFrames ( true );
   }
@@ -194,27 +214,40 @@ void WebCamCaptureFrames::stopCapture()
 
     qDebug ( "QX11Grab - v4lconvert destroy buffer" );
     v4lconvert_destroy ( m_convertData );
+
     qDebug ( "QX11Grab - close capture device" );
     m_v4l2->close();
+
     qDebug ( "QX11Grab - capture frames done" );
   }
 }
 
-void WebCamCaptureFrames::setInterface ( const WebCamDeviceInfo &devInfo, const QSize &toSize )
+void WebCamCaptureFrames::setInterface ( const WebCamDeviceInfo &devInfo )
 {
-  Q_UNUSED ( toSize ); // TODO Ausgabe Größe
   QFileInfo info ( devInfo.path );
   m_button->setEnabled ( false );
 
   // Vorhandene Aufnahmen zuerst stoppen
-  if ( m_v4l2->fd() >= 0 )
-    stopCapture();
+  stopCapture();
 
   if ( info.isReadable() )
   {
-    p_device = devInfo.path;
+    if ( m_devInfo )
+    {
+      qDebug ( "QX11Grab - destroy device info" );
+      delete m_devInfo;
+    }
+    m_devInfo = new WebCamDeviceInfo ( devInfo );
     m_button->setEnabled ( true );
   }
+}
+
+const QSize WebCamCaptureFrames::captureSize()
+{
+  if ( m_devInfo )
+    return m_devInfo->outputSize;
+
+  return QSize ( 160, 120 );
 }
 
 WebCamCaptureFrames::~WebCamCaptureFrames()

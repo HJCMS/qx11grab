@@ -26,6 +26,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QPointer>
 #include <QtCore/QString>
+#include <QtCore/QSize>
 #include <QtCore/QSocketNotifier>
 #include <QtCore/QTimer>
 
@@ -54,6 +55,9 @@ class WebCamCaptureFrames : public QWidget
     /** v4l2-api */
     v4l2* m_v4l2;
 
+    /** to capture frame size */
+    WebCamDeviceInfo* m_devInfo;
+
     /** captured frame image */
     QImage* m_frameImage;
 
@@ -62,9 +66,6 @@ class WebCamCaptureFrames : public QWidget
 
     /** except that the try format will succeed */
     struct v4lconvert_data* m_convertData;
-
-    /** current v4l2 device path */
-    QString p_device;
 
     /** timer for timeout capture frames */
     QTimer* m_timer;
@@ -106,7 +107,9 @@ class WebCamCaptureFrames : public QWidget
     explicit WebCamCaptureFrames ( QWidget * parent = 0 );
 
     /** init capture device */
-    void setInterface ( const WebCamDeviceInfo &devInfo, const QSize &toSize = QSize ( 160, 120 ) );
+    void setInterface ( const WebCamDeviceInfo &devInfo );
+
+    const QSize captureSize();
 
     virtual ~WebCamCaptureFrames();
 };

@@ -54,7 +54,7 @@ class WebCamPreview : public QGraphicsView
   public:
     explicit WebCamPreview ( const QSizeF &baseSize, QWidget * parent = 0 );
 
-    const QSizeF itemSize();
+  const QSizeF itemSize();
 
     virtual ~WebCamPreview();
 };
