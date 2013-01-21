@@ -29,6 +29,8 @@
 #include <QtCore/QDir>
 #include <QtCore/QFileInfo>
 #include <QtCore/QProcess>
+#include <QtCore/QProcessEnvironment>
+#include <QtCore/QRegExp>
 #include <QtCore/QSettings>
 #include <QtCore/QStringList>
 
@@ -113,6 +115,8 @@ const QString PlayerAction::predefinedApps ( const QString &txt ) const
   hash["dragon"] = trUtf8 ( "Dragon Player" );
   //: MenuEntry for "totem" http://projects.gnome.org/totem/
   hash["totem"] = trUtf8 ( "Totem Player" );
+  //: MenuEntry for "gst-launch" http://gstreamer.freedesktop.org/
+  hash["gst-launch"] = trUtf8 ( "GStreamer" );
   return ( hash[txt].isEmpty() ) ? txt : hash[txt];
 }
 
@@ -124,7 +128,7 @@ const QString PlayerAction::predefinedApps ( const QString &txt ) const
 void PlayerAction::searchPlayers()
 {
   QStringList nameFilters;
-  nameFilters << "*mplayer" << "xine" << "vlc" << "ffplay" << "dragon" << "kplayer";
+  nameFilters << "*mplayer" << "xine" << "vlc" << "ffplay" << "dragon" << "kplayer" << "gst-launch";
   QByteArray env = qgetenv ( "PATH" );
   if ( env.contains ( "bin" ) )
   {
@@ -169,7 +173,27 @@ void PlayerAction::playOuputFile ( const QString &player )
   if ( p.isNull() )
     return;
 
-  QProcess::startDetached ( player, QStringList ( p ) );
+  QStringList args;
+  QFileInfo info ( player );
+  if ( info.baseName().contains ( QRegExp ( "^[g]?mplayer" ) ) )
+    args << "-msglevel" << "all=-1" << p;
+  else if ( info.baseName().contains ( QRegExp ( "^xine" ) ) )
+    args << "--no-gui" << "--no-logo" << "--verbose=0" << "--auto-play=q" << p;
+  else if ( info.baseName().contains ( QRegExp ( "^ffplay" ) ) )
+    args << "-loglevel" << "fatal" << "-window_title" << "QX11Grab Preview" << "-showmode" << "0" << "-i" << p;
+  else if ( info.baseName().contains ( QRegExp ( "^smplayer" ) ) )
+    args << "-minigui" << "-close-at-end" << p;
+  else if ( info.baseName().contains ( QRegExp ( "^gst\\-launch" ) ) )
+    args << "playbin" << QString::fromUtf8 ( "uri=file://%1" ).arg ( p );
+  else
+    args << p;
+
+  info.setFile ( p );
+
+  QProcess process;
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  process.setProcessEnvironment ( env );
+  process.startDetached ( player, args, info.dir().absolutePath() );
 }
 
 PlayerAction::~PlayerAction()
