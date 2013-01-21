@@ -40,7 +40,7 @@ void DefaultEdit::setCodecOptions ( const QString &param )
 {
   QString buffer ( param );
   QRegExp pattern ( "((^\\-{1,2})|(:\\w{1}$))" );
-  QByteArray query = buffer.remove ( pattern ).toAscii();
+  QByteArray query = buffer.remove ( pattern ).toUtf8();
 
   QList<QX11Grab::FFOption> opts = QX11Grab::AVOptions::optionQuery ( query );
   if ( opts.size() > 0 )

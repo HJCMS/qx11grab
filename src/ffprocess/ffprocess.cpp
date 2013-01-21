@@ -270,7 +270,7 @@ bool FFProcess::send ( const QChar &data )
   if ( ! m_QProcess )
     return false;
 
-  const char* q = new const char ( data.toAscii() );
+  const char* q = new const char ( data.toLatin1() );
   if ( m_QProcess->write ( q, qstrlen ( q ) ) == -1 )
   {
     qWarning ( "QX11Grab - failed to send command to FFmpeg process!\n%s",

@@ -75,7 +75,7 @@ void AlsaAudioDialog::initInterface()
       QString infoHint = QString ( snd_device_name_get_hint ( *n, "DESC" ) );
       if ( ! buffer.contains ( cardHint.remove ( pattern ) ) )
       {
-        int index = snd_card_get_index ( cardHint.toAscii().data() );
+        int index = snd_card_get_index ( cardHint.toUtf8().data() );
         if ( index >= 0 )
           hwIndex = QString ( "hw=%1" ).arg ( QString::number ( index ) );
 

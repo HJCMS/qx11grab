@@ -28,11 +28,14 @@
 
 #include <libv4l2.h>
 
+/* QtCore */
+#include <QtCore/QObject>
+
 bool v4l2::open ( const QString &device, bool useWrapper )
 {
   m_device = device;
   m_useWrapper = useWrapper;
-  m_fd = ::open ( device.toAscii(), O_RDWR | O_NONBLOCK );
+  m_fd = ::open ( device.toLatin1(), O_RDWR | O_NONBLOCK );
   if ( m_fd < 0 )
   {
     error ( "Cannot open " + device );
@@ -117,7 +120,7 @@ int v4l2::munmap ( void *start, size_t length )
 void v4l2::error ( const QString &error )
 {
   if ( !error.isEmpty() )
-    fprintf ( stderr, "%s\n", error.toAscii().data() );
+    fprintf ( stderr, "%s\n", error.toLatin1().data() );
 }
 
 QString v4l2::pixfmt2s ( unsigned id )
@@ -165,7 +168,7 @@ bool v4l2::g_input ( int &input )
 
 bool v4l2::s_input ( int input )
 {
-  return ioctl ( "Set Input", VIDIOC_S_INPUT, &input );
+  return ioctl ( QObject::trUtf8 ( "Set Input" ), VIDIOC_S_INPUT, &input );
 }
 
 bool v4l2::g_output ( int &output )
@@ -175,7 +178,7 @@ bool v4l2::g_output ( int &output )
 
 bool v4l2::s_output ( int output )
 {
-  return ioctl ( "Set Output", VIDIOC_S_OUTPUT, &output );
+  return ioctl ( QObject::trUtf8 ( "Set Output" ), VIDIOC_S_OUTPUT, &output );
 }
 
 bool v4l2::g_audio ( v4l2_audio &audio )
@@ -190,7 +193,7 @@ bool v4l2::s_audio ( int input )
 
   memset ( &audio, 0, sizeof ( audio ) );
   audio.index = input;
-  return ioctl ( "Set Audio Input", VIDIOC_S_AUDIO, &audio );
+  return ioctl ( QObject::trUtf8 ( "Set Audio Input" ), VIDIOC_S_AUDIO, &audio );
 }
 
 bool v4l2::g_audout ( v4l2_audioout &audout )
@@ -205,7 +208,7 @@ bool v4l2::s_audout ( int output )
 
   memset ( &audout, 0, sizeof ( audout ) );
   audout.index = output;
-  return ioctl ( "Set Audio Output", VIDIOC_S_AUDOUT, &audout );
+  return ioctl ( QObject::trUtf8 ( "Set Audio Output" ), VIDIOC_S_AUDOUT, &audout );
 }
 
 bool v4l2::g_std ( v4l2_std_id &std )
@@ -215,12 +218,12 @@ bool v4l2::g_std ( v4l2_std_id &std )
 
 bool v4l2::s_std ( v4l2_std_id std )
 {
-  return ioctl ( "Set TV Standard", VIDIOC_S_STD, &std );
+  return ioctl ( QObject::trUtf8 ( "Set TV Standard" ), VIDIOC_S_STD, &std );
 }
 
 bool v4l2::query_std ( v4l2_std_id &std )
 {
-  return ioctl ( "Query TV Standard", VIDIOC_QUERYSTD, &std );
+  return ioctl ( QObject::trUtf8 ( "Query TV Standard" ), VIDIOC_QUERYSTD, &std );
 }
 
 bool v4l2::g_dv_preset ( __u32 &preset )
@@ -240,12 +243,12 @@ bool v4l2::s_dv_preset ( __u32 preset )
 
   memset ( &p, 0, sizeof ( p ) );
   p.preset = preset;
-  return ioctl ( "Set Preset", VIDIOC_S_DV_PRESET, &p );
+  return ioctl ( QObject::trUtf8 ( "Set Preset" ), VIDIOC_S_DV_PRESET, &p );
 }
 
 bool v4l2::query_dv_preset ( v4l2_dv_preset &preset )
 {
-  return ioctl ( "Query Preset", VIDIOC_QUERY_DV_PRESET, &preset );
+  return ioctl ( QObject::trUtf8 ( "Query Preset" ), VIDIOC_QUERY_DV_PRESET, &preset );
 }
 
 bool v4l2::g_frequency ( v4l2_frequency &freq )
@@ -257,7 +260,7 @@ bool v4l2::g_frequency ( v4l2_frequency &freq )
 
 bool v4l2::s_frequency ( v4l2_frequency &freq )
 {
-  return ioctl ( "Set Frequency", VIDIOC_S_FREQUENCY, &freq );
+  return ioctl ( QObject::trUtf8 ( "Set Frequency" ), VIDIOC_S_FREQUENCY, &freq );
 }
 
 bool v4l2::s_frequency ( int val )
@@ -288,13 +291,13 @@ bool v4l2::try_fmt ( v4l2_format &fmt )
 {
   fmt.fmt.pix.field = V4L2_FIELD_ANY;
   fmt.fmt.pix.bytesperline = 0;
-  return ioctl ( "Try Capture Format", VIDIOC_TRY_FMT, &fmt );
+  return ioctl ( QObject::trUtf8 ( "Try Capture Format" ), VIDIOC_TRY_FMT, &fmt );
 }
 
 bool v4l2::s_fmt ( v4l2_format &fmt )
 {
   fmt.fmt.pix.bytesperline = 0;
-  return ioctl ( "Set Capture Format", VIDIOC_S_FMT, &fmt );
+  return ioctl ( QObject::trUtf8 ( "Set Capture Format" ), VIDIOC_S_FMT, &fmt );
 }
 
 bool v4l2::enum_input ( v4l2_input &in, bool init, int index )
@@ -481,7 +484,7 @@ bool v4l2::dqbuf_user_cap ( v4l2_buffer &buf, bool &again )
 
 bool v4l2::qbuf ( v4l2_buffer &buf )
 {
-  return ( ioctl ( VIDIOC_QBUF, &buf ) >= 0 );
+  return ( ( ioctl ( VIDIOC_QBUF, &buf ) ) >= 0 );
 }
 
 bool v4l2::qbuf_mmap_cap ( int index )
@@ -512,14 +515,14 @@ bool v4l2::streamon_cap()
 {
   enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 
-  return ioctl ( "Start Capture", VIDIOC_STREAMON, &type );
+  return ioctl ( QObject::trUtf8 ( "Start Capture" ), VIDIOC_STREAMON, &type );
 }
 
 bool v4l2::streamoff_cap()
 {
   enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 
-  return ioctl ( "Stop Capture", VIDIOC_STREAMOFF, &type );
+  return ioctl ( QObject::trUtf8 ( "Stop Capture" ), VIDIOC_STREAMOFF, &type );
 }
 
 bool v4l2::reqbufs_user_out ( v4l2_requestbuffers &reqbuf )
@@ -585,14 +588,14 @@ bool v4l2::streamon_out()
 {
   enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_OUTPUT;
 
-  return ioctl ( "Start Output", VIDIOC_STREAMON, &type );
+  return ioctl ( QObject::trUtf8 ( "Start Output" ), VIDIOC_STREAMON, &type );
 }
 
 bool v4l2::streamoff_out()
 {
   enum v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_OUTPUT;
 
-  return ioctl ( "Stop Output", VIDIOC_STREAMOFF, &type );
+  return ioctl ( QObject::trUtf8 ( "Stop Output" ), VIDIOC_STREAMOFF, &type );
 }
 
 bool v4l2::set_interval ( v4l2_fract interval )
@@ -608,7 +611,7 @@ bool v4l2::set_interval ( v4l2_fract interval )
 
   parm.parm.capture.timeperframe = interval;
 
-  return ioctl ( "Set FPS", VIDIOC_S_PARM, &parm );
+  return ioctl ( QObject::trUtf8 ( "Set FPS" ), VIDIOC_S_PARM, &parm );
 }
 
 bool v4l2::get_interval ( v4l2_fract &interval )
@@ -616,8 +619,7 @@ bool v4l2::get_interval ( v4l2_fract &interval )
   v4l2_streamparm parm;
 
   parm.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-  if ( ioctl ( VIDIOC_G_PARM, &parm ) >= 0 &&
-          ( parm.parm.capture.capability & V4L2_CAP_TIMEPERFRAME ) )
+  if ( ioctl ( VIDIOC_G_PARM, &parm ) >= 0 && ( parm.parm.capture.capability & V4L2_CAP_TIMEPERFRAME ) )
   {
     interval = parm.parm.capture.timeperframe;
     return true;

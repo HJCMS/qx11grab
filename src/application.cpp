@@ -86,7 +86,7 @@ Application::Application ( int &argc, char **argv )
 #endif
 
 #ifdef HAVE_KDE4_SUPPORT
-  QByteArray appsName = applicationName().toAscii();
+  QByteArray appsName = applicationName().toUtf8();
   KAboutData kdata ( appsName, appsName,
                      ki18n ( "QX11Grab" ),
                      QX11GRAB_VERSION,
