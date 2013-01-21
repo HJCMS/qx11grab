@@ -1,6 +1,7 @@
 /* v4l2-api: low-level wrapper around v4l2 devices
 *
 * Copyright (C) 2009 Hans Verkuil <hverkuil@xs4all.nl>
+* Copyright (C) 2011-2013 Juergen Heinemann (Undefined) http://www.hjcms.de
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public License
@@ -29,15 +30,16 @@
 
 class v4l2
 {
+  private:
+    int     m_fd;
+    QString   m_device;
+    bool    m_useWrapper;   /**< true if using the libv4l2 wrappers */
+    v4l2_capability m_capability;
+    void clear() { error ( QString() ); }
+
   public:
-    v4l2() : m_fd ( -1 ) {}
-    v4l2 ( v4l2 &old ) :
-        m_fd ( old.m_fd ),
-        m_device ( old.m_device ),
-        m_useWrapper ( old.m_useWrapper ),
-        m_capability ( old.m_capability )
-    {}
-    virtual ~v4l2() {};
+    v4l2();
+    v4l2 ( v4l2 &old );
 
     bool open ( const QString &device, bool useWrapper = true );
     void close();
@@ -113,14 +115,7 @@ class v4l2
     bool set_interval ( v4l2_fract interval );
     bool get_interval ( v4l2_fract &interval );
 
-  private:
-    void clear() { error ( QString() ); }
-
-  private:
-    int     m_fd;
-    QString   m_device;
-    bool    m_useWrapper;   // true if using the libv4l2 wrappers
-    v4l2_capability m_capability;
+    virtual ~v4l2() {};
 };
 
 #endif

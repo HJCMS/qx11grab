@@ -1,6 +1,7 @@
 /* v4l2-api: low-level wrapper around v4l2 devices
 *
 * Copyright (C) 2009 Hans Verkuil <hverkuil@xs4all.nl>
+* Copyright (C) 2011-2013 Juergen Heinemann (Undefined) http://www.hjcms.de
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public License
@@ -31,6 +32,17 @@
 /* QtCore */
 #include <QtCore/QObject>
 
+v4l2::v4l2()
+    : m_fd ( -1 )
+{}
+
+v4l2::v4l2 ( v4l2 &old )
+    : m_fd ( old.m_fd )
+    , m_device ( old.m_device )
+    , m_useWrapper ( old.m_useWrapper )
+    , m_capability ( old.m_capability )
+{}
+
 bool v4l2::open ( const QString &device, bool useWrapper )
 {
   m_device = device;
@@ -41,6 +53,7 @@ bool v4l2::open ( const QString &device, bool useWrapper )
     error ( "Cannot open " + device );
     return false;
   }
+
   if ( !querycap ( m_capability ) )
   {
     ::close ( m_fd );

@@ -1,3 +1,7 @@
+Version 0.4.7
+* Remove Obselete "cmp=+chroma" from ffpresets
+* Remove Depreacted Member QString functions
+
 Version 0.4.6
 * Bugfix invalid regular expressions replacement with libfdk-aac predicate -afterburner
 

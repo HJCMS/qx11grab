@@ -1478,7 +1478,7 @@ ToolTip</extracomment>
 <context>
     <name>MetaData</name>
     <message>
-        <location filename="../src/utils/metadata.cpp" line="+62"/>
+        <location filename="../src/utils/metadata.cpp" line="+63"/>
         <source>Title:</source>
         <translation>Název:</translation>
     </message>
@@ -1493,7 +1493,7 @@ ToolTip</extracomment>
         <translation>Autorské právo:</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+20"/>
         <source>Creation Date:</source>
         <translation>Datum vytvoření:</translation>
     </message>
@@ -1503,12 +1503,12 @@ ToolTip</extracomment>
         <translation>Předmět:</translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="-62"/>
         <source>Note many formats only support a handful of metadata keys.</source>
         <translation>Poznámka: Mnoho formátů podporuje jen hrstku klíčů pro hlavičková data.</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+87"/>
         <source>Voice Recognition:</source>
         <extracomment>Alternative: language</extracomment>
         <translation>Rozpoznání hlasu:</translation>
@@ -1530,7 +1530,7 @@ Příklad: Germany=ger
 Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
     <message>
-        <location line="-105"/>
+        <location line="-113"/>
         <source>Insert Metadata</source>
         <extracomment>GroupBoxTitle</extracomment>
         <translation>Vložit hlavičková data</translation>
@@ -1560,7 +1560,7 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
         <translation>Autorské právo</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+20"/>
         <source>Creation Date</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Datum vytvoření</translation>
@@ -1750,9 +1750,92 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/filters/webcam/v4l2-api.cpp" line="+184"/>
+        <source>Set Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Set Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Set Audio Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Set Audio Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Set TV Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Query TV Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Set Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Query Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Set Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Try Capture Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Set Capture Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+218"/>
+        <source>Start Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Stop Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+66"/>
+        <source>Start Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Stop Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Set FPS</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+126"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+162"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vzorkovací formát</translation>
@@ -2278,19 +2361,19 @@ ToolTip</extracomment>
 <context>
     <name>WebCamCaptureFrames</name>
     <message>
-        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="+58"/>
+        <location filename="../src/filters/webcam/webcamcaptureframes.cpp" line="+61"/>
         <source>Timeout in seconds</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+97"/>
+        <location line="+114"/>
         <source>Stop</source>
         <translation type="unfinished">Zastavit</translation>
     </message>
     <message>
-        <location line="-104"/>
-        <location line="+117"/>
+        <location line="-121"/>
+        <location line="+134"/>
         <source>to capture</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2298,12 +2381,22 @@ ToolTip</extracomment>
 <context>
     <name>WebCamDeviceChooser</name>
     <message>
-        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="+41"/>
+        <location filename="../src/filters/webcam/webcamdevicechooser.cpp" line="+47"/>
         <source>No web camera found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+5"/>
+        <source>capture from framesize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>set maximum input framesize to capture from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Choose Camera</source>
         <translation type="unfinished"></translation>
     </message>
