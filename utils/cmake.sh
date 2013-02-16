@@ -21,12 +21,15 @@
 ########################################################################################
 
 target_project="qx11grab"
+# ff_suffix=-av-9.1
+# ff_suffix=_10x
 ff_suffix=-1.1
 
 if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
 source $HJCMS_PROJECTS_DIR/projectconfigurations.sh
 fi
 
+rm -rf /tmp/${target_project}/build/*
 mkdir -p /tmp/${target_project}/build
 
 pushd /tmp/${target_project}/build

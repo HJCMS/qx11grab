@@ -156,7 +156,7 @@ QWidget* CodecTableDelegate::createEditor ( QWidget* parent,
     return w;
   }
 
-  DefaultEdit* w = new DefaultEdit ( parent );
+  DefaultEdit* w = new DefaultEdit ( queryCodec(), parent );
   w->setValue ( index.model()->data ( index ) );
   return w;
 }

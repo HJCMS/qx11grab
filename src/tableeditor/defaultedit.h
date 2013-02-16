@@ -41,10 +41,11 @@ class DefaultEdit : public AbstractEdit
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
+    const QByteArray p_codec;
     void setCodecOptions ( const QString &param );
 
   public:
-    DefaultEdit ( QWidget * parent = 0 );
+    DefaultEdit ( const QString &codec, QWidget * parent = 0 );
     void setCompleterId ( const QString &id );
     ~DefaultEdit();
 };

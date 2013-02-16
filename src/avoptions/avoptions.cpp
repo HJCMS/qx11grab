@@ -51,13 +51,13 @@ namespace QX11Grab
   */
   static bool qx11grab_is_encoder ( AVCodec* _c )
   {
-#if ( LIBAVCODEC_VERSION_INT >= 3489124 )
-// qDebug() << "NEW_ENCODER_API" << LIBAVCODEC_VERSION_INT;
-  #if ( LIBAVCODEC_VERSION_INT >= 3554148 )
+#if ( LIBAVCODEC_VERSION_MAJOR >= 53 )
+    // qDebug() << "NEW_ENCODER_API" << LIBAVCODEC_VERSION_INT;
+#if ( LIBAVCODEC_VERSION_MAJOR >= 54 )
     return ( ( _c && ( _c->encode2 ) ) == 1 );
-  #else
+#else
     return ( ( _c && ( _c->encode || _c->encode2 ) ) == 1 );
-  #endif
+#endif
 #else
     return ( ( _c && ( _c->encode ) ) == 1 );
 #endif
@@ -95,47 +95,42 @@ namespace QX11Grab
   * nach Optionen und ihrer Hilfe Texte.
   * \todo Standard Werte Vorschläge!
   */
-  const QList<FFOption> AVOptions::optionQuery ( const QByteArray &option )
+  const QList<FFOption> AVOptions::optionQuery ( const QByteArray &_option, const QByteArray &_codec )
   {
     QList<FFOption> output;
     FFOption ffOption;
-    AVCodecContext* avcodec_opts[AVMEDIA_TYPE_NB];
-    const char *opt = option.constData();
+    const char *opt = _option.constData();
 
     avcodec_register_all();
-
     // initial options buffer
-    for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
-    {
-      avcodec_opts[i] = avcodec_alloc_context2 ( static_cast<AVMediaType> ( i ) );
-    }
-
+    AVCodecContext* avcodec_opts = avcodec_alloc_context3 ( avcodec_find_decoder_by_name ( _codec.data() ) );
     qDebug ( "Searching for: %s", opt );
-    const AVOption *obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
+    const AVOption *obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
     if ( obj )
     {
-      qDebug ( "Found video option for Name:%s Help:%s", obj->name, obj->help );
+      qDebug ( "Found video option for Name: %s Help: %s", obj->name, obj->help );
       ffOption.name = QString ( obj->name );
       // if ( obj->type == FF_OPT_TYPE_STRING ) {}
       ffOption.value = QVariant();
       ffOption.help = QString ( obj->help );
       output.append ( ffOption );
+      goto ready;
     }
-    else if ( ( obj = av_opt_find ( avcodec_opts[0], opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
+
+    if ( ( obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
     {
-      qDebug ( "Found audio option for Name:%s Help:%s", obj->name, obj->help );
+      qDebug ( "Found audio option for Name: %s Help: %s", obj->name, obj->help );
       ffOption.name = QString ( obj->name );
       // opt.value = QString ( obj->default_val.str );
       ffOption.value = QVariant();
       ffOption.help = QString ( obj->help );
       output.append ( ffOption );
+      goto ready;
     }
 
+  ready:
     // destroy options buffer
-    for ( int i = 0; i < AVMEDIA_TYPE_NB; i++ )
-    {
-      av_freep ( &avcodec_opts[i] );
-    }
+    av_freep ( &avcodec_opts );
 
     return output;
   }

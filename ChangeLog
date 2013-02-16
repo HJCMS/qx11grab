@@ -1,4 +1,9 @@
+
 Version 0.4.7
+* BUGFIX https://bugs.gentoo.org/show_bug.cgi?id=443236
+  - Make AVCodec encode compatible with libav9.1
+  - Supported FFmpeg Versions: 0.10 1.0 1.1
+  - Supported libav Versions: libav 9.1
 * Remove Obselete "cmp=+chroma" from ffpresets
 * Remove Depreacted Member QString functions
 

@@ -106,9 +106,10 @@ namespace QX11Grab
       AVOptions ( QObject * parent = 0 );
 
       /** send a avcodec option request only VIDEO/AUDIO supported
-      * \param option  query option \b without leading hyphens
+      * \param _option  query option \b without leading hyphens
+      * \param _codec   codec name
       */
-      static const QList<FFOption> optionQuery ( const QByteArray &option );
+      static const QList<FFOption> optionQuery ( const QByteArray &_option, const QByteArray &_codec );
 
       /** ffmpeg -sample_fmts */
       static const QList<FFOption> sampleFormats();

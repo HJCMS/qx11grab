@@ -30,8 +30,9 @@
 /* QX11Grab */
 #include "avoptions.h"
 
-DefaultEdit::DefaultEdit ( QWidget * parent )
+DefaultEdit::DefaultEdit ( const QString &codec, QWidget * parent )
     : AbstractEdit ( parent )
+    , p_codec ( codec.toUtf8() )
 {
   setObjectName ( QLatin1String ( "DefaultEdit" ) );
 }
@@ -42,7 +43,7 @@ void DefaultEdit::setCodecOptions ( const QString &param )
   QRegExp pattern ( "((^\\-{1,2})|(:\\w{1}$))" );
   QByteArray query = buffer.remove ( pattern ).toUtf8();
 
-  QList<QX11Grab::FFOption> opts = QX11Grab::AVOptions::optionQuery ( query );
+  QList<QX11Grab::FFOption> opts = QX11Grab::AVOptions::optionQuery ( query, p_codec );
   if ( opts.size() > 0 )
   {
     setToolTip ( opts.first().help );
