@@ -2,17 +2,18 @@
 *** WARNING - This Application is NOT testet on Mac OS X and incompatible with Windows ***
 
 REQUIREMENTS:
-  -  Qt 4 >= 4.7.2 (required)  http://qt.nokia.com/products/
-  -  Oxygen Icon Theme >= 4.6.0 (required) ftp://ftp.kde.org/pub/kde/stable/
-  -  FFmpeg >= 0.9 (required) 0.10 (recommended) http://www.ffmpeg.org
-  -  libavformat >= 52.78.3 (required) 53.24.0 (recommended) http://www.ffmpeg.org
-  -  libavcodec >= 52.86.1 (required) 52.20.0 (recommended)  http://www.ffmpeg.org
-  -  libavutil >= 50.24.0 (required) 51.32.0 (recommended)  http://www.ffmpeg.org
-  -  libavfilter >= 2.4.0 (required) 2.61.100 (recommended)  http://www.ffmpeg.org
-  -  pulseaudio >= 0.9 (required) 1.1 (recommended) http://pulseaudio.org/
-  -  alsa >= 1.0.14 (required) 1.0.24 (recommended) http://alsa-project.org
-  -  dbus-1 >= 1.4.12 (required) 1.4.16 (recommended) http://www.freedesktop.org/wiki/Software/dbus
-  -  cmake >= 2.8.0 (required for build) http://www.cmake.org
+  -  Qt 4 >= 4.7.4 (required)  http://qt.nokia.com/products/ (qt5 not supported)
+  -  Oxygen Icon Theme >= 4.7.0 (required) ftp://ftp.kde.org/pub/kde/stable/
+  -  FFmpeg >= 0.10 (required) 1.1 (recommended) http://www.ffmpeg.org
+  -  libavformat >= 53.32.100 (required) 54.59.106 (recommended) http://www.ffmpeg.org
+  -  libavcodec >= 53.61.100 (required) 54.86.100 (recommended)  http://www.ffmpeg.org
+  -  libavutil >= 51.35.100 (required) 52.13.100 (recommended)  http://www.ffmpeg.org
+  -  libavfilter >= 2.61.100 (required) 2.61.100 (recommended)  http://www.ffmpeg.org
+  -  pulseaudio >= 0.9 (required) 3.0 (recommended) http://pulseaudio.org/
+  -  alsa >= 1.0.14 (required) 1.0.26 (recommended) http://alsa-project.org
+  -  dbus-1 >= 1.4.12 (required) 1.6.4 (recommended) http://www.freedesktop.org/wiki/Software/dbus
+  -  v4l2 >= 0.9.3 (optional) http://linuxtv.org/
+  -  cmake >= 2.8.7 (required for build) http://www.cmake.org
  
 Default INSTALLATION:
   1) create a subdirectory build in source home directory
@@ -33,7 +34,7 @@ Default INSTALLATION:
       -DCMAKE_BUILD_TYPE:STRING=[Debug|Release|RelWithDebInfo|MinSizeRel]
 
     The FFMPEG_SUFFIX option allow you to set different pkg-config Version
-    Example: -DFFMPEG_SUFFIX:STRING=_09x will search ${prefix}/${lib}/pkgconfig/libavformat_09x.pc
+    Example: -DFFMPEG_SUFFIX:STRING=_1.1x will search ${prefix}/${lib}/pkgconfig/libavformat_1.1x.pc
 
     Optional for FFpresets Support add:
         -DINSTALL_EXTRA_FFPRESETS:BOOL=ON
@@ -137,7 +138,7 @@ INSTALL_TREE:
     |   |   |-- position_top_right.png
     |   |   `-- position_unknown.png
     |   `-- qx11grab.png
-    |-- qt
+    |-- qt*
     |   `-- translations
     |       |-- qx11grab_cs.qm
     |       |-- qx11grab_de.qm
