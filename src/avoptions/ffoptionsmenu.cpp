@@ -105,11 +105,12 @@ namespace QX11Grab
     insertVideoItem ( "bufsize", trUtf8 ( "Set video buffer verifier buffer size (in bits)." ) );
 
     m_audioMenu->clear();
+    insertAudioItem ( "qscale:a", trUtf8 ( "Sets the quantizer to use" ) );
+    insertAudioItem ( "bsf:a", trUtf8 ( "Set bitstream filters for matching stream." ) );
     insertAudioItem ( "ar", trUtf8 ( "Set the audio sampling frequency." ) );
     insertAudioItem ( "ac", trUtf8 ( "Set the number of audio channels." ) );
     insertAudioItem ( "apre", trUtf8 ( "Set audio preset." ) );
     insertAudioItem ( "sample_fmt", trUtf8 ( "Audio sample format." ) );
-    insertAudioItem ( "bsf:a", trUtf8 ( "Set bitstream filters for matching stream." ) );
 
     setEnabled ( true );
   }

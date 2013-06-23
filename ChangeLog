@@ -1,11 +1,14 @@
 
+Version 0.4.8
+  - add audio option which quantizer to use
+
 Version 0.4.7
 * BUGFIX https://bugs.gentoo.org/show_bug.cgi?id=443236
   - Make AVCodec encode compatible with libav9.1
   - Supported FFmpeg Versions: 0.10 1.0 1.1
   - Supported libav Versions: libav 9.1
 * Remove Obselete "cmp=+chroma" from ffpresets
-* Remove Depreacted Member QString functions
+* Remove Deprecated Member QString functions
 
 Version 0.4.6
 * Bugfix invalid regular expressions replacement with libfdk-aac predicate -afterburner
