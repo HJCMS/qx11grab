@@ -66,9 +66,9 @@ namespace QX11Grab
     public Q_SLOTS:
       /** clear and create a new menutree for this codec
       * \param name selected codec name
-      * \param id   AVCodec CodecID
+      * \param id   AVCodec AVCodecID
       */
-      void updateMenu ( const QString &name, CodecID id );
+      void updateMenu ( const QString &name, AVCodecID id );
 
     public:
       /**

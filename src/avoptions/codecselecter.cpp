@@ -44,14 +44,14 @@ namespace QX11Grab
 
   /**
   * Ein Menü Eintrag wurde ausgewählt.
-  * \li Suche nach der FFmpeg \ref CodecID
+  * \li Suche nach der FFmpeg \ref AVCodecID
   * \li Sende bei erfolg das Signal \ref codecChanged
   */
   void CodecSelecter::itemSelected ( int index )
   {
     QString name = itemData ( index, Qt::DisplayRole ).toString();
     bool ok;
-    CodecID id = static_cast<CodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
+    AVCodecID id = static_cast<AVCodecID> ( itemData ( index, Qt::UserRole ).toUInt ( &ok ) );
     if ( ok )
       emit codecChanged ( name, id );
   }

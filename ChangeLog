@@ -1,4 +1,7 @@
 
+Version 0.4.9
+  - remove Deprecated Macros
+
 Version 0.4.8
   - add audio option which quantizer to use
 

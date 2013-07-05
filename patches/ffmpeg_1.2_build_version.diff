@@ -1,0 +1,38 @@
+/**
+* @file   ffmpeg_1.2_build_version.diff
+* @author Juergen Heinemann (Undefined) http://www.hjcms.de
+* @since  Fri Jul  5 09:29:12 CEST 2013
+* @short  diff options:-Nau6
+*/
+--- ./configure.orig	2013-07-05 09:25:30.158437111 +0200
++++ ./configure	2013-07-05 09:26:06.692478075 +0200
+@@ -4555,13 +4555,13 @@
+     cat <<EOF > $name/$name${build_suffix}.pc
+ prefix=$prefix
+ exec_prefix=\${prefix}
+ libdir=$libdir
+ includedir=$incdir
+ 
+-Name: $name
++Name: $name${build_suffix}
+ Description: $comment
+ Version: $version
+ Requires: $(enabled shared || echo $requires)
+ Requires.private: $(enabled shared && echo $requires)
+ Conflicts:
+ Libs: -L\${libdir} -l${shortname} $(enabled shared || echo $libs)
+@@ -4575,13 +4575,13 @@
+     cat <<EOF > doc/examples/pc-uninstalled/$name.pc
+ prefix=
+ exec_prefix=
+ libdir=\${pcfiledir}/../../../$name
+ includedir=${includedir}
+ 
+-Name: $name
++Name: $name${build_suffix}
+ Description: $comment
+ Version: $version
+ Requires: $requires
+ Conflicts:
+ Libs: -L\${libdir} -l${shortname} $(enabled shared || echo $libs)
+ Cflags: -I\${includedir}

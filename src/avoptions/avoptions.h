@@ -45,7 +45,7 @@ namespace QX11Grab
   */
   typedef struct Q_DECL_EXPORT
   {
-    CodecID id;         /**< Codec ID from avcodec.h */
+    AVCodecID id;         /**< Codec ID from avcodec.h */
     QString name;       /**< Codec Name */
     QString fullname;   /**< Full Codec Description */
     QString info;       /**< Extra Codec Information for Tool Tips */
@@ -124,7 +124,7 @@ namespace QX11Grab
       static const QList<FFCodec> audioCodecs();
 
       /** find valid Format for given codecID */
-      static const QList<FFFormat> supportedFormats ( CodecID id );
+      static const QList<FFFormat> supportedFormats ( AVCodecID id );
 
       /** complete list of all ~/.ffmpeg/?.ffpreset */
       static const QStringList userPresets ( const QString &suffix );

@@ -1,0 +1,83 @@
+/**
+* @file   ffmpeg_1.1_build_version.diff
+* @author Juergen Heinemann (Undefined) http://www.hjcms.de
+* @since  Mon Jan  7 16:11:23 CET 2013
+* @short  diff options:-Nau6
+*/
+--- ./configure.orig	2013-01-07 16:08:30.917106942 +0100
++++ ./configure	2013-01-07 16:10:36.192749060 +0100
+@@ -4508,13 +4508,13 @@
+     cat <<EOF > $name/$name.pc
+ prefix=$prefix
+ exec_prefix=\${prefix}
+ libdir=$libdir
+ includedir=$incdir
+ 
+-Name: $name
++Name: $name${build_suffix}
+ Description: $comment
+ Version: $version
+ Requires: $(enabled shared || echo $requires)
+ Requires.private: $(enabled shared && echo $requires)
+ Conflicts:
+ Libs: -L\${libdir} -l${shortname} $(enabled shared || echo $libs)
+@@ -4528,43 +4528,43 @@
+     cat <<EOF > doc/examples/pc-uninstalled/$name.pc
+ prefix=
+ exec_prefix=
+ libdir=\${pcfiledir}/../../../$name
+ includedir=${includedir}
+ 
+-Name: $name
++Name: $name${build_suffix}
+ Description: $comment
+ Version: $version
+ Requires: $requires
+ Conflicts:
+ Libs: -L\${libdir} -l${shortname} $(enabled shared || echo $libs)
+ Cflags: -I\${includedir}
+ EOF
+ }
+ 
+-libavfilter_pc_deps="libavutil = $LIBAVUTIL_VERSION"
+-enabled libavfilter_deps_avcodec    && prepend libavfilter_pc_deps "libavcodec = $LIBAVCODEC_VERSION,"
+-enabled libavfilter_deps_avformat   && prepend libavfilter_pc_deps "libavformat = $LIBAVFORMAT_VERSION,"
+-enabled libavfilter_deps_avresample && prepend libavfilter_pc_deps "libavresample = $LIBAVRESAMPLE_VERSION,"
+-enabled libavfilter_deps_swscale    && prepend libavfilter_pc_deps "libswscale = $LIBSWSCALE_VERSION,"
+-enabled libavfilter_deps_swresample && prepend libavfilter_pc_deps "libswresample = $LIBSWRESAMPLE_VERSION,"
+-enabled libavfilter_deps_postproc   && prepend libavfilter_pc_deps "libpostproc = $LIBPOSTPROC_VERSION,"
++libavfilter_pc_deps="libavutil${build_suffix} = $LIBAVUTIL_VERSION"
++enabled libavfilter_deps_avcodec    && prepend libavfilter_pc_deps "libavcodec${build_suffix} = $LIBAVCODEC_VERSION,"
++enabled libavfilter_deps_avformat   && prepend libavfilter_pc_deps "libavformat${build_suffix} = $LIBAVFORMAT_VERSION,"
++enabled libavfilter_deps_avresample && prepend libavfilter_pc_deps "libavresample${build_suffix} = $LIBAVRESAMPLE_VERSION,"
++enabled libavfilter_deps_swscale    && prepend libavfilter_pc_deps "libswscale${build_suffix} = $LIBSWSCALE_VERSION,"
++enabled libavfilter_deps_swresample && prepend libavfilter_pc_deps "libswresample${build_suffix} = $LIBSWRESAMPLE_VERSION,"
++enabled libavfilter_deps_postproc   && prepend libavfilter_pc_deps "libpostproc${build_suffix} = $LIBPOSTPROC_VERSION,"
+ libavfilter_pc_deps=${libavfilter_pc_deps%, }
+ 
+-libavdevice_pc_deps="libavformat = $LIBAVFORMAT_VERSION"
+-enabled lavfi_indev && prepend libavdevice_pc_deps "libavfilter = $LIBAVFILTER_VERSION,"
++libavdevice_pc_deps="libavformat${build_suffix} = $LIBAVFORMAT_VERSION"
++enabled lavfi_indev && prepend libavdevice_pc_deps "libavfilter${build_suffix} = $LIBAVFILTER_VERSION,"
+ 
+ pkgconfig_generate libavutil "FFmpeg utility library" "$LIBAVUTIL_VERSION" "$LIBM"
+-pkgconfig_generate libavcodec "FFmpeg codec library" "$LIBAVCODEC_VERSION" "$extralibs" "libavutil = $LIBAVUTIL_VERSION"
+-pkgconfig_generate libavformat "FFmpeg container format library" "$LIBAVFORMAT_VERSION" "$extralibs" "libavcodec = $LIBAVCODEC_VERSION"
++pkgconfig_generate libavcodec "FFmpeg codec library" "$LIBAVCODEC_VERSION" "$extralibs" "libavutil${build_suffix} = $LIBAVUTIL_VERSION"
++pkgconfig_generate libavformat "FFmpeg container format library" "$LIBAVFORMAT_VERSION" "$extralibs" "libavcodec${build_suffix} = $LIBAVCODEC_VERSION"
+ pkgconfig_generate libavdevice "FFmpeg device handling library" "$LIBAVDEVICE_VERSION" "$extralibs" "$libavdevice_pc_deps"
+ pkgconfig_generate libavfilter "FFmpeg video filtering library" "$LIBAVFILTER_VERSION" "$extralibs" "$libavfilter_pc_deps"
+-pkgconfig_generate libpostproc "FFmpeg postprocessing library" "$LIBPOSTPROC_VERSION" "" "libavutil = $LIBAVUTIL_VERSION"
+-pkgconfig_generate libavresample "Libav audio resampling library" "$LIBAVRESAMPLE_VERSION" "$extralibs" "libavutil = $LIBAVUTIL_VERSION"
+-pkgconfig_generate libswscale "FFmpeg image rescaling library" "$LIBSWSCALE_VERSION" "$LIBM" "libavutil = $LIBAVUTIL_VERSION"
+-pkgconfig_generate libswresample "FFmpeg audio resampling library" "$LIBSWRESAMPLE_VERSION" "$LIBM" "libavutil = $LIBAVUTIL_VERSION"
++pkgconfig_generate libpostproc "FFmpeg postprocessing library" "$LIBPOSTPROC_VERSION" "" "libavutil${build_suffix} = $LIBAVUTIL_VERSION"
++pkgconfig_generate libavresample "Libav audio resampling library" "$LIBAVRESAMPLE_VERSION" "$extralibs" "libavutil${build_suffix} = $LIBAVUTIL_VERSION"
++pkgconfig_generate libswscale "FFmpeg image rescaling library" "$LIBSWSCALE_VERSION" "$LIBM" "libavutil${build_suffix} = $LIBAVUTIL_VERSION"
++pkgconfig_generate libswresample "FFmpeg audio resampling library" "$LIBSWRESAMPLE_VERSION" "$LIBM" "libavutil${build_suffix} = $LIBAVUTIL_VERSION"
+ 
+ fix_ffmpeg_remote(){
+     git_remote_from=$1
+     git_remote_to=$2
+     fixme_remote=$(git --git-dir=$source_path/.git --work-tree=$source_path remote -v | grep $git_remote_from | cut -f 1 | sort | uniq)
+     if [ "$fixme_remote" != "" ]; then

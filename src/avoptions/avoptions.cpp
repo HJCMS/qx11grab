@@ -257,7 +257,7 @@ namespace QX11Grab
   * inklusive ihrer Formate. Wird auch von \ref videoCodecs verwendet
   * um fest zu stellen ob ein Ausgabe Format zu verfügung steht!
   */
-  const QList<QX11Grab::FFFormat> AVOptions::supportedFormats ( CodecID id )
+  const QList<QX11Grab::FFFormat> AVOptions::supportedFormats ( AVCodecID id )
   {
     QList<QX11Grab::FFFormat> list;
     // alle codecs und demuxer initialisieren

@@ -48,7 +48,7 @@ namespace QX11Grab
 
     Q_SIGNALS:
       /** codec entry has changed */
-      void codecChanged ( const QString &name, CodecID );
+      void codecChanged ( const QString &name, AVCodecID );
 
     public Q_SLOTS:
       /** marking codec as selected */

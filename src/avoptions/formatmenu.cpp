@@ -114,13 +114,13 @@ namespace QX11Grab
 
   /**
   * Lese das Menü neu ein und setze den Button Text zurück.
-  * Lese mit \ref CodecID alle Unterstützen Formate für diesen
+  * Lese mit \ref AVCodecID alle Unterstützen Formate für diesen
   * Codec (\ref name) Neu ein. Und erstelle ein Menü mit den
   * einzelnen Formaten an. Im Moment fehlt noch seitens FFmpeg
   * die Unterstützung für die Standard Auswahl. Aus diesem Grund
   * wird hier zusätzlich auf \ref findDefaultExtension zugegriffen.
   */
-  void FormatMenu::updateMenu ( const QString &name, CodecID id )
+  void FormatMenu::updateMenu ( const QString &name, AVCodecID id )
   {
     m_menu->clear();
     p_ActionsList.clear();

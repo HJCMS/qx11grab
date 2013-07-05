@@ -33,8 +33,8 @@ VideoTableEditor::VideoTableEditor ( QWidget * parent )
   setToolTip ( QString::fromUtf8 ( "-vcodec" ) );
 
   // ComboBoxes
-  connect ( m_codecSelecter, SIGNAL ( codecChanged ( const QString &, CodecID ) ),
-            m_formatMenu, SLOT ( updateMenu ( const QString &, CodecID ) ) );
+  connect ( m_codecSelecter, SIGNAL ( codecChanged ( const QString &, AVCodecID ) ),
+            m_formatMenu, SLOT ( updateMenu ( const QString &, AVCodecID ) ) );
 
   connect ( m_formatMenu, SIGNAL ( extensionChanged ( const QString & ) ),
             this, SLOT ( setCodecExtension ( const QString & ) ) );
