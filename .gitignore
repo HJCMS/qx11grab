@@ -2,6 +2,7 @@ build
 html
 Makefile*
 qx11grab.kdev*
+qx11grab.cppcheck
 *.log
 *.txt.user
 core
