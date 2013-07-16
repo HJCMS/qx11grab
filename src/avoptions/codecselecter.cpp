@@ -38,8 +38,7 @@ namespace QX11Grab
   {
     setObjectName ( QLatin1String ( "CodecSelecter" ) );
     setEditable ( true ); // Benutzer kann neue Einträge erzeugen!
-    connect ( this, SIGNAL ( activated ( int ) ),
-              this, SLOT ( itemSelected ( int ) ) );
+    connect ( this, SIGNAL ( activated ( int ) ), this, SLOT ( itemSelected ( int ) ) );
   }
 
   /**

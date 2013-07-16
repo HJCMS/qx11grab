@@ -14,6 +14,8 @@ MACRO_ENSURE_VERSION ("4.1.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_1)
 MACRO_ENSURE_VERSION ("4.2.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_2)
 MACRO_ENSURE_VERSION ("4.5.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_5)
 MACRO_ENSURE_VERSION ("4.6.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_6)
+MACRO_ENSURE_VERSION ("4.7.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_7)
+MACRO_ENSURE_VERSION ("4.8.0" "${_gcc_version}" GCC_IS_NEWER_THAN_4_8)
 
 IF (CMAKE_SYSTEM_NAME MATCHES Linux)
   SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wnon-virtual-dtor -Wundef -Wcast-align -Wchar-subscripts -Wpointer-arith")
@@ -112,3 +114,8 @@ ELSE (CMAKE_BUILD_TYPE STREQUAL "Debug")
     SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-missing-declarations -Wno-old-style-cast")
   ENDIF (GCC_IS_NEWER_THAN_4_6)
 ENDIF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+
+IF (GCC_IS_NEWER_THAN_4_7)
+  ## FIXME force remove invalid "-std=c++0x" user sets
+  REMOVE_DEFINITIONS ("-std=c++0x")
+ENDIF (GCC_IS_NEWER_THAN_4_7)
