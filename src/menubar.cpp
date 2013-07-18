@@ -29,7 +29,8 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QString>
-#include <QtCore/QUrl>
+#include <QtCore/QProcess>
+#include <QtCore/QProcessEnvironment>
 
 /* QtGui */
 #include <QtGui/QDesktopServices>
@@ -202,6 +203,25 @@ MenuBar::MenuBar ( MainWindow * parent )
             qApp, SLOT ( aboutQt() ) );
 }
 
+void MenuBar::openWebLink ( const QUrl &u )
+{
+  QByteArray ch = qgetenv ( "BROWSER" );
+  if ( ! ch.isEmpty() )
+  {
+    QString browser ( ch );
+    if ( browser.contains ( "firefox" ) || browser.contains ( "chrom" ) )
+    {
+      QProcess process;
+      QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+      process.setProcessEnvironment ( env );
+      process.startDetached ( browser, QStringList ( u.toString() ) );
+    }
+    return;
+  }
+  QDesktopServices::openUrl ( u );
+
+}
+
 QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
 {
   QAction* ac = new QAction ( trUtf8 ( "Create" ), parent );
@@ -225,22 +245,22 @@ QAction* MenuBar::bookmarkRemoveAction ( QMenu * parent )
 
 void MenuBar::openFFmpegHomepage()
 {
-  QDesktopServices::openUrl ( QUrl ( "http://www.ffmpeg.org/documentation.html" ) );
+  openWebLink ( QUrl ( "http://www.ffmpeg.org/documentation.html" ) );
 }
 
 void MenuBar::openQX11GrabHomepage()
 {
-  QDesktopServices::openUrl ( QUrl ( "http://qx11grab.hjcms.de" ) );
+  openWebLink ( QUrl ( "http://qx11grab.hjcms.de" ) );
 }
 
 void MenuBar::openWebMProjectHomepage()
 {
-  QDesktopServices::openUrl ( QUrl ( "http://www.webmproject.org/code/specs/container/" ) );
+  openWebLink ( QUrl ( "http://www.webmproject.org/code/specs/container/" ) );
 }
 
 void MenuBar::openVideoLanHomepage()
 {
-  QDesktopServices::openUrl ( QUrl ( "http://www.videolan.org/developers/x264.html" ) );
+  openWebLink ( QUrl ( "http://www.videolan.org/developers/x264.html" ) );
 }
 
 void MenuBar::openAboutDialog()

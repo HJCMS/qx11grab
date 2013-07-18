@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QObject>
+#include <QtCore/QUrl>
 
 /* QtGui */
 #include <QtGui/QAction>
@@ -43,6 +44,8 @@ class MenuBar : public QMenuBar
 
   private:
     MainWindow* m_mainWindow;
+
+    void openWebLink ( const QUrl & );
 
   protected:
     // File Menu

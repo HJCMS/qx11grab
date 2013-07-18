@@ -57,7 +57,7 @@ TARGET_LINK_LIBRARIES (${target_plugin}
 SET_TARGET_PROPERTIES (${target_plugin} PROPERTIES
   OUTPUT_NAME ${target_plugin}
   LINKER_LANGUAGE CXX
-  COMPILE_FLAGS "${LIB_FPIC_CXXFLAGS} -Wno-missing-declarations"
+  COMPILE_FLAGS "${LIB_FPIC_CXXFLAGS} -Wno-stack-protector -Wno-missing-declarations"
   LINK_FLAGS "${LIB_FPIC_CXXFLAGS} ${LIB_RDYNAMIC_CXXFLAGS} ${QX11GRAB_LDFLAGS}"
 )
 

@@ -72,7 +72,7 @@ INCLUDE (CheckingGNUCXX)
 SET (QX11GRAB_LDFLAGS "" CACHE STRING "additional project linker flags")
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  SET (QX11GRAB_LDFLAGS "-Wl,--build-id")
+  SET (QX11GRAB_LDFLAGS "-Wl,--build-id -Wl,--warn-common")
 ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 IF (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
@@ -81,7 +81,8 @@ ENDIF (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 
 OPTION (BUILD_WERROR "Build with -Werror" OFF)
 IF(BUILD_WERROR)
-  SET (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Werror")
+  SET (QX11GRAB_LDFLAGS "-Wl,--build-id -Wl,--warn-common -Wl,--warn-constructors -Wl,--warn-multiple-gp")
+  SET (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Werror -Wno-unused-local-typedefs")
 ENDIF (BUILD_WERROR)
 
 SET (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DQX11GRAB_DEBUG")
