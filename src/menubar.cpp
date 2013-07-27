@@ -219,7 +219,6 @@ void MenuBar::openWebLink ( const QUrl &u )
     return;
   }
   QDesktopServices::openUrl ( u );
-
 }
 
 QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
