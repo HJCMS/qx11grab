@@ -126,7 +126,7 @@ int DesktopTapping::normalize ( int z ) const
 * \warning Wir verwenden Qt:DISPLAY und nicht X:Display \n
 *   Hiermit sind wegen \e XLIB_ILLEGAL_ACCESS einige Einschränkungen verbunden!
 * \li Wir haben \b nicht die ganze Klassen-Struktur wie unter XLib!
-* \li Daraus ergibt sich: Das \e screen_number unf \e number fehlen!
+* \li Daraus ergibt sich: Das \e screen_number und \e number fehlen!
 */
 void DesktopTapping::grabWindowRect ()
 {
@@ -216,11 +216,9 @@ void DesktopTapping::grabWindowRect ()
 
 /**
 * Startet das abgreifen der Desktop Auflösung
-* DEPRECATED SCREEN wird jetzt Automatisch ermittelt!
 */
-void DesktopTapping::createRequest ( int screen )
+void DesktopTapping::createRequest ()
 {
-  Q_UNUSED ( screen );
   grabWindowRect ();
 }
 

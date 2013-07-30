@@ -1211,12 +1211,12 @@ WhatsThis</extracomment>
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="../src/menubar.cpp" line="+44"/>
+        <location filename="../src/menubar.cpp" line="+45"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location line="+284"/>
+        <location line="+302"/>
         <source>Kill</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Abbrechen</translation>
@@ -1228,7 +1228,7 @@ WhatsThis</extracomment>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location line="-295"/>
+        <location line="-313"/>
         <source>Load</source>
         <translation>Laden</translation>
     </message>
@@ -1238,7 +1238,7 @@ WhatsThis</extracomment>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location line="+152"/>
+        <location line="+170"/>
         <source>Quit</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Beenden</translation>
@@ -1331,7 +1331,7 @@ ToolTip</extracomment>
         <translation>Erneuere die Befehlsketten Vorschau</translation>
     </message>
     <message>
-        <location line="-278"/>
+        <location line="-296"/>
         <source>FFmpeg</source>
         <translation></translation>
     </message>
@@ -1353,7 +1353,7 @@ ToolTip</extracomment>
         <translation>QX11Grab Webseite</translation>
     </message>
     <message>
-        <location line="+267"/>
+        <location line="+285"/>
         <source>Save current Settings</source>
         <extracomment>ToolTip</extracomment>
         <translation>Speichere die aktuellen Einstellungen</translation>
@@ -1383,7 +1383,7 @@ ToolTip</extracomment>
         <translation>Exportiere die aktuelle Kommando Zeile</translation>
     </message>
     <message>
-        <location line="-298"/>
+        <location line="-316"/>
         <source>Bookmark</source>
         <translation>Lesezeichen</translation>
     </message>
@@ -1393,7 +1393,7 @@ ToolTip</extracomment>
         <translation>Aktionen</translation>
     </message>
     <message>
-        <location line="+137"/>
+        <location line="+155"/>
         <source>Create</source>
         <translation>Erstellen</translation>
     </message>
@@ -1415,7 +1415,7 @@ ToolTip</extracomment>
         <translation>Öffne den Lesezeichen entfernen Dialog</translation>
     </message>
     <message>
-        <location line="-98"/>
+        <location line="-116"/>
         <source>x264</source>
         <translation>x264</translation>
     </message>
@@ -1437,13 +1437,13 @@ ToolTip</extracomment>
         <translation>WebM Behälterrichtlinien</translation>
     </message>
     <message>
-        <location line="+162"/>
+        <location line="+180"/>
         <source>swap rubberband view</source>
         <extracomment>ToolTip</extracomment>
         <translation>Gummiband Ansicht umschalten</translation>
     </message>
     <message>
-        <location line="-185"/>
+        <location line="-203"/>
         <source>Configure</source>
         <translation>Konfigurieren</translation>
     </message>
@@ -1672,7 +1672,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>PlayerAction</name>
     <message>
-        <location filename="../src/playeraction.cpp" line="+99"/>
+        <location filename="../src/playeraction.cpp" line="+101"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation></translation>
@@ -1708,7 +1708,13 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
         <translation></translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="+4"/>
+        <source>GStreamer</source>
+        <extracomment>MenuEntry for &quot;gst-launch&quot; http://gstreamer.freedesktop.org/</extracomment>
+        <translation></translation>
+    </message>
+    <message>
+        <location line="-16"/>
         <source>MPlayer GUI</source>
         <extracomment>MenuEntry for &quot;gmplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation></translation>
@@ -1838,7 +1844,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+162"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+157"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Abfrageformat</translation>
@@ -1861,7 +1867,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>QX11Grab::CodecSelecter</name>
     <message>
-        <location filename="../src/avoptions/codecselecter.cpp" line="+121"/>
+        <location filename="../src/avoptions/codecselecter.cpp" line="+120"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation>Angepasst</translation>
@@ -1906,17 +1912,22 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+8"/>
+        <location line="+5"/>
         <source>Set bitstream filters for matching stream.</source>
         <translation>Setze Bitstrom für den Ausgabestrom.</translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="-4"/>
         <source>Set video buffer verifier buffer size (in bits).</source>
         <translation>Setze Video- Überprüfungspuffer in Bits.</translation>
     </message>
     <message>
         <location line="+3"/>
+        <source>Sets the quantizer to use</source>
+        <translation>Setze den zu verwendenden Quantisierer</translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Set the audio sampling frequency.</source>
         <translation>Setze Audio Stichproben Frequenz.</translation>
     </message>
@@ -1947,24 +1958,14 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="+84"/>
-        <source>Scalability Failure Width</source>
-        <translation>Skalierungsfehler der Breite</translation>
+        <location filename="../src/tapping/rubberband.cpp" line="+112"/>
+        <source>Scalability Failure </source>
+        <translation>Skalierungsfehler</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Frame Width must be a multiple of 2</source>
-        <translation>Die Rahmenbreite muß durch 2 Teilbar sein!</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Scalability Failure Height</source>
-        <translation>Skalierungsfehler der Höhe</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Frame Height must be a multiple of 2</source>
-        <translation>Die Rahmenhöhe muß durch 2 Teilbar sein!</translation>
+        <source>Frame Width/Height must be a multiple of 2</source>
+        <translation>Rahmen Breite/Höhe muss durch 2 Teilbar sein!</translation>
     </message>
 </context>
 <context>

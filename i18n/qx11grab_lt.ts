@@ -1208,7 +1208,7 @@ WhatsThis</extracomment>
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="../src/menubar.cpp" line="+44"/>
+        <location filename="../src/menubar.cpp" line="+45"/>
         <source>File</source>
         <translation>Failas</translation>
     </message>
@@ -1299,7 +1299,7 @@ WhatsThis</extracomment>
         <translation>Apie Qt4</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+89"/>
         <source>Create</source>
         <translation>Sukurti</translation>
     </message>
@@ -1426,12 +1426,12 @@ ToolTip</extracomment>
         <translation>Eksportuoti dabartinę komandinę eilutę</translation>
     </message>
     <message>
-        <location line="-298"/>
+        <location line="-316"/>
         <source>Bookmark</source>
         <translation>Žymelės</translation>
     </message>
     <message>
-        <location line="+308"/>
+        <location line="+326"/>
         <source>Save</source>
         <extracomment>MenuEntry</extracomment>
         <translation>Įrašyti</translation>
@@ -1667,7 +1667,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>PlayerAction</name>
     <message>
-        <location filename="../src/playeraction.cpp" line="+99"/>
+        <location filename="../src/playeraction.cpp" line="+101"/>
         <source>MPlayer</source>
         <extracomment>MenuEntry for &quot;mplayer&quot; http://www.mplayerhq.hu</extracomment>
         <translation>MPlayer</translation>
@@ -1719,6 +1719,12 @@ Multiple languages can be specified by separating them with commas.</source>
         <source>Totem Player</source>
         <extracomment>MenuEntry for &quot;totem&quot; http://projects.gnome.org/totem/</extracomment>
         <translation>Totem leistuvė</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>GStreamer</source>
+        <extracomment>MenuEntry for &quot;gst-launch&quot; http://gstreamer.freedesktop.org/</extracomment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1833,7 +1839,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+162"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+157"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1856,7 +1862,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::CodecSelecter</name>
     <message>
-        <location filename="../src/avoptions/codecselecter.cpp" line="+121"/>
+        <location filename="../src/avoptions/codecselecter.cpp" line="+120"/>
         <source>Customized</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1901,17 +1907,22 @@ Multiple languages can be specified by separating them with commas.</source>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+8"/>
+        <location line="+5"/>
         <source>Set bitstream filters for matching stream.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="-4"/>
         <source>Set video buffer verifier buffer size (in bits).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
+        <source>Sets the quantizer to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Set the audio sampling frequency.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1942,24 +1953,14 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="+84"/>
-        <source>Scalability Failure Width</source>
-        <translation>Dydžio keitimo klaida dėl pločio</translation>
+        <location filename="../src/tapping/rubberband.cpp" line="+112"/>
+        <source>Scalability Failure </source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Frame Width must be a multiple of 2</source>
-        <translation>Kadro aukštis turi dalintis iš 2</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Scalability Failure Height</source>
-        <translation>Dydžio keitimo klaida dėl aukščio</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Frame Height must be a multiple of 2</source>
-        <translation>Kadro plotis turi dalintis iš 2</translation>
+        <source>Frame Width/Height must be a multiple of 2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

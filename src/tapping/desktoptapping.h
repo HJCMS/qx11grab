@@ -54,7 +54,7 @@ class DesktopTapping : public QDesktopWidget
 
   public Q_SLOTS:
     /** Create a Desktop tapping Request */
-    void createRequest ( int screen = 0 );
+    void createRequest ();
 
   public:
     explicit DesktopTapping ( QObject * parent = 0 );

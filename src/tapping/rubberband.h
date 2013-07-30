@@ -24,14 +24,14 @@
 
 /* QtCore */
 #include <QtCore/QObject>
-#include <QtCore/QSettings>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QColor>
 #include <QtGui/QPaintEvent>
+#include <QtGui/QPen>
 #include <QtGui/QRubberBand>
-#include <QtGui/QStyleOptionRubberBand>
+#include <QtGui/QShowEvent>
+#include <QtGui/QStyleOption>
 #include <QtGui/QWidget>
 
 class RubberBand : public QRubberBand
@@ -41,15 +41,17 @@ class RubberBand : public QRubberBand
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    const QSettings p_settings;
-    const QColor frameColor() const;
+    QPen p_pen;
+    QStyleOption p_style;
 
   protected:
-    void initStyleOption ( QStyleOptionRubberBand * ) const;
+    /** init user configuration for border color */
+    void showEvent ( QShowEvent * );
+
+    /** update QStyle::CE_RubberBand */
     void paintEvent ( QPaintEvent * );
 
   Q_SIGNALS:
-    void warning ( const QString & );
     void error ( const QString &, const QString & );
 
   public:

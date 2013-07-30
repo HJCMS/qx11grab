@@ -24,16 +24,29 @@
 /* QtCore */
 #include <QtCore/QDebug>
 #include <QtCore/QLineF>
+#include <QtCore/QPointF>
+#include <QtCore/QSettings>
 
 /* QtGui */
+#include <QtGui/QApplication>
 #include <QtGui/QBrush>
+#include <QtGui/QColor>
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
-#include <QtGui/QPen>
+#include <QtGui/QStyle>
+#include <QtGui/QStylePainter>
+
+static const QPen defaultPenStyle()
+{
+  QBrush b ( Qt::red, Qt::SolidPattern );
+  QPen p ( b, 1, Qt::SolidLine, Qt::FlatCap, Qt::MiterJoin );
+  return p;
+}
 
 RubberBand::RubberBand ( QWidget * parent )
-    : QRubberBand ( QRubberBand::Rectangle, parent )
-    , p_settings ( new QSettings ( QSettings::NativeFormat, QSettings::UserScope, "hjcms.de", "qx11grab" ) )
+    : QRubberBand ( QRubberBand::Line, parent )
+    , p_pen ( defaultPenStyle() )
+    , p_style ( QStyleOption::Version, QStyleOption::SO_RubberBand )
 {
   setMinimumWidth ( 128 );
   setMinimumHeight ( 96 );
@@ -47,17 +60,20 @@ RubberBand::RubberBand ( QWidget * parent )
   setAttribute ( Qt::WA_PaintOnScreen, true );
 }
 
-const QColor RubberBand::frameColor() const
+/**
+* Ininitialsiere den Stylesheet erst bei einer neuen Ansicht!
+*/
+void RubberBand::showEvent ( QShowEvent * event )
 {
-  QColor color;
-  color.setNamedColor ( p_settings.value ( "Rubberband/Color", "#800000" ).toString() );
-  return color;
-}
+  QColor c ( Qt::red );
+  QSettings s ( QSettings::NativeFormat, QSettings::UserScope,
+                qApp->organizationDomain(), qApp->applicationName() );
+  c.setNamedColor ( s.value ( "Rubberband/Color", "#800000" ).toString() );
 
-void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
-{
-  if ( option )
-    option->initFrom ( this );
+  p_pen.setColor ( c );
+  p_pen.setWidth ( 1 );
+  p_pen.setStyle ( Qt::SolidLine );
+  QRubberBand::showEvent ( event );
 }
 
 /**
@@ -65,35 +81,38 @@ void RubberBand::initStyleOption ( QStyleOptionRubberBand * option ) const
 * Unbedingt den Rubberband Style an Windoof anpassen. :-/
 * Hier mein Hack um dieses wieder zu umgehen!
 */
-void RubberBand::paintEvent ( QPaintEvent * event )
+void RubberBand::paintEvent ( QPaintEvent * _e )
 {
-  QRubberBand::paintEvent ( event );
+  const QRect r = _e->rect();
+  const QPointF p[8] =
+  {
+    QPointF ( r.topLeft() ),
+    QPointF ( r.topRight() ),
+    QPointF ( r.topRight() ),
+    QPointF ( r.bottomRight() ),
+    QPointF ( r.bottomRight() ),
+    QPointF ( r.bottomLeft() ),
+    QPointF ( r.bottomLeft() ),
+    QPointF ( r.topLeft() )
+  };
 
-  QStyleOptionRubberBand panel;
-  initStyleOption ( &panel );
-
-  QPainter painter ( this );
-  painter.fillRect ( panel.rect, frameColor() );
+  QStylePainter sp ( this );
+  sp.setCompositionMode ( QPainter::CompositionMode_DestinationOver );
+  sp.setBackgroundMode ( Qt::TransparentMode );
+  sp.setRenderHint ( QPainter::NonCosmeticDefaultPen, true );
+  sp.setPen ( p_pen );
+  sp.drawLines ( p, 4 );
+  style()->drawControl ( QStyle::CE_RubberBand, &p_style, &sp, this );
 }
 
 bool RubberBand::isScalability()
 {
-  if ( size().width() & 1 )
+  if ( ( size().width() & 1 ) || ( size().height() & 1 ) )
   {
-    QString str = QString::number ( size().width() );
-    emit error ( trUtf8 ( "Scalability Failure Width" ),
-                 trUtf8 ( "Frame Width must be a multiple of 2" ) );
+    emit error ( trUtf8 ( "Scalability Failure " ),
+                 trUtf8 ( "Frame Width/Height must be a multiple of 2" ) );
     return false;
   }
-
-  if ( size().height() & 1 )
-  {
-    QString str = QString::number ( size().height() );
-    emit error ( trUtf8 ( "Scalability Failure Height" ),
-                 trUtf8 ( "Frame Height must be a multiple of 2" ) );
-    return false;
-  }
-
   return true;
 }
 
