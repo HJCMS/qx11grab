@@ -65,19 +65,15 @@ RubberBand::RubberBand ( QWidget * parent )
 */
 void RubberBand::showEvent ( QShowEvent * event )
 {
-  QColor c ( Qt::red );
   QSettings s ( QSettings::NativeFormat, QSettings::UserScope,
                 qApp->organizationDomain(), qApp->applicationName() );
-  c.setNamedColor ( s.value ( "Rubberband/Color", "#800000" ).toString() );
-
-  p_pen.setColor ( c );
-  p_pen.setWidth ( 1 );
-  p_pen.setStyle ( Qt::SolidLine );
+  QString hex = s.value ( "Rubberband/Color", "#800000" ).toString();
+  updateFrameColor ( hex );
   QRubberBand::showEvent ( event );
 }
 
 /**
-* Es gibt eingige Distribution die der Meinung sind sie müssten
+* Es gibt einige Distribution die der Meinung sind sie müssten
 * Unbedingt den Rubberband Style an Windoof anpassen. :-/
 * Hier mein Hack um dieses wieder zu umgehen!
 */
@@ -105,11 +101,18 @@ void RubberBand::paintEvent ( QPaintEvent * _e )
   style()->drawControl ( QStyle::CE_RubberBand, &p_style, &sp, this );
 }
 
+void RubberBand::updateFrameColor ( const QString &hex )
+{
+  QColor c ( Qt::red );
+  c.setNamedColor ( hex );
+  p_pen.setColor ( c );
+}
+
 bool RubberBand::isScalability()
 {
   if ( ( size().width() & 1 ) || ( size().height() & 1 ) )
   {
-    emit error ( trUtf8 ( "Scalability Failure " ),
+    emit error ( trUtf8 ( "Scalability Failure" ),
                  trUtf8 ( "Frame Width/Height must be a multiple of 2" ) );
     return false;
   }

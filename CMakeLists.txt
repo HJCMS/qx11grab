@@ -164,6 +164,7 @@ IF (NOT XLIBS_FOUND)
   MESSAGE (FATAL_ERROR "X11 or XRandr not found")
 ENDIF (NOT XLIBS_FOUND)
 
+
 ##############################################################
 ## DBus-1
 ## The current stable branch is 1.4.x
@@ -203,6 +204,52 @@ IF (INKSCAPE_BINARY)
 ELSE (INKSCAPE_BINARY)
   MESSAGE (WARNING "Missing Inkscape for building extra icons!")
 ENDIF (INKSCAPE_BINARY)
+
+##############################################################
+## my debugger targets
+##############################################################
+
+FIND_PROGRAM (VALGRIND_BINARY NAMES valgrind)
+IF (VALGRIND_BINARY)
+  SET (VALGRIND_OPTIONS
+    --tool=memcheck --leak-check=full --show-leak-kinds=all --trace-children=yes --track-origins=yes
+    CACHE STRING "force my default options to ignore ~/.valgrindrc" FORCE
+  )
+  ADD_CUSTOM_TARGET(memcheck
+    COMMAND ${VALGRIND_BINARY} ${VALGRIND_OPTIONS} ./${CMAKE_PROJECT_NAME}
+    WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
+    COMMENT "run the valgrind tool to called memcheck"
+    VERBATIM
+  )
+ENDIF (VALGRIND_BINARY)
+
+FIND_PROGRAM (GDB_BINARY NAMES gdb)
+IF (GDB_BINARY)
+  SET (GDB_OPTIONS
+    --nh --directory=${CMAKE_CURRENT_SOURCE_DIR}/src
+    CACHE STRING "force my default options to ignore ~/.gdbinit" FORCE
+  )
+  ADD_CUSTOM_TARGET(gdb
+    COMMAND ${GDB_BINARY} ${GDB_OPTIONS} ./${CMAKE_PROJECT_NAME}
+    WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
+    COMMENT "run the gdb debugger"
+    VERBATIM
+  )
+ENDIF (GDB_BINARY)
+
+FIND_PROGRAM (DDD_BINARY NAMES ddd)
+IF (DDD_BINARY)
+    SET (DDD_OPTIONS
+    -x --nh --directory=${CMAKE_CURRENT_SOURCE_DIR}/src
+    CACHE STRING "create my default options" FORCE
+  )
+  ADD_CUSTOM_TARGET(ddd
+    COMMAND ${DDD_BINARY} ${DDD_OPTIONS} ./${CMAKE_PROJECT_NAME}
+    WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}
+    COMMENT "run the ddd debugger"
+    VERBATIM
+  )
+ENDIF (DDD_BINARY)
 
 ##############################################################
 ## INCLUDES

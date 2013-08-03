@@ -23,6 +23,9 @@
 # Configuration
 #=============================================================================
 
+## Currently Supported Versions
+##  ffmpeg >= 0.10.7
+##  libav >= 0.9
 SET (FFMPEG_SUFFIX "" CACHE STRING
   "ffmpeg pkg-config or library file suffix (STRING)"
 )

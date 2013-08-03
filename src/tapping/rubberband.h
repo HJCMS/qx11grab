@@ -54,6 +54,10 @@ class RubberBand : public QRubberBand
   Q_SIGNALS:
     void error ( const QString &, const QString & );
 
+  public Q_SLOTS:
+    /** a Hex Color Codes is required */
+    void updateFrameColor ( const QString &hex );
+
   public:
     explicit RubberBand ( QWidget * parent = 0 );
 
