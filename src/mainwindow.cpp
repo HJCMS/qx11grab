@@ -623,10 +623,6 @@ void MainWindow::preparePreview ()
   if ( m_audioGroupBox->isChecked() )
     commandLine << m_audioEditor->getCmd();
 
-// #ifdef MAINTAINER_REPOSITORY
-//   qDebug() << Q_FUNC_INFO << commandLine;
-// #endif
-
   m_commandPreview->setCommandLine ( commandLine );
 
   cfg->setValue ( QLatin1String ( "SoundRecording" ), m_audioGroupBox->isChecked() );

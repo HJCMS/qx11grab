@@ -239,9 +239,9 @@ ENDIF (GDB_BINARY)
 
 FIND_PROGRAM (DDD_BINARY NAMES ddd)
 IF (DDD_BINARY)
-    SET (DDD_OPTIONS
+  SET (DDD_OPTIONS
     -x --nh --directory=${CMAKE_CURRENT_SOURCE_DIR}/src
-    CACHE STRING "create my default options" FORCE
+    CACHE STRING "create my default options to ignore ~/.gdbinit" FORCE
   )
   ADD_CUSTOM_TARGET(ddd
     COMMAND ${DDD_BINARY} ${DDD_OPTIONS} ./${CMAKE_PROJECT_NAME}

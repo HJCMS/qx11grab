@@ -61,7 +61,7 @@ RubberBand::RubberBand ( QWidget * parent )
 }
 
 /**
-* Ininitialsiere den Stylesheet erst bei einer neuen Ansicht!
+* Initialsiere den Stylesheet erst bei einer neuen Ansicht!
 */
 void RubberBand::showEvent ( QShowEvent * event )
 {

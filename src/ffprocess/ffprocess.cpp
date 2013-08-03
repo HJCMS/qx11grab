@@ -19,6 +19,7 @@
 * Boston, MA 02110-1301, USA.
 */
 
+#include <iostream>
 #include <cstdlib>
 
 #include "ffprocess.h"
@@ -94,7 +95,7 @@ const QString FFProcess::writeScript ( const QStringList &cmd, const QString &vf
   if ( fp.open ( QIODevice::WriteOnly ) )
   {
     QTextStream stream ( &fp );
-    stream << QLatin1String ( "#!/usr/bin/env sh\n" );
+    stream << QLatin1String ( "#!/usr/bin/env bash\n" );
     stream << QLatin1String ( "## QX11Grab FFmpeg Screencast Script\n\nset -o xtrace\n\n" );
     stream << cmd.join ( " " ).trimmed();
     stream << QString::fromUtf8 ( " $@ -y %1" ).arg ( vfile );
@@ -295,6 +296,10 @@ bool FFProcess::start ( const QStringList &cmd, const QString &out )
   if ( cmd.size() < 3 || application().isEmpty() || workdir().isEmpty() )
     return false;
 
+#if defined(MAINTAINER_REPOSITORY) && defined(QX11GRAB_DEBUG)
+  std::cout << cmd.join(" ").toStdString() << std::endl;
+#endif
+
   QFileInfo script ( writeScript ( cmd, out ) );
   if ( ! script.isExecutable() )
   {
@@ -307,6 +312,7 @@ bool FFProcess::start ( const QStringList &cmd, const QString &out )
     qWarning ( "QX11Grab: can not set listener ouput file" );
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.insert ( "NO_COLOR", "1" );
   env.insert ( "FFMPEG_FORCE_NOCOLOR", "1" );
   env.insert ( "AV_LOG_FORCE_NOCOLOR", "1" );
 
