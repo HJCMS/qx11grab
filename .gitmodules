@@ -1,0 +1,3 @@
+[submodule "ffmpeg"]
+	path = utils/ffmpeg
+	url = ffmpeg:ffmpeg
