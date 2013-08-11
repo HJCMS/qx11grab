@@ -38,7 +38,7 @@ ENDIF (NOT UNIX)
 
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 4)
-SET (QX11GRAB_VERSION_RELEASE 9)
+SET (QX11GRAB_VERSION_RELEASE 10)
 SET (QX11GRAB_VERSION_DEVELOPMENT "")
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}${QX11GRAB_VERSION_DEVELOPMENT}")
 SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab")
@@ -355,6 +355,14 @@ INSTALL (FILES
   ${ARCHIVE_OUTPUT_PATH}/qx11grab.desktop
   DESTINATION share/applications
   COMPONENT core
+)
+
+##############################################################
+## Application Package (PackageKit)
+##############################################################
+
+CONFIGURE_FILE (qx11grab.app.cmake
+  ${ARCHIVE_OUTPUT_PATH}/info
 )
 
 ##############################################################

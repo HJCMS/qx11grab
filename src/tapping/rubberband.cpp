@@ -93,7 +93,7 @@ void RubberBand::paintEvent ( QPaintEvent * _e )
   };
 
   QStylePainter sp ( this );
-  sp.setCompositionMode ( QPainter::CompositionMode_DestinationOver );
+  sp.setCompositionMode ( QPainter::CompositionMode_Clear );
   sp.setBackgroundMode ( Qt::TransparentMode );
   sp.setRenderHint ( QPainter::NonCosmeticDefaultPen, true );
   sp.setPen ( p_pen );

@@ -315,7 +315,6 @@ void GrabberInfo::setRubberbandUpdate ( int i )
 {
   QRect maxRect = m_desktopTapping->fullDesktopsRect();
   emit showRubber ( true );
-  // qDebug() << Q_FUNC_INFO << maxRect;
 
   int maxWidth = maxRect.width();
   int boxRight = qRound ( setXBox->value() + setWidthBox->value() );
@@ -333,7 +332,8 @@ void GrabberInfo::setRubberbandUpdate ( int i )
     setHeightBox->setValue ( ( ( h & 1 ) ? ( 1 ^ h ) : h ) );
   }
 
-  if ( i > 0 )
+  // Alle Signale von x/y 0 bis max w/h durchlassen!
+  if ( i >= 0 )
     emit screenDataChanged ( true );
 }
 
