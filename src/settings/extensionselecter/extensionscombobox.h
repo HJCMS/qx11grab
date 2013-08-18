@@ -41,7 +41,7 @@ class ExtensionsComboBox : public QComboBox
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    void insertExtensions ( CodecID );
+    void insertExtensions ( AVCodecID );
 
   private Q_SLOTS:
     void updateItemList ( const QString & );

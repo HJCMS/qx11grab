@@ -1,5 +1,6 @@
 Version 0.4.10
   - Update Rubberband
+  - Changes for FFmpeg 2.0
 
 Version 0.4.9
   - remove Deprecated Macros

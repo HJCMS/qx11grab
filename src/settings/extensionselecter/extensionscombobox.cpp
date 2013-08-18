@@ -48,7 +48,7 @@ ExtensionsComboBox::ExtensionsComboBox ( QWidget * parent )
 * erstelle das Auswahl Menü!
 * TODO Alternativen aus Settings lesen!
 */
-void ExtensionsComboBox::insertExtensions ( CodecID id )
+void ExtensionsComboBox::insertExtensions ( AVCodecID id )
 {
   if ( id == CODEC_ID_NONE )
     return;

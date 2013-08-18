@@ -40,7 +40,7 @@ class ExtensionLineEdit : public QLineEdit
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    void insertCompleter ( CodecID );
+    void insertCompleter ( AVCodecID );
 
   public Q_SLOTS:
     void setCompleterCodec ( const QString & );
