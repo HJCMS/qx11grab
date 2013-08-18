@@ -60,9 +60,10 @@ namespace QX11Grab
   {
     QString path;
 #ifdef MAINTAINER_REPOSITORY
-    path = QString::fromUtf8 ( "%1/../../src/avoptions/options/" ).arg ( qApp->applicationDirPath() );
+    QString projectHome ( qgetenv("HJCMS_PROJECTS_DIR") );
+    path = QString::fromUtf8 ( "%1/%2/src/avoptions/options" ).arg ( projectHome, qApp->applicationName() );
 #else
-    path = QString::fromUtf8 ( "%1/../share/qx11grab/options" ).arg ( qApp->applicationDirPath() );
+    path = QString::fromUtf8 ( "%1/../share/%2/options" ).arg ( qApp->applicationDirPath(), qApp->applicationName() );
 #endif
     QDir d ( path );
     foreach ( QString xml, d.entryList ( QStringList ( "*.xml" ), ( QDir::Files | QDir::NoSymLinks ) ) )

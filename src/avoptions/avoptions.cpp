@@ -100,28 +100,37 @@ namespace QX11Grab
     QList<FFOption> output;
     FFOption ffOption;
     const char *opt = _option.constData();
+    const char *data = _codec.data();
+
+#ifdef MAINTAINER_REPOSITORY
+    qDebug ( "AVOptions::optionQuery( Option: %s, Codec: %s )", opt, data );
+#endif
 
     avcodec_register_all();
     // initial options buffer
-    AVCodecContext* avcodec_opts = avcodec_alloc_context3 ( avcodec_find_decoder_by_name ( _codec.data() ) );
-    qDebug ( "Searching for: %s", opt );
-    const AVOption *obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, 0 );
+    AVCodecContext* avcodec_opts = avcodec_alloc_context3 ( avcodec_find_decoder_by_name ( data ) );
+
+    const AVOption *obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_VIDEO_PARAM, AV_OPT_SEARCH_FAKE_OBJ );
     if ( obj )
     {
-      qDebug ( "Found video option for Name: %s Help: %s", obj->name, obj->help );
+#ifdef MAINTAINER_REPOSITORY
+      qDebug ( "Found video option for Name: %s Help: %s Default: %s Unit: %s",
+               obj->name, obj->help, obj->default_val.str, obj->unit  );
+#endif
       ffOption.name = QString ( obj->name );
-      // if ( obj->type == FF_OPT_TYPE_STRING ) {}
       ffOption.value = QVariant();
       ffOption.help = QString ( obj->help );
       output.append ( ffOption );
       goto ready;
     }
 
-    if ( ( obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, 0 ) ) )
+    if ( ( obj = av_opt_find ( avcodec_opts, opt, NULL, AV_OPT_FLAG_AUDIO_PARAM, AV_OPT_SEARCH_FAKE_OBJ ) ) )
     {
-      qDebug ( "Found audio option for Name: %s Help: %s", obj->name, obj->help );
+#ifdef MAINTAINER_REPOSITORY
+      qDebug ( "Found audio option for Name: %s Help: %s Default: %s Unit: %s",
+               obj->name, obj->help, obj->default_val.str, obj->unit );
+#endif
       ffOption.name = QString ( obj->name );
-      // opt.value = QString ( obj->default_val.str );
       ffOption.value = QVariant();
       ffOption.help = QString ( obj->help );
       output.append ( ffOption );
