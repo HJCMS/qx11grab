@@ -155,7 +155,7 @@ void ExtensionTable::load ( QSettings * settings )
   {
     for ( int i = 0; i < codecList.size(); ++i )
     {
-      if ( codecList.at ( i ).id != CODEC_ID_NONE )
+      if ( codecList.at ( i ).id != AV_CODEC_ID_NONE )
       {
         QStringList buffer;
         QList<QX11Grab::FFFormat> extsList = QX11Grab::AVOptions::supportedFormats ( codecList.at ( i ).id );

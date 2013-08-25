@@ -36,6 +36,7 @@ extern "C"
 {
 #ifdef FF_OLD_CODEC_ID
 # define CodecID AVCodecID
+# define CODEC_ID_NONE AV_CODEC_ID_NONE
 #endif
 #include <libavcodec/avcodec.h>
 }

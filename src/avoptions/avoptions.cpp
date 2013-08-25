@@ -291,7 +291,7 @@ namespace QX11Grab
         * nicht gesetzt und ist es ein Video Kodierer ? */
         if ( ( name == NULL || strcmp ( ofmt->name, name ) < 0 )
                 && ( strcmp ( ofmt->name, buffer ) > 0 )
-                && ( ofmt->video_codec != CODEC_ID_NONE ) )
+                && ( ofmt->video_codec != AV_CODEC_ID_NONE ) )
         {
           /* Jetzt nachsehen ob dieser Kodierer die gleiche ID besitzt!
           * NOTE Das funktioniert erst jetzt (Warum ? keine Ahnung :-/) */

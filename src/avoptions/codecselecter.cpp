@@ -97,7 +97,7 @@ namespace QX11Grab
   * \li Suche nach Vorhandenen Einträgen,
   * \li Wenn vorhanden - Markieren und aussteigen,
   * \li Andernfalls neuen Eintrag einfügen.
-  * \note Neue Einträge werden mit \ref CODEC_ID_NONE eingefügt
+  * \note Neue Einträge werden mit \ref AV_CODEC_ID_NONE eingefügt
   *       und senden deshalb bei einer Auswahl kein Signal!
   */
   void CodecSelecter::setCustomItem ( const QString &key, const QVariant &value )
@@ -115,7 +115,7 @@ namespace QX11Grab
     insertItem ( c, key, value );
     setItemData ( c, key, Qt::DisplayRole );
     setItemData ( c, key, Qt::EditRole );
-    setItemData ( c, CODEC_ID_NONE, Qt::UserRole );
+    setItemData ( c, AV_CODEC_ID_NONE, Qt::UserRole );
     /*: ToolTip */
     setItemData ( c, trUtf8 ( "Customized" ), Qt::ToolTipRole );
   }

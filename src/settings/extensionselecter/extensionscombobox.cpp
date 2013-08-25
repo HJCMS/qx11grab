@@ -50,7 +50,7 @@ ExtensionsComboBox::ExtensionsComboBox ( QWidget * parent )
 */
 void ExtensionsComboBox::insertExtensions ( AVCodecID id )
 {
-  if ( id == CODEC_ID_NONE )
+  if ( id == AV_CODEC_ID_NONE )
     return;
 
   QStringList buffer;

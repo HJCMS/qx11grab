@@ -1,6 +1,7 @@
 Version 0.4.10
   - Update Rubberband
   - Changes for FFmpeg 2.0
+  - Add Support for Codec_ID and AVCodec_ID
 
 Version 0.4.9
   - remove Deprecated Macros

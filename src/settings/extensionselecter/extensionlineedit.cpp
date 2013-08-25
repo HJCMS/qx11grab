@@ -41,7 +41,7 @@ ExtensionLineEdit::ExtensionLineEdit ( QWidget * parent )
 
 void ExtensionLineEdit::insertCompleter ( AVCodecID id )
 {
-  if ( id == CODEC_ID_NONE )
+  if ( id == AV_CODEC_ID_NONE )
     return;
 
   QStringList buffer;
