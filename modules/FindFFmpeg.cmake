@@ -154,6 +154,31 @@ IF (NOT FFMPEG_BINARY)
 ENDIF (NOT FFMPEG_BINARY)
 
 #=============================================================================
+# Check for AVCodecID
+#=============================================================================
+
+MACRO (FFMPEG_ABI_ENUM_CHECK)
+TRY_RUN (__run_ret _compile_ret
+  ${CMAKE_BINARY_DIR}/CMakeTmp
+  ${CMAKE_SOURCE_DIR}/modules/check_ffmpeg_codecid.c
+  COMPILE_DEFINITIONS "${CMAKE_REQUIRED_DEFINITIONS} -std=gnu89"
+  CMAKE_FLAGS
+    "-DINCLUDE_DIRECTORIES:STRING=${FFMPEG_INCLUDEDIR}"
+    "-DLINK_LIBRARIES:STRING=${FFMPEG_AVCODEC_LIBRARY}"
+  OUTPUT_VARIABLE OUTPUT
+)
+IF (_compile_ret)
+  MESSAGE (STATUS "AVCodecID supported." )
+  REMOVE_DEFINITIONS (-DFF_OLD_CODEC_ID)
+ELSE (_compile_ret)
+  MESSAGE (WARNING "AVCodecID not Supported using old ABI" )
+  ADD_DEFINITIONS (-DFF_OLD_CODEC_ID)
+ENDIF (_compile_ret)
+ENDMACRO (FFMPEG_ABI_ENUM_CHECK)
+
+FFMPEG_ABI_ENUM_CHECK ()
+
+#=============================================================================
 # Find Filters Macro
 #=============================================================================
 

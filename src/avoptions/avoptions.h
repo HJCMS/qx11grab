@@ -34,6 +34,9 @@
 /* FFmpeg */
 extern "C"
 {
+#ifdef FF_OLD_CODEC_ID
+# define CodecID AVCodecID
+#endif
 #include <libavcodec/avcodec.h>
 }
 
