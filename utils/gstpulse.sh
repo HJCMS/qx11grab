@@ -20,17 +20,32 @@
 # Boston, MA 02110-1301, USA.
 ########################################################################################
 
-in="${1:-"dummy"}"
+# pulseaudio:  pulsemixer: PulseAudio Mixer
+# pulseaudio:  pulsesrc: PulseAudio Audio Source
+# pulseaudio:  pulsesink: PulseAudio Audio Sink
 
-test -e ${in}.webm || {
-  echo "FATAL: ${in}.webm not found"
+gst_ver=${1:-"0.10"}
+
+if ! which gconftool-2 &> /dev/null; then
+  echo -e "\E[1;37;44m\033[1m FATAL: missing gconftool-2\033[0m"
   exit 1
+fi
+
+function setPulseAudio()
+{
+  echo -e "\E[1;37;44m\033[1m Update Configuration \033[0m"
+  gconftool-2 -R /system/gstreamer/${gst_ver}/default
+
+  gconftool-2 -t string --set /system/gstreamer/${gst_ver}/default/audiosink pulsesink
+  gconftool-2 -t string --set /system/gstreamer/${gst_ver}/default/audiosrc pulsesrc
+  gconftool-2 -t string --set /system/gstreamer/${gst_ver}/default/musicaudiosink pulsesink
+  gconftool-2 -t string --set /system/gstreamer/${gst_ver}/default/videosink glimagesink
+  gconftool-2 -t string --set /system/gstreamer/${gst_ver}/default/chataudiosink fakesink
+
+  echo -e "\E[1;37;44m\033[1m Show Configuration \033[0m"
+  gconftool-2 -R /system/gstreamer/${gst_ver}/default
 }
 
-/usr/bin/ffmpeg -i ${in}.webm -threads 4 \
-  -c:v libvpx -r:v 25 -s 1920x1080 -pix_fmt yuv420p -speed 2 -vpre 1080p \
-  -c:a libvorbis -ar 44100 -b:a 256k -q:a 4 \
-  -metadata copyright='CC BY-NC-SA 3.0' \
-  -y /tmp/${in}_data.webm
+setPulseAudio
 
-# EOF
+echo "gst-launch-${gst_ver} playbin uri=file:///usr/share/sounds/test/test.wav"
