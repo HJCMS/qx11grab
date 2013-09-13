@@ -47,6 +47,7 @@ class Messanger : public QDBusInterface
     Q_DISABLE_COPY ( Messanger )
     QDBusConnection p_dbus;
     QScopedPointer<MessangerPrivate> d_ptr;
+    bool notify_send ( const QString &type, const QString &title, const QString &body );
 
   private Q_SLOTS:
     void notify ( const QString &type, const QString &title, const QString &body );

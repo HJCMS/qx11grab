@@ -200,10 +200,9 @@ ENDIF (DBUS_FOUND)
 ##############################################################
 
 FIND_PROGRAM (NOTIFYSEND_BINARY NAMES notify-send)
-IF (NOTIFYSEND_BINARY)
+IF (NOTIFYSEND_BINARY_FOUND)
   MESSAGE (STATUS "libnotify:notify-send exists")
-  ADD_DEFINITIONS (-DHAVE_NOTIFYSEND)
-ENDIF (NOTIFYSEND_BINARY)
+ENDIF (NOTIFYSEND_BINARY_FOUND)
 
 ##############################################################
 ## Inkscape

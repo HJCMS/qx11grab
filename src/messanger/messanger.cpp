@@ -25,6 +25,7 @@
 
 /* QtCore */
 #include <QtCore/QDebug>
+#include <QtCore/QProcess>
 
 /* QtGui */
 #include <QtGui/QApplication>
@@ -108,12 +109,28 @@ Messanger::Messanger ( const QDBusConnection &connection, QObject * parent )
   setObjectName ( QLatin1String ( "Messanger" ) );
 }
 
+bool Messanger::notify_send ( const QString &type, const QString &title, const QString &body )
+{
+#ifdef NOTIFYSEND_BINARY
+  QStringList args;
+  args << "-a" << qApp->applicationName();
+  args << "-t" << "1500"; // 2,5 Sekunden
+  args << "-i" << type;
+  args << QString::fromUtf8 ( "\"%1\"" ).arg ( title );
+  args << QString::fromUtf8 ( "\"%1\"" ).arg ( body );
+  QProcess process ( this );
+  return process.startDetached ( "notify-send", args );
+#endif
+
+  return false;
+}
+
 void Messanger::notify ( const QString &type, const QString &title, const QString &body )
 {
   Q_D ( Messanger );
 
   qint32 id = 0;
-  qint32 timeout = 3000; // 5 Sekunden
+  qint32 timeout = 1500; // 2,5 Sekunden
 
   QString appName = qApp->applicationName();
   QDBusPendingReply<uint> reply = d->iface->Notify (
@@ -152,10 +169,8 @@ bool Messanger::createConnection()
 bool Messanger::sendInfoMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
-  {
-    qWarning() << "Notification Daemon not available!";
-    return false;
-  }
+    return notify_send ( "dialog-information", title, body );
+
   notify ( "dialog-information", title, body );
   return true;
 }
@@ -163,10 +178,8 @@ bool Messanger::sendInfoMessage ( const QString &title, const QString &body )
 bool Messanger::sendWarnMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
-  {
-    qWarning() << "Notification Daemon not available!";
-    return false;
-  }
+    return notify_send ( "dialog-warning", title, body );
+
   notify ( "dialog-warning", title, body );
   return true;
 }
@@ -174,10 +187,8 @@ bool Messanger::sendWarnMessage ( const QString &title, const QString &body )
 bool Messanger::sendErrorMessage ( const QString &title, const QString &body )
 {
   if ( ! createConnection() )
-  {
-    qWarning() << "Notification Daemon not available!";
-    return false;
-  }
+    return notify_send ( "dialog-error", title, body );
+
   notify ( "dialog-error", title, body );
   return true;
 }
