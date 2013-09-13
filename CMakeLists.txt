@@ -195,6 +195,17 @@ ELSE (DBUS_FOUND)
 ENDIF (DBUS_FOUND)
 
 ##############################################################
+## libnotify>=0.6
+## ftp://ftp.gnome.org/pub/gnome/sources/libnotify/
+##############################################################
+
+FIND_PROGRAM (NOTIFYSEND_BINARY NAMES notify-send)
+IF (NOTIFYSEND_BINARY)
+  MESSAGE (STATUS "libnotify:notify-send exists")
+  ADD_DEFINITIONS (-DHAVE_NOTIFYSEND)
+ENDIF (NOTIFYSEND_BINARY)
+
+##############################################################
 ## Inkscape
 ##############################################################
 
@@ -452,6 +463,7 @@ summary (ENABLE_DRAWTEXT_FILTER "drawtext filter" TRUE)
 summary (ENABLE_WEBCAM_FILTER "webcam filter" TRUE)
 MESSAGE ("")
 MESSAGE ("Optional Packages:")
+summary (NOTIFYSEND_BINARY "notify-send" TRUE)
 summary (INKSCAPE_BINARY "inkscape" TRUE)
 summary (PULSE_FOUND "pulseaudio" TRUE)
 summary (KDE4_FOUND "kde4" TRUE)

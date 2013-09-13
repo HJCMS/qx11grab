@@ -34,6 +34,11 @@ mkdir -p /tmp/${target_project}/build
 
 pushd /tmp/${target_project}/build
 
+CMAKE_KDE4=
+if test -n "$WITH_KDE4" ; then
+  CMAKE_KDE4="-DENABLE_KDE_SUPPORT:BOOL=ON -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4)"
+fi
+
 /usr/bin/cmake -W-dev \
   -DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS" \
   -DCMAKE_BUILD_TYPE:STRING=Debug \
@@ -42,7 +47,7 @@ pushd /tmp/${target_project}/build
   -DINSTALL_FFPRESETS:BOOL=OFF \
   -DCMAKE_SKIP_RPATH:BOOL=ON \
   -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-  $CMAKE_EXTRAS $@ $HJCMS_PROJECTS_DIR/${target_project}/
+  $CMAKE_EXTRAS $CMAKE_KDE4 $@ $HJCMS_PROJECTS_DIR/${target_project}/
 
 popd
 

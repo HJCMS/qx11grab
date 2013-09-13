@@ -20,9 +20,7 @@
 # Boston, MA 02110-1301, USA.
 ########################################################################################
 
-# pulseaudio:  pulsemixer: PulseAudio Mixer
-# pulseaudio:  pulsesrc: PulseAudio Audio Source
-# pulseaudio:  pulsesink: PulseAudio Audio Sink
+## http://wiki.gentoo.org/wiki/PulseAudio
 
 gst_ver=${1:-"0.10"}
 
