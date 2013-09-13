@@ -115,7 +115,8 @@ bool Messanger::notify_send ( const QString &type, const QString &title, const Q
   QStringList args;
   args << "-a" << qApp->applicationName();
   args << "-t" << "1500"; // 2,5 Sekunden
-  args << "-i" << type;
+  args << "-i" << qApp->applicationName();
+  args << "-c" << type;
   args << QString::fromUtf8 ( "\"%1\"" ).arg ( title );
   args << QString::fromUtf8 ( "\"%1\"" ).arg ( body );
   QProcess process ( this );
