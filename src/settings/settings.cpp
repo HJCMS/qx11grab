@@ -44,6 +44,7 @@ Settings::Settings ( QObject *parent )
     setValue ( "Version", QX11GRAB_VERSION );
     // DEPRECATED Config Options
     remove ( "enable_pulse_pasuspender" );
+    remove ( "Grabber/Depth" );
   }
 }
 

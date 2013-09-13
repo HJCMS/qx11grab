@@ -586,7 +586,8 @@ void MainWindow::preparePreview ()
   commandLine << "-xerror";
   commandLine << "-loglevel" << cfg->logLevel();
   commandLine << "-f" << "x11grab";
-  commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
+  if ( m_grabberInfo->frameRate() >=1 )
+    commandLine << "-framerate" << QString::number ( m_grabberInfo->frameRate() );
 
   /* WARNING ordered SIZE before POINT is implicit required
   * or else FFmpeg didnt correct scale the stream */

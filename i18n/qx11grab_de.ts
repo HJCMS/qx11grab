@@ -705,7 +705,7 @@ Beispiel für OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="+209"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="+210"/>
         <source>shutdown please wait ...</source>
         <translation>Beende bitte warten ...</translation>
     </message>
@@ -773,17 +773,17 @@ Beispiel für OSS: /dev/dsp</translation>
     </message>
     <message>
         <location line="-34"/>
-        <location line="+222"/>
+        <location line="+226"/>
         <source>Permission Denied: %1.</source>
         <translation>Zugriff Verweigert: %1.</translation>
     </message>
     <message>
-        <location line="-222"/>
+        <location line="-226"/>
         <source>Working Directory</source>
         <translation>Arbeits Verzeichnis</translation>
     </message>
     <message>
-        <location line="+221"/>
+        <location line="+225"/>
         <source>Executable Script</source>
         <translation>Ausführbares Script</translation>
     </message>
@@ -814,7 +814,7 @@ Beispiel für OSS: /dev/dsp</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="+78"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="+76"/>
         <source>Width:</source>
         <translation>Breite:</translation>
     </message>
@@ -834,12 +834,7 @@ Beispiel für OSS: /dev/dsp</translation>
         <translation>Position Y:</translation>
     </message>
     <message>
-        <location line="+49"/>
-        <source>Framerate:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="-130"/>
+        <location line="-81"/>
         <source>Dimension:</source>
         <translation></translation>
     </message>
@@ -850,13 +845,23 @@ Beispiel für OSS: /dev/dsp</translation>
         <translation>Vordefinierte Rahmengrößen</translation>
     </message>
     <message>
-        <location line="+130"/>
+        <location line="+101"/>
+        <source>Screen</source>
+        <translation>Bildschirm</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Framerate</source>
+        <translation>Framerate</translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Setzt die Datenübertragungs Blockgröße im Aufnahme Video.</translation>
     </message>
     <message>
-        <location line="-115"/>
+        <location line="-108"/>
         <location line="+8"/>
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
@@ -892,23 +897,7 @@ WhatsThis</extracomment>
         <translation>Verschiebt das Gummiband auf der Y-Achse</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <source>Color depth:</source>
-        <translation>Farbtiefe</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>current color depth</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Aktuelle Farbtiefe</translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>Screen:</source>
-        <translation>Bildschirm:</translation>
-    </message>
-    <message>
-        <location line="+6"/>
+        <location line="+16"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Aktuell ausgewählter Bildschirm</translation>
@@ -1163,7 +1152,7 @@ WhatsThis</extracomment>
         <translation>qx11grab ist nicht gestartet</translation>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+135"/>
         <source>commandline exported</source>
         <translation>Kommandozeile Exportiert</translation>
     </message>
@@ -1188,7 +1177,7 @@ WhatsThis</extracomment>
         <translation>Öffne Lesezeichen %1</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-208"/>
         <source>Missing Input</source>
         <translation>Keine Eingabe erhalten</translation>
     </message>
@@ -1473,7 +1462,7 @@ ToolTip</extracomment>
 <context>
     <name>Messanger</name>
     <message>
-        <location filename="../src/messanger/messanger.cpp" line="+136"/>
+        <location filename="../src/messanger/messanger.cpp" line="+156"/>
         <source>Notification not send!</source>
         <translation>Benachrichtigung nicht gesendet!</translation>
     </message>
@@ -1844,7 +1833,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+157"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Abfrageformat</translation>
@@ -1958,9 +1947,9 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="+112"/>
-        <source>Scalability Failure </source>
-        <translation>Skalierungsfehler</translation>
+        <location filename="../src/tapping/rubberband.cpp" line="+115"/>
+        <source>Scalability Failure</source>
+        <translation>Skalierbarkeitsfehler</translation>
     </message>
     <message>
         <location line="+1"/>

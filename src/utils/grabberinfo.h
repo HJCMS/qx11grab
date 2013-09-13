@@ -31,6 +31,7 @@
 /* QtGui */
 #include <QtGui/QCheckBox>
 #include <QtGui/QDoubleSpinBox>
+#include <QtGui/QGroupBox>
 #include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
@@ -60,11 +61,13 @@ class GrabberInfo : public QWidget
     QSlider* setXSlider;
     QSpinBox* setYBox;
     QSlider* setYSlider;
+    QGroupBox* m_grouBox0;
     ScreenBox* m_screenBox;
-    QSpinBox* setDepth;
+    QGroupBox* m_grouBox1;
     QSpinBox* setFrameRate;
 
   private Q_SLOTS:
+    void toggleUpdate ( bool );
     void integerUpdate ( int );
     void setInputDefaults ( int screen );
     void setRubberbandUpdate ( int );

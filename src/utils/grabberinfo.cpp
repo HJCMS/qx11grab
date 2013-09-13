@@ -36,10 +36,8 @@
 #include <QtGui/QDesktopWidget>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QGridLayout>
-#include <QtGui/QGroupBox>
 #include <QtGui/QLabel>
 #include <QtGui/QPalette>
-#include <QtGui/QSpacerItem>
 
 /**
 * @class GrabberInfo
@@ -166,43 +164,38 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   // end: Y Position
 
   QHBoxLayout* horizontalLayout = new QHBoxLayout;
-  // begin: Desktop Screen
-  QLabel* txt7 = new QLabel ( this );
-  txt7->setText ( trUtf8 ( "Screen:" ) );
-  txt7->setAlignment ( labelAlignment );
-  horizontalLayout->addWidget ( txt7, Qt::AlignRight );
+  horizontalLayout->setContentsMargins ( 5, 5, 5, 5 );
+  horizontalLayout->addStretch ( 1 );
 
-  m_screenBox = new ScreenBox ( this );
+  // begin: Desktop Screen
+  m_grouBox0 = new QGroupBox ( trUtf8 ( "Screen" ), this );
+
+  QHBoxLayout* m_screenLayout = new QHBoxLayout ( m_grouBox0 );
+  m_grouBox0->setLayout ( m_screenLayout );
+
+  m_screenBox = new ScreenBox ( m_grouBox0 );
   /*: WhatsThis */
   m_screenBox->setToolTip ( trUtf8 ( "current selected screen" ) );
-  horizontalLayout->addWidget ( m_screenBox, Qt::AlignLeft );
+  m_screenLayout->addWidget ( m_screenBox, Qt::AlignLeft );
+
+  horizontalLayout->addWidget ( m_grouBox0, Qt::AlignLeft );
   // end: Desktop Screen
 
-  // begin: Desktop Color Depth
-  QLabel* txt8 = new QLabel ( this );
-  txt8->setText ( trUtf8 ( "Color depth:" ) );
-  txt8->setAlignment ( labelAlignment );
-  horizontalLayout->addWidget ( txt8, Qt::AlignRight );
-
-  setDepth = new QSpinBox ( this );
-  setDepth->setDisabled ( true );
-  /*: WhatsThis */
-  setDepth->setToolTip ( trUtf8 ( "current color depth" ) );
-  horizontalLayout->addWidget ( setDepth, Qt::AlignLeft );
-  // end: Desktop Color Depth
-
   // begin: Frame Rate
-  QLabel* txt9 = new QLabel ( this );
-  txt9->setText ( trUtf8 ( "Framerate:" ) );
-  txt9->setAlignment ( labelAlignment );
-  horizontalLayout->addWidget ( txt9, Qt::AlignRight );
+  m_grouBox1 = new QGroupBox ( trUtf8 ( "Framerate" ), this );
+  m_grouBox1->setCheckable ( true );
+  m_grouBox1->setChecked ( false );
+  QHBoxLayout* m_framerateLayout = new QHBoxLayout ( m_grouBox1 );
+  m_grouBox1->setLayout ( m_framerateLayout );
 
-  setFrameRate = new QSpinBox ( this );
+  setFrameRate = new QSpinBox ( m_grouBox1 );
   /*: WhatsThis */
   setFrameRate->setWhatsThis ( trUtf8 ( "Set the framerate in the captured video." ) );
   setFrameRate->setRange ( 0, 150 );
   setFrameRate->setValue ( 25 );
-  horizontalLayout->addWidget ( setFrameRate, Qt::AlignLeft );
+  m_framerateLayout->addWidget ( setFrameRate, Qt::AlignLeft );
+
+  horizontalLayout->addWidget ( m_grouBox1, Qt::AlignLeft );
   // end: Frame Rate
 
   gridLayout->addLayout ( horizontalLayout, grow++, 0, 1, 3 );
@@ -221,9 +214,6 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   connect ( m_screenComboBox, SIGNAL ( screenHeightChanged ( int ) ),
             setHeightBox, SLOT ( setValue ( int ) ) );
-
-  connect ( m_screenComboBox, SIGNAL ( screenDepthChanged ( int ) ),
-            setDepth, SLOT ( setValue ( int ) ) );
 
   // SIGNALS:Width {
   connect ( setWidthBox, SIGNAL ( valueChanged ( int ) ),
@@ -267,6 +257,9 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
   // } SIGNALS:Y-Position
 
   // Updates
+  connect ( m_grouBox1, SIGNAL ( toggled ( bool ) ),
+            this, SLOT ( toggleUpdate ( bool ) ) );
+
   connect ( setFrameRate, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
 
@@ -275,6 +268,14 @@ GrabberInfo::GrabberInfo ( QWidget * parent )
 
   connect ( m_desktopInfo, SIGNAL ( resized ( int ) ),
             this, SLOT ( setInputDefaults ( int ) ) );
+}
+
+/**
+* Umleitung Signal bool nach void Update Datensatz
+*/
+void GrabberInfo::toggleUpdate ( bool )
+{
+  emit postUpdate();
 }
 
 /**
@@ -344,7 +345,7 @@ void GrabberInfo::load ( QSettings *cfg )
 {
   // Grabber
   setRect ( cfg->value ( QLatin1String ( "Grabber/Dimension" ) ).toRect() );
-  setDepth->setValue ( cfg->value ( QLatin1String ( "Grabber/Depth" ), 24 ).toUInt() );
+  m_grouBox1->setChecked ( cfg->value ( QLatin1String ( "Grabber/FrameRateEnabled" ), false ).toBool() );
   setFrameRate->setValue ( cfg->value ( QLatin1String ( "Grabber/FrameRate" ), 25 ).toUInt() );
 }
 
@@ -355,7 +356,7 @@ void GrabberInfo::save ( QSettings *cfg )
 {
   // Grabber
   cfg->setValue ( QLatin1String ( "Grabber/Dimension" ), getRect() );
-  cfg->setValue ( QLatin1String ( "Grabber/Depth" ), setDepth->value() );
+  cfg->setValue ( QLatin1String ( "Grabber/FrameRateEnabled" ), m_grouBox1->isChecked() );
   cfg->setValue ( QLatin1String ( "Grabber/FrameRate" ), setFrameRate->value() );
 }
 
@@ -425,6 +426,9 @@ const QRect GrabberInfo::getRect()
 */
 int GrabberInfo::frameRate()
 {
+  if ( !m_grouBox1->isChecked() )
+    return 0;
+
   int rate = setFrameRate->value();
   return ( rate > 0 ) ? rate : 25;
 }

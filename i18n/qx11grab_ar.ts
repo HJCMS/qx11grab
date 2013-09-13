@@ -700,23 +700,23 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="+80"/>
-        <location line="+222"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="+81"/>
+        <location line="+226"/>
         <source>Permission Denied: %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-222"/>
+        <location line="-226"/>
         <source>Working Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+221"/>
+        <location line="+225"/>
         <source>Executable Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-92"/>
+        <location line="-96"/>
         <source>shutdown please wait ...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -809,7 +809,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="+66"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="+64"/>
         <source>Dimension:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -876,34 +876,23 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Screen:</source>
+        <location line="+9"/>
+        <source>Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+14"/>
+        <source>Framerate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Color depth:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>current color depth</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Framerate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
+        <location line="+15"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -1178,7 +1167,7 @@ WhatsThis</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+135"/>
         <source>commandline exported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1468,7 +1457,7 @@ ToolTip</extracomment>
 <context>
     <name>Messanger</name>
     <message>
-        <location filename="../src/messanger/messanger.cpp" line="+136"/>
+        <location filename="../src/messanger/messanger.cpp" line="+156"/>
         <source>Notification not send!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1837,7 +1826,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+157"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>
@@ -1951,8 +1940,8 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="+112"/>
-        <source>Scalability Failure </source>
+        <location filename="../src/tapping/rubberband.cpp" line="+115"/>
+        <source>Scalability Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

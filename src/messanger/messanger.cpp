@@ -133,6 +133,8 @@ void Messanger::notify ( const QString &type, const QString &title, const QStrin
   qint32 id = 0;
   qint32 timeout = 1500; // 2,5 Sekunden
 
+  // qDebug() << Q_FUNC_INFO << type;
+
   QString appName = qApp->applicationName();
   QDBusPendingReply<uint> reply = d->iface->Notify (
                                       appName,

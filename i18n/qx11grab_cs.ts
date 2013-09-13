@@ -702,7 +702,7 @@ Příklad pro OSS: /dev/dsp</translation>
 <context>
     <name>FFProcess</name>
     <message>
-        <location filename="../src/ffprocess/ffprocess.cpp" line="+209"/>
+        <location filename="../src/ffprocess/ffprocess.cpp" line="+210"/>
         <source>shutdown please wait ...</source>
         <translation>Probíhá ukončování programu. Počkejte, prosím,...</translation>
     </message>
@@ -770,17 +770,17 @@ Příklad pro OSS: /dev/dsp</translation>
     </message>
     <message>
         <location line="-34"/>
-        <location line="+222"/>
+        <location line="+226"/>
         <source>Permission Denied: %1.</source>
         <translation>Přístup odepřen: %1.</translation>
     </message>
     <message>
-        <location line="-222"/>
+        <location line="-226"/>
         <source>Working Directory</source>
         <translation>Pracovní adresář</translation>
     </message>
     <message>
-        <location line="+221"/>
+        <location line="+225"/>
         <source>Executable Script</source>
         <translation>Spustitelný skript</translation>
     </message>
@@ -811,7 +811,7 @@ Příklad pro OSS: /dev/dsp</translation>
 <context>
     <name>GrabberInfo</name>
     <message>
-        <location filename="../src/utils/grabberinfo.cpp" line="+78"/>
+        <location filename="../src/utils/grabberinfo.cpp" line="+76"/>
         <source>Width:</source>
         <translation>Šířka:</translation>
     </message>
@@ -831,12 +831,7 @@ Příklad pro OSS: /dev/dsp</translation>
         <translation>Poloha Y:</translation>
     </message>
     <message>
-        <location line="+49"/>
-        <source>Framerate:</source>
-        <translation>Počet snímků:</translation>
-    </message>
-    <message>
-        <location line="-130"/>
+        <location line="-81"/>
         <source>Dimension:</source>
         <translation>Rozměr:</translation>
     </message>
@@ -847,13 +842,23 @@ Příklad pro OSS: /dev/dsp</translation>
         <translation>Předem stanovené velikosti rámečků</translation>
     </message>
     <message>
-        <location line="+130"/>
+        <location line="+101"/>
+        <source>Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Framerate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Set the framerate in the captured video.</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Nastavuje velikost bloku přenosu dat v zachytávaném videu.</translation>
     </message>
     <message>
-        <location line="-115"/>
+        <location line="-108"/>
         <location line="+8"/>
         <source>made rubberband witdh smaller/greater</source>
         <extracomment>WhatsThis
@@ -889,23 +894,7 @@ WhatsThis</extracomment>
         <translation>Vytlačí souřadnice osy y z gumičky</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <source>Color depth:</source>
-        <translation>Barevná hloubka:</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>current color depth</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Nynější barevná hloubka</translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>Screen:</source>
-        <translation>Obrazovka:</translation>
-    </message>
-    <message>
-        <location line="+6"/>
+        <location line="+16"/>
         <source>current selected screen</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Nyní vybraná obrazovka</translation>
@@ -1160,7 +1149,7 @@ WhatsThis</extracomment>
         <translation>QX11Grab není spuštěn</translation>
     </message>
     <message>
-        <location line="+138"/>
+        <location line="+135"/>
         <source>commandline exported</source>
         <translation>Příkazový řádek vyveden</translation>
     </message>
@@ -1185,7 +1174,7 @@ WhatsThis</extracomment>
         <translation>Otevřít záložku %1</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-208"/>
         <source>Missing Input</source>
         <translation>Chybí vstup</translation>
     </message>
@@ -1470,7 +1459,7 @@ ToolTip</extracomment>
 <context>
     <name>Messanger</name>
     <message>
-        <location filename="../src/messanger/messanger.cpp" line="+136"/>
+        <location filename="../src/messanger/messanger.cpp" line="+156"/>
         <source>Notification not send!</source>
         <translation>Oznámení neposláno!</translation>
     </message>
@@ -1841,7 +1830,7 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+157"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vzorkovací formát</translation>
@@ -1955,8 +1944,8 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
 <context>
     <name>RubberBand</name>
     <message>
-        <location filename="../src/tapping/rubberband.cpp" line="+112"/>
-        <source>Scalability Failure </source>
+        <location filename="../src/tapping/rubberband.cpp" line="+115"/>
+        <source>Scalability Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
