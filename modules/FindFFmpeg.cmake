@@ -169,10 +169,10 @@ TRY_RUN (__run_ret _compile_ret
 )
 IF (_compile_ret)
   MESSAGE (STATUS "AVCodecID supported." )
-  REMOVE_DEFINITIONS (-DFF_OLD_CODEC_ID)
+  REMOVE_DEFINITIONS (-DQX11GRAB_OLD_AVCODEC_ID)
 ELSE (_compile_ret)
-  MESSAGE (STATUS "AVCodecID not Supported using old ABI" )
-  ADD_DEFINITIONS (-DFF_OLD_CODEC_ID)
+  MESSAGE (WARNING "This version of ffmpeg using Deprecated CodecID. The most recent version of ffmpeg now using AVCodecID")
+  ADD_DEFINITIONS (-DQX11GRAB_OLD_AVCODEC_ID)
 ENDIF (_compile_ret)
 ENDMACRO (FFMPEG_ABI_ENUM_CHECK)
 

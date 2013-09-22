@@ -34,11 +34,11 @@
 /* FFmpeg */
 extern "C"
 {
-#ifdef FF_OLD_CODEC_ID
-# define CodecID AVCodecID
-# define CODEC_ID_NONE AV_CODEC_ID_NONE
-#endif
 #include <libavcodec/avcodec.h>
+#ifdef QX11GRAB_OLD_AVCODEC_ID
+# define AVCodecID CodecID
+# define AV_CODEC_ID_NONE CODEC_ID_NONE
+#endif
 }
 
 namespace QX11Grab
@@ -49,7 +49,7 @@ namespace QX11Grab
   */
   typedef struct Q_DECL_EXPORT
   {
-    AVCodecID id;         /**< Codec ID from avcodec.h */
+    AVCodecID id;       /**< AV Codec ID from avcodec.h */
     QString name;       /**< Codec Name */
     QString fullname;   /**< Full Codec Description */
     QString info;       /**< Extra Codec Information for Tool Tips */

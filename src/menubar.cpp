@@ -254,7 +254,7 @@ void MenuBar::openQX11GrabHomepage()
 
 void MenuBar::openWebMProjectHomepage()
 {
-  openWebLink ( QUrl ( "http://www.webmproject.org/code/specs/container/" ) );
+  openWebLink ( QUrl ( "http://www.webmproject.org/docs/" ) );
 }
 
 void MenuBar::openVideoLanHomepage()

@@ -21,6 +21,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef FF_API_CODEC_ID
+# undef FF_API_CODEC_ID
+#endif
 #include <libavcodec/avcodec.h>
 
 int main(void)
