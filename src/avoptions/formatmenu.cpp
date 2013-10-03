@@ -162,6 +162,11 @@ namespace QX11Grab
       * dann Automatisch den ersten auswählen */
       setEntryEnabled ( p_ActionsList.first()->text() );
     }
+    else if ( name.contains ( "yuv4mpeg", Qt::CaseSensitive ) )
+    {
+      /* Ist es ein MPEG 2 Container ? */
+      setEntryEnabled ( QLatin1String ( "y4m" ) );
+    }
     else if ( name.contains ( "mjpeg", Qt::CaseSensitive ) )
     {
       /* Ist es ein mjpeg Container ? */

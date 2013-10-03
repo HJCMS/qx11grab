@@ -78,7 +78,7 @@ namespace QX11Grab
   static bool qx11grab_supported_avcodec ( const char* name )
   {
     QString n = QString::fromUtf8 ( name );
-    return n.contains ( QRegExp ( "((^lib\\w+)|(dv)|(mpeg)|(h\\d+)|(flv))", Qt::CaseInsensitive ) );
+    return n.contains ( QRegExp ( "((^lib\\w+)|(dv)|(mpeg)|(h\\d+)|(flv)|(raw))", Qt::CaseInsensitive ) );
   }
 
   /** generate basic ffmpeg options
