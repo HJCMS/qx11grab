@@ -22,14 +22,16 @@
 
 in="${1:-"dummy"}"
 
+## https://support.google.com/youtube/answer/1722171?ref_topic=2888648
 test -e ${in}.webm || {
   echo "FATAL: ${in}.webm not found"
   exit 1
 }
 
+echo "Optimized for YouTube Stereo 1080p"
 /usr/bin/ffmpeg -i ${in}.webm -threads 4 \
-  -c:v libvpx -r:v 25 -s 1920x1080 -pix_fmt yuv420p -speed 2 -vpre 1080p \
-  -c:a libvorbis -ar 44100 -b:a 256k -q:a 4 \
+  -c:v libvpx -r:v 30 -s 1920x1080 -pix_fmt yuv420p -speed 2 -vpre 1080p \
+  -c:a libvorbis -ar 44100 -b:a 512k -q:a 6 \
   -metadata copyright='CC BY-NC-SA 3.0' \
   -y /tmp/${in}_data.webm
 

@@ -184,8 +184,8 @@ namespace QX11Grab
     }
     else
     {
-      /* in letzter instanz versuche avi */
-      setEntryEnabled ( QLatin1String ( "avi" ) );
+      /* in letzter instanz versuche nut */
+      setEntryEnabled ( QLatin1String ( "nut" ) );
     }
 
     // Änderungen Nachricht an die ober Klasse

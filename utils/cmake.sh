@@ -23,7 +23,7 @@
 target_project="qx11grab"
 # ff_suffix=-av-9.1
 # ff_suffix=_10x
-ff_suffix=-2.0
+ff_suffix=-2.1
 
 if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
 source $HJCMS_PROJECTS_DIR/projectconfigurations.sh
