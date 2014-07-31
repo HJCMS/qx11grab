@@ -39,7 +39,6 @@
 /* QtGui */
 #include <QtGui/QGridLayout>
 #include <QtGui/QIcon>
-#include <QtGui/QLabel>
 #include <QtGui/QVBoxLayout>
 
 AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
@@ -75,14 +74,17 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   m_slider = new QSlider ( Qt::Horizontal, this );
   m_slider->setObjectName ( QLatin1String ( "AudioSlider" ) );
   /*: ToolTip */
-  m_slider->setToolTip ( trUtf8 ( "Change Audio Volume (256=normal)" ) );
+  m_slider->setToolTip ( trUtf8 ( "Change Audio Volume +/- 15 dB" ) );
   /*: WhatsThis */
-  m_slider->setWhatsThis ( trUtf8 ( "Change Audio Amplifier.\nDefault: 256=normal" ) );
+  m_slider->setWhatsThis ( trUtf8 ( "Set an initial volume, in dB, to be assumed for each channel when filtering starts." ) );
   m_slider->setSingleStep ( 1 );
-  m_slider->setRange ( 256, 512 );
+  m_slider->setRange ( -15, +15 );
   m_slider->setTickPosition ( QSlider::TicksAbove );
-  m_slider->setValue ( 256 );
-  gridLayout->addWidget ( m_slider, grow++, 1, 1, 2 );
+  m_slider->setValue ( 0 );
+  gridLayout->addWidget ( m_slider, grow, 1, 1, 1 );
+  m_volume = new QLabel ( this );
+  m_volume->setWordWrap ( false );
+  gridLayout->addWidget ( m_volume, grow++, 2, 1, 1 );
   // } Volume
 
   QLabel* txt1 = new QLabel ( this );
@@ -175,6 +177,8 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
   // Updates
   connect ( m_slider, SIGNAL ( valueChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
+  connect ( m_slider, SIGNAL ( valueChanged ( int ) ),
+            this, SLOT ( audioVolumeChanged ( int ) ) );
 
   connect ( m_audioSampleFormat, SIGNAL ( currentIndexChanged ( int ) ),
             this, SLOT ( integerUpdate ( int ) ) );
@@ -286,6 +290,7 @@ void AudioDeviceWidget::getpcmClicked()
 void AudioDeviceWidget::setVolume ( int i )
 {
   m_slider->setValue ( i );
+  audioVolumeChanged ( i );
 }
 
 /**
@@ -294,6 +299,13 @@ void AudioDeviceWidget::setVolume ( int i )
 int AudioDeviceWidget::getVolume ()
 {
   return m_slider->value();
+}
+
+void AudioDeviceWidget::audioVolumeChanged ( int index )
+{
+  QString suffix = ( index>0 ) ? "+" : "";
+  QString txt = QString ( "%1%2 dB" ).arg ( suffix,QString::number ( index ) );
+  m_volume->setText ( txt );
 }
 
 /**
@@ -491,8 +503,11 @@ const QStringList AudioDeviceWidget::data()
   if ( ! getAudioServiceType().isEmpty () )
     cmd<< "-audio_service_type" << getAudioServiceType();
 
-  if ( m_slider->value() != 256 )
-    cmd << "-vol" << QString::number ( m_slider->value() );
+  if ( m_slider->value() != 0 )
+  {
+    QString suffix = ( m_slider->value() >0 ) ? "+" : "";
+    cmd << QString::fromUtf8 ( "-filter:a volume=%1%2" ).arg ( suffix, QString::number ( m_slider->value() ) );
+  }
 
   return cmd;
 }

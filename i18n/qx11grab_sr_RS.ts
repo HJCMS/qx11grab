@@ -102,7 +102,7 @@
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="+60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="+59"/>
         <source>Audio System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -127,20 +127,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Change Audio Volume (256=normal)</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,7 +143,7 @@ Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-67"/>
+        <location line="-70"/>
         <source>Audio Device</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,7 +154,19 @@ Default: 256=normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+19"/>
+        <source>Change Audio Volume +/- 15 dB</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Set an initial volume, in dB, to be assumed for each channel when filtering starts.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
@@ -306,7 +305,7 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+201"/>
+        <location line="+211"/>
         <location line="+16"/>
         <source>Unknown</source>
         <translation>Непознато</translation>
@@ -1826,7 +1825,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+167"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>

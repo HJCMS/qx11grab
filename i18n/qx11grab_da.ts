@@ -102,7 +102,7 @@
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="+59"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="+58"/>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
         <translation type="unfinished"></translation>
@@ -133,20 +133,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Change Audio Volume (256=normal)</source>
-        <extracomment>ToolTip</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Audio Capture Device:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -169,12 +156,24 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-47"/>
+        <location line="-50"/>
         <source>Audio Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+29"/>
+        <source>Change Audio Volume +/- 15 dB</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Set an initial volume, in dB, to be assumed for each channel when filtering starts.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>Open dialog to select audio capture device</source>
         <translation type="unfinished"></translation>
     </message>
@@ -306,7 +305,7 @@ Example for OSS: /dev/dsp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+201"/>
+        <location line="+211"/>
         <location line="+16"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
@@ -1826,7 +1825,7 @@ Multiple languages can be specified by separating them with commas.</source>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+167"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation type="unfinished"></translation>

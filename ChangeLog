@@ -1,3 +1,6 @@
+Version 0.4.11
+  - Move Obsolete Volume Slider value -vol to new -filter:a volume=%ddB
+
 Version 0.4.10
   - Update Rubberband
   - Changes for FFmpeg 2.0

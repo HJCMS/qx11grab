@@ -30,6 +30,7 @@
 /* QtGui */
 #include <QtGui/QComboBox>
 #include <QtGui/QGroupBox>
+#include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QSlider>
 #include <QtGui/QSpinBox>
@@ -45,6 +46,7 @@ class AudioDeviceWidget : public QGroupBox
   private:
     QComboBox* m_swapAudio;
     QSlider* m_slider;
+    QLabel* m_volume;
     QLineEdit* device;
     QToolButton* m_audiodevButton;
     QComboBox* m_audioSampleFormat;
@@ -58,6 +60,7 @@ class AudioDeviceWidget : public QGroupBox
     void statusUpdate ( bool );
     void integerUpdate ( int );
     void getpcmClicked();
+    void audioVolumeChanged ( int index );
     void audioEngineChanged ( int index );
 
   Q_SIGNALS:

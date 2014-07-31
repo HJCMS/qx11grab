@@ -102,9 +102,9 @@
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="+60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="+59"/>
         <source>Audio System</source>
-        <translation></translation>
+        <translation>Audio System</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -127,24 +127,7 @@
         <translation>Audio Verstärker:</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Change Audio Volume (256=normal)</source>
-        <extracomment>ToolTip</extracomment>
-        <translation variants="yes">
-            <lengthvariant>Setze die Audio Lautstärke (256=Normal)</lengthvariant>
-            <lengthvariant>Lautstärke</lengthvariant>
-        </translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Setze die Audio Verstärkung.
-Standard: 256=Normal</translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Audio Capture Device:</source>
         <translation>Audio Schnittstelle:</translation>
     </message>
@@ -210,19 +193,31 @@ Standard: 256=Normal</translation>
         <translation>64-Bit-Gleitkommazahl, flach</translation>
     </message>
     <message>
-        <location line="+232"/>
+        <location line="+242"/>
         <location line="+16"/>
         <source>Unknown</source>
         <translation>Unbekannt</translation>
     </message>
     <message>
-        <location line="-318"/>
+        <location line="-331"/>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Auswahl der Audio Schnittstelle</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+19"/>
+        <source>Change Audio Volume +/- 15 dB</source>
+        <extracomment>ToolTip</extracomment>
+        <translation>Lautstärke Pegel einstellen +/- 15dB</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Set an initial volume, in dB, to be assumed for each channel when filtering starts.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation>Setze den Intialwert in dB für die Lautstärke Verstärkung, dieser Wert wird als Kanalfilter verarbeitet.</translation>
+    </message>
+    <message>
+        <location line="+19"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
@@ -312,7 +307,7 @@ Beispiel für OSS: /dev/dsp</translation>
         <translation></translation>
     </message>
     <message>
-        <location line="-111"/>
+        <location line="-114"/>
         <source>Audio Device</source>
         <translation>Audio Schnittstelle</translation>
     </message>
@@ -1833,7 +1828,7 @@ Mehrere Sprachen können Komma getrennt angegeben werden.</translation>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+167"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Abfrageformat</translation>

@@ -102,7 +102,7 @@
 <context>
     <name>AudioDeviceWidget</name>
     <message>
-        <location filename="../src/audio/audiodevicewidget.cpp" line="+60"/>
+        <location filename="../src/audio/audiodevicewidget.cpp" line="+59"/>
         <source>Audio System</source>
         <translation>Zvukový systém</translation>
     </message>
@@ -127,21 +127,7 @@
         <translation>Zesilovač zvuku:</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Change Audio Volume (256=normal)</source>
-        <extracomment>ToolTip</extracomment>
-        <translation>Nastavit sílu hlasitosti zvuku (256=obvyklá)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change Audio Amplifier.
-Default: 256=normal</source>
-        <extracomment>WhatsThis</extracomment>
-        <translation>Nastavit zesílení zvuku.
-Výchozí: 256=obvyklé</translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Audio Capture Device:</source>
         <translation>Zařízení pro zachytávání zvuku:</translation>
     </message>
@@ -207,19 +193,31 @@ Výchozí: 256=obvyklé</translation>
         <translation>dvojitý, rovinný</translation>
     </message>
     <message>
-        <location line="+232"/>
+        <location line="+242"/>
         <location line="+16"/>
         <source>Unknown</source>
         <translation>Neznámý</translation>
     </message>
     <message>
-        <location line="-318"/>
+        <location line="-331"/>
         <source>choose the audio interface to use</source>
         <extracomment>WhatsThis</extracomment>
         <translation>Výběr rozhraní pro zvuk</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+19"/>
+        <source>Change Audio Volume +/- 15 dB</source>
+        <extracomment>ToolTip</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Set an initial volume, in dB, to be assumed for each channel when filtering starts.</source>
+        <extracomment>WhatsThis</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
         <source>Audio Capture Device
 Example for OSS: /dev/dsp</source>
         <extracomment>WhatsThis</extracomment>
@@ -309,7 +307,7 @@ Příklad pro OSS: /dev/dsp</translation>
         <translation>Karaoke</translation>
     </message>
     <message>
-        <location line="-111"/>
+        <location line="-114"/>
         <source>Audio Device</source>
         <translation>Zvukové zařízení</translation>
     </message>
@@ -1830,7 +1828,7 @@ Více jazyků lze zadat jejich oddělením čárkami.</translation>
 <context>
     <name>QX11Grab::AVOptions</name>
     <message>
-        <location filename="../src/avoptions/avoptions.cpp" line="+166"/>
+        <location filename="../src/avoptions/avoptions.cpp" line="+167"/>
         <source>sample format</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vzorkovací formát</translation>

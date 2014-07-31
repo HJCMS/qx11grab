@@ -73,6 +73,7 @@ namespace QX11Grab
   *   \li Alle mpeg Formate
   *   \li Alle h\d+ Formate
   *   \li Flash Format
+  *   \li RAW und NUT
   * TODO Das hier ist im Moment nur eine Notlösung :-/
   */
   static bool qx11grab_supported_avcodec ( const char* name )
