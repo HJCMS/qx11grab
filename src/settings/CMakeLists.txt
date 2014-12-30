@@ -2,6 +2,11 @@
 
 ADD_SUBDIRECTORY (extensionselecter)
 
+SET (Q_JSON_LIB "")
+IF(QJSON_FOUND)
+SET (Q_JSON_LIB "-lqjson")
+ENDIF(QJSON_FOUND)
+
 SET(_subproject "Settings")
 
 SET (_subproject_SOURCES
@@ -20,6 +25,7 @@ SET (_subproject_SOURCES
   iconthemeselector.cpp
   graphicsengineselecter.cpp
   threadsspinbox.cpp
+  twitch.cpp
 )
 
 SET (_subproject_HEADERS
@@ -37,6 +43,7 @@ SET (_subproject_HEADERS
   iconthemeselector.h
   graphicsengineselecter.h
   threadsspinbox.h
+  twitch.h
 )
 
 SET (_subproject_NOMOC_HEADERS
@@ -72,6 +79,8 @@ TARGET_LINK_LIBRARIES (${_subproject}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTDBUS_LIBRARY}
+  ${QT_QTNETWORK_LIBRARY}
+  ${Q_JSON_LIB}
   ExtensionSelecter
 )
 

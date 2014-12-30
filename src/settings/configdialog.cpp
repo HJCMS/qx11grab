@@ -26,6 +26,7 @@
 #include "extraoptions.h"
 #include "configextensions.h"
 #include "configrubberband.h"
+#include "twitch.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -85,7 +86,11 @@ ConfigDialog::ConfigDialog ( Settings * settings, QWidget * parent )
 
   m_configRubberband = new ConfigRubberband ( m_stackedWidget );
   m_stackedWidget->insertWidget ( index, m_configRubberband );
-  insertMenuItem ( index++, trUtf8 ( "Rubberband" ), "grid" );
+  insertMenuItem ( index++, trUtf8 ( "Rubberband" ), "view-grid" );
+
+  m_configTwitch = new Twitch ( m_stackedWidget );
+  m_stackedWidget->insertWidget ( index, m_configTwitch );
+  insertMenuItem ( index++, trUtf8 ( "Twitch" ), "menu-multimedia-tv" );
   // } End: insertItems
 
   m_buttonBox = new QDialogButtonBox ( Qt::Horizontal, this );
@@ -158,6 +163,10 @@ void ConfigDialog::loadSettings()
   m_configRubberband->load ( cfg );
   // } Gummiband
 
+  // Twitch {
+  m_configTwitch->load ( cfg );
+  // } Twitch
+
   setWindowModified ( false );
 }
 
@@ -191,6 +200,10 @@ void ConfigDialog::saveAndExit()
   // Gummiband {
   m_configRubberband->save ( cfg );
   // } Gummiband
+
+  // Twitch {
+  m_configTwitch->save ( cfg );
+  // } Twitch
 
   accept();
 }

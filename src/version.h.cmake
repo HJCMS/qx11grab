@@ -24,6 +24,7 @@
 
 /* QtCore */
 #include <QtCore/QGlobalStatic>
+#include <QtCore/QUrl>
 
 /**
 * @short Version
@@ -39,5 +40,10 @@
 * @short dbus Domain
 */
 #define QX11GRAB_DBUS_DOMAIN_NAME "@QX11GRAB_DBUS_DOMAIN_NAME@"
+
+/**
+* @short https://api.twitch.tv/kraken/
+*/
+#define TWITCH_JSON_SERVERS QUrl ( "@TWITCH_JSON_SERVERS@" )
 
 #endif

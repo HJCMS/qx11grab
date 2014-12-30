@@ -19,60 +19,49 @@
 * Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGDIALOG_H
-#define CONFIGDIALOG_H
+#ifndef TWITCH_H
+#define TWITCH_H
 
 /* QtCore */
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
 /* QtGui */
-#include <QtGui/QDialog>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QListWidget>
-#include <QtGui/QStackedWidget>
+#include <QtGui/QCheckBox>
+#include <QtGui/QComboBox>
+#include <QtGui/QLineEdit>
 #include <QtGui/QWidget>
 
+/* QtNetwork */
+#include <QtNetwork/QNetworkReply>
+
 /* QX11Grab */
-#include "settings.h"
+#include "abstractconfigwidget.h"
 
-class MainFunctions;
-class TargetsWidget;
-class AudioDeviceWidget;
-class ExtraOptions;
-class ConfigExtensions;
-class ConfigRubberband;
-class Twitch;
-
-class ConfigDialog : public QDialog
+class Twitch : public AbstractConfigWidget
 {
     Q_OBJECT
     Q_CLASSINFO ( "Author", "Jürgen Heinemann (Undefined)" )
     Q_CLASSINFO ( "URL", "http://qx11grab.hjcms.de" )
 
   private:
-    Settings* cfg;
-    QStackedWidget* m_stackedWidget;
-    MainFunctions* m_mainFunctions;
-    TargetsWidget* m_targets;
-    AudioDeviceWidget* m_audioDeviceWidget;
-    ExtraOptions* m_extraOptions;
-    ConfigExtensions* m_configExtensions;
-    ConfigRubberband* m_configRubberband;
-    Twitch* m_configTwitch;
-    QListWidget* m_listWidget;
-    QDialogButtonBox* m_buttonBox;
-
-    void insertMenuItem ( int index, const QString &title, const QString &icon );
+    QLineEdit* m_keyEdit;
+    QLineEdit* m_serverEdit;
+    QComboBox* m_serverList;
+    QCheckBox* m_joinAudio;
+    void init_rtmp_servers();
 
   private Q_SLOTS:
-    void checkDistinctions ( bool );
-    void loadSettings();
-    void saveAndExit();
+    void switchServer ( int );
+    void readyRead ( QNetworkReply * );
+
+  public Q_SLOTS:
+    void load ( Settings * cfg );
+    void save ( Settings * cfg );
 
   public:
-    ConfigDialog ( Settings * settings, QWidget * parent = 0 );
-    ~ConfigDialog();
+    Twitch ( QWidget * parent = 0 );
+    ~Twitch();
 };
 
 #endif

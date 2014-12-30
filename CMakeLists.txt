@@ -25,6 +25,7 @@ SET (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules")
 SET (QT_MIN_VERSION 4.7.2)
 FIND_PACKAGE (Qt4 REQUIRED)
 FIND_PACKAGE (Qt4 COMPONENTS QTDBUS QTXML QTNETWORK)
+FIND_PACKAGE (QJSON REQUIRED)
 FIND_PACKAGE (PkgConfig REQUIRED)
 FIND_PACKAGE (ALSA REQUIRED)
 FIND_PACKAGE (FFmpeg REQUIRED)
@@ -47,7 +48,7 @@ ENDIF (NOT UNIX)
 
 SET (QX11GRAB_VERSION_MAJOR 0)
 SET (QX11GRAB_VERSION_MINOR 4)
-SET (QX11GRAB_VERSION_RELEASE 11)
+SET (QX11GRAB_VERSION_RELEASE 12)
 SET (QX11GRAB_VERSION_DEVELOPMENT "")
 SET (QX11GRAB_VERSION "${QX11GRAB_VERSION_MAJOR}.${QX11GRAB_VERSION_MINOR}.${QX11GRAB_VERSION_RELEASE}${QX11GRAB_VERSION_DEVELOPMENT}")
 SET (QX11GRAB_DBUS_DOMAIN_NAME "de.hjcms.qx11grab")
@@ -72,6 +73,13 @@ ENDIF (EXISTS "${qx11grab_SOURCE_DIR}/.git")
 
 INCLUDE (CheckCXXCompilerFlag)
 INCLUDE (MacroEnsureVersion)
+
+##############################################################
+## Twitch JSON Script URL
+## https://github.com/justintv/twitch-api
+##############################################################
+
+SET (TWITCH_JSON_SERVERS "https://api.twitch.tv/kraken/ingests")
 
 ##############################################################
 ## Compile Optimisation
