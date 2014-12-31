@@ -2,7 +2,7 @@
 ########################################################################################
 # This file is part of the qx11grab project
 #
-# Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2013
+# Copyright (C) Juergen Heinemann (Undefined) http://qx11grab.hjcms.de, (C) 2007-2015
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Library General Public

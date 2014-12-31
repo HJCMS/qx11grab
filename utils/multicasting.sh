@@ -20,35 +20,26 @@
 # Boston, MA 02110-1301, USA.
 ########################################################################################
 
-target_project="qx11grab"
-# ff_suffix=-libav9
-# ff_suffix=-libav11
-ff_suffix=-2.4
+##-2.2
+## -filter:a pan="5.1|c0=c1|c1=c0|c2=c2|c3=c3|c4=c4|c5=c5" \
+## -map 0:v -map 1:a:0 -map 2:a:0 \
 
-if test -f $HJCMS_PROJECTS_DIR/projectconfigurations.sh ; then
-source $HJCMS_PROJECTS_DIR/projectconfigurations.sh
-fi
+FF_CBR=2000k
 
-rm -rf /tmp/${target_project}/build/*
-mkdir -p /tmp/${target_project}/build
-
-pushd /tmp/${target_project}/build
-
-CMAKE_KDE4=
-if test -n "$WITH_KDE4" ; then
-  CMAKE_KDE4="-DENABLE_KDE_SUPPORT:BOOL=ON -DAUTOMOC4_EXECUTABLE:FILEPATH=$(which automoc4)"
-fi
-
-/usr/bin/cmake -W-dev \
-  -DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS" \
-  -DCMAKE_BUILD_TYPE:STRING=Debug \
-  -DFFMPEG_SUFFIX:STRING="${ff_suffix}" \
-  -DENABLE_EXPERIMENTAL:BOOL=ON \
-  -DINSTALL_FFPRESETS:BOOL=OFF \
-  -DCMAKE_SKIP_RPATH:BOOL=ON \
-  -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-  $CMAKE_EXTRAS $CMAKE_KDE4 $@ $HJCMS_PROJECTS_DIR/${target_project}/
-
-popd
-
-echo "make -j3 -C /tmp/${target_project}/build"
+ffmpeg-2.2 -xerror -loglevel info \
+  -f x11grab -framerate 20 -video_size 1920x1018 -i :0.0+0,31 -dcodec copy \
+  -f pulse -i Equalizer.monitor \
+  -f pulse -i alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device____-00-Headset.analog-mono \
+  -threads 4 -report -cpuflags 3dnowext \
+  -c:v libx264 -pix_fmt yuv420p -g 40 -keyint_min 20 -tune film -preset medium \
+  -b:v $FF_CBR -minrate:v $FF_CBR -maxrate:v $FF_CBR -bufsize $FF_CBR \
+  -c:a:1 libfaac -ac:a 2 -b:a 192k -ar:a 44100 \
+  -c:a:2 libfaac -ac:a 2 -b:a 192k -ar:a 44100 \
+  -filter:v movie=/usr/share/icons/hicolor/64x64/apps/qx11grab.png[logo],[in][logo]overlay=main_w-overlay_w-12:main_h-overlay_h-8,setpts=PTS-STARTPTS[out] \
+  -filter:a:1 volume=-10dB \
+  -filter:a:2 volume=+2dB \
+  -filter_complex "[1:0] [2:0] amerge" \
+  -metadata title="Screencast Example" \
+  -metadata author="Undefined Behavior" \
+  -metadata copyright="CC BY-NC-SA 3.0" \
+  -y /tmp/qx11grab-multible.mp4
