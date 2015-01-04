@@ -26,19 +26,16 @@
 TWITCH_DOMAIN=live-fra
 STREAM_KEY=
 
-ffmpeg-2.2 -xerror -loglevel info \
+ffmpeg -xerror -loglevel info \
   -f x11grab -framerate 20 -video_size 1920x1018 -i :0.0+0,31 -dcodec copy \
   -f pulse -i Equalizer.monitor \
   -f pulse -i alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device____-00-Headset.analog-mono \
   -threads 4 -report -cpuflags 3dnowext \
-  -c:v libx264 -pix_fmt yuv420p -g 40 -keyint_min 20 -tune film -preset medium \
-  -b:v 2000k -minrate:v 1750k -maxrate:v 2250k -bufsize 2000k \
-  -c:a:1 libfaac -ac:a 2 -b:a 192k -ar:a 44100 \
-  -c:a:2 libfaac -ac:a 2 -b:a 192k -ar:a 44100 \
+  -c:v libx264 -pix_fmt yuv420p -keyint_min 20 -tune film -preset medium \
+  -g:v 40 -b:v 2000k -minrate:v 1750k -maxrate:v 2250k -bufsize 2000k \
+  -c:a libfaac -ac:a 2 -b:a 192k -ar:a 48000 \
   -filter:v movie=/usr/share/icons/hicolor/64x64/apps/qx11grab.png[logo],[in][logo]overlay=main_w-overlay_w-12:main_h-overlay_h-8,setpts=PTS-STARTPTS[out] \
-  -filter:a:1 volume=-10dB \
-  -filter:a:2 volume=+2dB \
-  -filter_complex "[1:0] [2:0] amerge" \
+  -filter_complex "[1:a]volume=-20dB[a1],[2:a]volume=+1dB[a2],[a1][a2]amix=inputs=2" \
   -metadata author="Undefined Behavior" \
   -metadata copyright="CC BY-NC-SA 3.0" \
   rtmp://$TWITCH_DOMAIN.twitch.tv/app/$STREAM_KEY
