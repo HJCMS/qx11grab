@@ -21,6 +21,7 @@
 
 #include "twitch.h"
 #include "version.h"
+#include "audiodevicewidget.h"
 
 /* QtCore */
 #include <QtCore/QDebug>
@@ -79,7 +80,17 @@ Twitch::Twitch ( QWidget * parent )
   m_joinAudio->setObjectName ( "Join" );
   m_joinAudio->setToolTip ( trUtf8 ( "Only available with pulseaudio" ) );
   layout->addWidget ( m_joinAudio, row++, 0, 1, 2 );
+
+  m_audioDeviceWidget = new AudioDeviceWidget ( this );
+  m_audioDeviceWidget->setAudioDevice ( AudioDeviceWidget::PULSE );
+  m_audioDeviceWidget->enableSimpleEdit ( true );
+  layout->addWidget ( m_audioDeviceWidget, row++, 0, 1, 2 );
   // } end:Config
+
+  QLabel* txt_info = new QLabel ( this );
+  txt_info->setWordWrap ( true );
+  txt_info->setText ( trUtf8 ( "Don't forget to add <b>amix</b> Filter with <i>-filter_complex</i> into Audiotable.<br/>Example: <i>\"[1:a][2:a]amix=inputs=2\"</i> to join Audio1/Audio2 Devices into single Stream!" ) );
+  layout->addWidget ( txt_info, row++, 0, 1, 2 );
 
   layout->setRowStretch ( row, 1 );
   setLayout ( layout );
@@ -149,13 +160,18 @@ void Twitch::load ( Settings * cfg )
   m_keyEdit->setText ( cfg->value ( "Twitch/Streamkey", "" ).toString() );
   m_serverEdit->setText ( cfg->value ( "Twitch/Server", "rtmp://live-ams.twitch.tv/app/" ).toString() );
   m_joinAudio->setChecked ( cfg->value ( "Twitch/Join", false ).toBool () );
+  m_audioDeviceWidget->setAudioEngine ( cfg->value ( "Twitch/AudioEngine", "pulse" ).toString() );
+  m_audioDeviceWidget->setAudioDevice ( cfg->value ( "Twitch/AudioDevice", "" ).toString() );
 }
 
 void Twitch::save ( Settings * cfg )
 {
+  cfg->setValue ( "Twitch/Enabled", ( ( !m_keyEdit->text().isEmpty() ) && m_joinAudio->isChecked() ) );
   cfg->setValue ( "Twitch/Streamkey", m_keyEdit->text() );
   cfg->setValue ( "Twitch/Server", m_serverEdit->text() );
   cfg->setValue ( "Twitch/Join", m_joinAudio->isChecked() );
+  cfg->setValue ( "Twitch/AudioEngine", m_audioDeviceWidget->getAudioEngine() );
+  cfg->setValue ( "Twitch/AudioDevice", m_audioDeviceWidget->getAudioDevice() );
 }
 
 Twitch::~Twitch()

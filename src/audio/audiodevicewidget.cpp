@@ -188,6 +188,23 @@ AudioDeviceWidget::AudioDeviceWidget ( QWidget * parent )
 }
 
 /**
+* Only Show Device Input Selection
+*/
+void AudioDeviceWidget::enableSimpleEdit ( bool b )
+{
+  if ( b )
+  {
+    setVolume ( 0 );
+    m_slider->setEnabled ( false );
+    m_audioSampleFormat->setEnabled ( false );
+    m_audioServiceType->setEnabled ( false );
+    return;
+  }
+  m_slider->setEnabled ( true );
+  m_audioSampleFormat->setEnabled ( true );
+}
+
+/**
 * Öffnet den Dialog für das setzen der ALSA
 * PCM Schnittstellen.
 */

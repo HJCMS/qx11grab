@@ -124,12 +124,12 @@ MainWindow::MainWindow ( Settings * settings )
   // MetaData {
   m_metaData = new MetaData ( m_toolBox );
   m_metaData->setToolTip ( QString::fromUtf8 ( "-metadata" ) );
-  m_toolBox->addItem ( m_metaData, cfg->themeIcon ( "user-properties", "user-identity" ), trUtf8 ( "Metadata" ) );
+  m_toolBox->addItem ( m_metaData, cfg->themeIcon ( "document-properties", "user-identity" ), trUtf8 ( "Metadata" ) );
   // } MetaData
 
   // vCodec {
   m_videoEditor = new VideoTableEditor ( m_toolBox );
-  m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "tool-animator", "qx11grab" ), trUtf8 ( "Video" ) );
+  m_toolBox->addItem ( m_videoEditor, cfg->themeIcon ( "video-display", "qx11grab" ), trUtf8 ( "Video" ) );
   // } vCodec
 
   // aCodec {
@@ -597,9 +597,17 @@ void MainWindow::preparePreview ()
   // Decoder
   commandLine << "-dcodec" << "copy";
 
-  // Audio System
+  // Audio Device System
   if ( m_audioGroupBox->isChecked() )
+  {
+    // Twitch
+    if ( cfg->value ( "Twitch/Enabled", false ).toBool() )
+    {
+      commandLine << "-f" << cfg->value ( "Twitch/AudioEngine" ).toString();
+      commandLine << "-i" << cfg->value ( "Twitch/AudioDevice" ).toString();
+    }
     commandLine << cfg->getAudioDeviceCommand();
+  }
 
   quint32 pthreads = cfg->value ( QLatin1String ( "Threads" ), 0 ).toUInt();
   if ( pthreads > 0 )
@@ -616,13 +624,13 @@ void MainWindow::preparePreview ()
   // Video Options
   commandLine << m_videoEditor->getCmd();
 
+  // Audio Encoder Settings
+  if ( m_audioGroupBox->isChecked() )
+    commandLine << m_audioEditor->getCmd();
+
   // Meta Daten
   if ( m_metaData->isChecked() )
     commandLine << m_metaData->getCmd ( videoCodec() );
-
-  // Audio Aufnahme
-  if ( m_audioGroupBox->isChecked() )
-    commandLine << m_audioEditor->getCmd();
 
   m_commandPreview->setCommandLine ( commandLine );
 

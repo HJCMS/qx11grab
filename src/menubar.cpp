@@ -85,7 +85,9 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_menuActions->addAction ( m_actionSave );
 
   m_actionLoad = m_menuActions->addAction ( trUtf8 ( "Load" ) );
-  m_actionLoad->setIcon ( Settings::themeIcon ( "edit-redo" ) );
+  /*: ToolTip */
+  m_actionLoad->setStatusTip ( trUtf8 ( "Load Configuration Settings" ) );
+  m_actionLoad->setIcon ( Settings::themeIcon ( "preferences-other" ) );
   m_actionLoad->setShortcut ( QKeySequence::Undo );
 
   m_actionRefresh = refreshAction ( this, true );
@@ -100,7 +102,7 @@ MenuBar::MenuBar ( MainWindow * parent )
   m_actionPrEditor = m_menuActions->addAction ( trUtf8 ( "Presets Editor" ) );
   /*: ToolTip */
   m_actionPrEditor->setStatusTip ( trUtf8 ( "Open Presets Editor" ) );
-  m_actionPrEditor->setIcon ( Settings::themeIcon ( "document-edit", "menu-editors" ) );
+  m_actionPrEditor->setIcon ( Settings::themeIcon ( "accessories-text-editor", "menu-editors" ) );
 
   m_menuActions->addSeparator();
 
@@ -131,7 +133,7 @@ MenuBar::MenuBar ( MainWindow * parent )
 
   // About
   m_menuHelp->addSeparator();
-  QAction* m_aboutQX11Grab = m_menuHelp->addAction ( Settings::themeIcon ( "qx11grab" ),
+  QAction* m_aboutQX11Grab = m_menuHelp->addAction ( Settings::themeIcon ( "help-about" ),
                              trUtf8 ( "About QX11Grab" ) );
 
   QAction* m_aboutQt4 = m_menuHelp->addAction ( helpIcon, trUtf8 ( "About Qt4" ) );
@@ -227,7 +229,7 @@ QAction* MenuBar::bookmarkCreateAction ( QMenu * parent )
   ac->setObjectName ( QLatin1String ( "bookmarkCreateAction" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open create Bookmark Dialog" ) );
-  ac->setIcon ( Settings::themeIcon ( "bookmark-new" ) );
+  ac->setIcon ( Settings::themeIcon ( "document-properties" ) );
   ac->setShortcut ( Qt::CTRL + Qt::Key_B );
   return ac;
 }
@@ -238,7 +240,7 @@ QAction* MenuBar::bookmarkRemoveAction ( QMenu * parent )
   ac->setObjectName ( QLatin1String ( "bookmarkRemoveAction" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open delete Bookmark Dialog" ) );
-  ac->setIcon ( Settings::themeIcon ( "bookmarks-organize" ) );
+  ac->setIcon ( Settings::themeIcon ( "edit-delete" ) );
   return ac;
 }
 
@@ -295,7 +297,7 @@ QAction* MenuBar::grabbingAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionGrabbing" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "get Size from Window" ) );
-  ac->setIcon ( Settings::themeIcon ( "window-duplicate" ) );
+  ac->setIcon ( Settings::themeIcon ( "view-fullscreen" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_G );
   return ac;
@@ -308,7 +310,7 @@ QAction* MenuBar::rubberbandAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionRubberband" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "swap rubberband view" ) );
-  ac->setIcon ( Settings::themeIcon ( "view-grid" ) );
+  ac->setIcon ( Settings::themeIcon ( "view-restore" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::SHIFT + Qt::Key_R );
   return ac;
@@ -362,7 +364,7 @@ QAction* MenuBar::hideWindowAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionMinimize" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Minimize to Systray" ) );
-  ac->setIcon ( Settings::themeIcon ( "minimize" ) );
+  ac->setIcon ( Settings::themeIcon ( "view-sort-ascending" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_H );
   return ac;
@@ -375,7 +377,7 @@ QAction* MenuBar::showWindowAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionMinimize" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Minimize to Systray" ) );
-  ac->setIcon ( Settings::themeIcon ( "maximize" ) );
+  ac->setIcon ( Settings::themeIcon ( "view-sort-descending" ) );
   if ( shortcut )
     ac->setShortcut ( Qt::CTRL + Qt::Key_M );
   return ac;
@@ -414,7 +416,7 @@ QAction* MenuBar::refreshAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionRefresh" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Refresh Commandline Preview" ) );
-  ac->setIcon ( Settings::themeIcon ( "view-refresh" ) );
+  ac->setIcon ( Settings::themeIcon ( "document-revert" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Refresh );
   return ac;
@@ -427,7 +429,7 @@ QAction* MenuBar::viewAction ( QObject * parent, bool shortcut )
   ac->setObjectName ( QLatin1String ( "actionLogfile" ) );
   /*: ToolTip */
   ac->setStatusTip ( trUtf8 ( "Open FFmpeg Protocoll" ) );
-  ac->setIcon ( Settings::themeIcon ( "view-list-text" ) );
+  ac->setIcon ( Settings::themeIcon ( "appointment-new" ) );
   if ( shortcut )
     ac->setShortcut ( QKeySequence::Refresh );
   return ac;

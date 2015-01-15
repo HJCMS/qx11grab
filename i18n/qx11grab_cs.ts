@@ -465,7 +465,7 @@ Příklad pro OSS: /dev/dsp</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="+46"/>
+        <location filename="../src/settings/configdialog.cpp" line="+47"/>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation>Nastavit[*]</translation>
@@ -499,6 +499,11 @@ Příklad pro OSS: /dev/dsp</translation>
         <location line="+4"/>
         <source>Rubberband</source>
         <translation>Gumička</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Twitch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2235,6 +2240,35 @@ ToolTip</extracomment>
         <source>User-level Threads</source>
         <extracomment>ToolTip</extracomment>
         <translation>Vlákna na úrovni uživatele</translation>
+    </message>
+</context>
+<context>
+    <name>Twitch</name>
+    <message>
+        <location filename="../src/settings/twitch.cpp" line="+46"/>
+        <source>twitch.tv</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Streaming Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Always join micro output with system audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Only available with pulseaudio</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

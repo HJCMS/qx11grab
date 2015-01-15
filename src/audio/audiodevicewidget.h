@@ -67,7 +67,7 @@ class AudioDeviceWidget : public QGroupBox
     /**
     * this signal is emitted when items updated
     */
-    void postUpdate( bool );
+    void postUpdate ( bool );
 
   public:
     /**
@@ -75,6 +75,11 @@ class AudioDeviceWidget : public QGroupBox
     * General Audio Device Selection Widget
     */
     explicit AudioDeviceWidget ( QWidget * parent = 0 );
+
+    /**
+    * Only Show Device Input Selection
+    */
+    void enableSimpleEdit ( bool );
 
     /**
     * indexes for audio engine ComboBox

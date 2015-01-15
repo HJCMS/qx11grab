@@ -262,6 +262,7 @@ const QVariant Settings::getArrayItem ( const QString &group, const QString &ref
 * \param icon    Titel ohne Erweiterung
 * \param broken  Ausweich Titel
 * NOTE Ist abhängig von application.cpp Q_INIT_RESOURCE
+* http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
 */
 const QIcon Settings::themeIcon ( const QString &icon, const QString &broken )
 {

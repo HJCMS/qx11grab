@@ -464,7 +464,7 @@ Example for OSS: /dev/dsp</source>
 <context>
     <name>ConfigDialog</name>
     <message>
-        <location filename="../src/settings/configdialog.cpp" line="+46"/>
+        <location filename="../src/settings/configdialog.cpp" line="+47"/>
         <source>Configure[*]</source>
         <extracomment>WindowTitle NOTE Do not strip &quot;[*]&quot; This is needed for Modifications View an will Automatical hidden</extracomment>
         <translation type="unfinished"></translation>
@@ -497,6 +497,11 @@ Example for OSS: /dev/dsp</source>
     <message>
         <location line="+4"/>
         <source>Rubberband</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Twitch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2231,6 +2236,35 @@ ToolTip</extracomment>
     <message>
         <location line="+3"/>
         <source>Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Twitch</name>
+    <message>
+        <location filename="../src/settings/twitch.cpp" line="+46"/>
+        <source>twitch.tv</source>
+        <extracomment>GroupBoxTitle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Streaming Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Always join micro output with system audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Only available with pulseaudio</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

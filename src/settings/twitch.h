@@ -38,6 +38,8 @@
 /* QX11Grab */
 #include "abstractconfigwidget.h"
 
+class AudioDeviceWidget;
+
 class Twitch : public AbstractConfigWidget
 {
     Q_OBJECT
@@ -49,6 +51,7 @@ class Twitch : public AbstractConfigWidget
     QLineEdit* m_serverEdit;
     QComboBox* m_serverList;
     QCheckBox* m_joinAudio;
+    AudioDeviceWidget* m_audioDeviceWidget;
     void init_rtmp_servers();
 
   private Q_SLOTS:
