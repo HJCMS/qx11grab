@@ -165,9 +165,12 @@ void ExtraOptions::save ( Settings * cfg )
     if ( m_tableWidget->item ( r, 0 ) )
     {
       QString key = m_tableWidget->item ( r, 0 )->data ( Qt::EditRole ).toString();
-      QVariant value = m_tableWidget->item ( r, 1 )->data ( Qt::EditRole );
       if ( key.isEmpty() )
         continue;
+
+      QVariant value;
+      if ( m_tableWidget->item ( r, 1 ) )
+        value = m_tableWidget->item ( r, 1 )->data ( Qt::EditRole );
 
       data.insert ( key, value );
     }
