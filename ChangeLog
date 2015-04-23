@@ -1,3 +1,9 @@
+Version 0.4.12
+  - BUGFIX Crash with empty expert settings
+  - !!! NOTICE !!!
+    * HJCMS FTP Access is obsolete and removed at June 2015
+    * HJCMS Repository has moved to https://github.com/HJCMS/
+
 Version 0.4.11
   - Move Obsolete Volume Slider value -vol to new -filter:a volume=%ddB
 
